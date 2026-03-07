@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – torecon</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script>window.TORECON_ROOT = '../';</script>
+
+<div class="login-page">
+  <div class="login-card">
+    <span class="login-logo">tore<span>con</span></span>
+    <h2 data-i18n="login_h2">Interner Bereich</h2>
+    <p class="login-sub" data-i18n="login_sub">Bitte melden Sie sich an, um fortzufahren.</p>
+
+    <div class="login-error" id="login-error" data-i18n="login_error">
+      Falsches Passwort. Bitte erneut versuchen.
+    </div>
+
+    <form id="login-form" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label class="form-label" for="password" data-i18n="login_pw_label">Passwort</label>
+        <input class="form-control" type="password" id="password" required
+          data-i18n-placeholder="login_pw_placeholder" placeholder="Ihr Passwort" autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary" data-i18n="login_btn">Anmelden</button>
+    </form>
+
+    <div style="margin-top:28px;">
+      <a href="../index.html" style="font-size:14px;color:var(--text-secondary);" data-i18n="login_back">← Zurück zur Website</a>
+    </div>
+  </div>
+</div>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+  // Show lang buttons inline
+  document.addEventListener('DOMContentLoaded', () => {
+    applyTranslations();
+    // Redirect if already logged in
+    if (sessionStorage.getItem('torecon_auth')) {
+      window.location.href = './dashboard.html';
+    }
+  });
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const pw = document.getElementById('password').value;
+    const err = document.getElementById('login-error');
+    if (login(pw)) {
+      window.location.href = './dashboard.html';
+    } else {
+      err.style.display = 'block';
+      document.getElementById('password').value = '';
+    }
+  }
+</script>
+</body>
+</html>

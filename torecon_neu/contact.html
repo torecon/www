@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="torecon – Kontakt aufnehmen: Thomas Reinke, Berlin.">
+  <title>Kontakt – torecon</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<script>window.TORECON_ROOT = './'; window.TORECON_PAGE = 'contact';</script>
+
+<div id="site-nav"></div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="section-eyebrow" data-i18n="contact_eye">Kontakt</div>
+    <h1 data-i18n="contact_h1">Sprechen Sie uns an</h1>
+    <p data-i18n="contact_sub">Wir freuen uns auf Ihre Anfrage und melden uns zeitnah zurück.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="contact-layout">
+      <!-- Contact info -->
+      <div>
+        <div class="contact-info-block">
+          <div class="contact-info-label" data-i18n="contact_addr_label">Adresse</div>
+          <div class="contact-info-value">
+            Thomas Reinke<br>
+            torecon<br>
+            Berliner Str. 8<br>
+            10715 Berlin
+          </div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-info-label" data-i18n="contact_phone_label">Telefon</div>
+          <div class="contact-info-value">
+            <a href="tel:+491723207681">+49 172 3207681</a>
+          </div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-info-label" data-i18n="contact_email_label">E-Mail</div>
+          <div class="contact-info-value">
+            <a href="mailto:info@torecon.de">info@torecon.de</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div>
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="name" data-i18n="contact_name">Ihr Name</label>
+            <input class="form-control" type="text" id="name" name="name" required
+              data-i18n-placeholder="contact_name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email" data-i18n="contact_email_field">E-Mail-Adresse</label>
+            <input class="form-control" type="email" id="email" name="email" required
+              data-i18n-placeholder="contact_email_field">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject" data-i18n="contact_subject">Betreff</label>
+            <input class="form-control" type="text" id="subject" name="subject"
+              data-i18n-placeholder="contact_subject">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message" data-i18n="contact_message">Ihre Nachricht</label>
+            <textarea class="form-control" id="message" name="message" required
+              data-i18n-placeholder="contact_message"></textarea>
+          </div>
+          <div id="form-success" style="display:none;background:rgba(52,199,89,0.1);color:#1a7a3a;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;"></div>
+          <button type="submit" class="btn btn-primary" data-i18n="contact_send">Nachricht senden</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/layout.js"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const success = document.getElementById('form-success');
+  const lang = currentLang || 'de';
+  success.textContent = lang === 'de'
+    ? 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns zeitnah.'
+    : 'Thank you! Your message has been sent. We will get back to you shortly.';
+  success.style.display = 'block';
+  e.target.reset();
+}
+</script>
+</body>
+</html>

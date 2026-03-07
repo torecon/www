@@ -1,0 +1,10 @@
+Dein LinkedIn-Profilfoto hier als "thomas-reinke.jpg" ablegen.
+
+So herunterladen:
+1. LinkedIn-Profil im Browser öffnen
+2. Auf dein Profilfoto klicken
+3. Rechtsklick → "Bild speichern unter"
+4. Als "thomas-reinke.jpg" in diesem Ordner (img/) speichern
+5. ZIP neu erstellen und hochladen
+
+Solange kein Foto vorhanden ist, erscheinen die Initialen "TR" als Platzhalter.

@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(FTP_HOST=\"torecon.de\" FTP_USER=\"HNH00257\\\\admin\" FTP_PASS=\"pykmL&TYB6fEA4b3&\" FTP_PORT=\"21\" FTP_DEST=\"torecon_backup\" python3 ftp_backup.py)",
+      "Bash(for user in \"HNH00257\\\\admin\" \"HNH00257/admin\" \"admin\" \"HNH00257-admin\")",
+      "Bash(do)",
+      "Bash(echo -n \"Testing user ''$user'': \")",
+      "Bash(python3 -c \":*)",
+      "Bash(done)",
+      "Bash(nc -zv torecon.de 21)",
+      "Bash(nc -zv torecon.de 22)",
+      "Bash(nc -zv torecon.de 80)",
+      "Bash(python3 -c \"import paramiko\")",
+      "Bash(pip3 install paramiko)",
+      "Bash(nc -zv 85.119.156.137 21)",
+      "Bash(nc -zv 85.119.156.137 22)",
+      "Bash(nc -zv 85.119.156.137 990)",
+      "Bash(nc -w5 -zv 85.119.156.137 22)",
+      "Bash(chmod +x /Users/thomas/Documents/GitHub/www/torecon_neu/start.sh)",
+      "Bash(curl -sk -u 'web68:k65r%Nv8' 'https://cluster118.nethosting24.de:8443/api/v2/domains' -H 'Accept: application/json')",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -sk -u 'web68:k65r%Nv8' 'https://cluster118.nethosting24.de:8443/api/v2/domains' -H 'Accept: application/json' -v)",
+      "Bash(curl -sk -u 'web68:k65r%Nv8' 'https://cluster118.nethosting24.de:8443/api/v2/domains' -H 'Accept: application/json' -o /tmp/plesk_resp.txt -w \"HTTP %{http_code}\")",
+      "Read(//tmp/**)",
+      "Bash(curl -sk -H 'HTTP_AUTH_LOGIN: web68' -H 'HTTP_AUTH_PASSWD: k65r%Nv8' -H 'Content-Type: text/xml' -d '<?xml version=\"\"1.0\"\" ?><packet><server><get><gen_info/></get></server></packet>' 'https://cluster118.nethosting24.de:8443/enterprise/control/agent.php' -o /tmp/xmlrpc2.txt -w \"HTTP_STATUS:%{http_code}\")",
+      "Bash(python3 -c \"import sys; import xml.dom.minidom; print\\(xml.dom.minidom.parseString\\(sys.stdin.read\\(\\)\\).toprettyxml\\(\\)\\)\")",
+      "Bash(zip -r torecon_neu.zip torecon_neu/ --exclude \"torecon_neu/start.sh\")",
+      "Read(//Users/thomas/Documents/GitHub/www rm -rf torecon_website cp -r torecon_neu/**)",
+      "Bash(zip -r ../torecon_deploy.zip . --exclude \"*/start.sh\" --exclude \".DS_Store\")",
+      "Read(//Users/thomas/Documents/GitHub/**)",
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(/Users/thomas/Documents/GitHub/www/torecon_website/img/FOTO_HIER_ABLEGEN.txt:*)",
+      "Bash(zip -r ../torecon_deploy.zip . --exclude \"*/start.sh\" --exclude \".DS_Store\" --exclude \"*/FOTO_HIER_ABLEGEN.txt\")"
+    ]
+  }
+}
