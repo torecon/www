@@ -1,0 +1,270 @@
+/*----------------------------------------------------------------------------
+	main.css
+
+	this css-file contains all definitions, that are independend from the
+	colorschemes.
+
+	(c) Schlund + Partner AG
+
+
+	----------------------------------------------------------------------
+	Modified and extended by Barti Bartman for the Sports-Template
+
+	This CSS-File uses the original "Tanteks Box Modell Hack"
+	http://www.tantek.com/CSS/Examples/boxmodelhack.html
+
+	NOTE:
+	Older W3C CSS validators return errors when the voice-family property
+	is used in a 'screen' style sheet. This is an error in the W3C CSS
+	validator itself. The validator should report a warning, not an error,
+	when properties which are unsupported by a particular medium are used,
+	and this has been reported to the W3C:
+
+ ----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------
+ styles for specific classes and ids
+----------------------------------------------------------------------------*/
+
+
+/*-- global container ------------------------------------------------------*/
+
+#container {
+	position: relative;
+	padding: 0;
+	margin: 0 auto;
+	text-align: left;
+	width: 730px;
+}
+
+/*-- main container: contains all between header and footer ----------------*/
+
+#main_container {
+	padding: 0;
+	margin: 20px 20px 20px 5px;
+}
+
+/*--- the main container is devided in sub containers ----------------------*/
+
+#sub_container2 {
+	position: relative;
+	float: right;
+	margin: 25px 0px 20px 0;	
+	padding: 0;
+	width: 505px;
+}
+
+#content_container {
+	clear: both;
+	overflow: hidden;
+	line-height: 1.3;
+	margin: 0;
+	padding: 0;
+	width: 500px;
+}
+
+#left_column_container {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 180px;
+}
+
+/*--- header ---------------------------------------------------------------*/
+
+#header	{
+	position: relative;
+	padding: 0;
+	margin: 0;
+	width: 730px;
+	height: 220px;
+	top: 0;
+	left: 0;
+}
+
+/*--- key visual -----------------------------------------------------------*/
+
+#key_visual {
+	z-index: 1;
+	position: absolute;
+	top: 25px;
+	left: 5px;
+	width: 720px;
+	height: 220px;
+}
+
+/*--- logo -----------------------------------------------------------------*/
+
+#logo {
+	z-index: 2;
+	width: 215px;
+	height: 40px;
+	position: relative;
+	top: 35px;
+	left: 5px;
+}
+
+/*--- caption (as text or background image) --------------------------------*/
+
+#text_caption {
+	position: relative;
+	z-index: 2;
+	top: -10px;
+	left: 235px;
+	width: 490px;
+}
+
+/*--- main navigation ------------------------------------------------------*/
+
+#main_nav_container {
+	z-index: 1;
+	position: relative;
+	top: 0;
+	left: 4px;
+	float: left;
+	width: 721px;
+	padding: 0;
+	margin: 25px 0 0 0;
+	overflow: hidden;
+}
+
+#main_nav_list {
+	float: left;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	list-style-type: none;
+}
+
+#main_nav_list li {
+	height: 28px;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+/*--- main navigation items ------------------------------------------------*/
+
+#main_nav_list a {
+	background: transparent;
+	margin: 0;
+	padding: 2px 19px 0 24px;
+	display: block;
+	float: left;
+	height: 28px;
+	line-height: 22px;
+	text-align: left;
+	overflow: hidden;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	height: 26px;
+}
+
+html>body #main_nav_list a {
+	height: 26px;
+}
+
+#main_nav_list a.main_nav_item:hover {
+	background: transparent;
+}
+
+/*--- container for the subnavigation --------------------------------------*/
+
+.sub_nav_container {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+
+/*--- subnavigation --------------------------------------------------------*/
+
+.sub_nav_list {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.sub_nav_list li {
+	margin: 0;
+	padding: 0;
+}
+
+/*--- subnavigation items --------------------------------------------------*/
+
+.sub_nav_list a {
+	text-align: left;
+	line-height: 28px;
+	height: 28px;
+	overflow: hidden;
+	width: 160px;
+	padding: 0 0 0 20px;
+	display: block;
+}
+
+/*--- content --------------------------------------------------------------*/
+
+#content_container table {
+	border-style: dotted;
+	border-width: 1px;
+	border-spacing: 0;
+}
+
+/*--- footer ---------------------------------------------------------------*/
+
+#footer {
+	margin: 0;
+	padding: 0;
+	width: 730px;
+	height: 65px;
+	clear: both;
+}
+
+#footer_text {
+	padding: 10px 0 0 0;
+	margin: 0 30px 0 30px;
+	text-align: center;
+}
+
+
+
+/*----------------------------------------------------------------------------
+  default-styles for html-elements
+----------------------------------------------------------------------------*/
+
+/*--- body -----------------------------------------------------------------*/
+
+body#main_body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+/*--- paragraph ------------------------------------------------------------*/
+
+#content_container p {
+	line-height: 1.3;
+}
+
+/*--- forms ----------------------------------------------------------------*/
+
+fieldset {
+	padding: 15px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+input {
+	border-style: solid;
+	border-width: 1px;
+}
+
+textarea {
+	border-style: solid;
+	border-width: 1px;
+}
+
+/*--------------------------------------------------------------------------*/

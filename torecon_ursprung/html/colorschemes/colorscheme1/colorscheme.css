@@ -1,0 +1,215 @@
+/*----------------------------------------------------------------------------
+	colorscheme1.css for colorscheme 1
+
+	this css-file contains all definitions, that depend on the colorscheme.
+
+	(c) Schlund + Partner AG
+----------------------------------------------------------------------------*/
+
+
+/*-- main container --------------------------------------------------------*/
+
+#container {
+	background : url(images/static/contentbg.gif) repeat-y 50% 50%;
+}
+
+/*--- header ---------------------------------------------------------------*/
+#header	{
+	background : url(images/static/headerbg.gif);
+}
+
+/*--- main navigation ------------------------------------------------------*/
+#main_nav_container {
+	background : url(images/static/navbg.gif);
+}
+
+/*--- key visiual ----------------------------------------------------------*/
+
+/*--- logo -----------------------------------------------------------------*/
+
+/*--- caption --------------------------------------------------------------*/
+
+#text_caption {
+	color: #900;
+	/*background: url(images/static/hbg.gif) no-repeat;*/
+}
+
+/*--- main navigation ------------------------------------------------------*/
+
+#main_nav_list	{
+
+}
+
+/*--- main navigation items ------------------------------------------------*/
+
+#main_nav_list a.main_nav_item {
+	color: #9cf;
+	background: url(../../images/dynamic/buttonset1/n1.gif) no-repeat;
+	background-position: top left;
+}
+
+#main_nav_list a.main_nav_item:hover {
+	color: #fff;
+	background: url(../../images/dynamic/buttonset1/n1hover.gif) no-repeat;
+	background-position: top left;
+}
+
+
+#main_nav_list a.main_nav_active_item {
+	color: #630;
+	background: url(../../images/dynamic/buttonset1/n1activeitem.gif) no-repeat;
+	background-position: top left;
+}
+
+
+/*--- subnavigation items --------------------------------------------------*/
+
+.sub_nav_list a {
+	color: #036;
+	background: url(../../images/dynamic/buttonset1/subnav1.gif) no-repeat;
+}
+
+.sub_nav_list a:hover {
+	background: url(../../images/dynamic/buttonset1/subnav1hover.gif) no-repeat;
+	color: #630;
+}
+
+.sub_nav_list a.sub_nav_active_item {
+	color: #fff;
+	background: url(../../images/dynamic/buttonset1/subnav1active.gif) no-repeat;
+}
+
+
+
+/*--- footer ---------------------------------------------------------------*/
+
+#footer {
+	background: transparent url(images/static/footerbg.gif) top left no-repeat;
+}
+
+#footer_text {
+	color: #036;
+}
+
+
+
+
+
+/*----------------------------------------------------------------------------
+  default-styles for html-elements
+----------------------------------------------------------------------------*/
+
+/*--- body -----------------------------------------------------------------*/
+
+body {
+	color: #036;
+	background : #999 url(images/static/pgbk.gif) repeat-x;
+}
+
+/*--- paragraph ------------------------------------------------------------*/
+
+#content_container p {
+	color: #036;
+}
+
+/*--- headings -------------------------------------------------------------*/
+
+#content_container h1 {
+	color: #369;
+}
+
+#content_container h2 {
+	color: #369;
+}
+
+#content_container h3 {
+	color: #369;
+}
+
+/*--- links ----------------------------------------------------------------*/
+
+#content_container a:link{
+	color: #630;
+}
+
+#content_container a:visited {
+	color: #630;
+}
+
+#content_container a:hover {
+	color: #630;
+}
+
+#content_container a:active {
+	color: #630;
+}
+
+/*--- tables ---------------------------------------------------------------*/
+
+table {
+
+}
+
+th {
+
+}
+
+tr {
+
+}
+
+td {
+
+}
+
+#content_container table {
+	border-color: #369;
+}
+
+#content_container th {
+	color: #fff;
+	background-color:#369;
+	padding: 3px 2px 3px 2px;
+}
+
+#content_container tr.odd {
+	color: #369;
+	background-color:#fff;
+	padding: 3px 2px 3px 2px;
+}
+
+#content_container tr.even {
+	color: #369;
+	background-color:#def;
+	padding: 3px 2px 3px 2px;
+}
+
+/*--- forms ----------------------------------------------------------------*/
+
+fieldset {
+	border-color: #036;
+}
+
+legend {
+	color: #036;
+}
+
+label {
+	color: #036;
+}
+
+input {
+	border-color: #036;
+}
+
+textarea {
+	border-color: #036;
+}
+
+/*--- lists ----------------------------------------------------------------*/
+
+li { 
+	color: #036;
+}
+
+/*--------------------------------------------------------------------------*/

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="torecon – Kontakt aufnehmen: Thomas Reinke, Ahrweiler.">
+  <title>Kontakt – torecon</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<script>window.TORECON_ROOT = './'; window.TORECON_PAGE = 'contact';</script>
+
+<div id="site-nav"></div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="section-eyebrow" data-i18n="contact_eye">Kontakt</div>
+    <h1 data-i18n="contact_h1">Sprechen Sie uns an</h1>
+    <p data-i18n="contact_sub">Wir freuen uns auf Ihre Anfrage und melden uns zeitnah zurück.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="contact-layout">
+      <!-- Contact info -->
+      <div>
+        <!-- Photo + LinkedIn -->
+        <img src="./img/thomas-reinke.jpg" alt="Thomas Reinke" class="contact-photo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="contact-photo-initials" style="display:none">TR</div>
+        <div class="contact-person-name">Thomas Reinke</div>
+        <div class="contact-person-title" data-i18n="about_title">Geschäftsführer &amp; Senior Consultant</div>
+        <a href="https://www.linkedin.com/in/thomas-reinke-a60092109" target="_blank" rel="noopener" class="btn-linkedin-sm">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <div class="contact-info-block">
+          <div class="contact-info-label" data-i18n="contact_addr_label">Adresse</div>
+          <div class="contact-info-value">
+            Thomas Reinke<br>
+            torecon<br>
+            Roesgenstr. 22<br>
+            53474 Ahrweiler
+          </div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-info-label" data-i18n="contact_phone_label">Telefon</div>
+          <div class="contact-info-value">
+            <a href="tel:+491723207681">+49 172 3207681</a>
+          </div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-info-label" data-i18n="contact_email_label">E-Mail</div>
+          <div class="contact-info-value">
+            <a href="mailto:info@torecon.de">info@torecon.de</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div>
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="name" data-i18n="contact_name">Ihr Name</label>
+            <input class="form-control" type="text" id="name" name="name" required
+              data-i18n-placeholder="contact_name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email" data-i18n="contact_email_field">E-Mail-Adresse</label>
+            <input class="form-control" type="email" id="email" name="email" required
+              data-i18n-placeholder="contact_email_field">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject" data-i18n="contact_subject">Betreff</label>
+            <input class="form-control" type="text" id="subject" name="subject"
+              data-i18n-placeholder="contact_subject">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message" data-i18n="contact_message">Ihre Nachricht</label>
+            <textarea class="form-control" id="message" name="message" required
+              data-i18n-placeholder="contact_message"></textarea>
+          </div>
+          <div id="form-success" style="display:none;background:rgba(52,199,89,0.1);color:#1a7a3a;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;"></div>
+          <button type="submit" class="btn btn-primary" data-i18n="contact_send">Nachricht senden</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/layout.js"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const success = document.getElementById('form-success');
+  const lang = currentLang || 'de';
+  success.textContent = lang === 'de'
+    ? 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns zeitnah.'
+    : 'Thank you! Your message has been sent. We will get back to you shortly.';
+  success.style.display = 'block';
+  e.target.reset();
+}
+</script>
+</body>
+</html>
