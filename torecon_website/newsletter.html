@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="torecon Newsletter – Financial Intelligence für Banken direkt ins Postfach. Geldpolitik, Regulierung, Genossenschaftsbanken, ESG, KI und mehr. Jetzt Early-Bird-Platz sichern – dauerhaft kostenlos.">
+  <meta name="keywords" content="Bank Newsletter, Financial Intelligence Newsletter, Finanzsektor Newsletter, Bankplanung Newsletter, Regulierung Newsletter, Genossenschaftsbanken, Basel IV, BaFin, ESG, KI Banken, torecon, Early Bird">
+  <meta name="author" content="Thomas Reinke">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.torecon.de/newsletter.html">
+  <title>Newsletter – Financial Intelligence für Banken | torecon</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.torecon.de/newsletter.html">
+  <meta property="og:title" content="Newsletter – Financial Intelligence für Banken | torecon">
+  <meta property="og:description" content="Regelmäßige Briefings zu Geldpolitik, Regulierung, Genossenschaftsbanken, ESG und KI. Die ersten 100 Abonnenten erhalten dauerhaft kostenlosen Zugang.">
+  <meta property="og:image" content="https://www.torecon.de/img/thomas-reinke.jpeg">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="torecon">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .earlybird-banner {
+      background: linear-gradient(135deg, #0071E3 0%, #0A2FA8 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      color: #fff;
+      margin-bottom: 56px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .earlybird-icon { font-size: 56px; flex-shrink: 0; }
+    .earlybird-body { flex: 1; min-width: 240px; }
+    .earlybird-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 8px;
+    }
+    .earlybird-body h2 {
+      font-size: clamp(22px,3vw,32px); font-weight: 700;
+      letter-spacing: -0.03em; color: #fff; margin-bottom: 10px; line-height: 1.15;
+    }
+    .earlybird-body p { color: rgba(255,255,255,0.8); font-size: 16px; margin: 0; line-height: 1.55; }
+    .earlybird-spots {
+      flex-shrink: 0; background: rgba(255,255,255,0.12);
+      border-radius: var(--radius); padding: 20px 28px; text-align: center;
+      border: 1px solid rgba(255,255,255,0.2); min-width: 140px;
+    }
+    .earlybird-spots-num { font-size: 48px; font-weight: 700; letter-spacing: -0.04em; color: #fff; line-height: 1; }
+    .earlybird-spots-label { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+    /* Subscription WIP note */
+    .subscription-wip {
+      display: flex; align-items: center; gap: 14px;
+      background: #FFF9E6; border: 1.5px solid #F5C518;
+      border-radius: var(--radius); padding: 14px 20px;
+      margin-bottom: 32px; font-size: 15px; color: #7A5800;
+    }
+    .subscription-wip .wip-icon { font-size: 24px; flex-shrink: 0; }
+
+    .topic-counter { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+    .topic-counter strong { color: var(--accent); }
+
+    /* Form */
+    .reg-form-wrap { background: var(--bg-alt); border-radius: var(--radius-lg); padding: 40px; }
+    .reg-form-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .reg-form-sub { font-size: 15px; color: var(--text-secondary); margin-bottom: 32px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+    /* GDPR */
+    .gdpr-box {
+      background: #fff; border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius); padding: 20px; margin-bottom: 20px;
+    }
+    .gdpr-box h4 { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+    .gdpr-box p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px; }
+    .gdpr-box p:last-of-type { margin-bottom: 0; }
+    .gdpr-check-row {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
+    }
+    .gdpr-check-row input[type="checkbox"] {
+      width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0;
+      accent-color: var(--accent); cursor: pointer;
+    }
+    .gdpr-check-row label { font-size: 14px; color: var(--text); line-height: 1.5; cursor: pointer; }
+    .gdpr-check-row label a { color: var(--accent); }
+
+    /* Success */
+    #reg-success {
+      display: none; background: rgba(52,199,89,0.08);
+      border: 1.5px solid rgba(52,199,89,0.3); border-radius: var(--radius-lg);
+      padding: 48px 40px; text-align: center;
+    }
+    #reg-success .success-icon { font-size: 56px; margin-bottom: 16px; }
+    #reg-success h3 { font-size: 24px; margin-bottom: 8px; color: #1a7a3a; }
+    #reg-success p { color: var(--text-secondary); max-width: 420px; margin: 0 auto; font-size: 15px; line-height: 1.6; }
+    #reg-error {
+      display: none; background: rgba(255,59,48,0.08); color: #D70015;
+      border-radius: var(--radius); padding: 12px 18px; font-size: 14px; margin-bottom: 16px;
+    }
+    .pricing-info-note {
+      text-align: center; font-size: 14px; color: var(--text-tertiary);
+      margin-top: -36px; margin-bottom: 56px;
+    }
+  </style>
+</head>
+<body>
+<script>window.TORECON_ROOT = './'; window.TORECON_PAGE = 'newsletter';</script>
+<div id="site-nav"></div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="section-eyebrow" data-i18n="nl_eye">Newsletter</div>
+    <h1 data-i18n="nl_h1">Financial Intelligence<br>direkt in Ihr Postfach</h1>
+    <p data-i18n="nl_sub">Tägliche oder wöchentliche Briefings zu den 8 Themen, die Ihr Institut wirklich betreffen.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+
+    <!-- Early Bird Banner -->
+    <div class="earlybird-banner">
+      <div class="earlybird-icon">🎯</div>
+      <div class="earlybird-body">
+        <div class="earlybird-eyebrow" data-i18n="nl_eb_eyebrow">Exklusives Early-Bird-Angebot</div>
+        <h2 data-i18n="nl_eb_h2">Die ersten 100 Abonnenten erhalten<br>lebenslang kostenlosen Zugang</h2>
+        <p data-i18n="nl_eb_p">Jetzt vormerken lassen und bis zu <strong>6 Themen</strong> wählen – dauerhaft kostenlos, solange der Platz noch verfügbar ist.</p>
+      </div>
+      <div class="earlybird-spots">
+        <div class="earlybird-spots-num" id="spots-remaining">100</div>
+        <div class="earlybird-spots-label" data-i18n="nl_eb_spots">Plätze verfügbar</div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="section-header">
+      <div class="section-eyebrow" data-i18n="nl_tariff_eye">Tarife</div>
+      <h2 class="section-headline" data-i18n="nl_tariff_h2">Abonnement-Übersicht</h2>
+      <p class="section-sub" data-i18n="nl_tariff_sub">Ab Marktstart – Early Birds erhalten dauerhaft kostenlosen Zugang.</p>
+    </div>
+
+    <div class="subscription-wip">
+      <span class="wip-icon">🚧</span>
+      <span data-i18n="nl_wip">Die Abonnement-Buchung ist noch nicht freigeschaltet. Sichern Sie sich jetzt Ihren Early-Bird-Platz über das Formular weiter unten.</span>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name" data-i18n="nl_tier1_name">Basis</div>
+        <div class="pricing-price">0 €</div>
+        <div class="pricing-period" data-i18n="nl_tier1_period">kostenlos, für immer</div>
+        <ul>
+          <li data-i18n="nl_tier1_f1">3 Themen Ihrer Wahl</li>
+          <li data-i18n="nl_tier1_f2">Wöchentliche Zusammenfassung</li>
+          <li data-i18n="nl_tier1_f3">Top Headlines je Ausgabe</li>
+          <li data-i18n="nl_tier1_f4">Quellenlinks zu Originalartikeln</li>
+          <li data-i18n="nl_tier1_f5">Abmeldung jederzeit</li>
+        </ul>
+        <button class="btn btn-secondary" disabled data-i18n="nl_btn_soon">Demnächst verfügbar</button>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Beliebt</div>
+        <div class="pricing-name" data-i18n="nl_tier2_name">Standard</div>
+        <div class="pricing-price">9,90 €</div>
+        <div class="pricing-period" data-i18n="nl_tier2_period">pro Monat · jederzeit kündbar</div>
+        <ul>
+          <li data-i18n="nl_tier2_f1">5 Themen Ihrer Wahl</li>
+          <li data-i18n="nl_tier2_f2">Tägliche Ausgabe (Mo–Fr)</li>
+          <li data-i18n="nl_tier2_f3">Vollständige Artikel-Zusammenfassungen</li>
+          <li data-i18n="nl_tier2_f4">Quellenlinks zu Originalartikeln</li>
+          <li data-i18n="nl_tier2_f5">Abmeldung jederzeit</li>
+        </ul>
+        <button class="btn btn-primary" disabled data-i18n="nl_btn_soon">Demnächst verfügbar</button>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name" data-i18n="nl_tier3_name">Premium</div>
+        <div class="pricing-price">19,90 €</div>
+        <div class="pricing-period" data-i18n="nl_tier3_period">pro Monat · jederzeit kündbar</div>
+        <ul>
+          <li data-i18n="nl_tier3_f1">20 Themen Ihrer Wahl</li>
+          <li data-i18n="nl_tier3_f2">Tägliche Ausgabe (Mo–Fr)</li>
+          <li data-i18n="nl_tier3_f3">Vollständige Artikel-Zusammenfassungen</li>
+          <li data-i18n="nl_tier3_f4">Quellenlinks zu Originalartikeln</li>
+          <li data-i18n="nl_tier3_f5">Exklusive Sonderberichte</li>
+          <li data-i18n="nl_tier3_f6">Monatliches torecon-Briefing</li>
+        </ul>
+        <button class="btn btn-secondary" disabled data-i18n="nl_btn_soon">Demnächst verfügbar</button>
+      </div>
+    </div>
+    <div class="pricing-info-note" data-i18n="nl_info_note">* Early-Bird-Abonnenten erhalten dauerhaft 6 Themen kostenlos – unabhängig vom späteren Tarif.</div>
+
+    <!-- Topic Selection -->
+    <div class="section-header" style="margin-top:16px;">
+      <div class="section-eyebrow" data-i18n="nl_topics_eye">Themenauswahl</div>
+      <h2 class="section-headline" data-i18n="nl_topics_h2">Wählen Sie bis zu 6 Themen</h2>
+      <p class="section-sub" data-i18n="nl_topics_sub">Klicken Sie auf die Themen, zu denen Sie regelmäßig informiert werden möchten.</p>
+    </div>
+
+    <div class="topic-counter">
+      <strong id="topic-count">0</strong> <span data-i18n="nl_topics_counter">von 6 Themen ausgewählt</span>
+    </div>
+    <div class="topic-grid" id="topics-newsletter"></div>
+
+    <!-- Registration Form -->
+    <div class="section-header" style="margin-top:48px;">
+      <div class="section-eyebrow" data-i18n="nl_reg_eye">Vormerkung</div>
+      <h2 class="section-headline" data-i18n="nl_reg_h2">Jetzt Early-Bird-Platz sichern</h2>
+    </div>
+
+    <div id="reg-success">
+      <div class="success-icon">✅</div>
+      <h3 data-i18n="nl_success_h3">Ihre Vormerkung ist eingegangen!</h3>
+      <p data-i18n="nl_success_p">Vielen Dank. Wir haben Ihre Anmeldung gespeichert und melden uns, sobald der Newsletter startet. Eine Bestätigungsmail folgt in Kürze.</p>
+    </div>
+
+    <div class="reg-form-wrap" id="reg-form-wrap">
+      <div class="reg-form-title" data-i18n="nl_form_title">Vormerkung – Early-Bird-Zugang</div>
+      <div class="reg-form-sub" data-i18n="nl_form_sub">Sichern Sie sich jetzt Ihren dauerhaft kostenlosen Platz unter den ersten 100 Abonnenten.</div>
+
+      <div id="reg-error"></div>
+
+      <form id="reg-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="reg-firstname"><span data-i18n="nl_label_firstname">Vorname</span> <span style="color:#D70015">*</span></label>
+            <input class="form-control" type="text" id="reg-firstname" placeholder="Ihr Vorname" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-lastname"><span data-i18n="nl_label_lastname">Nachname</span> <span style="color:#D70015">*</span></label>
+            <input class="form-control" type="text" id="reg-lastname" placeholder="Ihr Nachname" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-email"><span data-i18n="nl_label_email">E-Mail-Adresse</span> <span style="color:#D70015">*</span></label>
+          <input class="form-control" type="email" id="reg-email" placeholder="ihre@email.de" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-company">
+            <span data-i18n="nl_label_company">Unternehmen / Institut</span>
+            <span style="color:var(--text-tertiary);font-weight:400;font-size:12px;" data-i18n="nl_label_company_opt">(optional)</span>
+          </label>
+          <input class="form-control" type="text" id="reg-company" placeholder="Ihre Organisation">
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="nl_label_topics">Ausgewählte Themen</label>
+          <div id="selected-topics-display" style="font-size:14px;color:var(--text-secondary);padding:10px 0;">
+            Bitte wählen Sie oben mindestens ein Thema aus.
+          </div>
+        </div>
+
+        <div class="gdpr-box">
+          <h4 data-i18n="nl_gdpr_title">Datenschutz &amp; Einwilligung</h4>
+          <p data-i18n="nl_gdpr_p1">
+            Verantwortlicher für die Verarbeitung Ihrer personenbezogenen Daten ist:<br>
+            <strong>Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler</strong><br>
+            E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a>
+          </p>
+          <p data-i18n="nl_gdpr_p2">
+            Wir verarbeiten Ihre Daten (Name, E-Mail-Adresse, ggf. Unternehmen sowie Themenauswahl) ausschließlich zur Abwicklung des Newsletter-Abonnements und zur Benachrichtigung über den Start des Services. Die Verarbeitung erfolgt auf Grundlage Ihrer ausdrücklichen Einwilligung gemäß <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> in Verbindung mit dem <strong>Bundesdatenschutzgesetz (BDSG)</strong>.
+          </p>
+          <p data-i18n="nl_gdpr_p3">
+            Ihre Daten werden nicht an Dritte weitergegeben und ausschließlich innerhalb der EU verarbeitet. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen – per E-Mail an <a href="mailto:info@torecon.de">info@torecon.de</a>. Weitere Informationen finden Sie in unserer <a href="./imprint.html#privacy" target="_blank">Datenschutzerklärung</a>.
+          </p>
+          <div class="gdpr-check-row">
+            <input type="checkbox" id="gdpr-consent" required>
+            <label for="gdpr-consent" data-i18n="nl_gdpr_consent">
+              Ich habe die <a href="./imprint.html#privacy" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner personenbezogenen Daten zum Zweck der Newsletter-Vormerkung und -Zustellung gemäß DSGVO und BDSG ausdrücklich zu. Diese Einwilligung kann ich jederzeit widerrufen.
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;" data-i18n="nl_submit">
+          Jetzt Early-Bird-Platz sichern →
+        </button>
+        <p style="font-size:12px;color:var(--text-tertiary);margin-top:12px;text-align:center;" data-i18n="nl_submit_note">
+          Sie erhalten eine Bestätigungsmail an die angegebene Adresse. Kündigung jederzeit möglich.
+        </p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/topics.js"></script>
+<script src="./js/layout.js"></script>
+<script src="./js/ai-ticker.js"></script>
+<script>
+(function () {
+  const STORAGE_KEY = 'torecon_newsletter_regs';
+  const SPOTS_KEY   = 'torecon_earlybird_spots';
+
+  // Spots counter
+  function getSpots() {
+    const v = localStorage.getItem(SPOTS_KEY);
+    return v !== null ? parseInt(v, 10) : 100;
+  }
+  document.getElementById('spots-remaining').textContent = Math.max(0, getSpots());
+
+  // Render interactive topic chips
+  document.addEventListener('DOMContentLoaded', function () {
+    renderTopics('topics-newsletter', { interactive: true, max: 6 });
+  });
+
+  // Form submission
+  const form    = document.getElementById('reg-form');
+  const errEl   = document.getElementById('reg-error');
+  const succEl  = document.getElementById('reg-success');
+  const wrapEl  = document.getElementById('reg-form-wrap');
+
+  function showError(msg) {
+    errEl.textContent = msg;
+    errEl.style.display = 'block';
+    errEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errEl.style.display = 'none';
+
+    const firstname = document.getElementById('reg-firstname').value.trim();
+    const lastname  = document.getElementById('reg-lastname').value.trim();
+    const email     = document.getElementById('reg-email').value.trim().toLowerCase();
+    const company   = document.getElementById('reg-company').value.trim();
+    const gdpr      = document.getElementById('gdpr-consent').checked;
+    const topics    = getSelectedTopics('topics-newsletter');
+
+    if (!firstname || !lastname) return showError('Bitte geben Sie Vor- und Nachname an.');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      return showError('Bitte geben Sie eine gültige E-Mail-Adresse an.');
+    if (topics.length === 0)
+      return showError('Bitte wählen Sie mindestens ein Thema aus.');
+    if (!gdpr)
+      return showError('Bitte stimmen Sie der Datenschutzerklärung zu, um fortzufahren.');
+
+    const regs = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    if (regs.some(r => r.email === email))
+      return showError('Diese E-Mail-Adresse ist bereits vorgemerkt.');
+
+    const spots = getSpots();
+    if (spots <= 0)
+      return showError('Leider sind alle Early-Bird-Plätze vergeben.');
+
+    regs.push({ firstname, lastname, email, company, topics, gdpr: true,
+                date: new Date().toISOString(), plan: 'earlybird' });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(regs));
+    localStorage.setItem(SPOTS_KEY, String(spots - 1));
+    document.getElementById('spots-remaining').textContent = Math.max(0, spots - 1);
+
+    wrapEl.style.display = 'none';
+    succEl.style.display = 'block';
+    succEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
+</body>
+</html>
