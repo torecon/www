@@ -22,7 +22,7 @@ function buildNav() {
         <li><a href="${root}index.html"${isActive('home')} data-i18n="nav_home">Home</a></li>
         <li><a href="${root}services.html"${isActive('services')} data-i18n="nav_services">Leistungen</a></li>
         <li><a href="${root}news.html"${isActive('news')} data-i18n="nav_news">Finanztrends</a></li>
-        <li><a href="${root}references.html"${isActive('references')} data-i18n="nav_references">Referenzen</a></li>
+        <li><a href="${root}newsletter.html"${isActive('newsletter')} data-i18n="nav_newsletter">Newsletter</a></li>
         <li><a href="${root}contact.html"${isActive('contact')} data-i18n="nav_contact">Kontakt</a></li>
         <li><a href="${root}internal/login.html" class="nav-internal" data-i18n="nav_internal">Interner Bereich</a></li>
       </ul>
@@ -46,7 +46,7 @@ function buildFooter() {
             <li><a href="${root}index.html" data-i18n="nav_home">Home</a></li>
             <li><a href="${root}services.html" data-i18n="nav_services">Leistungen</a></li>
             <li><a href="${root}news.html" data-i18n="nav_news">Finanztrends</a></li>
-            <li><a href="${root}references.html" data-i18n="nav_references">Referenzen</a></li>
+            <li><a href="${root}newsletter.html" data-i18n="nav_newsletter">Newsletter</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -83,10 +83,20 @@ function buildFooter() {
   </footer>`;
 }
 
+function buildTicker() {
+  return `
+  <div class="ai-ticker-wrap" id="ai-ticker">
+    <div class="ai-ticker-label">AI Live</div>
+    <div class="ai-ticker-track">
+      <div class="ai-ticker-inner"></div>
+    </div>
+  </div>`;
+}
+
 function initLayout() {
   const navEl = document.getElementById('site-nav');
   const footerEl = document.getElementById('site-footer');
-  if (navEl) navEl.outerHTML = buildNav();
+  if (navEl) navEl.outerHTML = buildNav() + buildTicker();
   if (footerEl) footerEl.outerHTML = buildFooter();
 
   // Mobile hamburger

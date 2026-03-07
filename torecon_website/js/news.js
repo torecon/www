@@ -9,6 +9,7 @@ const NEWS_DATA = [
     title_en: 'ECB cuts key rate to 2.25% – another step expected in March',
     excerpt_de: 'Die Europäische Zentralbank hat ihren Einlagenzins auf 2,25 % gesenkt. Angesichts rückläufiger Inflation und schwacher Konjunktur in der Eurozone wird für März ein weiterer Schritt diskutiert.',
     excerpt_en: 'The European Central Bank has cut its deposit rate to 2.25%. With inflation declining and weak eurozone growth, another move is being discussed for March.',
+    url: 'https://www.ecb.europa.eu/press/govcdec/mopo/html/index.en.html',
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ const NEWS_DATA = [
     title_en: 'DZ Bank Group: Record year 2025 – cooperative sector remains strong',
     excerpt_de: 'Die DZ Bank hat für 2025 ein Rekordergebnis bekanntgegeben. Der genossenschaftliche Sektor profitiert von stabiler Kundenbasis und gesundem Kreditportfolio.',
     excerpt_en: 'DZ Bank has announced a record result for 2025. The cooperative sector benefits from a stable customer base and healthy loan portfolio.',
+    url: 'https://www.dzbank.de/content/dzbank/de/home/presse.html',
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const NEWS_DATA = [
     title_en: 'Basel IV fully in force: First balance sheet effects visible',
     excerpt_de: 'Seit Januar 2026 gelten alle Basel-IV-Vorschriften. Kreditinstitute melden erste spürbare Auswirkungen auf Eigenkapitalquoten und Kreditvergabespielräume.',
     excerpt_en: 'All Basel IV rules have applied since January 2026. Credit institutions report the first noticeable effects on capital ratios and lending capacity.',
+    url: 'https://www.bis.org/bcbs/basel3.htm',
   },
   {
     id: 4,
@@ -39,6 +42,7 @@ const NEWS_DATA = [
     title_en: 'AI-based credit scoring: BaFin publishes guidelines',
     excerpt_de: 'Die BaFin hat erstmals verbindliche Leitlinien für den Einsatz von KI-Modellen im Kreditvergabeprozess veröffentlicht. Transparenz und Erklärbarkeit stehen im Fokus.',
     excerpt_en: 'BaFin has published binding guidelines for the use of AI models in the lending process for the first time. Transparency and explainability are the focus.',
+    url: 'https://www.bafin.de/DE/Aufsicht/FinTech/Kuenstliche_Intelligenz/ki_artikel.html',
   },
   {
     id: 5,
@@ -49,6 +53,7 @@ const NEWS_DATA = [
     title_en: 'Digital Euro: ECB launches pilot programme with selected banks',
     excerpt_de: 'Die EZB hat die erste Pilotphase des digitalen Euro gestartet. Zwölf europäische Kreditinstitute nehmen an dem Programm teil, darunter zwei deutsche Genossenschaftsbanken.',
     excerpt_en: 'The ECB has launched the first pilot phase of the digital euro. Twelve European credit institutions are participating, including two German cooperative banks.',
+    url: 'https://www.ecb.europa.eu/paym/digital_euro/html/index.en.html',
   },
   {
     id: 6,
@@ -59,6 +64,7 @@ const NEWS_DATA = [
     title_en: 'Ukraine reconstruction: EBRD doubles credit line for financial sector',
     excerpt_de: 'Die Europäische Bank für Wiederaufbau und Entwicklung stellt weitere 5 Mrd. Euro für den ukrainischen Finanzsektor bereit. Europäische Banken sind als Durchleitinstitute gefragt.',
     excerpt_en: 'The EBRD is providing a further €5bn for the Ukrainian financial sector. European banks are in demand as intermediary institutions.',
+    url: 'https://www.ebrd.com/ukraine.html',
   },
   {
     id: 7,
@@ -69,6 +75,7 @@ const NEWS_DATA = [
     title_en: 'Falling key rates: Regional banks rethink deposit strategy',
     excerpt_de: 'Mit dem Rückgang der EZB-Zinsen gerät das Einlagengeschäft unter Druck. Viele Regionalbanken und Sparkassen passen ihre Konditionenmodelle neu an.',
     excerpt_en: 'With ECB rates falling, the deposit business is under pressure. Many regional banks and savings banks are adjusting their pricing models.',
+    url: 'https://www.bundesbank.de/de/aufgaben/themen/banksteuerung',
   },
   {
     id: 8,
@@ -79,6 +86,7 @@ const NEWS_DATA = [
     title_en: 'CSRD implementation: Credit institutions face operational test',
     excerpt_de: 'Die ersten verpflichtenden Nachhaltigkeitsberichte nach CSRD sind fällig. Viele Kreditinstitute kämpfen mit Datenlücken und fehlendem Fachpersonal.',
     excerpt_en: 'The first mandatory sustainability reports under CSRD are due. Many credit institutions are struggling with data gaps and a lack of specialist staff.',
+    url: 'https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en',
   },
 ];
 
@@ -95,7 +103,7 @@ function renderNews(containerId = 'news-container', limit = null) {
   const lang = currentLang || 'de';
   const items = limit ? NEWS_DATA.slice(0, limit) : NEWS_DATA;
   container.innerHTML = items.map(item => `
-    <article class="news-card">
+    <a class="news-card" href="${item.url}" target="_blank" rel="noopener">
       <div class="news-card-top">
         <span class="news-tag">${lang === 'de' ? item.tag_de : item.tag_en}</span>
         <span class="news-date">${formatNewsDate(item.date, lang)}</span>
@@ -103,7 +111,8 @@ function renderNews(containerId = 'news-container', limit = null) {
       <div class="news-card-body">
         <h3>${lang === 'de' ? item.title_de : item.title_en}</h3>
         <p>${lang === 'de' ? item.excerpt_de : item.excerpt_en}</p>
+        <span class="news-read-more">${lang === 'de' ? 'Weiterlesen →' : 'Read more →'}</span>
       </div>
-    </article>
+    </a>
   `).join('');
 }
