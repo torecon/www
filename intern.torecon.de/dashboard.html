@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard – torecon</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://www.torecon.de/css/style.css">
 </head>
 <body>
-<script>window.TORECON_ROOT = '../';</script>
+<script>window.TORECON_ROOT = 'https://www.torecon.de/';</script>
 
 <div class="dashboard-wrap">
 
@@ -21,7 +21,7 @@
       <li><a href="#">⚙️ <span data-i18n="dash_nav_settings">Einstellungen</span></a></li>
     </ul>
     <div class="sidebar-footer">
-      <a href="#" onclick="logout('../'); return false;" data-i18n="logout">Abmelden</a>
+      <a href="#" onclick="logout('https://www.torecon.de/'); return false;" data-i18n="logout">Abmelden</a>
     </div>
   </aside>
 
@@ -32,7 +32,7 @@
       <div style="display:flex;gap:8px;align-items:center;">
         <button class="lang-btn" data-lang="de" onclick="setLang('de')" style="border-color:rgba(0,0,0,0.2);color:#333;">DE</button>
         <button class="lang-btn" data-lang="en" onclick="setLang('en')" style="border-color:rgba(0,0,0,0.2);color:#333;">EN</button>
-        <a href="../index.html" style="font-size:13px;color:var(--text-secondary);margin-left:12px;">← Website</a>
+        <a href="https://www.torecon.de/" style="font-size:13px;color:var(--text-secondary);margin-left:12px;">← Website</a>
       </div>
     </div>
 
@@ -76,11 +76,11 @@
         <div class="dash-panel">
           <h3 data-i18n="dash_quick_links">Schnellzugriff</h3>
           <ul class="dash-list">
-            <li><span>Website-Startseite</span><a href="../index.html" style="font-size:13px;">Öffnen →</a></li>
-            <li><span>Finanztrends</span><a href="../news.html" style="font-size:13px;">Öffnen →</a></li>
-            <li><span>Kontaktseite</span><a href="../contact.html" style="font-size:13px;">Öffnen →</a></li>
-            <li><span>Leistungen</span><a href="../services.html" style="font-size:13px;">Öffnen →</a></li>
-            <li><span>Referenzkunden</span><a href="../references.html" style="font-size:13px;">Öffnen →</a></li>
+            <li><span>Website-Startseite</span><a href="https://www.torecon.de/" style="font-size:13px;">Öffnen →</a></li>
+            <li><span>Finanztrends</span><a href="https://www.torecon.de/news.html" style="font-size:13px;">Öffnen →</a></li>
+            <li><span>Kontaktseite</span><a href="https://www.torecon.de/contact.html" style="font-size:13px;">Öffnen →</a></li>
+            <li><span>Leistungen</span><a href="https://www.torecon.de/services.html" style="font-size:13px;">Öffnen →</a></li>
+            <li><span>Analytics</span><a href="https://analytics.torecon.de/" style="font-size:13px;">Öffnen →</a></li>
           </ul>
         </div>
 
@@ -89,15 +89,14 @@
   </div>
 </div>
 
-<script src="../js/i18n.js"></script>
-<script src="../js/news.js"></script>
-<script src="../js/auth.js"></script>
+<script src="https://www.torecon.de/js/i18n.js"></script>
+<script src="https://www.torecon.de/js/news.js"></script>
+<script src="https://www.torecon.de/js/auth.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    checkAuth('../');
+    checkAuth('https://www.torecon.de/');
     applyTranslations();
 
-    // Render recent news in dashboard list
     const list = document.getElementById('dash-news-list');
     if (list) {
       const lang = currentLang || 'de';
