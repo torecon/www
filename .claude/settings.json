@@ -32,7 +32,9 @@
       "Bash(/Users/thomas/Documents/GitHub/www/torecon_website/img/FOTO_HIER_ABLEGEN.txt:*)",
       "Bash(zip -r ../torecon_deploy.zip . --exclude \"*/start.sh\" --exclude \".DS_Store\" --exclude \"*/FOTO_HIER_ABLEGEN.txt\")",
       "Bash(for f in index.html contact.html news.html imprint.html services.html)",
-      "Bash(zip -r ../torecon_deploy.zip .)"
+      "Bash(zip -r ../torecon_deploy.zip .)",
+      "Bash(git mv torecon_website torecon.de)",
+      "Bash(zip -r ../intern_deploy.zip .)"
     ],
     "additionalDirectories": [
       "/Users/thomas/.claude/projects/-Users-thomas-Documents-GitHub-www",

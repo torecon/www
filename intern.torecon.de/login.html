@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login – torecon</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://www.torecon.de/css/style.css">
 </head>
 <body>
-<script>window.TORECON_ROOT = '../';</script>
+<script>window.TORECON_ROOT = 'https://www.torecon.de/';</script>
 
 <div class="login-page">
   <div class="login-card">
@@ -29,18 +29,16 @@
     </form>
 
     <div style="margin-top:28px;">
-      <a href="../index.html" style="font-size:14px;color:var(--text-secondary);" data-i18n="login_back">← Zurück zur Website</a>
+      <a href="https://www.torecon.de/" style="font-size:14px;color:var(--text-secondary);" data-i18n="login_back">← Zurück zur Website</a>
     </div>
   </div>
 </div>
 
-<script src="../js/i18n.js"></script>
-<script src="../js/auth.js"></script>
+<script src="https://www.torecon.de/js/i18n.js"></script>
+<script src="https://www.torecon.de/js/auth.js"></script>
 <script>
-  // Show lang buttons inline
   document.addEventListener('DOMContentLoaded', () => {
     applyTranslations();
-    // Redirect if already logged in
     if (sessionStorage.getItem('torecon_auth')) {
       window.location.href = './dashboard.html';
     }
