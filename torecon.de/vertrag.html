@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mustervertrag Webdesign – torecon Thomas Reinke. Auftragsbestätigung und Werkvertrag für Webdesign-Dienstleistungen.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.torecon.de/vertrag.html">
+  <title>Mustervertrag Webdesign | torecon</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .vt-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 80px 24px 100px;
+    }
+    .vt-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .vt-lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--bg-alt);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .vt-lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .vt-lang-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .vt-print-btn {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 22px;
+      border-radius: 20px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .vt-print-btn:hover { opacity: 0.85; }
+    .vt-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .vt-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0,113,227,0.08);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .vt-header h1 {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .vt-header .vt-meta {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.7;
+    }
+    .vt-fields {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .vt-fields h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 18px;
+    }
+    .vt-field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+    }
+    .vt-field { display: flex; flex-direction: column; gap: 4px; }
+    .vt-field label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .vt-field .vt-value {
+      font-size: 14px;
+      color: var(--text);
+      border-bottom: 1px dashed var(--border);
+      padding: 4px 0;
+      min-height: 28px;
+    }
+    .vt-field.full { grid-column: 1 / -1; }
+    .vt-section { margin-bottom: 44px; }
+    .vt-section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0,113,227,0.08);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .vt-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .vt-section p, .vt-section li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .vt-section ul, .vt-section ol { padding-left: 22px; margin-bottom: 12px; }
+    .vt-section li { margin-bottom: 3px; }
+    .vt-divider { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+    .vt-callout {
+      background: rgba(0,113,227,0.06);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+    .vt-callout p { margin: 0; font-size: 14px; }
+    .vt-pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .vt-pkg {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .vt-pkg strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .vt-pkg .price { color: var(--accent); font-weight: 700; font-size: 16px; }
+    .vt-sign-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .vt-sign-block { display: flex; flex-direction: column; gap: 6px; }
+    .vt-sign-line { border-bottom: 1px solid var(--text); margin-top: 48px; }
+    .vt-sign-label { font-size: 12px; color: var(--text-tertiary); margin-top: 6px; }
+    .lang-de, .lang-en { display: none; }
+    .lang-de.active, .lang-en.active { display: block; }
+    @media print {
+      .vt-toolbar, #site-nav, .site-nav, .site-footer, .whatsapp-fab,
+      .ai-ticker-wrap, .vt-print-btn { display: none !important; }
+      .vt-wrap { padding: 20px; max-width: 100%; }
+      .lang-de, .lang-en { display: none !important; }
+      .lang-de.active, .lang-en.active { display: block !important; }
+      body { font-size: 13px; }
+    }
+    @media (max-width: 600px) {
+      .vt-wrap { padding: 48px 16px 80px; }
+      .vt-field-grid { grid-template-columns: 1fr; }
+      .vt-pkg-grid { grid-template-columns: 1fr; }
+      .vt-sign-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<script>window.TORECON_ROOT = './';</script>
+<script>window.TORECON_PAGE = '';</script>
+
+<div id="site-nav"></div>
+
+<div class="vt-wrap">
+
+  <div class="vt-toolbar">
+    <button class="vt-lang-btn active" id="btn-de" onclick="setVtLang('de')">DE</button>
+    <button class="vt-lang-btn" id="btn-en" onclick="setVtLang('en')">EN</button>
+    <button class="vt-print-btn" onclick="window.print()">Als PDF speichern</button>
+  </div>
+
+  <!-- ===== DEUTSCH ===== -->
+  <div class="lang-de active" id="content-de">
+
+    <div class="vt-header">
+      <div class="vt-badge">Mustervertrag</div>
+      <h1>Auftragsbestätigung &amp; Werkvertrag<br>Webdesign-Dienstleistungen</h1>
+      <p class="vt-meta">
+        torecon &middot; Thomas Reinke &middot; Roesgenstr. 22, 53474 Ahrweiler &middot; info@torecon.de<br>
+        Vertragsschluss in Textform (E-Mail genügt). Es gilt deutsches Recht. <strong>Stand: März 2026</strong>
+      </p>
+    </div>
+
+    <div class="vt-fields">
+      <h3>Vertragsparteien</h3>
+      <div class="vt-field-grid">
+        <div class="vt-field">
+          <label>Auftragnehmer (AN)</label>
+          <div class="vt-value">Thomas Reinke &middot; torecon</div>
+        </div>
+        <div class="vt-field">
+          <label>Auftraggeber (AG) – Firma / Name</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Strasse, Nr.</label>
+          <div class="vt-value">Roesgenstr. 22</div>
+        </div>
+        <div class="vt-field">
+          <label>Strasse, Nr.</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>PLZ, Ort</label>
+          <div class="vt-value">53474 Ahrweiler</div>
+        </div>
+        <div class="vt-field">
+          <label>PLZ, Ort</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>E-Mail</label>
+          <div class="vt-value">info@torecon.de</div>
+        </div>
+        <div class="vt-field">
+          <label>E-Mail</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field full">
+          <label>Vertragsdatum</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 1</span>
+      <h2>Vertragsgegenstand</h2>
+      <p>Der Auftragnehmer (AN) erstellt für den Auftraggeber (AG) eine professionelle Website im Rahmen des nachfolgend gewählten Pakets. Grundlage sind die AGB des AN (abrufbar unter torecon.de/agb.html), die Bestandteil dieses Vertrages sind.</p>
+      <p><strong>Gewähltes Paket:</strong></p>
+      <div class="vt-pkg-grid">
+        <div class="vt-pkg">
+          <strong>Starter</strong>
+          <span class="price">599 &euro; netto</span>
+          <small>3 Seiten &middot; 7 Werktage</small>
+        </div>
+        <div class="vt-pkg">
+          <strong>Standard</strong>
+          <span class="price">899 &euro; netto</span>
+          <small>5 Seiten &middot; 10 Werktage</small>
+        </div>
+        <div class="vt-pkg">
+          <strong>Premium</strong>
+          <span class="price">1.199 &euro; netto</span>
+          <small>8 Seiten &middot; 14 Werktage + 3 Mon. Support</small>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-tertiary);">Bitte gewähltes Paket im unterzeichneten Exemplar markieren oder per E-Mail bestätigen.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 2</span>
+      <h2>Leistungsumfang</h2>
+      <p>Der AN erbringt je nach Paket folgende Standardleistungen:</p>
+      <ul>
+        <li>Konzeption und grafisches Design (Apple-inspirierter Stil, responsiv)</li>
+        <li>Technische Umsetzung als statische HTML/CSS/JS-Website</li>
+        <li>Einbindung eines Kontaktformulars und Terminkalenders (auf Wunsch)</li>
+        <li>Grundlegende On-Page-SEO (Meta-Tags)</li>
+        <li>Mobile Optimierung für alle gängigen Endgeräte</li>
+        <li>DSGVO-konformes Grundgerüst (Cookie-Hinweis)</li>
+        <li>Impressum und Datenschutz als Textvorlage (keine Rechtsberatung)</li>
+        <li>2 Korrekturschleifen inklusive</li>
+        <li>Übergabe der fertigen Dateien per Download oder Deployment</li>
+      </ul>
+      <p>Zusätzlich vereinbarte Leistungen:</p>
+      <div class="vt-callout"><p style="min-height:40px;">&nbsp;</p></div>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 3</span>
+      <h2>Mitwirkungspflichten des Auftraggebers</h2>
+      <p>Der AG stellt dem AN innerhalb von <strong>5 Werktagen</strong> nach Vertragsschluss bereit:</p>
+      <ul>
+        <li>Ausgefülltes Briefing-Formular (Inhalte, Farben, Stil, Referenzseiten)</li>
+        <li>Texte für alle vereinbarten Seiten</li>
+        <li>Logo in Vektorformat (PDF, SVG, EPS) oder hochauflösendes PNG</li>
+        <li>Bilder und Fotos (min. 1.200 px Breite), ggf. mit Lizenznachweis</li>
+        <li>Zugangsdaten zum Hosting (sofern Deployment vereinbart)</li>
+      </ul>
+      <p>Verzögerungen durch den AG verlängern die Lieferfristen entsprechend.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 4</span>
+      <h2>Vergütung und Zahlungsbedingungen</h2>
+      <div class="vt-field-grid" style="margin-bottom:16px;">
+        <div class="vt-field">
+          <label>Auftragssumme (netto)</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>zzgl. MwSt. 19 %</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Gesamtbetrag (brutto)</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Steuernummer AN</label>
+          <div class="vt-value">wird auf Rechnung ausgewiesen</div>
+        </div>
+      </div>
+      <p><strong>Zahlungsplan:</strong></p>
+      <ul>
+        <li><strong>50 % Anzahlung</strong> nach Vertragsschluss, fällig innerhalb 7 Tagen nach Rechnungserhalt. Arbeitsbeginn erst nach Zahlungseingang.</li>
+        <li><strong>50 % Schlusszahlung</strong> nach Abnahme gemäß § 5, fällig innerhalb 14 Tagen nach Abnahmeaufforderung.</li>
+      </ul>
+      <p><strong>Zahlungsweg:</strong> Rechnung per E-Mail &rarr; Banküberweisung (SEPA)</p>
+      <div class="vt-callout">
+        <p>Kontoinhaber: Thomas Reinke<br>
+        IBAN: <span style="color:var(--text-tertiary);">wird auf Rechnung ausgewiesen</span><br>
+        BIC: <span style="color:var(--text-tertiary);">wird auf Rechnung ausgewiesen</span><br>
+        Verwendungszweck: Auftragsnummer (steht auf der Rechnung)</p>
+      </div>
+      <p>Bei Zahlungsverzug fallen Verzugszinsen von 9 % über dem Basiszinssatz (§ 288 Abs. 2 BGB) an. Weitere Korrekturschleifen (ab der 3.) werden mit <strong>95 &euro; netto/Stunde</strong> berechnet.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 5</span>
+      <h2>Lieferung und Abnahme</h2>
+      <p>Die Lieferfrist beginnt nach Vertragsschluss, vollständiger Bereitstellung aller Unterlagen durch den AG <strong>und</strong> Eingang der Anzahlung. Nach Fertigstellung erhält der AG eine Abnahmeaufforderung per E-Mail.</p>
+      <p>Der AG prüft innerhalb von <strong>7 Werktagen</strong> und teilt Mängel schriftlich mit. Erfolgt keine Rückmeldung, gilt die Leistung als abgenommen. Wesentliche Mängel werden behoben; unwesentliche berechtigen nicht zur Abnahmeverweigerung.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 6</span>
+      <h2>Urheberrecht und Nutzungsrechte</h2>
+      <p>Mit <strong>vollständiger Bezahlung</strong> erhält der AG ein einfaches, zeitlich und räumlich unbeschränktes Nutzungsrecht am erstellten Werk für den vereinbarten Zweck. Bis zur vollständigen Zahlung verbleiben alle Rechte beim AN.</p>
+      <p>Der AG sichert zu, alle bereitgestellten Inhalte (Bilder, Texte, Logos) rechtmäßig nutzen zu dürfen, und stellt den AN von etwaigen Drittansprüchen frei.</p>
+      <p>Der AN ist berechtigt, das erstellte Werk in seinem Portfolio als Referenz zu nennen, sofern der AG nicht widerspricht.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 7</span>
+      <h2>Gewährleistung und Haftung</h2>
+      <p>Der AN leistet Gewähr für wesentliche Mängel für <strong>12 Monate</strong> ab Abnahme. Mängel sind unverzüglich schriftlich zu rügen; der AN hat das Recht zur Nacherfüllung. Keine Gewährleistung für Mängel durch Änderungen des AG nach Abnahme.</p>
+      <p>Haftung für einfache Fahrlässigkeit ist auf typischerweise vorhersehbare Schäden begrenzt; Haftung für mittelbare Schäden ist ausgeschlossen. Der AN ist kein Rechtsanwalt – Impressum- und Datenschutzvorlagen sind ohne Rechtsgewähr.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 8</span>
+      <h2>Stornierung und Rücktritt</h2>
+      <ul>
+        <li>Vor Arbeitsbeginn: <strong>20 %</strong> der Auftragssumme</li>
+        <li>Bis 25 % Fertigstellung: <strong>40 %</strong> &middot; bis 50 %: <strong>60 %</strong> &middot; ab 50 %: <strong>80 %</strong></li>
+        <li>Ab 75 % Fertigstellung: volle Auftragssumme</li>
+      </ul>
+      <p>Der AN kann bei dauerhafter Verletzung der Mitwirkungspflichten (§ 3) nach zweimaliger Mahnung vom Vertrag zurücktreten. Bereits erbrachte Leistungen sind zu vergüten.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 9</span>
+      <h2>Datenschutz und Schlussbestimmungen</h2>
+      <p>Die Verarbeitung personenbezogener Daten erfolgt gemäß DSGVO. Näheres unter torecon.de/imprint.html#privacy. Soweit eine Auftragsverarbeitung erforderlich ist, wird ein AVV gemäß Art. 28 DSGVO abgeschlossen.</p>
+      <p>Es gilt deutsches Recht. Gerichtsstand für Unternehmer ist Ahrweiler. Mündliche Nebenabreden bedürfen der Textform. Salvatorische Klausel gilt.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">Unterzeichnung</span>
+      <h2>Vertragsannahme</h2>
+      <p style="font-size:14px;color:var(--text-secondary);">Dieser Vertrag kommt durch beidseitige Unterzeichnung oder schriftliche Bestätigung per E-Mail zustande. Die Leistung der Anzahlung gilt ebenfalls als Annahmeerklärung.</p>
+      <div class="vt-sign-grid">
+        <div class="vt-sign-block">
+          <div class="vt-sign-line"></div>
+          <div class="vt-sign-label">Ort, Datum &middot; Thomas Reinke, torecon (Auftragnehmer)</div>
+        </div>
+        <div class="vt-sign-block">
+          <div class="vt-sign-line"></div>
+          <div class="vt-sign-label">Ort, Datum &middot; Name, Funktion (Auftraggeber)</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--text-tertiary);margin-top:48px;padding-top:20px;border-top:1px solid var(--border);">
+      Stand: März 2026 &middot; Mustervertrag ohne Rechtsgewähr. Fragen: info@torecon.de
+    </p>
+
+  </div><!-- /lang-de -->
+
+  <!-- ===== ENGLISH ===== -->
+  <div class="lang-en" id="content-en">
+
+    <div class="vt-header">
+      <div class="vt-badge">Template Contract</div>
+      <h1>Order Confirmation &amp; Service Agreement<br>Web Design Services</h1>
+      <p class="vt-meta">
+        torecon &middot; Thomas Reinke &middot; Roesgenstr. 22, 53474 Ahrweiler, Germany &middot; info@torecon.de<br>
+        Concluded in text form (e-mail is sufficient). German law applies. <strong>Version: March 2026</strong>
+      </p>
+    </div>
+
+    <div class="vt-fields">
+      <h3>Contracting Parties</h3>
+      <div class="vt-field-grid">
+        <div class="vt-field">
+          <label>Contractor (CN)</label>
+          <div class="vt-value">Thomas Reinke &middot; torecon</div>
+        </div>
+        <div class="vt-field">
+          <label>Client (CL) – Company / Name</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Street, No.</label>
+          <div class="vt-value">Roesgenstr. 22</div>
+        </div>
+        <div class="vt-field">
+          <label>Street, No.</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Postcode, City</label>
+          <div class="vt-value">53474 Ahrweiler, Germany</div>
+        </div>
+        <div class="vt-field">
+          <label>Postcode, City, Country</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>E-Mail</label>
+          <div class="vt-value">info@torecon.de</div>
+        </div>
+        <div class="vt-field">
+          <label>E-Mail</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field full">
+          <label>Contract Date</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 1</span>
+      <h2>Subject Matter</h2>
+      <p>The Contractor (CN) creates a professional website for the Client (CL) within the scope of the package selected below. All services are provided on the basis of the CN's General Terms and Conditions (available at torecon.de/agb.html), which form an integral part of this agreement.</p>
+      <p><strong>Selected Package:</strong></p>
+      <div class="vt-pkg-grid">
+        <div class="vt-pkg">
+          <strong>Starter</strong>
+          <span class="price">&euro; 599 net</span>
+          <small>3 pages &middot; 7 business days</small>
+        </div>
+        <div class="vt-pkg">
+          <strong>Standard</strong>
+          <span class="price">&euro; 899 net</span>
+          <small>5 pages &middot; 10 business days</small>
+        </div>
+        <div class="vt-pkg">
+          <strong>Premium</strong>
+          <span class="price">&euro; 1,199 net</span>
+          <small>8 pages &middot; 14 days + 3 mon. support</small>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-tertiary);">Please mark the applicable package on the signed copy or confirm via e-mail.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 2</span>
+      <h2>Scope of Services</h2>
+      <p>Depending on the selected package, the CN provides the following standard services:</p>
+      <ul>
+        <li>Concept and visual design (Apple-inspired style, responsive)</li>
+        <li>Technical implementation as a static HTML/CSS/JS website</li>
+        <li>Contact form and calendar integration (upon request)</li>
+        <li>Basic on-page SEO (meta tags)</li>
+        <li>Mobile optimisation for all common devices</li>
+        <li>GDPR-compliant framework (cookie notice)</li>
+        <li>Imprint and privacy policy as text templates (not legal advice)</li>
+        <li>2 rounds of revisions included</li>
+        <li>Delivery via download or deployment at client's hosting</li>
+      </ul>
+      <p>Additional services agreed:</p>
+      <div class="vt-callout"><p style="min-height:40px;">&nbsp;</p></div>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 3</span>
+      <h2>Client Obligations</h2>
+      <p>The CL shall provide the CN within <strong>5 business days</strong> of contract conclusion:</p>
+      <ul>
+        <li>Completed briefing form (content, colours, style, reference websites)</li>
+        <li>Texts for all agreed pages</li>
+        <li>Logo in vector format (PDF, SVG, EPS) or high-resolution PNG</li>
+        <li>Images and photos (min. 1,200 px width), with licence proof if applicable</li>
+        <li>Hosting access credentials (if deployment is agreed)</li>
+      </ul>
+      <p>Delays caused by the CL extend agreed delivery deadlines accordingly.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 4</span>
+      <h2>Remuneration and Payment Terms</h2>
+      <div class="vt-field-grid" style="margin-bottom:16px;">
+        <div class="vt-field">
+          <label>Contract Value (net)</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Plus VAT 19 %</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Total (gross)</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>CN Tax Number</label>
+          <div class="vt-value">stated on invoice</div>
+        </div>
+      </div>
+      <p><strong>Payment schedule:</strong></p>
+      <ul>
+        <li><strong>50 % advance payment</strong> upon contract conclusion, payable within 7 days of invoice receipt. Work commences only after payment is received.</li>
+        <li><strong>50 % final payment</strong> upon acceptance pursuant to § 5, payable within 14 days of acceptance request.</li>
+      </ul>
+      <p><strong>Payment method:</strong> Invoice by e-mail &rarr; bank transfer (SEPA)</p>
+      <div class="vt-callout">
+        <p>Account holder: Thomas Reinke<br>
+        IBAN: <span style="color:var(--text-tertiary);">stated on invoice</span><br>
+        BIC: <span style="color:var(--text-tertiary);">stated on invoice</span><br>
+        Reference: Order number (stated on invoice)</p>
+      </div>
+      <p>Late payment incurs interest at 9 percentage points above the base rate (§ 288 (2) BGB). Additional revision rounds (from the 3rd) are charged at <strong>&euro; 95 net/hour</strong>.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 5</span>
+      <h2>Delivery and Acceptance</h2>
+      <p>The delivery period begins upon contract conclusion, complete provision of all materials by the CL <strong>and</strong> receipt of the advance payment. Upon completion, the CL receives an acceptance request by e-mail.</p>
+      <p>The CL reviews within <strong>7 business days</strong> and reports defects in writing. If no feedback is received, the work is deemed accepted. Material defects will be remedied; minor defects do not entitle the CL to refuse acceptance.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 6</span>
+      <h2>Copyright and Usage Rights</h2>
+      <p>Upon <strong>full payment</strong>, the CL receives a non-exclusive, unlimited usage right to the created work for the agreed purpose. Until full payment, all rights remain with the CN.</p>
+      <p>The CL warrants that all provided content (images, texts, logos) may be used lawfully and indemnifies the CN against any third-party claims.</p>
+      <p>The CN is entitled to refer to the collaboration in their portfolio unless the CL objects in writing.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 7</span>
+      <h2>Warranty and Liability</h2>
+      <p>The CN warrants against material defects for <strong>12 months</strong> from acceptance. Defects must be reported in writing without undue delay; the CN has the right to remedy. No warranty for defects caused by changes made by the CL after acceptance.</p>
+      <p>Liability for simple negligence is limited to typically foreseeable damages; liability for indirect damages is excluded. The CN is not a lawyer – imprint and privacy templates are provided without legal warranty.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 8</span>
+      <h2>Cancellation and Withdrawal</h2>
+      <ul>
+        <li>Before work commences: <strong>20 %</strong> of contract value</li>
+        <li>Up to 25 % completion: <strong>40 %</strong> &middot; up to 50 %: <strong>60 %</strong> &middot; from 50 %: <strong>80 %</strong></li>
+        <li>From 75 % completion: full contract value</li>
+      </ul>
+      <p>The CN may withdraw from the contract in the event of persistent failure by the CL to fulfil their obligations (§ 3) after two written reminders. Services already rendered shall be remunerated.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">§ 9</span>
+      <h2>Data Protection and Final Provisions</h2>
+      <p>Personal data is processed in accordance with the GDPR. Further details at torecon.de/imprint.html#privacy. Where required, a data processing agreement pursuant to Art. 28 GDPR will be concluded separately.</p>
+      <p>German law applies. Place of jurisdiction for merchants is Ahrweiler, Germany. Collateral verbal agreements require text form. Severability clause applies.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <div class="vt-section">
+      <span class="vt-section-label">Execution</span>
+      <h2>Contract Acceptance</h2>
+      <p style="font-size:14px;color:var(--text-secondary);">This agreement is concluded by mutual signature or written confirmation via e-mail. Payment of the advance payment also constitutes an acceptance declaration.</p>
+      <div class="vt-sign-grid">
+        <div class="vt-sign-block">
+          <div class="vt-sign-line"></div>
+          <div class="vt-sign-label">Place, Date &middot; Thomas Reinke, torecon (Contractor)</div>
+        </div>
+        <div class="vt-sign-block">
+          <div class="vt-sign-line"></div>
+          <div class="vt-sign-label">Place, Date &middot; Name, Title (Client)</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--text-tertiary);margin-top:48px;padding-top:20px;border-top:1px solid var(--border);">
+      Version: March 2026 &middot; Template contract without legal warranty. Questions: info@torecon.de
+    </p>
+
+  </div><!-- /lang-en -->
+
+</div><!-- /vt-wrap -->
+
+<div id="site-footer"></div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/cookie.js"></script>
+<script src="./js/layout.js"></script>
+<script src="./js/ai-ticker.js"></script>
+<script>
+  function setVtLang(lang) {
+    document.getElementById('content-de').classList.toggle('active', lang === 'de');
+    document.getElementById('content-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+  }
+</script>
+</body>
+</html>

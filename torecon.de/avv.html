@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO – torecon Thomas Reinke. Vereinbarung zur Auftragsverarbeitung für Webdesign-Dienstleistungen.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.torecon.de/avv.html">
+  <title>Auftragsverarbeitungsvertrag (AVV) | torecon</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .vt-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 80px 24px 100px;
+    }
+    .vt-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .vt-lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--bg-alt);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .vt-lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .vt-lang-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .vt-print-btn {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 22px;
+      border-radius: 20px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .vt-print-btn:hover { opacity: 0.85; }
+    .vt-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .vt-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0,113,227,0.08);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .vt-header h1 {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .vt-header .vt-meta {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.7;
+    }
+    .vt-fields {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .vt-fields h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 18px;
+    }
+    .vt-field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+    }
+    .vt-field { display: flex; flex-direction: column; gap: 4px; }
+    .vt-field label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .vt-field .vt-value {
+      font-size: 14px;
+      color: var(--text);
+      border-bottom: 1px dashed var(--border);
+      padding: 4px 0;
+      min-height: 28px;
+    }
+    .vt-field.full { grid-column: 1 / -1; }
+    .vt-section { margin-bottom: 44px; }
+    .vt-section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0,113,227,0.08);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .vt-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .vt-section h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 20px 0 8px;
+      color: var(--text);
+    }
+    .vt-section p, .vt-section li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .vt-section ul, .vt-section ol { padding-left: 22px; margin-bottom: 12px; }
+    .vt-section li { margin-bottom: 3px; }
+    .vt-divider { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+    .vt-callout {
+      background: rgba(0,113,227,0.06);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+    .vt-callout p { margin: 0; font-size: 14px; }
+    .vt-warning {
+      background: #fff8e1;
+      border-left: 3px solid #f59e0b;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+    .vt-warning p { margin: 0; font-size: 14px; color: #92400e; }
+    .vt-sign-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .vt-sign-block { display: flex; flex-direction: column; gap: 6px; }
+    .vt-sign-line { border-bottom: 1px solid var(--text); margin-top: 48px; }
+    .vt-sign-label { font-size: 12px; color: var(--text-tertiary); margin-top: 6px; }
+    .tom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .tom-item {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .tom-item strong { display: block; font-size: 12px; color: var(--text); margin-bottom: 2px; }
+    .lang-de, .lang-en { display: none; }
+    .lang-de.active, .lang-en.active { display: block; }
+    @media print {
+      .vt-toolbar, .site-nav, .site-footer, .whatsapp-fab,
+      .ai-ticker-wrap, .vt-print-btn { display: none !important; }
+      .vt-wrap { padding: 20px; max-width: 100%; }
+      .lang-de, .lang-en { display: none !important; }
+      .lang-de.active, .lang-en.active { display: block !important; }
+      body { font-size: 13px; }
+    }
+    @media (max-width: 600px) {
+      .vt-wrap { padding: 48px 16px 80px; }
+      .vt-field-grid { grid-template-columns: 1fr; }
+      .tom-grid { grid-template-columns: 1fr; }
+      .vt-sign-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<script>window.TORECON_ROOT = './';</script>
+<script>window.TORECON_PAGE = '';</script>
+
+<div id="site-nav"></div>
+
+<div class="vt-wrap">
+
+  <div class="vt-toolbar">
+    <button class="vt-lang-btn active" id="btn-de" onclick="setVtLang('de')">DE</button>
+    <button class="vt-lang-btn" id="btn-en" onclick="setVtLang('en')">EN</button>
+    <button class="vt-print-btn" onclick="window.print()">Als PDF speichern</button>
+  </div>
+
+  <!-- ===== DEUTSCH ===== -->
+  <div class="lang-de active" id="content-de">
+
+    <div class="vt-header">
+      <div class="vt-badge">Art. 28 DSGVO</div>
+      <h1>Auftragsverarbeitungsvertrag (AVV)</h1>
+      <p class="vt-meta">
+        torecon &middot; Thomas Reinke &middot; Roesgenstr. 22, 53474 Ahrweiler &middot; info@torecon.de<br>
+        Dieser AVV ist Bestandteil des Webdesign-Werkvertrages und tritt mit dessen Abschluss in Kraft.<br>
+        <strong>Stand: März 2026</strong>
+      </p>
+    </div>
+
+    <div class="vt-warning">
+      <p><strong>Hinweis:</strong> Ein AVV ist gemäß Art. 28 DSGVO immer dann erforderlich, wenn der Auftragnehmer im Rahmen der Leistungserbringung Zugang zu personenbezogenen Daten des Auftraggebers oder dessen Kunden erhält (z.&nbsp;B. durch Einsicht in Hosting-Zugänge, bestehende Datenbanken oder Kontaktformular-Daten). Dieser Muster-AVV deckt typische Webdesign-Szenarien ab.</p>
+    </div>
+
+    <!-- Vertragsparteien -->
+    <div class="vt-fields">
+      <h3>Vertragsparteien</h3>
+      <div class="vt-field-grid">
+        <div class="vt-field">
+          <label>Auftragsverarbeiter (AV)</label>
+          <div class="vt-value">Thomas Reinke &middot; torecon</div>
+        </div>
+        <div class="vt-field">
+          <label>Verantwortlicher (V) – Firma / Name</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Strasse, Nr.</label>
+          <div class="vt-value">Roesgenstr. 22</div>
+        </div>
+        <div class="vt-field">
+          <label>Strasse, Nr.</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>PLZ, Ort</label>
+          <div class="vt-value">53474 Ahrweiler</div>
+        </div>
+        <div class="vt-field">
+          <label>PLZ, Ort</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>E-Mail</label>
+          <div class="vt-value">info@torecon.de</div>
+        </div>
+        <div class="vt-field">
+          <label>E-Mail</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field full">
+          <label>Datum des AVV / Bezug zum Hauptvertrag</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Art. 1 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 1</span>
+      <h2>Gegenstand, Art und Zweck der Verarbeitung</h2>
+      <p><strong>1.1 Gegenstand:</strong> Der Auftragsverarbeiter (AV) erbringt für den Verantwortlichen (V) Webdesign-Dienstleistungen gemäß des gesondert geschlossenen Werkvertrages. Im Rahmen dieser Tätigkeit kann der AV Zugang zu personenbezogenen Daten erhalten, die im Einflussbereich des V gespeichert sind oder verarbeitet werden.</p>
+      <p><strong>1.2 Art der Verarbeitung:</strong> Erheben, Speichern, Lesen, Übermitteln, Anpassen und Löschen von Daten, soweit dies zur Erbringung der beauftragten Leistungen erforderlich ist.</p>
+      <p><strong>1.3 Zweck:</strong> Ausschließlich die Erfüllung der im Werkvertrag vereinbarten Webdesign-Leistungen, insbesondere:</p>
+      <ul>
+        <li>Zugriff auf Hosting-Systeme und Dateiverzeichnisse des V</li>
+        <li>Einrichtung und Konfiguration von Kontaktformularen</li>
+        <li>Einbindung von Kalender- und Kommunikationsdiensten</li>
+        <li>Übergabe und Einspielung der fertigen Website beim Hostinganbieter des V</li>
+      </ul>
+      <p><strong>1.4 Dauer:</strong> Die Auftragsverarbeitung beginnt mit Abschluss des Werkvertrages und endet mit dessen vollständiger Erfüllung und der Löschung bzw. Rückgabe aller personenbezogenen Daten gemäß Art. 8 dieses AVV.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 2 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 2</span>
+      <h2>Art der personenbezogenen Daten und Kategorien betroffener Personen</h2>
+      <p><strong>2.1 Betroffene Datenkategorien</strong> (soweit im Rahmen der Leistung verarbeitet):</p>
+      <ul>
+        <li>Kontaktdaten (Name, E-Mail-Adresse, Telefonnummer) von Kunden oder Interessenten des V</li>
+        <li>Kommunikationsdaten aus Kontaktformularen</li>
+        <li>Zugangsdaten (Benutzernamen, verschlüsselte Passwörter) zu Hosting- und CMS-Systemen</li>
+        <li>Technische Metadaten (IP-Adressen, Log-Dateien) aus Hosting-Systemen</li>
+      </ul>
+      <p><strong>2.2 Kategorien betroffener Personen:</strong> Kunden, Interessenten und sonstige Kontaktpersonen des V; Mitarbeiter des V; Besucher der Website des V.</p>
+      <p><strong>2.3 Besondere Kategorien</strong> personenbezogener Daten (Art. 9 DSGVO) werden im Rahmen der Leistungserbringung nicht verarbeitet, es sei denn, der V stellt solche Daten ausdrücklich bereit. In diesem Fall ist vorher eine gesonderte schriftliche Vereinbarung zu treffen.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 3 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 3</span>
+      <h2>Weisungsgebundenheit</h2>
+      <p><strong>3.1</strong> Der AV verarbeitet personenbezogene Daten ausschließlich auf dokumentierte Weisung des V – einschließlich der Übermittlung personenbezogener Daten in ein Drittland – es sei denn, er ist durch das Recht der Union oder der Mitgliedstaaten, dem der AV unterliegt, zur Verarbeitung verpflichtet; in einem solchen Fall teilt der AV dem V diese rechtlichen Anforderungen vor der Verarbeitung mit, sofern das betreffende Recht eine solche Mitteilung nicht aus wichtigen Gründen des öffentlichen Interesses verbietet.</p>
+      <p><strong>3.2</strong> Weisungen des V erteilt dieser initial durch den abgeschlossenen Werkvertrag und ergänzend durch schriftliche (E-Mail genügt) Einzelweisungen. Der AV hat den V unverzüglich zu informieren, wenn er der Meinung ist, eine Weisung verstoße gegen datenschutzrechtliche Vorschriften.</p>
+      <p><strong>3.3</strong> Der AV darf ohne ausdrückliche Weisung des V keine Daten für eigene Zwecke oder zu eigenen Zwecken Dritter verarbeiten.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 4 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 4</span>
+      <h2>Pflichten des Auftragsverarbeiters</h2>
+      <p>Der AV verpflichtet sich gegenüber dem V zu Folgendem:</p>
+
+      <h3>4.1 Vertraulichkeit</h3>
+      <p>Der AV stellt sicher, dass sich die zur Verarbeitung personenbezogener Daten befugten Personen zur Vertraulichkeit verpflichtet haben oder einer angemessenen gesetzlichen Verschwiegenheitspflicht unterliegen.</p>
+
+      <h3>4.2 Sicherheit der Verarbeitung</h3>
+      <p>Der AV ergreift alle erforderlichen technischen und organisatorischen Maßnahmen gemäß Art. 32 DSGVO (siehe Art. 5 dieses AVV), um ein dem Risiko angemessenes Schutzniveau zu gewährleisten.</p>
+
+      <h3>4.3 Unterstützung des Verantwortlichen</h3>
+      <p>Der AV unterstützt den V unter Berücksichtigung der Art der Verarbeitung und soweit möglich durch geeignete technische und organisatorische Maßnahmen dabei, seinen Pflichten nachzukommen, insbesondere:</p>
+      <ul>
+        <li>Bearbeitung von Anfragen betroffener Personen (Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch)</li>
+        <li>Meldung von Datenschutzverletzungen an Aufsichtsbehörden und betroffene Personen</li>
+        <li>Durchführung von Datenschutz-Folgenabschätzungen (DSFA)</li>
+      </ul>
+
+      <h3>4.4 Meldung von Datenschutzverletzungen</h3>
+      <p>Datenpannen oder Sicherheitsvorfälle, die personenbezogene Daten des V betreffen, meldet der AV dem V <strong>unverzüglich, spätestens innerhalb von 24 Stunden</strong> nach Bekanntwerden per E-Mail an die vom V angegebene Adresse.</p>
+
+      <h3>4.5 Löschung nach Auftragsende</h3>
+      <p>Nach Abschluss der Leistungserbringung löscht oder gibt der AV alle personenbezogenen Daten zurück, sofern keine gesetzliche Verpflichtung zur weiteren Speicherung besteht. Gleiches gilt für Kopien und Test-Datensätze.</p>
+
+      <h3>4.6 Nachweispflicht</h3>
+      <p>Der AV stellt dem V alle erforderlichen Informationen zum Nachweis der Einhaltung der in Art. 28 DSGVO niedergelegten Pflichten zur Verfügung und ermöglicht Audits und Inspektionen, die vom V oder einem vom V beauftragten Prüfer durchgeführt werden. Angekündigte Audits sind mit angemessener Frist (mindestens 14 Tage) durchzuführen.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 5 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 5</span>
+      <h2>Technische und organisatorische Massnahmen (TOMs)</h2>
+      <p>Der AV setzt folgende technische und organisatorische Maßnahmen gemäß Art. 32 DSGVO um:</p>
+      <div class="tom-grid">
+        <div class="tom-item">
+          <strong>Zutrittskontrolle</strong>
+          Homeoffice-Arbeitsumgebung; physischer Zugang zu Arbeitsmitteln durch Dritte nicht möglich
+        </div>
+        <div class="tom-item">
+          <strong>Zugangskontrolle</strong>
+          Passwortschutz aller Geräte; automatische Bildschirmsperrung; starke Passwörter und Passwort-Manager
+        </div>
+        <div class="tom-item">
+          <strong>Zugriffskontrolle</strong>
+          Need-to-know-Prinzip; Zugangsdaten werden ausschließlich für die Leistungserbringung genutzt und anschließend gelöscht
+        </div>
+        <div class="tom-item">
+          <strong>Weitergabekontrolle</strong>
+          Übertragung sensibler Daten ausschließlich verschlüsselt (HTTPS/TLS); keine unverschlüsselte E-Mail für Zugangsdaten
+        </div>
+        <div class="tom-item">
+          <strong>Eingabekontrolle</strong>
+          Nachvollziehbarkeit von Änderungen durch Versionierung (Git) oder Backups vor Änderungen
+        </div>
+        <div class="tom-item">
+          <strong>Auftragskontrolle</strong>
+          Verarbeitung ausschließlich auf Weisung des V; keine Weitergabe an Dritte ohne Genehmigung
+        </div>
+        <div class="tom-item">
+          <strong>Verfügbarkeitskontrolle</strong>
+          Regelmäßige lokale Backups von Projektdaten; Arbeitsgeräte mit aktuellen Betriebssystemen
+        </div>
+        <div class="tom-item">
+          <strong>Trennungsgebot</strong>
+          Daten verschiedener Auftraggeber werden getrennt gespeichert und verarbeitet
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-tertiary);margin-top:12px;">Die TOMs können auf Anfrage des V konkretisiert und angepasst werden. Änderungen der TOMs, die das Schutzniveau verringern, werden dem V vorab mitgeteilt.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 6 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 6</span>
+      <h2>Unterauftragsverarbeiter</h2>
+      <p><strong>6.1</strong> Der AV setzt im Rahmen der Webdesign-Leistungen folgende Unterauftragsverarbeiter ein, denen der V mit Abschluss dieses AVV zustimmt:</p>
+      <div class="vt-callout">
+        <p>
+          <strong>Web3Forms</strong> (Kontaktformular-Dienst) &middot; web3forms.com &middot; Datenübermittlung via API; Datenschutzerklärung: web3forms.com/privacy<br><br>
+          <strong>Cal.com</strong> (Terminkalender-Integration) &middot; cal.com &middot; Datenschutzerklärung: cal.com/privacy<br><br>
+          <strong>Weitere Dienste</strong> werden nur nach vorheriger schriftlicher Information und Genehmigung des V eingesetzt.
+        </p>
+      </div>
+      <p><strong>6.2</strong> Der AV stellt sicher, dass Unterauftragsverarbeiter denselben Datenschutzpflichten unterliegen wie der AV im Rahmen dieses AVV (Art. 28 Abs. 4 DSGVO). Der AV haftet gegenüber dem V für die Einhaltung dieser Pflichten durch Unterauftragsverarbeiter.</p>
+      <p><strong>6.3</strong> Der AV informiert den V über beabsichtigte Änderungen hinsichtlich der Hinzuziehung oder des Austauschs von Unterauftragsverarbeitern. Der V hat das Recht, Änderungen zu widersprechen.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 7 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 7</span>
+      <h2>Drittlandübermittlungen</h2>
+      <p><strong>7.1</strong> Eine Übermittlung personenbezogener Daten in Drittländer (außerhalb des EWR) erfolgt nur auf dokumentierte Weisung des V oder soweit Unterauftragsverarbeiter in Drittländern ansässig sind (vgl. Art. 6).</p>
+      <p><strong>7.2</strong> Für eingesetzte Dienste mit Sitz in den USA (z.&nbsp;B. Cal.com) wird auf den EU-US Data Privacy Framework bzw. auf Standardvertragsklauseln gemäß Art. 46 DSGVO verwiesen. Der AV informiert den V auf Anfrage über die jeweils geltenden Garantien.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 8 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 8</span>
+      <h2>Löschung und Rückgabe von Daten</h2>
+      <p><strong>8.1</strong> Nach Abschluss der Leistungserbringung oder auf Weisung des V löscht der AV alle personenbezogenen Daten des V (inkl. Kopien und Test-Datensätze) oder gibt sie an den V zurück – je nach Weisung des V.</p>
+      <p><strong>8.2</strong> Zugangsdaten (Passwörter, Tokens) zu Systemen des V werden spätestens 14 Tage nach Abnahme der Leistung dauerhaft gelöscht. Der AV bestätigt die Löschung auf Wunsch schriftlich.</p>
+      <p><strong>8.3</strong> Soweit eine gesetzliche Aufbewahrungspflicht (z.&nbsp;B. steuerrechtlich nach § 147 AO) einer Löschung entgegensteht, beschränkt der AV die Verarbeitung der betreffenden Daten bis zum Ablauf der Aufbewahrungsfrist.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 9 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 9</span>
+      <h2>Schlussbestimmungen</h2>
+      <p><strong>9.1</strong> Dieser AVV ist Bestandteil des zwischen den Parteien geschlossenen Werkvertrages. Im Falle von Widersprüchen zwischen diesem AVV und dem Werkvertrag gehen die Regelungen dieses AVV vor, soweit sie datenschutzrechtliche Sachverhalte betreffen.</p>
+      <p><strong>9.2</strong> Es gilt deutsches Recht. Gerichtsstand ist Ahrweiler, soweit der V Unternehmer ist.</p>
+      <p><strong>9.3</strong> Änderungen dieses AVV bedürfen der Textform (E-Mail genügt). Salvatorische Klausel: Die Unwirksamkeit einzelner Bestimmungen berührt die Wirksamkeit der übrigen nicht.</p>
+      <p><strong>9.4</strong> Sollten Aufsichtsbehörden oder Gerichte die Unwirksamkeit einzelner Klauseln feststellen, verpflichten sich die Parteien, diese durch wirksame Klauseln zu ersetzen, die dem wirtschaftlichen Zweck der unwirksamen Klauseln am nächsten kommen.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Unterzeichnung -->
+    <div class="vt-section">
+      <span class="vt-section-label">Unterzeichnung</span>
+      <h2>Vertragsannahme</h2>
+      <p style="font-size:14px;color:var(--text-secondary);">Dieser AVV kommt durch beidseitige Unterzeichnung oder schriftliche Bestätigung per E-Mail zustande und gilt ab dem Datum des zugehörigen Werkvertrages.</p>
+      <div class="vt-sign-grid">
+        <div class="vt-sign-block">
+          <div class="vt-sign-line"></div>
+          <div class="vt-sign-label">Ort, Datum &middot; Thomas Reinke, torecon (Auftragsverarbeiter)</div>
+        </div>
+        <div class="vt-sign-block">
+          <div class="vt-sign-line"></div>
+          <div class="vt-sign-label">Ort, Datum &middot; Name, Funktion (Verantwortlicher)</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--text-tertiary);margin-top:48px;padding-top:20px;border-top:1px solid var(--border);">
+      Stand: März 2026 &middot; Muster-AVV ohne Rechtsgewähr. Dieser AVV wurde mit Sorgfalt erstellt, ersetzt jedoch keine individuelle Rechtsberatung. Fragen: info@torecon.de
+    </p>
+
+  </div><!-- /lang-de -->
+
+  <!-- ===== ENGLISH ===== -->
+  <div class="lang-en" id="content-en">
+
+    <div class="vt-header">
+      <div class="vt-badge">Art. 28 GDPR</div>
+      <h1>Data Processing Agreement (DPA)</h1>
+      <p class="vt-meta">
+        torecon &middot; Thomas Reinke &middot; Roesgenstr. 22, 53474 Ahrweiler, Germany &middot; info@torecon.de<br>
+        This DPA forms part of the web design service agreement and enters into force upon its conclusion.<br>
+        <strong>Version: March 2026</strong>
+      </p>
+    </div>
+
+    <div class="vt-warning">
+      <p><strong>Note:</strong> A DPA is required pursuant to Art. 28 GDPR whenever the processor gains access to personal data of the controller or the controller's customers in the course of providing services (e.g. access to hosting systems, databases or contact form data). This template DPA covers typical web design scenarios.</p>
+    </div>
+
+    <!-- Parties -->
+    <div class="vt-fields">
+      <h3>Contracting Parties</h3>
+      <div class="vt-field-grid">
+        <div class="vt-field">
+          <label>Processor (PR)</label>
+          <div class="vt-value">Thomas Reinke &middot; torecon</div>
+        </div>
+        <div class="vt-field">
+          <label>Controller (CO) – Company / Name</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Street, No.</label>
+          <div class="vt-value">Roesgenstr. 22</div>
+        </div>
+        <div class="vt-field">
+          <label>Street, No.</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>Postcode, City</label>
+          <div class="vt-value">53474 Ahrweiler, Germany</div>
+        </div>
+        <div class="vt-field">
+          <label>Postcode, City, Country</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field">
+          <label>E-Mail</label>
+          <div class="vt-value">info@torecon.de</div>
+        </div>
+        <div class="vt-field">
+          <label>E-Mail</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+        <div class="vt-field full">
+          <label>DPA Date / Reference to Main Contract</label>
+          <div class="vt-value">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Art. 1 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 1</span>
+      <h2>Subject Matter, Nature and Purpose of Processing</h2>
+      <p><strong>1.1 Subject matter:</strong> The Processor (PR) provides web design services for the Controller (CO) pursuant to a separately concluded service agreement. In the course of these activities, the PR may gain access to personal data stored or processed within the CO's sphere of control.</p>
+      <p><strong>1.2 Nature of processing:</strong> Collecting, storing, reading, transmitting, adapting and deleting data to the extent necessary for the provision of the agreed services.</p>
+      <p><strong>1.3 Purpose:</strong> Exclusively the fulfilment of the web design services agreed in the service agreement, in particular:</p>
+      <ul>
+        <li>Access to hosting systems and file directories of the CO</li>
+        <li>Set-up and configuration of contact forms</li>
+        <li>Integration of calendar and communication services</li>
+        <li>Delivery and deployment of the completed website at the CO's hosting provider</li>
+      </ul>
+      <p><strong>1.4 Duration:</strong> Processing commences upon conclusion of the service agreement and ends upon its complete fulfilment and the deletion or return of all personal data pursuant to Art. 8 of this DPA.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 2 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 2</span>
+      <h2>Types of Personal Data and Categories of Data Subjects</h2>
+      <p><strong>2.1 Categories of data</strong> (as far as processed in the course of the service):</p>
+      <ul>
+        <li>Contact data (name, e-mail address, phone number) of customers or prospects of the CO</li>
+        <li>Communication data from contact forms</li>
+        <li>Access credentials (usernames, encrypted passwords) for hosting and CMS systems</li>
+        <li>Technical metadata (IP addresses, log files) from hosting systems</li>
+      </ul>
+      <p><strong>2.2 Categories of data subjects:</strong> Customers, prospects and other contact persons of the CO; employees of the CO; visitors to the CO's website.</p>
+      <p><strong>2.3 Special categories</strong> of personal data (Art. 9 GDPR) will not be processed in the course of the services unless the CO expressly provides such data. In that case, a separate written agreement must be concluded in advance.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 3 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 3</span>
+      <h2>Processing on Instructions</h2>
+      <p><strong>3.1</strong> The PR shall process personal data only on documented instructions from the CO – including with regard to transfers of personal data to a third country – unless required to do so by Union or Member State law to which the PR is subject; in such a case, the PR shall inform the CO of that legal requirement before processing, unless that law prohibits such information on important grounds of public interest.</p>
+      <p><strong>3.2</strong> The CO issues instructions initially through the concluded service agreement and additionally through written (e-mail is sufficient) individual instructions. The PR shall immediately inform the CO if it considers that an instruction infringes data protection legislation.</p>
+      <p><strong>3.3</strong> The PR may not process data for its own purposes or for the purposes of third parties without the express instruction of the CO.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 4 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 4</span>
+      <h2>Obligations of the Processor</h2>
+      <p>The PR undertakes the following obligations towards the CO:</p>
+
+      <h3>4.1 Confidentiality</h3>
+      <p>The PR ensures that persons authorised to process personal data have committed to confidentiality or are under an appropriate statutory obligation of confidentiality.</p>
+
+      <h3>4.2 Security of Processing</h3>
+      <p>The PR implements all necessary technical and organisational measures pursuant to Art. 32 GDPR (see Art. 5 of this DPA) to ensure a level of security appropriate to the risk.</p>
+
+      <h3>4.3 Assistance to the Controller</h3>
+      <p>The PR assists the CO, taking into account the nature of the processing and as far as possible, through appropriate technical and organisational measures in fulfilling the CO's obligations, in particular:</p>
+      <ul>
+        <li>Handling requests from data subjects (access, rectification, erasure, restriction, portability, objection)</li>
+        <li>Notification of personal data breaches to supervisory authorities and data subjects</li>
+        <li>Conducting data protection impact assessments (DPIA)</li>
+      </ul>
+
+      <h3>4.4 Notification of Personal Data Breaches</h3>
+      <p>Data breaches or security incidents affecting the CO's personal data will be reported by the PR to the CO <strong>without undue delay, at the latest within 24 hours</strong> of becoming aware, by e-mail to the address provided by the CO.</p>
+
+      <h3>4.5 Deletion after End of Contract</h3>
+      <p>Upon completion of the services, the PR shall delete or return all personal data, as instructed by the CO, including copies and test datasets. Exceptions apply only where statutory retention obligations prevent deletion.</p>
+
+      <h3>4.6 Accountability</h3>
+      <p>The PR makes available to the CO all information necessary to demonstrate compliance with the obligations laid down in Art. 28 GDPR and allows for and contributes to audits and inspections conducted by the CO or an auditor mandated by the CO. Announced audits shall be conducted with reasonable notice (at least 14 days).</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 5 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 5</span>
+      <h2>Technical and Organisational Measures (TOMs)</h2>
+      <p>The PR implements the following technical and organisational measures pursuant to Art. 32 GDPR:</p>
+      <div class="tom-grid">
+        <div class="tom-item">
+          <strong>Physical Access Control</strong>
+          Home office environment; physical access to work equipment by third parties is not possible
+        </div>
+        <div class="tom-item">
+          <strong>System Access Control</strong>
+          Password protection on all devices; automatic screen lock; strong passwords and password manager
+        </div>
+        <div class="tom-item">
+          <strong>Data Access Control</strong>
+          Need-to-know principle; credentials used exclusively for service delivery and deleted afterwards
+        </div>
+        <div class="tom-item">
+          <strong>Transfer Control</strong>
+          Sensitive data transmitted exclusively encrypted (HTTPS/TLS); no unencrypted e-mail for credentials
+        </div>
+        <div class="tom-item">
+          <strong>Input Control</strong>
+          Traceability of changes via version control (Git) or backups prior to changes
+        </div>
+        <div class="tom-item">
+          <strong>Processing Control</strong>
+          Processing exclusively on CO's instructions; no disclosure to third parties without authorisation
+        </div>
+        <div class="tom-item">
+          <strong>Availability Control</strong>
+          Regular local backups of project data; up-to-date operating systems on all work devices
+        </div>
+        <div class="tom-item">
+          <strong>Separation</strong>
+          Data of different clients is stored and processed separately
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-tertiary);margin-top:12px;">TOMs can be specified and adapted at the CO's request. Changes to TOMs that reduce the level of protection will be communicated to the CO in advance.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 6 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 6</span>
+      <h2>Sub-processors</h2>
+      <p><strong>6.1</strong> The PR uses the following sub-processors in the course of providing web design services, to which the CO consents by entering into this DPA:</p>
+      <div class="vt-callout">
+        <p>
+          <strong>Web3Forms</strong> (contact form service) &middot; web3forms.com &middot; Data transfer via API; Privacy policy: web3forms.com/privacy<br><br>
+          <strong>Cal.com</strong> (calendar integration) &middot; cal.com &middot; Privacy policy: cal.com/privacy<br><br>
+          <strong>Additional services</strong> will only be used after prior written notification to and approval by the CO.
+        </p>
+      </div>
+      <p><strong>6.2</strong> The PR ensures that sub-processors are subject to the same data protection obligations as the PR under this DPA (Art. 28(4) GDPR). The PR remains liable to the CO for the fulfilment of these obligations by sub-processors.</p>
+      <p><strong>6.3</strong> The PR will inform the CO of any intended changes regarding the addition or replacement of sub-processors. The CO has the right to object to such changes.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 7 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 7</span>
+      <h2>Transfers to Third Countries</h2>
+      <p><strong>7.1</strong> Transfers of personal data to third countries (outside the EEA) take place only on documented instructions from the CO or insofar as sub-processors are located in third countries (see Art. 6).</p>
+      <p><strong>7.2</strong> For services based in the USA (e.g. Cal.com), reference is made to the EU-US Data Privacy Framework or to standard contractual clauses pursuant to Art. 46 GDPR. The PR will inform the CO of the applicable safeguards upon request.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 8 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 8</span>
+      <h2>Deletion and Return of Data</h2>
+      <p><strong>8.1</strong> Upon completion of the services or upon instruction of the CO, the PR shall delete all personal data of the CO (including copies and test datasets) or return it to the CO – according to the CO's instruction.</p>
+      <p><strong>8.2</strong> Access credentials (passwords, tokens) to the CO's systems will be permanently deleted no later than 14 days after acceptance of the service. The PR will confirm deletion in writing upon request.</p>
+      <p><strong>8.3</strong> Where a statutory retention obligation (e.g. under tax law) prevents deletion, the PR shall restrict the processing of the relevant data until the retention period expires.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Art. 9 -->
+    <div class="vt-section">
+      <span class="vt-section-label">Art. 9</span>
+      <h2>Final Provisions</h2>
+      <p><strong>9.1</strong> This DPA forms part of the service agreement concluded between the parties. In the event of conflicts between this DPA and the service agreement, the provisions of this DPA shall prevail insofar as they concern data protection matters.</p>
+      <p><strong>9.2</strong> German law applies. Place of jurisdiction is Ahrweiler, insofar as the CO is a merchant.</p>
+      <p><strong>9.3</strong> Amendments to this DPA require text form (e-mail is sufficient). Severability clause: the invalidity of individual provisions does not affect the validity of the remaining provisions.</p>
+      <p><strong>9.4</strong> Should supervisory authorities or courts find individual clauses to be invalid, the parties undertake to replace them with effective clauses that come closest to the economic purpose of the invalid clauses.</p>
+    </div>
+
+    <hr class="vt-divider">
+
+    <!-- Signatures -->
+    <div class="vt-section">
+      <span class="vt-section-label">Execution</span>
+      <h2>Contract Acceptance</h2>
+      <p style="font-size:14px;color:var(--text-secondary);">This DPA is concluded by mutual signature or written confirmation via e-mail and applies from the date of the associated service agreement.</p>
+      <div class="vt-sign-grid">
+        <div class="vt-sign-block">
+          <div class="vt-sign-line"></div>
+          <div class="vt-sign-label">Place, Date &middot; Thomas Reinke, torecon (Processor)</div>
+        </div>
+        <div class="vt-sign-block">
+          <div class="vt-sign-line"></div>
+          <div class="vt-sign-label">Place, Date &middot; Name, Title (Controller)</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--text-tertiary);margin-top:48px;padding-top:20px;border-top:1px solid var(--border);">
+      Version: March 2026 &middot; Template DPA without legal warranty. This DPA was prepared with due care but does not replace individual legal advice. Questions: info@torecon.de
+    </p>
+
+  </div><!-- /lang-en -->
+
+</div><!-- /vt-wrap -->
+
+<div id="site-footer"></div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/cookie.js"></script>
+<script src="./js/layout.js"></script>
+<script src="./js/ai-ticker.js"></script>
+<script>
+  function setVtLang(lang) {
+    document.getElementById('content-de').classList.toggle('active', lang === 'de');
+    document.getElementById('content-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+  }
+</script>
+</body>
+</html>

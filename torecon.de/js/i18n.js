@@ -194,6 +194,8 @@ const TRANSLATIONS = {
     footer_contact_title: 'Kontakt',
     footer_imprint: 'Impressum',
     footer_privacy: 'Datenschutz',
+    footer_contract: 'Mustervertrag',
+    footer_avv: 'AVV (Art. 28 DSGVO)',
     footer_copy: '© 2026 torecon – Thomas Reinke. Alle Rechte vorbehalten.',
 
     login_h2: 'Interner Bereich',
@@ -410,6 +412,8 @@ const TRANSLATIONS = {
     footer_contact_title: 'Contact',
     footer_imprint: 'Imprint',
     footer_privacy: 'Privacy Policy',
+    footer_contract: 'Template Contract',
+    footer_avv: 'DPA (Art. 28 GDPR)',
     footer_copy: '© 2026 torecon – Thomas Reinke. All rights reserved.',
 
     login_h2: 'Internal Area',
