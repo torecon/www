@@ -1,5 +1,7 @@
 /* torecon – News / Financial Trends data & renderer */
-const NEWS_DATA = [
+
+// Inline fallback – used if /data/news.json cannot be fetched
+const NEWS_DATA_FALLBACK = [
   {
     id: 1,
     date: '2026-03-07',
@@ -90,6 +92,9 @@ const NEWS_DATA = [
   },
 ];
 
+// Active data – populated by loadNewsData(), fallback used until then
+let NEWS_DATA = NEWS_DATA_FALLBACK.slice();
+
 function formatNewsDate(dateStr, lang) {
   const d = new Date(dateStr);
   return d.toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB', {
@@ -97,22 +102,36 @@ function formatNewsDate(dateStr, lang) {
   });
 }
 
-function renderNews(containerId = 'news-container', limit = null) {
+function renderNews(containerId, limit) {
+  containerId = containerId || 'news-container';
   const container = document.getElementById(containerId);
   if (!container) return;
-  const lang = currentLang || 'de';
+  const lang = (typeof currentLang !== 'undefined' ? currentLang : null) || 'de';
   const items = limit ? NEWS_DATA.slice(0, limit) : NEWS_DATA;
-  container.innerHTML = items.map(item => `
-    <a class="news-card" href="${item.url}" target="_blank" rel="noopener">
-      <div class="news-card-top">
-        <span class="news-tag">${lang === 'de' ? item.tag_de : item.tag_en}</span>
-        <span class="news-date">${formatNewsDate(item.date, lang)}</span>
-      </div>
-      <div class="news-card-body">
-        <h3>${lang === 'de' ? item.title_de : item.title_en}</h3>
-        <p>${lang === 'de' ? item.excerpt_de : item.excerpt_en}</p>
-        <span class="news-read-more">${lang === 'de' ? 'Weiterlesen →' : 'Read more →'}</span>
-      </div>
-    </a>
-  `).join('');
+  container.innerHTML = items.map(function(item) {
+    return '<a class="news-card" href="' + item.url + '" target="_blank" rel="noopener">' +
+      '<div class="news-card-top">' +
+        '<span class="news-tag">' + (lang === 'de' ? item.tag_de : item.tag_en) + '</span>' +
+        '<span class="news-date">' + formatNewsDate(item.date, lang) + '</span>' +
+      '</div>' +
+      '<div class="news-card-body">' +
+        '<h3>' + (lang === 'de' ? item.title_de : item.title_en) + '</h3>' +
+        '<p>' + (lang === 'de' ? item.excerpt_de : item.excerpt_en) + '</p>' +
+        '<span class="news-read-more">' + (lang === 'de' ? 'Weiterlesen \u2192' : 'Read more \u2192') + '</span>' +
+      '</div>' +
+    '</a>';
+  }).join('');
+}
+
+function loadNewsData(containerId, limit) {
+  var root = (typeof window.TORECON_ROOT !== 'undefined') ? window.TORECON_ROOT : '/';
+  fetch(root + 'data/news.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (Array.isArray(data) && data.length > 0) {
+        NEWS_DATA = data;
+        renderNews(containerId, limit);
+      }
+    })
+    .catch(function() { /* fallback stays */ });
 }
