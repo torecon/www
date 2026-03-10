@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/check_auth.php'; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -15,13 +16,13 @@
   <aside class="sidebar">
     <div class="sidebar-logo">tore<span>con</span></div>
     <ul class="sidebar-nav">
-      <li><a href="./dashboard.html" class="active">📊 <span data-i18n="dash_nav_overview">Übersicht</span></a></li>
+      <li><a href="./dashboard.php" class="active">📊 <span data-i18n="dash_nav_overview">Übersicht</span></a></li>
       <li><a href="#">✏️ <span data-i18n="dash_nav_news">Finanztrends verwalten</span></a></li>
-      <li><a href="./references.html">🏢 <span data-i18n="dash_nav_clients">Referenzkunden</span></a></li>
+      <li><a href="./references.php">🏢 <span data-i18n="dash_nav_clients">Referenzkunden</span></a></li>
       <li><a href="#">⚙️ <span data-i18n="dash_nav_settings">Einstellungen</span></a></li>
     </ul>
     <div class="sidebar-footer">
-      <a href="#" onclick="logout('https://www.torecon.de/'); return false;" data-i18n="logout">Abmelden</a>
+      <a href="./logout.php" data-i18n="logout">Abmelden</a>
     </div>
   </aside>
 
@@ -80,7 +81,7 @@
             <li><span>Finanztrends</span><a href="https://www.torecon.de/news.html" style="font-size:13px;">Öffnen →</a></li>
             <li><span>Kontaktseite</span><a href="https://www.torecon.de/contact.html" style="font-size:13px;">Öffnen →</a></li>
             <li><span>Leistungen</span><a href="https://www.torecon.de/services.html" style="font-size:13px;">Öffnen →</a></li>
-            <li><span>Analytics</span><a href="https://analytics.torecon.de/" style="font-size:13px;">Öffnen →</a></li>
+            <li><span>Referenzen</span><a href="./references.php" style="font-size:13px;">Verwalten →</a></li>
           </ul>
         </div>
 
@@ -91,10 +92,8 @@
 
 <script src="https://www.torecon.de/js/i18n.js"></script>
 <script src="https://www.torecon.de/js/news.js"></script>
-<script src="https://www.torecon.de/js/auth.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    checkAuth('https://www.torecon.de/');
     applyTranslations();
 
     const list = document.getElementById('dash-news-list');
