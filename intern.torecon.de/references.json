@@ -1,30 +1,79 @@
 [
-  {
-    "id": "1773148206546",
-    "name": "Deka",
-    "year": "2026",
-    "website": "https://www.deka.de/privatkunden",
-    "slogan": "Deka Investments - professionelle Anlage- und Vorsorgelösungen. Fonds, Zertifikate, Altersvorsorge, regelmäßiges Sparen, Geld anlegen und Vermögen managen"
-  },
-  {
-    "id": "1773153139218",
-    "name": "HSBC",
-    "year": "2024",
-    "website": "https://www.hsbc.de",
-    "slogan": "HSBC in Deutschland ist die global vernetzte Geschäftsbank für Firmenkunden, institutionelle Investoren und vermögende Privatkunden."
-  },
-  {
-    "id": "1773153274904",
-    "name": "Finanzinformatik",
-    "year": "2026",
-    "website": "https://www.f-i.de",
-    "slogan": "Die Finanz Informatik GmbH & Co. KG (FI) ist der zentrale IT-Dienstleister und Digitalisierungspartner der Sparkassen-Finanzgruppe."
-  },
-  {
-    "id": "1773153345232",
-    "name": "USAID",
-    "year": "2019",
-    "website": "https://www.usaid.gov",
-    "slogan": "Behörde der Vereinigten Staaten für internationale Entwicklung"
-  }
+    {
+        "id": "1773148206546",
+        "name": "Deka",
+        "year": "2026",
+        "website": "https:\/\/www.deka.de\/privatkunden",
+        "slogan": "Deka Investments - professionelle Anlage- und Vorsorgelösungen. Fonds, Zertifikate, Altersvorsorge, regelmäßiges Sparen, Geld anlegen und Vermögen managen"
+    },
+    {
+        "id": "1773153139218",
+        "name": "HSBC",
+        "year": "2024",
+        "website": "https:\/\/www.hsbc.de",
+        "slogan": "HSBC in Deutschland ist die global vernetzte Geschäftsbank für Firmenkunden, institutionelle Investoren und vermögende Privatkunden."
+    },
+    {
+        "id": "1773153274904",
+        "name": "Finanzinformatik",
+        "year": "2026",
+        "website": "https:\/\/www.f-i.de",
+        "slogan": "Die Finanz Informatik GmbH & Co. KG (FI) ist der zentrale IT-Dienstleister und Digitalisierungspartner der Sparkassen-Finanzgruppe."
+    },
+    {
+        "id": "1773153345232",
+        "name": "USAID",
+        "year": "2019",
+        "website": "https:\/\/www.usaid.gov",
+        "slogan": "Behörde der Vereinigten Staaten für internationale Entwicklung"
+    },
+    {
+        "id": "1773158469383",
+        "name": "Bank 1 Saar",
+        "year": "2007",
+        "website": "https:\/\/www.bank1saar.de\/startseite.html",
+        "slogan": "Gemeinsam stark mit Ihrer größten saarländischen Genossenschaftsbank"
+    },
+    {
+        "id": "1773158656530",
+        "name": "DGRV",
+        "year": "2014",
+        "website": "https:\/\/www.dgrv.de",
+        "slogan": "Genossenschaften sind das Rückgrat der mittelständischen Wirtschaft und tief in den Regionen Deutschlands verwurzelt. Als Spitzenverband im Sinne des Genossenschaftsgesetzes setzen wir uns insbesondere für die Solidität unserer angeschlossenen genossenschaftlichen Einrichtungen ein."
+    },
+    {
+        "id": "1773158739570",
+        "name": "apoBank",
+        "year": "2012",
+        "website": "https:\/\/www.apobank.de",
+        "slogan": "Von Heilberuflern für Heilberufler – so lautet das Prinzip der apoBank. Seit über 120 Jahren ist unsere Genossenschaft auf die Betreuung und Beratung der Apothekerinnen und Apotheker, Ärztinnen und Ärzte, Zahnärztinnen und Zahnärzte sowie Tierärztinnen und Tierärzte spezialisiert."
+    },
+    {
+        "id": "1773159882075",
+        "name": "Deutsche Bank",
+        "year": "2018",
+        "website": "https:\/\/www.deutsche-bank.de",
+        "slogan": "With deep dedication."
+    },
+    {
+        "id": "1773160638975",
+        "name": "UUL",
+        "year": "2019",
+        "website": "https:\/\/uul.com.ua\/en\/",
+        "slogan": "Ukrainian Union of Lessors"
+    },
+    {
+        "id": "1773160875385",
+        "name": "ULF Finance",
+        "year": "2023",
+        "website": "https:\/\/ulf.ua",
+        "slogan": "ULF Finance is present on the Ukrainian financial market since 2011 and is one of the leaders in the leasing market"
+    },
+    {
+        "id": "1773160946889",
+        "name": "GFT Technologies SE",
+        "year": "2026",
+        "website": "https:\/\/www.gft.com\/de\/de",
+        "slogan": "Others create hype. We create impact. Let’s Go Beyond the Hype_"
+    }
 ]

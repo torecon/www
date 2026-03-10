@@ -83,20 +83,52 @@ async function renderReferences() {
   // Sort by year descending
   refs.sort((a, b) => (b.year || '').localeCompare(a.year || ''));
 
-  grid.innerHTML = refs.map(r => {
-    const abbr = r.name.split(/[\s\-–]+/).filter(w => w.length > 2).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+  // Palette for logo backgrounds – cycles through refs
+  const PALETTE = [
+    'linear-gradient(135deg,#0071E3 0%,#34aadc 100%)',
+    'linear-gradient(135deg,#1d3557 0%,#457b9d 100%)',
+    'linear-gradient(135deg,#2d6a4f 0%,#52b788 100%)',
+    'linear-gradient(135deg,#6a0572 0%,#ab47bc 100%)',
+    'linear-gradient(135deg,#c1440e 0%,#e07b39 100%)',
+    'linear-gradient(135deg,#0a3d62 0%,#1e6fa8 100%)',
+  ];
+
+  grid.innerHTML = refs.map((r, i) => {
+    const abbr = r.name
+      .split(/[\s\-–&/]+/)
+      .filter(w => w.length > 0)
+      .slice(0, 2)
+      .map(w => w[0].toUpperCase())
+      .join('');
+    const bg = PALETTE[i % PALETTE.length];
+
+    let hostname = '';
+    if (r.website) {
+      try { hostname = new URL(r.website).hostname.replace('www.', ''); } catch(e) {}
+    }
     const websiteLink = r.website
-      ? `<a href="${r.website}" target="_blank" rel="noopener" style="font-size:13px;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:12px;">
-           ${new URL(r.website).hostname.replace('www.', '')}
-           <svg viewBox="0 0 24 24" width="11" height="11" style="fill:currentColor;opacity:.7"><path d="M14 5c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1s-1-.4-1-1V6.4l-7.3 7.3c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L16.6 5H15c-.6 0-1-.4-1-1zm-9 2h4c.6 0 1 .4 1 1s-.4 1-1 1H6v9h9v-3c0-.6.4-1 1-1s1 .4 1 1v3c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2z"/></svg>
-         </a>`
+      ? `<div class="ref-card-footer">
+           <a href="${r.website}" target="_blank" rel="noopener" class="ref-website-link">
+             <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+               <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+             </svg>
+             ${hostname}
+           </a>
+         </div>`
       : '';
+
     return `
       <div class="ref-card">
-        <div class="ref-abbr">${abbr}</div>
-        <h3>${r.name}</h3>
+        <div class="ref-card-header">
+          <div class="ref-logo" style="background:${bg}">${abbr}</div>
+          <div class="ref-card-meta">
+            <h3>${r.name}</h3>
+            ${r.year ? `<span class="ref-year-badge">seit ${r.year}</span>` : ''}
+          </div>
+        </div>
+        <hr class="ref-divider">
         <p>${r.slogan || ''}</p>
-        <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">${r.year || ''}</div>
         ${websiteLink}
       </div>`;
   }).join('');
