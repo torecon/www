@@ -59,12 +59,6 @@
           </div>
         </div>
         <div class="contact-info-block">
-          <div class="contact-info-label" data-i18n="contact_phone_label">Telefon</div>
-          <div class="contact-info-value">
-            <a href="tel:+491723207681">+49 172 3207681</a>
-          </div>
-        </div>
-        <div class="contact-info-block">
           <div class="contact-info-label" data-i18n="contact_email_label">E-Mail</div>
           <div class="contact-info-value">
             <a href="mailto:info@torecon.de">info@torecon.de</a>
@@ -75,6 +69,15 @@
       <!-- Contact form -->
       <div>
         <form id="contact-form" onsubmit="handleSubmit(event)">
+          <!-- Web3Forms: API-Key hier eintragen (https://web3forms.com) -->
+          <input type="hidden" name="access_key" value="c18222aa-d131-4135-9c9a-a1e84f4fb66c">
+          <input type="hidden" name="from_name" value="torecon Kontaktformular">
+          <input type="hidden" name="subject" id="hidden-subject" value="Neue Kontaktanfrage über torecon.de">
+          <!-- Kopie an Absender (wird per JS gesetzt) -->
+          <input type="hidden" name="cc" id="hidden-cc" value="">
+          <!-- Honeypot Spam-Schutz -->
+          <input type="checkbox" name="botcheck" style="display:none">
+
           <div class="form-group">
             <label class="form-label" for="name" data-i18n="contact_name">Ihr Name</label>
             <input class="form-control" type="text" id="name" name="name" required
@@ -95,8 +98,8 @@
             <textarea class="form-control" id="message" name="message" required
               data-i18n-placeholder="contact_message"></textarea>
           </div>
-          <div id="form-success" style="display:none;background:rgba(52,199,89,0.1);color:#1a7a3a;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;"></div>
-          <button type="submit" class="btn btn-primary" data-i18n="contact_send">Nachricht senden</button>
+          <div id="form-feedback" style="display:none;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;"></div>
+          <button type="submit" id="submit-btn" class="btn btn-primary" data-i18n="contact_send">Nachricht senden</button>
         </form>
       </div>
     </div>
@@ -110,15 +113,49 @@
 <script src="./js/layout.js"></script>
 <script src="./js/ai-ticker.js"></script>
 <script>
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  const success = document.getElementById('form-success');
-  const lang = currentLang || 'de';
-  success.textContent = lang === 'de'
-    ? 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns zeitnah.'
-    : 'Thank you! Your message has been sent. We will get back to you shortly.';
-  success.style.display = 'block';
-  e.target.reset();
+  const form    = e.target;
+  const btn     = document.getElementById('submit-btn');
+  const feedback = document.getElementById('form-feedback');
+  const lang    = currentLang || 'de';
+
+  // Betreff aus Eingabefeld übernehmen (falls gefüllt)
+  const subjectInput = form.querySelector('#subject').value.trim();
+  form.querySelector('#hidden-subject').value =
+    subjectInput || (lang === 'de' ? 'Neue Kontaktanfrage über torecon.de' : 'New contact request via torecon.de');
+
+  // E-Mail-Kopie an Absender setzen
+  form.querySelector('#hidden-cc').value = form.querySelector('#email').value;
+
+  btn.disabled = true;
+  btn.textContent = lang === 'de' ? 'Wird gesendet …' : 'Sending …';
+
+  try {
+    const res  = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body:   new FormData(form)
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      feedback.style.cssText = 'display:block;background:rgba(52,199,89,0.1);color:#1a7a3a;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;';
+      feedback.textContent = lang === 'de'
+        ? 'Vielen Dank! Ihre Nachricht wurde gesendet. Sie erhalten gleich eine Kopie per E-Mail. Wir melden uns zeitnah.'
+        : 'Thank you! Your message has been sent. You will receive a copy by email shortly. We will get back to you soon.';
+      form.reset();
+    } else {
+      throw new Error(data.message || 'error');
+    }
+  } catch {
+    feedback.style.cssText = 'display:block;background:rgba(255,59,48,0.1);color:#c0392b;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;';
+    feedback.textContent = lang === 'de'
+      ? 'Leider ist ein Fehler aufgetreten. Bitte schreiben Sie direkt an info@torecon.de.'
+      : 'An error occurred. Please write directly to info@torecon.de.';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = lang === 'de' ? 'Nachricht senden' : 'Send message';
+  }
 }
 </script>
 </body>

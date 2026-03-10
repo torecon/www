@@ -60,7 +60,6 @@ function buildFooter() {
           <h4 data-i18n="footer_contact_title">Kontakt</h4>
           <ul>
             <li><a href="${root}contact.html">info@torecon.de</a></li>
-            <li><a href="tel:+491723207681">+49 172 3207681</a></li>
             <li style="color:rgba(255,255,255,0.45);font-size:13px;margin-top:4px;">Roesgenstr. 22<br>53474 Ahrweiler</li>
             <li style="margin-top:12px;">
               <a href="https://www.linkedin.com/in/thomas-reinke-a60092109" target="_blank" rel="noopener"
