@@ -262,6 +262,73 @@
       margin-top: 16px;
     }
 
+    /* ── Briefing Form ───────────────────────────────── */
+    .wd-briefing {
+      background: #fff;
+      border-top: 1px solid var(--border);
+    }
+    .briefing-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .briefing-form-grid .full { grid-column: 1 / -1; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .form-group label .opt {
+      font-weight: 400;
+      color: var(--text-tertiary);
+      margin-left: 4px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--bg-alt);
+      transition: border-color .15s, box-shadow .15s;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,113,227,0.1);
+      background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .briefing-note {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    #briefing-success {
+      display: none;
+      background: rgba(0,113,227,0.06);
+      border: 1.5px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    #briefing-success h4 { font-size: 17px; margin-bottom: 8px; }
+    #briefing-success p { font-size: 14px; color: var(--text-secondary); margin: 0; }
+    @media (max-width: 640px) {
+      .briefing-form-grid { grid-template-columns: 1fr; }
+      .briefing-form-grid .full { grid-column: 1; }
+    }
+
     /* ── CTA dark ────────────────────────────────────── */
     .wd-cta {
       background: var(--bg-dark);
@@ -464,7 +531,7 @@
       <div class="wd-step">
         <div class="wd-step-num">2</div>
         <h4>Briefing &amp; Inhalte</h4>
-        <p>Sie füllen einen einfachen Fragebogen aus und schicken Texte und Fotos. Das war's von Ihrer Seite.</p>
+        <p>Sie füllen den <a href="#briefing" style="color:var(--accent);">Briefing-Fragebogen</a> aus und schicken Texte und Fotos. Das war's von Ihrer Seite.</p>
       </div>
       <div class="wd-step">
         <div class="wd-step-num">3</div>
@@ -582,6 +649,151 @@
   </div>
 </section>
 
+<!-- ── BRIEFING FORM ─────────────────────────────────────── -->
+<section class="wd-briefing" id="briefing">
+  <div class="container">
+    <div class="section-header section-header-center">
+      <div class="section-eyebrow">Schritt 2 – Direkt loslegen</div>
+      <h2 class="section-headline">Briefing ausfüllen –<br>und wir legen los</h2>
+      <p class="section-sub" style="max-width:560px;margin-left:auto;margin-right:auto;">Kein Telefonat nötig. Füllen Sie den Fragebogen aus – ich melde mich innerhalb von 24 Stunden mit einem konkreten Angebot.</p>
+    </div>
+
+    <div style="max-width:720px;margin:0 auto;">
+      <form id="briefing-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="c18222aa-d131-4135-9c9a-a1e84f4fb66c">
+        <input type="hidden" name="subject" value="Webdesign-Briefing von torecon.de">
+        <input type="hidden" name="redirect" value="false">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="briefing-form-grid">
+
+          <!-- Name -->
+          <div class="form-group">
+            <label for="bf-name">Ihr Name / Firma <span style="color:#c62828">*</span></label>
+            <input type="text" id="bf-name" name="name" placeholder="z. B. Hans Meier · Meier Elektrotechnik" required>
+          </div>
+
+          <!-- E-Mail -->
+          <div class="form-group">
+            <label for="bf-email">Ihre E-Mail-Adresse <span style="color:#c62828">*</span></label>
+            <input type="email" id="bf-email" name="email" placeholder="info@ihrebetrieb.de" required>
+          </div>
+
+          <!-- Branche -->
+          <div class="form-group">
+            <label for="bf-branche">Ihre Branche <span style="color:#c62828">*</span></label>
+            <select id="bf-branche" name="Branche" required>
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option>Steuerberater</option>
+              <option>Rechtsanwalt / Kanzlei</option>
+              <option>Notar</option>
+              <option>Handwerker / Handwerksbetrieb</option>
+              <option>Freelancer / Freiberufler</option>
+              <option>Sonstiges Gewerbe</option>
+            </select>
+          </div>
+
+          <!-- Paket -->
+          <div class="form-group">
+            <label for="bf-paket">Gewünschtes Paket</label>
+            <select id="bf-paket" name="Paket">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option>Starter – 599 € (3 Seiten, 7 Werktage)</option>
+              <option>Standard – 899 € (5 Seiten, Modernisierung)</option>
+              <option>Premium – 1.199 € (bis 8 Seiten, 3 Mon. Support)</option>
+              <option>Noch unentschieden – bitte beraten</option>
+            </select>
+          </div>
+
+          <!-- Was macht Ihr Betrieb -->
+          <div class="form-group full">
+            <label for="bf-beschreibung">Was macht Ihr Betrieb? <span style="color:#c62828">*</span></label>
+            <textarea id="bf-beschreibung" name="Betriebsbeschreibung" placeholder="2–3 Sätze genügen: Was bieten Sie an, wo sind Sie tätig, was unterscheidet Sie?" required></textarea>
+          </div>
+
+          <!-- Was soll die Website leisten -->
+          <div class="form-group full">
+            <label for="bf-ziel">Was soll die Website primär leisten? <span style="color:#c62828">*</span></label>
+            <select id="bf-ziel" name="Website-Ziel" required>
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option>Neue Kunden / Aufträge gewinnen</option>
+              <option>Bestehende Kunden informieren</option>
+              <option>Beides (Neukunden + Info)</option>
+              <option>Professionelleres Erscheinungsbild / Vertrauen aufbauen</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+
+          <!-- Logo & Fotos -->
+          <div class="form-group">
+            <label for="bf-medien">Logo &amp; Fotos vorhanden?</label>
+            <select id="bf-medien" name="Logo und Fotos">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option>Ja – Logo und Fotos vorhanden</option>
+              <option>Nur Logo vorhanden</option>
+              <option>Nur Fotos vorhanden</option>
+              <option>Nein – muss erst erstellt / besorgt werden</option>
+            </select>
+          </div>
+
+          <!-- Texte -->
+          <div class="form-group">
+            <label for="bf-texte">Texte für die Website?</label>
+            <select id="bf-texte" name="Texte">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option>Ja – fertige Texte vorhanden</option>
+              <option>Stichpunkte vorhanden, bitte ausformulieren</option>
+              <option>Nein – bitte komplett schreiben</option>
+            </select>
+          </div>
+
+          <!-- Domain / Hosting -->
+          <div class="form-group">
+            <label for="bf-domain">Bestehende Domain / Hosting? <span class="opt">(optional)</span></label>
+            <input type="text" id="bf-domain" name="Domain und Hosting" placeholder="z. B. meinbetrieb.de bei Strato – oder: nein">
+          </div>
+
+          <!-- Terminbuchung -->
+          <div class="form-group">
+            <label for="bf-kalender">Online-Terminbuchung gewünscht?</label>
+            <select id="bf-kalender" name="Online-Terminbuchung">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option>Ja – Kunden sollen direkt Termine buchen können</option>
+              <option>Nein – normales Kontaktformular reicht</option>
+              <option>Unentschieden – bitte beraten</option>
+            </select>
+          </div>
+
+          <!-- Sonstiges -->
+          <div class="form-group full">
+            <label for="bf-sonstiges">Sonstige Wünsche oder Fragen <span class="opt">(optional)</span></label>
+            <textarea id="bf-sonstiges" name="Sonstiges" placeholder="Gibt es etwas Besonderes, das Ihre neue Website unbedingt haben soll? Oder offene Fragen?" style="min-height:70px;"></textarea>
+          </div>
+
+        </div>
+
+        <!-- DSGVO -->
+        <div style="display:flex;gap:10px;align-items:flex-start;margin:20px 0 24px;padding:16px;background:var(--bg-alt);border-radius:10px;">
+          <input type="checkbox" id="bf-dsgvo" name="DSGVO-Einwilligung" value="Ja" required style="margin-top:2px;flex-shrink:0;width:auto;">
+          <label for="bf-dsgvo" style="font-size:13px;color:var(--text-secondary);line-height:1.5;cursor:pointer;">
+            Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert und verwendet werden. Die <a href="./imprint.html#privacy" style="color:var(--accent);">Datenschutzerklärung</a> habe ich zur Kenntnis genommen. Die Einwilligung kann ich jederzeit per E-Mail widerrufen.
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:16px;">
+          Briefing absenden – ich melde mich innerhalb von 24 h →
+        </button>
+        <p class="briefing-note" style="text-align:center;margin-top:12px;">Kein Spam, keine Weitergabe an Dritte. Nur Thomas Reinke liest Ihre Nachricht.</p>
+      </form>
+
+      <div id="briefing-success">
+        <h4>Briefing erhalten – danke!</h4>
+        <p>Ich melde mich innerhalb von 24 Stunden mit einem konkreten Angebot bei Ihnen. Bei dringenden Fragen: <a href="mailto:info@torecon.de" style="color:var(--accent);">info@torecon.de</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── CTA ───────────────────────────────────────────────── -->
 <section class="wd-cta">
   <div class="container">
@@ -607,6 +819,34 @@
 </section>
 
 <div id="site-footer"></div>
+
+<!-- Briefing Form Handler -->
+<script>
+document.getElementById('briefing-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Wird gesendet …';
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: new FormData(form)
+  }).then(function(r) { return r.json(); }).then(function(data) {
+    if (data.success) {
+      form.style.display = 'none';
+      document.getElementById('briefing-success').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Briefing absenden – ich melde mich innerhalb von 24 h →';
+      alert('Fehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@torecon.de');
+    }
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Briefing absenden – ich melde mich innerhalb von 24 h →';
+    alert('Verbindungsfehler. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@torecon.de');
+  });
+});
+</script>
 
 <!-- Cal.com Embed -->
 <script type="text/javascript">
