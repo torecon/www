@@ -48,6 +48,7 @@ function buildFooter() {
             <li><a href="${root}services.html" data-i18n="nav_services">Leistungen</a></li>
             <li><a href="${root}news.html" data-i18n="nav_news">Finanztrends</a></li>
             <li><a href="${root}newsletter.html" data-i18n="nav_newsletter">Newsletter</a></li>
+            <li><a href="${root}references.html" data-i18n="nav_references">Referenzen</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -56,6 +57,8 @@ function buildFooter() {
             <li><a href="${root}imprint.html" data-i18n="footer_imprint">Impressum</a></li>
             <li><a href="${root}imprint.html#privacy" data-i18n="footer_privacy">Datenschutz</a></li>
             <li><a href="${root}agb.html">AGB</a></li>
+            <li><a href="${root}vertrag.html" data-i18n="footer_contract">Mustervertrag</a></li>
+            <li><a href="${root}avv.html" data-i18n="footer_avv">AVV</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -79,6 +82,8 @@ function buildFooter() {
           <a href="${root}imprint.html" data-i18n="footer_imprint">Impressum</a>
           <a href="${root}imprint.html#privacy" data-i18n="footer_privacy">Datenschutz</a>
           <a href="${root}agb.html">AGB</a>
+          <a href="${root}vertrag.html" data-i18n="footer_contract">Mustervertrag</a>
+          <a href="${root}avv.html" data-i18n="footer_avv">AVV</a>
         </div>
       </div>
     </div>
