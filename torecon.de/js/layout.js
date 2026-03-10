@@ -23,6 +23,7 @@ function buildNav() {
         <li><a href="${root}services.html"${isActive('services')} data-i18n="nav_services">Leistungen</a></li>
         <li><a href="${root}news.html"${isActive('news')} data-i18n="nav_news">Finanztrends</a></li>
         <li><a href="${root}newsletter.html"${isActive('newsletter')} data-i18n="nav_newsletter">Newsletter</a></li>
+        <li><a href="${root}references.html"${isActive('references')} data-i18n="nav_references">Referenzen</a></li>
         <li><a href="${root}contact.html"${isActive('contact')} data-i18n="nav_contact">Kontakt</a></li>
         <li><a href="https://intern.torecon.de/" class="nav-internal" data-i18n="nav_internal">Interner Bereich</a></li>
       </ul>

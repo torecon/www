@@ -9,6 +9,11 @@ const TRANSLATIONS = {
     nav_contact: 'Kontakt',
     nav_internal: 'Interner Bereich',
 
+    ref_eye:   'Referenzen',
+    ref_h1:    'Vertrauen durch Erfahrung',
+    ref_sub:   'Ausgewählte Mandanten und Projekte aus über 25 Jahren Beratungstätigkeit.',
+    ref_empty: 'Keine Referenzen vorhanden.',
+
     hero_eyebrow: 'torecon – Consulting & Financial Intelligence',
     hero_h1: 'Strategie. Kompetenz. Ergebnis.',
     hero_sub: 'Spezialisierte Beratung für Finanzinstitutionen, Genossenschaftsbanken und öffentliche Einrichtungen.',
@@ -219,6 +224,11 @@ const TRANSLATIONS = {
     nav_references: 'References',
     nav_contact: 'Contact',
     nav_internal: 'Internal Area',
+
+    ref_eye:   'References',
+    ref_h1:    'Trust through experience',
+    ref_sub:   'Selected clients and projects from over 25 years of consulting.',
+    ref_empty: 'No references available.',
 
     hero_eyebrow: 'torecon – Consulting & Financial Intelligence',
     hero_h1: 'Strategy. Expertise. Results.',
