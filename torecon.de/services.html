@@ -250,7 +250,11 @@
         <p style="color:rgba(255,255,255,0.65);font-size:15px;margin:0;line-height:1.55;" data-i18n="svc_web_cta_p">Kein Verkaufsgespräch – ich höre zu, was Sie brauchen, und sage Ihnen ehrlich, was sinnvoll ist. Unverbindlich und kostenlos.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;">
-        <a href="./contact.html?service=web" class="btn btn-primary" style="white-space:nowrap;" data-i18n="svc_web_cta_btn">Gespräch vereinbaren →</a>
+        <button data-cal-link="thomas-reinke-6imco4/15min"
+                data-cal-config='{"layout":"month_view"}'
+                type="button"
+                class="btn btn-primary" style="white-space:nowrap;cursor:pointer;"
+                data-i18n="svc_web_cta_btn">Gespräch vereinbaren →</button>
         <a href="mailto:info@torecon.de?subject=Website-Anfrage" class="btn btn-outline-white" style="white-space:nowrap;text-align:center;">info@torecon.de</a>
       </div>
     </div>
@@ -267,6 +271,13 @@
 </section>
 
 <div id="site-footer"></div>
+
+<!-- Cal.com Embed -->
+<script type="text/javascript">
+(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
+Cal("init");
+Cal("ui",{theme:"light",styles:{branding:{brandColor:"#0071E3"}},hideEventTypeDetails:false,layout:"month_view"});
+</script>
 
 <script src="./js/i18n.js"></script>
 <script src="./js/cookie.js"></script>

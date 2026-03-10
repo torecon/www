@@ -69,6 +69,8 @@ const TRANSLATIONS = {
     contact_subject: 'Betreff',
     contact_message: 'Ihre Nachricht',
     contact_send: 'Nachricht senden',
+    contact_cal_btn: 'Jetzt Termin buchen (kostenlos)',
+    contact_or: 'oder Nachricht schreiben',
 
     news_page_eye: 'Finanzmarkt',
     news_page_h1: 'Finanzmarkt-Trends',
@@ -278,6 +280,8 @@ const TRANSLATIONS = {
     contact_subject: 'Subject',
     contact_message: 'Your message',
     contact_send: 'Send message',
+    contact_cal_btn: 'Book a call (15 min, free)',
+    contact_or: 'or send a message',
 
     news_page_eye: 'Financial Market',
     news_page_h1: 'Financial Market Trends',

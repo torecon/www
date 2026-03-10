@@ -68,34 +68,40 @@
 
       <!-- Contact form -->
       <div>
-        <form id="contact-form" onsubmit="handleSubmit(event)">
-          <!-- Web3Forms: API-Key hier eintragen (https://web3forms.com) -->
-          <input type="hidden" name="access_key" value="c18222aa-d131-4135-9c9a-a1e84f4fb66c">
-          <input type="hidden" name="from_name" value="torecon Kontaktformular">
-          <input type="hidden" name="subject" id="hidden-subject" value="Neue Kontaktanfrage über torecon.de">
-          <!-- Kopie an Absender (wird per JS gesetzt) -->
-          <input type="hidden" name="cc" id="hidden-cc" value="">
-          <!-- Honeypot Spam-Schutz -->
-          <input type="checkbox" name="botcheck" style="display:none">
+        <!-- Cal.eu: Termin direkt buchen -->
+        <button data-cal-link="thomas-reinke-6imco4/15min"
+                data-cal-config='{"layout":"month_view"}'
+                type="button"
+                class="btn btn-secondary"
+                style="width:100%;justify-content:center;margin-bottom:12px;font-size:15px;">
+          <svg viewBox="0 0 24 24" width="16" height="16" style="fill:currentColor;flex-shrink:0;margin-right:6px;"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm2 4h10v2H7zm0 4h7v2H7z"/></svg>
+          Jetzt Termin buchen (kostenlos)
+        </button>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="flex:1;height:1px;background:var(--border);"></div>
+          <span style="font-size:13px;color:var(--text-tertiary);">oder Nachricht schreiben</span>
+          <div style="flex:1;height:1px;background:var(--border);"></div>
+        </div>
 
+        <form id="contact-form" onsubmit="handleSubmit(event)">
           <div class="form-group">
-            <label class="form-label" for="name" data-i18n="contact_name">Ihr Name</label>
-            <input class="form-control" type="text" id="name" name="name" required
+            <label class="form-label" for="cf-name" data-i18n="contact_name">Ihr Name</label>
+            <input class="form-control" type="text" id="cf-name" required
               data-i18n-placeholder="contact_name">
           </div>
           <div class="form-group">
-            <label class="form-label" for="email" data-i18n="contact_email_field">E-Mail-Adresse</label>
-            <input class="form-control" type="email" id="email" name="email" required
+            <label class="form-label" for="cf-email" data-i18n="contact_email_field">E-Mail-Adresse</label>
+            <input class="form-control" type="email" id="cf-email" required
               data-i18n-placeholder="contact_email_field">
           </div>
           <div class="form-group">
-            <label class="form-label" for="subject" data-i18n="contact_subject">Betreff</label>
-            <input class="form-control" type="text" id="subject" name="subject"
+            <label class="form-label" for="cf-subject" data-i18n="contact_subject">Betreff</label>
+            <input class="form-control" type="text" id="cf-subject"
               data-i18n-placeholder="contact_subject">
           </div>
           <div class="form-group">
-            <label class="form-label" for="message" data-i18n="contact_message">Ihre Nachricht</label>
-            <textarea class="form-control" id="message" name="message" required
+            <label class="form-label" for="cf-message" data-i18n="contact_message">Ihre Nachricht</label>
+            <textarea class="form-control" id="cf-message" required
               data-i18n-placeholder="contact_message"></textarea>
           </div>
           <div id="form-feedback" style="display:none;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;"></div>
@@ -108,6 +114,13 @@
 
 <div id="site-footer"></div>
 
+<!-- Cal.com Embed -->
+<script type="text/javascript">
+(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
+Cal("init");
+Cal("ui",{theme:"light",styles:{branding:{brandColor:"#0071E3"}},hideEventTypeDetails:false,layout:"month_view"});
+</script>
+
 <script src="./js/i18n.js"></script>
 <script src="./js/cookie.js"></script>
 <script src="./js/layout.js"></script>
@@ -115,43 +128,55 @@
 <script>
 async function handleSubmit(e) {
   e.preventDefault();
-  const form    = e.target;
-  const btn     = document.getElementById('submit-btn');
+  const btn      = document.getElementById('submit-btn');
   const feedback = document.getElementById('form-feedback');
-  const lang    = currentLang || 'de';
+  const lang     = currentLang || 'de';
 
-  // Betreff aus Eingabefeld übernehmen (falls gefüllt)
-  const subjectInput = form.querySelector('#subject').value.trim();
-  form.querySelector('#hidden-subject').value =
-    subjectInput || (lang === 'de' ? 'Neue Kontaktanfrage über torecon.de' : 'New contact request via torecon.de');
-
-  // E-Mail-Kopie an Absender setzen
-  form.querySelector('#hidden-cc').value = form.querySelector('#email').value;
+  const name    = document.getElementById('cf-name').value.trim();
+  const email   = document.getElementById('cf-email').value.trim();
+  const subject = document.getElementById('cf-subject').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
 
   btn.disabled = true;
   btn.textContent = lang === 'de' ? 'Wird gesendet …' : 'Sending …';
+  feedback.style.display = 'none';
+
+  const payload = {
+    access_key:  'c18222aa-d131-4135-9c9a-a1e84f4fb66c',
+    from_name:   'torecon Kontaktformular',
+    subject:     subject ? 'torecon Anfrage: ' + subject : 'Neue Kontaktanfrage über torecon.de',
+    name:        name,
+    email:       email,
+    message:     message,
+    replyto:     email,
+    cc:          email   // Kopie an Absender
+  };
 
   try {
     const res  = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body:   new FormData(form)
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body:    JSON.stringify(payload)
     });
     const data = await res.json();
+    console.log('Web3Forms response:', data);
 
     if (data.success) {
       feedback.style.cssText = 'display:block;background:rgba(52,199,89,0.1);color:#1a7a3a;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;';
       feedback.textContent = lang === 'de'
-        ? 'Vielen Dank! Ihre Nachricht wurde gesendet. Sie erhalten gleich eine Kopie per E-Mail. Wir melden uns zeitnah.'
-        : 'Thank you! Your message has been sent. You will receive a copy by email shortly. We will get back to you soon.';
-      form.reset();
+        ? 'Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns zeitnah.'
+        : 'Thank you! Your message has been sent. We will get back to you soon.';
+      e.target.reset();
     } else {
-      throw new Error(data.message || 'error');
+      feedback.style.cssText = 'display:block;background:rgba(255,59,48,0.1);color:#c0392b;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;';
+      feedback.textContent = 'Fehler: ' + (data.message || 'Unbekannter Fehler');
     }
-  } catch {
+  } catch (err) {
+    console.error('Formular-Fehler:', err);
     feedback.style.cssText = 'display:block;background:rgba(255,59,48,0.1);color:#c0392b;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:15px;';
     feedback.textContent = lang === 'de'
-      ? 'Leider ist ein Fehler aufgetreten. Bitte schreiben Sie direkt an info@torecon.de.'
-      : 'An error occurred. Please write directly to info@torecon.de.';
+      ? 'Verbindungsfehler. Bitte direkt an info@torecon.de schreiben.'
+      : 'Connection error. Please write directly to info@torecon.de.';
   } finally {
     btn.disabled = false;
     btn.textContent = lang === 'de' ? 'Nachricht senden' : 'Send message';
