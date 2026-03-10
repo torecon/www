@@ -21,6 +21,11 @@
 
     <form id="login-form" onsubmit="handleLogin(event)">
       <div class="form-group">
+        <label class="form-label" for="username">Benutzername</label>
+        <input class="form-control" type="text" id="username" required
+          placeholder="Benutzername" autocomplete="username">
+      </div>
+      <div class="form-group">
         <label class="form-label" for="password" data-i18n="login_pw_label">Passwort</label>
         <input class="form-control" type="password" id="password" required
           data-i18n-placeholder="login_pw_placeholder" placeholder="Ihr Passwort" autocomplete="current-password">
@@ -46,9 +51,10 @@
 
   function handleLogin(e) {
     e.preventDefault();
-    const pw = document.getElementById('password').value;
-    const err = document.getElementById('login-error');
-    if (login(pw)) {
+    const user = document.getElementById('username').value;
+    const pw   = document.getElementById('password').value;
+    const err  = document.getElementById('login-error');
+    if (login(user, pw)) {
       window.location.href = './dashboard.html';
     } else {
       err.style.display = 'block';

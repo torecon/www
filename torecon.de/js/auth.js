@@ -1,5 +1,6 @@
 /* torecon – Simple session auth for internal area
-   Password can be changed here. For production, replace with server-side auth. */
+   Change username and password here as needed. */
+const INTERNAL_USER     = 'thomas';
 const INTERNAL_PASSWORD = 'torecon2024';
 
 function checkAuth(root) {
@@ -8,8 +9,8 @@ function checkAuth(root) {
   }
 }
 
-function login(password) {
-  if (password === INTERNAL_PASSWORD) {
+function login(username, password) {
+  if (username === INTERNAL_USER && password === INTERNAL_PASSWORD) {
     sessionStorage.setItem('torecon_auth', '1');
     return true;
   }

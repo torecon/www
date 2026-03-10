@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Referenzen von torecon – Thomas Reinke. Langjährige Erfahrung in der Beratung von Genossenschaftsbanken, Kreditinstituten und Bildungseinrichtungen.">
+  <meta name="author" content="Thomas Reinke">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.torecon.de/references.html">
+  <title>Referenzen – torecon | Thomas Reinke</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.torecon.de/references.html">
+  <meta property="og:title" content="Referenzen – torecon | Thomas Reinke">
+  <meta property="og:description" content="Referenzen aus über 25 Jahren Beratungserfahrung – Genossenschaftsbanken, Kreditinstitute und mehr.">
+  <meta property="og:image" content="https://www.torecon.de/img/thomas-reinke.jpeg">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="torecon">
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<script>window.TORECON_ROOT = './'; window.TORECON_PAGE = 'references';</script>
+
+<div id="site-nav"></div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="section-eyebrow" data-i18n="ref_eye">Referenzen</div>
+    <h1 data-i18n="ref_h1">Vertrauen durch Erfahrung</h1>
+    <p data-i18n="ref_sub">Ausgewählte Mandanten und Projekte aus über 25 Jahren Beratungstätigkeit.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="ref-grid" id="ref-grid">
+      <!-- rendered by JS -->
+    </div>
+    <p id="ref-empty" style="display:none;text-align:center;color:var(--text-secondary);padding:60px 0;" data-i18n="ref_empty">Referenzen werden geladen …</p>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2 data-i18n="cta_h2">Gemeinsam erfolgreich</h2>
+  <p data-i18n="cta_p">Nehmen Sie Kontakt auf und erfahren Sie, wie torecon Ihr Institut stärken kann.</p>
+  <div class="cta-actions">
+    <a href="./contact.html" class="btn btn-primary" data-i18n="cta_btn1">Jetzt Kontakt aufnehmen</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/cookie.js"></script>
+<script src="./js/layout.js"></script>
+<script src="./js/ai-ticker.js"></script>
+<script>
+async function renderReferences() {
+  const grid  = document.getElementById('ref-grid');
+  const empty = document.getElementById('ref-empty');
+  const lang  = currentLang || 'de';
+
+  let refs = [];
+  try {
+    const res = await fetch('./data/references.json?v=' + Date.now());
+    refs = await res.json();
+  } catch(e) {
+    empty.style.display = 'block';
+    empty.textContent = lang === 'de'
+      ? 'Referenzen konnten nicht geladen werden.'
+      : 'References could not be loaded.';
+    return;
+  }
+
+  if (!refs.length) {
+    empty.style.display = 'block';
+    empty.textContent = lang === 'de' ? 'Keine Referenzen vorhanden.' : 'No references available.';
+    return;
+  }
+
+  // Sort by year descending
+  refs.sort((a, b) => (b.year || '').localeCompare(a.year || ''));
+
+  grid.innerHTML = refs.map(r => {
+    const abbr = r.name.split(/[\s\-–]+/).filter(w => w.length > 2).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+    const websiteLink = r.website
+      ? `<a href="${r.website}" target="_blank" rel="noopener" style="font-size:13px;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:12px;">
+           ${new URL(r.website).hostname.replace('www.', '')}
+           <svg viewBox="0 0 24 24" width="11" height="11" style="fill:currentColor;opacity:.7"><path d="M14 5c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1s-1-.4-1-1V6.4l-7.3 7.3c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L16.6 5H15c-.6 0-1-.4-1-1zm-9 2h4c.6 0 1 .4 1 1s-.4 1-1 1H6v9h9v-3c0-.6.4-1 1-1s1 .4 1 1v3c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2z"/></svg>
+         </a>`
+      : '';
+    return `
+      <div class="ref-card">
+        <div class="ref-abbr">${abbr}</div>
+        <h3>${r.name}</h3>
+        <p>${r.slogan || ''}</p>
+        <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">${r.year || ''}</div>
+        ${websiteLink}
+      </div>`;
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', renderReferences);
+</script>
+</body>
+</html>
