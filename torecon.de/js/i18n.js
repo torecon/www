@@ -175,6 +175,12 @@ const TRANSLATIONS = {
 
     imprint_h1: 'Impressum',
 
+    cookie_label: 'Cookie-Einstellungen',
+    cookie_text: 'Diese Website verwendet Cookies, um die Nutzererfahrung zu verbessern und anonyme Nutzungsstatistiken zu erheben. Technisch notwendige Cookies sind immer aktiv.',
+    cookie_more: 'Mehr erfahren',
+    cookie_necessary: 'Nur notwendige',
+    cookie_accept_all: 'Alle akzeptieren',
+
     footer_desc: 'Beratung für Finanzinstitutionen – strategisch, kompetent, zuverlässig.',
     footer_nav_title: 'Navigation',
     footer_legal_title: 'Rechtliches',
@@ -377,6 +383,12 @@ const TRANSLATIONS = {
     nl_submit_note: 'You will receive a confirmation email at the address provided. You can cancel at any time.',
 
     imprint_h1: 'Imprint',
+
+    cookie_label: 'Cookie settings',
+    cookie_text: 'This website uses cookies to improve user experience and collect anonymous usage statistics. Technically necessary cookies are always active.',
+    cookie_more: 'Learn more',
+    cookie_necessary: 'Necessary only',
+    cookie_accept_all: 'Accept all',
 
     footer_desc: 'Consulting for financial institutions – strategic, competent, reliable.',
     footer_nav_title: 'Navigation',
