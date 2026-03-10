@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/check_auth.php'; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -21,7 +22,6 @@
     .btn-icon { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px; font-size: 13px; cursor: pointer; color: var(--text-secondary); transition: var(--transition); }
     .btn-icon:hover { border-color: var(--accent); color: var(--accent); }
     .btn-icon.del:hover { border-color: #ff3b30; color: #ff3b30; }
-    .btn-icon.up:hover, .btn-icon.dn:hover { border-color: var(--text-secondary); }
 
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; }
     .modal-overlay.open { display: flex; }
@@ -39,7 +39,6 @@
     .toolbar { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
     .toolbar .spacer { flex: 1; }
     .save-info { font-size: 13px; color: var(--text-tertiary); }
-
     .empty-state { text-align: center; padding: 48px 0; color: var(--text-secondary); }
   </style>
 </head>
@@ -49,7 +48,7 @@
 <div class="ref-admin-wrap">
 
   <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
-    <a href="./dashboard.html" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">← Dashboard</a>
+    <a href="./dashboard.php" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">← Dashboard</a>
     <div style="flex:1;"></div>
     <a href="https://www.torecon.de/references.html" target="_blank" style="font-size:13px;color:var(--accent);text-decoration:none;">Vorschau →</a>
   </div>
@@ -78,7 +77,7 @@
       </tr>
     </thead>
     <tbody id="ref-tbody">
-      <tr><td colspan="5"><div class="empty-state">Keine Einträge vorhanden. Fügen Sie die erste Referenz hinzu.</div></td></tr>
+      <tr><td colspan="5"><div class="empty-state">Keine Einträge vorhanden.</div></td></tr>
     </tbody>
   </table>
 
@@ -127,22 +126,14 @@ const LS_KEY = 'torecon_references';
 let refs = [];
 let editId = null;
 
-// ── Load ──────────────────────────────────────────────
 async function loadRefs() {
   const stored = localStorage.getItem(LS_KEY);
-  if (stored) {
-    refs = JSON.parse(stored);
-    renderTable();
-    return;
-  }
-  // First load: fetch from live JSON
+  if (stored) { refs = JSON.parse(stored); renderTable(); return; }
   try {
     const res = await fetch('https://www.torecon.de/data/references.json?v=' + Date.now());
     refs = await res.json();
     save();
-  } catch(e) {
-    refs = [];
-  }
+  } catch(e) { refs = []; }
   renderTable();
 }
 
@@ -152,7 +143,6 @@ function save() {
   document.getElementById('save-info').textContent = 'Zuletzt gespeichert: ' + now;
 }
 
-// ── Render ────────────────────────────────────────────
 function renderTable() {
   const tbody = document.getElementById('ref-tbody');
   if (!refs.length) {
@@ -165,22 +155,19 @@ function renderTable() {
       <td>${esc(r.year)}</td>
       <td class="slogan-cell">${esc(r.slogan || '—')}</td>
       <td class="website-cell">${r.website ? `<a href="${esc(r.website)}" target="_blank" rel="noopener">${esc(new URL(r.website).hostname.replace('www.',''))}</a>` : '—'}</td>
-      <td>
-        <div class="actions">
-          <button class="btn-icon" title="Nach oben" onclick="moveUp(${i})" ${i===0?'disabled':''}>↑</button>
-          <button class="btn-icon" title="Nach unten" onclick="moveDown(${i})" ${i===refs.length-1?'disabled':''}>↓</button>
-          <button class="btn-icon" onclick="editEntry(${i})">Bearbeiten</button>
-          <button class="btn-icon del" onclick="deleteEntry(${i})">Löschen</button>
-        </div>
-      </td>
+      <td><div class="actions">
+        <button class="btn-icon" onclick="moveUp(${i})" ${i===0?'disabled':''}>↑</button>
+        <button class="btn-icon" onclick="moveDown(${i})" ${i===refs.length-1?'disabled':''}>↓</button>
+        <button class="btn-icon" onclick="editEntry(${i})">Bearbeiten</button>
+        <button class="btn-icon del" onclick="deleteEntry(${i})">Löschen</button>
+      </div></td>
     </tr>`).join('');
 }
 
 function esc(s) {
-  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ── Modal ─────────────────────────────────────────────
 function openModal(entry) {
   editId = entry ? entry.id : null;
   document.getElementById('modal-title').textContent = entry ? 'Referenz bearbeiten' : 'Referenz hinzufügen';
@@ -192,101 +179,53 @@ function openModal(entry) {
   document.getElementById('f-name').focus();
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-  editId = null;
-}
-
+function closeModal() { document.getElementById('modal').classList.remove('open'); editId = null; }
 function editEntry(i) { openModal(refs[i]); }
 
 function saveEntry() {
-  const name    = document.getElementById('f-name').value.trim();
-  const year    = document.getElementById('f-year').value.trim();
-  const website = document.getElementById('f-website').value.trim();
-  const slogan  = document.getElementById('f-slogan').value.trim();
-
-  if (!name || !year) {
-    alert('Name und Jahr sind Pflichtfelder.');
-    return;
-  }
-
-  if (editId) {
-    const idx = refs.findIndex(r => r.id === editId);
-    if (idx !== -1) refs[idx] = { id: editId, name, year, website, slogan };
-  } else {
-    refs.push({ id: Date.now().toString(), name, year, website, slogan });
-  }
-  save();
-  renderTable();
-  closeModal();
+  const name = document.getElementById('f-name').value.trim();
+  const year = document.getElementById('f-year').value.trim();
+  if (!name || !year) { alert('Name und Jahr sind Pflichtfelder.'); return; }
+  const entry = { id: editId || Date.now().toString(), name, year,
+    website: document.getElementById('f-website').value.trim(),
+    slogan:  document.getElementById('f-slogan').value.trim() };
+  if (editId) { const idx = refs.findIndex(r => r.id === editId); if (idx !== -1) refs[idx] = entry; }
+  else refs.push(entry);
+  save(); renderTable(); closeModal();
 }
 
 function deleteEntry(i) {
   if (!confirm('Referenz "' + refs[i].name + '" wirklich löschen?')) return;
-  refs.splice(i, 1);
-  save();
-  renderTable();
+  refs.splice(i, 1); save(); renderTable();
 }
+function moveUp(i)   { if (i>0) { [refs[i-1],refs[i]]=[refs[i],refs[i-1]]; save(); renderTable(); } }
+function moveDown(i) { if (i<refs.length-1) { [refs[i],refs[i+1]]=[refs[i+1],refs[i]]; save(); renderTable(); } }
 
-function moveUp(i) {
-  if (i === 0) return;
-  [refs[i-1], refs[i]] = [refs[i], refs[i-1]];
-  save(); renderTable();
-}
-
-function moveDown(i) {
-  if (i >= refs.length - 1) return;
-  [refs[i], refs[i+1]] = [refs[i+1], refs[i]];
-  save(); renderTable();
-}
-
-// ── Download JSON ─────────────────────────────────────
 function downloadJSON() {
-  const blob = new Blob([JSON.stringify(refs, null, 2)], {type: 'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'references.json';
-  a.click();
-  URL.revokeObjectURL(a.href);
+  const a = Object.assign(document.createElement('a'), {
+    href: URL.createObjectURL(new Blob([JSON.stringify(refs,null,2)],{type:'application/json'})),
+    download: 'references.json'
+  });
+  a.click(); URL.revokeObjectURL(a.href);
 }
 
-// ── Fetch slogan from website ─────────────────────────
 async function fetchSlogan() {
   const url = document.getElementById('f-website').value.trim();
   if (!url) { alert('Bitte zuerst eine Website-URL eingeben.'); return; }
   const btn = document.getElementById('fetch-slogan-btn');
-  btn.textContent = 'Lädt …';
-  btn.disabled = true;
+  btn.textContent = 'Lädt …'; btn.disabled = true;
   try {
-    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
-    const res  = await fetch(proxy);
-    const data = await res.json();
-    const html  = data.contents || '';
-    const match = html.match(/<meta[^>]+(?:name="description"|property="og:description")[^>]+content="([^"]+)"/i)
-                || html.match(/<meta[^>]+content="([^"]+)"[^>]+(?:name="description"|property="og:description")/i);
-    if (match) {
-      document.getElementById('f-slogan').value = match[1].slice(0, 120);
-    } else {
-      alert('Kein Slogan auf der Website gefunden. Bitte manuell eingeben.');
-    }
-  } catch(e) {
-    alert('Website konnte nicht geladen werden. Bitte manuell eingeben.');
-  } finally {
-    btn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" style="fill:currentColor"><path d="M12 4V1L8 5l4 4V6c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/></svg> Von Website laden';
-    btn.disabled = false;
-  }
+    const data = await (await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(url))).json();
+    const match = (data.contents||'').match(/<meta[^>]+(?:name="description"|property="og:description")[^>]+content="([^"]+)"/i)
+                || (data.contents||'').match(/<meta[^>]+content="([^"]+)"[^>]+(?:name="description"|property="og:description")/i);
+    if (match) document.getElementById('f-slogan').value = match[1].slice(0,120);
+    else alert('Kein Slogan gefunden. Bitte manuell eingeben.');
+  } catch(e) { alert('Website nicht erreichbar. Bitte manuell eingeben.'); }
+  finally { btn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" style="fill:currentColor"><path d="M12 4V1L8 5l4 4V6c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/></svg> Von Website laden'; btn.disabled = false; }
 }
 
-// Close modal on overlay click
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-// Enter to save in modal
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
-
+document.getElementById('modal').addEventListener('click', e => { if (e.target===document.getElementById('modal')) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
 document.addEventListener('DOMContentLoaded', loadRefs);
 </script>
 </body>
