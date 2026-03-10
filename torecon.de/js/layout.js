@@ -55,6 +55,7 @@ function buildFooter() {
           <ul>
             <li><a href="${root}imprint.html" data-i18n="footer_imprint">Impressum</a></li>
             <li><a href="${root}imprint.html#privacy" data-i18n="footer_privacy">Datenschutz</a></li>
+            <li><a href="${root}agb.html">AGB</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -77,6 +78,7 @@ function buildFooter() {
         <div class="footer-bottom-links">
           <a href="${root}imprint.html" data-i18n="footer_imprint">Impressum</a>
           <a href="${root}imprint.html#privacy" data-i18n="footer_privacy">Datenschutz</a>
+          <a href="${root}agb.html">AGB</a>
         </div>
       </div>
     </div>
