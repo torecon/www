@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1773148206546",
+    "name": "Deka",
+    "year": "2026",
+    "website": "https://www.deka.de/privatkunden",
+    "slogan": "Deka Investments - professionelle Anlage- und Vorsorgelösungen. Fonds, Zertifikate, Altersvorsorge, regelmäßiges Sparen, Geld anlegen und Vermögen managen"
+  },
+  {
+    "id": "1773153139218",
+    "name": "HSBC",
+    "year": "2024",
+    "website": "https://www.hsbc.de",
+    "slogan": "HSBC in Deutschland ist die global vernetzte Geschäftsbank für Firmenkunden, institutionelle Investoren und vermögende Privatkunden."
+  },
+  {
+    "id": "1773153274904",
+    "name": "Finanzinformatik",
+    "year": "2026",
+    "website": "https://www.f-i.de",
+    "slogan": "Die Finanz Informatik GmbH & Co. KG (FI) ist der zentrale IT-Dienstleister und Digitalisierungspartner der Sparkassen-Finanzgruppe."
+  },
+  {
+    "id": "1773153345232",
+    "name": "USAID",
+    "year": "2019",
+    "website": "https://www.usaid.gov",
+    "slogan": "Behörde der Vereinigten Staaten für internationale Entwicklung"
+  }
+]

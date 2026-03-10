@@ -1,232 +1,209 @@
-<?php require_once __DIR__ . '/check_auth.php'; ?>
+<?php
+require_once __DIR__ . '/check_auth.php';
+
+$ref_file = __DIR__ . '/references.json';
+
+function read_json($path, $default) {
+    if (!file_exists($path)) return $default;
+    $raw  = file_get_contents($path);
+    $data = json_decode($raw, true);
+    return (is_array($data) && count($data) > 0) ? $data : $default;
+}
+
+function write_json($path, $data) {
+    return file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+}
+
+$action = isset($_POST['action']) ? $_POST['action'] : '';
+$msg    = '';
+
+// Download JSON
+if (isset($_GET['dl']) && $_GET['dl'] === 'references') {
+    $data = read_json($ref_file, array());
+    header('Content-Type: application/json; charset=utf-8');
+    header('Content-Disposition: attachment; filename="references.json"');
+    echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+// Save (add or update)
+if ($action === 'ref_save') {
+    $refs = read_json($ref_file, array());
+    $id   = isset($_POST['id']) ? trim($_POST['id']) : '';
+    $item = array(
+        'id'      => $id ? $id : strval(intval(round(microtime(true) * 1000))),
+        'name'    => isset($_POST['name'])    ? trim($_POST['name'])    : '',
+        'year'    => isset($_POST['year'])    ? trim($_POST['year'])    : '',
+        'website' => isset($_POST['website']) ? trim($_POST['website']) : '',
+        'slogan'  => isset($_POST['slogan'])  ? trim($_POST['slogan'])  : '',
+    );
+    if ($id) {
+        foreach ($refs as $k => $v) {
+            if ($v['id'] === $id) { $refs[$k] = $item; break; }
+        }
+    } else {
+        $refs[] = $item;
+    }
+    write_json($ref_file, array_values($refs));
+    $msg = 'Referenz gespeichert.';
+}
+
+// Delete
+if ($action === 'ref_delete') {
+    $id   = isset($_POST['del_id']) ? trim($_POST['del_id']) : '';
+    $refs = read_json($ref_file, array());
+    $refs = array_values(array_filter($refs, function($v) use ($id) { return $v['id'] !== $id; }));
+    write_json($ref_file, $refs);
+    $msg = 'Referenz gelöscht.';
+}
+
+$refs     = read_json($ref_file, array());
+$edit_ref = null;
+if (isset($_GET['edit'])) {
+    $eid = trim($_GET['edit']);
+    foreach ($refs as $r) {
+        if ($r['id'] === $eid) { $edit_ref = $r; break; }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Referenzen verwalten – torecon</title>
+  <title>Referenzkunden – torecon</title>
   <link rel="stylesheet" href="https://www.torecon.de/css/style.css">
   <style>
-    .ref-admin-wrap { max-width: 860px; margin: 0 auto; padding: 32px 24px 80px; }
-    .ref-admin-wrap h1 { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
-    .ref-admin-wrap .sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 32px; }
-
-    .ref-table { width: 100%; border-collapse: collapse; }
-    .ref-table th { text-align: left; font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .06em; padding: 0 12px 10px; border-bottom: 1px solid var(--border); }
-    .ref-table td { padding: 14px 12px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: top; }
-    .ref-table tr:last-child td { border-bottom: none; }
-    .ref-table .name-cell { font-weight: 600; }
-    .ref-table .slogan-cell { color: var(--text-secondary); font-size: 13px; }
-    .ref-table .website-cell a { font-size: 13px; color: var(--accent); text-decoration: none; }
-    .ref-table .actions { display: flex; gap: 8px; }
-    .btn-icon { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px; font-size: 13px; cursor: pointer; color: var(--text-secondary); transition: var(--transition); }
-    .btn-icon:hover { border-color: var(--accent); color: var(--accent); }
-    .btn-icon.del:hover { border-color: #ff3b30; color: #ff3b30; }
-
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; }
-    .modal-overlay.open { display: flex; }
-    .modal { background: var(--bg); border-radius: 20px; padding: 32px; width: 100%; max-width: 520px; box-shadow: 0 24px 60px rgba(0,0,0,.2); }
-    .modal h2 { font-size: 20px; margin-bottom: 24px; }
-    .modal .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .modal .form-group { margin-bottom: 16px; }
-    .modal-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
-    .btn-cancel { background: none; border: 1px solid var(--border); border-radius: 10px; padding: 10px 20px; font-size: 14px; cursor: pointer; color: var(--text-secondary); }
-    .btn-cancel:hover { background: var(--bg-alt); }
-
-    .fetch-btn { background: none; border: none; color: var(--accent); font-size: 13px; cursor: pointer; padding: 4px 0; display: inline-flex; align-items: center; gap: 4px; }
-    .fetch-btn:hover { text-decoration: underline; }
-
-    .toolbar { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
-    .toolbar .spacer { flex: 1; }
-    .save-info { font-size: 13px; color: var(--text-tertiary); }
-    .empty-state { text-align: center; padding: 48px 0; color: var(--text-secondary); }
+    .form-panel { background:#fff; border:1px solid rgba(0,0,0,0.09); border-radius:14px;
+                  padding:24px 28px; margin-bottom:28px; }
+    .form-panel h4 { margin:0 0 18px; font-size:16px; }
+    .fg { display:grid; grid-template-columns:1fr 1fr; gap:14px 18px; }
+    .fg label { display:flex; flex-direction:column; gap:5px; font-size:13px; color:var(--text-secondary); }
+    .fg input, .fg textarea { border:1px solid rgba(0,0,0,0.18); border-radius:8px;
+                               padding:8px 11px; font-size:14px; font-family:inherit;
+                               background:#fafafa; resize:vertical; }
+    .fg input:focus, .fg textarea:focus { outline:none; border-color:#0071E3; background:#fff; }
+    .fg .span2 { grid-column:1/-1; }
+    .btn-row { display:flex; gap:10px; margin-top:18px; }
+    .btn-primary   { background:#0071E3; color:#fff; border:none; padding:9px 22px;
+                     border-radius:8px; font-size:14px; cursor:pointer; font-weight:500; }
+    .btn-secondary { background:#f5f5f7; color:#333; border:1px solid rgba(0,0,0,0.15);
+                     padding:9px 18px; border-radius:8px; font-size:14px; cursor:pointer; }
+    .btn-danger { background:#ff3b30; color:#fff; border:none; padding:6px 14px;
+                  border-radius:7px; font-size:12px; cursor:pointer; }
+    .btn-edit   { background:#f5f5f7; color:#0071E3; border:1px solid rgba(0,113,227,0.25);
+                  padding:6px 14px; border-radius:7px; font-size:12px; cursor:pointer; font-weight:500; }
+    .item-list { display:flex; flex-direction:column; gap:10px; }
+    .item-row  { display:flex; align-items:flex-start; gap:12px; background:#fff;
+                 border:1px solid rgba(0,0,0,0.09); border-radius:12px; padding:14px 16px; }
+    .item-meta { flex:1; min-width:0; }
+    .item-meta strong { font-size:14px; display:block; margin-bottom:3px; }
+    .item-meta span   { font-size:12px; color:var(--text-secondary); }
+    .item-actions { display:flex; gap:8px; align-items:center; flex-shrink:0; }
+    .dl-row { display:flex; gap:12px; margin-bottom:24px; }
+    .dl-btn { display:inline-flex; align-items:center; gap:6px; background:#f5f5f7;
+              border:1px solid rgba(0,0,0,0.15); padding:8px 18px; border-radius:8px;
+              font-size:13px; color:#0071E3; text-decoration:none; font-weight:500; }
+    .dl-btn:hover { background:#e8e8ed; }
+    .msg { background:#d1fae5; border:1px solid #6ee7b7; color:#065f46; border-radius:9px;
+           padding:10px 16px; margin-bottom:20px; font-size:14px; }
+    @media(max-width:700px) { .fg { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
 <script>window.TORECON_ROOT = 'https://www.torecon.de/';</script>
 
-<div class="ref-admin-wrap">
+<div class="dashboard-wrap">
 
-  <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
-    <a href="./dashboard.php" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">← Dashboard</a>
-    <div style="flex:1;"></div>
-    <a href="https://www.torecon.de/references.html" target="_blank" style="font-size:13px;color:var(--accent);text-decoration:none;">Vorschau →</a>
+  <aside class="sidebar">
+    <div class="sidebar-logo">tore<span>con</span></div>
+    <ul class="sidebar-nav">
+      <li><a href="./dashboard.php">📊 Übersicht</a></li>
+      <li><a href="./news.php">📰 News verwalten</a></li>
+      <li><a href="./references.php" class="active">🏢 Referenzkunden</a></li>
+      <li><a href="./settings.php">⚙️ Einstellungen</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="./logout.php">Abmelden</a>
+    </div>
+  </aside>
+
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <h1>Referenzkunden</h1>
+      <a href="https://www.torecon.de/references.html" style="font-size:13px;color:var(--text-secondary);">← Referenzseite</a>
+    </div>
+
+    <div class="dash-content">
+
+      <?php if ($msg): ?>
+        <div class="msg"><?php echo htmlspecialchars($msg); ?></div>
+      <?php endif; ?>
+
+      <div class="dl-row">
+        <a href="?dl=references" class="dl-btn">⬇ references.json herunterladen</a>
+      </div>
+      <p style="font-size:12px;color:var(--text-secondary);margin:-14px 0 22px;">Nach dem Download → via Plesk hochladen nach <strong>torecon.de/data/</strong></p>
+
+      <!-- Form -->
+      <div class="form-panel">
+        <h4><?php echo $edit_ref ? 'Referenz bearbeiten' : 'Neue Referenz hinzufügen'; ?></h4>
+        <form method="post" action="./references.php">
+          <input type="hidden" name="action" value="ref_save">
+          <?php if ($edit_ref): ?>
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($edit_ref['id']); ?>">
+          <?php endif; ?>
+          <div class="fg">
+            <label>Name / Unternehmen
+              <input type="text" name="name" required
+                value="<?php echo htmlspecialchars($edit_ref ? $edit_ref['name'] : ''); ?>">
+            </label>
+            <label>Jahr
+              <input type="number" name="year" required min="1990" max="2099"
+                value="<?php echo htmlspecialchars($edit_ref ? $edit_ref['year'] : date('Y')); ?>">
+            </label>
+            <label>Website (URL)
+              <input type="url" name="website"
+                value="<?php echo htmlspecialchars($edit_ref ? $edit_ref['website'] : ''); ?>">
+            </label>
+            <label class="span2">Kurzbeschreibung / Slogan
+              <textarea name="slogan" rows="2"><?php echo htmlspecialchars($edit_ref ? $edit_ref['slogan'] : ''); ?></textarea>
+            </label>
+          </div>
+          <div class="btn-row">
+            <button type="submit" class="btn-primary"><?php echo $edit_ref ? 'Speichern' : 'Hinzufügen'; ?></button>
+            <?php if ($edit_ref): ?>
+              <a href="./references.php" class="btn-secondary">Abbrechen</a>
+            <?php endif; ?>
+          </div>
+        </form>
+      </div>
+
+      <!-- List -->
+      <div class="form-panel">
+        <h4>Vorhandene Referenzen (<?php echo count($refs); ?>)</h4>
+        <div class="item-list">
+          <?php foreach ($refs as $r): ?>
+            <div class="item-row">
+              <div class="item-meta">
+                <strong><?php echo htmlspecialchars($r['name']); ?> <span style="font-weight:400;color:var(--text-secondary);">(<?php echo htmlspecialchars($r['year']); ?>)</span></strong>
+                <span><?php echo htmlspecialchars($r['slogan']); ?></span>
+              </div>
+              <div class="item-actions">
+                <a href="?edit=<?php echo urlencode($r['id']); ?>" class="btn-edit">Bearbeiten</a>
+                <form method="post" action="./references.php" onsubmit="return confirm('Referenz löschen?')">
+                  <input type="hidden" name="action" value="ref_delete">
+                  <input type="hidden" name="del_id" value="<?php echo htmlspecialchars($r['id']); ?>">
+                  <button type="submit" class="btn-danger">Löschen</button>
+                </form>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <h1>Referenzen verwalten</h1>
-  <p class="sub">Änderungen werden lokal gespeichert. JSON herunterladen und via Plesk hochladen, um die Website zu aktualisieren.</p>
-
-  <div class="toolbar">
-    <button class="btn btn-primary" onclick="openModal()" style="font-size:14px;padding:10px 20px;">+ Referenz hinzufügen</button>
-    <div class="spacer"></div>
-    <span class="save-info" id="save-info"></span>
-    <button class="btn btn-secondary" onclick="downloadJSON()" style="font-size:14px;padding:10px 20px;">
-      <svg viewBox="0 0 24 24" width="15" height="15" style="fill:currentColor;margin-right:6px;flex-shrink:0;"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
-      JSON herunterladen
-    </button>
-  </div>
-
-  <table class="ref-table" id="ref-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Jahr</th>
-        <th>Slogan</th>
-        <th>Website</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="ref-tbody">
-      <tr><td colspan="5"><div class="empty-state">Keine Einträge vorhanden.</div></td></tr>
-    </tbody>
-  </table>
-
 </div>
-
-<!-- Modal -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <h2 id="modal-title">Referenz hinzufügen</h2>
-    <div class="form-row">
-      <div class="form-group" style="grid-column:1/-1;">
-        <label class="form-label">Name *</label>
-        <input class="form-control" id="f-name" type="text" placeholder="z.B. Volksbank Musterstadt eG" required>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Jahr *</label>
-        <input class="form-control" id="f-year" type="number" min="1990" max="2099" placeholder="2024" required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Website</label>
-        <input class="form-control" id="f-website" type="url" placeholder="https://…">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="form-label" style="display:flex;align-items:center;justify-content:space-between;">
-        Slogan
-        <button type="button" class="fetch-btn" id="fetch-slogan-btn" onclick="fetchSlogan()">
-          <svg viewBox="0 0 24 24" width="12" height="12" style="fill:currentColor"><path d="M12 4V1L8 5l4 4V6c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/></svg>
-          Von Website laden
-        </button>
-      </label>
-      <input class="form-control" id="f-slogan" type="text" placeholder="Kurze Beschreibung des Projekts">
-    </div>
-    <div class="modal-actions">
-      <button type="button" class="btn-cancel" onclick="closeModal()">Abbrechen</button>
-      <button type="button" class="btn btn-primary" onclick="saveEntry()" style="font-size:14px;padding:10px 24px;">Speichern</button>
-    </div>
-  </div>
-</div>
-
-<script src="https://www.torecon.de/js/i18n.js"></script>
-<script>
-const LS_KEY = 'torecon_references';
-let refs = [];
-let editId = null;
-
-async function loadRefs() {
-  const stored = localStorage.getItem(LS_KEY);
-  if (stored) { refs = JSON.parse(stored); renderTable(); return; }
-  try {
-    const res = await fetch('https://www.torecon.de/data/references.json?v=' + Date.now());
-    refs = await res.json();
-    save();
-  } catch(e) { refs = []; }
-  renderTable();
-}
-
-function save() {
-  localStorage.setItem(LS_KEY, JSON.stringify(refs));
-  const now = new Date().toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'});
-  document.getElementById('save-info').textContent = 'Zuletzt gespeichert: ' + now;
-}
-
-function renderTable() {
-  const tbody = document.getElementById('ref-tbody');
-  if (!refs.length) {
-    tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state">Keine Einträge vorhanden. Fügen Sie die erste Referenz hinzu.</div></td></tr>';
-    return;
-  }
-  tbody.innerHTML = refs.map((r, i) => `
-    <tr>
-      <td class="name-cell">${esc(r.name)}</td>
-      <td>${esc(r.year)}</td>
-      <td class="slogan-cell">${esc(r.slogan || '—')}</td>
-      <td class="website-cell">${r.website ? `<a href="${esc(r.website)}" target="_blank" rel="noopener">${esc(new URL(r.website).hostname.replace('www.',''))}</a>` : '—'}</td>
-      <td><div class="actions">
-        <button class="btn-icon" onclick="moveUp(${i})" ${i===0?'disabled':''}>↑</button>
-        <button class="btn-icon" onclick="moveDown(${i})" ${i===refs.length-1?'disabled':''}>↓</button>
-        <button class="btn-icon" onclick="editEntry(${i})">Bearbeiten</button>
-        <button class="btn-icon del" onclick="deleteEntry(${i})">Löschen</button>
-      </div></td>
-    </tr>`).join('');
-}
-
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-function openModal(entry) {
-  editId = entry ? entry.id : null;
-  document.getElementById('modal-title').textContent = entry ? 'Referenz bearbeiten' : 'Referenz hinzufügen';
-  document.getElementById('f-name').value    = entry?.name    || '';
-  document.getElementById('f-year').value    = entry?.year    || new Date().getFullYear();
-  document.getElementById('f-website').value = entry?.website || '';
-  document.getElementById('f-slogan').value  = entry?.slogan  || '';
-  document.getElementById('modal').classList.add('open');
-  document.getElementById('f-name').focus();
-}
-
-function closeModal() { document.getElementById('modal').classList.remove('open'); editId = null; }
-function editEntry(i) { openModal(refs[i]); }
-
-function saveEntry() {
-  const name = document.getElementById('f-name').value.trim();
-  const year = document.getElementById('f-year').value.trim();
-  if (!name || !year) { alert('Name und Jahr sind Pflichtfelder.'); return; }
-  const entry = { id: editId || Date.now().toString(), name, year,
-    website: document.getElementById('f-website').value.trim(),
-    slogan:  document.getElementById('f-slogan').value.trim() };
-  if (editId) { const idx = refs.findIndex(r => r.id === editId); if (idx !== -1) refs[idx] = entry; }
-  else refs.push(entry);
-  save(); renderTable(); closeModal();
-}
-
-function deleteEntry(i) {
-  if (!confirm('Referenz "' + refs[i].name + '" wirklich löschen?')) return;
-  refs.splice(i, 1); save(); renderTable();
-}
-function moveUp(i)   { if (i>0) { [refs[i-1],refs[i]]=[refs[i],refs[i-1]]; save(); renderTable(); } }
-function moveDown(i) { if (i<refs.length-1) { [refs[i],refs[i+1]]=[refs[i+1],refs[i]]; save(); renderTable(); } }
-
-function downloadJSON() {
-  const a = Object.assign(document.createElement('a'), {
-    href: URL.createObjectURL(new Blob([JSON.stringify(refs,null,2)],{type:'application/json'})),
-    download: 'references.json'
-  });
-  a.click(); URL.revokeObjectURL(a.href);
-}
-
-async function fetchSlogan() {
-  const url = document.getElementById('f-website').value.trim();
-  if (!url) { alert('Bitte zuerst eine Website-URL eingeben.'); return; }
-  const btn = document.getElementById('fetch-slogan-btn');
-  btn.textContent = 'Lädt …'; btn.disabled = true;
-  try {
-    const data = await (await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(url))).json();
-    const match = (data.contents||'').match(/<meta[^>]+(?:name="description"|property="og:description")[^>]+content="([^"]+)"/i)
-                || (data.contents||'').match(/<meta[^>]+content="([^"]+)"[^>]+(?:name="description"|property="og:description")/i);
-    if (match) document.getElementById('f-slogan').value = match[1].slice(0,120);
-    else alert('Kein Slogan gefunden. Bitte manuell eingeben.');
-  } catch(e) { alert('Website nicht erreichbar. Bitte manuell eingeben.'); }
-  finally { btn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" style="fill:currentColor"><path d="M12 4V1L8 5l4 4V6c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/></svg> Von Website laden'; btn.disabled = false; }
-}
-
-document.getElementById('modal').addEventListener('click', e => { if (e.target===document.getElementById('modal')) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
-document.addEventListener('DOMContentLoaded', loadRefs);
-</script>
 </body>
 </html>

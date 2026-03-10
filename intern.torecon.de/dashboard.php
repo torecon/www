@@ -17,9 +17,9 @@
     <div class="sidebar-logo">tore<span>con</span></div>
     <ul class="sidebar-nav">
       <li><a href="./dashboard.php" class="active">📊 <span data-i18n="dash_nav_overview">Übersicht</span></a></li>
-      <li><a href="#">✏️ <span data-i18n="dash_nav_news">Finanztrends verwalten</span></a></li>
+      <li><a href="./news.php">📰 <span data-i18n="dash_nav_news">News verwalten</span></a></li>
       <li><a href="./references.php">🏢 <span data-i18n="dash_nav_clients">Referenzkunden</span></a></li>
-      <li><a href="#">⚙️ <span data-i18n="dash_nav_settings">Einstellungen</span></a></li>
+      <li><a href="./settings.php">⚙️ <span data-i18n="dash_nav_settings">Einstellungen</span></a></li>
     </ul>
     <div class="sidebar-footer">
       <a href="./logout.php" data-i18n="logout">Abmelden</a>
