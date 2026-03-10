@@ -94,7 +94,7 @@ const TRANSLATIONS = {
 
     svc_web_eye: 'Zusätzliche Leistung',
     svc_web_badge: 'Neu',
-    svc_web_h2: 'Professionelle Website für<br>Steuerberater, Rechtsanwälte &amp; Notare',
+    svc_web_h2: 'Professionelle Website für Steuerberater,<br>Rechtsanwälte, Notare, Handwerker &amp; Freelancer',
     svc_web_sub: 'Modernes Design, DSGVO-konform, mobil-optimiert – zum Festpreis. Keine versteckten Kosten, kein Monatsabo, kein Wartungsvertrag.',
     svc_web_contact_role: 'Ihr persönlicher Ansprechpartner',
     svc_web_bad_title: 'Baukastensystem (Jimdo, Wix…)',
@@ -310,7 +310,7 @@ const TRANSLATIONS = {
 
     svc_web_eye: 'Additional Service',
     svc_web_badge: 'New',
-    svc_web_h2: 'Professional website for<br>tax advisors, lawyers &amp; notaries',
+    svc_web_h2: 'Professional website for<br>tax advisors, lawyers, notaries, tradespeople &amp; freelancers',
     svc_web_sub: 'Modern design, GDPR-compliant, mobile-optimised – at a fixed price. No hidden costs, no monthly subscription, no maintenance contract.',
     svc_web_contact_role: 'Your personal contact',
     svc_web_bad_title: 'Website builder (Jimdo, Wix…)',

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website-Modernisierung für Steuerberater, Rechtsanwälte, Notare, Handwerker & Freelancer. Veraltete Homepage durch professionellen Webauftritt ersetzen – Festpreis ab 599 € netto, fertig in 7 Werktagen.">
+  <meta name="author" content="Thomas Reinke">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.torecon.de/webdesign.html">
+  <title>Website modernisieren – für Steuerberater, Handwerker & Freelancer | torecon</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.torecon.de/webdesign.html">
+  <meta property="og:title" content="Website modernisieren – für Steuerberater, Handwerker & Freelancer | torecon">
+  <meta property="og:description" content="Veraltete Homepage wird zur professionellen Online-Präsenz. Für Steuerberater, Rechtsanwälte, Notare, Handwerker und Freelancer. Festpreis, DSGVO-konform, fertig in wenigen Werktagen.">
+  <meta property="og:image" content="https://www.torecon.de/img/thomas-reinke.jpeg">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="torecon">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <style>
+    /* ── Hero ───────────────────────────────────────── */
+    .wd-hero {
+      background: var(--bg-dark);
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .wd-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,113,227,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wd-hero .section-eyebrow { color: rgba(255,255,255,0.55); }
+    .wd-hero h1 {
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .wd-hero h1 .highlight {
+      background: linear-gradient(135deg, #0071E3 0%, #34aadc 50%, #5ac8fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .wd-hero p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.65);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.55;
+    }
+    .wd-hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .wd-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 28px;
+    }
+    .wd-hero-badge span { color: #34aadc; font-weight: 600; }
+
+    /* ── Stats bar ──────────────────────────────────── */
+    .wd-stats {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .wd-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      text-align: center;
+    }
+    .wd-stat {
+      padding: 12px 20px;
+      border-right: 1px solid var(--border);
+    }
+    .wd-stat:last-child { border-right: none; }
+    .wd-stat-num {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .wd-stat-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* ── Problem section ────────────────────────────── */
+    .wd-problem {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+    }
+    .wd-problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .wd-problem-card {
+      background: #fff2f2;
+      border: 1.5px solid #ffcdd2;
+      border-radius: 14px;
+      padding: 22px 24px;
+    }
+    .wd-problem-card .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #c62828;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+    }
+    .wd-problem-card ul {
+      list-style: none;
+      font-size: 14px;
+      color: #555;
+      line-height: 2;
+    }
+
+    /* ── Benefits ───────────────────────────────────── */
+    .wd-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .wd-benefit {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: box-shadow .18s, transform .18s;
+    }
+    .wd-benefit:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+      transform: translateY(-2px);
+    }
+    .wd-benefit-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0071E3 0%, #34aadc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    .wd-benefit h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    .wd-benefit p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ── Process ────────────────────────────────────── */
+    .wd-process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .wd-step {
+      text-align: center;
+      padding: 8px;
+    }
+    .wd-step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .wd-step h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    .wd-step p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .wd-step-connector {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 24px;
+    }
+    .wd-step-connector::after {
+      content: '→';
+      font-size: 20px;
+      color: var(--border);
+    }
+
+    /* ── Compare ────────────────────────────────────── */
+    .wd-compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .wd-compare-card {
+      border-radius: 14px;
+      padding: 28px 28px;
+    }
+    .wd-compare-card.bad {
+      background: #fafafa;
+      border: 1.5px solid var(--border);
+    }
+    .wd-compare-card.good {
+      background: rgba(0,113,227,0.04);
+      border: 1.5px solid var(--accent);
+    }
+    .wd-compare-card .cc-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .wd-compare-card.bad .cc-label { color: #999; }
+    .wd-compare-card.good .cc-label { color: var(--accent); }
+    .wd-compare-card ul {
+      list-style: none;
+      font-size: 14px;
+      line-height: 2;
+    }
+    .wd-compare-card.bad ul { color: #888; }
+    .wd-compare-card.good ul { color: var(--text); }
+
+    /* ── Pricing ─────────────────────────────────────── */
+    .wd-pricing-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-top: 16px;
+    }
+
+    /* ── CTA dark ────────────────────────────────────── */
+    .wd-cta {
+      background: var(--bg-dark);
+      padding: 80px 0;
+    }
+    .wd-cta-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .wd-cta-text { flex: 1; min-width: 260px; }
+    .wd-cta-text .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+    .wd-cta-text h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .wd-cta-text p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .wd-cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .wd-benefits-grid { grid-template-columns: 1fr 1fr; }
+      .wd-process-grid  { grid-template-columns: 1fr 1fr; }
+      .wd-stats-grid    { grid-template-columns: 1fr 1fr; }
+      .wd-stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .wd-stat:nth-child(odd) { border-right: 1px solid var(--border); }
+      .wd-stat:last-child, .wd-stat:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+    }
+    @media (max-width: 640px) {
+      .wd-benefits-grid, .wd-problem-grid, .wd-compare-grid, .wd-process-grid, .wd-stats-grid { grid-template-columns: 1fr; }
+      .wd-stat { border-right: none; }
+    }
+  </style>
+</head>
+<body>
+<script>window.TORECON_ROOT = './'; window.TORECON_PAGE = 'services';</script>
+
+<div id="site-nav"></div>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="wd-hero">
+  <div class="container">
+    <div class="wd-hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#34aadc"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <span>Für Steuerberater · Rechtsanwälte · Notare · Handwerker · Freelancer</span>
+    </div>
+    <h1>
+      Ihre Website<br>
+      <span class="highlight">verdient eine zweite Chance.</span>
+    </h1>
+    <p>Aus einer veralteten Homepage wird ein professioneller Webauftritt, der Vertrauen schafft und neue Kunden gewinnt – zum Festpreis, ohne Abo, ohne Aufwand Ihrerseits.</p>
+    <div class="wd-hero-btns">
+      <button data-cal-link="thomas-reinke-6imco4/15min"
+              data-cal-config='{"layout":"month_view"}'
+              type="button"
+              class="btn btn-primary"
+              style="cursor:pointer;">Kostenloses Erstgespräch →</button>
+      <a href="#nutzen" class="btn btn-outline-white">Warum jetzt modernisieren?</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ─────────────────────────────────────────────── -->
+<div class="wd-stats">
+  <div class="container">
+    <div class="wd-stats-grid">
+      <div class="wd-stat">
+        <div class="wd-stat-num">73 %</div>
+        <div class="wd-stat-label">der Kunden beurteilen Glaubwürdigkeit anhand der Website*</div>
+      </div>
+      <div class="wd-stat">
+        <div class="wd-stat-num">8 Sek.</div>
+        <div class="wd-stat-label">hat eine Website, um einen ersten Eindruck zu hinterlassen*</div>
+      </div>
+      <div class="wd-stat">
+        <div class="wd-stat-num">60 %</div>
+        <div class="wd-stat-label">aller Suchanfragen erfolgen heute über das Mobilgerät*</div>
+      </div>
+      <div class="wd-stat">
+        <div class="wd-stat-num">ab 599 €</div>
+        <div class="wd-stat-label">Festpreis – einmalig, zzgl. MwSt., kein Monatsabo</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:11px;color:var(--text-tertiary);margin-top:16px;">* Quellen: Stanford Web Credibility Research, Google/SOASTA Research, Statcounter</p>
+  </div>
+</div>
+
+<!-- ── PROBLEM ───────────────────────────────────────────── -->
+<section class="wd-problem" id="nutzen">
+  <div class="container">
+    <div class="section-header section-header-center">
+      <div class="section-eyebrow">Das Problem</div>
+      <h2 class="section-headline">Was eine veraltete Website kostet</h2>
+      <p class="section-sub">Nicht die fehlende Website ist das Problem – sondern die falsche.</p>
+    </div>
+    <div class="wd-problem-grid">
+      <div class="wd-problem-card">
+        <div class="label">❌ &nbsp;Veralteter Webauftritt</div>
+        <ul>
+          <li>✗ &nbsp;Wirkt unprofessionell – Kunden zweifeln sofort</li>
+          <li>✗ &nbsp;Nicht mobil-optimiert – 60 % der Nutzer springen ab</li>
+          <li>✗ &nbsp;Kein Google-Ranking – unsichtbar für neue Aufträge</li>
+          <li>✗ &nbsp;Kein Kontaktweg in Sekunden sichtbar</li>
+          <li>✗ &nbsp;DSGVO-Risiken durch veraltete Technik</li>
+          <li>✗ &nbsp;Ihr Betrieb wirkt kleiner als er ist</li>
+        </ul>
+      </div>
+      <div class="wd-problem-card" style="background:rgba(0,113,227,0.04);border-color:var(--accent);">
+        <div class="label" style="color:var(--accent);">✓ &nbsp;Nach der Modernisierung</div>
+        <ul style="color:var(--text);">
+          <li>✓ &nbsp;Professioneller erster Eindruck – sofort Vertrauen</li>
+          <li>✓ &nbsp;Perfekte Darstellung auf Handy, Tablet, Desktop</li>
+          <li>✓ &nbsp;SEO-optimiert – bei Google auf Seite 1 auffindbar</li>
+          <li>✓ &nbsp;Kontakt in einem Klick – mehr Anfragen, mehr Aufträge</li>
+          <li>✓ &nbsp;DSGVO-konform nach deutschem Recht</li>
+          <li>✓ &nbsp;Ihr Betrieb präsentiert sich auf Augenhöhe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BENEFITS ──────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-header section-header-center">
+      <div class="section-eyebrow">Mehrwerte für Ihren Betrieb</div>
+      <h2 class="section-headline">Was eine moderne Website<br>konkret für Sie leistet</h2>
+      <p class="section-sub">Keine Theorie – konkrete Vorteile, die Sie täglich spüren.</p>
+    </div>
+    <div class="wd-benefits-grid">
+      <div class="wd-benefit">
+        <div class="wd-benefit-icon">🏆</div>
+        <h4>Vertrauen vor dem ersten Kontakt</h4>
+        <p>Potenzielle Kunden entscheiden sich bereits online für oder gegen Sie. Eine professionelle Website ist Ihr stärkstes Empfehlungsschreiben – rund um die Uhr.</p>
+      </div>
+      <div class="wd-benefit">
+        <div class="wd-benefit-icon">📱</div>
+        <h4>Kunden finden Sie überall</h4>
+        <p>Ob auf dem Handy unterwegs oder am Laptop – Ihr Auftritt überzeugt auf jedem Bildschirm. Gerade Handwerker werden heute fast ausschließlich mobil gesucht.</p>
+      </div>
+      <div class="wd-benefit">
+        <div class="wd-benefit-icon">🔍</div>
+        <h4>Bei Google sichtbar werden</h4>
+        <p>Eine SEO-optimierte Website bringt Sie in den Suchergebnissen nach vorne – genau dort, wo Ihre nächsten Kunden suchen: „Elektriker Bonn", „Steuerberater Ahrweiler", „Freelancer Webdesign".</p>
+      </div>
+      <div class="wd-benefit">
+        <div class="wd-benefit-icon">📞</div>
+        <h4>Mehr Anfragen, mehr Aufträge</h4>
+        <p>Klare Handlungsaufforderungen, ein gut platziertes Kontaktformular und ein WhatsApp-Button senken die Hemmschwelle zur Kontaktaufnahme erheblich – egal ob Mandat, Auftrag oder Projektanfrage.</p>
+      </div>
+      <div class="wd-benefit">
+        <div class="wd-benefit-icon">⚖️</div>
+        <h4>Rechtssicher und DSGVO-konform</h4>
+        <p>Impressum, Datenschutzerklärung und Cookie-Einwilligung nach aktuellem deutschen Recht – Sie sind auf der sicheren Seite, ohne sich selbst darum kümmern zu müssen.</p>
+      </div>
+      <div class="wd-benefit">
+        <div class="wd-benefit-icon">💼</div>
+        <h4>Klarer Vorsprung im Wettbewerb</h4>
+        <p>Viele Betriebe in Ihrer Branche haben noch keinen modernen Webauftritt. Wer jetzt handelt, ist sichtbarer, wirkt professioneller – und gewinnt die Anfragen, die andere verpassen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ───────────────────────────────────────────── -->
+<section style="background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header section-header-center">
+      <div class="section-eyebrow">So läuft es ab</div>
+      <h2 class="section-headline">In 4 Schritten zum neuen Webauftritt</h2>
+      <p class="section-sub">Kein technisches Vorwissen nötig. Sie liefern die Inhalte – wir erledigen den Rest.</p>
+    </div>
+    <div class="wd-process-grid">
+      <div class="wd-step">
+        <div class="wd-step-num">1</div>
+        <h4>Erstgespräch</h4>
+        <p>15 Minuten – kostenlos und unverbindlich. Ich verstehe Ihren Bedarf und erkläre, was sinnvoll ist.</p>
+      </div>
+      <div class="wd-step">
+        <div class="wd-step-num">2</div>
+        <h4>Briefing &amp; Inhalte</h4>
+        <p>Sie füllen einen einfachen Fragebogen aus und schicken Texte und Fotos. Das war's von Ihrer Seite.</p>
+      </div>
+      <div class="wd-step">
+        <div class="wd-step-num">3</div>
+        <h4>Design &amp; Umsetzung</h4>
+        <p>Ich entwickle Ihre neue Website und zeige Ihnen einen Entwurf zur Freigabe. Eine Korrekturschleife inklusive.</p>
+      </div>
+      <div class="wd-step">
+        <div class="wd-step-num">4</div>
+        <h4>Live &amp; fertig</h4>
+        <p>Ihre neue Website geht online. Ich übergebe Ihnen alle Zugänge – Sie haben die volle Kontrolle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPARE ───────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-header section-header-center">
+      <div class="section-eyebrow">Warum kein Baukastensystem?</div>
+      <h2 class="section-headline">Individuell statt Vorlage</h2>
+    </div>
+    <div class="wd-compare-grid">
+      <div class="wd-compare-card bad">
+        <div class="cc-label">Baukastensystem (Jimdo, Wix, Squarespace …)</div>
+        <ul>
+          <li>✗ &nbsp;€10–25 pro Monat – für immer</li>
+          <li>✗ &nbsp;Wirkt generisch, kein Alleinstellungsmerkmal</li>
+          <li>✗ &nbsp;Sie machen alles selbst – kostet Zeit</li>
+          <li>✗ &nbsp;Kaum Kontrolle über SEO</li>
+          <li>✗ &nbsp;DSGVO-Risiken durch US-Anbieter</li>
+          <li>✗ &nbsp;Skaliert nicht bei Änderungswünschen</li>
+        </ul>
+      </div>
+      <div class="wd-compare-card good">
+        <div class="cc-label">torecon Webdesign</div>
+        <ul>
+          <li>✓ &nbsp;Einmaliger Festpreis – kein Monatsabo</li>
+          <li>✓ &nbsp;Individuelles Design, kein Template</li>
+          <li>✓ &nbsp;Wir erledigen alles für Sie</li>
+          <li>✓ &nbsp;SEO-optimiert von Anfang an</li>
+          <li>✓ &nbsp;DSGVO-konform nach deutschem Recht</li>
+          <li>✓ &nbsp;Volle Kontrolle – Ihre Domain, Ihre Daten</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ───────────────────────────────────────────── -->
+<section style="background:var(--bg-alt);border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header section-header-center">
+      <div class="section-eyebrow">Transparente Festpreise</div>
+      <h2 class="section-headline">Kein versteckter Aufwand,<br>keine Überraschungen</h2>
+      <p class="section-sub">Vergleichbare Agenturen berechnen €1.500–3.500. Wir liefern dasselbe Ergebnis – ohne Agenturaufschlag.</p>
+    </div>
+
+    <div class="pricing-grid" style="margin-bottom:16px;">
+      <!-- Starter -->
+      <div class="pricing-card" style="background:#fff;">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">599 €</div>
+        <div class="pricing-period">einmalig · zzgl. MwSt.</div>
+        <ul>
+          <li>3 Seiten (Start, Leistungen, Kontakt)</li>
+          <li>Mobil-optimiertes Design</li>
+          <li>Kontaktformular &amp; E-Mail</li>
+          <li>Impressum &amp; Datenschutz</li>
+          <li>Google Maps Einbindung</li>
+          <li>Social-Media-Links</li>
+          <li>Fertig in 7 Werktagen</li>
+        </ul>
+        <a href="./contact.html?service=starter" class="btn btn-secondary" style="width:100%;justify-content:center;text-align:center;">Jetzt anfragen</a>
+      </div>
+
+      <!-- Standard (featured) -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Modernisierung</div>
+        <div class="pricing-name">Standard</div>
+        <div class="pricing-price">899 €</div>
+        <div class="pricing-period">einmalig · zzgl. MwSt.</div>
+        <ul>
+          <li>5 Seiten nach Ihrem Bedarf</li>
+          <li>Übernahme Ihrer bestehenden Inhalte</li>
+          <li>Professionelle Bildergalerie</li>
+          <li>WhatsApp-Kontaktbutton</li>
+          <li>Öffnungszeiten-Sektion</li>
+          <li>Kundenstimmen / Bewertungen</li>
+          <li>SEO-Grundoptimierung</li>
+          <li>Fertig in 10 Werktagen</li>
+        </ul>
+        <a href="./contact.html?service=standard" class="btn btn-primary" style="width:100%;justify-content:center;text-align:center;">Jetzt modernisieren</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="pricing-card" style="background:#fff;">
+        <div class="pricing-name">Premium</div>
+        <div class="pricing-price">1.199 €</div>
+        <div class="pricing-period">einmalig · zzgl. MwSt.</div>
+        <ul>
+          <li>Bis zu 8 Seiten</li>
+          <li>Zweisprachig (DE/EN) optional</li>
+          <li>Newsletter-Anmeldung</li>
+          <li>PDF-Downloads (Flyer, AGB)</li>
+          <li>Erweiterte SEO-Optimierung</li>
+          <li>Alles aus Standard</li>
+          <li>3 Monate kostenloser Support</li>
+          <li>Fertig in 14 Werktagen</li>
+        </ul>
+        <a href="./contact.html?service=premium" class="btn btn-secondary" style="width:100%;justify-content:center;text-align:center;">Jetzt anfragen</a>
+      </div>
+    </div>
+    <p class="wd-pricing-note">Hosting nicht enthalten. Empfehlung: Strato oder All-Inkl. ab ca. €5/Monat. Einrichtung auf Wunsch gegen Aufpreis.</p>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────── -->
+<section class="wd-cta">
+  <div class="container">
+    <div class="wd-cta-inner">
+      <img src="./img/thomas-reinke.jpeg" alt="Thomas Reinke"
+           style="width:110px;height:110px;border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid rgba(255,255,255,0.15);"
+           onerror="this.style.display='none'">
+      <div class="wd-cta-text">
+        <div class="eyebrow">Ihr persönlicher Ansprechpartner</div>
+        <h2>Kostenloses 15-Minuten-Erstgespräch</h2>
+        <p>Kein Verkaufsgespräch – ich höre zu, was Sie brauchen, und sage Ihnen ehrlich, ob und wie ich helfen kann. Unverbindlich und kostenlos.</p>
+      </div>
+      <div class="wd-cta-actions">
+        <button data-cal-link="thomas-reinke-6imco4/15min"
+                data-cal-config='{"layout":"month_view"}'
+                type="button"
+                class="btn btn-primary"
+                style="white-space:nowrap;cursor:pointer;">Gespräch vereinbaren →</button>
+        <a href="mailto:info@torecon.de?subject=Website-Modernisierung" class="btn btn-outline-white" style="white-space:nowrap;text-align:center;">info@torecon.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<!-- Cal.com Embed -->
+<script type="text/javascript">
+(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
+Cal("init");
+Cal("ui",{theme:"light",styles:{branding:{brandColor:"#0071E3"}},hideEventTypeDetails:false,layout:"month_view"});
+</script>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/cookie.js"></script>
+<script src="./js/layout.js"></script>
+<script src="./js/ai-ticker.js"></script>
+</body>
+</html>
