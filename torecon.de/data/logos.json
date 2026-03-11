@@ -1,5 +1,6 @@
 [
   {"file": "deka.png", "alt": "Deka Investments"},
+  {"file": "honda.svg", "alt": "Honda"},
   {"file": "hsbc-logo.svg", "alt": "HSBC"},
   {"file": "f-i.png", "alt": "Finanz Informatik"},
   {"file": "usaid.png", "alt": "USAID"},
@@ -11,5 +12,6 @@
   {"file": "ulf.png", "alt": "ULF Finance"},
   {"file": "gft.svg", "alt": "GFT Technologies"},
   {"file": "htw.svg", "alt": "HTW Saar"},
-  {"file": "riv.png", "alt": "RIV Kabel"}
+  {"file": "riv.png", "alt": "RIV Kabel"},
+  {"file": "fvb.png", "alt": "FVB"}
 ]
