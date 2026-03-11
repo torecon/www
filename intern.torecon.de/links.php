@@ -125,7 +125,6 @@ if (isset($_GET['edit'])) {
     <ul class="sidebar-nav">
       <li><a href="./dashboard.php">📊 Übersicht</a></li>
       <li><a href="./news.php">📰 News verwalten</a></li>
-      <li><a href="./references.php">🏢 Referenzkunden</a></li>
       <li><a href="./links.php" class="active">🔖 Linkfavoriten</a></li>
       <li><a href="./settings.php">⚙️ Einstellungen</a></li>
     </ul>

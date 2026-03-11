@@ -495,95 +495,50 @@ section { padding: 80px 0; }
 a.news-card { text-decoration: none; color: inherit; cursor: pointer; }
 a.news-card h3 { color: var(--text); }
 
-/* ─── References ─────────────────────────────── */
-.ref-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-}
-.ref-card {
-  background: var(--bg);
-  border-radius: 18px;
-  padding: 28px 28px 24px;
-  border: 1px solid var(--border);
-  transition: var(--transition);
+/* ─── References – Logo Grid ─────────────────── */
+.logo-grid {
   display: flex;
-  flex-direction: column;
-}
-.ref-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-  border-color: transparent;
-  transform: translateY(-2px);
-}
-.ref-card-header {
-  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
+  padding: 48px 0;
 }
-.ref-logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+.logo-tile {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #fff;
-  flex-shrink: 0;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 28px;
+  width: 160px;
+  height: 90px;
+  transition: box-shadow .2s, border-color .2s, transform .2s;
 }
-.ref-card-meta { min-width: 0; }
-.ref-card-meta h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0 0 3px;
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.logo-tile:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+  border-color: transparent;
+  transform: translateY(-2px);
 }
-.ref-year-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text-tertiary);
-  background: rgba(0,0,0,0.05);
-  border-radius: 20px;
-  padding: 2px 9px;
+.logo-tile img {
+  max-width: 120px;
+  max-height: 55px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.75);
+  transition: filter .25s;
 }
-.ref-divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 0 0 14px;
+.logo-tile:hover img {
+  filter: grayscale(0) opacity(1);
 }
-.ref-card p {
-  font-size: 13.5px;
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.6;
-  flex: 1;
-}
-.ref-card-footer {
-  margin-top: 18px;
-}
-.ref-website-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--accent);
-  text-decoration: none;
-  padding: 5px 12px;
-  border: 1px solid rgba(0,113,227,0.2);
-  border-radius: 20px;
-  transition: background .15s, border-color .15s;
-}
-.ref-website-link:hover {
-  background: rgba(0,113,227,0.06);
-  border-color: rgba(0,113,227,0.4);
+.logo-missing {
+  font-size: 10px;
+  color: #ff3b30;
+  word-break: break-all;
+  text-align: center;
+  line-height: 1.3;
 }
 
 /* ─── CTA section ────────────────────────────── */
@@ -1137,7 +1092,10 @@ hr.divider {
   h1 { letter-spacing: -0.03em; }
   .hero { padding: 64px 20px 56px; }
   section { padding: 56px 0; }
-  .cards-grid, .news-grid, .ref-grid { grid-template-columns: 1fr; }
+  .cards-grid, .news-grid { grid-template-columns: 1fr; }
+  .logo-grid { gap: 14px; padding: 32px 0; }
+  .logo-tile { width: 130px; height: 76px; padding: 14px 18px; }
+  .logo-tile img { max-width: 96px; max-height: 44px; }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }

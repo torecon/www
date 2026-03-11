@@ -51,7 +51,9 @@
       "Bash(curl -s https://torecon.de/js/i18n.js)",
       "Bash(curl -s https://torecon.de/services.html)",
       "Bash(curl -s https://torecon.de/js/cookie.js)",
-      "Bash(curl -s https://torecon.de/css/style.css)"
+      "Bash(curl -s https://torecon.de/css/style.css)",
+      "Bash(identify /Users/thomas/Documents/GitHub/www/torecon.de/img/logos/deka.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/thomas/Documents/GitHub/www/torecon.de/img/logos/deka.png)"
     ],
     "additionalDirectories": [
       "/Users/thomas/.claude/projects/-Users-thomas-Documents-GitHub-www",

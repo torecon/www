@@ -9,7 +9,6 @@ function count_json($path) {
 }
 
 $count_news   = count_json(__DIR__ . '/news.json');
-$count_refs   = count_json(__DIR__ . '/references.json');
 $count_ticker = count_json(__DIR__ . '/ticker.json');
 $count_links  = count_json(__DIR__ . '/links.json');
 
@@ -39,7 +38,6 @@ if (file_exists(__DIR__ . '/news.json')) {
     <ul class="sidebar-nav">
       <li><a href="./dashboard.php" class="active">📊 <span data-i18n="dash_nav_overview">Übersicht</span></a></li>
       <li><a href="./news.php">📰 <span data-i18n="dash_nav_news">News verwalten</span></a></li>
-      <li><a href="./references.php">🏢 <span data-i18n="dash_nav_clients">Referenzkunden</span></a></li>
       <li><a href="./links.php">🔖 Linkfavoriten</a></li>
       <li><a href="./settings.php">⚙️ <span data-i18n="dash_nav_settings">Einstellungen</span></a></li>
     </ul>
@@ -72,11 +70,6 @@ if (file_exists(__DIR__ . '/news.json')) {
           <div class="kpi-delta"><a href="./news.php?tab=ticker" style="color:var(--accent);text-decoration:none;">Verwalten →</a></div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label" data-i18n="dash_clients">Referenzkunden</div>
-          <div class="kpi-value"><?php echo $count_refs; ?></div>
-          <div class="kpi-delta"><a href="./references.php" style="color:var(--accent);text-decoration:none;">Verwalten →</a></div>
-        </div>
-        <div class="kpi-card">
           <div class="kpi-label">Linkfavoriten</div>
           <div class="kpi-value"><?php echo $count_links; ?></div>
           <div class="kpi-delta"><a href="./links.php" style="color:var(--accent);text-decoration:none;">Verwalten →</a></div>
@@ -106,7 +99,6 @@ if (file_exists(__DIR__ . '/news.json')) {
           <ul class="dash-list">
             <li><span>Website-Startseite</span><a href="https://www.torecon.de/" target="_blank" style="font-size:13px;">Öffnen →</a></li>
             <li><span>Finanztrends</span><a href="https://www.torecon.de/news.html" target="_blank" style="font-size:13px;">Öffnen →</a></li>
-            <li><span>Referenzen</span><a href="https://www.torecon.de/references.html" target="_blank" style="font-size:13px;">Öffnen →</a></li>
             <li><span>Kontaktseite</span><a href="https://www.torecon.de/contact.html" target="_blank" style="font-size:13px;">Öffnen →</a></li>
             <li><span>Leistungen</span><a href="https://www.torecon.de/services.html" target="_blank" style="font-size:13px;">Öffnen →</a></li>
           </ul>

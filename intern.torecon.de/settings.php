@@ -75,7 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <ul class="sidebar-nav">
       <li><a href="./dashboard.php">📊 Übersicht</a></li>
       <li><a href="./news.php">📰 News verwalten</a></li>
-      <li><a href="./references.php">🏢 Referenzkunden</a></li>
       <li><a href="./links.php">🔖 Linkfavoriten</a></li>
       <li><a href="./settings.php" class="active">⚙️ Einstellungen</a></li>
     </ul>

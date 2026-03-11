@@ -33,12 +33,11 @@
   </div>
 </div>
 
-<section>
+<section class="bg-alt">
   <div class="container">
-    <div class="ref-grid" id="ref-grid">
+    <div class="logo-grid" id="logo-grid">
       <!-- rendered by JS -->
     </div>
-    <p id="ref-empty" style="display:none;text-align:center;color:var(--text-secondary);padding:60px 0;" data-i18n="ref_empty">Referenzen werden geladen …</p>
   </div>
 </section>
 
@@ -57,84 +56,34 @@
 <script src="./js/layout.js"></script>
 <script src="./js/ai-ticker.js"></script>
 <script>
-async function renderReferences() {
-  const grid  = document.getElementById('ref-grid');
-  const empty = document.getElementById('ref-empty');
-  const lang  = currentLang || 'de';
-
-  let refs = [];
+async function renderLogos() {
+  const grid = document.getElementById('logo-grid');
+  let logos = [];
   try {
-    const res = await fetch('./data/references.json?v=' + Date.now());
-    refs = await res.json();
+    const res = await fetch('./data/logos.json?v=' + Date.now());
+    logos = await res.json();
   } catch(e) {
-    empty.style.display = 'block';
-    empty.textContent = lang === 'de'
-      ? 'Referenzen konnten nicht geladen werden.'
-      : 'References could not be loaded.';
     return;
   }
+  if (!logos.length) return;
 
-  if (!refs.length) {
-    empty.style.display = 'block';
-    empty.textContent = lang === 'de' ? 'Keine Referenzen vorhanden.' : 'No references available.';
-    return;
-  }
-
-  // Sort by year descending
-  refs.sort((a, b) => (b.year || '').localeCompare(a.year || ''));
-
-  // Palette for logo backgrounds – cycles through refs
-  const PALETTE = [
-    'linear-gradient(135deg,#0071E3 0%,#34aadc 100%)',
-    'linear-gradient(135deg,#1d3557 0%,#457b9d 100%)',
-    'linear-gradient(135deg,#2d6a4f 0%,#52b788 100%)',
-    'linear-gradient(135deg,#6a0572 0%,#ab47bc 100%)',
-    'linear-gradient(135deg,#c1440e 0%,#e07b39 100%)',
-    'linear-gradient(135deg,#0a3d62 0%,#1e6fa8 100%)',
-  ];
-
-  grid.innerHTML = refs.map((r, i) => {
-    const abbr = r.name
-      .split(/[\s\-–&/]+/)
-      .filter(w => w.length > 0)
-      .slice(0, 2)
-      .map(w => w[0].toUpperCase())
-      .join('');
-    const bg = PALETTE[i % PALETTE.length];
-
-    let hostname = '';
-    if (r.website) {
-      try { hostname = new URL(r.website).hostname.replace('www.', ''); } catch(e) {}
-    }
-    const websiteLink = r.website
-      ? `<div class="ref-card-footer">
-           <a href="${r.website}" target="_blank" rel="noopener" class="ref-website-link">
-             <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-               <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-             </svg>
-             ${hostname}
-           </a>
-         </div>`
-      : '';
-
-    return `
-      <div class="ref-card">
-        <div class="ref-card-header">
-          <div class="ref-logo" style="background:${bg}">${abbr}</div>
-          <div class="ref-card-meta">
-            <h3>${r.name}</h3>
-            ${r.year ? `<span class="ref-year-badge">seit ${r.year}</span>` : ''}
-          </div>
-        </div>
-        <hr class="ref-divider">
-        <p>${r.slogan || ''}</p>
-        ${websiteLink}
-      </div>`;
+  grid.innerHTML = logos.map(function(l) {
+    return '<div class="logo-tile">' +
+      '<img src="./img/logos/' + l.file + '" alt="' + l.alt + '" onerror="logoError(this)">' +
+      '</div>';
   }).join('');
 }
 
-document.addEventListener('DOMContentLoaded', renderReferences);
+function logoError(img) {
+  var file = img.src.split('/').pop();
+  img.style.display = 'none';
+  var span = document.createElement('span');
+  span.className = 'logo-missing';
+  span.textContent = file;
+  img.parentNode.appendChild(span);
+}
+
+document.addEventListener('DOMContentLoaded', renderLogos);
 </script>
 </body>
 </html>
