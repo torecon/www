@@ -56,12 +56,14 @@
       "Bash(sips -g pixelWidth -g pixelHeight /Users/thomas/Documents/GitHub/www/torecon.de/img/logos/deka.png)",
       "Bash(for f:*)",
       "Bash(do sed:*)",
-      "Bash(grep -rn canonical /Users/thomas/Documents/GitHub/www/*.html)"
+      "Bash(grep -rn canonical /Users/thomas/Documents/GitHub/www/*.html)",
+      "Bash(grep -E \"\\\\.php$|\\\\.json$|\\\\.html$\")"
     ],
     "additionalDirectories": [
       "/Users/thomas/.claude/projects/-Users-thomas-Documents-GitHub-www",
       "/Users/thomas",
-      "/Users/thomas/Documents/GitHub/www/torecon_ursprung"
+      "/Users/thomas/Documents/GitHub/www/torecon_ursprung",
+      "/Users/thomas/Documents/GitHub/www/intern.torecon.de"
     ]
   }
 }

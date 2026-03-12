@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user === ADMIN_USER && $pass === ADMIN_PASSWORD) {
         $_SESSION['torecon_auth'] = true;
         session_write_close();
-        header('Location: https://intern.torecon.de/dashboard.php');
+        header('Location: https://intern.torecon.de/linkedin.php');
         exit;
     }
     $error = true;
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if (!empty($_SESSION['torecon_auth'])) {
     session_write_close();
-    header('Location: https://intern.torecon.de/dashboard.php');
+    header('Location: https://intern.torecon.de/linkedin.php');
     exit;
 }
 

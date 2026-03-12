@@ -2,7 +2,8 @@
 require_once __DIR__ . '/check_auth.php';
 require_once __DIR__ . '/config.php';
 
-$drafts_file = __DIR__ . '/linkedin_drafts.json';
+$drafts_file    = __DIR__ . '/linkedin_drafts.json';
+$li_settings_file = __DIR__ . '/linkedin_settings.json';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 function li_read($path) {
@@ -15,11 +16,29 @@ function li_write($path, $data) {
     file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
-function li_call_claude($api_key, $today) {
+function li_read_settings($path) {
+    $defaults = array(
+        'topic1'     => 'Digitalisierung & KI in Banken/Versicherungen',
+        'topic2'     => 'Legacy Transformation (Kernbanksysteme, Migration, Modernisierung)',
+        'tone_hint'  => '',
+        'post_count' => 4,
+    );
+    if (!file_exists($path)) return $defaults;
+    $data = json_decode(file_get_contents($path), true);
+    if (!is_array($data)) return $defaults;
+    return array_merge($defaults, $data);
+}
+
+function li_call_claude($api_key, $today, $settings) {
+    $topic1     = $settings['topic1'];
+    $topic2     = $settings['topic2'];
+    $post_count = intval($settings['post_count']);
+    $tone_hint  = trim($settings['tone_hint']);
+
     $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
-            . 'Deine Kernthemen: Digitalisierung & KI in Banken/Versicherungen und Legacy Transformation (Kernbanksysteme, Migration, Modernisierung). '
+            . 'Deine Kernthemen: ' . $topic1 . ' und ' . $topic2 . '. '
             . "\n\nHeutiges Datum: " . $today . "\n\n"
-            . "Erstelle 4 LinkedIn-Posts zu aktuellen, praxisrelevanten Themen aus diesen zwei Bereichen. Abwechslung ist wichtig.\n\n"
+            . "Erstelle " . $post_count . " LinkedIn-Posts zu aktuellen, praxisrelevanten Themen aus diesen zwei Bereichen. Abwechslung ist wichtig.\n\n"
             . "Jeder Post muss:\n"
             . "- Mit einem starken Hook beginnen (1 Satz: provokante These, ueberraschende Zahl oder offene Frage)\n"
             . "- Ca. 900-1.300 Zeichen lang sein (ohne Hashtags)\n"
@@ -27,6 +46,7 @@ function li_call_claude($api_key, $today) {
             . "- Einen konkreten Insight oder Handlungsempfehlung enthalten\n"
             . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
             . "- Mit 4-5 Hashtags abschliessen (z.B. #Digitalisierung #Banking #KI #LegacyTransformation #Fintech)\n\n"
+            . ($tone_hint !== '' ? "Zusaetzlicher Stil-Hinweis: " . $tone_hint . "\n\n" : '')
             . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
             . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hashtag1 #Hashtag2"},...]';
 
@@ -77,10 +97,11 @@ function li_call_claude($api_key, $today) {
 }
 
 // ── actions ──────────────────────────────────────────────────────────────────
-$action   = isset($_POST['action']) ? $_POST['action'] : '';
-$msg      = '';
-$msg_type = 'success';
-$api_key  = defined('CLAUDE_API_KEY') ? CLAUDE_API_KEY : '';
+$action      = isset($_POST['action']) ? $_POST['action'] : '';
+$msg         = '';
+$msg_type    = 'success';
+$api_key     = defined('CLAUDE_API_KEY') ? CLAUDE_API_KEY : '';
+$li_settings = li_read_settings($li_settings_file);
 
 // ── API TEST ─────────────────────────────────────────────────────────────────
 $api_test_result = '';
@@ -119,7 +140,7 @@ if ($action === 'generate') {
         $msg      = 'Kein Claude API-Key hinterlegt. Bitte in config.php eintragen: define(\'CLAUDE_API_KEY\', \'sk-ant-...\');';
         $msg_type = 'error';
     } else {
-        $result = li_call_claude($api_key, date('Y-m-d'));
+        $result = li_call_claude($api_key, date('Y-m-d'), $li_settings);
         if (isset($result['error'])) {
             $msg      = 'API-Fehler: ' . $result['error'];
             $msg_type = 'error';
@@ -270,8 +291,6 @@ foreach ($drafts as $d) {
   <aside class="sidebar">
     <div class="sidebar-logo">tore<span>con</span></div>
     <ul class="sidebar-nav">
-      <li><a href="./dashboard.php">📊 Übersicht</a></li>
-      <li><a href="./news.php">📰 News verwalten</a></li>
       <li><a href="./linkedin.php" class="active">💼 LinkedIn Posts</a></li>
       <li><a href="./links.php">🔖 Linkfavoriten</a></li>
       <li><a href="./settings.php">⚙️ Einstellungen</a></li>
