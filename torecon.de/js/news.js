@@ -4,18 +4,18 @@
 const NEWS_DATA_FALLBACK = [
   {
     id: 1,
-    date: '2026-03-07',
+    date: '2026-03-12',
     tag_de: 'Geldpolitik',
     tag_en: 'Monetary Policy',
-    title_de: 'EZB senkt Leitzins auf 2,25 % – weiterer Schritt im März erwartet',
-    title_en: 'ECB cuts key rate to 2.25% – another step expected in March',
-    excerpt_de: 'Die Europäische Zentralbank hat ihren Einlagenzins auf 2,25 % gesenkt. Angesichts rückläufiger Inflation und schwacher Konjunktur in der Eurozone wird für März ein weiterer Schritt diskutiert.',
-    excerpt_en: 'The European Central Bank has cut its deposit rate to 2.25%. With inflation declining and weak eurozone growth, another move is being discussed for March.',
+    title_de: 'EZB bestätigt Kurs: Leitzins bei 2,25 % – nächster Schritt im April erwartet',
+    title_en: 'ECB holds course: key rate at 2.25% – next step expected in April',
+    excerpt_de: 'Die Europäische Zentralbank hält ihren Einlagenzins bei 2,25 % stabil. Angesichts rückläufiger Inflation und schwacher Konjunktur in der Eurozone wird für April ein weiterer Schritt diskutiert.',
+    excerpt_en: 'The European Central Bank is keeping its deposit rate stable at 2.25%. With inflation declining and weak eurozone growth, another move is being discussed for April.',
     url: 'https://www.ecb.europa.eu/press/govcdec/mopo/html/index.en.html',
   },
   {
     id: 2,
-    date: '2026-03-06',
+    date: '2026-03-11',
     tag_de: 'Genossenschaftsbanken',
     tag_en: 'Cooperative Banks',
     title_de: 'DZ Bank Gruppe: Rekordjahr 2025 – Genossenschaftssektor weiter stark',
@@ -26,7 +26,7 @@ const NEWS_DATA_FALLBACK = [
   },
   {
     id: 3,
-    date: '2026-03-05',
+    date: '2026-03-10',
     tag_de: 'Regulierung',
     tag_en: 'Regulation',
     title_de: 'Basel IV vollständig in Kraft: Erste Bilanzierungseffekte sichtbar',
@@ -37,7 +37,7 @@ const NEWS_DATA_FALLBACK = [
   },
   {
     id: 4,
-    date: '2026-03-04',
+    date: '2026-03-09',
     tag_de: 'Digitalisierung',
     tag_en: 'Digitalisation',
     title_de: 'KI-gestütztes Kreditscoring: BaFin veröffentlicht Leitlinien',
@@ -48,7 +48,7 @@ const NEWS_DATA_FALLBACK = [
   },
   {
     id: 5,
-    date: '2026-03-03',
+    date: '2026-03-08',
     tag_de: 'Digitaler Euro',
     tag_en: 'Digital Euro',
     title_de: 'Digitaler Euro: EZB startet Pilotprogramm mit ausgewählten Banken',
@@ -59,7 +59,7 @@ const NEWS_DATA_FALLBACK = [
   },
   {
     id: 6,
-    date: '2026-03-02',
+    date: '2026-03-07',
     tag_de: 'Ukraine',
     tag_en: 'Ukraine',
     title_de: 'Ukraine-Wiederaufbau: EBRD verdoppelt Kreditlinie für Finanzsektor',
@@ -70,7 +70,7 @@ const NEWS_DATA_FALLBACK = [
   },
   {
     id: 7,
-    date: '2026-02-28',
+    date: '2026-03-05',
     tag_de: 'Zinsmarge',
     tag_en: 'Interest Margin',
     title_de: 'Sinkende Leitzinsen: Regionalbanken überdenken Einlagenstrategie',
@@ -81,7 +81,7 @@ const NEWS_DATA_FALLBACK = [
   },
   {
     id: 8,
-    date: '2026-02-27',
+    date: '2026-03-04',
     tag_de: 'Nachhaltigkeit',
     tag_en: 'Sustainability',
     title_de: 'CSRD-Umsetzung: Kreditinstitute stehen vor operativer Bewährungsprobe',
@@ -121,6 +121,14 @@ function renderNews(containerId, limit) {
       '</div>' +
     '</a>';
   }).join('');
+
+  // Update "last updated" indicator on news page
+  var standEl = document.getElementById('news-stand');
+  if (standEl && NEWS_DATA.length) {
+    var newest = NEWS_DATA.reduce(function(a, b) { return a.date > b.date ? a : b; });
+    var label = lang === 'de' ? 'Stand: ' : 'Last updated: ';
+    standEl.textContent = label + formatNewsDate(newest.date, lang);
+  }
 }
 
 function loadNewsData(containerId, limit) {

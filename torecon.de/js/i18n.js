@@ -56,7 +56,7 @@ const TRANSLATIONS = {
 
     ref_eye: 'Vertrauen',
     ref_h2: 'Referenzkunden',
-    ref_sub: 'Namhafte Institutionen aus Bildung, Finanzwirtschaft und öffentlichem Sektor.',
+    ref_sub: 'Namhafte Institutionen aus Bildung, Finanzwirtschaft, Industrie und Handel sowie dem öffentlichen Sektor.',
 
     cta_h2: 'Gemeinsam erfolgreich',
     cta_p: 'Nehmen Sie Kontakt auf und erfahren Sie, wie torecon Ihr Institut stärken kann.',
@@ -274,7 +274,7 @@ const TRANSLATIONS = {
 
     ref_eye: 'Trust',
     ref_h2: 'Reference Clients',
-    ref_sub: 'Renowned institutions from education, finance and the public sector.',
+    ref_sub: 'Renowned institutions from education, finance, industry and commerce, as well as the public sector.',
 
     cta_h2: 'Succeeding Together',
     cta_p: 'Get in touch and learn how torecon can strengthen your institution.',

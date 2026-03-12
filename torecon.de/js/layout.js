@@ -90,16 +90,6 @@ function buildFooter() {
   </footer>`;
 }
 
-function buildTicker() {
-  return `
-  <div class="ai-ticker-wrap" id="ai-ticker">
-    <div class="ai-ticker-label">AI Live</div>
-    <div class="ai-ticker-track">
-      <div class="ai-ticker-inner"></div>
-    </div>
-  </div>`;
-}
-
 function buildWhatsAppFab() {
   return `
   <a href="https://wa.me/491723207681" target="_blank" rel="noopener"
@@ -113,7 +103,7 @@ function buildWhatsAppFab() {
 function initLayout() {
   const navEl = document.getElementById('site-nav');
   const footerEl = document.getElementById('site-footer');
-  if (navEl) navEl.outerHTML = buildNav() + buildTicker();
+  if (navEl) navEl.outerHTML = buildNav();
   if (footerEl) footerEl.outerHTML = buildFooter();
 
   // Mobile hamburger
