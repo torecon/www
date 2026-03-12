@@ -55,7 +55,8 @@
       "Bash(identify /Users/thomas/Documents/GitHub/www/torecon.de/img/logos/deka.png)",
       "Bash(sips -g pixelWidth -g pixelHeight /Users/thomas/Documents/GitHub/www/torecon.de/img/logos/deka.png)",
       "Bash(for f:*)",
-      "Bash(do sed:*)"
+      "Bash(do sed:*)",
+      "Bash(grep -rn canonical /Users/thomas/Documents/GitHub/www/*.html)"
     ],
     "additionalDirectories": [
       "/Users/thomas/.claude/projects/-Users-thomas-Documents-GitHub-www",

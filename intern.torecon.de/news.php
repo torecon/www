@@ -200,6 +200,7 @@ if (isset($_GET['edit_ticker'])) {
     <ul class="sidebar-nav">
       <li><a href="./dashboard.php">📊 Übersicht</a></li>
       <li><a href="./news.php" class="active">📰 News verwalten</a></li>
+      <li><a href="./linkedin.php">💼 LinkedIn Posts</a></li>
       <li><a href="./links.php">🔖 Linkfavoriten</a></li>
       <li><a href="./settings.php">⚙️ Einstellungen</a></li>
     </ul>

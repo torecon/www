@@ -43,6 +43,22 @@ Oder nur für eine bestimmte Subdomain:
 
 ---
 
+## Pre-Deployment Checkliste
+
+Vor jedem Deploy prüfen:
+
+| # | Prüfpunkt | Details |
+|---|-----------|---------|
+| 1 | **.htaccess vorhanden** | `torecon.de/.htaccess` muss existieren. Enthält: HTTP→HTTPS (301) + non-www→www (301) + Security Headers |
+| 2 | **Canonical Tags korrekt** | Alle HTML-Seiten: `<link rel="canonical" href="https://www.torecon.de/...">` |
+| 3 | **robots.txt vorhanden** | `torecon.de/robots.txt` prüfen |
+| 4 | **sitemap.xml aktuell** | Neue Seiten ergänzt? Datum aktualisiert? |
+| 5 | **Browser-Cache leeren** | Nach Deploy: Strg+Shift+R |
+
+> **Hintergrund .htaccess:** Google Search Console meldet "Alternative Seite mit richtigem kanonischen Tag", wenn die Seite über http:// oder ohne www erreichbar ist. Die .htaccess-Weiterleitungen verhindern das.
+
+---
+
 ## Hinweise
 
 - Credentials niemals in den Code oder ins Git-Repository schreiben

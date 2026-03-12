@@ -9,12 +9,12 @@ const TOPICS = [
     sub_en:   'ECB, key rates, inflation',
   },
   {
-    id: 'genossen',
-    icon: '🏦',
-    label_de: 'Genossenschaftsbanken',
-    label_en: 'Cooperative Banks',
-    sub_de:   'DZ Bank, BVR, Volksbanken',
-    sub_en:   'DZ Bank, BVR, credit unions',
+    id: 'cx',
+    icon: '📱',
+    label_de: 'Digitale Customer Experience & Omnichannel',
+    label_en: 'Digital Customer Experience & Omnichannel',
+    sub_de:   'CX-Strategie, App, digitale Filiale',
+    sub_en:   'CX strategy, app, digital branch',
   },
   {
     id: 'regulierung',

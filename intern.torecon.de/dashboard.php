@@ -38,6 +38,7 @@ if (file_exists(__DIR__ . '/news.json')) {
     <ul class="sidebar-nav">
       <li><a href="./dashboard.php" class="active">📊 <span data-i18n="dash_nav_overview">Übersicht</span></a></li>
       <li><a href="./news.php">📰 <span data-i18n="dash_nav_news">News verwalten</span></a></li>
+      <li><a href="./linkedin.php">💼 LinkedIn Posts</a></li>
       <li><a href="./links.php">🔖 Linkfavoriten</a></li>
       <li><a href="./settings.php">⚙️ <span data-i18n="dash_nav_settings">Einstellungen</span></a></li>
     </ul>
