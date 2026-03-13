@@ -57,7 +57,9 @@
       "Bash(for f:*)",
       "Bash(do sed:*)",
       "Bash(grep -rn canonical /Users/thomas/Documents/GitHub/www/*.html)",
-      "Bash(grep -E \"\\\\.php$|\\\\.json$|\\\\.html$\")"
+      "Bash(grep -E \"\\\\.php$|\\\\.json$|\\\\.html$\")",
+      "Bash(php -l /Users/thomas/Documents/GitHub/www/intern.torecon.de/linkedin.php)",
+      "Bash(php -l /Users/thomas/Documents/GitHub/www/intern.torecon.de/settings.php)"
     ],
     "additionalDirectories": [
       "/Users/thomas/.claude/projects/-Users-thomas-Documents-GitHub-www",

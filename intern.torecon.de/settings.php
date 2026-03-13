@@ -4,9 +4,20 @@ require_once __DIR__ . '/config.php';
 
 $li_settings_file = __DIR__ . '/linkedin_settings.json';
 
+$topics = array(
+    'Geldpolitik & Zinsen (EZB, Leitzins, Inflation)',
+    'Digitale Customer Experience & Omnichannel (CX-Strategie, App, digitale Filiale)',
+    'Regulierung & Compliance (Basel IV, BaFin, EBA)',
+    'Digitalisierung & KI (Fintech, AI, Kreditscoring)',
+    'Nachhaltigkeit & ESG (CSRD, Green Finance, Taxonomie)',
+    'Strategische Bankplanung (CIR, PCR, Gesamtbanksteuerung)',
+    'Internationale Märkte (EBRD, IMF, Osteuropa)',
+    'Legacy Transformation (Kernbanksysteme, Migration, Modernisierung)',
+);
+
 function read_li_settings($path) {
     $defaults = array(
-        'topic1'     => 'Digitalisierung & KI in Banken/Versicherungen',
+        'topic1'     => 'Digitalisierung & KI (Fintech, AI, Kreditscoring)',
         'topic2'     => 'Legacy Transformation (Kernbanksysteme, Migration, Modernisierung)',
         'tone_hint'  => '',
         'post_count' => 4,
@@ -144,11 +155,19 @@ $li = read_li_settings($li_settings_file);
           <input type="hidden" name="action" value="li_settings_save">
           <div class="fg">
             <label>Thema 1
-              <textarea name="topic1" rows="2"><?php echo htmlspecialchars($li['topic1']); ?></textarea>
+              <select name="topic1">
+                <?php foreach ($topics as $t): ?>
+                  <option value="<?php echo htmlspecialchars($t); ?>"<?php echo ($li['topic1'] === $t ? ' selected' : ''); ?>><?php echo htmlspecialchars($t); ?></option>
+                <?php endforeach; ?>
+              </select>
               <span class="hint">Erster Themenschwerpunkt für die Post-Generierung.</span>
             </label>
             <label>Thema 2
-              <textarea name="topic2" rows="2"><?php echo htmlspecialchars($li['topic2']); ?></textarea>
+              <select name="topic2">
+                <?php foreach ($topics as $t): ?>
+                  <option value="<?php echo htmlspecialchars($t); ?>"<?php echo ($li['topic2'] === $t ? ' selected' : ''); ?>><?php echo htmlspecialchars($t); ?></option>
+                <?php endforeach; ?>
+              </select>
               <span class="hint">Zweiter Themenschwerpunkt für die Post-Generierung.</span>
             </label>
             <label>Ton-Hinweis <span style="font-weight:400;">(optional)</span>
