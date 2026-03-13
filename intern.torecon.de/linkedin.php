@@ -2,19 +2,9 @@
 require_once __DIR__ . '/check_auth.php';
 require_once __DIR__ . '/config.php';
 
-$drafts_file      = __DIR__ . '/linkedin_drafts.json';
-$li_settings_file = __DIR__ . '/linkedin_settings.json';
-
-$topics = array(
-    'Geldpolitik & Zinsen (EZB, Leitzins, Inflation)',
-    'Digitale Customer Experience & Omnichannel (CX-Strategie, App, digitale Filiale)',
-    'Regulierung & Compliance (Basel IV, BaFin, EBA)',
-    'Digitalisierung & KI (Fintech, AI, Kreditscoring)',
-    'Nachhaltigkeit & ESG (CSRD, Green Finance, Taxonomie)',
-    'Strategische Bankplanung (CIR, PCR, Gesamtbanksteuerung)',
-    'Internationale Märkte (EBRD, IMF, Osteuropa)',
-    'Legacy Transformation (Kernbanksysteme, Migration, Modernisierung)',
-);
+$drafts_file          = __DIR__ . '/linkedin_drafts.json';
+$li_settings_file     = __DIR__ . '/linkedin_settings.json';
+$topics_settings_file = __DIR__ . '/topics_settings.json';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 function li_read($path) {
@@ -27,16 +17,49 @@ function li_write($path, $data) {
     file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
+// Themen aus topics_settings.json laden (Fallback: hardcoded)
+function li_load_topics($path) {
+    $defaults = array(
+        array('label_de'=>'Geldpolitik & Zinsen',                       'sub_de'=>'EZB, Leitzins, Inflation'),
+        array('label_de'=>'Digitale Customer Experience & Omnichannel', 'sub_de'=>'CX-Strategie, App, digitale Filiale'),
+        array('label_de'=>'Regulierung & Compliance',                   'sub_de'=>'Basel IV, BaFin, EBA'),
+        array('label_de'=>'Digitalisierung & KI',                       'sub_de'=>'Fintech, AI, Kreditscoring'),
+        array('label_de'=>'Nachhaltigkeit & ESG',                       'sub_de'=>'CSRD, Green Finance, Taxonomie'),
+        array('label_de'=>'Strategische Bankplanung',                   'sub_de'=>'CIR, PCR, Gesamtbanksteuerung'),
+        array('label_de'=>'Internationale Märkte',                      'sub_de'=>'EBRD, IMF, Osteuropa'),
+        array('label_de'=>'Legacy Transformation',                      'sub_de'=>'Kernbanksysteme, Migration, Modernisierung'),
+    );
+    // Fallback-Strings ohne Closures (PHP 5.x kompatibel)
+    $default_strings = array();
+    foreach ($defaults as $t) {
+        $default_strings[] = $t['label_de'] . ' (' . $t['sub_de'] . ')';
+    }
+    if (!file_exists($path)) return $default_strings;
+    $data = json_decode(file_get_contents($path), true);
+    if (!is_array($data) || count($data) < 8) return $default_strings;
+    $result = array();
+    foreach ($data as $t) {
+        if (isset($t['label_de']) && isset($t['sub_de'])) {
+            $result[] = $t['label_de'] . ' (' . $t['sub_de'] . ')';
+        }
+    }
+    return $result;
+}
+
 function li_read_settings($path) {
     $defaults = array(
-        'topic1'     => 'Digitalisierung & KI in Banken/Versicherungen',
+        'topic1'     => 'Digitalisierung & KI (Fintech, AI, Kreditscoring)',
         'topic2'     => 'Legacy Transformation (Kernbanksysteme, Migration, Modernisierung)',
-        'tone_hint'  => '',
+        'post_hint'  => '',
         'post_count' => 4,
     );
     if (!file_exists($path)) return $defaults;
     $data = json_decode(file_get_contents($path), true);
     if (!is_array($data)) return $defaults;
+    // Migrate old key 'tone_hint' → 'post_hint'
+    if (!isset($data['post_hint']) && isset($data['tone_hint'])) {
+        $data['post_hint'] = $data['tone_hint'];
+    }
     return array_merge($defaults, $data);
 }
 
@@ -44,7 +67,7 @@ function li_call_claude($api_key, $today, $settings) {
     $topic1     = $settings['topic1'];
     $topic2     = $settings['topic2'];
     $post_count = intval($settings['post_count']);
-    $tone_hint  = trim($settings['tone_hint']);
+    $post_hint  = isset($settings['post_hint']) ? trim($settings['post_hint']) : (isset($settings['tone_hint']) ? trim($settings['tone_hint']) : '');
 
     $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
             . 'Deine Kernthemen: ' . $topic1 . ' und ' . $topic2 . '. '
@@ -57,7 +80,7 @@ function li_call_claude($api_key, $today, $settings) {
             . "- Einen konkreten Insight oder Handlungsempfehlung enthalten\n"
             . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
             . "- Mit 4-5 Hashtags abschliessen (z.B. #Digitalisierung #Banking #KI #LegacyTransformation #Fintech)\n\n"
-            . ($tone_hint !== '' ? "Zusaetzlicher Stil-Hinweis: " . $tone_hint . "\n\n" : '')
+            . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
             . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
             . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hashtag1 #Hashtag2"},...]';
 
@@ -73,7 +96,7 @@ function li_call_claude($api_key, $today, $settings) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 90);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'x-api-key: ' . $api_key,
         'anthropic-version: 2023-06-01',
@@ -91,9 +114,13 @@ function li_call_claude($api_key, $today, $settings) {
 
     $decoded = json_decode($response, true);
     if (!isset($decoded['content'][0]['text'])) {
-        $api_type = isset($decoded['error']['type'])    ? $decoded['error']['type']    : '';
-        $api_msg  = isset($decoded['error']['message']) ? $decoded['error']['message'] : 'Unbekannter Fehler';
-        return array('error' => 'HTTP ' . $http_code . ' · ' . $api_type . ': ' . $api_msg);
+        if (isset($decoded['error']['type']) || isset($decoded['error']['message'])) {
+            $api_type = isset($decoded['error']['type'])    ? $decoded['error']['type']    : '';
+            $api_msg  = isset($decoded['error']['message']) ? $decoded['error']['message'] : 'Unbekannter Fehler';
+            return array('error' => 'HTTP ' . $http_code . ' · ' . $api_type . ': ' . $api_msg);
+        }
+        $raw = $response ? substr($response, 0, 300) : '(leere Antwort)';
+        return array('error' => 'HTTP ' . $http_code . ' · Rohantwort: ' . $raw);
     }
 
     $text = $decoded['content'][0]['text'];
@@ -107,7 +134,7 @@ function li_call_claude($api_key, $today, $settings) {
     return array('error' => 'Antwort konnte nicht geparst werden: ' . substr($text, 0, 300));
 }
 
-function li_call_claude_series($api_key, $today, $topic, $count) {
+function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = '') {
     $parts_hint = '';
     if ($count == 3) {
         $parts_hint = "Post 1: Einstieg – Warum ist dieses Thema gerade fuer Banken/Genossenschaftsbanken dringend relevant?\n"
@@ -136,6 +163,7 @@ function li_call_claude_series($api_key, $today, $topic, $count) {
             . "- Konkreter Insight oder Handlungsempfehlung enthalten\n"
             . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
             . "- Mit 4-5 Hashtags abschliessen\n\n"
+            . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
             . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
             . '[{"part":1,"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hash1 #Hash2"},...]';
 
@@ -169,9 +197,13 @@ function li_call_claude_series($api_key, $today, $topic, $count) {
 
     $decoded = json_decode($response, true);
     if (!isset($decoded['content'][0]['text'])) {
-        $api_type = isset($decoded['error']['type'])    ? $decoded['error']['type']    : '';
-        $api_msg  = isset($decoded['error']['message']) ? $decoded['error']['message'] : 'Unbekannter Fehler';
-        return array('error' => 'HTTP ' . $http_code . ' · ' . $api_type . ': ' . $api_msg);
+        if (isset($decoded['error']['type']) || isset($decoded['error']['message'])) {
+            $api_type = isset($decoded['error']['type'])    ? $decoded['error']['type']    : '';
+            $api_msg  = isset($decoded['error']['message']) ? $decoded['error']['message'] : 'Unbekannter Fehler';
+            return array('error' => 'HTTP ' . $http_code . ' · ' . $api_type . ': ' . $api_msg);
+        }
+        $raw = $response ? substr($response, 0, 300) : '(leere Antwort)';
+        return array('error' => 'HTTP ' . $http_code . ' · Rohantwort: ' . $raw);
     }
 
     $text = $decoded['content'][0]['text'];
@@ -188,6 +220,7 @@ $msg         = '';
 $msg_type    = 'success';
 $api_key     = defined('CLAUDE_API_KEY') ? CLAUDE_API_KEY : '';
 $li_settings = li_read_settings($li_settings_file);
+$topics      = li_load_topics($topics_settings_file);
 
 // ── API TEST ─────────────────────────────────────────────────────────────────
 $api_test_result = '';
@@ -259,7 +292,7 @@ if ($action === 'generate_series') {
         if ($series_count < 2) $series_count = 2;
         if ($series_count > 5) $series_count = 5;
 
-        $result = li_call_claude_series($api_key, date('Y-m-d'), $series_topic, $series_count);
+        $result = li_call_claude_series($api_key, date('Y-m-d'), $series_topic, $series_count, isset($li_settings['post_hint']) ? $li_settings['post_hint'] : '');
         if (isset($result['error'])) {
             $msg      = 'API-Fehler: ' . $result['error'];
             $msg_type = 'error';

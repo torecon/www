@@ -9,3 +9,4 @@ define('ADMIN_PASSWORD', 'torecon2026!');
 // Claude API Key für LinkedIn-Post-Generierung
 // Key erstellen unter: https://console.anthropic.com/settings/keys
 define('CLAUDE_API_KEY', 'REPLACE_WITH_YOUR_CLAUDE_API_KEY');
+define('SITE_TOPICS_JS_PATH', '/var/www/vhosts/torecon.de/html/js/topics.js');
