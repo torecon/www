@@ -6,16 +6,16 @@
   <meta name="description" content="Website-Modernisierung für Steuerberater, Rechtsanwälte, Notare, Handwerker & Freelancer. Veraltete Homepage durch professionellen Webauftritt ersetzen – Festpreis ab 599 € netto, fertig in 7 Werktagen.">
   <meta name="author" content="Thomas Reinke">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.torecon.de/webdesign.html">
-  <title>Website modernisieren – für Steuerberater, Handwerker & Freelancer | torecon</title>
+  <link rel="canonical" href="https://webdesign.torecon.de/">
+  <title>Website modernisieren – für Steuerberater, Handwerker & Freelancer | torecon Webdesign</title>
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.torecon.de/webdesign.html">
-  <meta property="og:title" content="Website modernisieren – für Steuerberater, Handwerker & Freelancer | torecon">
+  <meta property="og:url" content="https://webdesign.torecon.de/">
+  <meta property="og:title" content="Website modernisieren – für Steuerberater, Handwerker & Freelancer | torecon Webdesign">
   <meta property="og:description" content="Veraltete Homepage wird zur professionellen Online-Präsenz. Für Steuerberater, Rechtsanwälte, Notare, Handwerker und Freelancer. Festpreis, DSGVO-konform, fertig in wenigen Werktagen.">
-  <meta property="og:image" content="https://www.torecon.de/img/thomas-reinke.jpeg">
+  <meta property="og:image" content="https://webdesign.torecon.de/img/thomas-reinke.jpeg">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:site_name" content="torecon">
+  <meta property="og:site_name" content="torecon Webdesign">
 
   <link rel="stylesheet" href="./css/style.css">
 
@@ -208,16 +208,6 @@
       margin: 0;
       line-height: 1.55;
     }
-    .wd-step-connector {
-      display: flex;
-      align-items: flex-start;
-      padding-top: 24px;
-    }
-    .wd-step-connector::after {
-      content: '→';
-      font-size: 20px;
-      color: var(--border);
-    }
 
     /* ── Compare ────────────────────────────────────── */
     .wd-compare-grid {
@@ -384,7 +374,7 @@
   </style>
 </head>
 <body>
-<script>window.TORECON_ROOT = './'; window.TORECON_PAGE = 'services';</script>
+<script>window.TORECON_ROOT = 'https://www.torecon.de/'; window.TORECON_PAGE = 'home';</script>
 
 <div id="site-nav"></div>
 
@@ -582,7 +572,7 @@
 </section>
 
 <!-- ── PRICING ───────────────────────────────────────────── -->
-<section style="background:var(--bg-alt);border-top:1px solid var(--border);">
+<section id="preise" style="background:var(--bg-alt);border-top:1px solid var(--border);">
   <div class="container">
     <div class="section-header section-header-center">
       <div class="section-eyebrow">Transparente Festpreise</div>
@@ -605,7 +595,7 @@
           <li>Social-Media-Links</li>
           <li>Fertig in 7 Werktagen</li>
         </ul>
-        <a href="./contact.html?service=starter" class="btn btn-secondary" style="width:100%;justify-content:center;text-align:center;">Jetzt anfragen</a>
+        <a href="#briefing" class="btn btn-secondary" style="width:100%;justify-content:center;text-align:center;">Jetzt anfragen</a>
       </div>
 
       <!-- Standard (featured) -->
@@ -624,7 +614,7 @@
           <li>SEO-Grundoptimierung</li>
           <li>Fertig in 10 Werktagen</li>
         </ul>
-        <a href="./contact.html?service=standard" class="btn btn-primary" style="width:100%;justify-content:center;text-align:center;">Jetzt modernisieren</a>
+        <a href="#briefing" class="btn btn-primary" style="width:100%;justify-content:center;text-align:center;">Jetzt modernisieren</a>
       </div>
 
       <!-- Premium -->
@@ -642,7 +632,7 @@
           <li>3 Monate kostenloser Support</li>
           <li>Fertig in 14 Werktagen</li>
         </ul>
-        <a href="./contact.html?service=premium" class="btn btn-secondary" style="width:100%;justify-content:center;text-align:center;">Jetzt anfragen</a>
+        <a href="#briefing" class="btn btn-secondary" style="width:100%;justify-content:center;text-align:center;">Jetzt anfragen</a>
       </div>
     </div>
     <p class="wd-pricing-note">Hosting nicht enthalten. Empfehlung: Strato oder All-Inkl. ab ca. €5/Monat. Einrichtung auf Wunsch gegen Aufpreis.</p>
@@ -661,7 +651,7 @@
     <div style="max-width:720px;margin:0 auto;">
       <form id="briefing-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="c18222aa-d131-4135-9c9a-a1e84f4fb66c">
-        <input type="hidden" name="subject" value="Webdesign-Briefing von torecon.de">
+        <input type="hidden" name="subject" value="Webdesign-Briefing von webdesign.torecon.de">
         <input type="hidden" name="redirect" value="false">
         <input type="checkbox" name="botcheck" style="display:none;">
 
@@ -776,7 +766,7 @@
         <div style="display:flex;gap:10px;align-items:flex-start;margin:20px 0 24px;padding:16px;background:var(--bg-alt);border-radius:10px;">
           <input type="checkbox" id="bf-dsgvo" name="DSGVO-Einwilligung" value="Ja" required style="margin-top:2px;flex-shrink:0;width:auto;">
           <label for="bf-dsgvo" style="font-size:13px;color:var(--text-secondary);line-height:1.5;cursor:pointer;">
-            Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert und verwendet werden. Die <a href="./imprint.html#privacy" style="color:var(--accent);">Datenschutzerklärung</a> habe ich zur Kenntnis genommen. Die Einwilligung kann ich jederzeit per E-Mail widerrufen.
+            Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert und verwendet werden. Die <a href="https://www.torecon.de/imprint.html#privacy" style="color:var(--accent);">Datenschutzerklärung</a> habe ich zur Kenntnis genommen. Die Einwilligung kann ich jederzeit per E-Mail widerrufen.
           </label>
         </div>
 

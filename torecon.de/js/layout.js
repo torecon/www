@@ -49,6 +49,9 @@ function buildFooter() {
             <li><a href="${root}news.html" data-i18n="nav_news">Finanztrends</a></li>
             <li><a href="${root}newsletter.html" data-i18n="nav_newsletter">Newsletter</a></li>
             <li><a href="${root}references.html" data-i18n="nav_references">Referenzen</a></li>
+            <li style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.08);">
+              <a href="https://webdesign.torecon.de/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.45);font-size:13px;">Webdesign-Service</a>
+            </li>
           </ul>
         </div>
         <div class="footer-col">

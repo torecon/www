@@ -59,7 +59,12 @@
       "Bash(grep -rn canonical /Users/thomas/Documents/GitHub/www/*.html)",
       "Bash(grep -E \"\\\\.php$|\\\\.json$|\\\\.html$\")",
       "Bash(php -l /Users/thomas/Documents/GitHub/www/intern.torecon.de/linkedin.php)",
-      "Bash(php -l /Users/thomas/Documents/GitHub/www/intern.torecon.de/settings.php)"
+      "Bash(php -l /Users/thomas/Documents/GitHub/www/intern.torecon.de/settings.php)",
+      "Bash(mkdir -p /Users/thomas/Documents/GitHub/www/webdesign.torecon.de/css /Users/thomas/Documents/GitHub/www/webdesign.torecon.de/js /Users/thomas/Documents/GitHub/www/webdesign.torecon.de/img)",
+      "Bash(cp /Users/thomas/Documents/GitHub/www/torecon.de/css/style.css /Users/thomas/Documents/GitHub/www/webdesign.torecon.de/css/style.css)",
+      "Bash(cp /Users/thomas/Documents/GitHub/www/torecon.de/js/i18n.js /Users/thomas/Documents/GitHub/www/webdesign.torecon.de/js/i18n.js)",
+      "Bash(cp /Users/thomas/Documents/GitHub/www/torecon.de/js/cookie.js /Users/thomas/Documents/GitHub/www/webdesign.torecon.de/js/cookie.js)",
+      "Bash(cp /Users/thomas/Documents/GitHub/www/torecon.de/img/thomas-reinke.jpeg /Users/thomas/Documents/GitHub/www/webdesign.torecon.de/img/thomas-reinke.jpeg)"
     ],
     "additionalDirectories": [
       "/Users/thomas/.claude/projects/-Users-thomas-Documents-GitHub-www",
