@@ -12,6 +12,7 @@ Optional env vars (override defaults):
   REMOTE_MAIN       – Remote path for torecon.de      (default: /html)
   REMOTE_INTERN     – Remote path for intern.torecon.de
   REMOTE_ANALYTICS  – Remote path for analytics.torecon.de
+  REMOTE_DOWNLOADS  – Remote path for downloads.torecon.de
 
 Usage:
   FTP_HOST=ftp.torecon.de FTP_USER=user FTP_PASS=secret python3 ftp_deploy.py
@@ -43,6 +44,10 @@ SITES = {
     "analytics": {
         "local":  BASE / "analytics.torecon.de",
         "remote": os.environ.get("REMOTE_ANALYTICS", "/subdomains/analytics/html"),
+    },
+    "downloads": {
+        "local":  BASE / "downloads.torecon.de",
+        "remote": os.environ.get("REMOTE_DOWNLOADS", "/subdomains/downloads/html"),
     },
 }
 

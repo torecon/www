@@ -1,0 +1,22 @@
+# downloads.torecon.de – Apache-Konfiguration
+# Kein Directory-Listing
+Options -Indexes
+
+# HTTPS erzwingen
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# CORS + Content-Type für JSON-Dateien
+<FilesMatch "\.json$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Content-Type "application/json; charset=utf-8"
+    Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
+
+# DMG-Downloads: korrekte MIME-Type + Content-Disposition
+<FilesMatch "\.dmg$">
+    Header set Content-Type "application/octet-stream"
+    Header set Content-Disposition "attachment"
+    Header set Cache-Control "no-cache"
+</FilesMatch>

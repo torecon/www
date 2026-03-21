@@ -33,13 +33,19 @@ Oder nur für eine bestimmte Subdomain:
 
 ## Verfügbare Sites
 
-| Name        | Lokaler Ordner          | Ziel auf Server                   |
-|-------------|-------------------------|-----------------------------------|
-| main        | torecon.de/             | /html                             |
-| intern      | intern.torecon.de/      | /subdomains/intern/html           |
-| analytics   | analytics.torecon.de/   | /subdomains/analytics/html        |
+| Name        | Lokaler Ordner            | Ziel auf Server                   |
+|-------------|---------------------------|-----------------------------------|
+| main        | torecon.de/               | /html                             |
+| intern      | intern.torecon.de/        | /subdomains/intern/html           |
+| analytics   | analytics.torecon.de/     | /subdomains/analytics/html        |
+| downloads   | downloads.torecon.de/     | /subdomains/downloads/html        |
 
 `analytics` wird automatisch übersprungen, solange dort nur die README liegt.
+
+### downloads.torecon.de – Besonderheit
+DMG-Dateien werden **nicht** per FTP-Script deployed (zu groß).
+Stattdessen: manuell per Plesk File Manager oder SFTP hochladen.
+Das Script deployed nur `.htaccess` und `eladung/latest.json`.
 
 ---
 
