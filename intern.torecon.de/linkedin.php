@@ -6,6 +6,7 @@ require_once __DIR__ . '/check_auth.php';
 require_once __DIR__ . '/config.php';
 
 $drafts_file          = __DIR__ . '/linkedin_drafts.json';
+$backup_file          = __DIR__ . '/linkedin_backup.json';
 $li_settings_file     = __DIR__ . '/linkedin_settings.json';
 $topics_settings_file = __DIR__ . '/topics_settings.json';
 
@@ -18,6 +19,53 @@ function li_read($path) {
 
 function li_write($path, $data) {
     file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+}
+
+// Add posts to persistent backup – never overwrites existing entries, deduplicates by ID
+function li_backup_add($path, $new_posts) {
+    $existing = array();
+    if (file_exists($path)) {
+        $raw = json_decode(file_get_contents($path), true);
+        if (is_array($raw)) $existing = $raw;
+    }
+    $existing_ids = array();
+    foreach ($existing as $e) { $existing_ids[$e['id']] = true; }
+    foreach ($new_posts as $p) {
+        if (!isset($existing_ids[$p['id']])) {
+            $p['backup_status'] = 'ready';
+            $p['posted_at']     = null;
+            $existing[]         = $p;
+        }
+    }
+    file_put_contents($path, json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+}
+
+// Update backup_status of a specific post by ID
+function li_backup_set_status($path, $id, $status) {
+    $data = array();
+    if (file_exists($path)) {
+        $raw = json_decode(file_get_contents($path), true);
+        if (is_array($raw)) $data = $raw;
+    }
+    foreach ($data as $k => $p) {
+        if ($p['id'] == $id) {
+            $data[$k]['backup_status'] = $status;
+            if ($status === 'posted') $data[$k]['posted_at'] = date('Y-m-d');
+        }
+    }
+    file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+}
+
+// Delete a post from backup by ID
+function li_backup_delete($path, $id) {
+    $data = array();
+    if (file_exists($path)) {
+        $raw = json_decode(file_get_contents($path), true);
+        if (is_array($raw)) $data = $raw;
+    }
+    $filtered = array();
+    foreach ($data as $p) { if ($p['id'] != $id) $filtered[] = $p; }
+    file_put_contents($path, json_encode($filtered, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
 // Themen aus topics_settings.json laden (Fallback: hardcoded)
@@ -66,6 +114,59 @@ function li_read_settings($path) {
     return array_merge($defaults, $data);
 }
 
+// Fix unescaped newlines inside JSON string values (PHP 5.x compatible)
+function li_escape_newlines_in_json($json) {
+    $result    = '';
+    $in_string = false;
+    $escape    = false;
+    $len       = strlen($json);
+    for ($i = 0; $i < $len; $i++) {
+        $c = $json[$i];
+        if ($escape) {
+            $result .= $c;
+            $escape  = false;
+        } elseif ($c === '\\' && $in_string) {
+            $result .= $c;
+            $escape  = true;
+        } elseif ($c === '"') {
+            $in_string = !$in_string;
+            $result   .= $c;
+        } elseif ($in_string && ($c === "\n" || $c === "\r")) {
+            $result .= ($c === "\n") ? '\\n' : '\\r';
+        } else {
+            $result .= $c;
+        }
+    }
+    return $result;
+}
+
+// Extract JSON array from Claude response (handles markdown code blocks + unescaped newlines)
+function li_parse_json_response($text) {
+    // Strip markdown code block markers
+    $text = preg_replace('/```json\s*/s', '', $text);
+    $text = preg_replace('/```\s*/s',     '', $text);
+    $text = trim($text);
+
+    // Try direct parse
+    $posts = json_decode($text, true);
+    if (is_array($posts) && count($posts) > 0) return $posts;
+
+    // Extract array with regex
+    if (!preg_match('/(\[[\s\S]+\])/u', $text, $matches)) return null;
+    $arr = $matches[1];
+
+    // Try direct parse of extracted array
+    $posts = json_decode($arr, true);
+    if (is_array($posts) && count($posts) > 0) return $posts;
+
+    // Fix unescaped newlines and retry
+    $fixed = li_escape_newlines_in_json($arr);
+    $posts = json_decode($fixed, true);
+    if (is_array($posts) && count($posts) > 0) return $posts;
+
+    return null;
+}
+
 function li_call_claude($api_key, $today, $settings) {
     $topic1     = $settings['topic1'];
     $topic2     = $settings['topic2'];
@@ -87,9 +188,11 @@ function li_call_claude($api_key, $today, $settings) {
             . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
             . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hashtag1 #Hashtag2"},...]';
 
+    $max_tokens = max(2000, $post_count * 1200);
+
     $payload = json_encode(array(
         'model'      => 'claude-sonnet-4-6',
-        'max_tokens' => 3500,
+        'max_tokens' => $max_tokens,
         'messages'   => array(
             array('role' => 'user', 'content' => $prompt)
         )
@@ -99,7 +202,7 @@ function li_call_claude($api_key, $today, $settings) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 90);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 120);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'x-api-key: ' . $api_key,
         'anthropic-version: 2023-06-01',
@@ -126,13 +229,9 @@ function li_call_claude($api_key, $today, $settings) {
         return array('error' => 'HTTP ' . $http_code . ' · Rohantwort: ' . $raw);
     }
 
-    $text = $decoded['content'][0]['text'];
-
-    // Extract JSON array even if wrapped in markdown code block
-    if (preg_match('/\[[\s\S]+\]/u', $text, $matches)) {
-        $posts = json_decode($matches[0], true);
-        if (is_array($posts) && count($posts) > 0) return $posts;
-    }
+    $text  = $decoded['content'][0]['text'];
+    $posts = li_parse_json_response($text);
+    if ($posts !== null) return $posts;
 
     return array('error' => 'Antwort konnte nicht geparst werden: ' . substr($text, 0, 300));
 }
@@ -209,11 +308,10 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
         return array('error' => 'HTTP ' . $http_code . ' · Rohantwort: ' . $raw);
     }
 
-    $text = $decoded['content'][0]['text'];
-    if (preg_match('/\[[\s\S]+\]/u', $text, $matches)) {
-        $posts = json_decode($matches[0], true);
-        if (is_array($posts) && count($posts) > 0) return $posts;
-    }
+    $text  = $decoded['content'][0]['text'];
+    $posts = li_parse_json_response($text);
+    if ($posts !== null) return $posts;
+
     return array('error' => 'Antwort konnte nicht geparst werden: ' . substr($text, 0, 300));
 }
 
@@ -222,7 +320,8 @@ if (isset($_POST['ajax']) && $_POST['ajax'] === '1') {
     $ajax_action = isset($_POST['action']) ? $_POST['action'] : '';
     $ajax_key    = defined('CLAUDE_API_KEY') ? CLAUDE_API_KEY : '';
     header('Content-Type: application/json; charset=utf-8');
-    @set_time_limit(120);
+    @set_time_limit(180);
+    @ini_set('max_execution_time', 180);
 
     if (!$ajax_key) {
         echo json_encode(array('error' => 'Kein Claude API-Key konfiguriert.'));
@@ -247,6 +346,7 @@ if (isset($_POST['ajax']) && $_POST['ajax'] === '1') {
                 );
             }
             li_write(__DIR__ . '/linkedin_drafts.json', $ajax_drafts);
+            li_backup_add(__DIR__ . '/linkedin_backup.json', $ajax_drafts);
             echo json_encode(array('ok' => true, 'count' => count($ajax_drafts)));
         }
         exit;
@@ -285,6 +385,7 @@ if (isset($_POST['ajax']) && $_POST['ajax'] === '1') {
                 if (!isset($d['type']) || $d['type'] !== 'series') $kept[] = $d;
             }
             li_write(__DIR__ . '/linkedin_drafts.json', array_merge($kept, $new_series));
+            li_backup_add(__DIR__ . '/linkedin_backup.json', $new_series);
             echo json_encode(array('ok' => true, 'count' => count($new_series)));
         }
         exit;
@@ -339,7 +440,8 @@ if ($action === 'generate') {
         $msg      = 'Kein Claude API-Key hinterlegt. Bitte in config.php eintragen: define(\'CLAUDE_API_KEY\', \'sk-ant-...\');';
         $msg_type = 'error';
     } else {
-        @set_time_limit(120);
+        @set_time_limit(180);
+        @ini_set('max_execution_time', 180);
         $result = li_call_claude($api_key, date('Y-m-d'), $li_settings);
         if (isset($result['error'])) {
             $msg      = 'API-Fehler: ' . $result['error'];
@@ -356,6 +458,7 @@ if ($action === 'generate') {
                 );
             }
             li_write($drafts_file, $drafts);
+            li_backup_add($backup_file, $drafts);
             $msg = count($drafts) . ' Entwuerfe wurden generiert. Waehle einen aus und genehmige ihn.';
         }
     }
@@ -366,7 +469,8 @@ if ($action === 'generate_series') {
         $msg      = 'Kein Claude API-Key hinterlegt.';
         $msg_type = 'error';
     } else {
-        @set_time_limit(120);
+        @set_time_limit(180);
+        @ini_set('max_execution_time', 180);
         $series_topic = isset($_POST['series_topic']) ? trim($_POST['series_topic']) : '';
         $series_count = isset($_POST['series_count']) ? intval($_POST['series_count']) : 3;
         if ($series_count < 2) $series_count = 2;
@@ -401,6 +505,7 @@ if ($action === 'generate_series') {
                 if (!isset($d['type']) || $d['type'] !== 'series') $kept[] = $d;
             }
             li_write($drafts_file, array_merge($kept, $new_series));
+            li_backup_add($backup_file, $new_series);
             $msg = $series_count . '-teilige Serie zu "' . $series_topic . '" generiert.';
         }
     }
@@ -457,10 +562,31 @@ if ($action === 'queue_series') {
 if ($action === 'mark_posted') {
     $drafts = li_read($drafts_file);
     foreach ($drafts as $k => $d) {
-        if ($d['status'] === 'approved') $drafts[$k]['status'] = 'posted';
+        if ($d['status'] === 'approved') {
+            $drafts[$k]['status'] = 'posted';
+            li_backup_set_status($backup_file, $d['id'], 'posted');
+        }
     }
     li_write($drafts_file, $drafts);
     $msg = 'Post als gepostet markiert. Die verbleibenden Serie-Posts warten im Backlog.';
+}
+
+if ($action === 'backup_mark_posted') {
+    $bid = intval($_POST['backup_id']);
+    li_backup_set_status($backup_file, $bid, 'posted');
+    $msg = 'Post als gepostet markiert.';
+}
+
+if ($action === 'backup_mark_ready') {
+    $bid = intval($_POST['backup_id']);
+    li_backup_set_status($backup_file, $bid, 'ready');
+    $msg = 'Post zurück in "Bereit zum Posten" gesetzt.';
+}
+
+if ($action === 'backup_delete') {
+    $bid = intval($_POST['backup_id']);
+    li_backup_delete($backup_file, $bid);
+    $msg = 'Post aus Backup gelöscht.';
 }
 
 if ($action === 'edit_save') {
@@ -481,6 +607,16 @@ if ($action === 'reset') {
 
 // ── load data ─────────────────────────────────────────────────────────────────
 $drafts        = li_read($drafts_file);
+$backup_all    = li_read($backup_file);
+// Sort backup: newest first
+usort($backup_all, function($a, $b) { return $b['id'] - $a['id']; });
+$backup_ready  = array();
+$backup_posted = array();
+foreach ($backup_all as $b) {
+    $bs = isset($b['backup_status']) ? $b['backup_status'] : 'ready';
+    if ($bs === 'posted') $backup_posted[] = $b;
+    else                  $backup_ready[]  = $b;
+}
 $approved      = null;
 $pending       = array();
 $series_groups = array();
@@ -596,6 +732,101 @@ usort($backlog, function($a, $b) {
     .spinner { width:36px; height:36px; border:3px solid #e5e5ea; border-top-color:#0071E3;
                border-radius:50%; animation:spin 0.8s linear infinite; }
     @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* ── Backup Archive ─────────────────────────────────── */
+    .backup-section { margin-top:40px; }
+
+    .backup-section-header {
+      display:flex; align-items:center; justify-content:space-between;
+      cursor:pointer; user-select:none; padding:18px 24px;
+      background:#fff; border:1.5px solid rgba(0,0,0,0.09);
+      border-radius:14px; margin-bottom:0; transition:border-color 0.15s;
+    }
+    .backup-section-header:hover { border-color:rgba(0,113,227,0.3); }
+    .backup-section-header.open { border-radius:14px 14px 0 0; border-bottom:none; }
+    .backup-section-title { display:flex; align-items:center; gap:10px; font-size:15px; font-weight:600; }
+    .backup-badge {
+      font-size:11px; font-weight:700; padding:2px 9px; border-radius:20px; white-space:nowrap;
+    }
+    .backup-badge.ready  { background:#dbeafe; color:#1d4ed8; }
+    .backup-badge.posted { background:#d1fae5; color:#065f46; }
+    .backup-chevron { font-size:12px; color:var(--text-secondary); transition:transform 0.2s; }
+    .backup-chevron.open { transform:rotate(180deg); }
+
+    .backup-body {
+      display:none; background:#fafafa;
+      border:1.5px solid rgba(0,0,0,0.09); border-top:none;
+      border-radius:0 0 14px 14px; padding:20px 24px;
+    }
+    .backup-body.open { display:block; }
+
+    .backup-subsection { margin-bottom:28px; }
+    .backup-subsection:last-child { margin-bottom:0; }
+    .backup-sublabel {
+      font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.07em;
+      margin-bottom:12px; display:flex; align-items:center; gap:8px;
+    }
+    .backup-sublabel.ready  { color:#1d4ed8; }
+    .backup-sublabel.posted { color:#065f46; }
+    .backup-sublabel-dot {
+      width:8px; height:8px; border-radius:50%; display:inline-block;
+    }
+    .backup-sublabel-dot.ready  { background:#3b82f6; }
+    .backup-sublabel-dot.posted { background:#22c55e; }
+
+    .backup-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media(max-width:900px) { .backup-grid { grid-template-columns:1fr; } }
+
+    .backup-card {
+      background:#fff; border-radius:12px; padding:16px 18px;
+      display:flex; flex-direction:column; gap:10px;
+      border:1.5px solid rgba(0,0,0,0.08);
+      border-left:4px solid #93c5fd;
+      transition:box-shadow 0.15s;
+    }
+    .backup-card:hover { box-shadow:0 2px 12px rgba(0,0,0,0.07); }
+    .backup-card.posted { border-left-color:#86efac; background:#f0fdf4; }
+
+    .backup-card-meta { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .backup-card-topic { font-size:12px; font-weight:700; color:#1d4ed8; text-transform:uppercase; letter-spacing:0.04em; }
+    .backup-card.posted .backup-card-topic { color:#15803d; }
+    .backup-card-date { font-size:11px; color:var(--text-secondary); }
+    .backup-card-series-badge {
+      font-size:10px; background:#ede9fe; color:#6d28d9; border-radius:20px;
+      padding:2px 8px; font-weight:600; white-space:nowrap;
+    }
+    .backup-card.posted .backup-card-series-badge { background:#dcfce7; color:#15803d; }
+    .backup-card-posted-badge {
+      font-size:10px; background:#d1fae5; color:#065f46; border-radius:20px;
+      padding:2px 8px; font-weight:600; white-space:nowrap;
+    }
+
+    .backup-preview { font-size:12.5px; color:var(--text); line-height:1.6; white-space:pre-wrap; }
+    .backup-preview.collapsed { display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
+    .backup-chars { font-size:11px; color:var(--text-secondary); }
+
+    .backup-actions { display:flex; gap:7px; flex-wrap:wrap; margin-top:2px; }
+    .btn-backup-posted {
+      background:#dcfce7; color:#15803d; border:1px solid #86efac;
+      padding:6px 13px; border-radius:7px; font-size:12px; cursor:pointer; font-weight:600;
+    }
+    .btn-backup-posted:hover { background:#bbf7d0; }
+    .btn-backup-undo {
+      background:#f5f5f7; color:#555; border:1px solid rgba(0,0,0,0.15);
+      padding:6px 13px; border-radius:7px; font-size:12px; cursor:pointer;
+    }
+    .btn-backup-copy {
+      background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe;
+      padding:6px 13px; border-radius:7px; font-size:12px; cursor:pointer; font-weight:500;
+    }
+    .btn-backup-copy:hover { background:#dbeafe; }
+    .btn-backup-delete {
+      background:transparent; color:#9ca3af; border:1px solid rgba(0,0,0,0.12);
+      padding:6px 11px; border-radius:7px; font-size:12px; cursor:pointer; margin-left:auto;
+    }
+    .btn-backup-delete:hover { background:#fee2e2; color:#dc2626; border-color:#fca5a5; }
+
+    .backup-empty { text-align:center; padding:28px 16px; color:var(--text-secondary); font-size:13px; }
   </style>
 </head>
 <body>
@@ -713,7 +944,7 @@ usort($backlog, function($a, $b) {
             <form method="post" action="./linkedin.php" style="display:inline;">
               <input type="hidden" name="action" value="mark_posted">
               <button type="submit" class="btn-secondary" style="border-color:rgba(52,199,89,0.4);color:#1a7f37;"
-                title="Markiert diesen Post als gepostet und gibt den Platz für den nächsten frei">✓ Als gepostet markieren</button>
+                title="Markiert diesen Post als gepostet – im Backup-Archiv unter 'Auf LinkedIn gepostet' sichtbar">✓ Als gepostet markieren</button>
             </form>
             <span class="char-count" id="approved-chars"></span>
             <span class="copy-ok" id="copy-ok">✓ Kopiert!</span>
@@ -898,6 +1129,132 @@ usort($backlog, function($a, $b) {
         </div>
       <?php endif; ?>
 
+      <!-- ══ BACKUP ARCHIVE ════════════════════════════════════════════════════ -->
+      <?php
+        $backup_total = count($backup_ready) + count($backup_posted);
+      ?>
+      <div class="backup-section">
+
+        <!-- Header: Bereit zum Posten -->
+        <div class="backup-section-header <?php echo !empty($backup_ready) ? 'open' : ''; ?>"
+             onclick="toggleBackup('ready')" id="backup-hdr-ready">
+          <div class="backup-section-title">
+            <span>📋 Bereit zum Posten</span>
+            <?php if (!empty($backup_ready)): ?>
+              <span class="backup-badge ready"><?php echo count($backup_ready); ?> Posts</span>
+            <?php endif; ?>
+          </div>
+          <span class="backup-chevron <?php echo !empty($backup_ready) ? 'open' : ''; ?>" id="backup-chv-ready">▼</span>
+        </div>
+        <div class="backup-body <?php echo !empty($backup_ready) ? 'open' : ''; ?>" id="backup-body-ready">
+          <?php if (empty($backup_ready)): ?>
+            <div class="backup-empty">Noch keine Posts im Backup. Generiere Posts – sie erscheinen automatisch hier.</div>
+          <?php else: ?>
+            <div class="backup-grid">
+              <?php foreach ($backup_ready as $bp): ?>
+                <?php
+                  $bp_is_series = isset($bp['type']) && $bp['type'] === 'series';
+                  $bp_preview_id = 'bkp-' . intval($bp['id']);
+                ?>
+                <div class="backup-card">
+                  <div class="backup-card-meta">
+                    <span class="backup-card-topic"><?php echo htmlspecialchars($bp['topic']); ?></span>
+                    <?php if ($bp_is_series): ?>
+                      <span class="backup-card-series-badge">
+                        Serie · Teil <?php echo intval($bp['series_part']); ?>/<?php echo intval($bp['series_total']); ?>
+                      </span>
+                    <?php endif; ?>
+                    <span class="backup-card-date"><?php echo htmlspecialchars($bp['generated_at']); ?></span>
+                  </div>
+                  <div class="backup-preview collapsed" id="<?php echo $bp_preview_id; ?>">
+                    <?php echo htmlspecialchars($bp['text']); ?>
+                  </div>
+                  <div class="backup-chars"><?php echo mb_strlen($bp['text']); ?> Zeichen</div>
+                  <div class="backup-actions">
+                    <button class="btn-backup-copy"
+                      onclick="backupCopy(this, '<?php echo $bp_preview_id; ?>')">📋 Kopieren</button>
+                    <button class="btn-secondary" style="padding:6px 12px;font-size:12px;"
+                      onclick="toggleBackupExpand('<?php echo $bp_preview_id; ?>', this)">Mehr</button>
+                    <form method="post" action="./linkedin.php" style="display:inline;">
+                      <input type="hidden" name="action" value="backup_mark_posted">
+                      <input type="hidden" name="backup_id" value="<?php echo intval($bp['id']); ?>">
+                      <button type="submit" class="btn-backup-posted">✓ Gepostet</button>
+                    </form>
+                    <form method="post" action="./linkedin.php" style="display:inline;margin-left:auto;">
+                      <input type="hidden" name="action" value="backup_delete">
+                      <input type="hidden" name="backup_id" value="<?php echo intval($bp['id']); ?>">
+                      <button type="submit" class="btn-backup-delete"
+                        onclick="return confirm('Post dauerhaft aus dem Backup löschen?')">🗑</button>
+                    </form>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          <?php endif; ?>
+        </div>
+
+        <!-- Header: Auf LinkedIn gepostet -->
+        <div class="backup-section-header" style="margin-top:10px;<?php echo !empty($backup_posted) ? '' : ''; ?>"
+             onclick="toggleBackup('posted')" id="backup-hdr-posted">
+          <div class="backup-section-title">
+            <span>✅ Auf LinkedIn gepostet</span>
+            <?php if (!empty($backup_posted)): ?>
+              <span class="backup-badge posted"><?php echo count($backup_posted); ?> Posts</span>
+            <?php endif; ?>
+          </div>
+          <span class="backup-chevron" id="backup-chv-posted">▼</span>
+        </div>
+        <div class="backup-body" id="backup-body-posted">
+          <?php if (empty($backup_posted)): ?>
+            <div class="backup-empty">Noch keine geposteten Posts. Markiere einen Post als gepostet – er erscheint hier.</div>
+          <?php else: ?>
+            <div class="backup-grid">
+              <?php foreach ($backup_posted as $bp): ?>
+                <?php
+                  $bp_is_series = isset($bp['type']) && $bp['type'] === 'series';
+                  $bp_preview_id = 'bkp-' . intval($bp['id']);
+                  $bp_posted_at  = isset($bp['posted_at']) && $bp['posted_at'] ? $bp['posted_at'] : '';
+                ?>
+                <div class="backup-card posted">
+                  <div class="backup-card-meta">
+                    <span class="backup-card-topic"><?php echo htmlspecialchars($bp['topic']); ?></span>
+                    <?php if ($bp_is_series): ?>
+                      <span class="backup-card-series-badge">
+                        Serie · Teil <?php echo intval($bp['series_part']); ?>/<?php echo intval($bp['series_total']); ?>
+                      </span>
+                    <?php endif; ?>
+                    <span class="backup-card-posted-badge">✓ gepostet<?php echo $bp_posted_at ? ' ' . htmlspecialchars($bp_posted_at) : ''; ?></span>
+                    <span class="backup-card-date"><?php echo htmlspecialchars($bp['generated_at']); ?></span>
+                  </div>
+                  <div class="backup-preview collapsed" id="<?php echo $bp_preview_id; ?>">
+                    <?php echo htmlspecialchars($bp['text']); ?>
+                  </div>
+                  <div class="backup-chars"><?php echo mb_strlen($bp['text']); ?> Zeichen</div>
+                  <div class="backup-actions">
+                    <button class="btn-backup-copy"
+                      onclick="backupCopy(this, '<?php echo $bp_preview_id; ?>')">📋 Kopieren</button>
+                    <button class="btn-secondary" style="padding:6px 12px;font-size:12px;"
+                      onclick="toggleBackupExpand('<?php echo $bp_preview_id; ?>', this)">Mehr</button>
+                    <form method="post" action="./linkedin.php" style="display:inline;">
+                      <input type="hidden" name="action" value="backup_mark_ready">
+                      <input type="hidden" name="backup_id" value="<?php echo intval($bp['id']); ?>">
+                      <button type="submit" class="btn-backup-undo" title="Zurück in 'Bereit zum Posten' verschieben">↩ Rückgängig</button>
+                    </form>
+                    <form method="post" action="./linkedin.php" style="display:inline;margin-left:auto;">
+                      <input type="hidden" name="action" value="backup_delete">
+                      <input type="hidden" name="backup_id" value="<?php echo intval($bp['id']); ?>">
+                      <button type="submit" class="btn-backup-delete"
+                        onclick="return confirm('Post dauerhaft aus dem Backup löschen?')">🗑</button>
+                    </form>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          <?php endif; ?>
+        </div>
+
+      </div><!-- /backup-section -->
+
     </div><!-- /dash-content -->
   </div><!-- /dash-main -->
 </div>
@@ -966,6 +1323,57 @@ function toggleExpand(id, btn) {
   } else {
     el.classList.add('collapsed');
     btn.textContent = 'Mehr anzeigen';
+  }
+}
+
+function toggleBackup(section) {
+  var hdr  = document.getElementById('backup-hdr-'  + section);
+  var body = document.getElementById('backup-body-' + section);
+  var chv  = document.getElementById('backup-chv-'  + section);
+  var open = body.classList.contains('open');
+  if (open) {
+    body.classList.remove('open');
+    hdr.classList.remove('open');
+    chv.classList.remove('open');
+  } else {
+    body.classList.add('open');
+    hdr.classList.add('open');
+    chv.classList.add('open');
+  }
+}
+
+function toggleBackupExpand(previewId, btn) {
+  var el = document.getElementById(previewId);
+  if (!el) return;
+  if (el.classList.contains('collapsed')) {
+    el.classList.remove('collapsed');
+    btn.textContent = 'Weniger';
+  } else {
+    el.classList.add('collapsed');
+    btn.textContent = 'Mehr';
+  }
+}
+
+function backupCopy(btn, previewId) {
+  var el = document.getElementById(previewId);
+  if (!el) return;
+  var text = el.textContent || el.innerText;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text.trim()).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = '✓ Kopiert!';
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text.trim();
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var orig = btn.textContent;
+    btn.textContent = '✓ Kopiert!';
+    setTimeout(function() { btn.textContent = orig; }, 2000);
   }
 }
 
