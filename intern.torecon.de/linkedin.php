@@ -512,64 +512,41 @@ if ($action === 'generate_series') {
 }
 
 if ($action === 'approve') {
-    $approve_id = intval($_POST['approve_id']);
-    $drafts = li_read($drafts_file);
-    // Find what type of post we're approving
-    $is_series_approve = false;
-    $approve_series_id = 0;
-    foreach ($drafts as $d) {
-        if ($d['id'] == $approve_id) {
-            $is_series_approve = isset($d['type']) && $d['type'] === 'series';
-            $approve_series_id = isset($d['series_id']) ? $d['series_id'] : 0;
-            break;
-        }
-    }
+    $approve_id   = intval($_POST['approve_id']);
+    $drafts       = li_read($drafts_file);
+    $approved_post = null;
     foreach ($drafts as $k => $d) {
         if ($d['id'] == $approve_id) {
             $drafts[$k]['status'] = 'approved';
-        } elseif ($is_series_approve) {
-            // Sibling series posts → backlog (queued), not deleted
-            if (isset($d['type']) && $d['type'] === 'series' && isset($d['series_id']) && $d['series_id'] == $approve_series_id) {
-                if ($d['status'] === 'pending' || $d['status'] === 'queued') {
-                    $drafts[$k]['status'] = 'queued';
-                }
-            }
-        } else {
-            // Normal post approved → reject other pending normal posts
-            if ($d['status'] === 'pending' && (!isset($d['type']) || $d['type'] !== 'series')) {
-                $drafts[$k]['status'] = 'rejected';
-            }
+            $approved_post        = $drafts[$k];
         }
     }
     li_write($drafts_file, $drafts);
-    $msg = 'Post genehmigt! Kopiere ihn unten und poste ihn auf LinkedIn.';
+    if ($approved_post !== null) {
+        li_backup_add($backup_file, array($approved_post));
+    }
+    $msg = 'Post ins Backup übernommen – du findest ihn unter „Bereit zum Posten".';
 }
 
 if ($action === 'queue_series') {
     $queue_sid = isset($_POST['queue_sid']) ? intval($_POST['queue_sid']) : 0;
-    $drafts = li_read($drafts_file);
+    $drafts    = li_read($drafts_file);
+    $to_backup = array();
     foreach ($drafts as $k => $d) {
         if (isset($d['type']) && $d['type'] === 'series'
             && isset($d['series_id']) && $d['series_id'] == $queue_sid
-            && $d['status'] === 'pending') {
-            $drafts[$k]['status'] = 'queued';
+            && ($d['status'] === 'pending' || $d['status'] === 'queued')) {
+            $drafts[$k]['status'] = 'approved';
+            $to_backup[]          = $drafts[$k];
         }
     }
     li_write($drafts_file, $drafts);
-    $msg = 'Serie in Backlog gespeichert. Du findest sie unten jederzeit wieder.';
+    if (!empty($to_backup)) {
+        li_backup_add($backup_file, $to_backup);
+    }
+    $msg = count($to_backup) . ' Serie-Posts ins Backup übernommen – du findest sie unter „Bereit zum Posten".';
 }
 
-if ($action === 'mark_posted') {
-    $drafts = li_read($drafts_file);
-    foreach ($drafts as $k => $d) {
-        if ($d['status'] === 'approved') {
-            $drafts[$k]['status'] = 'posted';
-            li_backup_set_status($backup_file, $d['id'], 'posted');
-        }
-    }
-    li_write($drafts_file, $drafts);
-    $msg = 'Post als gepostet markiert. Die verbleibenden Serie-Posts warten im Backlog.';
-}
 
 if ($action === 'backup_mark_posted') {
     $bid = intval($_POST['backup_id']);
@@ -617,16 +594,13 @@ foreach ($backup_all as $b) {
     if ($bs === 'posted') $backup_posted[] = $b;
     else                  $backup_ready[]  = $b;
 }
-$approved      = null;
 $pending       = array();
 $series_groups = array();
-$backlog       = array(); // queued series posts
 $edit_id       = isset($_GET['edit']) ? intval($_GET['edit']) : 0;
 
 foreach ($drafts as $d) {
-    if ($d['status'] === 'approved') { $approved = $d; continue; }
-    if ($d['status'] === 'queued') { $backlog[] = $d; continue; }
-    if ($d['status'] !== 'pending')  continue;
+    // Only show pending posts (approved/rejected/posted are done)
+    if ($d['status'] !== 'pending') continue;
     if (isset($d['type']) && $d['type'] === 'series') {
         $sid = $d['series_id'];
         if (!isset($series_groups[$sid])) {
@@ -645,15 +619,6 @@ foreach ($drafts as $d) {
 foreach ($series_groups as $sid => $sg) {
     usort($series_groups[$sid]['posts'], function($a, $b) { return $a['series_part'] - $b['series_part']; });
 }
-// Sort backlog by series_id (so same series stays together), then by part
-usort($backlog, function($a, $b) {
-    $sid_a = isset($a['series_id']) ? $a['series_id'] : 0;
-    $sid_b = isset($b['series_id']) ? $b['series_id'] : 0;
-    if ($sid_a !== $sid_b) return $sid_a - $sid_b;
-    $pa = isset($a['series_part']) ? $a['series_part'] : 0;
-    $pb = isset($b['series_part']) ? $b['series_part'] : 0;
-    return $pa - $pb;
-});
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -932,26 +897,6 @@ usort($backlog, function($a, $b) {
         </form>
       </div>
 
-      <!-- ══ APPROVED POST ════════════════════════════════════════════════════ -->
-      <?php if ($approved): ?>
-        <div class="approved-box">
-          <h3>✅ Genehmigter Post – bereit für LinkedIn</h3>
-          <textarea id="approved-text" onclick="this.select()"><?php echo htmlspecialchars($approved['text']); ?></textarea>
-          <div class="approved-meta">
-            <button class="btn-copy" onclick="copyApproved()">📋 In Zwischenablage kopieren</button>
-            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="btn-secondary"
-               style="text-decoration:none;display:inline-block;padding:9px 18px;">LinkedIn öffnen →</a>
-            <form method="post" action="./linkedin.php" style="display:inline;">
-              <input type="hidden" name="action" value="mark_posted">
-              <button type="submit" class="btn-secondary" style="border-color:rgba(52,199,89,0.4);color:#1a7f37;"
-                title="Markiert diesen Post als gepostet – im Backup-Archiv unter 'Auf LinkedIn gepostet' sichtbar">✓ Als gepostet markieren</button>
-            </form>
-            <span class="char-count" id="approved-chars"></span>
-            <span class="copy-ok" id="copy-ok">✓ Kopiert!</span>
-          </div>
-        </div>
-      <?php endif; ?>
-
       <!-- ══ PENDING DRAFTS ════════════════════════════════════════════════════ -->
       <?php if (!empty($pending)): ?>
         <div class="form-panel">
@@ -995,7 +940,7 @@ usort($backlog, function($a, $b) {
           </div>
         </div>
 
-      <?php elseif (empty($drafts) && empty($series_groups)): ?>
+      <?php elseif (empty($pending) && empty($series_groups)): ?>
         <div class="form-panel">
           <div class="empty-state">
             <div class="icon">✍️</div>
@@ -1013,8 +958,8 @@ usort($backlog, function($a, $b) {
               <input type="hidden" name="action" value="queue_series">
               <input type="hidden" name="queue_sid" value="<?php echo intval($sid); ?>">
               <button type="submit" class="btn-secondary" style="font-size:13px;padding:7px 16px;border-color:rgba(0,113,227,0.3);color:#0071E3;"
-                title="Alle Posts dieser Serie in den Backlog verschieben – dort jederzeit verfügbar">
-                📥 Alle in Backlog speichern
+                title="Alle Posts dieser Serie ins Backup übernehmen – dort jederzeit verfügbar">
+                📥 Alle ins Backup
               </button>
             </form>
           </div>
@@ -1061,73 +1006,6 @@ usort($backlog, function($a, $b) {
         </div>
       <?php endforeach; ?>
 
-      <!-- ══ BACKLOG ══════════════════════════════════════════════════════════ -->
-      <?php if (!empty($backlog)): ?>
-        <div class="form-panel" style="border-color:rgba(0,113,227,0.2);background:linear-gradient(135deg,#f0f7ff 0%,#fff 100%);">
-          <h4>📥 Backlog – gespeicherte Serie-Posts</h4>
-          <?php
-          // Group backlog by series_id for display
-          $bl_groups = array();
-          foreach ($backlog as $d) {
-              $sid = isset($d['series_id']) ? $d['series_id'] : 0;
-              if (!isset($bl_groups[$sid])) {
-                  $bl_groups[$sid] = array(
-                      'topic' => isset($d['series_topic']) ? $d['series_topic'] : '',
-                      'posts' => array(),
-                  );
-              }
-              $bl_groups[$sid]['posts'][] = $d;
-          }
-          ?>
-          <?php foreach ($bl_groups as $bl_sid => $blg): ?>
-            <div style="margin-bottom:20px;">
-              <div style="font-size:12px;font-weight:700;color:#0071E3;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;">
-                <?php echo htmlspecialchars($blg['topic']); ?>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:10px;">
-                <?php foreach ($blg['posts'] as $d): ?>
-                  <?php $is_edit = ($edit_id === $d['id']); ?>
-                  <div style="background:#fff;border:1.5px solid rgba(0,113,227,0.15);border-radius:12px;padding:16px 18px;">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
-                      <span style="font-size:12px;font-weight:600;color:#444;"><?php echo htmlspecialchars($d['topic']); ?></span>
-                      <span style="font-size:11px;background:#dbeafe;color:#1d4ed8;border-radius:20px;padding:2px 9px;font-weight:600;white-space:nowrap;">
-                        Teil <?php echo intval($d['series_part']); ?>/<?php echo intval($d['series_total']); ?>
-                      </span>
-                      <span style="font-size:11px;color:var(--text-secondary);"><?php echo htmlspecialchars($d['generated_at']); ?></span>
-                    </div>
-                    <?php if ($is_edit): ?>
-                      <form method="post" action="./linkedin.php">
-                        <input type="hidden" name="action" value="edit_save">
-                        <input type="hidden" name="edit_id" value="<?php echo intval($d['id']); ?>">
-                        <textarea name="edit_text" class="draft-editarea"><?php echo htmlspecialchars($d['text']); ?></textarea>
-                        <div class="draft-actions" style="margin-top:10px;">
-                          <button type="submit" class="btn-primary" style="padding:7px 18px;font-size:13px;">Speichern</button>
-                          <a href="./linkedin.php" class="btn-secondary" style="padding:7px 18px;font-size:13px;text-decoration:none;">Abbrechen</a>
-                        </div>
-                      </form>
-                    <?php else: ?>
-                      <div class="draft-preview collapsed" id="preview-<?php echo intval($d['id']); ?>" style="font-size:13px;line-height:1.6;color:var(--text);white-space:pre-wrap;">
-                        <?php echo htmlspecialchars($d['text']); ?>
-                      </div>
-                      <div style="font-size:11px;color:var(--text-secondary);margin:6px 0 10px;"><?php echo mb_strlen($d['text']); ?> Zeichen</div>
-                      <div class="draft-actions">
-                        <form method="post" action="./linkedin.php">
-                          <input type="hidden" name="action" value="approve">
-                          <input type="hidden" name="approve_id" value="<?php echo intval($d['id']); ?>">
-                          <button type="submit" class="btn-approve">✓ Jetzt genehmigen</button>
-                        </form>
-                        <a href="?edit=<?php echo intval($d['id']); ?>" class="btn-edit">Bearbeiten</a>
-                        <button class="btn-secondary" style="padding:7px 14px;font-size:12px;"
-                          onclick="toggleExpand(<?php echo intval($d['id']); ?>, this)">Mehr anzeigen</button>
-                      </div>
-                    <?php endif; ?>
-                  </div>
-                <?php endforeach; ?>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
 
       <!-- ══ BACKUP ARCHIVE ════════════════════════════════════════════════════ -->
       <?php
