@@ -1,0 +1,44 @@
+[
+  {
+    "version": "3.1",
+    "download_url": "https://downloads.torecon.de/eladung/eLadung-3.1.dmg",
+    "release_notes_url": "https://downloads.torecon.de/eladung/notes/v3.1.md",
+    "release_date": "2026-03-21"
+  },
+  {
+    "version": "3.0",
+    "download_url": "https://downloads.torecon.de/eladung/eLadung-3.0.dmg",
+    "release_notes_url": "https://downloads.torecon.de/eladung/notes/v3.0.md",
+    "release_date": "2026-03-21"
+  },
+  {
+    "version": "2.5.1",
+    "download_url": "https://downloads.torecon.de/eladung/eLadung-2.5.1.pkg",
+    "release_notes_url": "https://downloads.torecon.de/eladung/notes/v2.5.1.md",
+    "release_date": "2026-03-21"
+  },
+  {
+    "version": "2.5",
+    "download_url": "https://downloads.torecon.de/eladung/eLadung-2.5.dmg",
+    "release_notes_url": "https://downloads.torecon.de/eladung/notes/v2.5.md",
+    "release_date": "2026-03-21"
+  },
+  {
+    "version": "2.4",
+    "download_url": "https://downloads.torecon.de/eladung/eLadung-2.4.dmg",
+    "release_notes_url": "https://downloads.torecon.de/eladung/notes/v2.4.md",
+    "release_date": "2026-03-21"
+  },
+  {
+    "version": "2.2",
+    "download_url": "https://downloads.torecon.de/eladung/eLadung-2.2.pkg",
+    "release_notes_url": "https://downloads.torecon.de/eladung/notes/v2.2.md",
+    "release_date": "2026-03-20"
+  },
+  {
+    "version": "1.0",
+    "download_url": "https://downloads.torecon.de/eladung/eLadung-1.0.dmg",
+    "release_notes_url": "https://downloads.torecon.de/eladung/notes/v1.0.md",
+    "release_date": "2026-03-18"
+  }
+]

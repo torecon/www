@@ -217,6 +217,83 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
     return array('error' => 'Antwort konnte nicht geparst werden: ' . substr($text, 0, 300));
 }
 
+// ── AJAX handler (generate / generate_series) ────────────────────────────────
+if (isset($_POST['ajax']) && $_POST['ajax'] === '1') {
+    $ajax_action = isset($_POST['action']) ? $_POST['action'] : '';
+    $ajax_key    = defined('CLAUDE_API_KEY') ? CLAUDE_API_KEY : '';
+    header('Content-Type: application/json; charset=utf-8');
+    @set_time_limit(120);
+
+    if (!$ajax_key) {
+        echo json_encode(array('error' => 'Kein Claude API-Key konfiguriert.'));
+        exit;
+    }
+
+    $ajax_settings = li_read_settings(__DIR__ . '/linkedin_settings.json');
+
+    if ($ajax_action === 'generate') {
+        $result = li_call_claude($ajax_key, date('Y-m-d'), $ajax_settings);
+        if (isset($result['error'])) {
+            echo json_encode(array('error' => $result['error']));
+        } else {
+            $ajax_drafts = array();
+            foreach ($result as $i => $post) {
+                $ajax_drafts[] = array(
+                    'id'           => intval(round(microtime(true) * 1000)) + $i,
+                    'generated_at' => date('Y-m-d'),
+                    'topic'        => isset($post['topic']) ? trim($post['topic']) : 'Post ' . ($i + 1),
+                    'text'         => isset($post['text'])  ? trim($post['text'])  : '',
+                    'status'       => 'pending',
+                );
+            }
+            li_write(__DIR__ . '/linkedin_drafts.json', $ajax_drafts);
+            echo json_encode(array('ok' => true, 'count' => count($ajax_drafts)));
+        }
+        exit;
+    }
+
+    if ($ajax_action === 'generate_series') {
+        $series_topic = isset($_POST['series_topic']) ? trim($_POST['series_topic']) : '';
+        $series_count = isset($_POST['series_count']) ? intval($_POST['series_count']) : 3;
+        if ($series_count < 2) $series_count = 2;
+        if ($series_count > 5) $series_count = 5;
+        $result = li_call_claude_series($ajax_key, date('Y-m-d'), $series_topic, $series_count,
+                      isset($ajax_settings['post_hint']) ? $ajax_settings['post_hint'] : '');
+        if (isset($result['error'])) {
+            echo json_encode(array('error' => $result['error']));
+        } else {
+            $series_id  = intval(round(microtime(true) * 1000));
+            $new_series = array();
+            foreach ($result as $i => $post) {
+                $part = isset($post['part']) ? intval($post['part']) : ($i + 1);
+                $new_series[] = array(
+                    'id'           => $series_id + $i,
+                    'generated_at' => date('Y-m-d'),
+                    'topic'        => isset($post['topic']) ? trim($post['topic']) : 'Teil ' . $part,
+                    'text'         => isset($post['text'])  ? trim($post['text'])  : '',
+                    'status'       => 'pending',
+                    'type'         => 'series',
+                    'series_id'    => $series_id,
+                    'series_part'  => $part,
+                    'series_total' => $series_count,
+                    'series_topic' => $series_topic,
+                );
+            }
+            $existing = li_read(__DIR__ . '/linkedin_drafts.json');
+            $kept = array();
+            foreach ($existing as $d) {
+                if (!isset($d['type']) || $d['type'] !== 'series') $kept[] = $d;
+            }
+            li_write(__DIR__ . '/linkedin_drafts.json', array_merge($kept, $new_series));
+            echo json_encode(array('ok' => true, 'count' => count($new_series)));
+        }
+        exit;
+    }
+
+    echo json_encode(array('error' => 'Unbekannte Aktion.'));
+    exit;
+}
+
 // ── actions ──────────────────────────────────────────────────────────────────
 $action      = isset($_POST['action']) ? $_POST['action'] : '';
 $msg         = '';
@@ -571,9 +648,12 @@ usort($backlog, function($a, $b) {
         <div style="background:#1e1e2e;color:#cdd6f4;border-radius:10px;padding:16px 20px;margin-bottom:20px;font-family:monospace;font-size:13px;white-space:pre-wrap;word-break:break-all;"><?php echo htmlspecialchars($api_test_result); ?></div>
       <?php endif; ?>
 
+      <!-- Ajax error display -->
+      <div id="ajax-error" class="msg-error" style="display:none;"></div>
+
       <!-- Generate bar -->
       <div class="generate-bar">
-        <form method="post" action="./linkedin.php" onsubmit="showLoading()">
+        <form method="post" action="./linkedin.php" onsubmit="return ajaxGenerate(this)">
           <input type="hidden" name="action" value="generate">
           <button type="submit" class="btn-primary" <?php echo !$api_key ? 'disabled title="API-Key fehlt"' : ''; ?>>
             ✨ Posts generieren
@@ -595,7 +675,7 @@ usort($backlog, function($a, $b) {
       <!-- Serie generieren -->
       <div class="form-panel" style="margin-bottom:28px;">
         <h4>📋 LinkedIn-Serie generieren</h4>
-        <form method="post" action="./linkedin.php" onsubmit="showLoading()">
+        <form method="post" action="./linkedin.php" onsubmit="return ajaxGenerate(this)">
           <input type="hidden" name="action" value="generate_series">
           <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;">
             <label style="flex:1;min-width:220px;font-size:13px;color:var(--text-secondary);display:flex;flex-direction:column;gap:5px;">
@@ -823,8 +903,50 @@ usort($backlog, function($a, $b) {
 </div>
 
 <script>
-function showLoading() {
-  document.getElementById('loading-overlay').classList.add('active');
+function showLoading(msg) {
+  var overlay = document.getElementById('loading-overlay');
+  if (msg) overlay.querySelector('span').textContent = msg;
+  overlay.classList.add('active');
+}
+function hideLoading() {
+  document.getElementById('loading-overlay').classList.remove('active');
+}
+function showAjaxError(msg) {
+  var el = document.getElementById('ajax-error');
+  el.textContent = msg;
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function ajaxGenerate(form) {
+  document.getElementById('ajax-error').style.display = 'none';
+  var action = form.querySelector('[name="action"]').value;
+  var label  = action === 'generate_series' ? 'Serie wird generiert\u00a0\u2013 bitte warten\u2026'
+                                             : 'Posts werden generiert\u00a0\u2013 bitte warten\u2026';
+  showLoading(label);
+
+  var data = new FormData(form);
+  data.append('ajax', '1');
+
+  fetch('./linkedin.php', { method: 'POST', body: data })
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function(j) {
+      hideLoading();
+      if (j.error) {
+        showAjaxError('Fehler: ' + j.error);
+      } else {
+        location.reload();
+      }
+    })
+    .catch(function(e) {
+      hideLoading();
+      showAjaxError('Netzwerkfehler: ' + e.message);
+    });
+
+  return false; // prevent normal form submit
 }
 
 function copyApproved() {
