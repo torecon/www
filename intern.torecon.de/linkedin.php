@@ -140,27 +140,42 @@ function li_escape_newlines_in_json($json) {
     return $result;
 }
 
-// Extract JSON array from Claude response (handles markdown code blocks + unescaped newlines)
+// Extract JSON array from Claude response using bracket-matching (no regex, fully robust)
 function li_parse_json_response($text) {
-    // Strip markdown code block markers
-    $text = preg_replace('/```json\s*/s', '', $text);
-    $text = preg_replace('/```\s*/s',     '', $text);
     $text = trim($text);
 
+    // Find the first '[' – start of JSON array
+    $start = strpos($text, '[');
+    if ($start === false) return null;
+
+    // Walk forward tracking depth to find the matching ']'
+    $depth     = 0;
+    $in_string = false;
+    $escape    = false;
+    $end       = -1;
+    $len       = strlen($text);
+    for ($i = $start; $i < $len; $i++) {
+        $c = $text[$i];
+        if ($escape)                        { $escape = false; continue; }
+        if ($c === '\\' && $in_string)      { $escape = true;  continue; }
+        if ($c === '"')                     { $in_string = !$in_string; continue; }
+        if ($in_string)                     { continue; }
+        if ($c === '[' || $c === '{')       { $depth++; }
+        elseif ($c === ']' || $c === '}')   {
+            $depth--;
+            if ($depth === 0) { $end = $i; break; }
+        }
+    }
+    if ($end === -1) return null;
+
+    $json = substr($text, $start, $end - $start + 1);
+
     // Try direct parse
-    $posts = json_decode($text, true);
+    $posts = json_decode($json, true);
     if (is_array($posts) && count($posts) > 0) return $posts;
 
-    // Extract array with regex
-    if (!preg_match('/(\[[\s\S]+\])/u', $text, $matches)) return null;
-    $arr = $matches[1];
-
-    // Try direct parse of extracted array
-    $posts = json_decode($arr, true);
-    if (is_array($posts) && count($posts) > 0) return $posts;
-
-    // Fix unescaped newlines and retry
-    $fixed = li_escape_newlines_in_json($arr);
+    // Fix unescaped literal newlines inside strings and retry
+    $fixed = li_escape_newlines_in_json($json);
     $posts = json_decode($fixed, true);
     if (is_array($posts) && count($posts) > 0) return $posts;
 
@@ -189,9 +204,11 @@ function li_call_claude($api_key, $today, $settings) {
             . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hashtag1 #Hashtag2"},...]';
 
     $max_tokens = max(2000, $post_count * 1200);
+    // Haiku for high post counts: 3x faster, avoids server timeout
+    $model = ($post_count >= 5) ? 'claude-haiku-4-5-20251001' : 'claude-sonnet-4-6';
 
     $payload = json_encode(array(
-        'model'      => 'claude-sonnet-4-6',
+        'model'      => $model,
         'max_tokens' => $max_tokens,
         'messages'   => array(
             array('role' => 'user', 'content' => $prompt)
@@ -281,7 +298,7 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 90);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 120);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'x-api-key: ' . $api_key,
         'anthropic-version: 2023-06-01',
