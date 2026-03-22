@@ -182,12 +182,74 @@ function li_parse_json_response($text) {
     return null;
 }
 
+// Single API call for exactly $n posts
+function li_call_claude_single($api_key, $today, $n, $topic1, $topic2, $post_hint) {
+    $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
+            . 'Deine Kernthemen: ' . $topic1 . ' und ' . $topic2 . '. '
+            . "\n\nHeutiges Datum: " . $today . "\n\n"
+            . "Erstelle " . $n . " LinkedIn-Posts zu aktuellen, praxisrelevanten Themen aus diesen zwei Bereichen. Abwechslung ist wichtig.\n\n"
+            . "Jeder Post muss:\n"
+            . "- Mit einem starken Hook beginnen (1 Satz: provokante These, ueberraschende Zahl oder offene Frage)\n"
+            . "- Ca. 900-1.300 Zeichen lang sein (ohne Hashtags)\n"
+            . "- Aus Ich-Perspektive geschrieben sein, praxisnah und ohne Buzzword-Bingo\n"
+            . "- Einen konkreten Insight oder Handlungsempfehlung enthalten\n"
+            . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
+            . "- Mit 4-5 Hashtags abschliessen (z.B. #Digitalisierung #Banking #KI #LegacyTransformation #Fintech)\n\n"
+            . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
+            . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
+            . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hashtag1 #Hashtag2"},...]';
+
+    $payload = json_encode(array(
+        'model'      => 'claude-sonnet-4-6',
+        'max_tokens' => max(2000, $n * 1200),
+        'messages'   => array(array('role' => 'user', 'content' => $prompt))
+    ));
+
+    $ch = curl_init('https://api.anthropic.com/v1/messages');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'x-api-key: ' . $api_key,
+        'anthropic-version: 2023-06-01',
+        'content-type: application/json'
+    ));
+    $response  = curl_exec($ch);
+    $curl_err  = curl_error($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($curl_err) return array('error' => 'cURL-Fehler: ' . $curl_err);
+    $decoded = json_decode($response, true);
+    if (!isset($decoded['content'][0]['text'])) {
+        if (isset($decoded['error']['message']))
+            return array('error' => 'HTTP ' . $http_code . ': ' . $decoded['error']['message']);
+        return array('error' => 'HTTP ' . $http_code . ' · ' . substr($response, 0, 200));
+    }
+    $posts = li_parse_json_response($decoded['content'][0]['text']);
+    if ($posts !== null) return $posts;
+    return array('error' => 'Parse-Fehler: ' . substr($decoded['content'][0]['text'], 0, 200));
+}
+
 function li_call_claude($api_key, $today, $settings) {
     $topic1     = $settings['topic1'];
     $topic2     = $settings['topic2'];
     $post_count = intval($settings['post_count']);
     $post_hint  = isset($settings['post_hint']) ? trim($settings['post_hint']) : (isset($settings['tone_hint']) ? trim($settings['tone_hint']) : '');
 
+    // Split large requests into two calls to avoid server timeout
+    if ($post_count >= 4) {
+        $n1 = (int)ceil($post_count / 2);  // e.g. 5→3, 4→2
+        $n2 = $post_count - $n1;           // e.g. 5→2, 4→2
+        $r1 = li_call_claude_single($api_key, $today, $n1, $topic1, $topic2, $post_hint);
+        if (isset($r1['error'])) return $r1;
+        $r2 = li_call_claude_single($api_key, $today, $n2, $topic1, $topic2, $post_hint);
+        if (isset($r2['error'])) return $r2;
+        return array_merge($r1, $r2);
+    }
+
+    // 1–3 posts: single call
     $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
             . 'Deine Kernthemen: ' . $topic1 . ' und ' . $topic2 . '. '
             . "\n\nHeutiges Datum: " . $today . "\n\n"
@@ -203,23 +265,17 @@ function li_call_claude($api_key, $today, $settings) {
             . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
             . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hashtag1 #Hashtag2"},...]';
 
-    $max_tokens = max(2000, $post_count * 1200);
-    // Haiku for high post counts: 3x faster, avoids server timeout
-    $model = ($post_count >= 5) ? 'claude-haiku-4-5-20251001' : 'claude-sonnet-4-6';
-
     $payload = json_encode(array(
-        'model'      => $model,
-        'max_tokens' => $max_tokens,
-        'messages'   => array(
-            array('role' => 'user', 'content' => $prompt)
-        )
+        'model'      => 'claude-sonnet-4-6',
+        'max_tokens' => max(2000, $post_count * 1200),
+        'messages'   => array(array('role' => 'user', 'content' => $prompt))
     ));
 
     $ch = curl_init('https://api.anthropic.com/v1/messages');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 120);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'x-api-key: ' . $api_key,
         'anthropic-version: 2023-06-01',
@@ -231,26 +287,18 @@ function li_call_claude($api_key, $today, $settings) {
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 
-    if ($curl_err) {
-        return array('error' => 'cURL-Fehler: ' . $curl_err);
-    }
+    if ($curl_err) return array('error' => 'cURL-Fehler: ' . $curl_err);
 
     $decoded = json_decode($response, true);
     if (!isset($decoded['content'][0]['text'])) {
-        if (isset($decoded['error']['type']) || isset($decoded['error']['message'])) {
-            $api_type = isset($decoded['error']['type'])    ? $decoded['error']['type']    : '';
-            $api_msg  = isset($decoded['error']['message']) ? $decoded['error']['message'] : 'Unbekannter Fehler';
-            return array('error' => 'HTTP ' . $http_code . ' · ' . $api_type . ': ' . $api_msg);
-        }
-        $raw = $response ? substr($response, 0, 300) : '(leere Antwort)';
-        return array('error' => 'HTTP ' . $http_code . ' · Rohantwort: ' . $raw);
+        if (isset($decoded['error']['message']))
+            return array('error' => 'HTTP ' . $http_code . ': ' . $decoded['error']['message']);
+        return array('error' => 'HTTP ' . $http_code . ' · ' . substr($response, 0, 200));
     }
 
-    $text  = $decoded['content'][0]['text'];
-    $posts = li_parse_json_response($text);
+    $posts = li_parse_json_response($decoded['content'][0]['text']);
     if ($posts !== null) return $posts;
-
-    return array('error' => 'Antwort konnte nicht geparst werden: ' . substr($text, 0, 300));
+    return array('error' => 'Parse-Fehler: ' . substr($decoded['content'][0]['text'], 0, 200));
 }
 
 function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = '') {
@@ -298,7 +346,7 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 120);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'x-api-key: ' . $api_key,
         'anthropic-version: 2023-06-01',
@@ -310,26 +358,18 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 
-    if ($curl_err) {
-        return array('error' => 'cURL-Fehler: ' . $curl_err);
-    }
+    if ($curl_err) return array('error' => 'cURL-Fehler: ' . $curl_err);
 
     $decoded = json_decode($response, true);
     if (!isset($decoded['content'][0]['text'])) {
-        if (isset($decoded['error']['type']) || isset($decoded['error']['message'])) {
-            $api_type = isset($decoded['error']['type'])    ? $decoded['error']['type']    : '';
-            $api_msg  = isset($decoded['error']['message']) ? $decoded['error']['message'] : 'Unbekannter Fehler';
-            return array('error' => 'HTTP ' . $http_code . ' · ' . $api_type . ': ' . $api_msg);
-        }
-        $raw = $response ? substr($response, 0, 300) : '(leere Antwort)';
-        return array('error' => 'HTTP ' . $http_code . ' · Rohantwort: ' . $raw);
+        if (isset($decoded['error']['message']))
+            return array('error' => 'HTTP ' . $http_code . ': ' . $decoded['error']['message']);
+        return array('error' => 'HTTP ' . $http_code . ' · ' . substr($response, 0, 200));
     }
 
-    $text  = $decoded['content'][0]['text'];
-    $posts = li_parse_json_response($text);
+    $posts = li_parse_json_response($decoded['content'][0]['text']);
     if ($posts !== null) return $posts;
-
-    return array('error' => 'Antwort konnte nicht geparst werden: ' . substr($text, 0, 300));
+    return array('error' => 'Parse-Fehler: ' . substr($decoded['content'][0]['text'], 0, 200));
 }
 
 // ── AJAX handler (generate / generate_series) ────────────────────────────────
@@ -1173,8 +1213,12 @@ function showAjaxError(msg) {
 function ajaxGenerate(form) {
   document.getElementById('ajax-error').style.display = 'none';
   var action = form.querySelector('[name="action"]').value;
-  var label  = action === 'generate_series' ? 'Serie wird generiert\u00a0\u2013 bitte warten\u2026'
-                                             : 'Posts werden generiert\u00a0\u2013 bitte warten\u2026';
+  var postCount = form.querySelector('[name="post_count"]');
+  var isMany = postCount && parseInt(postCount.value) >= 4;
+  var label  = action === 'generate_series'
+    ? 'Serie wird generiert\u00a0\u2013 bitte warten\u2026'
+    : (isMany ? 'Posts werden generiert (2 Anfragen)\u00a0\u2013 bitte warten\u2026'
+              : 'Posts werden generiert\u00a0\u2013 bitte warten\u2026');
   showLoading(label);
 
   var data = new FormData(form);
