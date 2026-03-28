@@ -80,7 +80,7 @@ function buildFooter() {
         </div>
       </div>
       <div class="footer-bottom">
-        <span data-i18n="footer_copy">© 2026 torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
+        <span data-i18n="footer_copy">© ${new Date().getFullYear()} torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
         <div class="footer-bottom-links">
           <a href="${root}imprint.html" data-i18n="footer_imprint">Impressum</a>
           <a href="${root}imprint.html#privacy" data-i18n="footer_privacy">Datenschutz</a>
