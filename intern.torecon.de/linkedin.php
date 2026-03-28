@@ -114,7 +114,7 @@ function li_read_settings($path) {
     return array_merge($defaults, $data);
 }
 
-// Fix unescaped newlines inside JSON string values (PHP 5.x compatible)
+// Fix unescaped control characters inside JSON string values (PHP 5.x compatible)
 function li_escape_newlines_in_json($json) {
     $result    = '';
     $in_string = false;
@@ -131,8 +131,13 @@ function li_escape_newlines_in_json($json) {
         } elseif ($c === '"') {
             $in_string = !$in_string;
             $result   .= $c;
-        } elseif ($in_string && ($c === "\n" || $c === "\r")) {
-            $result .= ($c === "\n") ? '\\n' : '\\r';
+        } elseif ($in_string) {
+            $ord = ord($c);
+            if ($c === "\n")       { $result .= '\\n'; }
+            elseif ($c === "\r")   { $result .= '\\r'; }
+            elseif ($c === "\t")   { $result .= '\\t'; }
+            elseif ($ord < 0x20)   { $result .= sprintf('\\u%04x', $ord); }
+            else                   { $result .= $c; }
         } else {
             $result .= $c;
         }
@@ -196,20 +201,25 @@ function li_call_claude_single($api_key, $today, $n, $topic1, $topic2, $post_hin
             . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
             . "- Mit 4-5 Hashtags abschliessen (z.B. #Digitalisierung #Banking #KI #LegacyTransformation #Fintech)\n\n"
             . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
-            . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
-            . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hashtag1 #Hashtag2"},...]';
+            . "JSON-Regeln (unbedingt einhalten):\n"
+            . "- Ausgabe DIREKT als JSON-Array (kein Markdown, keine ```-Blöcke)\n"
+            . "- Keine ASCII-Anfuehrungszeichen (\") im Fliesstext – nutze stattdessen >>...<<\n"
+            . "- Zeilenumbrueche im 'text'-Feld als \\n darstellen\n"
+            . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\\n\\n#Hashtag1 #Hashtag2"},...]';
 
     $payload = json_encode(array(
         'model'      => 'claude-sonnet-4-6',
         'max_tokens' => max(2000, $n * 1200),
-        'messages'   => array(array('role' => 'user', 'content' => $prompt))
+        'messages'   => array(
+            array('role' => 'user', 'content' => $prompt)
+        )
     ));
 
     $ch = curl_init('https://api.anthropic.com/v1/messages');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 45);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'x-api-key: ' . $api_key,
         'anthropic-version: 2023-06-01',
@@ -238,10 +248,10 @@ function li_call_claude($api_key, $today, $settings) {
     $post_count = intval($settings['post_count']);
     $post_hint  = isset($settings['post_hint']) ? trim($settings['post_hint']) : (isset($settings['tone_hint']) ? trim($settings['tone_hint']) : '');
 
-    // Split large requests into two calls to avoid server timeout
-    if ($post_count >= 4) {
-        $n1 = (int)ceil($post_count / 2);  // e.g. 5→3, 4→2
-        $n2 = $post_count - $n1;           // e.g. 5→2, 4→2
+    // Split at 3+ posts to avoid server timeout (each call max ~45s)
+    if ($post_count >= 3) {
+        $n1 = (int)ceil($post_count / 2);  // 5→3, 4→2, 3→2
+        $n2 = $post_count - $n1;           // 5→2, 4→2, 3→1
         $r1 = li_call_claude_single($api_key, $today, $n1, $topic1, $topic2, $post_hint);
         if (isset($r1['error'])) return $r1;
         $r2 = li_call_claude_single($api_key, $today, $n2, $topic1, $topic2, $post_hint);
@@ -249,56 +259,8 @@ function li_call_claude($api_key, $today, $settings) {
         return array_merge($r1, $r2);
     }
 
-    // 1–3 posts: single call
-    $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
-            . 'Deine Kernthemen: ' . $topic1 . ' und ' . $topic2 . '. '
-            . "\n\nHeutiges Datum: " . $today . "\n\n"
-            . "Erstelle " . $post_count . " LinkedIn-Posts zu aktuellen, praxisrelevanten Themen aus diesen zwei Bereichen. Abwechslung ist wichtig.\n\n"
-            . "Jeder Post muss:\n"
-            . "- Mit einem starken Hook beginnen (1 Satz: provokante These, ueberraschende Zahl oder offene Frage)\n"
-            . "- Ca. 900-1.300 Zeichen lang sein (ohne Hashtags)\n"
-            . "- Aus Ich-Perspektive geschrieben sein, praxisnah und ohne Buzzword-Bingo\n"
-            . "- Einen konkreten Insight oder Handlungsempfehlung enthalten\n"
-            . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
-            . "- Mit 4-5 Hashtags abschliessen (z.B. #Digitalisierung #Banking #KI #LegacyTransformation #Fintech)\n\n"
-            . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
-            . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
-            . '[{"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hashtag1 #Hashtag2"},...]';
-
-    $payload = json_encode(array(
-        'model'      => 'claude-sonnet-4-6',
-        'max_tokens' => max(2000, $post_count * 1200),
-        'messages'   => array(array('role' => 'user', 'content' => $prompt))
-    ));
-
-    $ch = curl_init('https://api.anthropic.com/v1/messages');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'x-api-key: ' . $api_key,
-        'anthropic-version: 2023-06-01',
-        'content-type: application/json'
-    ));
-
-    $response  = curl_exec($ch);
-    $curl_err  = curl_error($ch);
-    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-
-    if ($curl_err) return array('error' => 'cURL-Fehler: ' . $curl_err);
-
-    $decoded = json_decode($response, true);
-    if (!isset($decoded['content'][0]['text'])) {
-        if (isset($decoded['error']['message']))
-            return array('error' => 'HTTP ' . $http_code . ': ' . $decoded['error']['message']);
-        return array('error' => 'HTTP ' . $http_code . ' · ' . substr($response, 0, 200));
-    }
-
-    $posts = li_parse_json_response($decoded['content'][0]['text']);
-    if ($posts !== null) return $posts;
-    return array('error' => 'Parse-Fehler: ' . substr($decoded['content'][0]['text'], 0, 200));
+    // 1–2 posts: single call
+    return li_call_claude_single($api_key, $today, $post_count, $topic1, $topic2, $post_hint);
 }
 
 function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = '') {
@@ -331,8 +293,11 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
             . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
             . "- Mit 4-5 Hashtags abschliessen\n\n"
             . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
-            . "Antworte AUSSCHLIESSLICH als valides JSON-Array, kein Text davor oder danach:\n"
-            . '[{"part":1,"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\n\n#Hash1 #Hash2"},...]';
+            . "JSON-Regeln (unbedingt einhalten):\n"
+            . "- Ausgabe DIREKT als JSON-Array (kein Markdown, keine ```-Blöcke)\n"
+            . "- Keine ASCII-Anfuehrungszeichen (\") im Fliesstext – nutze stattdessen >>...<<\n"
+            . "- Zeilenumbrueche im 'text'-Feld als \\n darstellen\n"
+            . '[{"part":1,"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\\n\\n#Hash1 #Hash2"},...]';
 
     $payload = json_encode(array(
         'model'      => 'claude-sonnet-4-6',
@@ -346,7 +311,7 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 45);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'x-api-key: ' . $api_key,
         'anthropic-version: 2023-06-01',

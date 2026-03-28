@@ -49,6 +49,20 @@ Das Script deployed nur `.htaccess` und `eladung/latest.json`.
 
 ---
 
+## Nach einem Serverwechsel (PHP-Version / Hosting-Stack)
+
+### intern.torecon.de – Pflichtschritte
+
+| # | Schritt | Details |
+|---|---------|---------|
+| 1 | **config.php anlegen** | `cp intern.torecon.de/config.php.example .../intern/html/config.php` – dann Werte anpassen: `ADMIN_USER`, `ADMIN_PASSWORD`, `CLAUDE_API_KEY` |
+| 2 | **Schreibrechte prüfen** | JSON-Dateien (`linkedin_drafts.json`, `linkedin_backup.json`, `topics_settings.json`, `linkedin_settings.json`) müssen vom Webserver beschreibbar sein |
+| 3 | **PHP-FPM vs. mod_php** | Bei PHP-FPM (Standard seit PHP 7+): `.user.ini` wird automatisch gelesen. Bei mod_php: `.htaccess` greift. Beides ist jetzt im Repo vorhanden. |
+
+> **Symptom HTTP 500 nach Serverwechsel:** Ursache war `php_value` in `.htaccess` – funktioniert nur mit mod_php, nicht mit PHP-FPM. Behoben durch `<IfModule>`-Guards + `.user.ini`.
+
+---
+
 ## Pre-Deployment Checkliste
 
 Vor jedem Deploy prüfen:

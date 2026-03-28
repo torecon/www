@@ -1,2 +1,2 @@
-php_value max_execution_time 120
-php_value max_input_time 120
+# PHP-Einstellungen werden via .user.ini gesetzt (PHP-FPM kompatibel).
+# php_value-Direktiven funktionieren nur mit mod_php, nicht mit PHP-FPM.

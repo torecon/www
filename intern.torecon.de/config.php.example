@@ -1,0 +1,18 @@
+<?php
+// ─── torecon – Zugangsdaten Interner Bereich ───────────────────────────────
+// WICHTIG: Diese Datei NICHT in Git einchecken!
+// Auf dem Server kopieren: cp config.php.example config.php
+// Dann die Werte unten anpassen.
+//
+// Diese Datei wird NICHT an den Browser ausgeliefert – nur der Server liest sie.
+
+define('ADMIN_USER',     'admin');
+define('ADMIN_PASSWORD', 'bitte-sicheres-passwort-setzen');
+
+// Claude API Key (https://console.anthropic.com/)
+define('CLAUDE_API_KEY', 'sk-ant-...');
+
+// Optional: Absoluter Serverpfad zur topics.js der Hauptwebsite
+// Nur nötig, wenn Themen automatisch mit der Homepage synchronisiert werden sollen.
+// Den genauen Pfad im Plesk File Manager nachschlagen (Eigenschaften der Datei).
+// define('SITE_TOPICS_JS_PATH', '/var/www/vhosts/torecon.de/httpdocs/js/topics.js');

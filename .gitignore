@@ -1,2 +1,11 @@
+# Secrets / API-Keys
 intern.torecon.de/config.php
 analytics.torecon.de/config.php
+getbrainbites.ai/config.php
+
+# Laufzeit-Datendateien (User-generated, kein Source-Code)
+intern.torecon.de/linkedin_backup.json
+intern.torecon.de/linkedin_drafts.json
+
+# macOS
+.DS_Store
