@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutzungsbedingungen – BrainBites AI</title>
+  <meta name="description" content="Nutzungsbedingungen der BrainBites AI App von torecon.">
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #1D1D1F;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #0071E3;
+      --border:         rgba(0,0,0,0.08);
+      --border-strong:  rgba(0,0,0,0.15);
+      --nav-bg:         rgba(255,255,255,0.80);
+      --radius:         12px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --bb-brain:       #1D1D1F;
+      --bb-bites:       #0071E3;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .lang-toggle { display: flex; align-items: center; background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: 20px; padding: 3px; gap: 2px; }
+    .lang-btn { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 16px; border: none; background: transparent; color: var(--text-tertiary); cursor: pointer; transition: var(--transition); }
+    .lang-btn.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; gap: 1px; }
+    .nav-logo-main { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
+    .nav-logo-brain { color: var(--bb-brain); }
+    .nav-logo-bites { color: var(--bb-bites); }
+    .nav-logo-sub { font-size: 10px; font-weight: 500; color: var(--text-tertiary); }
+    .nav-logo-sub a { color: var(--text-tertiary); font-weight: 600; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
+    .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+
+    .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+
+    .section { margin-bottom: 48px; }
+    .section h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .section h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; margin-top: 24px; }
+    .section p { color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { color: var(--text-secondary); font-size: 16px; line-height: 1.75; padding-left: 20px; margin-bottom: 14px; }
+    .section ul li { margin-bottom: 6px; }
+
+    .info-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .info-box p { font-size: 15px; margin-bottom: 0; }
+    .info-box strong { color: var(--text); }
+
+    .site-footer { background: var(--bg-dark); padding: 32px 24px; }
+    .footer-inner { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
+    .footer-logo-brain { color: rgba(255,255,255,0.7); }
+    .footer-logo-bites { color: var(--bb-bites); }
+    .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .footer-brand-line a { color: rgba(255,255,255,0.5); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <span class="nav-logo-main">
+          <span class="nav-logo-brain">Brain</span><span class="nav-logo-bites">Bites AI</span>
+        </span>
+        <span class="nav-logo-sub" data-i18n="nav_sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label" data-i18n="page_label">Rechtliches</span>
+    <h1 data-i18n="page_title">Nutzungsbedingungen</h1>
+    <p class="page-meta" data-i18n="page_meta">Stand: März 2026 · Gilt für: BrainBites AI iOS App</p>
+
+    <div class="section">
+      <h2 data-i18n="s1_title">1. Anbieter und Geltungsbereich</h2>
+      <p data-i18n="s1_p">Diese Nutzungsbedingungen gelten für die Nutzung der iOS-App <strong>BrainBites AI</strong>, bereitgestellt von:</p>
+      <div class="info-box">
+        <p><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22, 53474 Ahrweiler<br>E-Mail: <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a></p>
+      </div>
+      <p data-i18n="s1_agree">Mit dem Download und der Nutzung der App stimmst du diesen Bedingungen zu.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s2_title">2. Leistungsbeschreibung</h2>
+      <p data-i18n="s2_p">BrainBites AI ist eine Micro-Learning-App, die täglich eine kurze, praxisorientierte Lerneinheit zu den Themen KI, Karriere, Produktivität und Leadership bereitstellt.</p>
+      <ul>
+        <li data-i18n="s2_li1">Tägliche Lektionen (kostenlos: 4 Kategorien, bis zu 1 Lektion/Tag)</li>
+        <li data-i18n="s2_li2">Fortschrittsverfolgung (Streak, abgeschlossene Lektionen, Lernziele)</li>
+        <li data-i18n="s2_li3">Push-Benachrichtigungen zur Erinnerung (optional)</li>
+        <li data-i18n="s2_li4">Premium-Abonnement mit zusätzlichen Kategorien und Features</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s3_title">3. Kostenloser Zugang und Premium-Abonnement</h2>
+      <h3 data-i18n="s3_free_title">Kostenloser Zugang</h3>
+      <p data-i18n="s3_free_p">Der grundlegende Zugang zur App ist kostenlos. Im kostenlosen Tarif stehen täglich eine Lektion aus den Kategorien KI-Praxis, KI-Wissen, Karriere und Produktivität zur Verfügung.</p>
+      <h3 data-i18n="s3_prem_title">Premium-Abonnement</h3>
+      <p data-i18n="s3_prem_p">Das Premium-Abonnement wird über den Apple App Store abgerechnet:</p>
+      <ul>
+        <li data-i18n="s3_prem_li1"><strong>Monatlich:</strong> € 6,99/Monat</li>
+        <li data-i18n="s3_prem_li2"><strong>Jährlich:</strong> € 39,99/Jahr (inkl. 7 Tage kostenloser Testphase)</li>
+      </ul>
+      <p data-i18n="s3_prem_renew">Das Abonnement verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ende der aktuellen Laufzeit gekündigt wird. Die Kündigung erfolgt über die iPhone-Einstellungen → Apple-ID → Abonnements.</p>
+      <p data-i18n="s3_prem_apple">Alle Kaufvorgänge, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Für Rückerstattungsanfragen wende dich an den Apple Support.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s4_title">4. Nutzungsrechte und Einschränkungen</h2>
+      <p data-i18n="s4_p">Wir gewähren dir ein nicht-exklusives, nicht übertragbares, widerrufliches Recht zur persönlichen Nutzung der App auf deinen Apple-Geräten.</p>
+      <p data-i18n="s4_nope">Du darfst nicht:</p>
+      <ul>
+        <li data-i18n="s4_li1">Die App kopieren, modifizieren oder abgeleitete Werke erstellen</li>
+        <li data-i18n="s4_li2">Die App dekompilieren, disassemblieren oder zurückentwickeln</li>
+        <li data-i18n="s4_li3">Inhalte der App ohne Genehmigung kommerziell verwerten</li>
+        <li data-i18n="s4_li4">Die App für illegale Zwecke oder in einer Weise nutzen, die Dritten schadet</li>
+        <li data-i18n="s4_li5">Automatisierte Abfragen (Bots, Scraper) gegen unsere Backend-Services richten</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s5_title">5. Inhalte und Haftungsausschluss</h2>
+      <p data-i18n="s5_p1">Die Lektionen in BrainBites AI sind als Bildungsinhalte konzipiert. Sie stellen <strong>keine Rechts-, Finanz-, Medizin- oder sonstige Fachberatung</strong> dar.</p>
+      <p data-i18n="s5_p2">Obwohl wir alle Inhalte sorgfältig prüfen, übernehmen wir keine Haftung für die Richtigkeit, Vollständigkeit oder Aktualität. Einige Inhalte werden mithilfe von KI-Systemen generiert und vor der Veröffentlichung von Menschen geprüft.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s6_title">6. Verfügbarkeit des Dienstes</h2>
+      <p data-i18n="s6_p">Wir streben eine möglichst hohe Verfügbarkeit an, übernehmen jedoch keine Garantie für eine ununterbrochene Verfügbarkeit. Wir behalten uns das Recht vor, die App oder einzelne Funktionen jederzeit zu ändern oder weiterzuentwickeln.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s7_title">7. Haftungsbeschränkung</h2>
+      <p data-i18n="s7_p1">Soweit gesetzlich zulässig, haften wir nicht für indirekte, zufällige oder Folgeschäden. Unsere Gesamthaftung ist auf den Betrag begrenzt, den du in den letzten 12 Monaten für die App bezahlt hast.</p>
+      <p data-i18n="s7_p2">Diese Einschränkung gilt nicht für Schäden aus Vorsatz oder grober Fahrlässigkeit, für Personenschäden oder soweit zwingend gesetzliche Bestimmungen gelten.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s8_title">8. Verhältnis zu Apple</h2>
+      <p data-i18n="s8_p">Diese App wird über den Apple App Store vertrieben. Apple ist nicht Vertragspartei dieser Nutzungsbedingungen. Im Fall von Produktreklamationen oder Support-Anfragen wende dich an uns unter <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a>. Apple hat das Recht, diese Bedingungen als Drittbegünstigter durchzusetzen, soweit sie Apple-Anforderungen betreffen.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s9_title">9. Änderungen der Nutzungsbedingungen</h2>
+      <p data-i18n="s9_p">Wir können diese Nutzungsbedingungen von Zeit zu Zeit anpassen. Wesentliche Änderungen werden innerhalb der App oder per Push-Benachrichtigung bekannt gegeben. Die fortgesetzte Nutzung gilt als Zustimmung.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s10_title">10. Anwendbares Recht und Gerichtsstand</h2>
+      <p data-i18n="s10_p1">Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist, soweit gesetzlich zulässig, Ahrweiler. Für Verbraucher innerhalb der EU gilt das Recht des EU-Mitgliedstaats, in dem der Verbraucher seinen gewöhnlichen Aufenthalt hat.</p>
+      <p data-i18n="s10_p2">Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s11_title">11. Kontakt</h2>
+      <div class="info-box">
+        <p data-i18n="s11_content"><strong>Support:</strong> <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a><br><strong>Datenschutz:</strong> <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-main">
+        <span class="footer-logo-brain">Brain</span><span class="footer-logo-bites">Bites AI</span>
+      </div>
+      <div class="footer-brand-line">
+        <span data-i18n="footer_brand">eine Marke von</span> <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>
+      </div>
+      <div class="footer-links">
+        <a href="/" data-i18n="footer_home">Startseite</a>
+        <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+        <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
+        <a href="/#impressum" data-i18n="footer_imprint">Impressum</a>
+      </div>
+      <div class="footer-copy">&copy; <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        nav_sub:          'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:         '← Zurück',
+        page_label:       'Rechtliches',
+        page_title:       'Nutzungsbedingungen',
+        page_meta:        'Stand: März 2026 · Gilt für: BrainBites AI iOS App',
+        s1_title:         '1. Anbieter und Geltungsbereich',
+        s1_p:             'Diese Nutzungsbedingungen gelten für die Nutzung der iOS-App <strong>BrainBites AI</strong>, bereitgestellt von:',
+        s1_agree:         'Mit dem Download und der Nutzung der App stimmst du diesen Bedingungen zu.',
+        s2_title:         '2. Leistungsbeschreibung',
+        s2_p:             'BrainBites AI ist eine Micro-Learning-App, die täglich eine kurze, praxisorientierte Lerneinheit zu den Themen KI, Karriere, Produktivität und Leadership bereitstellt.',
+        s2_li1:           'Tägliche Lektionen (kostenlos: 4 Kategorien, bis zu 1 Lektion/Tag)',
+        s2_li2:           'Fortschrittsverfolgung (Streak, abgeschlossene Lektionen, Lernziele)',
+        s2_li3:           'Push-Benachrichtigungen zur Erinnerung (optional)',
+        s2_li4:           'Premium-Abonnement mit zusätzlichen Kategorien und Features',
+        s3_title:         '3. Kostenloser Zugang und Premium-Abonnement',
+        s3_free_title:    'Kostenloser Zugang',
+        s3_free_p:        'Der grundlegende Zugang zur App ist kostenlos. Im kostenlosen Tarif stehen täglich eine Lektion aus den Kategorien KI-Praxis, KI-Wissen, Karriere und Produktivität zur Verfügung.',
+        s3_prem_title:    'Premium-Abonnement',
+        s3_prem_p:        'Das Premium-Abonnement wird über den Apple App Store abgerechnet:',
+        s3_prem_li1:      '<strong>Monatlich:</strong> € 6,99/Monat',
+        s3_prem_li2:      '<strong>Jährlich:</strong> € 39,99/Jahr (inkl. 7 Tage kostenloser Testphase)',
+        s3_prem_renew:    'Das Abonnement verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ende der aktuellen Laufzeit gekündigt wird. Die Kündigung erfolgt über die iPhone-Einstellungen → Apple-ID → Abonnements.',
+        s3_prem_apple:    'Alle Kaufvorgänge, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt.',
+        s4_title:         '4. Nutzungsrechte und Einschränkungen',
+        s4_p:             'Wir gewähren dir ein nicht-exklusives, nicht übertragbares, widerrufliches Recht zur persönlichen Nutzung der App auf deinen Apple-Geräten.',
+        s4_nope:          'Du darfst nicht:',
+        s4_li1:           'Die App kopieren, modifizieren oder abgeleitete Werke erstellen',
+        s4_li2:           'Die App dekompilieren, disassemblieren oder zurückentwickeln',
+        s4_li3:           'Inhalte der App ohne Genehmigung kommerziell verwerten',
+        s4_li4:           'Die App für illegale Zwecke oder in einer Weise nutzen, die Dritten schadet',
+        s4_li5:           'Automatisierte Abfragen (Bots, Scraper) gegen unsere Backend-Services richten',
+        s5_title:         '5. Inhalte und Haftungsausschluss',
+        s5_p1:            'Die Lektionen in BrainBites AI sind als Bildungsinhalte konzipiert. Sie stellen <strong>keine Rechts-, Finanz-, Medizin- oder sonstige Fachberatung</strong> dar.',
+        s5_p2:            'Obwohl wir alle Inhalte sorgfältig prüfen, übernehmen wir keine Haftung für die Richtigkeit oder Aktualität. Einige Inhalte werden mithilfe von KI-Systemen generiert und vor der Veröffentlichung von Menschen geprüft.',
+        s6_title:         '6. Verfügbarkeit des Dienstes',
+        s6_p:             'Wir streben eine möglichst hohe Verfügbarkeit an, übernehmen jedoch keine Garantie. Wir behalten uns das Recht vor, die App jederzeit zu ändern oder weiterzuentwickeln.',
+        s7_title:         '7. Haftungsbeschränkung',
+        s7_p1:            'Soweit gesetzlich zulässig, haften wir nicht für indirekte, zufällige oder Folgeschäden. Unsere Gesamthaftung ist auf den Betrag begrenzt, den du in den letzten 12 Monaten für die App bezahlt hast.',
+        s7_p2:            'Diese Einschränkung gilt nicht für Schäden aus Vorsatz oder grober Fahrlässigkeit, für Personenschäden oder soweit zwingend gesetzliche Bestimmungen gelten.',
+        s8_title:         '8. Verhältnis zu Apple',
+        s8_p:             'Diese App wird über den Apple App Store vertrieben. Apple ist nicht Vertragspartei dieser Nutzungsbedingungen. Support: <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a>. Apple hat das Recht, diese Bedingungen als Drittbegünstigter durchzusetzen.',
+        s9_title:         '9. Änderungen der Nutzungsbedingungen',
+        s9_p:             'Wir können diese Nutzungsbedingungen von Zeit zu Zeit anpassen. Wesentliche Änderungen werden innerhalb der App bekannt gegeben. Die fortgesetzte Nutzung gilt als Zustimmung.',
+        s10_title:        '10. Anwendbares Recht und Gerichtsstand',
+        s10_p1:           'Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist, soweit gesetzlich zulässig, Ahrweiler. Für EU-Verbraucher gilt das Recht des jeweiligen Mitgliedstaats.',
+        s10_p2:           'EU-Streitbeilegungsplattform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet, an Schlichtungsverfahren teilzunehmen.',
+        s11_title:        '11. Kontakt',
+        s11_content:      '<strong>Support:</strong> <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a><br><strong>Datenschutz:</strong> <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler',
+        footer_brand:     'eine Marke von',
+        footer_home:      'Startseite',
+        footer_privacy:   'Datenschutz',
+        footer_terms:     'Nutzungsbedingungen',
+        footer_imprint:   'Impressum',
+        footer_rights:    'Alle Rechte vorbehalten.',
+      },
+      en: {
+        nav_sub:          'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:         '← Back',
+        page_label:       'Legal',
+        page_title:       'Terms of Use',
+        page_meta:        'Last updated: March 2026 · Applies to: BrainBites AI iOS App',
+        s1_title:         '1. Provider and Scope',
+        s1_p:             'These Terms of Use govern the use of the iOS app <strong>BrainBites AI</strong>, provided by:',
+        s1_agree:         'By downloading and using the app, you agree to these terms.',
+        s2_title:         '2. Service Description',
+        s2_p:             'BrainBites AI is a micro-learning app that delivers a short, practical learning unit on AI, career, productivity, and leadership every day.',
+        s2_li1:           'Daily lessons (free: 4 categories, up to 1 lesson/day)',
+        s2_li2:           'Progress tracking (streak, completed lessons, learning goals)',
+        s2_li3:           'Push notification reminders (optional)',
+        s2_li4:           'Premium subscription with additional categories and features',
+        s3_title:         '3. Free Access and Premium Subscription',
+        s3_free_title:    'Free Access',
+        s3_free_p:        'Basic access to the app is free. The free tier includes one daily lesson from the AI Practice, AI Knowledge, Career, and Productivity categories.',
+        s3_prem_title:    'Premium Subscription',
+        s3_prem_p:        'The Premium subscription is billed through the Apple App Store:',
+        s3_prem_li1:      '<strong>Monthly:</strong> €6.99/month',
+        s3_prem_li2:      '<strong>Annual:</strong> €39.99/year (includes 7-day free trial)',
+        s3_prem_renew:    'The subscription auto-renews unless cancelled at least 24 hours before the end of the current period. Cancel via iPhone Settings → Apple ID → Subscriptions.',
+        s3_prem_apple:    'All purchases, billing, and refunds are handled exclusively through Apple.',
+        s4_title:         '4. Usage Rights and Restrictions',
+        s4_p:             'We grant you a non-exclusive, non-transferable, revocable license to use the app on your Apple devices for personal use.',
+        s4_nope:          'You may not:',
+        s4_li1:           'Copy, modify, or create derivative works of the app',
+        s4_li2:           'Decompile, disassemble, or reverse engineer the app',
+        s4_li3:           'Commercially exploit app content without permission',
+        s4_li4:           'Use the app for illegal purposes or in ways that harm others',
+        s4_li5:           'Direct automated queries (bots, scrapers) at our backend services',
+        s5_title:         '5. Content and Disclaimer',
+        s5_p1:            'Lessons in BrainBites AI are educational content only. They do <strong>not constitute legal, financial, medical, or professional advice</strong>.',
+        s5_p2:            'While we carefully review all content, we assume no liability for accuracy or completeness. Some content is AI-generated and human-reviewed before publication.',
+        s6_title:         '6. Service Availability',
+        s6_p:             'We aim for high availability but provide no uptime guarantee. We reserve the right to modify or discontinue features at any time.',
+        s7_title:         '7. Limitation of Liability',
+        s7_p1:            'To the fullest extent permitted by law, we are not liable for indirect, incidental, or consequential damages. Our total liability is limited to amounts paid in the past 12 months.',
+        s7_p2:            'This limitation does not apply to damages from willful misconduct, gross negligence, personal injury, or where mandatory law applies.',
+        s8_title:         '8. Relationship with Apple',
+        s8_p:             'This app is distributed via the Apple App Store. Apple is not a party to these terms. For product claims or support, contact us at <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a>. Apple has the right to enforce these terms as a third-party beneficiary.',
+        s9_title:         '9. Changes to Terms',
+        s9_p:             'We may update these terms from time to time. Material changes will be announced in the app. Continued use after changes constitutes acceptance.',
+        s10_title:        '10. Governing Law and Jurisdiction',
+        s10_p1:           'German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Jurisdiction is Ahrweiler, Germany, to the extent permitted by law. EU consumers are protected by the laws of their country of residence.',
+        s10_p2:           'EU online dispute resolution: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. We are not obligated to participate in dispute resolution proceedings.',
+        s11_title:        '11. Contact',
+        s11_content:      '<strong>Support:</strong> <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a><br><strong>Privacy:</strong> <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Germany',
+        footer_brand:     'a brand by',
+        footer_home:      'Home',
+        footer_privacy:   'Privacy Policy',
+        footer_terms:     'Terms of Use',
+        footer_imprint:   'Legal Notice',
+        footer_rights:    'All rights reserved.',
+      }
+    };
+
+    let currentLang = (() => {
+      const p = new URLSearchParams(window.location.search).get('lang');
+      if (p === 'en' || p === 'de') return p;
+      return localStorage.getItem('bb_lang') || (navigator.language.startsWith('de') ? 'de' : 'en');
+    })();
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('bb_lang', lang);
+      document.documentElement.lang = lang;
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      if (lang === 'en') {
+        document.title = 'Terms of Use – BrainBites AI';
+      } else {
+        document.title = 'Nutzungsbedingungen – BrainBites AI';
+      }
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+    });
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    applyLang(currentLang);
+  </script>
+</body>
+</html>

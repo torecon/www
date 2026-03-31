@@ -33,12 +33,14 @@ Oder nur für eine bestimmte Subdomain:
 
 ## Verfügbare Sites
 
-| Name        | Lokaler Ordner            | Ziel auf Server                   |
-|-------------|---------------------------|-----------------------------------|
-| main        | torecon.de/               | /html                             |
-| intern      | intern.torecon.de/        | /subdomains/intern/html           |
-| analytics   | analytics.torecon.de/     | /subdomains/analytics/html        |
-| downloads   | downloads.torecon.de/     | /subdomains/downloads/html        |
+| Name           | Lokaler Ordner            | Ziel auf Server                   |
+|----------------|---------------------------|-----------------------------------|
+| main           | torecon.de/               | /html                             |
+| intern         | intern.torecon.de/        | /subdomains/intern/html           |
+| analytics      | analytics.torecon.de/     | /subdomains/analytics/html        |
+| downloads      | downloads.torecon.de/     | /subdomains/downloads/html        |
+| getbrainbites  | getbrainbites.ai/         | /getbrainbites.ai                 |
+| getthinkless   | getthinkless.ai/          | /getthinkless.ai                  |
 
 `analytics` wird automatisch übersprungen, solange dort nur die README liegt.
 

@@ -8,11 +8,13 @@ Required env vars:
   FTP_PASS   – FTP password
 
 Optional env vars (override defaults):
-  FTP_PORT          – FTP port (default: 21)
-  REMOTE_MAIN       – Remote path for torecon.de      (default: /html)
-  REMOTE_INTERN     – Remote path for intern.torecon.de
-  REMOTE_ANALYTICS  – Remote path for analytics.torecon.de
-  REMOTE_DOWNLOADS  – Remote path for downloads.torecon.de
+  FTP_PORT             – FTP port (default: 21)
+  REMOTE_MAIN          – Remote path for torecon.de      (default: /html)
+  REMOTE_INTERN        – Remote path for intern.torecon.de
+  REMOTE_ANALYTICS     – Remote path for analytics.torecon.de
+  REMOTE_DOWNLOADS     – Remote path for downloads.torecon.de
+  REMOTE_GETBRAINBITES – Remote path for getbrainbites.ai
+  REMOTE_GETTHINKLESS  – Remote path for getthinkless.ai
 
 Usage:
   FTP_HOST=ftp.torecon.de FTP_USER=user FTP_PASS=secret python3 ftp_deploy.py
@@ -48,6 +50,14 @@ SITES = {
     "downloads": {
         "local":  BASE / "downloads.torecon.de",
         "remote": os.environ.get("REMOTE_DOWNLOADS", "/subdomains/downloads/html"),
+    },
+    "getbrainbites": {
+        "local":  BASE / "getbrainbites.ai",
+        "remote": os.environ.get("REMOTE_GETBRAINBITES", "/getbrainbites.ai"),
+    },
+    "getthinkless": {
+        "local":  BASE / "getthinkless.ai",
+        "remote": os.environ.get("REMOTE_GETTHINKLESS", "/getthinkless.ai"),
     },
 }
 
