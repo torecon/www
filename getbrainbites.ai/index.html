@@ -285,7 +285,7 @@
           <button class="lang-btn active" data-lang="de">DE</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <a class="nav-cta" href="#download" data-i18n="nav_cta">App laden</a>
+        <a class="nav-cta appstore-badge" href="#download" data-i18n="nav_cta">App laden</a>
       </div>
     </div>
   </nav>
@@ -530,7 +530,7 @@
             <li data-i18n="price_free_4">KI-Praxis &amp; KI-Wissen</li>
             <li data-i18n="price_free_5">Karriere &amp; Produktivität</li>
           </ul>
-          <a class="pricing-cta-secondary" href="#download" data-i18n="price_free_cta">Jetzt kostenlos laden</a>
+          <a class="pricing-cta-secondary appstore-badge" href="#download" data-i18n="price_free_cta">Jetzt kostenlos laden</a>
         </div>
         <div class="pricing-card featured">
           <p class="pricing-plan" data-i18n="price_prem_plan">Premium</p>
@@ -546,7 +546,7 @@
             <li data-i18n="price_prem_4">Kommunikation</li>
             <li data-i18n="price_prem_5">Kategorie-Priorität</li>
           </ul>
-          <a class="pricing-cta" href="#download" data-i18n="price_prem_cta">7 Tage kostenlos testen</a>
+          <a class="pricing-cta appstore-badge" href="#download" data-i18n="price_prem_cta">7 Tage kostenlos testen</a>
           <p class="pricing-note" data-i18n="price_prem_note">Jederzeit kündbar · Abrechnung über Apple</p>
         </div>
       </div>
@@ -629,6 +629,16 @@
   </footer>
 
   <script>
+    // ── App Store URL ─────────────────────────────────────────────────────────
+    // Update this single constant when Apple approves the app
+    const APP_STORE_URL = 'https://apps.apple.com/de/app/brainbites-ai/id6743047813';
+
+    document.querySelectorAll('.appstore-badge').forEach(a => {
+      a.href = APP_STORE_URL;
+      a.target = '_blank';
+      a.rel = 'noopener';
+    });
+
     // ── i18n ──────────────────────────────────────────────────────────────────
     const translations = {
       de: {
