@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutzungsbedingungen – eLadung</title>
+  <meta name="description" content="Nutzungsbedingungen der eLadung App von torecon.">
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #0A0A0F;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #4F7FFF;
+      --border:         rgba(0,0,0,0.08);
+      --border-strong:  rgba(0,0,0,0.15);
+      --nav-bg:         rgba(255,255,255,0.82);
+      --radius:         12px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 17px; }
+    .nav-logo-main { font-size: 17px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
+    .nav-logo-main span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
+    .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+
+    .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
+    .page-content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 40px 0 14px; }
+    .page-content h3 { font-size: 17px; font-weight: 600; margin: 28px 0 10px; }
+    .page-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
+    .page-content ul { padding-left: 20px; margin-bottom: 16px; }
+    .page-content ul li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+    .page-content strong { color: var(--text); font-weight: 600; }
+
+    .site-footer { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <div class="nav-logo-icon">⚡</div>
+        <span class="nav-logo-main">e<span>Ladung</span></span>
+      </a>
+      <div class="nav-right">
+        <a class="nav-back" href="/">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label">Rechtliches</span>
+    <h1>Nutzungsbedingungen</h1>
+    <p class="page-meta">Stand: April 2026 · eLadung für macOS und iOS</p>
+
+    <h2>1. Anbieter und Kontakt</h2>
+    <p>
+      <strong>Thomas Reinke · torecon</strong><br>
+      Roesgenstr. 22, 53474 Ahrweiler<br>
+      E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a>
+    </p>
+
+    <h2>2. Leistungsbeschreibung</h2>
+    <p>eLadung ist eine Anwendung für macOS und iOS zum Erfassen und Analysieren von Ladekosten für Elektrofahrzeuge. Die App umfasst:</p>
+    <ul>
+      <li>Erfassung von Ladevorgängen (Datum, Kilometerstand, Anbieter, Preis, Lademenge)</li>
+      <li>Dashboard mit KPI-Kacheln, Monats-Charts und Anbietervergleich</li>
+      <li>Verwaltung von Fahrzeug-Profilen und Tarifmodellen</li>
+      <li>Wirtschaftlichkeitsanalyse und Tarifvergleich</li>
+      <li>PDF-Export der Statistiken</li>
+      <li>Lokale Datenspeicherung mit optionaler iCloud-Synchronisation zwischen eigenen Geräten</li>
+    </ul>
+    <p>Die App wird als Einzelplatz-Lizenz für den persönlichen Gebrauch auf Apple-Geräten bereitgestellt.</p>
+
+    <h2>3. Nutzungslizenz</h2>
+    <p>Mit dem Download von eLadung erhältst du eine nicht-ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der App für private, nicht-kommerzielle Zwecke auf Apple-Geräten, die deinem Apple-Konto zugeordnet sind.</p>
+    <p>Folgendes ist nicht gestattet:</p>
+    <ul>
+      <li>Kopieren, Modifizieren oder Erstellen abgeleiteter Werke der App</li>
+      <li>Dekompilieren, Disassemblieren oder Reverse Engineering</li>
+      <li>Gewerbliche Nutzung oder Weiterveräußerung</li>
+      <li>Automatisierte Abfragen oder Skripte gegen App-Infrastruktur</li>
+    </ul>
+
+    <h2>4. 100-Tage-Freimodus</h2>
+    <p>eLadung bietet einen kostenlosen Nutzungszeitraum von 100 Tagen ab dem Datum des ersten erfassten Ladevorgangs. Während dieser Zeit ist die App vollständig ohne Einschränkungen nutzbar. Nach Ablauf des Freimodus können neue Ladevorgänge nur noch mit einem aktiven Abonnement oder Einmalkauf erfasst werden. Bestehende Daten bleiben stets zugänglich.</p>
+
+    <h2>5. In-App-Käufe und Abonnements</h2>
+    <p>eLadung bietet folgende kostenpflichtige Optionen über den Mac App Store (Apple) an:</p>
+    <ul>
+      <li><strong>Monatliches Abonnement:</strong> € 0,99 / Monat</li>
+      <li><strong>Jährliches Abonnement:</strong> € 9,99 / Jahr</li>
+      <li><strong>Einmalkauf (Lifetime):</strong> € 49,99 einmalig</li>
+    </ul>
+    <p>Abonnements verlängern sich automatisch, sofern sie nicht mindestens 24 Stunden vor Ablauf des laufenden Zeitraums gekündigt werden. Kündigung über: Systemeinstellungen → Apple-ID → Abonnements.</p>
+    <p>Alle Zahlungen, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Wir haben keinen Einblick in Zahlungsdaten.</p>
+
+    <h2>6. Promo-Codes</h2>
+    <p>Wir können auf Anfrage Promo-Codes vergeben, die dauerhaften Zugang zu eLadung gewähren. Promo-Codes sind personengebunden, nicht übertragbar und dürfen nicht kommerziell weitergegeben werden. Wir behalten uns vor, missbräuchlich genutzte Codes zu deaktivieren.</p>
+
+    <h2>7. Daten und Datensicherheit</h2>
+    <p>Alle in eLadung erfassten Daten werden lokal auf deinem Gerät gespeichert und optional über Apple iCloud zwischen deinen eigenen Geräten (gleiche Apple-ID) synchronisiert. Wir (torecon) haben keinen Zugriff auf deine Daten. Die iCloud-Nutzung unterliegt Apples Nutzungsbedingungen.</p>
+    <p>Für die Sicherung deiner Daten bist du selbst verantwortlich (z. B. über macOS Time Machine, iCloud Drive oder manuellen Datenbankexport aus der App). Wir haften nicht für Datenverlust durch Geräteschäden, Betriebssystemupdates oder versehentliches Löschen.</p>
+
+    <h2>8. Verfügbarkeit und Updates</h2>
+    <p>Wir sind bestrebt, eLadung kontinuierlich zu verbessern und für aktuelle Apple-Betriebssysteme aktuell zu halten. Wir garantieren jedoch keine bestimmte Verfügbarkeit oder Funktion. Wir behalten uns vor, Features zu ändern, hinzuzufügen oder zu entfernen.</p>
+
+    <h2>9. Haftungsausschluss</h2>
+    <p>eLadung ist ein Hilfsmittel zur persönlichen Kostenverfolgung. Die dargestellten Statistiken und Analysen erheben keinen Anspruch auf steuerrechtliche oder buchhalterische Korrektheit. Für offizielle Abrechnungen gegenüber Arbeitgebern oder Behörden empfehlen wir die Prüfung durch einen Steuerberater.</p>
+    <p>Unsere Haftung ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Bei einfacher Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten, und in diesem Fall begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Die Haftung für Körper- und Gesundheitsschäden bleibt davon unberührt.</p>
+
+    <h2>10. Änderungen der Nutzungsbedingungen</h2>
+    <p>Wir können diese Nutzungsbedingungen jederzeit anpassen. Die jeweils aktuelle Version ist stets unter <a href="https://eladung.torecon.de/terms/">eladung.torecon.de/terms/</a> abrufbar. Die weitere Nutzung der App nach einer Änderung gilt als Zustimmung zur neuen Version.</p>
+
+    <h2>11. Anwendbares Recht und Gerichtsstand</h2>
+    <p>Es gilt deutsches Recht. Gerichtsstand ist Ahrweiler, soweit gesetzlich zulässig.</p>
+    <p>Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+    <h2>12. Kontakt</h2>
+    <p>Bei Fragen zu diesen Nutzungsbedingungen wende dich an:<br>
+    <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">eLadung</a>
+      <a href="/privacy/">Datenschutz</a>
+      <a href="/terms/">Nutzungsbedingungen</a>
+      <a href="/#impressum">Impressum</a>
+    </div>
+    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
+  </footer>
+
+</body>
+</html>
