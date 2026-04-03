@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThinkLess AI – Bessere Entscheidungen in Sekunden</title>
-  <meta name="description" content="ThinkLess AI hilft dir, schneller und sicherer zu entscheiden – in unter 60 Sekunden. Bald im App Store.">
+  <title>VioLonge AI – Deine tägliche Gesundheitsentscheidung</title>
+  <meta name="description" content="VioLonge AI liefert dir täglich 1–3 personalisierte Gesundheitsentscheidungen – einfach, sofort umsetzbar, in unter 60 Sekunden. Bald im App Store.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="ThinkLess AI – Bessere Entscheidungen in Sekunden">
-  <meta property="og:description" content="Schneller entscheiden. Weniger Stress. Die KI-App für klare Entscheidungen – bald im App Store.">
-  <meta property="og:url" content="https://getthinkless.ai">
+  <meta property="og:title" content="VioLonge AI – Deine tägliche Gesundheitsentscheidung">
+  <meta property="og:description" content="Personalisierte Gesundheitsentscheidungen für jeden Tag. Kein Tracking, kein Dashboard – nur eine klare Empfehlung. Bald im App Store.">
+  <meta property="og:url" content="https://getviolonge.torecon.de">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://getthinkless.ai/og-image.png">
+  <meta property="og:image" content="https://getviolonge.torecon.de/og-image.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ThinkLess AI – Bessere Entscheidungen in Sekunden">
-  <meta name="twitter:description" content="Schneller entscheiden. Weniger Stress. Bald im App Store.">
+  <meta name="twitter:title" content="VioLonge AI – Deine tägliche Gesundheitsentscheidung">
+  <meta name="twitter:description" content="Täglich 1–3 personalisierte Gesundheitsempfehlungen. Bald im App Store.">
 
   <style>
     /* ── Design System (torecon Apple-Style) ────────────────────────────────── */
     :root {
       --bg:             #FFFFFF;
       --bg-alt:         #F5F5F7;
-      --bg-dark:        #1D1D1F;
+      --bg-dark:        #0D1A14;
       --text:           #1D1D1F;
       --text-secondary: #6E6E73;
       --text-tertiary:  #86868B;
-      --accent:         #0071E3;
-      --accent-hover:   #0077ED;
+      --accent:         #1A8C5B;
+      --accent-hover:   #1E9E68;
       --border:         rgba(0,0,0,0.08);
       --border-strong:  rgba(0,0,0,0.15);
-      --nav-bg:         rgba(255,255,255,0.80);
+      --nav-bg:         rgba(255,255,255,0.82);
       --shadow-sm:      0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
       --shadow:         0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
       --shadow-lg:      0 20px 60px rgba(0,0,0,0.14);
@@ -41,16 +41,16 @@
       --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
       --container:      980px;
       --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      --tl-think:       #1D1D1F;
-      --tl-less:        #0071E3;
-      --tl-gradient:    linear-gradient(135deg, #0071E3 0%, #5856D6 100%);
+      --lv-green:       #1A8C5B;
+      --lv-blue:        #0A84FF;
+      --lv-gradient:    linear-gradient(135deg, #1A8C5B 0%, #0A84FF 100%);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
     h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
-    h1 { font-size: clamp(38px, 7vw, 76px); }
+    h1 { font-size: clamp(38px, 7vw, 72px); }
     h2 { font-size: clamp(26px, 4vw, 46px); }
     h3 { font-size: 19px; font-weight: 600; }
     p  { line-height: 1.65; }
@@ -87,8 +87,8 @@
     }
     .nav-logo { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; gap: 1px; }
     .nav-logo-main { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
-    .nav-logo-think { color: var(--tl-think); }
-    .nav-logo-less  { color: var(--tl-less); }
+    .nav-logo-violonge { color: var(--text); }
+    .nav-logo-ai  { color: var(--lv-green); }
     .nav-logo-sub   { font-size: 10px; font-weight: 500; color: var(--text-tertiary); letter-spacing: 0.01em; }
     .nav-logo-sub a { color: var(--text-tertiary); text-decoration: none; font-weight: 600; }
     .nav-logo-sub a:hover { color: var(--accent); opacity: 1; }
@@ -108,15 +108,15 @@
       content: '';
       position: absolute; top: 0; left: 50%; transform: translateX(-50%);
       width: 800px; height: 500px;
-      background: radial-gradient(ellipse at 50% 0%, rgba(0,113,227,0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(26,140,91,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-inner { max-width: 700px; margin: 0 auto; position: relative; }
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: linear-gradient(135deg, rgba(0,113,227,0.1) 0%, rgba(88,86,214,0.1) 100%);
-      border: 1px solid rgba(0,113,227,0.2);
+      background: linear-gradient(135deg, rgba(26,140,91,0.1) 0%, rgba(10,132,255,0.1) 100%);
+      border: 1px solid rgba(26,140,91,0.22);
       border-radius: 40px; padding: 7px 18px;
       font-size: 12px; font-weight: 700; color: var(--accent);
       letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 36px;
@@ -127,19 +127,19 @@
       animation: pulse 2s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(0,113,227,0.4); }
-      50%       { opacity: 0.8; transform: scale(1.1); box-shadow: 0 0 0 6px rgba(0,113,227,0); }
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(26,140,91,0.4); }
+      50%       { opacity: 0.8; transform: scale(1.1); box-shadow: 0 0 0 6px rgba(26,140,91,0); }
     }
 
     .hero h1 { margin-bottom: 28px; }
-    .brand-think { color: var(--tl-think); }
-    .brand-less  { color: var(--tl-less); }
+    .brand-violonge { color: var(--text); }
+    .brand-ai  { color: var(--lv-green); }
 
     .hero-sub {
       font-size: clamp(18px, 2.5vw, 22px);
       color: var(--text-secondary); line-height: 1.55;
       margin-bottom: 52px;
-      max-width: 520px; margin-left: auto; margin-right: auto;
+      max-width: 540px; margin-left: auto; margin-right: auto;
     }
     .hero-sub strong { color: var(--text); font-weight: 600; }
 
@@ -147,12 +147,12 @@
     .hero-cta-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 64px; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--tl-gradient); color: #fff;
+      background: var(--lv-gradient); color: #fff;
       font-size: 15px; font-weight: 600; padding: 14px 28px;
       border-radius: 50px; text-decoration: none; border: none; cursor: pointer;
-      transition: var(--transition); box-shadow: 0 4px 20px rgba(0,113,227,0.3);
+      transition: var(--transition); box-shadow: 0 4px 20px rgba(26,140,91,0.3);
     }
-    .btn-primary:hover { opacity: 1; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(0,113,227,0.4); }
+    .btn-primary:hover { opacity: 1; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(26,140,91,0.4); }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--bg-alt); color: var(--text);
@@ -181,63 +181,59 @@
     }
     .phone-shell {
       width: 260px; height: 520px;
-      background: #1D1D1F;
+      background: #0D1A14;
       border-radius: 44px;
-      border: 8px solid #2A2A2E;
+      border: 8px solid #1A2E21;
       position: relative;
       overflow: hidden;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 0 0 1px #111;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 0 0 1px #060E09;
     }
     .phone-notch {
       position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 100px; height: 28px; background: #1D1D1F;
+      width: 100px; height: 28px; background: #0D1A14;
       border-radius: 0 0 20px 20px; z-index: 10;
     }
     .phone-screen {
       width: 100%; height: 100%;
-      background: #0A0A0F;
+      background: #0D1A14;
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 40px 16px 24px;
+      align-items: center; justify-content: flex-start;
+      padding: 44px 14px 20px;
+      gap: 10px;
     }
-
-    /* Mock app UI inside phone */
-    .mock-question-label { font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; text-align: left; width: 100%; }
-    .mock-question {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px; padding: 10px 12px;
-      font-size: 10px; color: rgba(255,255,255,0.85); line-height: 1.5;
-      width: 100%; margin-bottom: 14px; text-align: left;
+    /* Mock app UI */
+    .mock-date-label { font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; width: 100%; text-align: left; }
+    .mock-greeting { font-size: 13px; font-weight: 700; color: #fff; width: 100%; text-align: left; margin-bottom: 4px; }
+    .mock-action-card {
+      background: linear-gradient(135deg, rgba(26,140,91,0.18) 0%, rgba(10,132,255,0.12) 100%);
+      border: 1px solid rgba(26,140,91,0.35);
+      border-radius: 16px; padding: 14px 12px; width: 100%;
     }
-    .mock-result-card {
-      background: rgba(0,113,227,0.15); border: 1px solid rgba(0,113,227,0.3);
-      border-radius: 14px; padding: 14px 12px; width: 100%; margin-bottom: 10px;
+    .mock-action-tag { font-size: 8px; font-weight: 700; color: rgba(50,200,120,0.9); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+    .mock-action-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
+    .mock-action-why { font-size: 8px; color: rgba(255,255,255,0.55); line-height: 1.5; margin-bottom: 10px; }
+    .mock-action-btn {
+      background: linear-gradient(135deg, #1A8C5B, #0A84FF);
+      border-radius: 8px; padding: 7px 12px;
+      font-size: 9px; font-weight: 700; color: #fff; text-align: center;
     }
-    .mock-result-label { font-size: 8px; font-weight: 700; color: rgba(91,138,240,0.8); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
-    .mock-result-answer { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .mock-confidence {
-      display: flex; align-items: center; gap: 6px;
+    .mock-alt-row { display: flex; gap: 6px; width: 100%; }
+    .mock-alt-card {
+      flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 8px; text-align: center;
     }
-    .mock-confidence-bar { flex: 1; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
-    .mock-confidence-fill { height: 100%; background: #34C759; border-radius: 2px; width: 90%; }
-    .mock-confidence-label { font-size: 8px; font-weight: 600; color: #34C759; }
-    .mock-reasoning {
-      font-size: 8px; color: rgba(255,255,255,0.5); line-height: 1.5;
-      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px; margin-top: 4px;
+    .mock-alt-emoji { font-size: 14px; display: block; margin-bottom: 3px; }
+    .mock-alt-text { font-size: 7px; color: rgba(255,255,255,0.5); line-height: 1.3; }
+    .mock-streak {
+      display: flex; align-items: center; gap: 6px; width: 100%;
+      background: rgba(255,255,255,0.04); border-radius: 10px; padding: 8px 10px;
     }
-    .mock-next-step {
-      background: rgba(52,199,89,0.1); border: 1px solid rgba(52,199,89,0.2);
-      border-radius: 8px; padding: 8px 10px; width: 100%; margin-top: 8px;
-    }
-    .mock-next-label { font-size: 7px; font-weight: 700; color: rgba(52,199,89,0.7); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
-    .mock-next-text { font-size: 8px; color: rgba(255,255,255,0.7); line-height: 1.4; }
-    .mock-bolt-wrap { position: absolute; top: 36px; right: 16px; opacity: 0.6; }
+    .mock-streak-flame { font-size: 14px; }
+    .mock-streak-text { font-size: 8px; color: rgba(255,255,255,0.5); }
+    .mock-streak-count { font-size: 11px; font-weight: 700; color: #FF9F0A; margin-left: auto; }
 
     /* ── Section: How it works ───────────────────────────────────────────────── */
-    .section-how {
-      padding: 100px 24px;
-      background: var(--bg-alt);
-    }
+    .section-how { padding: 100px 24px; background: var(--bg-alt); }
     .section-label {
       font-size: 12px; font-weight: 700; color: var(--accent);
       letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;
@@ -251,27 +247,24 @@
       background: var(--bg); border: 1px solid var(--border);
       border-radius: var(--radius-lg); padding: 28px 24px;
       box-shadow: var(--shadow-sm); transition: var(--transition);
-      position: relative;
     }
     .step-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
     .step-number {
       width: 32px; height: 32px;
-      background: var(--tl-gradient); color: #fff;
+      background: var(--lv-gradient); color: #fff;
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
       font-size: 13px; font-weight: 800; margin-bottom: 16px;
     }
     .step-icon { font-size: 28px; margin-bottom: 14px; }
     .step-card h3 { margin-bottom: 10px; }
     .step-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
-
-    .step-card.step-result { border-color: rgba(0,113,227,0.2); background: linear-gradient(135deg, rgba(0,113,227,0.03) 0%, rgba(88,86,214,0.03) 100%); }
+    .step-card.step-result { border-color: rgba(26,140,91,0.22); background: linear-gradient(135deg, rgba(26,140,91,0.03) 0%, rgba(10,132,255,0.03) 100%); }
 
     /* ── Section: Features ───────────────────────────────────────────────────── */
     .section-features { padding: 100px 24px; }
     .section-features-inner { max-width: var(--container); margin: 0 auto; }
     .section-features h2 { text-align: center; margin-bottom: 16px; }
     .section-features-sub { text-align: center; font-size: 19px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 64px; line-height: 1.55; }
-
     .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .feature-card {
       background: var(--bg-alt); border: 1px solid var(--border);
@@ -291,49 +284,93 @@
     .feature-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; }
     .feature-tag {
       display: inline-block; font-size: 11px; font-weight: 600;
-      background: rgba(0,113,227,0.1); color: var(--accent);
+      background: rgba(26,140,91,0.1); color: var(--accent);
       padding: 3px 10px; border-radius: 20px; letter-spacing: 0.04em;
     }
 
-    /* ── Section: Differentiation vs ChatGPT ────────────────────────────────── */
-    .section-vs { padding: 100px 24px; background: var(--bg-alt); }
+    /* ── Section: Focus Areas ────────────────────────────────────────────────── */
+    .section-focus { padding: 100px 24px; background: var(--bg-alt); }
+    .section-focus-inner { max-width: var(--container); margin: 0 auto; }
+    .section-focus h2 { text-align: center; margin-bottom: 16px; }
+    .section-focus-sub { text-align: center; font-size: 19px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 64px; line-height: 1.55; }
+    .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 600px; margin: 0 auto; }
+    .focus-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 24px;
+      text-align: center; transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .focus-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .focus-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
+    .focus-card h3 { margin-bottom: 8px; font-size: 17px; }
+    .focus-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+    /* ── Section: vs. other apps ────────────────────────────────────────────── */
+    .section-vs { padding: 100px 24px; }
     .section-vs-inner { max-width: var(--container); margin: 0 auto; }
     .section-vs h2 { text-align: center; margin-bottom: 60px; }
     .vs-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: start; }
     .vs-col-label { font-size: 14px; font-weight: 700; margin-bottom: 20px; padding: 10px 16px; border-radius: 10px; text-align: center; }
-    .vs-col-label.tl { background: var(--bg-dark); color: #fff; }
-    .vs-col-label.gpt { background: rgba(0,0,0,0.06); color: var(--text-secondary); }
+    .vs-col-label.lv { background: var(--bg-dark); color: #fff; }
+    .vs-col-label.other { background: rgba(0,0,0,0.06); color: var(--text-secondary); }
     .vs-divider { display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--text-tertiary); padding-top: 10px; }
-    .vs-row { display: contents; }
     .vs-item {
       display: flex; align-items: flex-start; gap: 10px;
       padding: 12px 16px; border-radius: var(--radius); margin-bottom: 10px;
       font-size: 15px; line-height: 1.5;
     }
-    .vs-item.win   { background: rgba(52,199,89,0.08); color: var(--text); }
+    .vs-item.win   { background: rgba(26,140,91,0.08); color: var(--text); }
     .vs-item.lose  { background: rgba(0,0,0,0.04); color: var(--text-secondary); }
     .vs-item .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
     @media (max-width: 640px) {
       .vs-grid { grid-template-columns: 1fr; }
       .vs-divider { display: none; }
     }
 
+    /* ── Section: Pricing ────────────────────────────────────────────────────── */
+    .section-pricing { padding: 100px 24px; background: var(--bg-alt); }
+    .section-pricing-inner { max-width: var(--container); margin: 0 auto; }
+    .section-pricing h2 { text-align: center; margin-bottom: 16px; }
+    .section-pricing-sub { text-align: center; font-size: 19px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 64px; line-height: 1.55; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 680px; margin: 0 auto; }
+    .pricing-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: 36px 28px;
+      box-shadow: var(--shadow-sm); transition: var(--transition);
+    }
+    .pricing-card.premium {
+      background: var(--bg-dark); border-color: rgba(26,140,91,0.3);
+      box-shadow: 0 8px 40px rgba(26,140,91,0.15);
+    }
+    .pricing-badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      background: var(--lv-gradient); color: #fff;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 16px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .pricing-name { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .pricing-card.premium .pricing-name { color: #fff; }
+    .pricing-price { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
+    .pricing-card.premium .pricing-price { color: #fff; }
+    .pricing-period { font-size: 13px; color: var(--text-tertiary); margin-bottom: 28px; }
+    .pricing-card.premium .pricing-period { color: rgba(255,255,255,0.4); }
+    .pricing-features { list-style: none; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; margin-bottom: 12px; color: var(--text-secondary); }
+    .pricing-card.premium .pricing-features li { color: rgba(255,255,255,0.7); }
+    .pricing-features li .check { color: var(--lv-green); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+    .pricing-card.premium .pricing-features li .check { color: #4CD964; }
+
     /* ── Section: Waitlist ───────────────────────────────────────────────────── */
     .section-waitlist {
       padding: 100px 24px;
-      background: linear-gradient(135deg, #0A0A1A 0%, #0D1B3E 100%);
+      background: linear-gradient(135deg, #071209 0%, #0A1F14 50%, #071220 100%);
       text-align: center;
     }
     .section-waitlist-inner { max-width: 560px; margin: 0 auto; }
-    .section-waitlist .section-label { color: rgba(91,138,240,0.9); }
+    .section-waitlist .section-label { color: rgba(80,200,140,0.9); }
     .section-waitlist h2 { color: #fff; margin-bottom: 16px; }
     .section-waitlist p  { color: rgba(255,255,255,0.6); font-size: 18px; margin-bottom: 48px; line-height: 1.6; }
-
-    .waitlist-form {
-      display: flex; gap: 10px; max-width: 420px; margin: 0 auto 16px;
-      flex-wrap: wrap;
-    }
+    .waitlist-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto 16px; flex-wrap: wrap; }
     .waitlist-form input {
       flex: 1; min-width: 200px;
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
@@ -342,15 +379,15 @@
       transition: var(--transition);
     }
     .waitlist-form input::placeholder { color: rgba(255,255,255,0.35); }
-    .waitlist-form input:focus { border-color: rgba(91,138,240,0.6); background: rgba(255,255,255,0.1); }
+    .waitlist-form input:focus { border-color: rgba(80,200,140,0.6); background: rgba(255,255,255,0.1); }
     .waitlist-submit {
-      background: var(--tl-gradient); color: #fff; border: none;
+      background: var(--lv-gradient); color: #fff; border: none;
       border-radius: 14px; padding: 14px 24px;
       font-size: 15px; font-weight: 700; cursor: pointer;
       font-family: var(--font); transition: var(--transition);
       white-space: nowrap;
     }
-    .waitlist-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,113,227,0.4); }
+    .waitlist-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,140,91,0.4); }
     .waitlist-hint { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 12px; }
     .waitlist-success {
       display: none; padding: 16px 24px;
@@ -384,8 +421,8 @@
     .site-footer { background: var(--bg-dark); padding: 40px 24px; }
     .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
     .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
-    .footer-logo-think { color: rgba(255,255,255,0.7); }
-    .footer-logo-less  { color: var(--tl-less); }
+    .footer-logo-violonge { color: rgba(255,255,255,0.7); }
+    .footer-logo-ai  { color: var(--lv-green); }
     .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
     .footer-brand-line a { color: rgba(255,255,255,0.5); text-decoration: none; }
     .footer-brand-line a:hover { color: #fff; opacity: 1; }
@@ -402,10 +439,11 @@
     /* ── Responsive ──────────────────────────────────────────────────────────── */
     @media (max-width: 700px) {
       .hero { padding: 72px 20px 60px; }
-      .section-how, .section-features, .section-vs, .section-waitlist { padding: 72px 20px; }
+      .section-how, .section-features, .section-focus, .section-vs, .section-pricing, .section-waitlist { padding: 72px 20px; }
       .phone-mockup-wrap { display: none; }
       .hero-cta-row { flex-direction: column; align-items: stretch; text-align: center; }
       .btn-primary, .btn-secondary { justify-content: center; }
+      .focus-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 500px) {
       .waitlist-form { flex-direction: column; }
@@ -430,7 +468,7 @@
     <div class="nav-inner">
       <a class="nav-logo" href="/">
         <span class="nav-logo-main">
-          <span class="nav-logo-think">Think</span><span class="nav-logo-less">Less AI</span>
+          <span class="nav-logo-violonge">VioLonge</span><span class="nav-logo-ai"> AI</span>
         </span>
         <span class="nav-logo-sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
       </a>
@@ -455,14 +493,14 @@
         </div>
 
         <h1 class="fade-up delay-1">
-          <span class="brand-think" data-de="Bessere Entscheidungen." data-en="Better Decisions.">Bessere Entscheidungen.</span><br>
-          <span class="brand-less" data-de="Schneller." data-en="Faster.">Schneller.</span>
+          <span class="brand-violonge" data-de="Gesünder leben." data-en="Live healthier.">Gesünder leben.</span><br>
+          <span class="brand-ai" data-de="Eine Entscheidung pro Tag." data-en="One decision per day.">Eine Entscheidung pro Tag.</span>
         </h1>
 
         <p class="hero-sub fade-up delay-2">
-          <span data-de="ThinkLess AI strukturiert deine Entscheidungen und liefert dir in <strong>unter 60 Sekunden</strong> eine klare Empfehlung — mit Begründung und nächstem Schritt."
-                data-en="ThinkLess AI structures your decisions and delivers a clear recommendation in <strong>under 60 seconds</strong> — with reasoning and a concrete next step.">
-            ThinkLess AI strukturiert deine Entscheidungen und liefert dir in <strong>unter 60 Sekunden</strong> eine klare Empfehlung — mit Begründung und nächstem Schritt.
+          <span data-de="VioLonge AI liefert dir täglich <strong>1–3 personalisierte Gesundheitsempfehlungen</strong> — sofort umsetzbar, in unter 60 Sekunden verstanden."
+                data-en="VioLonge AI delivers <strong>1–3 personalized health decisions</strong> every day — actionable immediately, understood in under 60 seconds.">
+            VioLonge AI liefert dir täglich <strong>1–3 personalisierte Gesundheitsempfehlungen</strong> — sofort umsetzbar, in unter 60 Sekunden verstanden.
           </span>
         </p>
 
@@ -478,8 +516,42 @@
           </a>
         </div>
 
+        <!-- Phone Mockup -->
+        <div class="fade-up delay-4" style="display:flex;justify-content:center;margin-bottom:32px;">
+          <div class="phone-mockup-wrap">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="mock-date-label" data-de="Dienstag, 1. April" data-en="Tuesday, April 1">Dienstag, 1. April</div>
+                <div class="mock-greeting" data-de="Deine beste Entscheidung heute 🌱" data-en="Your best decision today 🌱">Deine beste Entscheidung heute 🌱</div>
+                <div class="mock-action-card">
+                  <div class="mock-action-tag" data-de="😴 Schlaf" data-en="😴 Sleep">😴 Schlaf</div>
+                  <div class="mock-action-title" data-de="Heute 30 Min. früher schlafen gehen" data-en="Go to bed 30 min earlier tonight">Heute 30 Min. früher schlafen gehen</div>
+                  <div class="mock-action-why" data-de="Dein Körper regeneriert zwischen 22–24 Uhr am effektivsten. Das verbessert Energie und Fokus morgen." data-en="Your body recovers most effectively between 10 PM–12 AM. Improves energy and focus tomorrow.">Dein Körper regeneriert zwischen 22–24 Uhr am effektivsten. Das verbessert Energie und Fokus morgen.</div>
+                  <div class="mock-action-btn" data-de="✓ Erledigt" data-en="✓ Done">✓ Erledigt</div>
+                </div>
+                <div class="mock-alt-row">
+                  <div class="mock-alt-card">
+                    <span class="mock-alt-emoji">🚶</span>
+                    <div class="mock-alt-text" data-de="10 Min. Spaziergang nach dem Mittag" data-en="10 min walk after lunch">10 Min. Spaziergang nach dem Mittag</div>
+                  </div>
+                  <div class="mock-alt-card">
+                    <span class="mock-alt-emoji">💧</span>
+                    <div class="mock-alt-text" data-de="Kein Zucker nach 20 Uhr" data-en="No sugar after 8 PM">Kein Zucker nach 20 Uhr</div>
+                  </div>
+                </div>
+                <div class="mock-streak">
+                  <span class="mock-streak-flame">🔥</span>
+                  <span class="mock-streak-text" data-de="Aktuelle Serie" data-en="Current streak">Aktuelle Serie</span>
+                  <span class="mock-streak-count">7 Tage</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- App Store Coming Soon Pill -->
-        <div class="fade-up delay-4" style="display:flex;justify-content:center;">
+        <div class="fade-up" style="display:flex;justify-content:center;">
           <div class="app-store-pill">
             <svg width="20" height="24" viewBox="0 0 814 1000" fill="white">
               <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105.5-57.7-155.5-127.4C46 376.8 0 290.4 0 207.7 0 103.5 62.8 46.9 122.4 23.5c45.2-17.8 98.5-26.7 151.8-26.7 51.2 0 102.5 12.1 145.2 42 39.2 27.6 73.4 68.5 94.6 93.7 23.4 28 62.8 68.5 62.8 68.5l-72.5 72.5s-26.7 35-76 35c-37.1 0-64.8-17-93.3-35.7-44.4-28.9-89.7-58-145.4-58-67.3 0-130.1 37.4-168.7 97.5 5.6 5.6 58.3 34.8 112.5 127.8 51.7 88.8 70.7 162.1 72.6 174.1 12.7-2.6 25.1-3.5 36.8-3.5 50.9 0 90.5 16.2 134.4 16.2 38.1 0 76.6-14.2 114.2-14.2 37.9 0 72.4 12.3 104.4 12.3 71.8 0 115.2-47.7 145.2-47.7 47.4 0 88.4 23 112.9 23 21.1 0 40.8-12.5 58.1-27.1z"/>
@@ -498,33 +570,33 @@
     <section class="section-how" id="how-it-works">
       <div class="section-how-inner">
         <p class="section-label" data-de="So einfach geht's" data-en="This is how it works">So einfach geht's</p>
-        <h2 data-de="Eine Entscheidung.<br>Vier Schritte.<br>60 Sekunden." data-en="One decision.<br>Four steps.<br>60 seconds.">Eine Entscheidung.<br>Vier Schritte.<br>60 Sekunden.</h2>
-        <p class="section-how-sub" data-de="Kein Chatten, kein Suchen, kein Denken. Nur eine klare Antwort." data-en="No chatting, no searching, no thinking. Just a clear answer.">Kein Chatten, kein Suchen, kein Denken. Nur eine klare Antwort.</p>
+        <h2 data-de="Täglich. Persönlich.<br>Umsetzbar." data-en="Daily. Personal.<br>Actionable.">Täglich. Persönlich.<br>Umsetzbar.</h2>
+        <p class="section-how-sub" data-de="Kein Tracking, kein Dashboard, kein Chaos. Nur eine Empfehlung, die heute für dich passt." data-en="No tracking, no dashboard, no overwhelm. Just one recommendation that fits you today.">Kein Tracking, kein Dashboard, kein Chaos. Nur eine Empfehlung, die heute für dich passt.</p>
 
         <div class="steps-grid">
           <div class="step-card">
             <div class="step-number">1</div>
-            <div class="step-icon">✍️</div>
-            <h3 data-de="Entscheidung eingeben" data-en="Enter your decision">Entscheidung eingeben</h3>
-            <p data-de="Beschreibe deine Entscheidung in einem Satz. Fertig." data-en="Describe your decision in one sentence. That's it.">Beschreibe deine Entscheidung in einem Satz. Fertig.</p>
+            <div class="step-icon">👤</div>
+            <h3 data-de="Kurzes Onboarding" data-en="Quick Onboarding">Kurzes Onboarding</h3>
+            <p data-de="Gib in 60 Sekunden dein Ziel, Alter und Lifestyle an. Kein Account nötig." data-en="Tell us your goal, age range and lifestyle in 60 seconds. No account required.">Gib in 60 Sekunden dein Ziel, Alter und Lifestyle an. Kein Account nötig.</p>
           </div>
           <div class="step-card">
             <div class="step-number">2</div>
-            <div class="step-icon">⚡️</div>
-            <h3 data-de="Fast Mode oder Guided" data-en="Fast Mode or Guided">Fast Mode oder Guided</h3>
-            <p data-de="Für schnelle Entscheidungen: direkt Ergebnis. Für wichtige: Optionen und Kriterien definieren." data-en="For quick decisions: get the result instantly. For important ones: define options and criteria.">Für schnelle Entscheidungen: direkt Ergebnis. Für wichtige: Optionen und Kriterien definieren.</p>
+            <div class="step-icon">🤖</div>
+            <h3 data-de="KI erstellt dein Profil" data-en="AI builds your profile">KI erstellt dein Profil</h3>
+            <p data-de="Die KI analysiert deine Eingaben und personalisiert täglich neue Empfehlungen für dich." data-en="The AI analyzes your input and personalizes new recommendations for you every day.">Die KI analysiert deine Eingaben und personalisiert täglich neue Empfehlungen für dich.</p>
           </div>
           <div class="step-card">
             <div class="step-number">3</div>
-            <div class="step-icon">🤖</div>
-            <h3 data-de="KI strukturiert & bewertet" data-en="AI structures & scores">KI strukturiert & bewertet</h3>
-            <p data-de="Die KI analysiert deine Eingabe, gewichtet die Faktoren und berechnet die beste Option." data-en="The AI analyzes your input, weighs the factors, and calculates the best option.">Die KI analysiert deine Eingabe, gewichtet die Faktoren und berechnet die beste Option.</p>
+            <div class="step-icon">🌅</div>
+            <h3 data-de="Täglich: 1–3 Aktionen" data-en="Daily: 1–3 actions">Täglich: 1–3 Aktionen</h3>
+            <p data-de="Öffne die App und sieh sofort: deine beste Gesundheitsentscheidung für heute." data-en="Open the app and see immediately: your best health decision for today.">Öffne die App und sieh sofort: deine beste Gesundheitsentscheidung für heute.</p>
           </div>
           <div class="step-card step-result">
             <div class="step-number">4</div>
-            <div class="step-icon">🎯</div>
-            <h3 data-de="Klare Empfehlung" data-en="Clear Recommendation">Klare Empfehlung</h3>
-            <p data-de="Du bekommst: die empfohlene Option, ein Vertrauensniveau und deinen nächsten konkreten Schritt." data-en="You get: the recommended option, a confidence level, and your next concrete step.">Du bekommst: die empfohlene Option, ein Vertrauensniveau und deinen nächsten konkreten Schritt.</p>
+            <div class="step-icon">✅</div>
+            <h3 data-de="Umsetzen & Fortschritt" data-en="Act & track progress">Umsetzen & Fortschritt</h3>
+            <p data-de="Markiere die Aktion als erledigt. Sieh deine Serie wachsen. Kleine Schritte, echter Effekt." data-en="Mark the action as done. Watch your streak grow. Small steps, real impact.">Markiere die Aktion als erledigt. Sieh deine Serie wachsen. Kleine Schritte, echter Effekt.</p>
           </div>
         </div>
       </div>
@@ -533,80 +605,146 @@
     <!-- ── Features ─────────────────────────────────────────────────────────── -->
     <section class="section-features">
       <div class="section-features-inner">
-        <p class="section-label" style="text-align:center;" data-de="Was dich erwartet" data-en="What to expect">Was dich erwartet</p>
-        <h2 data-de="Designed für Klarheit." data-en="Designed for clarity.">Designed für Klarheit.</h2>
-        <p class="section-features-sub" data-de="Keine Informationsflut. Keine langen Texte. Nur das, was du brauchst um zu entscheiden." data-en="No information overload. No long texts. Just what you need to decide.">Keine Informationsflut. Keine langen Texte. Nur das, was du brauchst um zu entscheiden.</p>
+        <p class="section-label" style="text-align:center;" data-de="Was die App kann" data-en="What the app does">Was die App kann</p>
+        <h2 data-de="Designed für echtes Leben." data-en="Designed for real life.">Designed für echtes Leben.</h2>
+        <p class="section-features-sub" data-de="Kein Biohacking. Kein Daten-Overkill. Nur das, was dir heute wirklich hilft." data-en="No biohacking. No data overload. Just what genuinely helps you today.">Kein Biohacking. Kein Daten-Overkill. Nur das, was dir heute wirklich hilft.</p>
 
         <div class="features-grid">
           <div class="feature-card featured">
-            <span class="feature-emoji">⚡️</span>
-            <h3 data-de="Fast Mode" data-en="Fast Mode">Fast Mode</h3>
-            <p data-de="Einen Satz eingeben – sofort Ergebnis. Für Alltagsentscheidungen, die keine lange Analyse brauchen." data-en="Enter one sentence – instant result. For everyday decisions that don't need long analysis.">Einen Satz eingeben – sofort Ergebnis. Für Alltagsentscheidungen, die keine lange Analyse brauchen.</p>
-            <span class="feature-tag" data-de="~20 Sekunden" data-en="~20 seconds">~20 Sekunden</span>
+            <span class="feature-emoji">🎯</span>
+            <h3 data-de="Eine Hauptempfehlung" data-en="One Primary Decision">Eine Hauptempfehlung</h3>
+            <p data-de="Kein Rauschen, keine Listen. Täglich eine priorisierte Hauptaktion — klar, einfach, heute." data-en="No noise, no lists. One prioritized main action daily — clear, simple, today.">Kein Rauschen, keine Listen. Täglich eine priorisierte Hauptaktion — klar, einfach, heute.</p>
+            <span class="feature-tag" data-de="Sofort umsetzbar" data-en="Immediately actionable">Sofort umsetzbar</span>
           </div>
           <div class="feature-card">
-            <span class="feature-emoji">🎛</span>
-            <h3 data-de="Guided Mode" data-en="Guided Mode">Guided Mode</h3>
-            <p data-de="Optionen und Kriterien definieren. Die KI gewichtet und berechnet die objektiv beste Wahl." data-en="Define options and criteria. The AI weighs and calculates the objectively best choice.">Optionen und Kriterien definieren. Die KI gewichtet und berechnet die objektiv beste Wahl.</p>
-            <span class="feature-tag" data-de="~60 Sekunden" data-en="~60 seconds">~60 Sekunden</span>
+            <span class="feature-emoji">🧠</span>
+            <h3 data-de="KI-Personalisierung" data-en="AI Personalisation">KI-Personalisierung</h3>
+            <p data-de="Die KI lernt aus deinen Entscheidungen und passt die Empfehlungen täglich an dein Verhalten an." data-en="The AI learns from your choices and adapts recommendations daily to your behaviour.">Die KI lernt aus deinen Entscheidungen und passt die Empfehlungen täglich an dein Verhalten an.</p>
+            <span class="feature-tag" data-de="Adaptiv" data-en="Adaptive">Adaptiv</span>
           </div>
           <div class="feature-card">
-            <span class="feature-emoji">📊</span>
-            <h3 data-de="Confidence Meter" data-en="Confidence Meter">Confidence Meter</h3>
-            <p data-de="Sieh auf einen Blick, wie sicher die Empfehlung ist. Keine Zweideutigkeiten, keine Halbsätze." data-en="See at a glance how confident the recommendation is. No ambiguity, no hedging.">Sieh auf einen Blick, wie sicher die Empfehlung ist. Keine Zweideutigkeiten, keine Halbsätze.</p>
-            <span class="feature-tag" data-de="Transparent" data-en="Transparent">Transparent</span>
+            <span class="feature-emoji">🔥</span>
+            <h3 data-de="Serien & Fortschritt" data-en="Streaks & Progress">Serien & Fortschritt</h3>
+            <p data-de="Sieh wie viele Tage du dran geblieben bist. Einfaches Tracking ohne Überwältigung." data-en="See how many days you've kept it up. Simple tracking without overwhelm.">Sieh wie viele Tage du dran geblieben bist. Einfaches Tracking ohne Überwältigung.</p>
+            <span class="feature-tag" data-de="Motivierend" data-en="Motivating">Motivierend</span>
           </div>
           <div class="feature-card">
-            <span class="feature-emoji">🧭</span>
-            <h3 data-de="Nächster Schritt" data-en="Next Step">Nächster Schritt</h3>
-            <p data-de="Jedes Ergebnis endet mit einer konkreten Handlung. Nicht denken – einfach tun." data-en="Every result ends with a concrete action. Don't think – just do.">Jedes Ergebnis endet mit einer konkreten Handlung. Nicht denken – einfach tun.</p>
-            <span class="feature-tag" data-de="Actionable" data-en="Actionable">Actionable</span>
+            <span class="feature-emoji">📤</span>
+            <h3 data-de="Teilen-Funktion" data-en="Share feature">Teilen-Funktion</h3>
+            <p data-de="Teile deine tägliche Empfehlung per iMessage oder WhatsApp — für Freunde, Familie, Kollegen." data-en="Share your daily recommendation via iMessage or WhatsApp — for friends, family, colleagues.">Teile deine tägliche Empfehlung per iMessage oder WhatsApp — für Freunde, Familie, Kollegen.</p>
+            <span class="feature-tag" data-de="Viral" data-en="Viral">Viral</span>
           </div>
           <div class="feature-card">
-            <span class="feature-emoji">📋</span>
-            <h3 data-de="Entscheidungsverlauf" data-en="Decision History">Entscheidungsverlauf</h3>
-            <p data-de="Alle deine Entscheidungen gespeichert. Lerne aus der Vergangenheit – auf einen Blick." data-en="All your decisions saved. Learn from the past – at a glance.">Alle deine Entscheidungen gespeichert. Lerne aus der Vergangenheit – auf einen Blick.</p>
-            <span class="feature-tag" data-de="Reflektierbar" data-en="Reflectable">Reflektierbar</span>
+            <span class="feature-emoji">🔔</span>
+            <h3 data-de="Ruhige Erinnerungen" data-en="Calm Reminders">Ruhige Erinnerungen</h3>
+            <p data-de="Optionale, nicht-aufdringliche Benachrichtigungen zum Zeitpunkt deiner Wahl." data-en="Optional, non-pushy notifications at the time of your choice.">Optionale, nicht-aufdringliche Benachrichtigungen zum Zeitpunkt deiner Wahl.</p>
+            <span class="feature-tag" data-de="Keine Spam-Push" data-en="No spam push">Keine Spam-Push</span>
           </div>
           <div class="feature-card">
             <span class="feature-emoji">🌍</span>
             <h3 data-de="Deutsch & Englisch" data-en="German & English">Deutsch & Englisch</h3>
-            <p data-de="Die App ist vollständig zweisprachig — mit automatischer Spracherkennung." data-en="The app is fully bilingual — with automatic language detection.">Die App ist vollständig zweisprachig — mit automatischer Spracherkennung.</p>
+            <p data-de="Die App ist vollständig zweisprachig — mit automatischer Spracherkennung beim ersten Start." data-en="The app is fully bilingual — with automatic language detection on first launch.">Die App ist vollständig zweisprachig — mit automatischer Spracherkennung beim ersten Start.</p>
             <span class="feature-tag" data-de="DE / EN" data-en="DE / EN">DE / EN</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── vs. ChatGPT ──────────────────────────────────────────────────────── -->
+    <!-- ── Focus Areas ──────────────────────────────────────────────────────── -->
+    <section class="section-focus">
+      <div class="section-focus-inner">
+        <p class="section-label" style="text-align:center;" data-de="Schwerpunkte" data-en="Focus areas">Schwerpunkte</p>
+        <h2 data-de="4 Bereiche. Echter Impact." data-en="4 areas. Real impact.">4 Bereiche. Echter Impact.</h2>
+        <p class="section-focus-sub" data-de="VioLonge AI fokussiert sich auf die vier wichtigsten Stellschrauben deiner Gesundheit." data-en="VioLonge AI focuses on the four most important levers of your health.">VioLonge AI fokussiert sich auf die vier wichtigsten Stellschrauben deiner Gesundheit.</p>
+
+        <div class="focus-grid">
+          <div class="focus-card">
+            <span class="focus-emoji">😴</span>
+            <h3 data-de="Schlaf" data-en="Sleep">Schlaf</h3>
+            <p data-de="Bessere Erholung, mehr Energie, klarer Kopf." data-en="Better recovery, more energy, clearer mind.">Bessere Erholung, mehr Energie, klarer Kopf.</p>
+          </div>
+          <div class="focus-card">
+            <span class="focus-emoji">🥗</span>
+            <h3 data-de="Ernährung" data-en="Nutrition">Ernährung</h3>
+            <p data-de="Kleine Anpassungen mit großer Wirkung auf Energie und Gewicht." data-en="Small adjustments with big impact on energy and weight.">Kleine Anpassungen mit großer Wirkung auf Energie und Gewicht.</p>
+          </div>
+          <div class="focus-card">
+            <span class="focus-emoji">🚶</span>
+            <h3 data-de="Bewegung" data-en="Movement">Bewegung</h3>
+            <p data-de="Alltagsbewegung ohne Fitnesszwang. Nachhaltig und realistisch." data-en="Everyday movement without gym pressure. Sustainable and realistic.">Alltagsbewegung ohne Fitnesszwang. Nachhaltig und realistisch.</p>
+          </div>
+          <div class="focus-card">
+            <span class="focus-emoji">🧘</span>
+            <h3 data-de="Stress" data-en="Stress">Stress</h3>
+            <p data-de="Einfache Techniken für mentale Balance und Entspannung." data-en="Simple techniques for mental balance and relaxation.">Einfache Techniken für mentale Balance und Entspannung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── vs. other apps ───────────────────────────────────────────────────── -->
     <section class="section-vs">
       <div class="section-vs-inner">
-        <h2 data-de="Warum nicht einfach ChatGPT?" data-en="Why not just use ChatGPT?">Warum nicht einfach ChatGPT?</h2>
+        <h2 data-de="Warum nicht einfach eine<br>normale Gesundheits-App?" data-en="Why not just use a<br>regular health app?">Warum nicht einfach eine<br>normale Gesundheits-App?</h2>
 
         <div class="vs-grid" style="margin-top:48px;">
-
-          <!-- ThinkLess Column -->
           <div>
-            <div class="vs-col-label tl">ThinkLess AI</div>
-            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Strukturierte Eingabe – kein leeres Textfeld" data-en="Structured input – no blank page">Strukturierte Eingabe – kein leeres Textfeld</span></div>
-            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Eine Antwort, nicht fünf Absätze" data-en="One answer, not five paragraphs">Eine Antwort, nicht fünf Absätze</span></div>
-            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Ergebnis in 20–60 Sekunden" data-en="Result in 20–60 seconds">Ergebnis in 20–60 Sekunden</span></div>
-            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Confidence Meter – Vertrauensniveau sichtbar" data-en="Confidence Meter – trust level visible">Confidence Meter – Vertrauensniveau sichtbar</span></div>
-            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Verlauf & Reflexion aller Entscheidungen" data-en="History & reflection of all decisions">Verlauf & Reflexion aller Entscheidungen</span></div>
-            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Konkreter nächster Schritt" data-en="Concrete next step">Konkreter nächster Schritt</span></div>
+            <div class="vs-col-label lv">VioLonge AI</div>
+            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Eine klare Empfehlung — keine Überwältigung" data-en="One clear recommendation — no overwhelm">Eine klare Empfehlung — keine Überwältigung</span></div>
+            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Sofort umsetzbar — heute, nicht irgendwann" data-en="Immediately actionable — today, not someday">Sofort umsetzbar — heute, nicht irgendwann</span></div>
+            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Kein Tracking-Zwang, kein Gerät nötig" data-en="No tracking required, no device needed">Kein Tracking-Zwang, kein Gerät nötig</span></div>
+            <div class="vs-item win"><span class="icon">✅</span> <span data-de="KI personalisiert auf dich — nicht generisch" data-en="AI personalised to you — not generic">KI personalisiert auf dich — nicht generisch</span></div>
+            <div class="vs-item win"><span class="icon">✅</span> <span data-de="&lt; 60 Sekunden tägliche Interaktion" data-en="&lt; 60 seconds daily interaction">&lt; 60 Sekunden tägliche Interaktion</span></div>
+            <div class="vs-item win"><span class="icon">✅</span> <span data-de="Kein medizinischer Anspruch — realistische Hilfe" data-en="No medical claims — realistic help">Kein medizinischer Anspruch — realistische Hilfe</span></div>
           </div>
 
           <div class="vs-divider">vs</div>
 
-          <!-- ChatGPT Column -->
           <div>
-            <div class="vs-col-label gpt">ChatGPT</div>
-            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Leeres Textfeld – du musst selbst formulieren" data-en="Blank page – you have to formulate yourself">Leeres Textfeld – du musst selbst formulieren</span></div>
-            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Lange, ausgewogene Analysen statt klarer Antworten" data-en="Long balanced analyses instead of clear answers">Lange, ausgewogene Analysen statt klarer Antworten</span></div>
-            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="2–5 Minuten Prompt-Engineering nötig" data-en="2–5 minutes of prompt engineering needed">2–5 Minuten Prompt-Engineering nötig</span></div>
-            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Kein Vertrauenssignal – keine Sicherheitsbewertung" data-en="No trust signal – no confidence rating">Kein Vertrauenssignal – keine Sicherheitsbewertung</span></div>
-            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Kein Verlauf deiner Entscheidungen" data-en="No history of your decisions">Kein Verlauf deiner Entscheidungen</span></div>
-            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Selten ein konkreter nächster Schritt" data-en="Rarely a concrete next step">Selten ein konkreter nächster Schritt</span></div>
+            <div class="vs-col-label other" data-de="Andere Health-Apps" data-en="Other Health Apps">Andere Health-Apps</div>
+            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Daten-Dashboards ohne klare Konsequenz" data-en="Data dashboards without clear consequence">Daten-Dashboards ohne klare Konsequenz</span></div>
+            <div class="vs-item lose"><span class="icon">❌</span> <span data-en="Generic tips regardless of your situation" data-de="Generische Tipps unabhängig von deiner Situation">Generische Tipps unabhängig von deiner Situation</span></div>
+            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Brauchen Wearables oder Apple Health" data-en="Require wearables or Apple Health">Brauchen Wearables oder Apple Health</span></div>
+            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Zu viele Features — zu wenig Fokus" data-en="Too many features — too little focus">Zu viele Features — zu wenig Fokus</span></div>
+            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Tägliche Nutzung dauert 5–15 Minuten" data-en="Daily use takes 5–15 minutes">Tägliche Nutzung dauert 5–15 Minuten</span></div>
+            <div class="vs-item lose"><span class="icon">❌</span> <span data-de="Gamification statt echter Gesundheitshilfe" data-en="Gamification instead of real health help">Gamification statt echter Gesundheitshilfe</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pricing ───────────────────────────────────────────────────────────── -->
+    <section class="section-pricing">
+      <div class="section-pricing-inner">
+        <p class="section-label" style="text-align:center;" data-de="Preise" data-en="Pricing">Preise</p>
+        <h2 data-de="Einfach. Fair. Effektiv." data-en="Simple. Fair. Effective.">Einfach. Fair. Effektiv.</h2>
+        <p class="section-pricing-sub" data-de="Starte kostenlos und entscheide selbst ob Premium für dich passt. Keine Werbung." data-en="Start for free and decide if Premium is right for you. No ads.">Starte kostenlos und entscheide selbst ob Premium für dich passt. Keine Werbung.</p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-name" data-de="Free" data-en="Free">Free</div>
+            <div class="pricing-price">€0</div>
+            <div class="pricing-period" data-de="Für immer kostenlos" data-en="Free forever">Für immer kostenlos</div>
+            <ul class="pricing-features">
+              <li><span class="check">✓</span> <span data-de="1 Empfehlung pro Tag" data-en="1 recommendation per day">1 Empfehlung pro Tag</span></li>
+              <li><span class="check">✓</span> <span data-de="Alle 4 Schwerpunkte" data-en="All 4 focus areas">Alle 4 Schwerpunkte</span></li>
+              <li><span class="check">✓</span> <span data-de="Serien-Tracking" data-en="Streak tracking">Serien-Tracking</span></li>
+              <li><span class="check">✓</span> <span data-de="Teilen-Funktion" data-en="Share feature">Teilen-Funktion</span></li>
+              <li><span class="check">✓</span> <span data-de="Kein Account nötig" data-en="No account required">Kein Account nötig</span></li>
+            </ul>
+          </div>
+          <div class="pricing-card premium">
+            <div class="pricing-badge" data-de="Empfohlen" data-en="Recommended">Empfohlen</div>
+            <div class="pricing-name" data-de="Premium" data-en="Premium">Premium</div>
+            <div class="pricing-price">€4,99</div>
+            <div class="pricing-period" data-de="pro Monat · 7 Tage kostenlos testen" data-en="per month · 7-day free trial">pro Monat · 7 Tage kostenlos testen</div>
+            <ul class="pricing-features">
+              <li><span class="check">✓</span> <span data-de="Bis zu 3 Empfehlungen pro Tag" data-en="Up to 3 recommendations per day">Bis zu 3 Empfehlungen pro Tag</span></li>
+              <li><span class="check">✓</span> <span data-de="Tiefere KI-Personalisierung" data-en="Deeper AI personalisation">Tiefere KI-Personalisierung</span></li>
+              <li><span class="check">✓</span> <span data-de="Verlaufshistorie" data-en="Action history">Verlaufshistorie</span></li>
+              <li><span class="check">✓</span> <span data-de="Wöchentliche KI-Zusammenfassung" data-en="Weekly AI summary">Wöchentliche KI-Zusammenfassung</span></li>
+              <li><span class="check">✓</span> <span data-de="Prioritäts-Support" data-en="Priority support">Prioritäts-Support</span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -616,8 +754,8 @@
     <section class="section-waitlist" id="waitlist">
       <div class="section-waitlist-inner">
         <p class="section-label" data-de="Sei dabei, wenn es losgeht" data-en="Be there when it launches">Sei dabei, wenn es losgeht</p>
-        <h2 data-de="Als Erster benachrichtigt werden." data-en="Be the first to know.">Als Erster benachrichtigt werden.</h2>
-        <p data-de="Trag dich jetzt ein und wir benachrichtigen dich sobald ThinkLess AI im App Store verfügbar ist." data-en="Sign up now and we'll notify you as soon as ThinkLess AI is available in the App Store.">Trag dich jetzt ein und wir benachrichtigen dich sobald ThinkLess AI im App Store verfügbar ist.</p>
+        <h2 data-de="Als Erster dabei sein." data-en="Be the first.">Als Erster dabei sein.</h2>
+        <p data-de="Trag dich jetzt ein und wir benachrichtigen dich, sobald VioLonge AI im App Store verfügbar ist." data-en="Sign up now and we'll notify you as soon as VioLonge AI is available in the App Store.">Trag dich jetzt ein und wir benachrichtigen dich, sobald VioLonge AI im App Store verfügbar ist.</p>
 
         <form class="waitlist-form" id="waitlist-form" onsubmit="handleWaitlist(event)">
           <input type="email" id="waitlist-email" placeholder="deine@email.de" required
@@ -635,15 +773,17 @@
     <section class="section-about">
       <div class="section-about-inner">
         <div class="section-about-logo">
-          <span style="color:var(--tl-think)">Think</span><span style="color:var(--tl-less)">Less AI</span>
+          <span style="color:var(--text)">VioLonge</span><span style="color:var(--lv-green)"> AI</span>
         </div>
         <p>
-          <span data-de="ThinkLess AI ist eine Marke von " data-en="ThinkLess AI is a brand by ">ThinkLess AI ist eine Marke von </span>
+          <span data-de="VioLonge AI ist eine Marke von " data-en="VioLonge AI is a brand by ">VioLonge AI ist eine Marke von </span>
           <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>
           <span data-de=" — dem Entwickler hinter " data-en=" — the developer behind "> — dem Entwickler hinter </span>
-          <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.
+          <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>
+          <span data-de=" und " data-en=" and "> und </span>
+          <a class="section-about-link" href="https://getthinkless.ai" target="_blank" rel="noopener">ThinkLess AI</a>.
           <br><br>
-          <span data-de="Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag und Beruf wirklich helfen." data-en="We build AI products that deliver real value. Not toys — tools that genuinely help people in their daily and professional lives.">Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag und Beruf wirklich helfen.</span>
+          <span data-de="Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag wirklich helfen, gesünder zu leben." data-en="We build AI products that deliver real value. Not toys — tools that genuinely help people live healthier in their daily lives.">Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag wirklich helfen, gesünder zu leben.</span>
         </p>
       </div>
     </section>
@@ -700,14 +840,14 @@
 
       <div class="imprint-block">
         <h3 data-de="Haftungsausschluss" data-en="Disclaimer">Haftungsausschluss</h3>
-        <p data-de="Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen."
-           data-en="The content of our pages was created with the greatest care. However, we cannot guarantee the accuracy, completeness and timeliness of the content.">
-          Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+        <p data-de="Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. VioLonge AI ist kein medizinisches Produkt und ersetzt keine ärztliche Beratung."
+           data-en="The content of our pages was created with the greatest care. However, we cannot guarantee the accuracy, completeness and timeliness of the content. VioLonge AI is not a medical product and does not replace medical advice.">
+          Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. VioLonge AI ist kein medizinisches Produkt und ersetzt keine ärztliche Beratung.
         </p>
       </div>
 
       <div class="imprint-notice">
-        ThinkLess AI <span data-de="ist eine Marke von" data-en="is a brand by">ist eine Marke von</span>
+        VioLonge AI <span data-de="ist eine Marke von" data-en="is a brand by">ist eine Marke von</span>
         torecon &mdash; <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a>
       </div>
     </div>
@@ -717,11 +857,11 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-logo-main">
-        <span class="footer-logo-think">Think</span><span class="footer-logo-less">Less AI</span>
+        <span class="footer-logo-violonge">VioLonge</span><span class="footer-logo-ai"> AI</span>
       </div>
       <div class="footer-brand-line">
         <span data-de="eine Marke von" data-en="a brand by">eine Marke von</span>
-        <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>
+        <a href="https://www.torecon.de/" target="_blank" rel="noopener"> torecon</a>
       </div>
       <div class="footer-links">
         <a href="/privacy/" data-de="Datenschutz" data-en="Privacy Policy">Datenschutz</a>
@@ -733,7 +873,7 @@
         <span class="footer-apps-label" data-de="Weitere Apps von torecon" data-en="More apps by torecon">Weitere Apps von torecon</span>
         <div class="footer-apps-pills">
           <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
-          <a class="footer-app-pill" href="https://getviolonge.torecon.de" target="_blank" rel="noopener">🌱 VioLonge AI</a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">⚡ ThinkLess AI</a>
           <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">⚡ eLadung</a>
         </div>
       </div>
@@ -742,14 +882,13 @@
   </footer>
 
   <script>
-    // ── Year ──────────────────────────────────────────────────────────────────
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
     // ── Language System ───────────────────────────────────────────────────────
     let currentLang = 'de';
 
     function detectLanguage() {
-      const saved = localStorage.getItem('tl_lang');
+      const saved = localStorage.getItem('vl_lang');
       if (saved) return saved;
       const sys = (navigator.language || navigator.userLanguage || 'de').toLowerCase();
       return sys.startsWith('de') ? 'de' : 'en';
@@ -757,45 +896,38 @@
 
     function setLang(lang) {
       currentLang = lang;
-      localStorage.setItem('tl_lang', lang);
+      localStorage.setItem('vl_lang', lang);
       applyLang();
     }
 
     function applyLang() {
       const isEN = currentLang === 'en';
 
-      // Toggle buttons
       document.getElementById('btn-de').classList.toggle('active', !isEN);
       document.getElementById('btn-en').classList.toggle('active', isEN);
-
-      // Update html lang
       document.documentElement.lang = currentLang;
 
-      // Update all data-de / data-en elements
       document.querySelectorAll('[data-de]').forEach(el => {
         const val = isEN ? el.getAttribute('data-en') : el.getAttribute('data-de');
         if (val !== null) el.innerHTML = val;
       });
 
-      // Update placeholders
       document.querySelectorAll('[data-de-placeholder]').forEach(el => {
         const val = isEN ? el.getAttribute('data-en-placeholder') : el.getAttribute('data-de-placeholder');
         if (val !== null) el.placeholder = val;
       });
 
-      // Update page title & meta
       if (isEN) {
-        document.title = 'ThinkLess AI – Better Decisions Faster';
+        document.title = 'VioLonge AI – Your Daily Health Decision';
         document.querySelector('meta[name="description"]').content =
-          'ThinkLess AI helps you decide faster and more confidently – in under 60 seconds. Coming soon to the App Store.';
+          'VioLonge AI delivers 1–3 personalized daily health decisions — actionable immediately, understood in under 60 seconds. Coming to the App Store.';
       } else {
-        document.title = 'ThinkLess AI – Bessere Entscheidungen in Sekunden';
+        document.title = 'VioLonge AI – Deine tägliche Gesundheitsentscheidung';
         document.querySelector('meta[name="description"]').content =
-          'ThinkLess AI hilft dir, schneller und sicherer zu entscheiden – in unter 60 Sekunden. Bald im App Store.';
+          'VioLonge AI liefert dir täglich 1–3 personalisierte Gesundheitsentscheidungen – einfach, sofort umsetzbar, in unter 60 Sekunden. Bald im App Store.';
       }
     }
 
-    // Init
     currentLang = detectLanguage();
     applyLang();
 
@@ -809,15 +941,13 @@
       btn.disabled = true;
       btn.style.opacity = '0.6';
 
-      // ── Formspree ────────────────────────────────────────────────────────────
-      // 1. Gehe zu https://formspree.io → neues Form anlegen (E-Mail: support@getthinkless.ai)
-      // 2. Ersetze FORMSPREE_FORM_ID mit deiner Form-ID (z.B. "xpwzgkld")
-      const FORMSPREE_FORM_ID = 'xjgporvn';
+      // Replace FORMSPREE_FORM_ID with your Formspree form ID
+      const FORMSPREE_FORM_ID = 'YOUR_FORMSPREE_ID';
 
       fetch('https://formspree.io/f/' + FORMSPREE_FORM_ID, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email, lang: currentLang, source: 'website' })
+        body: JSON.stringify({ email, lang: currentLang, source: 'violonge-website' })
       })
       .then(res => {
         if (!res.ok) throw new Error('formspree_error');
@@ -826,16 +956,15 @@
         applyLang();
       })
       .catch(() => {
-        // Fallback: direct mailto so no signup is lost
-        window.location.href = 'mailto:support@getthinkless.ai'
-          + '?subject=Waitlist%20Signup'
+        window.location.href = 'mailto:info@torecon.de'
+          + '?subject=VioLonge%20AI%20Waitlist'
           + '&body=Bitte%20trage%20mich%20in%20die%20Waitlist%20ein%3A%20' + encodeURIComponent(email);
         btn.disabled = false;
         btn.style.opacity = '1';
       });
     }
 
-    // ── Intersection Observer for fade-up ────────────────────────────────────
+    // ── Scroll animations ─────────────────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -845,7 +974,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.step-card, .feature-card').forEach(el => {
+    document.querySelectorAll('.step-card, .feature-card, .focus-card, .pricing-card').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';

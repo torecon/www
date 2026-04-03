@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung – VioLonge AI</title>
+  <meta name="description" content="Datenschutzerklärung der VioLonge AI App und Website.">
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #0D1A14;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #1A8C5B;
+      --border:         rgba(0,0,0,0.08);
+      --nav-bg:         rgba(255,255,255,0.82);
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --container:      740px;
+      --radius:         12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.7; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); height: 60px;
+    }
+    .nav-inner {
+      max-width: var(--container); margin: 0 auto; padding: 0 24px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
+    .nav-logo-violonge { color: var(--text); }
+    .nav-logo-ai { color: var(--accent); }
+    .nav-back { font-size: 14px; color: var(--text-secondary); text-decoration: none; }
+    .nav-back:hover { color: var(--accent); opacity: 1; }
+
+    .lang-toggle { display: flex; align-items: center; background: var(--bg-alt); border: 1px solid rgba(0,0,0,0.15); border-radius: 20px; padding: 3px; gap: 2px; }
+    .lang-btn { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 16px; border: none; background: transparent; color: var(--text-tertiary); cursor: pointer; transition: 0.2s; }
+    .lang-btn.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    .page-wrap { max-width: var(--container); margin: 0 auto; padding: 60px 24px 100px; }
+    .page-label { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+    .page-title { font-size: clamp(28px, 5vw, 40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .page-date { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
+
+    .section { margin-bottom: 40px; }
+    .section h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 12px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .section h3 { font-size: 16px; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+    .section p { margin-bottom: 14px; color: var(--text-secondary); font-size: 16px; line-height: 1.75; }
+    .section ul { margin: 10px 0 14px 20px; }
+    .section ul li { color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 6px; }
+    .highlight-box {
+      background: rgba(26,140,91,0.06); border: 1px solid rgba(26,140,91,0.18);
+      border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px;
+    }
+    .highlight-box p { margin: 0; color: var(--text); font-size: 15px; font-weight: 500; }
+
+    .footer-simple { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
+    .footer-simple a { color: rgba(255,255,255,0.45); font-size: 13px; margin: 0 10px; }
+    .footer-simple a:hover { color: #fff; opacity: 1; }
+    .footer-simple p { color: rgba(255,255,255,0.2); font-size: 12px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/"><span class="nav-logo-violonge">VioLonge</span><span class="nav-logo-ai"> AI</span></a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div class="lang-toggle">
+        <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="nav-back" href="/" data-de="← Zurück" data-en="← Back">← Zurück</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <p class="page-label" data-de="Rechtliches" data-en="Legal">Rechtliches</p>
+  <h1 class="page-title" data-de="Datenschutzerklärung" data-en="Privacy Policy">Datenschutzerklärung</h1>
+  <p class="page-date" data-de="Stand: April 2026" data-en="Last updated: April 2026">Stand: April 2026</p>
+
+  <div class="highlight-box">
+    <p data-de="VioLonge AI speichert keine personenbezogenen Daten auf Servern von Dritten. Alle gesundheitsbezogenen Profildaten werden ausschließlich lokal auf deinem Gerät gespeichert oder pseudonymisiert mit einer zufälligen Geräte-ID übertragen." data-en="VioLonge AI does not store personal data on third-party servers. All health-related profile data is stored exclusively locally on your device or transmitted pseudonymously using a random device ID.">VioLonge AI speichert keine personenbezogenen Daten auf Servern von Dritten. Alle gesundheitsbezogenen Profildaten werden ausschließlich lokal auf deinem Gerät gespeichert oder pseudonymisiert mit einer zufälligen Geräte-ID übertragen.</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <h2 data-de="1. Verantwortlicher" data-en="1. Controller">1. Verantwortlicher</h2>
+    <p data-de="Verantwortlicher im Sinne der DSGVO ist:" data-en="The controller within the meaning of the GDPR is:">Verantwortlicher im Sinne der DSGVO ist:</p>
+    <p>Thomas Reinke<br>torecon<br>Roesgenstr. 22<br>53474 Ahrweiler<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <h2 data-de="2. Welche Daten wir erheben und warum" data-en="2. What data we collect and why">2. Welche Daten wir erheben und warum</h2>
+
+    <h3 data-de="2.1 Geräte-ID (Pseudonym)" data-en="2.1 Device ID (pseudonym)">2.1 Geräte-ID (Pseudonym)</h3>
+    <p data-de="Beim ersten Start der App wird eine zufällige UUID (Universally Unique Identifier) generiert und lokal auf deinem Gerät gespeichert (UserDefaults). Diese ID dient der Personalisierung der täglich generierten Gesundheitsempfehlungen. Sie enthält keinerlei Rückschlüsse auf deine Person, deinen Namen oder deine E-Mail-Adresse." data-en="On first launch, a random UUID (Universally Unique Identifier) is generated and stored locally on your device (UserDefaults). This ID is used to personalise the daily health recommendations. It contains no information traceable to your person, name or email address.">Beim ersten Start der App wird eine zufällige UUID (Universally Unique Identifier) generiert und lokal auf deinem Gerät gespeichert (UserDefaults). Diese ID dient der Personalisierung der täglich generierten Gesundheitsempfehlungen. Sie enthält keinerlei Rückschlüsse auf deine Person, deinen Namen oder deine E-Mail-Adresse.</p>
+
+    <h3 data-de="2.2 Gesundheitliches Profil (Onboarding)" data-en="2.2 Health profile (onboarding)">2.2 Gesundheitliches Profil (Onboarding)</h3>
+    <p data-de="Im Rahmen des Onboardings erfassen wir folgende Informationen, die ausschließlich lokal auf deinem Gerät (UserDefaults / SwiftData) gespeichert werden:" data-en="During onboarding, we collect the following information which is stored exclusively locally on your device (UserDefaults / SwiftData):">Im Rahmen des Onboardings erfassen wir folgende Informationen, die ausschließlich lokal auf deinem Gerät (UserDefaults / SwiftData) gespeichert werden:</p>
+    <ul>
+      <li data-de="Hauptziel (z. B. mehr Energie, besserer Schlaf, Gewicht, Longevity)" data-en="Main goal (e.g. more energy, better sleep, weight, longevity)">Hauptziel (z. B. mehr Energie, besserer Schlaf, Gewicht, Longevity)</li>
+      <li data-de="Aktivitätslevel im Alltag (niedrig / mittel / hoch)" data-en="Daily activity level (low / moderate / active)">Aktivitätslevel im Alltag (niedrig / mittel / hoch)</li>
+      <li data-de="Bevorzugte Erinnerungszeit für Benachrichtigungen" data-en="Preferred reminder time for notifications">Bevorzugte Erinnerungszeit für Benachrichtigungen</li>
+      <li data-de="Gewählte Sprache (DE / EN)" data-en="Chosen language (DE / EN)">Gewählte Sprache (DE / EN)</li>
+    </ul>
+    <p data-de="Diese Daten werden anonymisiert (gemeinsam mit der Geräte-ID) an unseren Backend-Server übermittelt, um die KI-Empfehlungen zu personalisieren. Es werden keine Klarnamen, E-Mail-Adressen oder sonstige direkt identifizierbare Merkmale übertragen." data-en="This data is transmitted anonymously (together with the device ID) to our backend server to personalise the AI recommendations. No real names, email addresses or other directly identifiable attributes are transmitted.">Diese Daten werden anonymisiert (gemeinsam mit der Geräte-ID) an unseren Backend-Server übermittelt, um die KI-Empfehlungen zu personalisieren. Es werden keine Klarnamen, E-Mail-Adressen oder sonstige direkt identifizierbare Merkmale übertragen.</p>
+
+    <h3 data-de="2.3 Nutzungsverhalten (Aktionen)" data-en="2.3 Usage behaviour (actions)">2.3 Nutzungsverhalten (Aktionen)</h3>
+    <p data-de="Wir erfassen, welche täglichen Gesundheitsaktionen als erledigt markiert oder übersprungen werden. Diese Daten werden:" data-en="We record which daily health actions are marked as completed or skipped. This data is:">Wir erfassen, welche täglichen Gesundheitsaktionen als erledigt markiert oder übersprungen werden. Diese Daten werden:</p>
+    <ul>
+      <li data-de="Lokal gespeichert (SwiftData auf deinem iPhone)" data-en="Stored locally (SwiftData on your iPhone)">Lokal gespeichert (SwiftData auf deinem iPhone)</li>
+      <li data-de="Pseudonymisiert an unseren Backend-Server übermittelt (nur Geräte-ID + Aktions-ID + Datum)" data-en="Transmitted pseudonymously to our backend server (only device ID + action ID + date)">Pseudonymisiert an unseren Backend-Server übermittelt (nur Geräte-ID + Aktions-ID + Datum)</li>
+      <li data-de="Verwendet zur Berechnung deines Streak-Zählers und zur Verbesserung künftiger Empfehlungen" data-en="Used to calculate your streak counter and improve future recommendations">Verwendet zur Berechnung deines Streak-Zählers und zur Verbesserung künftiger Empfehlungen</li>
+    </ul>
+
+    <h3 data-de="2.4 Analytik (optional)" data-en="2.4 Analytics (optional)">2.4 Analytik (optional)</h3>
+    <p data-de="Wir können anonymisierte Nutzungsstatistiken erfassen (z. B. welche Kategorie am häufigsten genutzt wird), um die App zu verbessern. Diese Daten enthalten keine personenbezogenen Informationen und werden aggregiert ausgewertet." data-en="We may collect anonymised usage statistics (e.g. which category is used most frequently) to improve the app. This data contains no personal information and is evaluated in aggregate.">Wir können anonymisierte Nutzungsstatistiken erfassen (z. B. welche Kategorie am häufigsten genutzt wird), um die App zu verbessern. Diese Daten enthalten keine personenbezogenen Informationen und werden aggregiert ausgewertet.</p>
+
+    <h3 data-de="2.5 Website-Kontaktformular (Waitlist)" data-en="2.5 Website contact form (waitlist)">2.5 Website-Kontaktformular (Waitlist)</h3>
+    <p data-de="Wenn du dich auf unserer Website für die Waitlist einträgst, wird deine E-Mail-Adresse über den Dienst Formspree verarbeitet und gespeichert, um dich beim App-Launch zu benachrichtigen. Diese Einwilligung kannst du jederzeit durch eine E-Mail an info@torecon.de widerrufen." data-en="When you sign up for the waitlist on our website, your email address is processed and stored via the Formspree service to notify you at app launch. You can revoke this consent at any time by emailing info@torecon.de.">Wenn du dich auf unserer Website für die Waitlist einträgst, wird deine E-Mail-Adresse über den Dienst Formspree verarbeitet und gespeichert, um dich beim App-Launch zu benachrichtigen. Diese Einwilligung kannst du jederzeit durch eine E-Mail an <a href="mailto:info@torecon.de">info@torecon.de</a> widerrufen.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <h2 data-de="3. Rechtsgrundlage der Verarbeitung" data-en="3. Legal basis for processing">3. Rechtsgrundlage der Verarbeitung</h2>
+    <p data-de="Die Verarbeitung der Daten erfolgt auf Basis von:" data-en="Data processing is based on:">Die Verarbeitung der Daten erfolgt auf Basis von:</p>
+    <ul>
+      <li data-de="Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung): Personalisierung der Gesundheitsempfehlungen, die du durch das Onboarding angefordert hast." data-en="Art. 6(1)(b) GDPR (contractual performance): personalisation of health recommendations requested through onboarding.">Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung): Personalisierung der Gesundheitsempfehlungen</li>
+      <li data-de="Art. 6 Abs. 1 lit. a DSGVO (Einwilligung): für die Waitlist-E-Mail und optionale Analytik." data-en="Art. 6(1)(a) GDPR (consent): for the waitlist email and optional analytics.">Art. 6 Abs. 1 lit. a DSGVO (Einwilligung): Waitlist-E-Mail und optionale Analytik</li>
+      <li data-de="Art. 6 Abs. 1 lit. f DSGVO (berechtigte Interessen): Verbesserung der App-Qualität durch anonymisierte Nutzungsstatistiken." data-en="Art. 6(1)(f) GDPR (legitimate interests): improving app quality through anonymised usage statistics.">Art. 6 Abs. 1 lit. f DSGVO (berechtigte Interessen): Verbesserung der App-Qualität</li>
+    </ul>
+    <p data-de="Besondere Kategorien von Gesundheitsdaten (Art. 9 DSGVO): Die von dir eingegebenen Gesundheitsziele (z. B. Schlaf, Energie) stellen Daten dar, die sich auf die Gesundheit beziehen können. Diese werden ausschließlich auf deinem Gerät gespeichert und nur als Kategorie-Schlüssel (nicht als Freitext) pseudonymisiert übertragen. Wir bewerten diese Informationen nicht medizinisch." data-en="Special categories of health data (Art. 9 GDPR): The health goals you enter (e.g. sleep, energy) may constitute health-related data. These are stored exclusively on your device and transmitted only as category keys (not as free text) in pseudonymous form. We do not evaluate this information medically.">Besondere Kategorien von Gesundheitsdaten (Art. 9 DSGVO): Die von dir eingegebenen Gesundheitsziele können Daten darstellen, die sich auf die Gesundheit beziehen. Diese werden ausschließlich auf deinem Gerät gespeichert und nur als Kategorie-Schlüssel pseudonymisiert übertragen. Wir bewerten diese Informationen nicht medizinisch.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <h2 data-de="4. Datenweitergabe an Dritte" data-en="4. Data sharing with third parties">4. Datenweitergabe an Dritte</h2>
+    <p data-de="Deine Daten werden nicht an Dritte verkauft. Eine Weitergabe erfolgt nur in folgenden Fällen:" data-en="Your data is not sold to third parties. Disclosure only occurs in the following cases:">Deine Daten werden nicht an Dritte verkauft. Eine Weitergabe erfolgt nur in folgenden Fällen:</p>
+    <ul>
+      <li data-de="Railway (Backend-Hosting): Unser KI-Backend läuft auf Railway. Die pseudonymisierten Anfragen (Geräte-ID + Ziel-Kategorie + Sprache) werden dort verarbeitet. Railway ist DSGVO-konform (EU-Datenverarbeitung verfügbar)." data-en="Railway (backend hosting): Our AI backend runs on Railway. Pseudonymised requests (device ID + goal category + language) are processed there. Railway is GDPR-compliant (EU data processing available).">Railway (Backend-Hosting): Verarbeitung pseudonymisierter Anfragen.</li>
+      <li data-de="Formspree (Waitlist): E-Mail-Adressen der Waitlist werden über Formspree verarbeitet (nur mit deiner Einwilligung)." data-en="Formspree (waitlist): Email addresses are processed via Formspree (only with your consent).">Formspree (Waitlist): E-Mail-Adressen nur mit deiner Einwilligung.</li>
+      <li data-de="Apple App Store: Apple verarbeitet Zahlungsdaten bei In-App-Käufen gemäß Apples eigener Datenschutzrichtlinie." data-en="Apple App Store: Apple processes payment data for in-app purchases according to Apple's own privacy policy.">Apple App Store: Zahlungsabwicklung für In-App-Käufe.</li>
+    </ul>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <h2 data-de="5. Speicherdauer" data-en="5. Retention period">5. Speicherdauer</h2>
+    <p data-de="Lokale Daten (Gerät): Werden gespeichert, bis du die App deinstallierst oder die Daten manuell löschst." data-en="Local data (device): Stored until you uninstall the app or manually delete the data.">Lokale Daten (Gerät): Gespeichert bis zur Deinstallation der App.</p>
+    <p data-de="Backend-Daten (pseudonymisiert): Werden spätestens nach 12 Monaten ohne Aktivität gelöscht. Du kannst jederzeit die Löschung über info@torecon.de beantragen." data-en="Backend data (pseudonymised): Deleted after 12 months of inactivity at the latest. You can request deletion at any time via info@torecon.de.">Backend-Daten: Spätestens nach 12 Monaten ohne Aktivität gelöscht. Löschanfragen jederzeit möglich.</p>
+    <p data-de="Waitlist-E-Mails: Werden unmittelbar nach dem App-Launch-Mailing oder auf Anfrage gelöscht." data-en="Waitlist emails: Deleted immediately after the launch mailing or on request.">Waitlist-E-Mails: Sofort nach dem Launch-Mailing oder auf Anfrage gelöscht.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <h2 data-de="6. Deine Rechte (DSGVO)" data-en="6. Your rights (GDPR)">6. Deine Rechte (DSGVO)</h2>
+    <p data-de="Du hast jederzeit das Recht auf:" data-en="You have the right at any time to:">Du hast jederzeit das Recht auf:</p>
+    <ul>
+      <li data-de="Auskunft über deine gespeicherten Daten (Art. 15 DSGVO)" data-en="Information about your stored data (Art. 15 GDPR)">Auskunft (Art. 15 DSGVO)</li>
+      <li data-de="Berichtigung unrichtiger Daten (Art. 16 DSGVO)" data-en="Rectification of incorrect data (Art. 16 GDPR)">Berichtigung (Art. 16 DSGVO)</li>
+      <li data-de="Löschung deiner Daten (Art. 17 DSGVO) — sende hierzu eine E-Mail mit deiner Geräte-ID an info@torecon.de" data-en="Deletion of your data (Art. 17 GDPR) — send an email with your device ID to info@torecon.de">Löschung (Art. 17 DSGVO)</li>
+      <li data-de="Einschränkung der Verarbeitung (Art. 18 DSGVO)" data-en="Restriction of processing (Art. 18 GDPR)">Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+      <li data-de="Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)" data-en="Objection to processing (Art. 21 GDPR)">Widerspruch (Art. 21 DSGVO)</li>
+      <li data-de="Datenübertragbarkeit (Art. 20 DSGVO)" data-en="Data portability (Art. 20 GDPR)">Datenübertragbarkeit (Art. 20 DSGVO)</li>
+      <li data-de="Beschwerde bei einer Aufsichtsbehörde (z. B. LDI NRW)" data-en="Complaint to a supervisory authority (e.g. LDI NRW)">Beschwerde bei der Aufsichtsbehörde</li>
+    </ul>
+    <p>
+      <span data-de="Kontakt für Datenschutzanfragen:" data-en="Contact for privacy requests:">Kontakt für Datenschutzanfragen:</span>
+      <a href="mailto:info@torecon.de">info@torecon.de</a>
+    </p>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <h2 data-de="7. Kein medizinisches Produkt" data-en="7. Not a medical product">7. Kein medizinisches Produkt</h2>
+    <p data-de="VioLonge AI ist ein Wellness- und Lifestyle-Tool. Die App gibt keine medizinischen Diagnosen, keine ärztlichen Empfehlungen und ersetzt keine professionelle medizinische Beratung. Die angebotenen Gesundheitsempfehlungen sind allgemeiner Natur und basieren auf allgemein anerkanntem Gesundheitswissen." data-en="VioLonge AI is a wellness and lifestyle tool. The app provides no medical diagnoses, no medical recommendations and does not replace professional medical advice. The health recommendations offered are general in nature and based on generally accepted health knowledge.">VioLonge AI ist ein Wellness- und Lifestyle-Tool. Die App gibt keine medizinischen Diagnosen und ersetzt keine ärztliche Beratung. Die Empfehlungen sind allgemeiner Natur.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <h2 data-de="8. Änderungen dieser Datenschutzerklärung" data-en="8. Changes to this privacy policy">8. Änderungen dieser Datenschutzerklärung</h2>
+    <p data-de="Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen. Die aktuelle Version ist stets unter violonge.torecon.de/privacy abrufbar. Bei wesentlichen Änderungen werden App-Nutzer durch eine In-App-Mitteilung informiert." data-en="We reserve the right to update this privacy policy as needed. The current version is always available at violonge.torecon.de/privacy. For material changes, app users will be notified via an in-app message.">Wir passen diese Erklärung bei Bedarf an. Die aktuelle Version ist immer unter violonge.torecon.de/privacy abrufbar.</p>
+  </div>
+
+</div>
+
+<footer class="footer-simple">
+  <a href="/" data-de="Startseite" data-en="Home">Startseite</a>
+  <a href="/terms/" data-de="Nutzungsbedingungen" data-en="Terms of Use">Nutzungsbedingungen</a>
+  <a href="/#impressum" data-de="Impressum" data-en="Legal Notice">Impressum</a>
+  <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon.de</a>
+  <p>&copy; <span id="year"></span> torecon – Thomas Reinke</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  let currentLang = 'de';
+  function detectLanguage() {
+    const saved = localStorage.getItem('vl_lang');
+    if (saved) return saved;
+    return (navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en';
+  }
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('vl_lang', lang);
+    applyLang();
+  }
+  function applyLang() {
+    const isEN = currentLang === 'en';
+    document.getElementById('btn-de').classList.toggle('active', !isEN);
+    document.getElementById('btn-en').classList.toggle('active', isEN);
+    document.documentElement.lang = currentLang;
+    document.querySelectorAll('[data-de]').forEach(el => {
+      const val = isEN ? el.getAttribute('data-en') : el.getAttribute('data-de');
+      if (val !== null) el.innerHTML = val;
+    });
+    document.title = isEN ? 'Privacy Policy – VioLonge AI' : 'Datenschutzerklärung – VioLonge AI';
+  }
+  currentLang = detectLanguage();
+  applyLang();
+</script>
+</body>
+</html>

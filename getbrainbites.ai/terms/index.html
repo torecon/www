@@ -72,6 +72,11 @@
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
     .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
     .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
+    .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
   </style>
 </head>
@@ -202,6 +207,12 @@
         <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
         <a href="/#impressum" data-i18n="footer_imprint">Impressum</a>
       </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">🤔 ThinkLess AI</a>
+        </div>
+      </div>
       <div class="footer-copy">&copy; <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
     </div>
   </footer>
@@ -263,6 +274,7 @@
         footer_terms:     'Nutzungsbedingungen',
         footer_imprint:   'Impressum',
         footer_rights:    'Alle Rechte vorbehalten.',
+        footer_also:      'Weitere Apps von torecon',
       },
       en: {
         nav_sub:          'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
@@ -319,6 +331,7 @@
         footer_terms:     'Terms of Use',
         footer_imprint:   'Legal Notice',
         footer_rights:    'All rights reserved.',
+        footer_also:      'More apps by torecon',
       }
     };
 

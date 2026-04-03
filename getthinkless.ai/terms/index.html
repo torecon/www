@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutzungsbedingungen – ThinkLess AI</title>
+  <meta name="description" content="Nutzungsbedingungen der ThinkLess AI App von torecon.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nutzungsbedingungen – ThinkLess AI">
+  <meta property="og:url" content="https://getthinkless.ai/terms/">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #1D1D1F;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #0071E3;
+      --border:         rgba(0,0,0,0.08);
+      --border-strong:  rgba(0,0,0,0.15);
+      --nav-bg:         rgba(255,255,255,0.80);
+      --radius:         12px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --tl-think:       #1D1D1F;
+      --tl-less:        #0071E3;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .lang-toggle { display: flex; align-items: center; background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: 20px; padding: 3px; gap: 2px; }
+    .lang-btn { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 16px; border: none; background: transparent; color: var(--text-tertiary); cursor: pointer; transition: var(--transition); }
+    .lang-btn.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; gap: 1px; }
+    .nav-logo-main { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
+    .nav-logo-think { color: var(--tl-think); }
+    .nav-logo-less  { color: var(--tl-less); }
+    .nav-logo-sub { font-size: 10px; font-weight: 500; color: var(--text-tertiary); }
+    .nav-logo-sub a { color: var(--text-tertiary); font-weight: 600; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); text-decoration: none; }
+    .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+
+    .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+
+    .section { margin-bottom: 48px; }
+    .section h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .section h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; margin-top: 24px; }
+    .section p { color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { color: var(--text-secondary); font-size: 16px; line-height: 1.75; padding-left: 20px; margin-bottom: 14px; }
+    .section ul li { margin-bottom: 6px; }
+
+    .info-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .info-box p { font-size: 15px; margin-bottom: 0; }
+    .info-box strong { color: var(--text); }
+
+    .disclaimer-box { background: #FFF8E7; border: 1px solid rgba(255, 159, 10, 0.3); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .disclaimer-box p { font-size: 15px; margin-bottom: 0; color: #6B4C00; }
+    .disclaimer-box strong { color: #3D2B00; }
+
+    .site-footer { background: var(--bg-dark); padding: 32px 24px; }
+    .footer-inner { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
+    .footer-logo-think { color: rgba(255,255,255,0.7); }
+    .footer-logo-less  { color: var(--tl-less); }
+    .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .footer-brand-line a { color: rgba(255,255,255,0.5); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
+    .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <span class="nav-logo-main">
+          <span class="nav-logo-think">Think</span><span class="nav-logo-less">Less AI</span>
+        </span>
+        <span class="nav-logo-sub" data-i18n="nav_sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+        <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label" data-i18n="page_label">Rechtliches</span>
+    <h1 data-i18n="page_title">Nutzungsbedingungen</h1>
+    <p class="page-meta" data-i18n="page_meta">Stand: April 2026 · Gilt für: ThinkLess AI iOS App</p>
+
+    <div class="section">
+      <h2 data-i18n="s1_title">1. Anbieter und Geltungsbereich</h2>
+      <p data-i18n="s1_p">Diese Nutzungsbedingungen gelten für die Nutzung der iOS-App <strong>ThinkLess AI</strong>, bereitgestellt von:</p>
+      <div class="info-box">
+        <p><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22, 53474 Ahrweiler, Deutschland<br>
+        <span data-i18n="s1_email_support">Support:</span> <a href="mailto:support@getthinkless.ai">support@getthinkless.ai</a></p>
+      </div>
+      <p data-i18n="s1_agree">Mit dem Download und der Nutzung der App stimmst du diesen Bedingungen zu.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s2_title">2. Leistungsbeschreibung</h2>
+      <p data-i18n="s2_p">ThinkLess AI ist eine KI-gestützte Entscheidungsunterstützungs-App, die Nutzern hilft, schneller und strukturierter Entscheidungen zu treffen.</p>
+      <ul>
+        <li data-i18n="s2_li1">Fast Mode: sofortiges KI-Ergebnis auf Basis einer Frage (~20 Sekunden)</li>
+        <li data-i18n="s2_li2">Guided Mode: strukturierte Analyse mit Optionen und Kriterien (~60 Sekunden)</li>
+        <li data-i18n="s2_li3">Lokaler Entscheidungsverlauf und Streak-Tracking</li>
+        <li data-i18n="s2_li4">Zweisprachig: Deutsch und Englisch</li>
+        <li data-i18n="s2_li5">Premium-Abonnement mit erweiterten Funktionen</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s3_title">3. Kostenloser Zugang und Premium-Abonnement</h2>
+      <h3 data-i18n="s3_free_title">Kostenloser Zugang</h3>
+      <p data-i18n="s3_free_p">Der grundlegende Zugang zur App ist kostenlos. Im kostenlosen Tarif stehen täglich bis zu <strong>3 Entscheidungsanalysen</strong> zur Verfügung.</p>
+      <h3 data-i18n="s3_prem_title">Premium-Abonnement</h3>
+      <p data-i18n="s3_prem_p">Das Premium-Abonnement wird über den Apple App Store abgerechnet und umfasst:</p>
+      <ul>
+        <li data-i18n="s3_prem_li1"><strong>Monatlich:</strong> € 6,99 / Monat</li>
+        <li data-i18n="s3_prem_li2"><strong>Jährlich:</strong> € 39,99 / Jahr (inkl. 7 Tage kostenloser Testphase)</li>
+      </ul>
+      <p data-i18n="s3_prem_features">Premium umfasst: unbegrenzte Entscheidungen pro Tag, erweiterte KI-Analyse, alle Entscheidungsvorlagen und vollständiger Verlauf.</p>
+      <p data-i18n="s3_prem_renew">Das Abonnement verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ende der aktuellen Laufzeit gekündigt wird. Die Kündigung erfolgt über iPhone-Einstellungen → Apple-ID → Abonnements.</p>
+      <p data-i18n="s3_prem_apple">Alle Kaufvorgänge, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Für Rückerstattungsanfragen wende dich an den Apple Support.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s4_title">4. KI-Entscheidungsunterstützung – wichtiger Hinweis</h2>
+      <div class="disclaimer-box">
+        <p data-i18n="s4_disclaimer"><strong>Kein Ersatz für professionelle Beratung:</strong> ThinkLess AI liefert KI-gestützte Entscheidungsunterstützung. Die Ergebnisse stellen <strong>keine Rechts-, Finanz-, Medizin-, Steuer- oder sonstige Fachberatung</strong> dar und dürfen nicht als solche verwendet werden. Für rechtlich oder finanziell bedeutsame Entscheidungen konsultiere einen qualifizierten Fachmann.</p>
+      </div>
+      <p data-i18n="s4_ai_p">Die KI-Analyse basiert auf Sprachmodellen (Anthropic Claude). KI-Systeme können Fehler machen, unvollständig sein oder auf Basis unzureichender Informationen unzutreffende Empfehlungen erzeugen. ThinkLess AI ist als Denkwerkzeug konzipiert — die Verantwortung für Entscheidungen liegt stets beim Nutzer.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s5_title">5. Nutzungsrechte und Einschränkungen</h2>
+      <p data-i18n="s5_p">Wir gewähren dir ein nicht-exklusives, nicht übertragbares, widerrufliches Recht zur persönlichen Nutzung der App auf deinen Apple-Geräten.</p>
+      <p data-i18n="s5_nope">Du darfst nicht:</p>
+      <ul>
+        <li data-i18n="s5_li1">Die App kopieren, modifizieren oder abgeleitete Werke erstellen</li>
+        <li data-i18n="s5_li2">Die App dekompilieren, disassemblieren oder zurückentwickeln</li>
+        <li data-i18n="s5_li3">Inhalte der App ohne Genehmigung kommerziell verwerten</li>
+        <li data-i18n="s5_li4">Die App für illegale Zwecke oder in einer Weise nutzen, die Dritten schadet</li>
+        <li data-i18n="s5_li5">Automatisierte Abfragen (Bots, Scraper) gegen unsere Backend-Services richten</li>
+        <li data-i18n="s5_li6">Prompt-Injection-Angriffe oder sonstige Manipulation der KI-Systeme versuchen</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s6_title">6. Verfügbarkeit des Dienstes</h2>
+      <p data-i18n="s6_p">Wir streben eine möglichst hohe Verfügbarkeit an, übernehmen jedoch keine Garantie für eine ununterbrochene Verfügbarkeit. Bei Nichtverfügbarkeit der KI-Funktionen steht ein Offline-Modus mit deterministischer Analyse zur Verfügung. Wir behalten uns das Recht vor, Funktionen jederzeit zu ändern oder weiterzuentwickeln.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s7_title">7. Haftungsbeschränkung</h2>
+      <p data-i18n="s7_p1">Soweit gesetzlich zulässig, haften wir nicht für Schäden, die durch Entscheidungen entstehen, die auf Basis der KI-Empfehlungen der App getroffen wurden. Insbesondere übernehmen wir keine Haftung für wirtschaftliche, finanzielle, berufliche oder persönliche Schäden.</p>
+      <p data-i18n="s7_p2">Diese Einschränkung gilt nicht für Schäden aus Vorsatz oder grober Fahrlässigkeit, für Personenschäden oder soweit zwingend gesetzliche Bestimmungen gelten. Unsere Gesamthaftung ist auf den Betrag begrenzt, den du in den letzten 12 Monaten für die App bezahlt hast.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s8_title">8. Verhältnis zu Apple</h2>
+      <p data-i18n="s8_p">Diese App wird über den Apple App Store vertrieben. Apple ist nicht Vertragspartei dieser Nutzungsbedingungen. Im Fall von Produktreklamationen oder Support-Anfragen wende dich an uns unter <a href="mailto:support@getthinkless.ai">support@getthinkless.ai</a>. Apple hat das Recht, diese Bedingungen als Drittbegünstigter durchzusetzen, soweit sie Apple-Anforderungen betreffen.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s9_title">9. Datenschutz</h2>
+      <p data-i18n="s9_p">Die Verarbeitung personenbezogener Daten richtet sich nach unserer <a href="/privacy/" data-i18n="s9_privacy_link">Datenschutzerklärung</a>, die Bestandteil dieser Nutzungsbedingungen ist.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s10_title">10. Änderungen der Nutzungsbedingungen</h2>
+      <p data-i18n="s10_p">Wir können diese Nutzungsbedingungen von Zeit zu Zeit anpassen. Wesentliche Änderungen werden innerhalb der App oder auf dieser Seite bekannt gegeben. Die fortgesetzte Nutzung gilt als Zustimmung.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s11_title">11. Anwendbares Recht und Gerichtsstand</h2>
+      <p data-i18n="s11_p1">Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist, soweit gesetzlich zulässig, Ahrweiler. Für Verbraucher innerhalb der EU gilt das Recht des EU-Mitgliedstaats, in dem der Verbraucher seinen gewöhnlichen Aufenthalt hat.</p>
+      <p data-i18n="s11_p2">Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s12_title">12. Kontakt</h2>
+      <div class="info-box">
+        <p data-i18n="s12_content"><strong>Support:</strong> <a href="mailto:support@getthinkless.ai">support@getthinkless.ai</a><br>
+        <strong>Datenschutz:</strong> <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a><br>
+        <strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Deutschland</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-main">
+        <span class="footer-logo-think">Think</span><span class="footer-logo-less">Less AI</span>
+      </div>
+      <div class="footer-brand-line">
+        <span data-i18n="footer_brand">eine Marke von</span> <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>
+      </div>
+      <div class="footer-links">
+        <a href="/" data-i18n="footer_home">Startseite</a>
+        <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+        <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
+        <a href="/#impressum" data-i18n="footer_imprint">Impressum</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
+        </div>
+      </div>
+      <div class="footer-copy">&copy; <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      de: {
+        nav_sub:           'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:          '← Zurück',
+        page_label:        'Rechtliches',
+        page_title:        'Nutzungsbedingungen',
+        page_meta:         'Stand: April 2026 · Gilt für: ThinkLess AI iOS App',
+        s1_title:          '1. Anbieter und Geltungsbereich',
+        s1_p:              'Diese Nutzungsbedingungen gelten für die Nutzung der iOS-App <strong>ThinkLess AI</strong>, bereitgestellt von:',
+        s1_email_support:  'Support:',
+        s1_agree:          'Mit dem Download und der Nutzung der App stimmst du diesen Bedingungen zu.',
+        s2_title:          '2. Leistungsbeschreibung',
+        s2_p:              'ThinkLess AI ist eine KI-gestützte Entscheidungsunterstützungs-App, die Nutzern hilft, schneller und strukturierter Entscheidungen zu treffen.',
+        s2_li1:            'Fast Mode: sofortiges KI-Ergebnis auf Basis einer Frage (~20 Sekunden)',
+        s2_li2:            'Guided Mode: strukturierte Analyse mit Optionen und Kriterien (~60 Sekunden)',
+        s2_li3:            'Lokaler Entscheidungsverlauf und Streak-Tracking',
+        s2_li4:            'Zweisprachig: Deutsch und Englisch',
+        s2_li5:            'Premium-Abonnement mit erweiterten Funktionen',
+        s3_title:          '3. Kostenloser Zugang und Premium-Abonnement',
+        s3_free_title:     'Kostenloser Zugang',
+        s3_free_p:         'Der grundlegende Zugang ist kostenlos. Im kostenlosen Tarif stehen täglich bis zu <strong>3 Entscheidungsanalysen</strong> zur Verfügung.',
+        s3_prem_title:     'Premium-Abonnement',
+        s3_prem_p:         'Das Premium-Abonnement wird über den Apple App Store abgerechnet:',
+        s3_prem_li1:       '<strong>Monatlich:</strong> € 6,99 / Monat',
+        s3_prem_li2:       '<strong>Jährlich:</strong> € 39,99 / Jahr (inkl. 7 Tage kostenloser Testphase)',
+        s3_prem_features:  'Premium umfasst: unbegrenzte Entscheidungen, erweiterte KI-Analyse, alle Vorlagen und vollständiger Verlauf.',
+        s3_prem_renew:     'Das Abonnement verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ende der Laufzeit gekündigt wird. Kündigung: iPhone-Einstellungen → Apple-ID → Abonnements.',
+        s3_prem_apple:     'Alle Kaufvorgänge und Rückerstattungen werden ausschließlich über Apple abgewickelt. Rückerstattungsanfragen an den Apple Support.',
+        s4_title:          '4. KI-Entscheidungsunterstützung – wichtiger Hinweis',
+        s4_disclaimer:     '<strong>Kein Ersatz für professionelle Beratung:</strong> ThinkLess AI liefert KI-gestützte Entscheidungsunterstützung. Die Ergebnisse stellen <strong>keine Rechts-, Finanz-, Medizin-, Steuer- oder sonstige Fachberatung</strong> dar.',
+        s4_ai_p:           'KI-Systeme können Fehler machen oder unzutreffende Empfehlungen erzeugen. ThinkLess AI ist als Denkwerkzeug konzipiert — die Verantwortung für Entscheidungen liegt stets beim Nutzer.',
+        s5_title:          '5. Nutzungsrechte und Einschränkungen',
+        s5_p:              'Wir gewähren dir ein nicht-exklusives, nicht übertragbares, widerrufliches Recht zur persönlichen Nutzung der App auf deinen Apple-Geräten.',
+        s5_nope:           'Du darfst nicht:',
+        s5_li1:            'Die App kopieren, modifizieren oder abgeleitete Werke erstellen',
+        s5_li2:            'Die App dekompilieren, disassemblieren oder zurückentwickeln',
+        s5_li3:            'Inhalte der App ohne Genehmigung kommerziell verwerten',
+        s5_li4:            'Die App für illegale Zwecke oder in einer Weise nutzen, die Dritten schadet',
+        s5_li5:            'Automatisierte Abfragen (Bots, Scraper) gegen unsere Backend-Services richten',
+        s5_li6:            'Prompt-Injection-Angriffe oder Manipulation der KI-Systeme versuchen',
+        s6_title:          '6. Verfügbarkeit des Dienstes',
+        s6_p:              'Wir streben hohe Verfügbarkeit an, übernehmen aber keine Garantie. Bei Nichtverfügbarkeit der KI steht ein Offline-Modus zur Verfügung.',
+        s7_title:          '7. Haftungsbeschränkung',
+        s7_p1:             'Soweit gesetzlich zulässig, haften wir nicht für Schäden, die durch Entscheidungen entstehen, die auf Basis der KI-Empfehlungen der App getroffen wurden.',
+        s7_p2:             'Diese Einschränkung gilt nicht für Vorsatz, grobe Fahrlässigkeit oder Personenschäden. Unsere Gesamthaftung ist auf den Betrag begrenzt, den du in den letzten 12 Monaten bezahlt hast.',
+        s8_title:          '8. Verhältnis zu Apple',
+        s8_p:              'Apple ist nicht Vertragspartei dieser Nutzungsbedingungen. Support: <a href="mailto:support@getthinkless.ai">support@getthinkless.ai</a>. Apple hat das Recht, diese Bedingungen als Drittbegünstigter durchzusetzen.',
+        s9_title:          '9. Datenschutz',
+        s9_p:              'Die Verarbeitung personenbezogener Daten richtet sich nach unserer <a href="/privacy/">Datenschutzerklärung</a>, die Bestandteil dieser Nutzungsbedingungen ist.',
+        s9_privacy_link:   'Datenschutzerklärung',
+        s10_title:         '10. Änderungen der Nutzungsbedingungen',
+        s10_p:             'Wir können diese Nutzungsbedingungen anpassen. Wesentliche Änderungen werden in der App oder auf dieser Seite bekannt gegeben. Die fortgesetzte Nutzung gilt als Zustimmung.',
+        s11_title:         '11. Anwendbares Recht und Gerichtsstand',
+        s11_p1:            'Es gilt deutsches Recht. Gerichtsstand ist, soweit gesetzlich zulässig, Ahrweiler. Für EU-Verbraucher gilt das Recht des Aufenthaltsstaats.',
+        s11_p2:            'EU-Streitbeilegungsplattform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir nehmen nicht an Streitbeilegungsverfahren teil.',
+        s12_title:         '12. Kontakt',
+        s12_content:       '<strong>Support:</strong> <a href="mailto:support@getthinkless.ai">support@getthinkless.ai</a><br><strong>Datenschutz:</strong> <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Deutschland',
+        footer_brand:      'eine Marke von',
+        footer_home:       'Startseite',
+        footer_privacy:    'Datenschutz',
+        footer_terms:      'Nutzungsbedingungen',
+        footer_imprint:    'Impressum',
+        footer_rights:     'Alle Rechte vorbehalten.',
+        footer_also:       'Weitere Apps von torecon',
+      },
+      en: {
+        nav_sub:           'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:          '← Back',
+        page_label:        'Legal',
+        page_title:        'Terms of Use',
+        page_meta:         'Last updated: April 2026 · Applies to: ThinkLess AI iOS App',
+        s1_title:          '1. Provider and scope',
+        s1_p:              'These Terms of Use apply to the iOS app <strong>ThinkLess AI</strong>, provided by:',
+        s1_email_support:  'Support:',
+        s1_agree:          'By downloading and using the app, you agree to these terms.',
+        s2_title:          '2. Service description',
+        s2_p:              'ThinkLess AI is an AI-powered decision support app that helps users make faster, more structured decisions.',
+        s2_li1:            'Fast Mode: instant AI result from a single question (~20 seconds)',
+        s2_li2:            'Guided Mode: structured analysis with options and criteria (~60 seconds)',
+        s2_li3:            'Local decision history and streak tracking',
+        s2_li4:            'Bilingual: German and English',
+        s2_li5:            'Premium subscription with advanced features',
+        s3_title:          '3. Free access and Premium subscription',
+        s3_free_title:     'Free access',
+        s3_free_p:         'Basic access is free. The free tier includes up to <strong>3 decision analyses per day</strong>.',
+        s3_prem_title:     'Premium subscription',
+        s3_prem_p:         'The Premium subscription is billed through the Apple App Store and includes:',
+        s3_prem_li1:       '<strong>Monthly:</strong> € 6.99 / month',
+        s3_prem_li2:       '<strong>Yearly:</strong> € 39.99 / year (includes 7-day free trial)',
+        s3_prem_features:  'Premium includes: unlimited decisions per day, advanced AI analysis, all templates, and full history.',
+        s3_prem_renew:     'The subscription auto-renews unless cancelled at least 24 hours before the current period ends. Cancel via iPhone Settings → Apple ID → Subscriptions.',
+        s3_prem_apple:     'All purchases, billing and refunds are handled exclusively by Apple. For refund requests, contact Apple Support.',
+        s4_title:          '4. AI decision support — important notice',
+        s4_disclaimer:     '<strong>Not a substitute for professional advice:</strong> ThinkLess AI provides AI-powered decision support. Results do <strong>not constitute legal, financial, medical, tax or other professional advice</strong> and must not be used as such.',
+        s4_ai_p:           'AI systems can make errors or generate inaccurate recommendations. ThinkLess AI is a thinking tool — responsibility for decisions always rests with the user.',
+        s5_title:          '5. Usage rights and restrictions',
+        s5_p:              'We grant you a non-exclusive, non-transferable, revocable right to use the app for personal purposes on your Apple devices.',
+        s5_nope:           'You must not:',
+        s5_li1:            'Copy, modify or create derivative works from the app',
+        s5_li2:            'Decompile, disassemble or reverse-engineer the app',
+        s5_li3:            'Commercially exploit app content without permission',
+        s5_li4:            'Use the app for illegal purposes or in a way that harms others',
+        s5_li5:            'Direct automated requests (bots, scrapers) at our backend services',
+        s5_li6:            'Attempt prompt injection attacks or manipulation of AI systems',
+        s6_title:          '6. Service availability',
+        s6_p:              'We aim for high availability but do not guarantee uninterrupted service. When AI features are unavailable, an offline mode with deterministic analysis is provided.',
+        s7_title:          '7. Limitation of liability',
+        s7_p1:             'To the extent permitted by law, we are not liable for damages resulting from decisions made based on the app\'s AI recommendations.',
+        s7_p2:             'This limitation does not apply to intentional acts, gross negligence, or personal injury. Our total liability is limited to the amount you paid for the app in the last 12 months.',
+        s8_title:          '8. Relationship with Apple',
+        s8_p:              'Apple is not a party to these Terms. For support, contact <a href="mailto:support@getthinkless.ai">support@getthinkless.ai</a>. Apple has the right to enforce these terms as a third-party beneficiary to the extent they concern Apple requirements.',
+        s9_title:          '9. Privacy',
+        s9_p:              'The processing of personal data is governed by our <a href="/privacy/">Privacy Policy</a>, which forms part of these Terms.',
+        s9_privacy_link:   'Privacy Policy',
+        s10_title:         '10. Changes to these Terms',
+        s10_p:             'We may update these Terms from time to time. Material changes will be announced within the app or on this page. Continued use constitutes acceptance.',
+        s11_title:         '11. Governing law and jurisdiction',
+        s11_p1:            'German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Jurisdiction is, to the extent permitted by law, Ahrweiler. For EU consumers, the law of the consumer\'s country of residence applies.',
+        s11_p2:            'The EU Commission provides an online dispute resolution platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. We are not obligated to participate in dispute resolution proceedings.',
+        s12_title:         '12. Contact',
+        s12_content:       '<strong>Support:</strong> <a href="mailto:support@getthinkless.ai">support@getthinkless.ai</a><br><strong>Privacy:</strong> <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Germany',
+        footer_brand:      'a brand by',
+        footer_home:       'Home',
+        footer_privacy:    'Privacy Policy',
+        footer_terms:      'Terms of Use',
+        footer_imprint:    'Legal Notice',
+        footer_rights:     'All rights reserved.',
+        footer_also:       'More apps by torecon',
+      }
+    };
+
+    let lang = 'de';
+
+    function setLang(l) {
+      lang = l;
+      localStorage.setItem('tl_lang', l);
+      apply();
+    }
+
+    function apply() {
+      const t = T[lang];
+      document.documentElement.lang = lang;
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.title = lang === 'de'
+        ? 'Nutzungsbedingungen – ThinkLess AI'
+        : 'Terms of Use – ThinkLess AI';
+    }
+
+    const saved = localStorage.getItem('tl_lang');
+    const param  = new URLSearchParams(location.search).get('lang');
+    lang = param || saved || (navigator.language.startsWith('de') ? 'de' : 'en');
+    apply();
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

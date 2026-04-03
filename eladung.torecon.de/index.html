@@ -7,7 +7,9 @@
   <meta name="description" content="eLadung ist der smarte Ladekosten-Tracker für Elektrofahrzeuge. Bald für Mac und iPhone. Kosten, Verbrauch und Tarife immer im Blick.">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <!-- Open Graph -->
@@ -15,6 +17,7 @@
   <meta property="og:description" content="Dein smarter Ladekosten-Tracker für Elektrofahrzeuge. Bald für Mac und iPhone.">
   <meta property="og:url" content="https://eladung.torecon.de">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://eladung.torecon.de/icon-512.png">
 
   <style>
     /* ── Design System ─────────────────────────────────────────────────────── */
@@ -297,6 +300,11 @@
     .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
     .footer-links a:hover { color: #fff; opacity: 1; }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+    .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
+    .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
 
     /* ── Responsive ─────────────────────────────────────────────────────────── */
     @media (max-width: 640px) {
@@ -729,6 +737,14 @@
         <a href="/terms/">Nutzungsbedingungen</a>
         <a href="#impressum">Impressum</a>
         <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon.de</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label">Weitere Apps von torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">⚡ ThinkLess AI</a>
+          <a class="footer-app-pill" href="https://getviolonge.torecon.de" target="_blank" rel="noopener">🌱 VioLonge AI</a>
+        </div>
       </div>
       <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
     </div>

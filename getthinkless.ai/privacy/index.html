@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung – ThinkLess AI</title>
+  <meta name="description" content="Datenschutzerklärung der ThinkLess AI App von torecon. DSGVO-konform.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Datenschutzerklärung – ThinkLess AI">
+  <meta property="og:url" content="https://getthinkless.ai/privacy/">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #1D1D1F;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #0071E3;
+      --border:         rgba(0,0,0,0.08);
+      --border-strong:  rgba(0,0,0,0.15);
+      --nav-bg:         rgba(255,255,255,0.80);
+      --radius:         12px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --tl-think:       #1D1D1F;
+      --tl-less:        #0071E3;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    /* ── Language Toggle ─────────────────────────────────────────────────── */
+    .lang-toggle { display: flex; align-items: center; background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: 20px; padding: 3px; gap: 2px; }
+    .lang-btn { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 16px; border: none; background: transparent; color: var(--text-tertiary); cursor: pointer; transition: var(--transition); }
+    .lang-btn.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    /* ── Navigation ──────────────────────────────────────────────────────── */
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; gap: 1px; }
+    .nav-logo-main { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
+    .nav-logo-think { color: var(--tl-think); }
+    .nav-logo-less  { color: var(--tl-less); }
+    .nav-logo-sub { font-size: 10px; font-weight: 500; color: var(--text-tertiary); }
+    .nav-logo-sub a { color: var(--text-tertiary); font-weight: 600; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); text-decoration: none; }
+    .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+
+    /* ── Content ─────────────────────────────────────────────────────────── */
+    .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+
+    .section { margin-bottom: 48px; }
+    .section h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .section h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; margin-top: 24px; }
+    .section p { color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { color: var(--text-secondary); font-size: 16px; line-height: 1.75; padding-left: 20px; margin-bottom: 14px; }
+    .section ul li { margin-bottom: 6px; }
+
+    .info-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .info-box p { font-size: 15px; margin-bottom: 0; }
+    .info-box strong { color: var(--text); }
+
+    .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; overflow-x: auto; display: block; }
+    .data-table th { text-align: left; padding: 10px 14px; background: var(--bg-alt); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    .site-footer { background: var(--bg-dark); padding: 32px 24px; }
+    .footer-inner { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
+    .footer-logo-think { color: rgba(255,255,255,0.7); }
+    .footer-logo-less  { color: var(--tl-less); }
+    .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .footer-brand-line a { color: rgba(255,255,255,0.5); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
+    .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <span class="nav-logo-main">
+          <span class="nav-logo-think">Think</span><span class="nav-logo-less">Less AI</span>
+        </span>
+        <span class="nav-logo-sub" data-i18n="nav_sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+        <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label" data-i18n="page_label">Rechtliches</span>
+    <h1 data-i18n="page_title">Datenschutzerklärung</h1>
+    <p class="page-meta" data-i18n="page_meta">Stand: April 2026 · Gilt für: ThinkLess AI iOS App &amp; Website getthinkless.ai</p>
+
+    <div class="section">
+      <h2 data-i18n="s1_title">1. Verantwortlicher</h2>
+      <p data-i18n="s1_intro">Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
+      <div class="info-box">
+        <p><strong>Thomas Reinke</strong><br>torecon<br>Roesgenstr. 22<br>53474 Ahrweiler<br>Deutschland<br><br>
+        <span data-i18n="s1_email_label">E-Mail (Datenschutz):</span> <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s2_title">2. Überblick: Was wir sammeln (und was nicht)</h2>
+      <p data-i18n="s2_p1">ThinkLess AI ist so konzipiert, dass wir <strong>so wenig Daten wie möglich</strong> erheben. Entscheidungen werden <strong>ausschließlich lokal auf deinem Gerät</strong> gespeichert und nicht an unsere Server übertragen.</p>
+      <p data-i18n="s2_p2">Wir erheben <strong>keine</strong>:</p>
+      <ul>
+        <li data-i18n="s2_li1">Namen, E-Mail-Adressen oder Kontodaten (außer bei freiwilliger Waitlist-Anmeldung)</li>
+        <li data-i18n="s2_li2">Standortdaten</li>
+        <li data-i18n="s2_li3">Kamera-, Mikrofon- oder Kontaktzugriff</li>
+        <li data-i18n="s2_li4">Daten aus sozialen Netzwerken</li>
+        <li data-i18n="s2_li5">Zahlungsdaten (diese verarbeitet ausschließlich Apple)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s3_title">3. Welche Daten wir verarbeiten</h2>
+
+      <h3 data-i18n="s3_1_title">3.1 Geräte-ID (anonyme Nutzerkennung)</h3>
+      <p data-i18n="s3_1_p1">Beim ersten Start der App wird eine zufällige Geräte-ID generiert und lokal gespeichert. Diese ID ist nicht mit deiner Person verknüpft und dient ausschließlich zur Nutzungssteuerung (Rate-Limiting) und anonymisierten Nutzungsstatistiken.</p>
+      <p data-i18n="s3_1_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</p>
+      <p data-i18n="s3_1_p3"><strong>Speicherdauer:</strong> Bis zur Löschung auf Anfrage oder nach 2 Jahren Inaktivität.</p>
+
+      <h3 data-i18n="s3_2_title">3.2 Entscheidungsfragen (KI-Verarbeitung)</h3>
+      <p data-i18n="s3_2_p1">Wenn du eine Entscheidung analysierst, wird deine Frage und — im geführten Modus — deine Optionen und Kriterien an unseren Server übertragen, der diese zur KI-Analyse an Anthropic weiterleitet. Diese Daten werden <strong>nicht dauerhaft auf unseren Servern gespeichert</strong>. Sie dienen ausschließlich der Verarbeitung und Rückgabe des Ergebnisses.</p>
+      <p data-i18n="s3_2_p2"><strong>Wichtig:</strong> Trage keine hochsensiblen persönlichen Daten (z. B. genaue Kontodaten, medizinische Details, vollständige Namen Dritter) in deine Entscheidungsfragen ein.</p>
+      <p data-i18n="s3_2_p3"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</p>
+
+      <h3 data-i18n="s3_3_title">3.3 Lokale Datenspeicherung</h3>
+      <p data-i18n="s3_3_p1">Dein Entscheidungsverlauf, dein Streak und deine Einstellungen werden <strong>ausschließlich lokal auf deinem iPhone</strong> gespeichert (iOS UserDefaults). Diese Daten verlassen dein Gerät nicht und werden nicht an unsere Server übermittelt. Du kannst sie jederzeit über Einstellungen → „Alle Entscheidungen löschen" entfernen.</p>
+      <p data-i18n="s3_3_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO</p>
+
+      <h3 data-i18n="s3_4_title">3.4 Nutzungsstatistiken (Analytics)</h3>
+      <p data-i18n="s3_4_p1">Wir speichern anonymisierte Ereignisse wie „Entscheidung gestartet", „App geöffnet" oder „Ergebnis angezeigt". Diese Daten sind nicht mit deiner Identität verknüpft und werden nach <strong>90 Tagen automatisch gelöscht</strong>.</p>
+      <p data-i18n="s3_4_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</p>
+
+      <h3 data-i18n="s3_5_title">3.5 In-App-Käufe</h3>
+      <p data-i18n="s3_5_p">Käufe werden vollständig über den Apple App Store abgewickelt. Wir erhalten von Apple ausschließlich die Information, ob ein aktives Abonnement vorliegt — keine Zahlungsdaten, keine Rechnungsadressen. Die Datenschutzbestimmungen von Apple gelten für alle Kaufvorgänge: <a href="https://www.apple.com/de/legal/privacy/" target="_blank" rel="noopener">apple.com/de/legal/privacy</a></p>
+
+      <h3 data-i18n="s3_6_title">3.6 Waitlist (freiwillig)</h3>
+      <p data-i18n="s3_6_p">Wenn du dich auf der Website getthinkless.ai in die Waitlist einträgst, speichern wir deine E-Mail-Adresse ausschließlich zum Zweck der einmaligen Launch-Benachrichtigung. Du kannst die Löschung jederzeit unter <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a> beantragen.</p>
+      <p data-i18n="s3_6_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</p>
+
+      <h3 data-i18n="s3_7_title">3.7 Website (getthinkless.ai)</h3>
+      <p data-i18n="s3_7_p">Beim Besuch der Website werden durch den Hosting-Anbieter technisch notwendige Daten wie IP-Adresse in Server-Logs gespeichert. Diese werden nach 7 Tagen gelöscht. Es werden keine Tracking-Cookies eingesetzt.</p>
+      <p data-i18n="s3_7_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s4_title">4. Empfänger und Auftragsverarbeiter</h2>
+      <p data-i18n="s4_intro">Wir geben deine Daten nicht zu eigenen Zwecken an Dritte weiter. Für den Betrieb des Dienstes setzen wir folgende Auftragsverarbeiter ein:</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th data-i18n="tbl_provider">Anbieter</th>
+            <th data-i18n="tbl_purpose">Zweck</th>
+            <th data-i18n="tbl_location">Sitz / Safeguards</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Railway, Inc.</strong></td>
+            <td data-i18n="tbl_railway">Backend-Hosting, KI-Orchestrierung, anonyme Analytics</td>
+            <td data-i18n="tbl_railway_loc">USA – Standardvertragsklauseln (SCCs) gem. Art. 46 DSGVO</td>
+          </tr>
+          <tr>
+            <td><strong>Anthropic, PBC</strong></td>
+            <td data-i18n="tbl_anthropic">KI-Analyse der Entscheidungsfragen (keine dauerhafte Speicherung)</td>
+            <td data-i18n="tbl_anthropic_loc">USA – Standardvertragsklauseln (SCCs) gem. Art. 46 DSGVO; <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a></td>
+          </tr>
+          <tr>
+            <td><strong>Apple Inc.</strong></td>
+            <td data-i18n="tbl_apple">App Store, In-App Purchases, Push Notifications</td>
+            <td data-i18n="tbl_apple_loc">USA – Standardvertragsklauseln (SCCs) gem. Art. 46 DSGVO</td>
+          </tr>
+        </tbody>
+      </table>
+      <p data-i18n="s4_transfer">Da diese Anbieter in den USA ansässig sind, kann eine Datenübermittlung in ein Drittland stattfinden. Die Übermittlung erfolgt auf Grundlage von Standardvertragsklauseln gemäß Art. 46 DSGVO.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s5_title">5. Deine Rechte</h2>
+      <p data-i18n="s5_intro">Du hast jederzeit folgende Rechte gegenüber uns:</p>
+      <ul>
+        <li data-i18n="s5_li1"><strong>Auskunft (Art. 15 DSGVO):</strong> Welche Daten wir über dich gespeichert haben</li>
+        <li data-i18n="s5_li2"><strong>Berichtigung (Art. 16 DSGVO):</strong> Korrektur unrichtiger Daten</li>
+        <li data-i18n="s5_li3"><strong>Löschung (Art. 17 DSGVO):</strong> Löschung aller mit deiner Geräte-ID verknüpften Daten; lokale App-Daten über App-Einstellungen</li>
+        <li data-i18n="s5_li4"><strong>Einschränkung (Art. 18 DSGVO):</strong> Einschränkung der Verarbeitung</li>
+        <li data-i18n="s5_li5"><strong>Widerspruch (Art. 21 DSGVO):</strong> Widerspruch gegen Verarbeitung auf Basis berechtigter Interessen</li>
+        <li data-i18n="s5_li6"><strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Erhalt deiner Daten in einem gängigen Format</li>
+        <li data-i18n="s5_li7"><strong>Widerruf (Art. 7 Abs. 3 DSGVO):</strong> Widerruf erteilter Einwilligungen (z. B. Waitlist-Eintragung)</li>
+      </ul>
+      <p data-i18n="s5_contact">Zur Ausübung deiner Rechte: <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a></p>
+      <p data-i18n="s5_authority">Du hast außerdem das Recht, dich bei der zuständigen Datenschutz-Aufsichtsbehörde zu beschweren. Für Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de/" target="_blank" rel="noopener">datenschutz.rlp.de</a></p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s6_title">6. Datensicherheit</h2>
+      <p data-i18n="s6_p">Alle Verbindungen zwischen der App und unseren Servern sind durch HTTPS/TLS verschlüsselt. Die Geräte-ID und lokale Entscheidungsdaten werden im sicheren iOS-Speicher abgelegt und durch die Sicherheitsmechanismen des Betriebssystems geschützt. Wir verwenden keine Passwörter oder persönliche Anmeldedaten.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s7_title">7. KI-Nutzungshinweis</h2>
+      <p data-i18n="s7_p">ThinkLess AI nutzt KI-Systeme (Anthropic Claude), um Entscheidungsfragen zu analysieren. Die KI-Ergebnisse stellen <strong>keine Rechts-, Finanz-, Medizin- oder sonstige Fachberatung</strong> dar. Für wichtige Entscheidungen empfehlen wir, qualifizierte Fachleute zu konsultieren.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s8_title">8. Kinder</h2>
+      <p data-i18n="s8_p">ThinkLess AI richtet sich an Personen ab 17 Jahren. Wir erheben wissentlich keine Daten von Kindern unter 16 Jahren. Bei entsprechenden Hinweisen wende dich an <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a>.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s9_title">9. Änderungen dieser Datenschutzerklärung</h2>
+      <p data-i18n="s9_p">Wir können diese Datenschutzerklärung gelegentlich aktualisieren. Wesentliche Änderungen werden innerhalb der App oder auf dieser Seite bekannt gegeben. Das Datum der letzten Aktualisierung steht oben auf dieser Seite.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s10_title">10. Kontakt</h2>
+      <div class="info-box">
+        <p data-i18n="s10_content">Bei Fragen zum Datenschutz erreichst du uns unter:<br><br>
+        <strong>E-Mail:</strong> <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a><br>
+        <strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Deutschland</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-main">
+        <span class="footer-logo-think">Think</span><span class="footer-logo-less">Less AI</span>
+      </div>
+      <div class="footer-brand-line">
+        <span data-i18n="footer_brand">eine Marke von</span> <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>
+      </div>
+      <div class="footer-links">
+        <a href="/" data-i18n="footer_home">Startseite</a>
+        <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+        <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
+        <a href="/#impressum" data-i18n="footer_imprint">Impressum</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
+        </div>
+      </div>
+      <div class="footer-copy">&copy; <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      de: {
+        nav_sub:          'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:         '← Zurück',
+        page_label:       'Rechtliches',
+        page_title:       'Datenschutzerklärung',
+        page_meta:        'Stand: April 2026 · Gilt für: ThinkLess AI iOS App &amp; Website getthinkless.ai',
+        s1_title:         '1. Verantwortlicher',
+        s1_intro:         'Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:',
+        s1_email_label:   'E-Mail (Datenschutz):',
+        s2_title:         '2. Überblick: Was wir sammeln (und was nicht)',
+        s2_p1:            'ThinkLess AI ist so konzipiert, dass wir <strong>so wenig Daten wie möglich</strong> erheben. Entscheidungen werden <strong>ausschließlich lokal auf deinem Gerät</strong> gespeichert.',
+        s2_p2:            'Wir erheben <strong>keine</strong>:',
+        s2_li1:           'Namen, E-Mail-Adressen oder Kontodaten (außer bei freiwilliger Waitlist-Anmeldung)',
+        s2_li2:           'Standortdaten',
+        s2_li3:           'Kamera-, Mikrofon- oder Kontaktzugriff',
+        s2_li4:           'Daten aus sozialen Netzwerken',
+        s2_li5:           'Zahlungsdaten (diese verarbeitet ausschließlich Apple)',
+        s3_title:         '3. Welche Daten wir verarbeiten',
+        s3_1_title:       '3.1 Geräte-ID (anonyme Nutzerkennung)',
+        s3_1_p1:          'Beim ersten Start der App wird eine zufällige Geräte-ID generiert und lokal gespeichert. Diese ID ist nicht mit deiner Person verknüpft und dient ausschließlich zur Nutzungssteuerung und anonymisierten Statistiken.',
+        s3_1_p2:          '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)',
+        s3_1_p3:          '<strong>Speicherdauer:</strong> Bis zur Löschung auf Anfrage oder nach 2 Jahren Inaktivität.',
+        s3_2_title:       '3.2 Entscheidungsfragen (KI-Verarbeitung)',
+        s3_2_p1:          'Wenn du eine Entscheidung analysierst, wird deine Frage zur KI-Analyse an unseren Server und weiter an Anthropic übertragen. Diese Daten werden <strong>nicht dauerhaft auf unseren Servern gespeichert</strong>.',
+        s3_2_p2:          '<strong>Wichtig:</strong> Trage keine hochsensiblen persönlichen Daten in deine Entscheidungsfragen ein.',
+        s3_2_p3:          '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)',
+        s3_3_title:       '3.3 Lokale Datenspeicherung',
+        s3_3_p1:          'Dein Entscheidungsverlauf, dein Streak und deine Einstellungen werden <strong>ausschließlich lokal auf deinem iPhone</strong> gespeichert. Diese Daten verlassen dein Gerät nicht.',
+        s3_3_p2:          '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO',
+        s3_4_title:       '3.4 Nutzungsstatistiken (Analytics)',
+        s3_4_p1:          'Wir speichern anonymisierte Ereignisse wie „Entscheidung gestartet". Diese werden nach <strong>90 Tagen automatisch gelöscht</strong>.',
+        s3_4_p2:          '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)',
+        s3_5_title:       '3.5 In-App-Käufe',
+        s3_5_p:           'Käufe werden vollständig über den Apple App Store abgewickelt. Wir erhalten nur die Information, ob ein aktives Abonnement vorliegt. Apples Datenschutz: <a href="https://www.apple.com/de/legal/privacy/" target="_blank" rel="noopener">apple.com/de/legal/privacy</a>',
+        s3_6_title:       '3.6 Waitlist (freiwillig)',
+        s3_6_p:           'Wenn du dich in die Waitlist einträgst, speichern wir deine E-Mail ausschließlich zur Launch-Benachrichtigung. Löschung auf Anfrage: <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a>',
+        s3_6_p2:          '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)',
+        s3_7_title:       '3.7 Website (getthinkless.ai)',
+        s3_7_p:           'Beim Besuch der Website werden technisch notwendige Daten wie IP-Adresse in Server-Logs gespeichert. Diese werden nach 7 Tagen gelöscht. Keine Tracking-Cookies.',
+        s3_7_p2:          '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO',
+        s4_title:         '4. Empfänger und Auftragsverarbeiter',
+        s4_intro:         'Wir geben deine Daten nicht zu eigenen Zwecken an Dritte weiter. Für den Betrieb setzen wir folgende Auftragsverarbeiter ein:',
+        tbl_provider:     'Anbieter',
+        tbl_purpose:      'Zweck',
+        tbl_location:     'Sitz / Safeguards',
+        tbl_railway:      'Backend-Hosting, KI-Orchestrierung, anonyme Analytics',
+        tbl_railway_loc:  'USA – SCCs gem. Art. 46 DSGVO',
+        tbl_anthropic:    'KI-Analyse der Entscheidungsfragen (keine dauerhafte Speicherung)',
+        tbl_anthropic_loc:'USA – SCCs gem. Art. 46 DSGVO; <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a>',
+        tbl_apple:        'App Store, In-App Purchases, Push Notifications',
+        tbl_apple_loc:    'USA – SCCs gem. Art. 46 DSGVO',
+        s4_transfer:      'Da diese Anbieter in den USA ansässig sind, kann eine Datenübermittlung in ein Drittland stattfinden. Die Übermittlung erfolgt auf Grundlage von Standardvertragsklauseln gemäß Art. 46 DSGVO.',
+        s5_title:         '5. Deine Rechte',
+        s5_intro:         'Du hast jederzeit folgende Rechte gegenüber uns:',
+        s5_li1:           '<strong>Auskunft (Art. 15 DSGVO):</strong> Welche Daten wir über dich gespeichert haben',
+        s5_li2:           '<strong>Berichtigung (Art. 16 DSGVO):</strong> Korrektur unrichtiger Daten',
+        s5_li3:           '<strong>Löschung (Art. 17 DSGVO):</strong> Löschung aller mit deiner Geräte-ID verknüpften Daten; lokale App-Daten über App-Einstellungen',
+        s5_li4:           '<strong>Einschränkung (Art. 18 DSGVO):</strong> Einschränkung der Verarbeitung',
+        s5_li5:           '<strong>Widerspruch (Art. 21 DSGVO):</strong> Widerspruch gegen Verarbeitung auf Basis berechtigter Interessen',
+        s5_li6:           '<strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Erhalt deiner Daten in einem gängigen Format',
+        s5_li7:           '<strong>Widerruf (Art. 7 Abs. 3 DSGVO):</strong> Widerruf erteilter Einwilligungen (z. B. Waitlist)',
+        s5_contact:       'Zur Ausübung deiner Rechte: <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a>',
+        s5_authority:     'Du hast außerdem das Recht, dich bei der zuständigen Aufsichtsbehörde zu beschweren. Für Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de/" target="_blank" rel="noopener">datenschutz.rlp.de</a>',
+        s6_title:         '6. Datensicherheit',
+        s6_p:             'Alle Verbindungen sind durch HTTPS/TLS verschlüsselt. Lokale Entscheidungsdaten werden im sicheren iOS-Speicher abgelegt und durch die Sicherheitsmechanismen des Betriebssystems geschützt.',
+        s7_title:         '7. KI-Nutzungshinweis',
+        s7_p:             'ThinkLess AI nutzt KI-Systeme (Anthropic Claude), um Entscheidungsfragen zu analysieren. Die KI-Ergebnisse stellen <strong>keine Rechts-, Finanz-, Medizin- oder sonstige Fachberatung</strong> dar.',
+        s8_title:         '8. Kinder',
+        s8_p:             'ThinkLess AI richtet sich an Personen ab 17 Jahren. Wir erheben wissentlich keine Daten von Kindern unter 16 Jahren. Hinweise: <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a>.',
+        s9_title:         '9. Änderungen dieser Datenschutzerklärung',
+        s9_p:             'Wir können diese Datenschutzerklärung gelegentlich aktualisieren. Wesentliche Änderungen werden in der App oder auf dieser Seite bekannt gegeben.',
+        s10_title:        '10. Kontakt',
+        s10_content:      'Bei Fragen zum Datenschutz:<br><br><strong>E-Mail:</strong> <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Deutschland',
+        footer_brand:     'eine Marke von',
+        footer_home:      'Startseite',
+        footer_privacy:   'Datenschutz',
+        footer_terms:     'Nutzungsbedingungen',
+        footer_imprint:   'Impressum',
+        footer_rights:    'Alle Rechte vorbehalten.',
+        footer_also:      'Weitere Apps von torecon',
+      },
+      en: {
+        nav_sub:          'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:         '← Back',
+        page_label:       'Legal',
+        page_title:       'Privacy Policy',
+        page_meta:        'Last updated: April 2026 · Applies to: ThinkLess AI iOS App &amp; Website getthinkless.ai',
+        s1_title:         '1. Data Controller',
+        s1_intro:         'The data controller within the meaning of the General Data Protection Regulation (GDPR) is:',
+        s1_email_label:   'Email (privacy):',
+        s2_title:         '2. Overview: What we collect (and what we don\'t)',
+        s2_p1:            'ThinkLess AI is designed to collect <strong>as little data as possible</strong>. Your decisions are stored <strong>exclusively on your device</strong> and are not transmitted to our servers.',
+        s2_p2:            'We do <strong>not</strong> collect:',
+        s2_li1:           'Names, email addresses or account data (except for voluntary waitlist sign-up)',
+        s2_li2:           'Location data',
+        s2_li3:           'Camera, microphone or contacts access',
+        s2_li4:           'Social network data',
+        s2_li5:           'Payment data (processed exclusively by Apple)',
+        s3_title:         '3. Data we process',
+        s3_1_title:       '3.1 Device ID (anonymous user identifier)',
+        s3_1_p1:          'On first launch, a random Device ID is generated and stored locally. This ID is not linked to your identity and solely serves rate-limiting and anonymous analytics.',
+        s3_1_p2:          '<strong>Legal basis:</strong> Art. 6(1)(b) GDPR (performance of contract)',
+        s3_1_p3:          '<strong>Retention:</strong> Until deletion on request or after 2 years of inactivity.',
+        s3_2_title:       '3.2 Decision questions (AI processing)',
+        s3_2_p1:          'When you analyze a decision, your question is transmitted to our server and forwarded to Anthropic for AI analysis. This data is <strong>not permanently stored on our servers</strong>.',
+        s3_2_p2:          '<strong>Important:</strong> Do not include highly sensitive personal data (e.g. exact account details, medical specifics, full names of third parties) in your decision questions.',
+        s3_2_p3:          '<strong>Legal basis:</strong> Art. 6(1)(b) GDPR (performance of contract)',
+        s3_3_title:       '3.3 Local data storage',
+        s3_3_p1:          'Your decision history, streak, and settings are stored <strong>exclusively on your iPhone</strong> (iOS UserDefaults). This data never leaves your device.',
+        s3_3_p2:          '<strong>Legal basis:</strong> Art. 6(1)(b) GDPR',
+        s3_4_title:       '3.4 Usage analytics',
+        s3_4_p1:          'We store anonymized events such as "decision started". These are <strong>automatically deleted after 90 days</strong>.',
+        s3_4_p2:          '<strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interests)',
+        s3_5_title:       '3.5 In-app purchases',
+        s3_5_p:           'All purchases are processed through the Apple App Store. We only receive confirmation of whether an active subscription exists — no payment data. Apple\'s privacy policy: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
+        s3_6_title:       '3.6 Waitlist (voluntary)',
+        s3_6_p:           'If you sign up on the website, we store your email solely for the launch notification. Request deletion: <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a>',
+        s3_6_p2:          '<strong>Legal basis:</strong> Art. 6(1)(a) GDPR (consent)',
+        s3_7_title:       '3.7 Website (getthinkless.ai)',
+        s3_7_p:           'When visiting our website, the hosting provider stores technically necessary data such as IP address in server logs. These are deleted after 7 days. No tracking cookies are used.',
+        s3_7_p2:          '<strong>Legal basis:</strong> Art. 6(1)(f) GDPR',
+        s4_title:         '4. Recipients and processors',
+        s4_intro:         'We do not share your data with third parties for their own purposes. We use the following processors:',
+        tbl_provider:     'Provider',
+        tbl_purpose:      'Purpose',
+        tbl_location:     'Location / Safeguards',
+        tbl_railway:      'Backend hosting, AI orchestration, anonymous analytics',
+        tbl_railway_loc:  'USA – SCCs per Art. 46 GDPR',
+        tbl_anthropic:    'AI analysis of decision questions (no permanent storage)',
+        tbl_anthropic_loc:'USA – SCCs per Art. 46 GDPR; <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a>',
+        tbl_apple:        'App Store, in-app purchases, push notifications',
+        tbl_apple_loc:    'USA – SCCs per Art. 46 GDPR',
+        s4_transfer:      'Since these providers are based in the USA, data may be transferred to a third country. The transfer is based on Standard Contractual Clauses (SCCs) pursuant to Art. 46 GDPR.',
+        s5_title:         '5. Your rights',
+        s5_intro:         'You have the following rights at any time:',
+        s5_li1:           '<strong>Access (Art. 15 GDPR):</strong> What data we hold about you',
+        s5_li2:           '<strong>Rectification (Art. 16 GDPR):</strong> Correction of inaccurate data',
+        s5_li3:           '<strong>Erasure (Art. 17 GDPR):</strong> Deletion of data linked to your Device ID; local app data via app settings',
+        s5_li4:           '<strong>Restriction (Art. 18 GDPR):</strong> Restriction of processing',
+        s5_li5:           '<strong>Objection (Art. 21 GDPR):</strong> Object to processing based on legitimate interests',
+        s5_li6:           '<strong>Portability (Art. 20 GDPR):</strong> Receive your data in a common format',
+        s5_li7:           '<strong>Withdrawal (Art. 7(3) GDPR):</strong> Withdraw consent (e.g. waitlist) at any time',
+        s5_contact:       'To exercise your rights: <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a>',
+        s5_authority:     'You also have the right to lodge a complaint with your local data protection authority.',
+        s6_title:         '6. Data security',
+        s6_p:             'All connections between the app and our servers are encrypted via HTTPS/TLS. Local decision data is stored in secure iOS storage and protected by operating system security mechanisms.',
+        s7_title:         '7. AI usage notice',
+        s7_p:             'ThinkLess AI uses AI systems (Anthropic Claude) to analyze decision questions. AI results do <strong>not constitute legal, financial, medical or other professional advice</strong>.',
+        s8_title:         '8. Children',
+        s8_p:             'ThinkLess AI is intended for users aged 17 and over. We do not knowingly collect data from children under 16. Contact: <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a>.',
+        s9_title:         '9. Changes to this Privacy Policy',
+        s9_p:             'We may occasionally update this Privacy Policy. Material changes will be announced within the app or on this page.',
+        s10_title:        '10. Contact',
+        s10_content:      'For privacy-related questions:<br><br><strong>Email:</strong> <a href="mailto:privacy@getthinkless.ai">privacy@getthinkless.ai</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Germany',
+        footer_brand:     'a brand by',
+        footer_home:      'Home',
+        footer_privacy:   'Privacy Policy',
+        footer_terms:     'Terms of Use',
+        footer_imprint:   'Legal Notice',
+        footer_rights:    'All rights reserved.',
+        footer_also:      'More apps by torecon',
+      }
+    };
+
+    let lang = 'de';
+
+    function setLang(l) {
+      lang = l;
+      localStorage.setItem('tl_lang', l);
+      apply();
+    }
+
+    function apply() {
+      const t = T[lang];
+      document.documentElement.lang = lang;
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.title = lang === 'de'
+        ? 'Datenschutzerklärung – ThinkLess AI'
+        : 'Privacy Policy – ThinkLess AI';
+    }
+
+    // Init
+    const saved = localStorage.getItem('tl_lang');
+    const param  = new URLSearchParams(location.search).get('lang');
+    lang = param || saved || (navigator.language.startsWith('de') ? 'de' : 'en');
+    apply();
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
