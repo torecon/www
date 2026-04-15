@@ -99,6 +99,8 @@
         <div class="lang-toggle">
           <button class="lang-btn active" data-lang="de">DE</button>
           <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="uk">UA</button>
         </div>
         <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
       </div>
@@ -396,13 +398,163 @@
         footer_imprint: 'Legal Notice',
         footer_rights:  'All rights reserved.',
         footer_also:    'More apps by torecon',
+      },
+      pt: {
+        nav_sub:        'uma marca da <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:       '← Voltar',
+        page_label:     'Legal',
+        page_title:     'Política de Privacidade',
+        page_meta:      'Atualizado: março de 2026 · Aplica-se ao: App iOS BrainBites AI &amp; Website getbrainbites.ai',
+        s1_title:       '1. Controlador de Dados',
+        s1_intro:       'O controlador de dados nos termos do Regulamento Geral de Proteção de Dados (RGPD) é:',
+        s2_title:       '2. Visão Geral: O que coletamos (e o que não coletamos)',
+        s2_p1:          'BrainBites AI é projetado para coletar <strong>o mínimo de dados possível</strong>. Não coletamos dados pessoais como nome, endereço de e-mail, número de telefone ou localização.',
+        s2_p2:          'Não coletamos:',
+        s2_li1:         'Nomes, endereços de e-mail ou dados de conta',
+        s2_li2:         'Dados de localização',
+        s2_li3:         'Acesso à câmera, microfone ou contatos',
+        s2_li4:         'Dados de redes sociais',
+        s2_li5:         'Dados de pagamento (processados exclusivamente pela Apple)',
+        s3_title:       '3. Dados que processamos',
+        s3_1_title:     '3.1 ID do Dispositivo (identificador anônimo)',
+        s3_1_p1:        'No primeiro uso, um ID de Dispositivo aleatório é gerado e armazenado com segurança no Keychain do seu iPhone. Este ID não está vinculado à sua identidade.',
+        s3_1_p2:        '<strong>Base legal:</strong> Art. 6(1)(b) RGPD (execução de contrato)',
+        s3_1_p3:        '<strong>Retenção:</strong> Até exclusão sob solicitação ou após 2 anos de inatividade.',
+        s3_2_title:     '3.2 Progresso de aprendizagem',
+        s3_2_p1:        'Suas lições concluídas, sequência, objetivos de aprendizagem e preferências de categoria são armazenados em nossos servidores vinculados ao seu ID de Dispositivo.',
+        s3_2_p2:        '<strong>Base legal:</strong> Art. 6(1)(b) RGPD',
+        s3_3_title:     '3.3 Análise de uso',
+        s3_3_p1:        'Armazenamos eventos anônimos como "lição concluída", "app aberto" ou "sequência atingida". São <strong>excluídos automaticamente após 90 dias</strong>.',
+        s3_3_p2:        '<strong>Base legal:</strong> Art. 6(1)(f) RGPD (interesses legítimos)',
+        s3_4_title:     '3.4 Notificações push',
+        s3_4_p1:        'Se você ativar notificações push, um token emitido pela Apple é transmitido aos nossos servidores. Você pode desativar isso a qualquer momento nas Configurações do iPhone.',
+        s3_4_p2:        '<strong>Base legal:</strong> Art. 6(1)(a) RGPD (consentimento)',
+        s3_5_title:     '3.5 Compras no app',
+        s3_5_p:         'Todas as compras são processadas pela Apple App Store. Recebemos apenas confirmação de assinatura ativa. A política de privacidade da Apple se aplica: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
+        s3_6_title:     '3.6 Website (getbrainbites.ai)',
+        s3_6_p:         'Ao visitar nosso site, o provedor de hospedagem armazena automaticamente dados tecnicamente necessários, como endereço IP, nos logs do servidor. Esses logs são excluídos após 7 dias. Nenhum cookie de rastreamento é utilizado.',
+        s3_6_p2:        '<strong>Base legal:</strong> Art. 6(1)(f) RGPD',
+        s4_title:       '4. Destinatários e processadores',
+        s4_intro:       'Não compartilhamos seus dados com terceiros para fins próprios. Utilizamos os seguintes processadores para operar o serviço:',
+        tbl_provider:   'Provedor',
+        tbl_purpose:    'Finalidade',
+        tbl_location:   'Localização / Salvaguardas',
+        tbl_railway:    'Hospedagem do backend, banco de dados',
+        tbl_railway_loc:'EUA – Cláusulas Contratuais Padrão (SCCs) conforme Art. 46 RGPD',
+        tbl_apple:      'App Store, notificações push, compras no app',
+        tbl_apple_loc:  'EUA – Cláusulas Contratuais Padrão (SCCs) conforme Art. 46 RGPD',
+        s4_transfer:    'Como Railway e Apple estão nos EUA, dados podem ser transferidos para um país terceiro. A transferência é baseada em salvaguardas adequadas (SCCs) nos termos do Art. 46 RGPD.',
+        s5_title:       '5. Seus direitos',
+        s5_intro:       'Você tem os seguintes direitos a qualquer momento:',
+        s5_li1:         '<strong>Acesso (Art. 15 RGPD):</strong> Quais dados temos sobre você',
+        s5_li2:         '<strong>Retificação (Art. 16 RGPD):</strong> Correção de dados imprecisos',
+        s5_li3:         '<strong>Exclusão (Art. 17 RGPD):</strong> Exclusão de todos os dados vinculados ao seu ID de Dispositivo',
+        s5_li4:         '<strong>Restrição (Art. 18 RGPD):</strong> Restrição do processamento',
+        s5_li5:         '<strong>Objeção (Art. 21 RGPD):</strong> Objeção ao processamento baseado em interesses legítimos',
+        s5_li6:         '<strong>Portabilidade (Art. 20 RGPD):</strong> Receber seus dados em formato comum',
+        s5_li7:         '<strong>Retirada (Art. 7(3) RGPD):</strong> Retirar consentimento (ex.: notificações push) a qualquer momento',
+        s5_contact:     'Para exercer seus direitos: <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>',
+        s5_authority:   'Você também tem o direito de registrar uma reclamação junto à autoridade local de proteção de dados.',
+        s6_title:       '6. Segurança dos dados',
+        s6_p:           'Todas as conexões entre o app e nossos servidores são criptografadas via HTTPS/TLS. O ID do Dispositivo é armazenado no iOS Keychain e protegido pelos mecanismos de segurança do sistema operacional.',
+        s7_title:       '7. Crianças',
+        s7_p:           'BrainBites AI é destinado a adultos. Não coletamos dados de crianças menores de 16 anos. Se você tiver ciência de tal caso, entre em contato com <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>.',
+        s8_title:       '8. Alterações nesta Política de Privacidade',
+        s8_p:           'Podemos atualizar esta Política de Privacidade ocasionalmente. Alterações relevantes serão anunciadas no app ou nesta página.',
+        s9_title:       '9. Contato',
+        s9_content:     'Para dúvidas sobre privacidade:<br><br><strong>E-mail:</strong> <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a><br><strong>Endereço:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Alemanha',
+        footer_brand:   'uma marca da',
+        footer_home:    'Início',
+        footer_privacy: 'Privacidade',
+        footer_terms:   'Termos de Uso',
+        footer_imprint: 'Aviso Legal',
+        footer_rights:  'Todos os direitos reservados.',
+        footer_also:    'Mais apps da torecon',
+      },
+      uk: {
+        nav_sub:        'бренд <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:       '← Назад',
+        page_label:     'Правова інформація',
+        page_title:     'Політика конфіденційності',
+        page_meta:      'Станом на: березень 2026 · Застосовується до: iOS App BrainBites AI &amp; Сайт getbrainbites.ai',
+        s1_title:       '1. Контролер даних',
+        s1_intro:       'Контролер даних у розумінні Загального регламенту про захист даних (GDPR):',
+        s2_title:       '2. Огляд: що ми збираємо (і що не збираємо)',
+        s2_p1:          'BrainBites AI розроблений так, щоб збирати <strong>якнайменше даних</strong>. Ми не збираємо персональні дані, такі як ім\'я, адреса електронної пошти, номер телефону або місцезнаходження.',
+        s2_p2:          'Ми не збираємо:',
+        s2_li1:         'Імена, адреси електронної пошти або дані облікових записів',
+        s2_li2:         'Дані про місцезнаходження',
+        s2_li3:         'Доступ до камери, мікрофона або контактів',
+        s2_li4:         'Дані з соціальних мереж',
+        s2_li5:         'Платіжні дані (обробляються виключно Apple)',
+        s3_title:       '3. Дані, які ми обробляємо',
+        s3_1_title:     '3.1 ID пристрою (анонімний ідентифікатор)',
+        s3_1_p1:        'При першому запуску генерується випадковий ID пристрою, який надійно зберігається у Keychain iPhone. Цей ID не пов\'язаний з вашою особою.',
+        s3_1_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(b) GDPR (виконання договору)',
+        s3_1_p3:        '<strong>Термін зберігання:</strong> До видалення за запитом або після 2 років бездіяльності.',
+        s3_2_title:     '3.2 Навчальний прогрес',
+        s3_2_p1:        'Завершені уроки, серія, навчальні цілі та налаштування категорій зберігаються на наших серверах, пов\'язані з ID пристрою.',
+        s3_2_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(b) GDPR',
+        s3_3_title:     '3.3 Аналітика використання',
+        s3_3_p1:        'Ми зберігаємо анонімізовані події, як-от «урок завершено», «додаток відкрито» або «серія досягнута». Вони <strong>автоматично видаляються через 90 днів</strong>.',
+        s3_3_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(f) GDPR (законний інтерес)',
+        s3_4_title:     '3.4 Push-сповіщення',
+        s3_4_p1:        'Якщо ви активуєте push-сповіщення, токен, виданий Apple, передається на наші сервери. Ви можете відключити це будь-коли в налаштуваннях iPhone.',
+        s3_4_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(a) GDPR (згода)',
+        s3_5_title:     '3.5 Покупки в додатку',
+        s3_5_p:         'Усі покупки обробляються виключно через Apple App Store. Ми отримуємо лише підтвердження активної підписки. Політика конфіденційності Apple застосовується: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
+        s3_6_title:     '3.6 Вебсайт (getbrainbites.ai)',
+        s3_6_p:         'При відвіданні сайту хостинг-провайдер автоматично зберігає технічно необхідні дані, такі як IP-адреса, у серверних журналах. Вони видаляються через 7 днів. Файли cookie для відстеження не використовуються.',
+        s3_6_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(f) GDPR',
+        s4_title:       '4. Одержувачі та обробники',
+        s4_intro:       'Ми не передаємо ваші дані третім особам для власних цілей. Для роботи сервісу ми використовуємо таких обробників:',
+        tbl_provider:   'Провайдер',
+        tbl_purpose:    'Мета',
+        tbl_location:   'Розташування / Гарантії',
+        tbl_railway:    'Хостинг бекенду, база даних',
+        tbl_railway_loc:'США – Стандартні договірні положення (SCC) згідно зі ст. 46 GDPR',
+        tbl_apple:      'App Store, push-сповіщення, покупки в додатку',
+        tbl_apple_loc:  'США – Стандартні договірні положення (SCC) згідно зі ст. 46 GDPR',
+        s4_transfer:    'Оскільки Railway та Apple знаходяться в США, дані можуть передаватися до третьої країни. Передача здійснюється на основі відповідних гарантій (SCC) відповідно до ст. 46 GDPR.',
+        s5_title:       '5. Ваші права',
+        s5_intro:       'Ви маєте такі права в будь-який час:',
+        s5_li1:         '<strong>Доступ (Ст. 15 GDPR):</strong> Які дані ми зберігаємо про вас',
+        s5_li2:         '<strong>Виправлення (Ст. 16 GDPR):</strong> Виправлення неточних даних',
+        s5_li3:         '<strong>Видалення (Ст. 17 GDPR):</strong> Видалення всіх даних, пов\'язаних з ID вашого пристрою',
+        s5_li4:         '<strong>Обмеження (Ст. 18 GDPR):</strong> Обмеження обробки',
+        s5_li5:         '<strong>Заперечення (Ст. 21 GDPR):</strong> Заперечення проти обробки на основі законного інтересу',
+        s5_li6:         '<strong>Портативність (Ст. 20 GDPR):</strong> Отримати ваші дані у поширеному форматі',
+        s5_li7:         '<strong>Відкликання (Ст. 7(3) GDPR):</strong> Відкликати згоду (наприклад, push-сповіщення) будь-коли',
+        s5_contact:     'Для реалізації прав: <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>',
+        s5_authority:   'Ви також маєте право подати скаргу до відповідного органу захисту даних.',
+        s6_title:       '6. Безпека даних',
+        s6_p:           'Усі з\'єднання між додатком і нашими серверами зашифровані через HTTPS/TLS. ID пристрою зберігається в iOS Keychain і захищений механізмами безпеки операційної системи.',
+        s7_title:       '7. Діти',
+        s7_p:           'BrainBites AI призначений для дорослих. Ми свідомо не збираємо дані дітей до 16 років. Якщо вам стало відомо про такий випадок, зверніться до <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>.',
+        s8_title:       '8. Зміни в цій Політиці конфіденційності',
+        s8_p:           'Ми можемо оновлювати цю Політику конфіденційності час від часу. Суттєві зміни будуть повідомлені у додатку або на цій сторінці.',
+        s9_title:       '9. Контакт',
+        s9_content:     'З питань конфіденційності:<br><br><strong>E-mail:</strong> <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a><br><strong>Пошта:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Німеччина',
+        footer_brand:   'бренд',
+        footer_home:    'Головна',
+        footer_privacy: 'Конфіденційність',
+        footer_terms:   'Умови використання',
+        footer_imprint: 'Правова інформація',
+        footer_rights:  'Усі права захищено.',
+        footer_also:    'Більше від torecon',
       }
     };
 
     let currentLang = (() => {
       const p = new URLSearchParams(window.location.search).get('lang');
-      if (p === 'en' || p === 'de') return p;
-      return localStorage.getItem('bb_lang') || (navigator.language.startsWith('de') ? 'de' : 'en');
+      if (p === 'en' || p === 'de' || p === 'pt' || p === 'uk') return p;
+      const stored = localStorage.getItem('bb_lang');
+      if (stored && translations[stored]) return stored;
+      const lang = navigator.language;
+      if (lang.startsWith('de')) return 'de';
+      if (lang.startsWith('pt')) return 'pt';
+      if (lang.startsWith('uk')) return 'uk';
+      return 'en';
     })();
 
     function applyLang(lang) {
@@ -416,6 +568,10 @@
       });
       if (lang === 'en') {
         document.title = 'Privacy Policy – BrainBites AI';
+      } else if (lang === 'pt') {
+        document.title = 'Política de Privacidade – BrainBites AI';
+      } else if (lang === 'uk') {
+        document.title = 'Політика конфіденційності – BrainBites AI';
       } else {
         document.title = 'Datenschutzerklärung – BrainBites AI';
       }

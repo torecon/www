@@ -94,6 +94,8 @@
         <div class="lang-toggle">
           <button class="lang-btn active" data-lang="de">DE</button>
           <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="uk">UA</button>
         </div>
         <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
       </div>
@@ -130,11 +132,7 @@
       <h3 data-i18n="s3_free_title">Kostenloser Zugang</h3>
       <p data-i18n="s3_free_p">Der grundlegende Zugang zur App ist kostenlos. Im kostenlosen Tarif stehen täglich eine Lektion aus den Kategorien KI-Praxis, KI-Wissen, Karriere und Produktivität zur Verfügung.</p>
       <h3 data-i18n="s3_prem_title">Premium-Abonnement</h3>
-      <p data-i18n="s3_prem_p">Das Premium-Abonnement wird über den Apple App Store abgerechnet:</p>
-      <ul>
-        <li data-i18n="s3_prem_li1"><strong>Monatlich:</strong> € 6,99/Monat</li>
-        <li data-i18n="s3_prem_li2"><strong>Jährlich:</strong> € 39,99/Jahr (inkl. 7 Tage kostenloser Testphase)</li>
-      </ul>
+      <p data-i18n="s3_prem_p">Das Premium-Abonnement wird über den Apple App Store abgerechnet. Die aktuellen Preise sind im App Store einsehbar.</p>
       <p data-i18n="s3_prem_renew">Das Abonnement verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ende der aktuellen Laufzeit gekündigt wird. Die Kündigung erfolgt über die iPhone-Einstellungen → Apple-ID → Abonnements.</p>
       <p data-i18n="s3_prem_apple">Alle Kaufvorgänge, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Für Rückerstattungsanfragen wende dich an den Apple Support.</p>
     </div>
@@ -238,9 +236,7 @@
         s3_free_title:    'Kostenloser Zugang',
         s3_free_p:        'Der grundlegende Zugang zur App ist kostenlos. Im kostenlosen Tarif stehen täglich eine Lektion aus den Kategorien KI-Praxis, KI-Wissen, Karriere und Produktivität zur Verfügung.',
         s3_prem_title:    'Premium-Abonnement',
-        s3_prem_p:        'Das Premium-Abonnement wird über den Apple App Store abgerechnet:',
-        s3_prem_li1:      '<strong>Monatlich:</strong> € 6,99/Monat',
-        s3_prem_li2:      '<strong>Jährlich:</strong> € 39,99/Jahr (inkl. 7 Tage kostenloser Testphase)',
+        s3_prem_p:        'Das Premium-Abonnement wird über den Apple App Store abgerechnet. Die aktuellen Preise sind im App Store einsehbar.',
         s3_prem_renew:    'Das Abonnement verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ende der aktuellen Laufzeit gekündigt wird. Die Kündigung erfolgt über die iPhone-Einstellungen → Apple-ID → Abonnements.',
         s3_prem_apple:    'Alle Kaufvorgänge, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt.',
         s4_title:         '4. Nutzungsrechte und Einschränkungen',
@@ -295,9 +291,7 @@
         s3_free_title:    'Free Access',
         s3_free_p:        'Basic access to the app is free. The free tier includes one daily lesson from the AI Practice, AI Knowledge, Career, and Productivity categories.',
         s3_prem_title:    'Premium Subscription',
-        s3_prem_p:        'The Premium subscription is billed through the Apple App Store:',
-        s3_prem_li1:      '<strong>Monthly:</strong> €6.99/month',
-        s3_prem_li2:      '<strong>Annual:</strong> €39.99/year (includes 7-day free trial)',
+        s3_prem_p:        'The Premium subscription is billed through the Apple App Store. Current prices are available in the App Store.',
         s3_prem_renew:    'The subscription auto-renews unless cancelled at least 24 hours before the end of the current period. Cancel via iPhone Settings → Apple ID → Subscriptions.',
         s3_prem_apple:    'All purchases, billing, and refunds are handled exclusively through Apple.',
         s4_title:         '4. Usage Rights and Restrictions',
@@ -332,13 +326,129 @@
         footer_imprint:   'Legal Notice',
         footer_rights:    'All rights reserved.',
         footer_also:      'More apps by torecon',
+      },
+      pt: {
+        nav_sub:          'uma marca da <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:         '← Voltar',
+        page_label:       'Legal',
+        page_title:       'Termos de Uso',
+        page_meta:        'Atualizado: março de 2026 · Aplica-se ao: App iOS BrainBites AI',
+        s1_title:         '1. Prestador e Âmbito',
+        s1_p:             'Estes Termos de Uso regem o uso do app iOS <strong>BrainBites AI</strong>, fornecido por:',
+        s1_agree:         'Ao baixar e usar o app, você concorda com estes termos.',
+        s2_title:         '2. Descrição do Serviço',
+        s2_p:             'BrainBites AI é um app de micro-aprendizagem que entrega uma unidade de aprendizagem curta e prática sobre IA, carreira, produtividade e liderança todos os dias.',
+        s2_li1:           'Lições diárias (grátis: 4 categorias, até 1 lição/dia)',
+        s2_li2:           'Acompanhamento de progresso (sequência, lições concluídas, objetivos de aprendizagem)',
+        s2_li3:           'Lembretes por notificação push (opcional)',
+        s2_li4:           'Assinatura Premium com categorias e recursos adicionais',
+        s3_title:         '3. Acesso Gratuito e Assinatura Premium',
+        s3_free_title:    'Acesso Gratuito',
+        s3_free_p:        'O acesso básico ao app é gratuito. O plano gratuito inclui uma lição diária das categorias IA na Prática, Conhecimento em IA, Carreira e Produtividade.',
+        s3_prem_title:    'Assinatura Premium',
+        s3_prem_p:        'A assinatura Premium é cobrada pela Apple App Store. Os preços atuais estão disponíveis na App Store.',
+        s3_prem_renew:    'A assinatura renova automaticamente, a menos que seja cancelada pelo menos 24 horas antes do término do período atual. Cancele em Ajustes do iPhone → Apple ID → Assinaturas.',
+        s3_prem_apple:    'Todas as compras, cobranças e reembolsos são gerenciados exclusivamente pela Apple.',
+        s4_title:         '4. Direitos de Uso e Restrições',
+        s4_p:             'Concedemos a você uma licença não exclusiva, intransferível e revogável para usar o app em seus dispositivos Apple para uso pessoal.',
+        s4_nope:          'Você não pode:',
+        s4_li1:           'Copiar, modificar ou criar obras derivadas do app',
+        s4_li2:           'Descompilar, desmontar ou fazer engenharia reversa do app',
+        s4_li3:           'Explorar comercialmente o conteúdo do app sem permissão',
+        s4_li4:           'Usar o app para fins ilegais ou de formas que prejudiquem outros',
+        s4_li5:           'Direcionar consultas automatizadas (bots, scrapers) a nossos serviços de backend',
+        s5_title:         '5. Conteúdo e Isenção de Responsabilidade',
+        s5_p1:            'As lições do BrainBites AI são conteúdo educacional. <strong>Não constituem aconselhamento jurídico, financeiro, médico ou profissional</strong>.',
+        s5_p2:            'Embora revisemos cuidadosamente todo o conteúdo, não assumimos responsabilidade pela precisão ou completude. Parte do conteúdo é gerado por IA e revisado por humanos antes da publicação.',
+        s6_title:         '6. Disponibilidade do Serviço',
+        s6_p:             'Buscamos alta disponibilidade, mas não fornecemos garantia de uptime. Reservamo-nos o direito de modificar ou descontinuar recursos a qualquer momento.',
+        s7_title:         '7. Limitação de Responsabilidade',
+        s7_p1:            'Na máxima extensão permitida por lei, não somos responsáveis por danos indiretos, incidentais ou consequentes. Nossa responsabilidade total é limitada aos valores pagos nos últimos 12 meses.',
+        s7_p2:            'Esta limitação não se aplica a danos por conduta dolosa, negligência grave, lesões pessoais ou onde a lei obrigatória se aplica.',
+        s8_title:         '8. Relação com a Apple',
+        s8_p:             'Este app é distribuído pela Apple App Store. A Apple não é parte destes termos. Para reclamações ou suporte, entre em contato conosco em <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a>. A Apple tem o direito de fazer cumprir estes termos como beneficiária terceira.',
+        s9_title:         '9. Alterações nos Termos',
+        s9_p:             'Podemos atualizar estes termos periodicamente. Alterações relevantes serão anunciadas no app. O uso continuado após as alterações constitui aceitação.',
+        s10_title:        '10. Lei Aplicável e Jurisdição',
+        s10_p1:           'Aplica-se a lei alemã, excluindo a Convenção das Nações Unidas sobre Contratos de Compra e Venda Internacional. A jurisdição é Ahrweiler, Alemanha. Consumidores da UE são protegidos pelas leis de seu país de residência.',
+        s10_p2:           'Resolução de litígios online da UE: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Não somos obrigados a participar de procedimentos de resolução de disputas.',
+        s11_title:        '11. Contato',
+        s11_content:      '<strong>Suporte:</strong> <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a><br><strong>Privacidade:</strong> <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a><br><strong>Endereço:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Alemanha',
+        footer_brand:     'uma marca da',
+        footer_home:      'Início',
+        footer_privacy:   'Privacidade',
+        footer_terms:     'Termos de Uso',
+        footer_imprint:   'Aviso Legal',
+        footer_rights:    'Todos os direitos reservados.',
+        footer_also:      'Mais apps da torecon',
+      },
+      uk: {
+        nav_sub:          'бренд <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_back:         '← Назад',
+        page_label:       'Правова інформація',
+        page_title:       'Умови використання',
+        page_meta:        'Станом на: березень 2026 · Застосовується до: iOS App BrainBites AI',
+        s1_title:         '1. Постачальник та сфера застосування',
+        s1_p:             'Ці Умови використання регулюють використання iOS-додатку <strong>BrainBites AI</strong>, наданого:',
+        s1_agree:         'Завантажуючи та використовуючи додаток, ви погоджуєтесь з цими умовами.',
+        s2_title:         '2. Опис послуги',
+        s2_p:             'BrainBites AI — це додаток для мікронавчання, який щодня надає коротку практичну навчальну одиницю на теми ШІ, кар\'єра, продуктивність та лідерство.',
+        s2_li1:           'Щоденні уроки (безкоштовно: 4 категорії, до 1 уроку/день)',
+        s2_li2:           'Відстеження прогресу (серія, завершені уроки, навчальні цілі)',
+        s2_li3:           'Push-нагадування (за бажанням)',
+        s2_li4:           'Premium-підписка з додатковими категоріями та функціями',
+        s3_title:         '3. Безкоштовний доступ та Premium-підписка',
+        s3_free_title:    'Безкоштовний доступ',
+        s3_free_p:        'Базовий доступ до додатку безкоштовний. Безкоштовний план включає щоденний урок з категорій Практика ШІ, Знання про ШІ, Кар\'єра та Продуктивність.',
+        s3_prem_title:    'Premium-підписка',
+        s3_prem_p:        'Premium-підписка нараховується через Apple App Store. Поточні ціни доступні в App Store.',
+        s3_prem_renew:    'Підписка автоматично поновлюється, якщо її не скасовано щонайменше за 24 години до кінця поточного терміну. Скасуйте через Налаштування iPhone → Apple ID → Підписки.',
+        s3_prem_apple:    'Усі покупки, виставлення рахунків та відшкодування обробляються виключно через Apple.',
+        s4_title:         '4. Права використання та обмеження',
+        s4_p:             'Ми надаємо вам невиключну, непередавану, відкличну ліцензію на використання додатку на ваших пристроях Apple для особистих цілей.',
+        s4_nope:          'Вам не дозволяється:',
+        s4_li1:           'Копіювати, модифікувати або створювати похідні твори додатку',
+        s4_li2:           'Декомпілювати, розбирати або реконструювати додаток',
+        s4_li3:           'Комерційно використовувати вміст додатку без дозволу',
+        s4_li4:           'Використовувати додаток для незаконних цілей або таким чином, що шкодить іншим',
+        s4_li5:           'Спрямовувати автоматизовані запити (боти, скрейпери) на наші бекенд-сервіси',
+        s5_title:         '5. Вміст та відмова від відповідальності',
+        s5_p1:            'Уроки в BrainBites AI є навчальним контентом. Вони <strong>не є юридичною, фінансовою, медичною або іншою фаховою консультацією</strong>.',
+        s5_p2:            'Незважаючи на те, що ми ретельно перевіряємо весь контент, ми не несемо відповідальності за точність або повноту. Частина контенту генерується за допомогою ШІ та перевіряється людьми перед публікацією.',
+        s6_title:         '6. Доступність послуги',
+        s6_p:             'Ми прагнемо до максимальної доступності, але не надаємо гарантії безперебійної роботи. Ми залишаємо за собою право змінювати або припиняти роботу функцій у будь-який час.',
+        s7_title:         '7. Обмеження відповідальності',
+        s7_p1:            'У межах, дозволених законом, ми не несемо відповідальності за непрямі, випадкові або наслідкові збитки. Наша загальна відповідальність обмежена сумами, сплаченими за останні 12 місяців.',
+        s7_p2:            'Це обмеження не застосовується до шкоди від умисних дій, грубої недбалості, тілесних ушкоджень або де застосовується обов\'язкове законодавство.',
+        s8_title:         '8. Відносини з Apple',
+        s8_p:             'Цей додаток розповсюджується через Apple App Store. Apple не є стороною цих умов. Для звернень або підтримки зв\'яжіться з нами за адресою <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a>. Apple має право застосовувати ці умови як третя сторона-бенефіціар.',
+        s9_title:         '9. Зміни в умовах',
+        s9_p:             'Ми можемо оновлювати ці умови час від часу. Суттєві зміни будуть оголошені в додатку. Продовження використання після змін вважається прийняттям.',
+        s10_title:        '10. Застосовне право та юрисдикція',
+        s10_p1:           'Застосовується законодавство Німеччини. Юрисдикція — Арвайлер, Німеччина. Споживачі ЄС захищені законами своєї країни проживання.',
+        s10_p2:           'Платформа онлайн-врегулювання спорів ЄС: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Ми не зобов\'язані брати участь у процедурах вирішення спорів.',
+        s11_title:        '11. Контакт',
+        s11_content:      '<strong>Підтримка:</strong> <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a><br><strong>Конфіденційність:</strong> <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a><br><strong>Пошта:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Німеччина',
+        footer_brand:     'бренд',
+        footer_home:      'Головна',
+        footer_privacy:   'Конфіденційність',
+        footer_terms:     'Умови використання',
+        footer_imprint:   'Правова інформація',
+        footer_rights:    'Усі права захищено.',
+        footer_also:      'Більше від torecon',
       }
     };
 
     let currentLang = (() => {
       const p = new URLSearchParams(window.location.search).get('lang');
-      if (p === 'en' || p === 'de') return p;
-      return localStorage.getItem('bb_lang') || (navigator.language.startsWith('de') ? 'de' : 'en');
+      if (p === 'en' || p === 'de' || p === 'pt' || p === 'uk') return p;
+      const stored = localStorage.getItem('bb_lang');
+      if (stored && translations[stored]) return stored;
+      const lang = navigator.language;
+      if (lang.startsWith('de')) return 'de';
+      if (lang.startsWith('pt')) return 'pt';
+      if (lang.startsWith('uk')) return 'uk';
+      return 'en';
     })();
 
     function applyLang(lang) {
@@ -352,6 +462,10 @@
       });
       if (lang === 'en') {
         document.title = 'Terms of Use – BrainBites AI';
+      } else if (lang === 'pt') {
+        document.title = 'Termos de Uso – BrainBites AI';
+      } else if (lang === 'uk') {
+        document.title = 'Умови використання – BrainBites AI';
       } else {
         document.title = 'Nutzungsbedingungen – BrainBites AI';
       }

@@ -10,6 +10,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
+  <!-- iOS Smart App Banner (appears natively in Safari on iPhone) -->
+  <meta name="apple-itunes-app" content="app-id=6761427126">
+
   <!-- Open Graph -->
   <meta property="og:title" content="BrainBites AI — KI lernen in 5 Minuten täglich">
   <meta property="og:description" content="Täglich eine praktische KI-Fähigkeit für Professionals. Kostenlos für iPhone.">
@@ -55,6 +58,202 @@
     a  { color: var(--accent); text-decoration: none; }
     a:hover { opacity: 0.8; }
     .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* ── Launch Banner ──────────────────────────────────────────────────────── */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(0);     opacity: 1; }
+      to   { transform: translateY(-100%); opacity: 0; }
+    }
+    .launch-banner {
+      background: linear-gradient(135deg, #0A0A0F 0%, #111827 50%, #0f172a 100%);
+      border-bottom: 1px solid rgba(79,127,255,0.3);
+      position: relative;
+      overflow: hidden;
+      animation: slideDown 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .launch-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 120% at 50% -20%, rgba(79,127,255,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .launch-banner-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 36px 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+    }
+    .launch-content { flex: 1; }
+    .launch-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79,127,255,0.18);
+      border: 1px solid rgba(79,127,255,0.4);
+      border-radius: 40px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7fa8ff;
+      margin-bottom: 16px;
+    }
+    .launch-pill-dot {
+      width: 6px; height: 6px;
+      background: #4F7FFF;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .launch-headline {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .launch-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 28px;
+      max-width: 440px;
+      line-height: 1.55;
+    }
+    .launch-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #000 !important;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(79,127,255,0.4);
+    }
+    .launch-btn:hover { background: #f0f0f0; opacity: 1; transform: scale(1.02); }
+    .launch-btn svg { flex-shrink: 0; }
+    .launch-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.5;
+    }
+    /* Fake phone mockup */
+    .launch-phone-wrap {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .launch-phone {
+      width: 120px;
+      background: #1c1c1e;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 22px;
+      padding: 14px 10px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .launch-phone::before {
+      content: '';
+      display: block;
+      width: 36px; height: 5px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 3px;
+      margin: 0 auto 10px;
+    }
+    .launch-phone-screen {
+      background: linear-gradient(160deg, #0a0a0f 0%, #141428 100%);
+      border-radius: 12px;
+      padding: 10px 8px;
+      overflow: hidden;
+    }
+    .lps-app {
+      font-size: 8px;
+      font-weight: 800;
+      color: #4F7FFF;
+      letter-spacing: 0.03em;
+      margin-bottom: 2px;
+    }
+    .lps-day {
+      font-size: 7px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 8px;
+    }
+    .lps-card {
+      background: rgba(79,127,255,0.14);
+      border: 1px solid rgba(79,127,255,0.25);
+      border-radius: 6px;
+      padding: 6px 7px;
+      margin-bottom: 4px;
+    }
+    .lps-card-label {
+      font-size: 6px;
+      font-weight: 700;
+      color: #4F7FFF;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .lps-card-text {
+      font-size: 6.5px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.4;
+    }
+    .lps-streak {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-top: 8px;
+      font-size: 7px;
+      color: rgba(255,255,255,0.4);
+    }
+    .lps-streak-fire {
+      font-size: 9px;
+    }
+    .launch-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.4);
+      font-size: 13px;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      line-height: 1;
+      padding: 0;
+    }
+    .launch-close:hover { background: rgba(255,255,255,0.15); color: #fff; }
+    @media (max-width: 600px) {
+      .launch-phone-wrap { display: none; }
+      .launch-banner-inner { padding: 28px 20px 24px; }
+      .launch-sub { font-size: 15px; }
+    }
 
     /* ── Language Toggle ────────────────────────────────────────────────────── */
     .lang-toggle {
@@ -189,6 +388,8 @@
     .category-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; display: flex; align-items: flex-start; gap: 16px; box-shadow: var(--shadow-sm); transition: var(--transition); }
     .category-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
     .category-card.premium { border-color: rgba(0,113,227,0.25); background: rgba(0,113,227,0.03); }
+    .category-card.coming-soon { opacity: 0.55; border-style: dashed; }
+    .category-card.coming-soon:hover { transform: none; box-shadow: var(--shadow-sm); }
     .category-emoji { font-size: 32px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
     .category-info h3 { font-size: 17px; margin-bottom: 6px; }
     .category-info p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
@@ -258,6 +459,10 @@
     .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
     .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+    .footer-qr { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
+    .footer-qr-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-qr img { width: 100px; height: 100px; border-radius: 10px; background: #fff; padding: 6px; opacity: 0.85; transition: opacity 0.15s; }
+    .footer-qr a:hover img { opacity: 1; }
 
     /* Responsive */
     @media (max-width: 600px) {
@@ -289,11 +494,58 @@
         <div class="lang-toggle">
           <button class="lang-btn active" data-lang="de">DE</button>
           <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="uk">UA</button>
         </div>
         <a class="nav-cta appstore-badge" href="#download" data-i18n="nav_cta">App laden</a>
       </div>
     </div>
   </nav>
+
+  <!-- Launch Banner -->
+  <div class="launch-banner" id="launchBanner">
+    <button class="launch-close" id="launchClose" aria-label="Schließen">✕</button>
+    <div class="launch-banner-inner">
+      <div class="launch-content">
+        <div class="launch-pill">
+          <span class="launch-pill-dot"></span>
+          <span data-i18n="launch_pill">Neu im App Store</span>
+        </div>
+        <h2 class="launch-headline" data-i18n="launch_headline">BrainBites AI ist jetzt live.</h2>
+        <p class="launch-sub" data-i18n="launch_sub">KI lernen in 5 Minuten täglich — kostenlos auf deinem iPhone. Starte heute.</p>
+        <div class="launch-actions">
+          <a class="launch-btn appstore-badge" href="#">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M14.6 10.2c-.01-1.72 1.4-2.54 1.46-2.58-.8-1.17-2.04-1.33-2.49-1.35-1.07-.1-2.08.62-2.62.62-.55 0-1.39-.6-2.28-.59-1.18.01-2.26.68-2.87 1.74-1.22 2.1-.31 5.22.88 6.93.57.82 1.26 1.75 2.17 1.72.87-.04 1.19-.56 2.24-.56 1.04 0 1.33.56 2.24.55.94-.02 1.54-.84 2.12-1.66.67-.94.95-1.85.96-1.89-.02 0-1.8-.7-1.81-2.93z" fill="currentColor"/>
+              <path d="M12.3 5.17c.48-.58.8-1.37.71-2.17-.68.03-1.5.45-1.99 1.03-.44.5-.82 1.28-.71 2.03.75.06 1.5-.38 1.99-.89z" fill="currentColor"/>
+            </svg>
+            <span data-i18n="launch_cta">Im App Store laden</span>
+          </a>
+          <span class="launch-meta" data-i18n="launch_meta">Kostenlos · iPhone · iOS 17+</span>
+        </div>
+      </div>
+      <div class="launch-phone-wrap" aria-hidden="true">
+        <div class="launch-phone">
+          <div class="launch-phone-screen">
+            <div class="lps-app">BrainBites AI</div>
+            <div class="lps-day">Heutige Lektion</div>
+            <div class="lps-card">
+              <div class="lps-card-label">🤖 KI-Praxis</div>
+              <div class="lps-card-text">ChatGPT für Meetings effizienter nutzen</div>
+            </div>
+            <div class="lps-card">
+              <div class="lps-card-label">🧠 KI-Wissen</div>
+              <div class="lps-card-text">Was ist RAG — einfach erklärt</div>
+            </div>
+            <div class="lps-streak">
+              <span class="lps-streak-fire">🔥</span>
+              <span>5-Tage-Streak</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
@@ -443,7 +695,7 @@
     <div class="container">
       <span class="section-label" data-i18n="cat_label">Kategorien</span>
       <h2 class="section-headline" data-i18n="cat_headline">Was du lernst.</h2>
-      <p class="section-sub" data-i18n="cat_sub">Sechs Kategorien — alle mit direktem KI-Bezug. Vier kostenlos, zwei im Premium.</p>
+      <p class="section-sub" data-i18n="cat_sub">13 Kategorien — alle mit direktem KI-Bezug. Vier kostenlos, zwei im Premium, sieben in Kürze.</p>
       <div class="categories-grid">
         <div class="category-card">
           <span class="category-emoji">🤖</span>
@@ -489,6 +741,62 @@
             <span class="premium-badge" data-i18n="premium_badge">Premium</span>
           </div>
         </div>
+        <div class="category-card coming-soon">
+          <span class="category-emoji">⚖️</span>
+          <div class="category-info">
+            <h3 data-i18n="cat_7_title">KI &amp; Ethik / Recht</h3>
+            <p data-i18n="cat_7_text">Regulierung, Haftung, Datenschutz — KI im rechtlichen und ethischen Kontext.</p>
+            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+          </div>
+        </div>
+        <div class="category-card coming-soon">
+          <span class="category-emoji">🛠</span>
+          <div class="category-info">
+            <h3 data-i18n="cat_8_title">KI-Tools &amp; Technologie</h3>
+            <p data-i18n="cat_8_text">Die besten KI-Tools im Überblick — wofür sie taugen und wie du sie einsetzt.</p>
+            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+          </div>
+        </div>
+        <div class="category-card coming-soon">
+          <span class="category-emoji">📊</span>
+          <div class="category-info">
+            <h3 data-i18n="cat_9_title">KI &amp; Daten</h3>
+            <p data-i18n="cat_9_text">Daten verstehen, interpretieren und mit KI sinnvoll nutzen.</p>
+            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+          </div>
+        </div>
+        <div class="category-card coming-soon">
+          <span class="category-emoji">💰</span>
+          <div class="category-info">
+            <h3 data-i18n="cat_10_title">KI &amp; Finanzen / Banking</h3>
+            <p data-i18n="cat_10_text">KI in Buchhaltung, Analyse, Kreditentscheidungen und persönlichen Finanzen.</p>
+            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+          </div>
+        </div>
+        <div class="category-card coming-soon">
+          <span class="category-emoji">⚙️</span>
+          <div class="category-info">
+            <h3 data-i18n="cat_11_title">KI &amp; Prozesse</h3>
+            <p data-i18n="cat_11_text">Workflows automatisieren, Abläufe optimieren, Ressourcen sparen.</p>
+            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+          </div>
+        </div>
+        <div class="category-card coming-soon">
+          <span class="category-emoji">🧪</span>
+          <div class="category-info">
+            <h3 data-i18n="cat_12_title">KI-Experimente</h3>
+            <p data-i18n="cat_12_text">Unerwartetes ausprobieren — kreative und ungewöhnliche KI-Anwendungen.</p>
+            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+          </div>
+        </div>
+        <div class="category-card coming-soon">
+          <span class="category-emoji">🌍</span>
+          <div class="category-info">
+            <h3 data-i18n="cat_13_title">KI &amp; Gesellschaft</h3>
+            <p data-i18n="cat_13_text">Wie KI Arbeit, Bildung und Gesellschaft verändert — und was das für dich bedeutet.</p>
+            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -526,7 +834,6 @@
       <div class="pricing-grid" style="margin-top:48px;">
         <div class="pricing-card">
           <p class="pricing-plan" data-i18n="price_free_plan">Free</p>
-          <p class="pricing-price">€ 0</p>
           <p class="pricing-period" data-i18n="price_free_period">Für immer kostenlos</p>
           <ul class="pricing-features">
             <li data-i18n="price_free_1">1 Lektion täglich</li>
@@ -539,11 +846,7 @@
         </div>
         <div class="pricing-card featured">
           <p class="pricing-plan" data-i18n="price_prem_plan">Premium</p>
-          <p class="pricing-price">€ 6,99 <span style="font-size:18px;font-weight:400;color:var(--text-secondary)" data-i18n="price_prem_mo">/Monat</span></p>
-          <p class="pricing-period">
-            <span data-i18n="price_prem_year">oder € 39,99/Jahr</span>
-            <span class="pricing-year-hint" data-i18n="price_prem_save">spare 52%</span>
-          </p>
+          <p class="pricing-period" data-i18n="price_prem_sub">ab €0,99/Monat · €9,99/Jahr · einmalig €44,99</p>
           <ul class="pricing-features">
             <li data-i18n="price_prem_1">Alles aus Free</li>
             <li data-i18n="price_prem_2">Vollständige Lernhistorie</li>
@@ -551,7 +854,7 @@
             <li data-i18n="price_prem_4">Kommunikation</li>
             <li data-i18n="price_prem_5">Kategorie-Priorität</li>
           </ul>
-          <a class="pricing-cta appstore-badge" href="#download" data-i18n="price_prem_cta">7 Tage kostenlos testen</a>
+          <a class="pricing-cta appstore-badge" href="#download" data-i18n="price_prem_cta">Jetzt upgraden</a>
           <p class="pricing-note" data-i18n="price_prem_note">Jederzeit kündbar · Abrechnung über Apple</p>
         </div>
       </div>
@@ -637,14 +940,31 @@
           <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">⚡ eLadung</a>
         </div>
       </div>
+      <div class="footer-qr">
+        <span class="footer-qr-label" data-i18n="footer_qr_label">App direkt laden</span>
+        <a href="https://apps.apple.com/app/brainbites-ai-learn-faster/id6761427126" target="_blank" rel="noopener" aria-label="BrainBites AI im App Store">
+          <img src="/qrcode.jpeg" alt="QR-Code – BrainBites AI im App Store">
+        </a>
+      </div>
       <div class="footer-copy">&copy; <span id="footer-year"></span> torecon &ndash; Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
     </div>
   </footer>
 
   <script>
     // ── App Store URL ─────────────────────────────────────────────────────────
-    // Update this single constant when Apple approves the app
     const APP_STORE_URL = 'https://apps.apple.com/app/brainbites-ai-learn-faster/id6761427126';
+
+    // ── Launch Banner dismiss ─────────────────────────────────────────────────
+    const launchBanner = document.getElementById('launchBanner');
+    const launchClose  = document.getElementById('launchClose');
+    if (localStorage.getItem('bb_launch_v1_dismissed')) {
+      launchBanner.style.display = 'none';
+    }
+    launchClose.addEventListener('click', () => {
+      launchBanner.style.animation = 'slideUp 0.3s ease forwards';
+      setTimeout(() => { launchBanner.style.display = 'none'; }, 300);
+      localStorage.setItem('bb_launch_v1_dismissed', '1');
+    });
 
     document.querySelectorAll('.appstore-badge').forEach(a => {
       a.href = APP_STORE_URL;
@@ -655,9 +975,14 @@
     // ── i18n ──────────────────────────────────────────────────────────────────
     const translations = {
       de: {
+        launch_pill:      'Neu im App Store',
+        launch_headline:  'BrainBites AI ist jetzt live.',
+        launch_sub:       'KI lernen in 5 Minuten täglich — kostenlos auf deinem iPhone. Starte heute.',
+        launch_cta:       'Im App Store laden',
+        launch_meta:      'Kostenlos · iPhone · iOS 17+',
         nav_sub:          'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_categories:   'Kategorien',
-        nav_pricing:      'Preise',
+        nav_pricing:      'Pläne',
         nav_cta:          'App laden',
         hero_badge:       'Jetzt verfügbar im App Store',
         hero_h1_a:        'Werde smarter —',
@@ -666,7 +991,7 @@
         pill_platform:    'iPhone · iOS 17+',
         pill_free:        'Kostenlos starten',
         pill_time:        '5 Minuten täglich',
-        pill_lang:        'Deutsch &amp; Englisch',
+        pill_lang:        'DE · EN · PT-BR · UA',
         prob_label:       'Warum BrainBites AI?',
         prob_headline:    'Die Welt verändert sich schneller als je zuvor.',
         prob_sub:         'KI verändert jeden Beruf. Aber zwischen Meetings, Projekten und Alltag bleibt keine Zeit für Kurse.',
@@ -689,8 +1014,8 @@
         feat_4_text:      'Streak, abgeschlossene Skills, Schwerpunkte — alles auf einen Blick. Morgen bekommst du bereits einen Vorgeschmack.',
         feat_5_title:     'Deine Zeit, dein Tempo',
         feat_5_text:      'Wähle, wann du lernen willst — morgens, mittags oder abends. Die App erinnert dich zur richtigen Zeit.',
-        feat_6_title:     'Deutsch &amp; Englisch',
-        feat_6_text:      'Alle Inhalte vollständig auf Deutsch und Englisch. Die Sprache wechselt automatisch mit deiner iPhone-Einstellung.',
+        feat_6_title:     'DE · EN · PT-BR · UA',
+        feat_6_text:      'Alle Inhalte auf Deutsch, Englisch, Portugiesisch und Ukrainisch. Die Sprache wechselt automatisch mit deiner iPhone-Einstellung.',
         how_label:        'So geht\'s',
         how_headline:     'In 4 Schritten zum täglichen Skill.',
         how_sub:          'Vom Download zum ersten Aha-Moment in unter 3 Minuten.',
@@ -704,7 +1029,7 @@
         step_4_text:      'Nach 30 Tagen hast du 30 neue Fähigkeiten. Nach 90 Tagen bist du eine andere Person.',
         cat_label:        'Kategorien',
         cat_headline:     'Was du lernst.',
-        cat_sub:          'Sechs Kategorien — alle mit direktem KI-Bezug. Vier kostenlos, zwei im Premium.',
+        cat_sub:          '13 Kategorien — alle mit direktem KI-Bezug. Vier kostenlos, zwei im Premium, sieben in Kürze.',
         cat_1_title:      'KI-Praxis',
         cat_1_text:       'Prompts schreiben, ChatGPT für Meetings nutzen, Workflows automatisieren.',
         cat_2_title:      'KI-Wissen',
@@ -717,6 +1042,21 @@
         cat_5_text:       'KI-Normen für Teams, Entscheidungsqualität, Führung im Wandel.',
         cat_6_title:      'Kommunikation',
         cat_6_text:       'E-Mails mit KI schreiben, überzeugender präsentieren, besser verhandeln.',
+        cat_7_title:      'KI &amp; Ethik / Recht',
+        cat_7_text:       'Regulierung, Haftung, Datenschutz — KI im rechtlichen und ethischen Kontext.',
+        cat_8_title:      'KI-Tools &amp; Technologie',
+        cat_8_text:       'Die besten KI-Tools im Überblick — wofür sie taugen und wie du sie einsetzt.',
+        cat_9_title:      'KI &amp; Daten',
+        cat_9_text:       'Daten verstehen, interpretieren und mit KI sinnvoll nutzen.',
+        cat_10_title:     'KI &amp; Finanzen / Banking',
+        cat_10_text:      'KI in Buchhaltung, Analyse, Kreditentscheidungen und persönlichen Finanzen.',
+        cat_11_title:     'KI &amp; Prozesse',
+        cat_11_text:      'Workflows automatisieren, Abläufe optimieren, Ressourcen sparen.',
+        cat_12_title:     'KI-Experimente',
+        cat_12_text:      'Unerwartetes ausprobieren — kreative und ungewöhnliche KI-Anwendungen.',
+        cat_13_title:     'KI &amp; Gesellschaft',
+        cat_13_text:      'Wie KI Arbeit, Bildung und Gesellschaft verändert — und was das für dich bedeutet.',
+        cat_soon:         'Bald verfügbar',
         premium_badge:    'Premium',
         rev_label:        'Stimmen aus der Community',
         rev_headline:     'Was Professionals sagen.',
@@ -737,15 +1077,13 @@
         price_free_5:     'Karriere &amp; Produktivität',
         price_free_cta:   'Jetzt kostenlos laden',
         price_prem_plan:  'Premium',
-        price_prem_mo:    '/Monat',
-        price_prem_year:  'oder € 39,99/Jahr',
-        price_prem_save:  'spare 52%',
+        price_prem_sub:   'ab €0,99/Monat · €9,99/Jahr · einmalig €44,99',
         price_prem_1:     'Alles aus Free',
         price_prem_2:     'Vollständige Lernhistorie',
         price_prem_3:     'Leadership &amp; KI',
         price_prem_4:     'Kommunikation',
         price_prem_5:     'Kategorie-Priorität',
-        price_prem_cta:   '7 Tage kostenlos testen',
+        price_prem_cta:   'Jetzt upgraden',
         price_prem_note:  'Jederzeit kündbar · Abrechnung über Apple',
         dl_headline:      'Bereit? Starte heute.',
         dl_sub:           'Kostenlos herunterladen — die erste Lektion wartet bereits auf dich.',
@@ -766,11 +1104,17 @@
         footer_imprint:   'Impressum',
         footer_rights:    'Alle Rechte vorbehalten.',
         footer_also:      'Weitere Apps von torecon',
+        footer_qr_label:  'App direkt laden',
       },
       en: {
+        launch_pill:      'Now on the App Store',
+        launch_headline:  'BrainBites AI is live.',
+        launch_sub:       'Learn AI in 5 minutes a day — free on your iPhone. Start today.',
+        launch_cta:       'Get it on the App Store',
+        launch_meta:      'Free · iPhone · iOS 17+',
         nav_sub:          'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_categories:   'Categories',
-        nav_pricing:      'Pricing',
+        nav_pricing:      'Plans',
         nav_cta:          'Get the App',
         hero_badge:       'Now available on the App Store',
         hero_h1_a:        'Get smarter —',
@@ -779,7 +1123,7 @@
         pill_platform:    'iPhone · iOS 17+',
         pill_free:        'Start for free',
         pill_time:        '5 minutes daily',
-        pill_lang:        'German &amp; English',
+        pill_lang:        'DE · EN · PT-BR · UA',
         prob_label:       'Why BrainBites AI?',
         prob_headline:    'The world is changing faster than ever.',
         prob_sub:         'AI is transforming every profession. But between meetings, projects, and daily life, there\'s no time for courses.',
@@ -802,8 +1146,8 @@
         feat_4_text:      'Streak, completed skills, focus areas — all at a glance. Tomorrow you get a preview of the next lesson.',
         feat_5_title:     'Your time, your pace',
         feat_5_text:      'Choose when you want to learn — morning, noon, or evening. The app reminds you at the right time.',
-        feat_6_title:     'German &amp; English',
-        feat_6_text:      'All content fully available in German and English. Language switches automatically with your iPhone setting.',
+        feat_6_title:     'DE · EN · PT-BR · UA',
+        feat_6_text:      'All content available in German, English, Portuguese, and Ukrainian. Language switches automatically with your iPhone setting.',
         how_label:        'How it works',
         how_headline:     '4 steps to your daily skill.',
         how_sub:          'From download to your first insight in under 3 minutes.',
@@ -817,7 +1161,7 @@
         step_4_text:      'After 30 days you have 30 new skills. After 90 days you\'re a different person.',
         cat_label:        'Categories',
         cat_headline:     'What you learn.',
-        cat_sub:          'Six categories — all with direct AI relevance. Four free, two in Premium.',
+        cat_sub:          '13 categories — all with direct AI relevance. Four free, two in Premium, seven coming soon.',
         cat_1_title:      'AI in Practice',
         cat_1_text:       'Write prompts, use ChatGPT for meetings, automate workflows.',
         cat_2_title:      'AI Knowledge',
@@ -830,6 +1174,21 @@
         cat_5_text:       'AI norms for teams, decision quality, leading through change.',
         cat_6_title:      'Communication',
         cat_6_text:       'Write emails with AI, present more persuasively, negotiate better.',
+        cat_7_title:      'AI &amp; Ethics / Law',
+        cat_7_text:       'Regulation, liability, privacy — AI in legal and ethical context.',
+        cat_8_title:      'AI Tools &amp; Technology',
+        cat_8_text:       'The best AI tools at a glance — what they do and how to use them.',
+        cat_9_title:      'AI &amp; Data',
+        cat_9_text:       'Understand, interpret and use data meaningfully with AI.',
+        cat_10_title:     'AI &amp; Finance / Banking',
+        cat_10_text:      'AI in accounting, analysis, credit decisions and personal finance.',
+        cat_11_title:     'AI &amp; Processes',
+        cat_11_text:      'Automate workflows, optimize operations, save resources.',
+        cat_12_title:     'AI Experiments',
+        cat_12_text:      'Try the unexpected — creative and unusual AI applications.',
+        cat_13_title:     'AI &amp; Society',
+        cat_13_text:      'How AI changes work, education and society — and what it means for you.',
+        cat_soon:         'Coming Soon',
         premium_badge:    'Premium',
         rev_label:        'Community voices',
         rev_headline:     'What professionals say.',
@@ -850,15 +1209,13 @@
         price_free_5:     'Career &amp; Productivity',
         price_free_cta:   'Download for free',
         price_prem_plan:  'Premium',
-        price_prem_mo:    '/month',
-        price_prem_year:  'or €39.99/year',
-        price_prem_save:  'save 52%',
+        price_prem_sub:   'from $0.99/month · $9.99/year · $44.99 one-time',
         price_prem_1:     'Everything in Free',
         price_prem_2:     'Full learning history',
         price_prem_3:     'Leadership &amp; AI',
         price_prem_4:     'Communication',
         price_prem_5:     'Category priority',
-        price_prem_cta:   'Try free for 7 days',
+        price_prem_cta:   'Upgrade now',
         price_prem_note:  'Cancel anytime · Billed through Apple',
         dl_headline:      'Ready? Start today.',
         dl_sub:           'Download for free — your first lesson is already waiting.',
@@ -879,11 +1236,283 @@
         footer_imprint:   'Legal Notice',
         footer_rights:    'All rights reserved.',
         footer_also:      'More apps by torecon',
+        footer_qr_label:  'Download app directly',
+      },
+      pt: {
+        launch_pill:      'Novo na App Store',
+        launch_headline:  'BrainBites AI está no ar.',
+        launch_sub:       'Aprenda IA em 5 minutos por dia — grátis no seu iPhone. Comece hoje.',
+        launch_cta:       'Baixar na App Store',
+        launch_meta:      'Grátis · iPhone · iOS 17+',
+        nav_sub:          'uma marca da <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_categories:   'Categorias',
+        nav_pricing:      'Planos',
+        nav_cta:          'Baixar App',
+        hero_badge:       'Disponível agora na App Store',
+        hero_h1_a:        'Fique mais inteligente —',
+        hero_h1_b:        '5 minutos por dia.',
+        hero_sub:         'BrainBites AI entrega uma habilidade prática de IA todos os dias que você pode aplicar imediatamente. Sem curso. Sem esforço. Só resultados.',
+        pill_platform:    'iPhone · iOS 17+',
+        pill_free:        'Comece grátis',
+        pill_time:        '5 minutos diários',
+        pill_lang:        'DE · EN · PT-BR · UA',
+        prob_label:       'Por que BrainBites AI?',
+        prob_headline:    'O mundo está mudando mais rápido do que nunca.',
+        prob_sub:         'A IA está transformando todas as profissões. Mas entre reuniões, projetos e rotina, não há tempo para cursos.',
+        prob_1_title:     'Informação demais ao mesmo tempo',
+        prob_1_text:      'LLM, RAG, agentes, Copilot — termos técnicos em todo lugar, mas ninguém explica de forma clara e prática.',
+        prob_2_title:     'Sem tempo para cursos',
+        prob_2_text:      'Cursos online começam bem e morrem na semana 3. Você não precisa de 40 horas de treinamento — você precisa de 5 minutos por dia.',
+        prob_3_title:     'Teoria sem prática',
+        prob_3_text:      'A maioria dos formatos de aprendizagem explica o que é IA. BrainBites AI mostra o que isso significa para o seu trabalho — hoje, concretamente.',
+        feat_label:       'Recursos',
+        feat_headline:    'É assim que o aprendizado diário funciona.',
+        feat_sub:         'Desenvolvido para profissionais que não querem desperdiçar tempo.',
+        feat_1_title:     'Diário. 5 minutos. Pronto.',
+        feat_1_text:      'Uma lição por dia — com 3 passos concretos e uma tarefa que você pode executar hoje.',
+        feat_2_title:     'Entenda IA, não apenas use',
+        feat_2_text:      'Você não aprende apenas o que são LLM, RAG ou agentes — você entende o que isso significa para o seu trabalho.',
+        feat_3_title:     'Para profissionais, não estudantes',
+        feat_3_text:      'Sem conceitos básicos repetitivos. Conteúdo para executivos, freelancers e profissionais ambiciosos.',
+        feat_4_title:     'Seu progresso, visível',
+        feat_4_text:      'Sequência, habilidades concluídas, focos — tudo de relance.',
+        feat_5_title:     'Seu tempo, seu ritmo',
+        feat_5_text:      'Escolha quando quer aprender — manhã, tarde ou noite. O app te lembra na hora certa.',
+        feat_6_title:     'DE · EN · PT-BR · UA',
+        feat_6_text:      'Todo o conteúdo disponível em alemão, inglês, português e ucraniano. A língua muda automaticamente com a configuração do seu iPhone.',
+        how_label:        'Como funciona',
+        how_headline:     '4 passos para sua habilidade diária.',
+        how_sub:          'Do download ao primeiro insight em menos de 3 minutos.',
+        step_1_title:     'Escolha seus focos',
+        step_1_text:      'Na primeira abertura, você seleciona o que te interessa — IA, carreira, produtividade ou liderança.',
+        step_2_title:     'Abra o app diariamente',
+        step_2_text:      'Uma nova lição espera por você — adaptada aos seus objetivos, selecionada pela nossa IA.',
+        step_3_title:     'Aprenda &amp; aplique',
+        step_3_text:      '3 passos concretos + uma tarefa para hoje. Sem leitura por leitura.',
+        step_4_title:     'Construa sua sequência',
+        step_4_text:      'Após 30 dias você tem 30 novas habilidades. Após 90 dias você é uma pessoa diferente.',
+        cat_label:        'Categorias',
+        cat_headline:     'O que você aprende.',
+        cat_sub:          '13 categorias — todas com relevância direta para IA. Quatro grátis, duas no Premium, sete em breve.',
+        cat_1_title:      'IA na Prática',
+        cat_1_text:       'Escreva prompts, use ChatGPT para reuniões, automatize fluxos de trabalho.',
+        cat_2_title:      'Conhecimento em IA',
+        cat_2_text:       'LLM, RAG, agentes, tokens, GPT — explicados claramente, diretamente aplicáveis.',
+        cat_3_title:      'Carreira &amp; IA',
+        cat_3_text:       'Seu posicionamento na era da IA, avaliações de desempenho, estratégia no LinkedIn.',
+        cat_4_title:      'Produtividade',
+        cat_4_text:       'Brain dumps, técnicas de foco, IA como seu assistente pessoal.',
+        cat_5_title:      'Liderança &amp; IA',
+        cat_5_text:       'Normas de IA para equipes, qualidade de decisão, liderança na mudança.',
+        cat_6_title:      'Comunicação',
+        cat_6_text:       'Escreva e-mails com IA, apresente com mais persuasão, negocie melhor.',
+        cat_7_title:      'IA &amp; Ética / Direito',
+        cat_7_text:       'Regulamentação, responsabilidade, privacidade — IA no contexto legal e ético.',
+        cat_8_title:      'Ferramentas de IA &amp; Tecnologia',
+        cat_8_text:       'As melhores ferramentas de IA — para que servem e como usá-las.',
+        cat_9_title:      'IA &amp; Dados',
+        cat_9_text:       'Entender, interpretar e usar dados de forma eficaz com IA.',
+        cat_10_title:     'IA &amp; Finanças / Banking',
+        cat_10_text:      'IA em contabilidade, análise, decisões de crédito e finanças pessoais.',
+        cat_11_title:     'IA &amp; Processos',
+        cat_11_text:      'Automatizar fluxos de trabalho, otimizar operações, economizar recursos.',
+        cat_12_title:     'Experimentos com IA',
+        cat_12_text:      'Tente o inesperado — aplicações criativas e incomuns de IA.',
+        cat_13_title:     'IA &amp; Sociedade',
+        cat_13_text:      'Como a IA muda o trabalho, a educação e a sociedade — e o que isso significa para você.',
+        cat_soon:         'Em breve',
+        premium_badge:    'Premium',
+        rev_label:        'Vozes da comunidade',
+        rev_headline:     'O que os profissionais dizem.',
+        rev_1_text:       '"Finalmente um app que realmente me explica IA — não como marketing, mas como uma habilidade real."',
+        rev_1_author:     'Markus T. · Gerente de Projetos',
+        rev_2_text:       '"5 minutos de manhã, e entro no dia mais informado. BrainBites é meu ritual diário."',
+        rev_2_author:     'Sandra K. · Team Lead',
+        rev_3_text:       '"Aprendi mais sobre IA em 2 semanas do que em 6 meses rolando o LinkedIn."',
+        rev_3_author:     'David R. · Consultor de Gestão',
+        price_label:      'Planos',
+        price_headline:   'Comece grátis. Aprenda mais com Premium.',
+        price_free_plan:  'Free',
+        price_free_period:'Sempre grátis',
+        price_free_1:     '1 lição diária',
+        price_free_2:     'Sequência &amp; progresso',
+        price_free_3:     '7 dias de histórico de aprendizagem',
+        price_free_4:     'IA na Prática &amp; Conhecimento em IA',
+        price_free_5:     'Carreira &amp; Produtividade',
+        price_free_cta:   'Baixar grátis',
+        price_prem_plan:  'Premium',
+        price_prem_sub:   'a partir de R$0,99/mês · R$9,99/ano · R$44,99 único',
+        price_prem_1:     'Tudo do Free',
+        price_prem_2:     'Histórico de aprendizagem completo',
+        price_prem_3:     'Liderança &amp; IA',
+        price_prem_4:     'Comunicação',
+        price_prem_5:     'Prioridade de categoria',
+        price_prem_cta:   'Fazer upgrade agora',
+        price_prem_note:  'Cancele quando quiser · Cobrado pela Apple',
+        dl_headline:      'Pronto? Comece hoje.',
+        dl_sub:           'Baixe grátis — sua primeira lição já está esperando.',
+        dl_note:          'Disponível para iPhone e iPad · iOS 17+',
+        imp_title:        'Aviso Legal (Impressum)',
+        imp_legal_title:  'Informações conforme § 5 TMG',
+        imp_contact_title:'Contato',
+        imp_reg_title:    'Registro Comercial',
+        imp_reg_text:     'Não registrado no registro comercial.',
+        imp_vat_title:    'ID fiscal',
+        imp_vat_text:     'Número de identificação fiscal conforme § 27\u00a0a UStG: disponível mediante solicitação.',
+        imp_resp_title:   'Responsável pelo conteúdo conforme § 55 par. 2 RStV',
+        imp_app_title:    'Aviso do App',
+        imp_app_text:     'BrainBites AI é um app iOS da torecon, disponível na Apple App Store. Para suporte e dúvidas: <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a>',
+        footer_brand:     'uma marca da',
+        footer_privacy:   'Privacidade',
+        footer_terms:     'Termos de Uso',
+        footer_imprint:   'Aviso Legal',
+        footer_rights:    'Todos os direitos reservados.',
+        footer_also:      'Mais apps da torecon',
+        footer_qr_label:  'Baixar app diretamente',
+      },
+      uk: {
+        nav_sub:          'бренд <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_categories:   'Категорії',
+        launch_pill:      'Нове в App Store',
+        launch_headline:  'BrainBites AI вже доступний.',
+        launch_sub:       'Вивчай ШІ за 5 хвилин на день — безкоштовно на iPhone. Починай сьогодні.',
+        launch_cta:       'Завантажити в App Store',
+        launch_meta:      'Безкоштовно · iPhone · iOS 17+',
+        nav_pricing:      'Плани',
+        nav_cta:          'Завантажити',
+        hero_badge:       'Вже доступно в App Store',
+        hero_h1_a:        'Стань розумнішим —',
+        hero_h1_b:        '5 хвилин на день.',
+        hero_sub:         'BrainBites AI щодня надає практичний навик ШІ, який ти можеш застосувати одразу. Без курсу. Без зусиль. Лише результати.',
+        pill_platform:    'iPhone · iOS 17+',
+        pill_free:        'Почни безкоштовно',
+        pill_time:        '5 хвилин щодня',
+        pill_lang:        'DE · EN · PT-BR · UA',
+        prob_label:       'Чому BrainBites AI?',
+        prob_headline:    'Світ змінюється швидше, ніж будь-коли.',
+        prob_sub:         'ШІ трансформує кожну професію. Але між зустрічами, проектами та повсякденням немає часу на курси.',
+        prob_1_title:     'Забагато всього одразу',
+        prob_1_text:      'LLM, RAG, агенти, Copilot — терміни скрізь, але ніхто не пояснює зрозуміло і практично.',
+        prob_2_title:     'Немає часу на курси',
+        prob_2_text:      'Онлайн-курси добре починаються і зникають на 3-му тижні. Тобі не потрібне 40-годинне навчання — тобі потрібно 5 хвилин на день.',
+        prob_3_title:     'Теорія без практики',
+        prob_3_text:      'Більшість форматів навчання пояснює, що таке ШІ. BrainBites AI показує, що це означає для твоєї роботи — сьогодні, конкретно.',
+        feat_label:       'Функції',
+        feat_headline:    'Ось як працює щоденне навчання.',
+        feat_sub:         'Розроблено для профі, які не хочуть витрачати час даремно.',
+        feat_1_title:     'Щодня. 5 хвилин. Готово.',
+        feat_1_text:      'Один урок на день — з 3 конкретними кроками і завданням, яке ти можеш виконати сьогодні.',
+        feat_2_title:     'Розуміти ШІ, а не просто використовувати',
+        feat_2_text:      'Ти не просто дізнаєшся, що таке LLM, RAG або агенти — ти розумієш, що це означає для твоєї роботи.',
+        feat_3_title:     'Для профі, не для студентів',
+        feat_3_text:      'Без базового повторення. Контент для керівників, фрілансерів та амбітних профі.',
+        feat_4_title:     'Твій прогрес, видимий',
+        feat_4_text:      'Серія, завершені навики, напрямки — одним поглядом.',
+        feat_5_title:     'Твій час, твій темп',
+        feat_5_text:      'Обери, коли хочеш вчитися — вранці, вдень або ввечері. Додаток нагадає у потрібний час.',
+        feat_6_title:     'DE · EN · PT-BR · UA',
+        feat_6_text:      'Весь контент доступний німецькою, англійською, португальською та українською. Мова перемикається автоматично разом з налаштуваннями iPhone.',
+        how_label:        'Як це працює',
+        how_headline:     '4 кроки до щоденного навику.',
+        how_sub:          'Від завантаження до першого інсайту — менше 3 хвилин.',
+        step_1_title:     'Обери свої напрямки',
+        step_1_text:      'При запуску ти обираєш, що тебе цікавить — ШІ, кар\'єра, продуктивність або лідерство.',
+        step_2_title:     'Відкривай додаток щодня',
+        step_2_text:      'Новий урок чекає на тебе — підібраний до твоїх цілей нашим ШІ.',
+        step_3_title:     'Навчайся &amp; застосовуй',
+        step_3_text:      '3 конкретні кроки + одне завдання на сьогодні. Читання заради результату.',
+        step_4_title:     'Будуй свою серію',
+        step_4_text:      'Через 30 днів у тебе 30 нових навиків. Через 90 днів ти — інша людина.',
+        cat_label:        'Категорії',
+        cat_headline:     'Що ти вивчаєш.',
+        cat_sub:          '13 категорій — усі з прямим зв\'язком з ШІ. Чотири безкоштовно, дві в Premium, сім незабаром.',
+        cat_1_title:      'Практика ШІ',
+        cat_1_text:       'Писати промпти, використовувати ChatGPT для зустрічей, автоматизувати процеси.',
+        cat_2_title:      'Знання про ШІ',
+        cat_2_text:       'LLM, RAG, агенти, токени, GPT — пояснено зрозуміло, одразу застосовно.',
+        cat_3_title:      'Кар\'єра &amp; ШІ',
+        cat_3_text:       'Твоє позиціонування в епоху ШІ, оцінка ефективності, стратегія LinkedIn.',
+        cat_4_title:      'Продуктивність',
+        cat_4_text:       'Brain dump, техніки фокусу, ШІ як персональний асистент.',
+        cat_5_title:      'Лідерство &amp; ШІ',
+        cat_5_text:       'Норми ШІ для команд, якість рішень, лідерство під час змін.',
+        cat_6_title:      'Комунікація',
+        cat_6_text:       'Писати листи з ШІ, переконливіше презентувати, краще вести переговори.',
+        cat_7_title:      'ШІ &amp; Етика / Право',
+        cat_7_text:       'Регулювання, відповідальність, конфіденційність — ШІ у правовому та етичному контексті.',
+        cat_8_title:      'ШІ-Інструменти &amp; Технології',
+        cat_8_text:       'Найкращі ШІ-інструменти — для чого вони і як їх використовувати.',
+        cat_9_title:      'ШІ &amp; Дані',
+        cat_9_text:       'Розуміти, інтерпретувати і ефективно використовувати дані з ШІ.',
+        cat_10_title:     'ШІ &amp; Фінанси / Банкінг',
+        cat_10_text:      'ШІ в бухгалтерії, аналізі, кредитних рішеннях та особистих фінансах.',
+        cat_11_title:     'ШІ &amp; Процеси',
+        cat_11_text:      'Автоматизувати процеси, оптимізувати операції, заощаджувати ресурси.',
+        cat_12_title:     'Експерименти з ШІ',
+        cat_12_text:      'Спробуй несподіване — творчі і незвичні застосування ШІ.',
+        cat_13_title:     'ШІ &amp; Суспільство',
+        cat_13_text:      'Як ШІ змінює роботу, освіту і суспільство — і що це означає для тебе.',
+        cat_soon:         'Незабаром',
+        premium_badge:    'Premium',
+        rev_label:        'Голоси спільноти',
+        rev_headline:     'Що кажуть профі.',
+        rev_1_text:       '"Нарешті додаток, який справді пояснює мені ШІ — не як рекламу, а як реальний навик."',
+        rev_1_author:     'Markus T. · Керівник проекту',
+        rev_2_text:       '"5 хвилин вранці — і я йду в день більш поінформованим. BrainBites — мій щоденний ритуал."',
+        rev_2_author:     'Sandra K. · Team Lead',
+        rev_3_text:       '"За 2 тижні я дізнався про ШІ більше, ніж за 6 місяців читання LinkedIn."',
+        rev_3_author:     'David R. · Консультант з управління',
+        price_label:      'Плани',
+        price_headline:   'Почни безкоштовно. Вчись більше з Premium.',
+        price_free_plan:  'Free',
+        price_free_period:'Назавжди безкоштовно',
+        price_free_1:     '1 урок щодня',
+        price_free_2:     'Серія &amp; прогрес',
+        price_free_3:     '7 днів історії навчання',
+        price_free_4:     'Практика ШІ &amp; Знання про ШІ',
+        price_free_5:     'Кар\'єра &amp; Продуктивність',
+        price_free_cta:   'Завантажити безкоштовно',
+        price_prem_plan:  'Premium',
+        price_prem_sub:   'від €0,99/міс · €9,99/рік · €44,99 одноразово',
+        price_prem_1:     'Все з Free',
+        price_prem_2:     'Повна історія навчання',
+        price_prem_3:     'Лідерство &amp; ШІ',
+        price_prem_4:     'Комунікація',
+        price_prem_5:     'Пріоритет категорій',
+        price_prem_cta:   'Перейти на Premium',
+        price_prem_note:  'Скасуй будь-коли · Оплата через Apple',
+        dl_headline:      'Готовий? Починай сьогодні.',
+        dl_sub:           'Завантажуй безкоштовно — перший урок вже чекає на тебе.',
+        dl_note:          'Доступно для iPhone та iPad · iOS 17+',
+        imp_title:        'Правова інформація',
+        imp_legal_title:  'Відповідно до § 5 TMG',
+        imp_contact_title:'Контакт',
+        imp_reg_title:    'Торговий реєстр',
+        imp_reg_text:     'Не зареєстровано в торговому реєстрі.',
+        imp_vat_title:    'Ідентифікаційний номер платника ПДВ',
+        imp_vat_text:     'Ідентифікаційний номер платника ПДВ відповідно до § 27\u00a0a UStG: надається на запит.',
+        imp_resp_title:   'Відповідальний за вміст відповідно до § 55 абз. 2 RStV',
+        imp_app_title:    'Примітка про додаток',
+        imp_app_text:     'BrainBites AI — iOS-додаток від torecon, доступний у Apple App Store. Підтримка: <a href="mailto:support@getbrainbites.ai">support@getbrainbites.ai</a>',
+        footer_brand:     'бренд',
+        footer_privacy:   'Конфіденційність',
+        footer_terms:     'Умови використання',
+        footer_imprint:   'Правова інформація',
+        footer_rights:    'Усі права захищено.',
+        footer_also:      'Більше від torecon',
+        footer_qr_label:  'Завантажити додаток',
       }
     };
 
-    let currentLang = localStorage.getItem('bb_lang') ||
-      (navigator.language.startsWith('de') ? 'de' : 'en');
+    let currentLang = (() => {
+      const stored = localStorage.getItem('bb_lang');
+      if (stored) return stored;
+      const lang = navigator.language;
+      if (lang.startsWith('de')) return 'de';
+      if (lang.startsWith('pt')) return 'pt';
+      if (lang.startsWith('uk')) return 'uk';
+      return 'en';
+    })();
 
     function applyLang(lang) {
       currentLang = lang;
@@ -901,6 +1530,14 @@
         document.title = 'BrainBites AI — Learn AI in 5 minutes a day';
         document.querySelector('meta[name="description"]').setAttribute('content',
           'A practical AI skill every day. LLM, RAG, prompts, career & more. For professionals who have no time for courses. Free on iPhone.');
+      } else if (lang === 'pt') {
+        document.title = 'BrainBites AI — Aprenda IA em 5 minutos por dia';
+        document.querySelector('meta[name="description"]').setAttribute('content',
+          'Uma habilidade prática de IA todos os dias. LLM, RAG, prompts, carreira e mais. Para profissionais sem tempo para cursos. Grátis no iPhone.');
+      } else if (lang === 'uk') {
+        document.title = 'BrainBites AI — Вивчай ШІ за 5 хвилин на день';
+        document.querySelector('meta[name="description"]').setAttribute('content',
+          'Щодня практичний навик ШІ. LLM, RAG, промпти, кар\'єра та більше. Для профі без часу на курси. Безкоштовно на iPhone.');
       } else {
         document.title = 'BrainBites AI — KI lernen in 5 Minuten täglich';
         document.querySelector('meta[name="description"]').setAttribute('content',
@@ -914,10 +1551,10 @@
 
       // Update privacy/terms links to language-aware pages
       document.querySelectorAll('a[href="/privacy/"]').forEach(a => {
-        a.href = lang === 'en' ? '/privacy/?lang=en' : '/privacy/';
+        a.href = lang === 'en' ? '/privacy/?lang=en' : lang === 'pt' ? '/privacy/?lang=pt' : lang === 'uk' ? '/privacy/?lang=uk' : '/privacy/';
       });
       document.querySelectorAll('a[href*="/terms/"]').forEach(a => {
-        a.href = lang === 'en' ? '/terms/?lang=en' : '/terms/';
+        a.href = lang === 'en' ? '/terms/?lang=en' : lang === 'pt' ? '/terms/?lang=pt' : lang === 'uk' ? '/terms/?lang=uk' : '/terms/';
       });
     }
 
