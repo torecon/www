@@ -20,9 +20,10 @@
     a:hover { opacity: 0.8; }
     .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
     .nav-inner { max-width: var(--container); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
-    .nav-logo-violonge { color: var(--text); }
-    .nav-logo-ai { color: var(--accent); }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-logo-icon { width: 28px; height: 28px; border-radius: 6px; object-fit: cover; flex-shrink: 0; }
+    .nav-logo-violonge { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+    .nav-logo-ai { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); }
     .nav-back { font-size: 14px; color: var(--text-secondary); text-decoration: none; }
     .nav-back:hover { color: var(--accent); opacity: 1; }
     .lang-toggle { display: flex; align-items: center; background: var(--bg-alt); border: 1px solid rgba(0,0,0,0.15); border-radius: 20px; padding: 3px; gap: 2px; }
@@ -50,134 +51,235 @@
 
 <nav class="site-nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="/"><span class="nav-logo-violonge">VioLonge</span><span class="nav-logo-ai"> AI</span></a>
+    <a class="nav-logo" href="/">
+      <img class="nav-logo-icon" src="/logo.png" alt="VioLonge AI">
+      <span class="nav-logo-violonge">VioLonge</span><span class="nav-logo-ai"> AI</span>
+    </a>
     <div style="display:flex;align-items:center;gap:16px;">
       <div class="lang-toggle">
         <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
         <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">PT</button>
       </div>
-      <a class="nav-back" href="/" data-de="← Zurück" data-en="← Back">← Zurück</a>
+      <a class="nav-back" href="/"
+         data-de="← Zurück"
+         data-en="← Back"
+         data-pt="← Voltar">← Zurück</a>
     </div>
   </div>
 </nav>
 
 <div class="page-wrap">
-  <p class="page-label" data-de="Rechtliches" data-en="Legal">Rechtliches</p>
-  <h1 class="page-title" data-de="Nutzungsbedingungen" data-en="Terms of Use">Nutzungsbedingungen</h1>
-  <p class="page-date" data-de="Stand: April 2026" data-en="Last updated: April 2026">Stand: April 2026</p>
+  <p class="page-label"
+     data-de="Rechtliches"
+     data-en="Legal"
+     data-pt="Legal">Rechtliches</p>
+  <h1 class="page-title"
+      data-de="Nutzungsbedingungen"
+      data-en="Terms of Use"
+      data-pt="Termos de Uso">Nutzungsbedingungen</h1>
+  <p class="page-date"
+     data-de="Stand: April 2026"
+     data-en="Last updated: April 2026"
+     data-pt="Atualizado: abril de 2026">Stand: April 2026</p>
 
   <div class="warning-box">
-    <p data-de="⚕️ Wichtiger Hinweis: VioLonge AI ist kein medizinisches Produkt. Die App ersetzt keine ärztliche Beratung, Diagnose oder Behandlung. Bei gesundheitlichen Beschwerden wende dich bitte an einen Arzt." data-en="⚕️ Important notice: VioLonge AI is not a medical product. The app does not replace medical advice, diagnosis or treatment. For health concerns, please consult a doctor.">⚕️ Wichtiger Hinweis: VioLonge AI ist kein medizinisches Produkt. Die App ersetzt keine ärztliche Beratung, Diagnose oder Behandlung. Bei gesundheitlichen Beschwerden wende dich bitte an einen Arzt.</p>
+    <p data-de="⚕️ Wichtiger Hinweis: VioLonge AI ist kein medizinisches Produkt. Die App ersetzt keine ärztliche Beratung, Diagnose oder Behandlung. Bei gesundheitlichen Beschwerden wende dich bitte an einen Arzt."
+       data-en="⚕️ Important notice: VioLonge AI is not a medical product. The app does not replace medical advice, diagnosis or treatment. For health concerns, please consult a doctor."
+       data-pt="⚕️ Aviso importante: VioLonge AI não é um produto médico. O app não substitui orientação médica, diagnóstico ou tratamento. Para problemas de saúde, consulte um médico.">⚕️ Wichtiger Hinweis: VioLonge AI ist kein medizinisches Produkt. Die App ersetzt keine ärztliche Beratung, Diagnose oder Behandlung. Bei gesundheitlichen Beschwerden wende dich bitte an einen Arzt.</p>
   </div>
 
   <!-- 1 -->
   <div class="section">
-    <h2 data-de="1. Geltungsbereich" data-en="1. Scope">1. Geltungsbereich</h2>
-    <p data-de="Diese Nutzungsbedingungen gelten für die Nutzung der mobilen Anwendung VioLonge AI (nachfolgend „App") sowie der zugehörigen Website violonge.torecon.de, betrieben von Thomas Reinke / torecon, Roesgenstr. 22, 53474 Ahrweiler (nachfolgend „Anbieter")." data-en="These Terms of Use apply to the use of the mobile application VioLonge AI (hereinafter 'App') and the associated website violonge.torecon.de, operated by Thomas Reinke / torecon, Roesgenstr. 22, 53474 Ahrweiler (hereinafter 'Provider').">Diese Nutzungsbedingungen gelten für die App VioLonge AI und die Website violonge.torecon.de, betrieben von Thomas Reinke / torecon, Roesgenstr. 22, 53474 Ahrweiler.</p>
-    <p data-de="Mit der Nutzung der App oder der Website erklärst du dich mit diesen Nutzungsbedingungen einverstanden." data-en="By using the app or website, you agree to these Terms of Use.">Mit der Nutzung der App stimmst du diesen Bedingungen zu.</p>
+    <h2 data-de="1. Geltungsbereich"
+        data-en="1. Scope"
+        data-pt="1. Âmbito de aplicação">1. Geltungsbereich</h2>
+    <p data-de="Diese Nutzungsbedingungen gelten für die Nutzung der mobilen Anwendung VioLonge AI (nachfolgend „App") sowie der zugehörigen Website violonge.torecon.de, betrieben von Thomas Reinke / torecon, Roesgenstr. 22, 53474 Ahrweiler (nachfolgend „Anbieter")."
+       data-en="These Terms of Use apply to the use of the mobile application VioLonge AI (hereinafter 'App') and the associated website violonge.torecon.de, operated by Thomas Reinke / torecon, Roesgenstr. 22, 53474 Ahrweiler (hereinafter 'Provider')."
+       data-pt="Estes Termos de Uso aplicam-se à utilização do aplicativo móvel VioLonge AI (doravante 'App') e ao site violonge.torecon.de, operados por Thomas Reinke / torecon, Roesgenstr. 22, 53474 Ahrweiler (doravante 'Fornecedor').">Diese Nutzungsbedingungen gelten für die App VioLonge AI und die Website violonge.torecon.de, betrieben von Thomas Reinke / torecon, Roesgenstr. 22, 53474 Ahrweiler.</p>
+    <p data-de="Mit der Nutzung der App oder der Website erklärst du dich mit diesen Nutzungsbedingungen einverstanden."
+       data-en="By using the app or website, you agree to these Terms of Use."
+       data-pt="Ao utilizar o app ou o site, você concorda com estes Termos de Uso.">Mit der Nutzung der App stimmst du diesen Bedingungen zu.</p>
   </div>
 
   <!-- 2 -->
   <div class="section">
-    <h2 data-de="2. Leistungsbeschreibung" data-en="2. Service description">2. Leistungsbeschreibung</h2>
-    <p data-de="VioLonge AI ist eine Wellness- und Lifestyle-Anwendung, die täglich 1–3 personalisierte Gesundheitsempfehlungen für die Bereiche Schlaf, Ernährung, Bewegung und Stressmanagement bereitstellt. Die Empfehlungen werden durch ein KI-System auf Basis der im Onboarding angegebenen Nutzerpräferenzen generiert." data-en="VioLonge AI is a wellness and lifestyle application that provides 1–3 personalised daily health recommendations in the areas of sleep, nutrition, movement and stress management. Recommendations are generated by an AI system based on user preferences entered during onboarding.">VioLonge AI ist eine Wellness-App mit täglich 1–3 KI-generierten Gesundheitsempfehlungen in den Bereichen Schlaf, Ernährung, Bewegung und Stress.</p>
+    <h2 data-de="2. Leistungsbeschreibung"
+        data-en="2. Service description"
+        data-pt="2. Descrição do serviço">2. Leistungsbeschreibung</h2>
+    <p data-de="VioLonge AI ist eine Wellness- und Lifestyle-Anwendung, die täglich 1–3 personalisierte Gesundheitsempfehlungen für die Bereiche Schlaf, Ernährung, Bewegung und Stressmanagement bereitstellt. Die Empfehlungen werden durch ein KI-System auf Basis der im Onboarding angegebenen Nutzerpräferenzen generiert."
+       data-en="VioLonge AI is a wellness and lifestyle application that provides 1–3 personalised daily health recommendations in the areas of sleep, nutrition, movement and stress management. Recommendations are generated by an AI system based on user preferences entered during onboarding."
+       data-pt="VioLonge AI é um aplicativo de bem-estar e estilo de vida que fornece 1–3 recomendações de saúde personalizadas diariamente nas áreas de sono, alimentação, movimento e gestão do estresse. As recomendações são geradas por um sistema de IA com base nas preferências do usuário informadas durante o onboarding.">VioLonge AI ist eine Wellness-App mit täglich 1–3 KI-generierten Gesundheitsempfehlungen in den Bereichen Schlaf, Ernährung, Bewegung und Stress.</p>
 
-    <h3 data-de="2.1 Free-Version" data-en="2.1 Free version">2.1 Free-Version</h3>
+    <h3 data-de="2.1 Free-Version"
+        data-en="2.1 Free version"
+        data-pt="2.1 Versão gratuita">2.1 Free-Version</h3>
     <ul>
-      <li data-de="1 Empfehlung pro Tag" data-en="1 recommendation per day">1 Empfehlung pro Tag</li>
-      <li data-de="Alle 4 Schwerpunkte" data-en="All 4 focus areas">Alle 4 Schwerpunkte</li>
-      <li data-de="Streak-Tracking" data-en="Streak tracking">Streak-Tracking</li>
-      <li data-de="Teilen-Funktion" data-en="Share feature">Teilen-Funktion</li>
+      <li data-de="1 Empfehlung pro Tag" data-en="1 recommendation per day" data-pt="1 recomendação por dia">1 Empfehlung pro Tag</li>
+      <li data-de="Alle 4 Schwerpunkte" data-en="All 4 focus areas" data-pt="Todas as 4 áreas de foco">Alle 4 Schwerpunkte</li>
+      <li data-de="Streak-Tracking" data-en="Streak tracking" data-pt="Acompanhamento de sequências">Streak-Tracking</li>
+      <li data-de="Teilen-Funktion" data-en="Share feature" data-pt="Função de compartilhamento">Teilen-Funktion</li>
     </ul>
 
-    <h3 data-de="2.2 Premium-Version (Abonnement)" data-en="2.2 Premium version (subscription)">2.2 Premium-Version (Abonnement)</h3>
+    <h3 data-de="2.2 Premium-Version"
+        data-en="2.2 Premium version"
+        data-pt="2.2 Versão Premium">2.2 Premium-Version</h3>
     <ul>
-      <li data-de="Bis zu 3 Empfehlungen pro Tag" data-en="Up to 3 recommendations per day">Bis zu 3 Empfehlungen pro Tag</li>
-      <li data-de="Tiefere KI-Personalisierung" data-en="Deeper AI personalisation">Tiefere KI-Personalisierung</li>
-      <li data-de="Vollständiger Aktionsverlauf" data-en="Full action history">Vollständiger Aktionsverlauf</li>
-      <li data-de="Wöchentliche KI-Zusammenfassung" data-en="Weekly AI summary">Wöchentliche KI-Zusammenfassung</li>
+      <li data-de="Bis zu 3 Empfehlungen pro Tag" data-en="Up to 3 recommendations per day" data-pt="Até 3 recomendações por dia">Bis zu 3 Empfehlungen pro Tag</li>
+      <li data-de="Tiefere KI-Personalisierung" data-en="Deeper AI personalisation" data-pt="Personalização de IA mais profunda">Tiefere KI-Personalisierung</li>
+      <li data-de="Vollständiger Aktionsverlauf" data-en="Full action history" data-pt="Histórico completo de ações">Vollständiger Aktionsverlauf</li>
+      <li data-de="Wöchentliche KI-Zusammenfassung" data-en="Weekly AI summary" data-pt="Resumo semanal por IA">Wöchentliche KI-Zusammenfassung</li>
     </ul>
   </div>
 
   <!-- 3 -->
   <div class="section">
-    <h2 data-de="3. Kein medizinisches Produkt" data-en="3. Not a medical product">3. Kein medizinisches Produkt</h2>
-    <p data-de="VioLonge AI ist ausdrücklich kein Medizinprodukt im Sinne der EU-Medizinprodukteverordnung (MDR) oder des deutschen Medizinproduktegesetzes. Die App:" data-en="VioLonge AI is expressly not a medical device within the meaning of the EU Medical Device Regulation (MDR) or German Medical Devices Act. The app:">VioLonge AI ist ausdrücklich kein Medizinprodukt. Die App:</p>
+    <h2 data-de="3. Kein medizinisches Produkt"
+        data-en="3. Not a medical product"
+        data-pt="3. Não é um produto médico">3. Kein medizinisches Produkt</h2>
+    <p data-de="VioLonge AI ist ausdrücklich kein Medizinprodukt im Sinne der EU-Medizinprodukteverordnung (MDR) oder des deutschen Medizinproduktegesetzes. Die App:"
+       data-en="VioLonge AI is expressly not a medical device within the meaning of the EU Medical Device Regulation (MDR) or German Medical Devices Act. The app:"
+       data-pt="VioLonge AI não é expressamente um dispositivo médico nos termos do Regulamento europeu de dispositivos médicos (MDR) ou da legislação alemã. O app:">VioLonge AI ist ausdrücklich kein Medizinprodukt. Die App:</p>
     <ul>
-      <li data-de="stellt keine medizinischen Diagnosen" data-en="does not provide medical diagnoses">stellt keine medizinischen Diagnosen</li>
-      <li data-de="gibt keine Medikamentenempfehlungen" data-en="does not give medication recommendations">gibt keine Medikamentenempfehlungen</li>
-      <li data-de="ersetzt keine ärztliche Beratung oder Behandlung" data-en="does not replace medical advice or treatment">ersetzt keine ärztliche Beratung oder Behandlung</li>
-      <li data-de="ist nicht für die Behandlung von Krankheiten geeignet" data-en="is not suitable for treating illnesses">ist nicht für die Behandlung von Krankheiten geeignet</li>
+      <li data-de="stellt keine medizinischen Diagnosen" data-en="does not provide medical diagnoses" data-pt="não fornece diagnósticos médicos">stellt keine medizinischen Diagnosen</li>
+      <li data-de="gibt keine Medikamentenempfehlungen" data-en="does not give medication recommendations" data-pt="não dá recomendações de medicamentos">gibt keine Medikamentenempfehlungen</li>
+      <li data-de="ersetzt keine ärztliche Beratung oder Behandlung" data-en="does not replace medical advice or treatment" data-pt="não substitui orientação ou tratamento médico">ersetzt keine ärztliche Beratung oder Behandlung</li>
+      <li data-de="ist nicht für die Behandlung von Krankheiten geeignet" data-en="is not suitable for treating illnesses" data-pt="não é adequado para o tratamento de doenças">ist nicht für die Behandlung von Krankheiten geeignet</li>
     </ul>
-    <p data-de="Bei gesundheitlichen Beschwerden, Erkrankungen oder Zweifeln an der Eignung einer Empfehlung für deinen persönlichen Gesundheitszustand wende dich bitte an einen Arzt oder eine andere qualifizierte Fachkraft." data-en="For health complaints, illnesses or doubts about the suitability of a recommendation for your personal health situation, please consult a doctor or other qualified professional.">Bei gesundheitlichen Beschwerden wende dich bitte an einen Arzt.</p>
+    <p data-de="Bei gesundheitlichen Beschwerden, Erkrankungen oder Zweifeln an der Eignung einer Empfehlung für deinen persönlichen Gesundheitszustand wende dich bitte an einen Arzt oder eine andere qualifizierte Fachkraft."
+       data-en="For health complaints, illnesses or doubts about the suitability of a recommendation for your personal health situation, please consult a doctor or other qualified professional."
+       data-pt="Para queixas de saúde, doenças ou dúvidas sobre a adequação de uma recomendação à sua situação pessoal de saúde, consulte um médico ou outro profissional qualificado.">Bei gesundheitlichen Beschwerden wende dich bitte an einen Arzt.</p>
   </div>
 
   <!-- 4 -->
   <div class="section">
-    <h2 data-de="4. Registrierung und Nutzerkonto" data-en="4. Registration and user account">4. Registrierung und Nutzerkonto</h2>
-    <p data-de="Die Nutzung der App erfordert kein Nutzerkonto mit E-Mail-Adresse. Die Identifikation erfolgt über eine anonyme, gerätebezogene UUID. Diese kann nicht für andere Geräte übertragen werden. Bei Gerätewechsel oder App-Neuinstallation wird ein neues Profil erstellt." data-en="Using the app does not require a user account with an email address. Identification is via an anonymous, device-specific UUID. This cannot be transferred to other devices. A new profile is created when changing devices or reinstalling the app.">Die App erfordert kein Konto. Die Identifikation erfolgt über eine anonyme Geräte-UUID. Bei Gerätewechsel wird ein neues Profil erstellt.</p>
+    <h2 data-de="4. Registrierung und Nutzerkonto"
+        data-en="4. Registration and user account"
+        data-pt="4. Registro e conta de usuário">4. Registrierung und Nutzerkonto</h2>
+    <p data-de="Die Nutzung der App erfordert kein Nutzerkonto mit E-Mail-Adresse. Die Identifikation erfolgt über eine anonyme, gerätebezogene UUID. Diese kann nicht für andere Geräte übertragen werden. Bei Gerätewechsel oder App-Neuinstallation wird ein neues Profil erstellt."
+       data-en="Using the app does not require a user account with an email address. Identification is via an anonymous, device-specific UUID. This cannot be transferred to other devices. A new profile is created when changing devices or reinstalling the app."
+       data-pt="O uso do app não requer uma conta com endereço de e-mail. A identificação é feita por meio de um UUID anônimo específico do dispositivo. Ele não pode ser transferido para outros dispositivos. Um novo perfil é criado ao trocar de dispositivo ou reinstalar o app.">Die App erfordert kein Konto. Die Identifikation erfolgt über eine anonyme Geräte-UUID. Bei Gerätewechsel wird ein neues Profil erstellt.</p>
   </div>
 
   <!-- 5 -->
   <div class="section">
-    <h2 data-de="5. Abonnements und In-App-Käufe" data-en="5. Subscriptions and in-app purchases">5. Abonnements und In-App-Käufe</h2>
-    <p data-de="Premium-Abonnements werden über den Apple App Store abgewickelt. Es gelten die Zahlungs- und Stornierungsbedingungen von Apple." data-en="Premium subscriptions are processed via the Apple App Store. Apple's payment and cancellation terms apply.">Premium-Abonnements werden über den Apple App Store abgewickelt.</p>
-    <ul>
-      <li data-de="Monatlich: €4,99/Monat" data-en="Monthly: €4.99/month">Monatlich: €4,99/Monat</li>
-      <li data-de="Jährlich: €29,99/Jahr (ca. 50% Ersparnis)" data-en="Annually: €29.99/year (approx. 50% saving)">Jährlich: €29,99/Jahr</li>
-      <li data-de="7-tägige kostenlose Testphase für neue Nutzer" data-en="7-day free trial for new users">7-tägige kostenlose Testphase</li>
-    </ul>
-    <p data-de="Das Abonnement verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ende des aktuellen Abrechnungszeitraums über die App-Store-Einstellungen gekündigt wird." data-en="The subscription renews automatically unless cancelled at least 24 hours before the end of the current billing period via App Store settings.">Das Abo verlängert sich automatisch, wenn es nicht 24h vor Ende der Laufzeit über die App-Store-Einstellungen gekündigt wird.</p>
+    <h2 data-de="5. Abonnements und In-App-Käufe"
+        data-en="5. Subscriptions and in-app purchases"
+        data-pt="5. Assinaturas e compras no app">5. Abonnements und In-App-Käufe</h2>
+    <p data-de="VioLonge AI bietet kostenpflichtige Premium-Abonnements über den Apple App Store an: ein monatliches Abonnement und ein jährliches Abonnement. Die jeweils gültigen Preise werden dir vor dem Kauf direkt in der App und im App Store angezeigt. Preise können je nach Region und Zeitpunkt abweichen."
+       data-en="VioLonge AI offers paid premium subscriptions via the Apple App Store: a monthly subscription and an annual subscription. The applicable prices are displayed to you before purchase directly in the app and in the App Store. Prices may vary by region and time."
+       data-pt="VioLonge AI oferece assinaturas premium pagas pela Apple App Store: uma assinatura mensal e uma anual. Os preços vigentes são exibidos antes da compra diretamente no app e na App Store. Os preços podem variar conforme a região e o período.">VioLonge AI bietet kostenpflichtige Premium-Abonnements über den Apple App Store an: monatlich und jährlich. Die Preise werden vor dem Kauf direkt in der App und im App Store angezeigt.</p>
+    <p data-de="Beide Abonnements bieten eine kostenlose 7-tägige Testphase. Nach Ablauf der Testphase wird das Abonnement automatisch zum jeweiligen Preis verlängert, sofern es nicht mindestens 24 Stunden vor Ablauf über die App-Store-Einstellungen gekündigt wird."
+       data-en="Both subscriptions offer a free 7-day trial. After the trial period ends, the subscription automatically renews at the applicable price unless cancelled at least 24 hours before expiry via App Store settings."
+       data-pt="Ambas as assinaturas oferecem um período de teste gratuito de 7 dias. Após o período de teste, a assinatura é renovada automaticamente pelo preço vigente, salvo cancelamento com pelo menos 24 horas de antecedência nas configurações da App Store.">Beide Abonnements bieten eine kostenlose 7-tägige Testphase. Nach Ablauf wird das Abonnement automatisch verlängert, sofern es nicht 24h vorher gekündigt wird.</p>
+    <p data-de="Alle Zahlungen, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Abonnements können jederzeit über Systemeinstellungen → Apple-ID → Abonnements gekündigt werden."
+       data-en="All payments, invoices and refunds are handled exclusively through Apple. Subscriptions can be cancelled at any time via Settings → Apple ID → Subscriptions."
+       data-pt="Todos os pagamentos, faturas e reembolsos são processados exclusivamente pela Apple. As assinaturas podem ser canceladas a qualquer momento em Ajustes → Apple ID → Assinaturas.">Alle Zahlungen werden ausschließlich über Apple abgewickelt. Kündigung über: Systemeinstellungen → Apple-ID → Abonnements.</p>
   </div>
 
   <!-- 6 -->
   <div class="section">
-    <h2 data-de="6. Nutzerpflichten" data-en="6. User obligations">6. Nutzerpflichten</h2>
-    <p data-de="Du verpflichtest dich, die App nur für den vorgesehenen Zweck (persönliche Gesundheits-Begleitung) zu nutzen und keine automatisierten Anfragen an unsere Backend-Dienste zu senden, die den Betrieb beeinträchtigen könnten." data-en="You agree to use the app only for its intended purpose (personal health companion) and not to send automated requests to our backend services that could impair operations.">Du verpflichtest dich, die App nur für den vorgesehenen Zweck zu nutzen und keine automatisierten Anfragen zu senden, die den Betrieb beeinträchtigen.</p>
+    <h2 data-de="6. Nutzungslizenz"
+        data-en="6. Usage licence"
+        data-pt="6. Licença de uso">6. Nutzungslizenz</h2>
+    <p data-de="Mit dem Download von VioLonge AI erhältst du eine nicht-ausschließliche, nicht übertragbare, widerrufliche Lizenz zur privaten, nicht-kommerziellen Nutzung auf Apple-Geräten, die deinem Apple-Konto zugeordnet sind."
+       data-en="By downloading VioLonge AI you receive a non-exclusive, non-transferable, revocable licence for private, non-commercial use on Apple devices associated with your Apple account."
+       data-pt="Ao baixar VioLonge AI, você recebe uma licença não exclusiva, intransferível e revogável para uso privado e não comercial em dispositivos Apple associados à sua conta Apple.">Mit dem Download erhältst du eine nicht-ausschließliche Lizenz zur privaten Nutzung auf Apple-Geräten deines Apple-Kontos.</p>
+    <p data-de="Nicht gestattet sind insbesondere: Kopieren oder Modifizieren der App, Dekompilieren oder Reverse Engineering sowie gewerbliche Nutzung."
+       data-en="Not permitted in particular: copying or modifying the app, decompiling or reverse engineering, and commercial use."
+       data-pt="Não é permitido, entre outros: copiar ou modificar o app, descompilar ou fazer engenharia reversa, e uso comercial.">Nicht gestattet: Kopieren, Reverse Engineering oder gewerbliche Nutzung.</p>
   </div>
 
   <!-- 7 -->
   <div class="section">
-    <h2 data-de="7. Verfügbarkeit und Änderungen" data-en="7. Availability and changes">7. Verfügbarkeit und Änderungen</h2>
-    <p data-de="Der Anbieter bemüht sich um eine hohe Verfügbarkeit der App und des Backends, übernimmt jedoch keine Garantie für eine ununterbrochene Verfügbarkeit. Wartungsarbeiten, technische Störungen oder externe Abhängigkeiten (z. B. KI-API-Anbieter) können zu vorübergehenden Einschränkungen führen." data-en="The provider strives for high availability of the app and backend, but does not guarantee uninterrupted availability. Maintenance, technical faults or external dependencies (e.g. AI API providers) may cause temporary limitations.">Wir bemühen uns um hohe Verfügbarkeit, können jedoch keine Garantie geben. Wartungsarbeiten können zu vorübergehenden Einschränkungen führen.</p>
-    <p data-de="Der Anbieter behält sich vor, den Funktionsumfang der App zu ändern, zu erweitern oder einzustellen. Wesentliche Änderungen werden den Nutzern rechtzeitig mitgeteilt." data-en="The provider reserves the right to change, expand or discontinue the app's functionality. Material changes will be communicated to users in good time.">Wesentliche Änderungen werden rechtzeitig kommuniziert.</p>
+    <h2 data-de="7. Nutzerpflichten"
+        data-en="7. User obligations"
+        data-pt="7. Obrigações do usuário">7. Nutzerpflichten</h2>
+    <p data-de="Du verpflichtest dich, die App nur für den vorgesehenen Zweck (persönliche Gesundheits-Begleitung) zu nutzen und keine automatisierten Anfragen an unsere Backend-Dienste zu senden, die den Betrieb beeinträchtigen könnten."
+       data-en="You agree to use the app only for its intended purpose (personal health companion) and not to send automated requests to our backend services that could impair operations."
+       data-pt="Você se compromete a usar o app apenas para o fim pretendido (acompanhamento pessoal de saúde) e a não enviar solicitações automatizadas aos nossos serviços de backend que possam prejudicar o funcionamento.">Du verpflichtest dich, die App nur für den vorgesehenen Zweck zu nutzen und keine automatisierten Anfragen zu senden.</p>
   </div>
 
   <!-- 8 -->
   <div class="section">
-    <h2 data-de="8. Haftungsausschluss" data-en="8. Liability disclaimer">8. Haftungsausschluss</h2>
-    <p data-de="Der Anbieter haftet nicht für:" data-en="The provider is not liable for:">Der Anbieter haftet nicht für:</p>
-    <ul>
-      <li data-de="Gesundheitliche Folgen, die durch die Befolgung von Empfehlungen der App entstehen" data-en="Health consequences resulting from following app recommendations">Gesundheitliche Folgen durch Befolgen von App-Empfehlungen</li>
-      <li data-de="Datenverlust durch Deinstallation oder Gerätewechsel" data-en="Data loss due to uninstallation or device change">Datenverlust durch Deinstallation oder Gerätewechsel</li>
-      <li data-de="Ausfall oder Einschränkungen des KI-Dienstes" data-en="Failure or limitations of the AI service">Ausfall oder Einschränkungen des KI-Dienstes</li>
-      <li data-de="Inhalte Dritter, auf die über die App verlinkt wird" data-en="Third-party content linked to via the app">Verlinkter Inhalte Dritter</li>
-    </ul>
-    <p data-de="Die Haftung für grobe Fahrlässigkeit und Vorsatz bleibt unberührt." data-en="Liability for gross negligence and wilful misconduct remains unaffected.">Haftung für grobe Fahrlässigkeit und Vorsatz bleibt unberührt.</p>
+    <h2 data-de="8. Verfügbarkeit und Änderungen"
+        data-en="8. Availability and changes"
+        data-pt="8. Disponibilidade e alterações">8. Verfügbarkeit und Änderungen</h2>
+    <p data-de="Der Anbieter bemüht sich um eine hohe Verfügbarkeit der App und des Backends, übernimmt jedoch keine Garantie für eine ununterbrochene Verfügbarkeit. Wartungsarbeiten, technische Störungen oder externe Abhängigkeiten (z. B. KI-API-Anbieter) können zu vorübergehenden Einschränkungen führen."
+       data-en="The provider strives for high availability of the app and backend, but does not guarantee uninterrupted availability. Maintenance, technical faults or external dependencies (e.g. AI API providers) may cause temporary limitations."
+       data-pt="O Fornecedor busca alta disponibilidade do app e do backend, mas não garante disponibilidade ininterrupta. Manutenções, falhas técnicas ou dependências externas (ex.: provedores de API de IA) podem causar limitações temporárias.">Wir bemühen uns um hohe Verfügbarkeit, können jedoch keine Garantie geben.</p>
+    <p data-de="Der Anbieter behält sich vor, den Funktionsumfang der App zu ändern, zu erweitern oder einzustellen. Wesentliche Änderungen werden den Nutzern rechtzeitig mitgeteilt."
+       data-en="The provider reserves the right to change, expand or discontinue the app's functionality. Material changes will be communicated to users in good time."
+       data-pt="O Fornecedor reserva-se o direito de alterar, expandir ou descontinuar as funcionalidades do app. Alterações relevantes serão comunicadas aos usuários com antecedência.">Wesentliche Änderungen werden rechtzeitig kommuniziert.</p>
   </div>
 
   <!-- 9 -->
   <div class="section">
-    <h2 data-de="9. Geistiges Eigentum" data-en="9. Intellectual property">9. Geistiges Eigentum</h2>
-    <p data-de="Alle Inhalte der App (Texte, Empfehlungen, Design, Code, Marken) sind Eigentum des Anbieters oder lizenziert. Eine Vervielfältigung, Weiterverbreitung oder kommerzielle Nutzung ohne ausdrückliche Genehmigung ist nicht gestattet." data-en="All app content (texts, recommendations, design, code, brands) is the property of the provider or licensed. Reproduction, redistribution or commercial use without express permission is not permitted.">Alle Inhalte der App sind Eigentum des Anbieters oder lizenziert. Kommerzielle Nutzung ohne Genehmigung ist nicht gestattet.</p>
+    <h2 data-de="9. Haftungsausschluss"
+        data-en="9. Liability disclaimer"
+        data-pt="9. Isenção de responsabilidade">9. Haftungsausschluss</h2>
+    <p data-de="Der Anbieter haftet nicht für:"
+       data-en="The provider is not liable for:"
+       data-pt="O Fornecedor não se responsabiliza por:">Der Anbieter haftet nicht für:</p>
+    <ul>
+      <li data-de="Gesundheitliche Folgen, die durch die Befolgung von Empfehlungen der App entstehen" data-en="Health consequences resulting from following app recommendations" data-pt="Consequências à saúde decorrentes do cumprimento das recomendações do app">Gesundheitliche Folgen durch Befolgen von App-Empfehlungen</li>
+      <li data-de="Datenverlust durch Deinstallation oder Gerätewechsel" data-en="Data loss due to uninstallation or device change" data-pt="Perda de dados por desinstalação ou troca de dispositivo">Datenverlust durch Deinstallation oder Gerätewechsel</li>
+      <li data-de="Ausfall oder Einschränkungen des KI-Dienstes" data-en="Failure or limitations of the AI service" data-pt="Falha ou limitações do serviço de IA">Ausfall oder Einschränkungen des KI-Dienstes</li>
+      <li data-de="Inhalte Dritter, auf die über die App verlinkt wird" data-en="Third-party content linked to via the app" data-pt="Conteúdo de terceiros vinculado pelo app">Verlinkter Inhalte Dritter</li>
+    </ul>
+    <p data-de="Die Gesamthaftung des Anbieters ist auf den Betrag begrenzt, den du in den letzten 12 Monaten für die App bezahlt hast. Die Haftung für grobe Fahrlässigkeit, Vorsatz, Personenschäden und zwingende gesetzliche Vorgaben bleibt unberührt."
+       data-en="The provider's total liability is limited to the amount you have paid for the app in the preceding 12 months. Liability for gross negligence, wilful misconduct, personal injury and mandatory legal requirements remains unaffected."
+       data-pt="A responsabilidade total do Fornecedor é limitada ao valor pago pelo app nos últimos 12 meses. A responsabilidade por negligência grave, dolo, danos pessoais e requisitos legais obrigatórios permanece inalterada.">Die Gesamthaftung ist auf den in 12 Monaten gezahlten Betrag begrenzt. Haftung für grobe Fahrlässigkeit, Vorsatz und Personenschäden bleibt unberührt.</p>
   </div>
 
   <!-- 10 -->
   <div class="section">
-    <h2 data-de="10. Anwendbares Recht und Streitbeilegung" data-en="10. Applicable law and dispute resolution">10. Anwendbares Recht und Streitbeilegung</h2>
-    <p data-de="Es gilt deutsches Recht. Für Verbraucher innerhalb der EU gilt zusätzlich das Recht des jeweiligen Wohnsitzlandes, soweit dieses für den Verbraucher vorteilhafter ist." data-en="German law applies. For consumers within the EU, the law of their country of residence also applies where this is more favourable to the consumer.">Es gilt deutsches Recht. EU-Verbraucher können sich auch auf ihr jeweiliges Landesrecht berufen.</p>
-    <p data-de="Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: https://ec.europa.eu/consumers/odr. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen." data-en="The EU Commission provides a platform for online dispute resolution: https://ec.europa.eu/consumers/odr. We are not obliged and not willing to participate in dispute resolution proceedings before a consumer arbitration board.">EU-Streitbeilegungsplattform: https://ec.europa.eu/consumers/odr. Wir nehmen nicht an Verbraucherschlichtungsverfahren teil.</p>
+    <h2 data-de="10. Geistiges Eigentum"
+        data-en="10. Intellectual property"
+        data-pt="10. Propriedade intelectual">10. Geistiges Eigentum</h2>
+    <p data-de="Alle Inhalte der App (Texte, Empfehlungen, Design, Code, Marken) sind Eigentum des Anbieters oder lizenziert. Eine Vervielfältigung, Weiterverbreitung oder kommerzielle Nutzung ohne ausdrückliche Genehmigung ist nicht gestattet."
+       data-en="All app content (texts, recommendations, design, code, brands) is the property of the provider or licensed. Reproduction, redistribution or commercial use without express permission is not permitted."
+       data-pt="Todo o conteúdo do app (textos, recomendações, design, código, marcas) é propriedade do Fornecedor ou licenciado. Reprodução, redistribuição ou uso comercial sem autorização expressa não são permitidos.">Alle Inhalte der App sind Eigentum des Anbieters oder lizenziert. Kommerzielle Nutzung ohne Genehmigung ist nicht gestattet.</p>
   </div>
 
   <!-- 11 -->
   <div class="section">
-    <h2 data-de="11. Änderungen der Nutzungsbedingungen" data-en="11. Changes to terms of use">11. Änderungen der Nutzungsbedingungen</h2>
-    <p data-de="Wir behalten uns vor, diese Nutzungsbedingungen anzupassen. Die aktuelle Version ist stets unter violonge.torecon.de/terms abrufbar. Bei wesentlichen Änderungen werden App-Nutzer durch eine In-App-Mitteilung informiert. Die weitere Nutzung der App nach Inkrafttreten der Änderungen gilt als Zustimmung." data-en="We reserve the right to update these Terms of Use. The current version is always available at violonge.torecon.de/terms. For material changes, app users will be notified via an in-app message. Continued use of the app after changes take effect constitutes acceptance.">Die aktuelle Version ist stets unter violonge.torecon.de/terms abrufbar. Weitere Nutzung gilt als Zustimmung zu Änderungen.</p>
+    <h2 data-de="11. Verhältnis zu Apple"
+        data-en="11. Relationship with Apple"
+        data-pt="11. Relação com a Apple">11. Verhältnis zu Apple</h2>
+    <p data-de="Die App wird über den Apple App Store vertrieben. Apple ist nicht Vertragspartei dieser Nutzungsbedingungen und nicht verantwortlich für die App oder deren Inhalte. Bei Fragen oder Problemen mit der App wende dich bitte an den Anbieter unter info@torecon.de. Apple kann diese Nutzungsbedingungen als begünstigter Dritter durchsetzen, soweit sie Apples Interessen betreffen."
+       data-en="The app is distributed through the Apple App Store. Apple is not a party to these Terms of Use and is not responsible for the app or its content. For questions or issues with the app, please contact the provider at info@torecon.de. Apple may enforce these Terms of Use as a third-party beneficiary where they concern Apple's interests."
+       data-pt="O app é distribuído pela Apple App Store. A Apple não é parte destes Termos de Uso e não é responsável pelo app ou pelo seu conteúdo. Para dúvidas ou problemas com o app, entre em contato com o Fornecedor em info@torecon.de. A Apple pode fazer valer estes Termos de Uso como terceiro beneficiário, na medida em que afetem os interesses da Apple.">Die App wird über den Apple App Store vertrieben. Apple ist nicht Vertragspartei dieser Nutzungsbedingungen. Bei Fragen wende dich an info@torecon.de.</p>
   </div>
 
   <!-- 12 -->
   <div class="section">
-    <h2 data-de="12. Kontakt" data-en="12. Contact">12. Kontakt</h2>
+    <h2 data-de="12. Anwendbares Recht und Streitbeilegung"
+        data-en="12. Applicable law and dispute resolution"
+        data-pt="12. Lei aplicável e resolução de litígios">12. Anwendbares Recht und Streitbeilegung</h2>
+    <p data-de="Es gilt deutsches Recht. Für Verbraucher innerhalb der EU gilt zusätzlich das Recht des jeweiligen Wohnsitzlandes, soweit dieses für den Verbraucher vorteilhafter ist."
+       data-en="German law applies. For consumers within the EU, the law of their country of residence also applies where this is more favourable to the consumer."
+       data-pt="Aplica-se o direito alemão. Para consumidores na UE, aplica-se também a legislação do país de residência, quando esta for mais favorável ao consumidor.">Es gilt deutsches Recht. EU-Verbraucher können sich auch auf ihr jeweiliges Landesrecht berufen.</p>
+    <p data-de="Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: https://ec.europa.eu/consumers/odr. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+       data-en="The EU Commission provides a platform for online dispute resolution: https://ec.europa.eu/consumers/odr. We are not obliged and not willing to participate in dispute resolution proceedings before a consumer arbitration board."
+       data-pt="A Comissão Europeia disponibiliza uma plataforma de resolução de litígios em linha: https://ec.europa.eu/consumers/odr. Não somos obrigados nem estamos dispostos a participar em procedimentos de resolução perante uma entidade de arbitragem de consumo.">EU-Streitbeilegungsplattform: https://ec.europa.eu/consumers/odr. Wir nehmen nicht an Verbraucherschlichtungsverfahren teil.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="section">
+    <h2 data-de="13. Änderungen der Nutzungsbedingungen"
+        data-en="13. Changes to terms of use"
+        data-pt="13. Alterações nos Termos de Uso">13. Änderungen der Nutzungsbedingungen</h2>
+    <p data-de="Wir behalten uns vor, diese Nutzungsbedingungen anzupassen. Die aktuelle Version ist stets unter violonge.torecon.de/terms abrufbar. Bei wesentlichen Änderungen werden App-Nutzer durch eine In-App-Mitteilung informiert. Die weitere Nutzung der App nach Inkrafttreten der Änderungen gilt als Zustimmung."
+       data-en="We reserve the right to update these Terms of Use. The current version is always available at violonge.torecon.de/terms. For material changes, app users will be notified via an in-app message. Continued use of the app after changes take effect constitutes acceptance."
+       data-pt="Reservamo-nos o direito de atualizar estes Termos de Uso. A versão atual está sempre disponível em violonge.torecon.de/terms. Em caso de alterações relevantes, os usuários do app serão notificados por mensagem no app. O uso continuado após a entrada em vigor das alterações constitui aceitação.">Die aktuelle Version ist stets unter violonge.torecon.de/terms abrufbar. Weitere Nutzung gilt als Zustimmung zu Änderungen.</p>
+  </div>
+
+  <!-- 14 -->
+  <div class="section">
+    <h2 data-de="14. Kontakt"
+        data-en="14. Contact"
+        data-pt="14. Contato">14. Kontakt</h2>
     <p>Thomas Reinke / torecon<br>Roesgenstr. 22, 53474 Ahrweiler<br>
     E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a><br>
     Web: <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a></p>
@@ -186,9 +288,9 @@
 </div>
 
 <footer class="footer-simple">
-  <a href="/" data-de="Startseite" data-en="Home">Startseite</a>
-  <a href="/privacy/" data-de="Datenschutz" data-en="Privacy Policy">Datenschutz</a>
-  <a href="/#impressum" data-de="Impressum" data-en="Legal Notice">Impressum</a>
+  <a href="/" data-de="Startseite" data-en="Home" data-pt="Início">Startseite</a>
+  <a href="/privacy/" data-de="Datenschutz" data-en="Privacy Policy" data-pt="Privacidade">Datenschutz</a>
+  <a href="/#impressum" data-de="Impressum" data-en="Legal Notice" data-pt="Aviso Legal">Impressum</a>
   <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon.de</a>
   <p>&copy; <span id="year"></span> torecon – Thomas Reinke</p>
 </footer>
@@ -196,27 +298,44 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
   let currentLang = 'de';
+
   function detectLanguage() {
     const saved = localStorage.getItem('vl_lang');
-    if (saved) return saved;
-    return (navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en';
+    if (saved && ['de','en','pt'].includes(saved)) return saved;
+    const sys = (navigator.language || 'de').toLowerCase();
+    if (sys.startsWith('de')) return 'de';
+    if (sys.startsWith('pt')) return 'pt';
+    return 'en';
   }
+
   function setLang(lang) {
     currentLang = lang;
     localStorage.setItem('vl_lang', lang);
     applyLang();
   }
+
   function applyLang() {
-    const isEN = currentLang === 'en';
-    document.getElementById('btn-de').classList.toggle('active', !isEN);
-    document.getElementById('btn-en').classList.toggle('active', isEN);
-    document.documentElement.lang = currentLang;
+    document.getElementById('btn-de').classList.toggle('active', currentLang === 'de');
+    document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+    document.getElementById('btn-pt').classList.toggle('active', currentLang === 'pt');
+    document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : currentLang;
+
     document.querySelectorAll('[data-de]').forEach(el => {
-      const val = isEN ? el.getAttribute('data-en') : el.getAttribute('data-de');
+      let val;
+      if (currentLang === 'en') val = el.getAttribute('data-en');
+      else if (currentLang === 'pt') val = el.getAttribute('data-pt');
+      else val = el.getAttribute('data-de');
       if (val !== null) el.innerHTML = val;
     });
-    document.title = isEN ? 'Terms of Use – VioLonge AI' : 'Nutzungsbedingungen – VioLonge AI';
+
+    const titles = {
+      de: 'Nutzungsbedingungen – VioLonge AI',
+      en: 'Terms of Use – VioLonge AI',
+      pt: 'Termos de Uso – VioLonge AI'
+    };
+    document.title = titles[currentLang] || titles.de;
   }
+
   currentLang = detectLanguage();
   applyLang();
 </script>

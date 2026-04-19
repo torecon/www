@@ -85,7 +85,9 @@
       max-width: var(--container); margin: 0 auto; padding: 0 24px;
       height: 100%; display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; gap: 1px; }
+    .nav-logo { display: flex; flex-direction: row; align-items: center; text-decoration: none; gap: 10px; }
+    .nav-logo-icon { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; gap: 1px; }
     .nav-logo-main { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
     .nav-logo-violonge { color: var(--text); }
     .nav-logo-ai  { color: var(--lv-green); }
@@ -350,9 +352,7 @@
     }
     .pricing-name { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
     .pricing-card.premium .pricing-name { color: #fff; }
-    .pricing-price { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
-    .pricing-card.premium .pricing-price { color: #fff; }
-    .pricing-period { font-size: 13px; color: var(--text-tertiary); margin-bottom: 28px; }
+.pricing-period { font-size: 13px; color: var(--text-tertiary); margin-bottom: 28px; }
     .pricing-card.premium .pricing-period { color: rgba(255,255,255,0.4); }
     .pricing-features { list-style: none; }
     .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; margin-bottom: 12px; color: var(--text-secondary); }
@@ -399,7 +399,8 @@
     /* ── Section: About ──────────────────────────────────────────────────────── */
     .section-about { padding: 80px 24px; }
     .section-about-inner { max-width: 640px; margin: 0 auto; text-align: center; }
-    .section-about-logo { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .section-about-logo { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .section-about-logo img { width: 80px; height: 80px; border-radius: 18px; box-shadow: var(--shadow-lg); }
     .section-about p { color: var(--text-secondary); font-size: 17px; line-height: 1.7; }
     .section-about-link { color: var(--accent); font-weight: 600; text-decoration: none; }
     .section-about-link:hover { opacity: 0.8; }
@@ -467,17 +468,21 @@
   <nav class="site-nav">
     <div class="nav-inner">
       <a class="nav-logo" href="/">
-        <span class="nav-logo-main">
-          <span class="nav-logo-violonge">VioLonge</span><span class="nav-logo-ai"> AI</span>
+        <img class="nav-logo-icon" src="/logo.png" alt="VioLonge AI Logo">
+        <span class="nav-logo-text">
+          <span class="nav-logo-main">
+            <span class="nav-logo-violonge">VioLonge</span><span class="nav-logo-ai"> AI</span>
+          </span>
+          <span class="nav-logo-sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
         </span>
-        <span class="nav-logo-sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
       </a>
       <div class="nav-right">
         <div class="lang-toggle">
           <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
           <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">PT</button>
         </div>
-        <a class="nav-imprint" href="#impressum" data-de="Impressum" data-en="Imprint">Impressum</a>
+        <a class="nav-imprint" href="#impressum" data-de="Impressum" data-en="Imprint" data-pt="Aviso Legal">Impressum</a>
       </div>
     </div>
   </nav>
@@ -642,9 +647,9 @@
           </div>
           <div class="feature-card">
             <span class="feature-emoji">🌍</span>
-            <h3 data-de="Deutsch & Englisch" data-en="German & English">Deutsch & Englisch</h3>
-            <p data-de="Die App ist vollständig zweisprachig — mit automatischer Spracherkennung beim ersten Start." data-en="The app is fully bilingual — with automatic language detection on first launch.">Die App ist vollständig zweisprachig — mit automatischer Spracherkennung beim ersten Start.</p>
-            <span class="feature-tag" data-de="DE / EN" data-en="DE / EN">DE / EN</span>
+            <h3 data-de="Drei Sprachen" data-en="Three languages" data-pt="Três idiomas">Drei Sprachen</h3>
+            <p data-de="Die App ist vollständig dreisprachig (DE/EN/PT-BR) — mit automatischer Spracherkennung beim ersten Start." data-en="The app is fully trilingual (DE/EN/PT-BR) — with automatic language detection on first launch." data-pt="O app está disponível em três idiomas (DE/EN/PT-BR) — com detecção automática de idioma no primeiro acesso.">Die App ist vollständig dreisprachig (DE/EN/PT-BR) — mit automatischer Spracherkennung beim ersten Start.</p>
+            <span class="feature-tag" data-de="DE / EN / PT-BR" data-en="DE / EN / PT-BR" data-pt="DE / EN / PT-BR">DE / EN / PT-BR</span>
           </div>
         </div>
       </div>
@@ -716,34 +721,43 @@
     <!-- ── Pricing ───────────────────────────────────────────────────────────── -->
     <section class="section-pricing">
       <div class="section-pricing-inner">
-        <p class="section-label" style="text-align:center;" data-de="Preise" data-en="Pricing">Preise</p>
-        <h2 data-de="Einfach. Fair. Effektiv." data-en="Simple. Fair. Effective.">Einfach. Fair. Effektiv.</h2>
-        <p class="section-pricing-sub" data-de="Starte kostenlos und entscheide selbst ob Premium für dich passt. Keine Werbung." data-en="Start for free and decide if Premium is right for you. No ads.">Starte kostenlos und entscheide selbst ob Premium für dich passt. Keine Werbung.</p>
+        <p class="section-label" style="text-align:center;"
+           data-de="Free & Premium"
+           data-en="Free & Premium"
+           data-pt="Free & Premium">Free & Premium</p>
+        <h2 data-de="Starte kostenlos.<br>Upgrade wenn du mehr willst."
+            data-en="Start for free.<br>Upgrade when you want more."
+            data-pt="Comece gratuitamente.<br>Mude de plano quando quiser mais.">Starte kostenlos.<br>Upgrade wenn du mehr willst.</h2>
+        <p class="section-pricing-sub"
+           data-de="Kein Account, keine Kreditkarte zum Start. Die Preise werden dir direkt in der App angezeigt."
+           data-en="No account, no credit card to get started. Prices are shown directly in the app."
+           data-pt="Sem conta, sem cartão de crédito para começar. Os preços são exibidos diretamente no app.">Kein Account, keine Kreditkarte zum Start. Die Preise werden dir direkt in der App angezeigt.</p>
 
         <div class="pricing-grid">
           <div class="pricing-card">
-            <div class="pricing-name" data-de="Free" data-en="Free">Free</div>
-            <div class="pricing-price">€0</div>
-            <div class="pricing-period" data-de="Für immer kostenlos" data-en="Free forever">Für immer kostenlos</div>
+            <div class="pricing-name" data-de="Free" data-en="Free" data-pt="Grátis">Free</div>
+            <div class="pricing-period" data-de="Für immer kostenlos" data-en="Free forever" data-pt="Gratuito para sempre">Für immer kostenlos</div>
             <ul class="pricing-features">
-              <li><span class="check">✓</span> <span data-de="1 Empfehlung pro Tag" data-en="1 recommendation per day">1 Empfehlung pro Tag</span></li>
-              <li><span class="check">✓</span> <span data-de="Alle 4 Schwerpunkte" data-en="All 4 focus areas">Alle 4 Schwerpunkte</span></li>
-              <li><span class="check">✓</span> <span data-de="Serien-Tracking" data-en="Streak tracking">Serien-Tracking</span></li>
-              <li><span class="check">✓</span> <span data-de="Teilen-Funktion" data-en="Share feature">Teilen-Funktion</span></li>
-              <li><span class="check">✓</span> <span data-de="Kein Account nötig" data-en="No account required">Kein Account nötig</span></li>
+              <li><span class="check">✓</span> <span data-de="1 Empfehlung pro Tag" data-en="1 recommendation per day" data-pt="1 recomendação por dia">1 Empfehlung pro Tag</span></li>
+              <li><span class="check">✓</span> <span data-de="Alle 4 Schwerpunkte" data-en="All 4 focus areas" data-pt="Todas as 4 áreas de foco">Alle 4 Schwerpunkte</span></li>
+              <li><span class="check">✓</span> <span data-de="Serien-Tracking" data-en="Streak tracking" data-pt="Rastreamento de sequências">Serien-Tracking</span></li>
+              <li><span class="check">✓</span> <span data-de="Teilen-Funktion" data-en="Share feature" data-pt="Função de compartilhamento">Teilen-Funktion</span></li>
+              <li><span class="check">✓</span> <span data-de="Kein Account nötig" data-en="No account required" data-pt="Sem conta necessária">Kein Account nötig</span></li>
             </ul>
           </div>
           <div class="pricing-card premium">
-            <div class="pricing-badge" data-de="Empfohlen" data-en="Recommended">Empfohlen</div>
-            <div class="pricing-name" data-de="Premium" data-en="Premium">Premium</div>
-            <div class="pricing-price">€4,99</div>
-            <div class="pricing-period" data-de="pro Monat · 7 Tage kostenlos testen" data-en="per month · 7-day free trial">pro Monat · 7 Tage kostenlos testen</div>
+            <div class="pricing-badge" data-de="Mehr Wirkung" data-en="More impact" data-pt="Mais impacto">Mehr Wirkung</div>
+            <div class="pricing-name" data-de="Premium" data-en="Premium" data-pt="Premium">Premium</div>
+            <div class="pricing-period"
+                 data-de="7 Tage kostenlos testen · monatlich oder jährlich"
+                 data-en="7-day free trial · monthly or yearly"
+                 data-pt="7 dias grátis · mensal ou anual">7 Tage kostenlos testen · monatlich oder jährlich</div>
             <ul class="pricing-features">
-              <li><span class="check">✓</span> <span data-de="Bis zu 3 Empfehlungen pro Tag" data-en="Up to 3 recommendations per day">Bis zu 3 Empfehlungen pro Tag</span></li>
-              <li><span class="check">✓</span> <span data-de="Tiefere KI-Personalisierung" data-en="Deeper AI personalisation">Tiefere KI-Personalisierung</span></li>
-              <li><span class="check">✓</span> <span data-de="Verlaufshistorie" data-en="Action history">Verlaufshistorie</span></li>
-              <li><span class="check">✓</span> <span data-de="Wöchentliche KI-Zusammenfassung" data-en="Weekly AI summary">Wöchentliche KI-Zusammenfassung</span></li>
-              <li><span class="check">✓</span> <span data-de="Prioritäts-Support" data-en="Priority support">Prioritäts-Support</span></li>
+              <li><span class="check">✓</span> <span data-de="Bis zu 3 Empfehlungen pro Tag" data-en="Up to 3 recommendations per day" data-pt="Até 3 recomendações por dia">Bis zu 3 Empfehlungen pro Tag</span></li>
+              <li><span class="check">✓</span> <span data-de="Tiefere KI-Personalisierung" data-en="Deeper AI personalisation" data-pt="Personalização de IA mais profunda">Tiefere KI-Personalisierung</span></li>
+              <li><span class="check">✓</span> <span data-de="Verlaufshistorie" data-en="Action history" data-pt="Histórico de ações">Verlaufshistorie</span></li>
+              <li><span class="check">✓</span> <span data-de="Wöchentliche KI-Zusammenfassung" data-en="Weekly AI summary" data-pt="Resumo semanal por IA">Wöchentliche KI-Zusammenfassung</span></li>
+              <li><span class="check">✓</span> <span data-de="Prioritäts-Support" data-en="Priority support" data-pt="Suporte prioritário">Prioritäts-Support</span></li>
             </ul>
           </div>
         </div>
@@ -773,7 +787,8 @@
     <section class="section-about">
       <div class="section-about-inner">
         <div class="section-about-logo">
-          <span style="color:var(--text)">VioLonge</span><span style="color:var(--lv-green)"> AI</span>
+          <img src="/logo.png" alt="VioLonge AI Logo">
+          <span><span style="color:var(--text)">VioLonge</span><span style="color:var(--lv-green)"> AI</span></span>
         </div>
         <p>
           <span data-de="VioLonge AI ist eine Marke von " data-en="VioLonge AI is a brand by ">VioLonge AI ist eine Marke von </span>
@@ -887,11 +902,138 @@
     // ── Language System ───────────────────────────────────────────────────────
     let currentLang = 'de';
 
+    // PT-BR translations (data-de value → PT-BR value)
+    const ptMap = {
+      "Bald im App Store": "Em breve na App Store",
+      "Gesünder leben.": "Viva com mais saúde.",
+      "Eine Entscheidung pro Tag.": "Uma decisão por dia.",
+      'VioLonge AI liefert dir täglich <strong>1–3 personalisierte Gesundheitsempfehlungen</strong> — sofort umsetzbar, in unter 60 Sekunden verstanden.': 'VioLonge AI entrega <strong>1–3 recomendações de saúde personalizadas</strong> por dia — acionáveis imediatamente, entendidas em menos de 60 segundos.',
+      "Benachrichtigt werden": "Quero ser notificado",
+      "So funktioniert's": "Como funciona",
+      "Dienstag, 1. April": "Terça-feira, 1 de abril",
+      "Deine beste Entscheidung heute 🌱": "Sua melhor decisão hoje 🌱",
+      "😴 Schlaf": "😴 Sono",
+      "Heute 30 Min. früher schlafen gehen": "Dormir 30 min mais cedo esta noite",
+      "Dein Körper regeneriert zwischen 22–24 Uhr am effektivsten. Das verbessert Energie und Fokus morgen.": "Seu corpo se recupera com mais eficiência entre 22h–24h. Melhora energia e foco amanhã.",
+      "✓ Erledigt": "✓ Feito",
+      "10 Min. Spaziergang nach dem Mittag": "10 min de caminhada após o almoço",
+      "Kein Zucker nach 20 Uhr": "Sem açúcar após 20h",
+      "Aktuelle Serie": "Sequência atual",
+      "Bald verfügbar im": "Em breve na",
+      "So einfach geht's": "É simples assim",
+      "Täglich. Persönlich.<br>Umsetzbar.": "Diário. Pessoal.<br>Acionável.",
+      "Kein Tracking, kein Dashboard, kein Chaos. Nur eine Empfehlung, die heute für dich passt.": "Sem rastreamento, sem dashboard, sem complicação. Só uma recomendação que funciona para você hoje.",
+      "Kurzes Onboarding": "Onboarding rápido",
+      "Gib in 60 Sekunden dein Ziel, Alter und Lifestyle an. Kein Account nötig.": "Informe seu objetivo, faixa etária e estilo de vida em 60 segundos. Sem conta necessária.",
+      "KI erstellt dein Profil": "A IA cria seu perfil",
+      "Die KI analysiert deine Eingaben und personalisiert täglich neue Empfehlungen für dich.": "A IA analisa suas informações e personaliza novas recomendações para você todos os dias.",
+      "Täglich: 1–3 Aktionen": "Diariamente: 1–3 ações",
+      "Öffne die App und sieh sofort: deine beste Gesundheitsentscheidung für heute.": "Abra o app e veja imediatamente: sua melhor decisão de saúde para hoje.",
+      "Umsetzen & Fortschritt": "Executar e progredir",
+      "Markiere die Aktion als erledigt. Sieh deine Serie wachsen. Kleine Schritte, echter Effekt.": "Marque a ação como concluída. Veja sua sequência crescer. Pequenos passos, impacto real.",
+      "Was die App kann": "O que o app faz",
+      "Designed für echtes Leben.": "Desenhado para a vida real.",
+      "Kein Biohacking. Kein Daten-Overkill. Nur das, was dir heute wirklich hilft.": "Sem biohacking. Sem excesso de dados. Só o que realmente te ajuda hoje.",
+      "Eine Hauptempfehlung": "Uma recomendação principal",
+      "Kein Rauschen, keine Listen. Täglich eine priorisierte Hauptaktion — klar, einfach, heute.": "Sem ruído, sem listas. Uma ação principal priorizada por dia — clara, simples, hoje.",
+      "Sofort umsetzbar": "Imediatamente acionável",
+      "KI-Personalisierung": "Personalização por IA",
+      "Die KI lernt aus deinen Entscheidungen und passt die Empfehlungen täglich an dein Verhalten an.": "A IA aprende com suas escolhas e adapta as recomendações ao seu comportamento diariamente.",
+      "Adaptiv": "Adaptativa",
+      "Serien & Fortschritt": "Sequências e progresso",
+      "Sieh wie viele Tage du dran geblieben bist. Einfaches Tracking ohne Überwältigung.": "Veja quantos dias você manteve. Rastreamento simples sem sobrecarga.",
+      "Motivierend": "Motivante",
+      "Teilen-Funktion": "Compartilhamento",
+      "Teile deine tägliche Empfehlung per iMessage oder WhatsApp — für Freunde, Familie, Kollegen.": "Compartilhe sua recomendação diária via iMessage ou WhatsApp — para amigos, família e colegas.",
+      "Viral": "Viral",
+      "Ruhige Erinnerungen": "Lembretes suaves",
+      "Optionale, nicht-aufdringliche Benachrichtigungen zum Zeitpunkt deiner Wahl.": "Notificações opcionais e não intrusivas no horário da sua escolha.",
+      "Keine Spam-Push": "Sem spam de push",
+      "Drei Sprachen": "Três idiomas",
+      "Die App ist vollständig dreisprachig (DE/EN/PT-BR) — mit automatischer Spracherkennung beim ersten Start.": "O app está disponível em três idiomas (DE/EN/PT-BR) — com detecção automática de idioma no primeiro acesso.",
+      "DE / EN / PT-BR": "DE / EN / PT-BR",
+      "Schwerpunkte": "Áreas de foco",
+      "4 Bereiche. Echter Impact.": "4 áreas. Impacto real.",
+      "VioLonge AI fokussiert sich auf die vier wichtigsten Stellschrauben deiner Gesundheit.": "VioLonge AI foca nos quatro principais fatores da sua saúde.",
+      "Schlaf": "Sono",
+      "Bessere Erholung, mehr Energie, klarer Kopf.": "Melhor recuperação, mais energia, mente mais clara.",
+      "Ernährung": "Alimentação",
+      "Kleine Anpassungen mit großer Wirkung auf Energie und Gewicht.": "Pequenos ajustes com grande impacto na energia e no peso.",
+      "Bewegung": "Movimento",
+      "Alltagsbewegung ohne Fitnesszwang. Nachhaltig und realistisch.": "Movimento no dia a dia sem pressão de academia. Sustentável e realista.",
+      "Stress": "Estresse",
+      "Einfache Techniken für mentale Balance und Entspannung.": "Técnicas simples para equilíbrio mental e relaxamento.",
+      "Warum nicht einfach eine<br>normale Gesundheits-App?": "Por que não usar um<br>app de saúde comum?",
+      "Eine klare Empfehlung — keine Überwältigung": "Uma recomendação clara — sem sobrecarga",
+      "Sofort umsetzbar — heute, nicht irgendwann": "Acionável imediatamente — hoje, não um dia",
+      "Kein Tracking-Zwang, kein Gerät nötig": "Sem obrigação de rastreamento, sem dispositivo necessário",
+      "KI personalisiert auf dich — nicht generisch": "IA personalizada para você — não genérica",
+      "&lt; 60 Sekunden tägliche Interaktion": "&lt; 60 segundos de interação diária",
+      "Kein medizinischer Anspruch — realistische Hilfe": "Sem promessas médicas — ajuda realista",
+      "Andere Health-Apps": "Outros apps de saúde",
+      "Daten-Dashboards ohne klare Konsequenz": "Dashboards de dados sem consequência clara",
+      "Generische Tipps unabhängig von deiner Situation": "Dicas genéricas independente da sua situação",
+      "Brauchen Wearables oder Apple Health": "Exigem wearables ou Apple Health",
+      "Zu viele Features — zu wenig Fokus": "Muitas funcionalidades — pouco foco",
+      "Tägliche Nutzung dauert 5–15 Minuten": "Uso diário leva 5–15 minutos",
+      "Gamification statt echter Gesundheitshilfe": "Gamificação em vez de ajuda real à saúde",
+
+      "Einfach. Fair. Effektiv.": "Simples. Justo. Eficaz.",
+      "Starte kostenlos und entscheide selbst ob Premium für dich passt. Keine Werbung.": "Comece gratuitamente e decida se o Premium é para você. Sem anúncios.",
+      "Free": "Grátis",
+      "Für immer kostenlos": "Gratuito para sempre",
+      "1 Empfehlung pro Tag": "1 recomendação por dia",
+      "Alle 4 Schwerpunkte": "Todas as 4 áreas de foco",
+      "Serien-Tracking": "Rastreamento de sequências",
+      "Kein Account nötig": "Sem conta necessária",
+      "Empfohlen": "Recomendado",
+      "Premium": "Premium",
+      "pro Monat · 7 Tage kostenlos testen": "por mês · 7 dias grátis",
+      "Bis zu 3 Empfehlungen pro Tag": "Até 3 recomendações por dia",
+      "Tiefere KI-Personalisierung": "Personalização de IA mais profunda",
+      "Verlaufshistorie": "Histórico de ações",
+      "Wöchentliche KI-Zusammenfassung": "Resumo semanal por IA",
+      "Prioritäts-Support": "Suporte prioritário",
+      "Sei dabei, wenn es losgeht": "Esteja lá no lançamento",
+      "Als Erster dabei sein.": "Seja o primeiro.",
+      "Trag dich jetzt ein und wir benachrichtigen dich, sobald VioLonge AI im App Store verfügbar ist.": "Inscreva-se agora e te avisaremos assim que VioLonge AI estiver disponível na App Store.",
+      "Benachrichtigen": "Notificar",
+      "🎉 Perfekt! Wir benachrichtigen dich beim Launch.": "🎉 Perfeito! Te avisaremos no lançamento.",
+      "Kein Spam. Nur eine E-Mail beim Launch.": "Sem spam. Só um e-mail no lançamento.",
+      "VioLonge AI ist eine Marke von ": "VioLonge AI é uma marca da ",
+      " — dem Entwickler hinter ": " — a desenvolvedora por trás de ",
+      " und ": " e ",
+      "Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag wirklich helfen, gesünder zu leben.": "Construímos produtos de IA que entregam valor real. Não brinquedos — ferramentas que realmente ajudam as pessoas a viver de forma mais saudável no dia a dia.",
+      "Impressum": "Aviso Legal",
+      "Angaben gemäß § 5 TMG": "Informações conforme § 5 TMG",
+      "Kontakt": "Contato",
+      "Handelsregister": "Registro Comercial",
+      "Keine Eintragung im Handelsregister.": "Não registrado no registro comercial.",
+      "Umsatzsteuer-ID": "Número de IVA",
+      "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: auf Anfrage.": "Número de identificação de IVA conforme § 27a UStG: disponível mediante solicitação.",
+      "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV": "Responsável pelo conteúdo conforme § 55 Abs. 2 RStV",
+      "Datenschutzerklärung": "Política de Privacidade",
+      "Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten erhoben werden, erfolgt dies stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.": "O uso do nosso site é geralmente possível sem fornecer dados pessoais. Quando dados pessoais são coletados em nossas páginas, isso ocorre sempre de forma voluntária. Esses dados não serão repassados a terceiros sem o seu consentimento explícito.",
+      "Wir weisen darauf hin, dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.": "Informamos que a transmissão de dados pela Internet pode ter falhas de segurança. A proteção completa dos dados contra acesso por terceiros não é possível.",
+      "Haftungsausschluss": "Isenção de responsabilidade",
+      "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. VioLonge AI ist kein medizinisches Produkt und ersetzt keine ärztliche Beratung.": "O conteúdo das nossas páginas foi criado com o maior cuidado. No entanto, não podemos garantir a exatidão, completude e atualidade do conteúdo. VioLonge AI não é um produto médico e não substitui orientação médica.",
+      "ist eine Marke von": "é uma marca da",
+      "eine Marke von": "uma marca da",
+      "a brand by": "uma marca da",
+      "Weitere Apps von torecon": "Mais apps da torecon",
+      "Datenschutz": "Privacidade",
+      "Nutzungsbedingungen": "Termos de Uso",
+      "Legal Notice": "Aviso Legal",
+      "Alle Rechte vorbehalten.": "Todos os direitos reservados."
+    };
+
     function detectLanguage() {
       const saved = localStorage.getItem('vl_lang');
-      if (saved) return saved;
+      if (saved && ['de','en','pt'].includes(saved)) return saved;
       const sys = (navigator.language || navigator.userLanguage || 'de').toLowerCase();
-      return sys.startsWith('de') ? 'de' : 'en';
+      if (sys.startsWith('de')) return 'de';
+      if (sys.startsWith('pt')) return 'pt';
+      return 'en';
     }
 
     function setLang(lang) {
@@ -901,31 +1043,56 @@
     }
 
     function applyLang() {
-      const isEN = currentLang === 'en';
-
-      document.getElementById('btn-de').classList.toggle('active', !isEN);
-      document.getElementById('btn-en').classList.toggle('active', isEN);
-      document.documentElement.lang = currentLang;
+      document.getElementById('btn-de').classList.toggle('active', currentLang === 'de');
+      document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+      document.getElementById('btn-pt').classList.toggle('active', currentLang === 'pt');
+      document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : currentLang;
 
       document.querySelectorAll('[data-de]').forEach(el => {
-        const val = isEN ? el.getAttribute('data-en') : el.getAttribute('data-de');
+        let val;
+        if (currentLang === 'en') {
+          val = el.getAttribute('data-en');
+        } else if (currentLang === 'pt') {
+          // 1. inline data-pt attribute wins
+          val = el.getAttribute('data-pt');
+          // 2. ptMap lookup by data-de value
+          if (val === null) {
+            const deVal = el.getAttribute('data-de');
+            val = (deVal in ptMap) ? ptMap[deVal] : null;
+          }
+          // 3. fall back to English rather than showing German
+          if (val === null) val = el.getAttribute('data-en');
+        } else {
+          val = el.getAttribute('data-de');
+        }
         if (val !== null) el.innerHTML = val;
       });
 
       document.querySelectorAll('[data-de-placeholder]').forEach(el => {
-        const val = isEN ? el.getAttribute('data-en-placeholder') : el.getAttribute('data-de-placeholder');
+        let val;
+        if (currentLang === 'en') val = el.getAttribute('data-en-placeholder');
+        else if (currentLang === 'pt') val = 'seu@email.com';
+        else val = el.getAttribute('data-de-placeholder');
         if (val !== null) el.placeholder = val;
       });
 
-      if (isEN) {
-        document.title = 'VioLonge AI – Your Daily Health Decision';
-        document.querySelector('meta[name="description"]').content =
-          'VioLonge AI delivers 1–3 personalized daily health decisions — actionable immediately, understood in under 60 seconds. Coming to the App Store.';
-      } else {
-        document.title = 'VioLonge AI – Deine tägliche Gesundheitsentscheidung';
-        document.querySelector('meta[name="description"]').content =
-          'VioLonge AI liefert dir täglich 1–3 personalisierte Gesundheitsentscheidungen – einfach, sofort umsetzbar, in unter 60 Sekunden. Bald im App Store.';
-      }
+      const meta = {
+        de: {
+          title: 'VioLonge AI – Deine tägliche Gesundheitsentscheidung',
+          desc: 'VioLonge AI liefert dir täglich 1–3 personalisierte Gesundheitsentscheidungen – einfach, sofort umsetzbar, in unter 60 Sekunden. Bald im App Store.'
+        },
+        en: {
+          title: 'VioLonge AI – Your Daily Health Decision',
+          desc: 'VioLonge AI delivers 1–3 personalized daily health decisions — actionable immediately, understood in under 60 seconds. Coming to the App Store.'
+        },
+        pt: {
+          title: 'VioLonge AI – Sua decisão de saúde diária',
+          desc: 'VioLonge AI entrega 1–3 recomendações de saúde personalizadas por dia — acionáveis imediatamente, entendidas em menos de 60 segundos. Em breve na App Store.'
+        }
+      };
+      const m = meta[currentLang] || meta.de;
+      document.title = m.title;
+      document.querySelector('meta[name="description"]').content = m.desc;
     }
 
     currentLang = detectLanguage();

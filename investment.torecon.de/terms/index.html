@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutzungsbedingungen – Investment</title>
+  <meta name="description" content="Nutzungsbedingungen der Investment App von torecon.">
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #0A0A0F;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #4F7FFF;
+      --border:         rgba(0,0,0,0.08);
+      --border-strong:  rgba(0,0,0,0.15);
+      --nav-bg:         rgba(255,255,255,0.82);
+      --radius:         12px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .lang-toggle { display: flex; align-items: center; background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: 20px; padding: 3px; gap: 2px; }
+    .lang-btn { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 16px; border: none; background: transparent; color: var(--text-tertiary); cursor: pointer; transition: var(--transition); }
+    .lang-btn.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%); display: flex; align-items: center; justify-content: center; font-size: 17px; }
+    .nav-logo-main { font-size: 17px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
+    .nav-logo-main span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
+    .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+
+    .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+
+    .section { margin-bottom: 48px; }
+    .section h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .section h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; margin-top: 24px; }
+    .section p { color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { color: var(--text-secondary); font-size: 16px; line-height: 1.75; padding-left: 20px; margin-bottom: 14px; }
+    .section ul li { margin-bottom: 6px; }
+    .section strong { color: var(--text); font-weight: 600; }
+    .section a { color: var(--accent); }
+
+    .warning-box { background: rgba(255,159,10,0.06); border: 1px solid rgba(255,159,10,0.3); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .warning-box p { margin-bottom: 0; color: var(--text); }
+
+    .info-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .info-box p { font-size: 15px; margin-bottom: 0; }
+    .info-box strong { color: var(--text); }
+
+    .site-footer { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <div class="nav-logo-icon">📈</div>
+        <span class="nav-logo-main">Invest<span>ment</span></span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label" data-i18n="page_label">Rechtliches</span>
+    <h1 data-i18n="page_title">Nutzungsbedingungen</h1>
+    <p class="page-meta" data-i18n="page_meta">Stand: April 2026 · Gilt für: Investment macOS App</p>
+
+    <div class="warning-box">
+      <p data-i18n="warning"><strong>Wichtiger Hinweis:</strong> Investment ist ein Werkzeug für die technische Analyse und ersetzt keine professionelle Anlageberatung. Die generierten Signale sind keine Kauf- oder Verkaufsempfehlungen. Alle Investitionsentscheidungen liegen in der alleinigen Verantwortung des Nutzers.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s1_title">1. Anbieter und Geltungsbereich</h2>
+      <p data-i18n="s1_p1">Diese Nutzungsbedingungen gelten für die macOS-App <strong>Investment</strong> (Bundle-ID: <code>de.torecon.investment</code>), erhältlich im Mac App Store, sowie für die zugehörige Website <a href="https://investment.torecon.de">investment.torecon.de</a>.</p>
+      <div class="info-box">
+        <p><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22, 53474 Ahrweiler, Deutschland<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+      </div>
+      <p data-i18n="s1_agree">Mit der Nutzung der App stimmst du diesen Nutzungsbedingungen zu.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s2_title">2. Leistungsbeschreibung</h2>
+      <p data-i18n="s2_p">Investment ist eine native macOS-Anwendung für signalbasiertes Portfolio-Management. Die App bietet:</p>
+      <ul>
+        <li data-i18n="s2_li1">Automatisches Screening von Wertpapieren anhand technischer Indikatoren (RSI, MACD, Gleitende Durchschnitte)</li>
+        <li data-i18n="s2_li2">Generierung von Buy- und Sell-Signalen mit einem Confidence-Score (1–10)</li>
+        <li data-i18n="s2_li3">Lernende Fingerprint-Engine, die wertpapierspezifische Indikatorschwellwerte ermittelt</li>
+        <li data-i18n="s2_li4">Portfolio-Verwaltung mit Positionen, Transaktionen und Cash-Konto</li>
+        <li data-i18n="s2_li5">Abruf von Kursnachrichten</li>
+      </ul>
+      <p data-i18n="s2_api">Die App nutzt die Leeway-API als externe Kursdatenquelle. Die Verfügbarkeit und Qualität der Kursdaten liegt im Verantwortungsbereich von Leeway. Wir übernehmen keine Haftung für Datenlücken, Verzögerungen oder Ungenauigkeiten der Kursdaten.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s3_title">3. Kein Investment-Advice — Risikohinweis</h2>
+      <p data-i18n="s3_p1">Investment ist <strong>kein Finanzdienstleistungsprodukt</strong> und bietet <strong>keine Anlageberatung</strong>. Die durch die App generierten Signale, Analysen und Auswertungen sind:</p>
+      <ul>
+        <li data-i18n="s3_li1">rein informatorischer Natur,</li>
+        <li data-i18n="s3_li2">auf Basis historischer Kursdaten und technischer Indikatoren generiert,</li>
+        <li data-i18n="s3_li3">keine Empfehlungen zum Kauf oder Verkauf von Wertpapieren,</li>
+        <li data-i18n="s3_li4">nicht geeignet als alleinige Entscheidungsgrundlage für Investitionen.</li>
+      </ul>
+      <p data-i18n="s3_risk">Investitionen in Wertpapiere sind mit erheblichen Risiken verbunden. Vergangene Kursentwicklungen sind kein verlässlicher Indikator für zukünftige Entwicklungen. Du kannst das eingesetzte Kapital vollständig oder teilweise verlieren.</p>
+      <p data-i18n="s3_advice"><strong>Wir empfehlen, vor jeder Investitionsentscheidung einen zugelassenen Anlageberater zu konsultieren.</strong></p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s4_title">4. Nutzungsrechte und Einschränkungen</h2>
+      <p data-i18n="s4_p">Mit dem Erwerb der App über den Mac App Store erhältst du eine nicht-exklusive, nicht übertragbare Lizenz zur Nutzung der App auf deinen persönlichen Apple-Geräten gemäß den Nutzungsbedingungen des Mac App Store (Apple EULA).</p>
+      <p data-i18n="s4_nope">Es ist nicht gestattet:</p>
+      <ul>
+        <li data-i18n="s4_li1">Die App zu dekompilieren, zu disassemblieren oder rückzuentwickeln</li>
+        <li data-i18n="s4_li2">Die App für kommerzielle Zwecke Dritten anzubieten oder weiterzuverkaufen</li>
+        <li data-i18n="s4_li3">Die App in einer Weise zu verwenden, die gegen geltendes Recht verstößt</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s5_title">5. Abonnement und Zahlung</h2>
+      <p data-i18n="s5_p1">Investment wird über ein auto-erneuerndes Abonnement-Modell im Mac App Store angeboten. Alle Zahlungen, Verlängerungen und Kündigungen werden ausschließlich über Apple abgewickelt.</p>
+      <h3 data-i18n="s5_billing_title">Abrechnung</h3>
+      <p data-i18n="s5_billing">Die Zahlung wird deinem Apple-ID-Konto (iTunes) bei der Kaufbestätigung belastet. Die aktuellen Preise sind im Mac App Store einsehbar.</p>
+      <h3 data-i18n="s5_renew_title">Automatische Verlängerung</h3>
+      <p data-i18n="s5_renew">Das Abonnement verlängert sich automatisch, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ablauf der aktuellen Laufzeit deaktiviert wird. Dein Konto wird innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums für die Verlängerung belastet.</p>
+      <h3 data-i18n="s5_manage_title">Verwaltung und Kündigung</h3>
+      <p data-i18n="s5_manage">Du kannst dein Abonnement und die automatische Verlängerung jederzeit in den Systemeinstellungen deines Macs unter Apple-ID → Abonnements verwalten, oder unter <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">apps.apple.com/account/subscriptions</a>. Die Kündigung wird zum Ende der aktuellen Abrechnungsperiode wirksam.</p>
+      <h3 data-i18n="s5_refund_title">Rückerstattungen</h3>
+      <p data-i18n="s5_refund">Alle Kaufvorgänge, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Für Rückerstattungsanfragen wende dich an den Apple Support.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s6_title">6. Haftungsausschluss</h2>
+      <p data-i18n="s6_p1">Die App wird "wie besehen" und ohne Gewährleistung bereitgestellt. Wir haften nicht für:</p>
+      <ul>
+        <li data-i18n="s6_li1">Verluste durch Investitionsentscheidungen, die auf Basis der App-Signale getroffen wurden</li>
+        <li data-i18n="s6_li2">Ausfälle oder Ungenauigkeiten der externen Kursdaten-API</li>
+        <li data-i18n="s6_li3">Datenverluste durch Softwarefehler oder Betriebssystemänderungen</li>
+        <li data-i18n="s6_li4">Indirekte oder Folgeschäden jeglicher Art</li>
+      </ul>
+      <p data-i18n="s6_limit">Die Haftung ist — soweit gesetzlich zulässig — auf den Wert des erworbenen Abonnements in den letzten 12 Monaten begrenzt. Diese Einschränkung gilt nicht für Schäden aus Vorsatz oder grober Fahrlässigkeit oder soweit zwingend gesetzliche Bestimmungen gelten.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s7_title">7. Verhältnis zu Apple</h2>
+      <p data-i18n="s7_p">Diese App wird über den Mac App Store vertrieben. Apple ist nicht Vertragspartei dieser Nutzungsbedingungen. Im Fall von Produktreklamationen oder Support-Anfragen wende dich an uns unter <a href="mailto:info@torecon.de">info@torecon.de</a>. Apple hat das Recht, diese Bedingungen als Drittbegünstigter durchzusetzen, soweit sie Apple-Anforderungen betreffen.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s8_title">8. Änderungen der Nutzungsbedingungen</h2>
+      <p data-i18n="s8_p">Wir behalten uns vor, diese Nutzungsbedingungen jederzeit zu ändern. Bei wesentlichen Änderungen werden wir innerhalb der App oder per App-Update informieren. Die aktuelle Version ist stets unter <a href="https://investment.torecon.de/terms/">investment.torecon.de/terms/</a> abrufbar.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s9_title">9. Anwendbares Recht und Gerichtsstand</h2>
+      <p data-i18n="s9_p1">Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist — soweit gesetzlich zulässig — Ahrweiler, Deutschland. Für Verbraucher innerhalb der EU gilt das Recht des EU-Mitgliedstaats, in dem der Verbraucher seinen gewöhnlichen Aufenthalt hat.</p>
+      <p data-i18n="s9_p2">Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s10_title">10. Kontakt</h2>
+      <div class="info-box">
+        <p data-i18n="s10_content"><strong>Support & Fragen:</strong> <a href="mailto:info@torecon.de">info@torecon.de</a><br><strong>Datenschutz:</strong> <a href="/privacy/">Datenschutzerklärung</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/" data-i18n="footer_home">investment.torecon.de</a>
+      <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+      <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
+      <a href="/#impressum" data-i18n="footer_imprint">Impressum</a>
+    </div>
+    <div class="footer-copy">&copy; <span id="footer-year"></span> Thomas Reinke · torecon</div>
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        nav_back:         '← Zurück',
+        page_label:       'Rechtliches',
+        page_title:       'Nutzungsbedingungen',
+        page_meta:        'Stand: April 2026 · Gilt für: Investment macOS App',
+        warning:          '<strong>Wichtiger Hinweis:</strong> Investment ist ein Werkzeug für die technische Analyse und ersetzt keine professionelle Anlageberatung. Die generierten Signale sind keine Kauf- oder Verkaufsempfehlungen. Alle Investitionsentscheidungen liegen in der alleinigen Verantwortung des Nutzers.',
+        s1_title:         '1. Anbieter und Geltungsbereich',
+        s1_p1:            'Diese Nutzungsbedingungen gelten für die macOS-App <strong>Investment</strong> (Bundle-ID: <code>de.torecon.investment</code>), erhältlich im Mac App Store, sowie für die zugehörige Website <a href="https://investment.torecon.de">investment.torecon.de</a>.',
+        s1_agree:         'Mit der Nutzung der App stimmst du diesen Nutzungsbedingungen zu.',
+        s2_title:         '2. Leistungsbeschreibung',
+        s2_p:             'Investment ist eine native macOS-Anwendung für signalbasiertes Portfolio-Management. Die App bietet:',
+        s2_li1:           'Automatisches Screening von Wertpapieren anhand technischer Indikatoren (RSI, MACD, Gleitende Durchschnitte)',
+        s2_li2:           'Generierung von Buy- und Sell-Signalen mit einem Confidence-Score (1–10)',
+        s2_li3:           'Lernende Fingerprint-Engine, die wertpapierspezifische Indikatorschwellwerte ermittelt',
+        s2_li4:           'Portfolio-Verwaltung mit Positionen, Transaktionen und Cash-Konto',
+        s2_li5:           'Abruf von Kursnachrichten',
+        s2_api:           'Die App nutzt die Leeway-API als externe Kursdatenquelle. Die Verfügbarkeit und Qualität der Kursdaten liegt im Verantwortungsbereich von Leeway. Wir übernehmen keine Haftung für Datenlücken, Verzögerungen oder Ungenauigkeiten der Kursdaten.',
+        s3_title:         '3. Kein Investment-Advice — Risikohinweis',
+        s3_p1:            'Investment ist <strong>kein Finanzdienstleistungsprodukt</strong> und bietet <strong>keine Anlageberatung</strong>. Die durch die App generierten Signale, Analysen und Auswertungen sind:',
+        s3_li1:           'rein informatorischer Natur,',
+        s3_li2:           'auf Basis historischer Kursdaten und technischer Indikatoren generiert,',
+        s3_li3:           'keine Empfehlungen zum Kauf oder Verkauf von Wertpapieren,',
+        s3_li4:           'nicht geeignet als alleinige Entscheidungsgrundlage für Investitionen.',
+        s3_risk:          'Investitionen in Wertpapiere sind mit erheblichen Risiken verbunden. Vergangene Kursentwicklungen sind kein verlässlicher Indikator für zukünftige Entwicklungen. Du kannst das eingesetzte Kapital vollständig oder teilweise verlieren.',
+        s3_advice:        '<strong>Wir empfehlen, vor jeder Investitionsentscheidung einen zugelassenen Anlageberater zu konsultieren.</strong>',
+        s4_title:         '4. Nutzungsrechte und Einschränkungen',
+        s4_p:             'Mit dem Erwerb der App über den Mac App Store erhältst du eine nicht-exklusive, nicht übertragbare Lizenz zur Nutzung der App auf deinen persönlichen Apple-Geräten gemäß den Nutzungsbedingungen des Mac App Store (Apple EULA).',
+        s4_nope:          'Es ist nicht gestattet:',
+        s4_li1:           'Die App zu dekompilieren, zu disassemblieren oder rückzuentwickeln',
+        s4_li2:           'Die App für kommerzielle Zwecke Dritten anzubieten oder weiterzuverkaufen',
+        s4_li3:           'Die App in einer Weise zu verwenden, die gegen geltendes Recht verstößt',
+        s5_title:         '5. Abonnement und Zahlung',
+        s5_p1:            'Investment wird über ein auto-erneuerndes Abonnement-Modell im Mac App Store angeboten. Alle Zahlungen, Verlängerungen und Kündigungen werden ausschließlich über Apple abgewickelt.',
+        s5_billing_title: 'Abrechnung',
+        s5_billing:       'Die Zahlung wird deinem Apple-ID-Konto (iTunes) bei der Kaufbestätigung belastet. Die aktuellen Preise sind im Mac App Store einsehbar.',
+        s5_renew_title:   'Automatische Verlängerung',
+        s5_renew:         'Das Abonnement verlängert sich automatisch, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ablauf der aktuellen Laufzeit deaktiviert wird. Dein Konto wird innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums für die Verlängerung belastet.',
+        s5_manage_title:  'Verwaltung und Kündigung',
+        s5_manage:        'Du kannst dein Abonnement und die automatische Verlängerung jederzeit in den Systemeinstellungen deines Macs unter Apple-ID → Abonnements verwalten, oder unter <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">apps.apple.com/account/subscriptions</a>. Die Kündigung wird zum Ende der aktuellen Abrechnungsperiode wirksam.',
+        s5_refund_title:  'Rückerstattungen',
+        s5_refund:        'Alle Kaufvorgänge, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Für Rückerstattungsanfragen wende dich an den Apple Support.',
+        s6_title:         '6. Haftungsausschluss',
+        s6_p1:            'Die App wird "wie besehen" und ohne Gewährleistung bereitgestellt. Wir haften nicht für:',
+        s6_li1:           'Verluste durch Investitionsentscheidungen, die auf Basis der App-Signale getroffen wurden',
+        s6_li2:           'Ausfälle oder Ungenauigkeiten der externen Kursdaten-API',
+        s6_li3:           'Datenverluste durch Softwarefehler oder Betriebssystemänderungen',
+        s6_li4:           'Indirekte oder Folgeschäden jeglicher Art',
+        s6_limit:         'Die Haftung ist — soweit gesetzlich zulässig — auf den Wert des erworbenen Abonnements in den letzten 12 Monaten begrenzt. Diese Einschränkung gilt nicht für Schäden aus Vorsatz oder grober Fahrlässigkeit oder soweit zwingend gesetzliche Bestimmungen gelten.',
+        s7_title:         '7. Verhältnis zu Apple',
+        s7_p:             'Diese App wird über den Mac App Store vertrieben. Apple ist nicht Vertragspartei dieser Nutzungsbedingungen. Im Fall von Produktreklamationen oder Support-Anfragen wende dich an uns unter <a href="mailto:info@torecon.de">info@torecon.de</a>. Apple hat das Recht, diese Bedingungen als Drittbegünstigter durchzusetzen, soweit sie Apple-Anforderungen betreffen.',
+        s8_title:         '8. Änderungen der Nutzungsbedingungen',
+        s8_p:             'Wir behalten uns vor, diese Nutzungsbedingungen jederzeit zu ändern. Bei wesentlichen Änderungen werden wir innerhalb der App oder per App-Update informieren. Die aktuelle Version ist stets unter <a href="https://investment.torecon.de/terms/">investment.torecon.de/terms/</a> abrufbar.',
+        s9_title:         '9. Anwendbares Recht und Gerichtsstand',
+        s9_p1:            'Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist — soweit gesetzlich zulässig — Ahrweiler, Deutschland. Für Verbraucher innerhalb der EU gilt das Recht des EU-Mitgliedstaats, in dem der Verbraucher seinen gewöhnlichen Aufenthalt hat.',
+        s9_p2:            'Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+        s10_title:        '10. Kontakt',
+        s10_content:      '<strong>Support & Fragen:</strong> <a href="mailto:info@torecon.de">info@torecon.de</a><br><strong>Datenschutz:</strong> <a href="/privacy/">Datenschutzerklärung</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler',
+        footer_home:      'investment.torecon.de',
+        footer_privacy:   'Datenschutz',
+        footer_terms:     'Nutzungsbedingungen',
+        footer_imprint:   'Impressum',
+      },
+      en: {
+        nav_back:         '← Back',
+        page_label:       'Legal',
+        page_title:       'Terms of Use',
+        page_meta:        'Last updated: April 2026 · Applies to: Investment macOS App',
+        warning:          '<strong>Important notice:</strong> Investment is a technical analysis tool and does not replace professional investment advice. Generated signals are not buy or sell recommendations. All investment decisions are the sole responsibility of the user.',
+        s1_title:         '1. Provider and Scope',
+        s1_p1:            'These Terms of Use govern the macOS app <strong>Investment</strong> (Bundle ID: <code>de.torecon.investment</code>), available on the Mac App Store, and the associated website <a href="https://investment.torecon.de">investment.torecon.de</a>.',
+        s1_agree:         'By using the app, you agree to these Terms of Use.',
+        s2_title:         '2. Service Description',
+        s2_p:             'Investment is a native macOS application for signal-based portfolio management. The app provides:',
+        s2_li1:           'Automatic screening of securities using technical indicators (RSI, MACD, Moving Averages)',
+        s2_li2:           'Generation of buy and sell signals with a confidence score (1–10)',
+        s2_li3:           'Adaptive fingerprint engine that learns security-specific indicator thresholds',
+        s2_li4:           'Portfolio management with positions, transactions, and cash account',
+        s2_li5:           'Market news feed',
+        s2_api:           'The app uses the Leeway API as an external market data source. The availability and quality of market data is the responsibility of Leeway. We assume no liability for data gaps, delays, or inaccuracies in market data.',
+        s3_title:         '3. No Investment Advice — Risk Disclaimer',
+        s3_p1:            'Investment is <strong>not a financial services product</strong> and provides <strong>no investment advice</strong>. The signals, analyses, and evaluations generated by the app are:',
+        s3_li1:           'purely informational in nature,',
+        s3_li2:           'generated based on historical price data and technical indicators,',
+        s3_li3:           'not recommendations to buy or sell securities,',
+        s3_li4:           'not suitable as the sole basis for investment decisions.',
+        s3_risk:          'Investments in securities involve significant risks. Past price performance is not a reliable indicator of future performance. You may lose all or part of the capital invested.',
+        s3_advice:        '<strong>We recommend consulting a licensed investment advisor before making any investment decision.</strong>',
+        s4_title:         '4. Usage Rights and Restrictions',
+        s4_p:             'By purchasing the app through the Mac App Store, you receive a non-exclusive, non-transferable license to use the app on your personal Apple devices in accordance with the Mac App Store Terms of Service (Apple EULA).',
+        s4_nope:          'You may not:',
+        s4_li1:           'Decompile, disassemble, or reverse engineer the app',
+        s4_li2:           'Offer or resell the app to third parties for commercial purposes',
+        s4_li3:           'Use the app in any way that violates applicable law',
+        s5_title:         '5. Subscription and Payment',
+        s5_p1:            'Investment is offered via an auto-renewable subscription model on the Mac App Store. All payments, renewals, and cancellations are handled exclusively through Apple.',
+        s5_billing_title: 'Billing',
+        s5_billing:       'Payment will be charged to your Apple ID account (iTunes) at confirmation of purchase. Current prices are available in the Mac App Store.',
+        s5_renew_title:   'Auto-Renewal',
+        s5_renew:         'The subscription automatically renews unless auto-renewal is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period.',
+        s5_manage_title:  'Management and Cancellation',
+        s5_manage:        'You can manage your subscription and turn off auto-renewal at any time in your Mac\'s System Settings under Apple ID → Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">apps.apple.com/account/subscriptions</a>. Cancellation takes effect at the end of the current billing period.',
+        s5_refund_title:  'Refunds',
+        s5_refund:        'All purchases, billing, and refunds are handled exclusively through Apple. For refund requests, please contact Apple Support.',
+        s6_title:         '6. Disclaimer of Warranties',
+        s6_p1:            'The app is provided "as is" without warranty of any kind. We are not liable for:',
+        s6_li1:           'Losses from investment decisions made based on app signals',
+        s6_li2:           'Outages or inaccuracies of the external market data API',
+        s6_li3:           'Data loss due to software bugs or operating system changes',
+        s6_li4:           'Indirect or consequential damages of any kind',
+        s6_limit:         'Liability is limited — to the extent permitted by law — to the subscription fees paid in the past 12 months. This limitation does not apply to damages from willful misconduct, gross negligence, or where mandatory law applies.',
+        s7_title:         '7. Relationship with Apple',
+        s7_p:             'This app is distributed via the Mac App Store. Apple is not a party to these Terms of Use. For product claims or support requests, contact us at <a href="mailto:info@torecon.de">info@torecon.de</a>. Apple has the right to enforce these terms as a third-party beneficiary where Apple requirements are concerned.',
+        s8_title:         '8. Changes to Terms',
+        s8_p:             'We reserve the right to modify these Terms of Use at any time. Material changes will be communicated within the app or via app update. The current version is always available at <a href="https://investment.torecon.de/terms/">investment.torecon.de/terms/</a>.',
+        s9_title:         '9. Governing Law and Jurisdiction',
+        s9_p1:            'German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Jurisdiction is Ahrweiler, Germany, to the extent permitted by law. EU consumers are protected by the laws of their country of residence.',
+        s9_p2:            'The European Commission provides an online dispute resolution platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. We are not obligated to participate in dispute resolution proceedings before a consumer arbitration body.',
+        s10_title:        '10. Contact',
+        s10_content:      '<strong>Support & Questions:</strong> <a href="mailto:info@torecon.de">info@torecon.de</a><br><strong>Privacy:</strong> <a href="/privacy/">Privacy Policy</a><br><strong>Post:</strong> Thomas Reinke, torecon, Roesgenstr. 22, 53474 Ahrweiler, Germany',
+        footer_home:      'investment.torecon.de',
+        footer_privacy:   'Privacy Policy',
+        footer_terms:     'Terms of Use',
+        footer_imprint:   'Legal Notice',
+      }
+    };
+
+    let currentLang = (() => {
+      const p = new URLSearchParams(window.location.search).get('lang');
+      if (p === 'en' || p === 'de') return p;
+      const stored = localStorage.getItem('inv_lang');
+      if (stored && translations[stored]) return stored;
+      const lang = navigator.language;
+      if (lang.startsWith('de')) return 'de';
+      return 'en';
+    })();
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('inv_lang', lang);
+      document.documentElement.lang = lang;
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.title = lang === 'en'
+        ? 'Terms of Use – Investment'
+        : 'Nutzungsbedingungen – Investment';
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+    });
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    applyLang(currentLang);
+  </script>
+</body>
+</html>

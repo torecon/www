@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>eLadung — Ladekosten clever tracken</title>
-  <meta name="description" content="eLadung ist der smarte Ladekosten-Tracker für Elektrofahrzeuge. Bald für Mac und iPhone. Kosten, Verbrauch und Tarife immer im Blick.">
+  <meta name="description" content="eLadung ist der smarte Ladekosten-Tracker für Elektrofahrzeuge. Jetzt für iPhone im App Store. Mac-Version folgt in Kürze.">
+
+  <!-- iOS Smart App Banner (Safari auf iPhone zeigt nativen App-Store-Hinweis) -->
+  <meta name="apple-itunes-app" content="app-id=6761632018">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -14,7 +17,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="eLadung — Ladekosten clever tracken">
-  <meta property="og:description" content="Dein smarter Ladekosten-Tracker für Elektrofahrzeuge. Bald für Mac und iPhone.">
+  <meta property="og:description" content="Dein smarter Ladekosten-Tracker für Elektrofahrzeuge. Jetzt für iPhone im App Store. Mac folgt in Kürze.">
   <meta property="og:url" content="https://eladung.torecon.de">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://eladung.torecon.de/icon-512.png">
@@ -315,9 +318,101 @@
       .pricing-grid { grid-template-columns: 1fr; }
       .app-preview { margin-top: 40px; }
     }
+
+    /* ── Mobile App Banner ──────────────────────────────────────────────────── */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(0);     opacity: 1; }
+      to   { transform: translateY(-100%); opacity: 0; }
+    }
+    .mobile-banner {
+      display: none;
+      background: linear-gradient(135deg, #001a4d 0%, #002a7a 50%, #001a4d 100%);
+      border-bottom: 1px solid rgba(79,127,255,0.35);
+      position: relative;
+      overflow: hidden;
+      animation: slideDown 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .mobile-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 120% at 50% -20%, rgba(79,127,255,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .mobile-banner-inner {
+      padding: 20px 20px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+    }
+    .mobile-banner-icon {
+      width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0;
+      overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .mobile-banner-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .mobile-banner-content { flex: 1; }
+    .mobile-banner-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(79,127,255,0.2); border: 1px solid rgba(79,127,255,0.4);
+      border-radius: 20px; padding: 3px 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
+      text-transform: uppercase; color: #7fa8ff; margin-bottom: 6px;
+    }
+    .mobile-banner-pill-dot {
+      width: 5px; height: 5px; background: #34C759;
+      border-radius: 50%;
+    }
+    .mobile-banner-title {
+      font-size: 15px; font-weight: 700; color: #fff;
+      letter-spacing: -0.02em; margin-bottom: 2px;
+    }
+    .mobile-banner-sub {
+      font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.4;
+    }
+    .mobile-banner-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #4F7FFF; color: #fff;
+      font-size: 13px; font-weight: 700;
+      padding: 9px 16px; border-radius: 20px;
+      text-decoration: none; flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(79,127,255,0.4);
+    }
+    .mobile-banner-close {
+      position: absolute; top: 10px; right: 12px;
+      background: none; border: none; color: rgba(255,255,255,0.4);
+      font-size: 16px; cursor: pointer; padding: 4px;
+      line-height: 1;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Mobile App Banner (nur iPhone) -->
+  <div class="mobile-banner" id="mobileBanner">
+    <button class="mobile-banner-close" id="mobileBannerClose" aria-label="Schließen">✕</button>
+    <div class="mobile-banner-inner">
+      <div class="mobile-banner-icon">
+        <img src="/icon-512.png" alt="eLadung GO">
+      </div>
+      <div class="mobile-banner-content">
+        <div class="mobile-banner-pill">
+          <span class="mobile-banner-pill-dot"></span>
+          Jetzt im App Store
+        </div>
+        <div class="mobile-banner-title">eLadung GO</div>
+        <div class="mobile-banner-sub">Ladekosten tracken · kostenlos · iPhone</div>
+      </div>
+      <a class="mobile-banner-btn" href="https://apps.apple.com/us/app/eladung-go/id6761632018">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M14.6 10.2c-.01-1.72 1.4-2.54 1.46-2.58-.8-1.17-2.04-1.33-2.49-1.35-1.07-.1-2.08.62-2.62.62-.55 0-1.39-.6-2.28-.59-1.18.01-2.26.68-2.87 1.74-1.22 2.1-.31 5.22.88 6.93.57.82 1.26 1.75 2.17 1.72.87-.04 1.19-.56 2.24-.56 1.04 0 1.33.56 2.24.55.94-.02 1.54-.84 2.12-1.66.67-.94.95-1.85.96-1.89-.02 0-1.8-.7-1.81-2.93z" fill="currentColor"/><path d="M12.3 5.17c.48-.58.8-1.37.71-2.17-.68.03-1.5.45-1.99 1.03-.44.5-.82 1.28-.71 2.03.75.06 1.5-.38 1.99-.89z" fill="currentColor"/></svg>
+        Laden
+      </a>
+    </div>
+  </div>
 
   <!-- Navigation -->
   <nav class="site-nav">
@@ -333,7 +428,7 @@
         <a class="nav-link" href="#funktionen">Funktionen</a>
         <a class="nav-link" href="#preise">Preise</a>
         <a class="nav-link" href="#faq">FAQ</a>
-        <a class="nav-cta" href="#platforms">Bald verfügbar</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
       </div>
     </div>
   </nav>
@@ -343,20 +438,20 @@
     <div class="hero-inner">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Mac &amp; iPhone — kommt bald
+        Jetzt im App Store
       </div>
       <h1>Ladekosten<br><span>clever tracken.</span></h1>
       <p class="hero-sub">
         eLadung ist dein smarter Begleiter für Elektrofahrzeuge. Erfasse Ladevorgänge, analysiere Kosten und vergleiche Tarife – für Mac und iPhone.
       </p>
       <div class="hero-actions">
-        <a href="/downloads/eLadung-4.3.dmg" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
-          Mac herunterladen
+        <a href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="1" width="10" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="12" r="1" fill="currentColor"/></svg>
+          iPhone – App Store
         </a>
         <span class="hero-coming-soon">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="1" width="10" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="12" r="1" fill="currentColor"/></svg>
-          iPhone
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Mac
           <span class="coming-badge">App Store · bald</span>
         </span>
       </div>
@@ -537,7 +632,7 @@
     <div class="container">
       <span class="section-label">Verfügbarkeit</span>
       <h2 class="section-headline text-center">Auf deinen Apple-Geräten.</h2>
-      <p class="section-sub section-sub-center">Wir bauen eLadung für das gesamte Apple-Ökosystem. Starte heute auf dem Mac — dein iPhone kommt bald dazu.</p>
+      <p class="section-sub section-sub-center">eLadung GO ist jetzt für iPhone im App Store verfügbar. Die Mac-App folgt in Kürze.</p>
       <div class="platform-grid">
         <div class="platform-card soon">
           <span class="platform-icon">💻</span>
@@ -545,16 +640,16 @@
           <p>Die vollständige eLadung-Erfahrung: NavigationSplitView, Charts, Menüleisten-Schnellzugriff, PDF-Export und mehr. Optimiert für macOS 14 Sonoma und neuer.</p>
           <div class="platform-status soon-status">
             <div class="status-dot soon-dot"></div>
-            In Entwicklung
+            App Store · bald
           </div>
         </div>
-        <div class="platform-card soon">
+        <div class="platform-card">
           <span class="platform-icon">📱</span>
           <h3>iPhone</h3>
-          <p>eLadung für unterwegs: Ladevorgang schnell erfassen, Dashboard im Blick, Wirtschaftlichkeitsanalyse und Tarifvergleich. Nahtlose iCloud-Sync mit der Mac-App.</p>
-          <div class="platform-status soon-status">
-            <div class="status-dot soon-dot"></div>
-            In Entwicklung
+          <p>eLadung GO für unterwegs: Ladevorgang schnell erfassen, Dashboard im Blick, Wirtschaftlichkeitsanalyse und Tarifvergleich. Nahtlose iCloud-Sync mit der Mac-App.</p>
+          <div class="platform-status" style="color:var(--accent-green);">
+            <div class="status-dot" style="background:var(--accent-green);"></div>
+            <a href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener" style="color:var(--accent-green); font-weight:600;">Im App Store</a>
           </div>
         </div>
       </div>
@@ -579,7 +674,7 @@
             <li>Mehrere Fahrzeuge</li>
             <li>Import & Export</li>
           </ul>
-          <a class="pricing-cta-secondary" href="/downloads/eLadung-4.3.dmg">Mac herunterladen</a>
+          <a class="pricing-cta-secondary" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
         </div>
         <div class="pricing-card featured">
           <div class="pricing-plan">Jährlich</div>
@@ -592,7 +687,7 @@
             <li>Wirtschaftlichkeitsanalyse</li>
             <li>Spotlight & Siri-Shortcuts</li>
           </ul>
-          <a class="pricing-cta" href="/downloads/eLadung-4.3.dmg">Mac herunterladen</a>
+          <a class="pricing-cta" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
         </div>
         <div class="pricing-card">
           <div class="pricing-plan">Monatlich</div>
@@ -605,7 +700,7 @@
             <li>Wirtschaftlichkeitsanalyse</li>
             <li>Spotlight & Siri-Shortcuts</li>
           </ul>
-          <a class="pricing-cta-secondary" href="/downloads/eLadung-4.3.dmg">Mac herunterladen</a>
+          <a class="pricing-cta-secondary" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
         </div>
         <div class="pricing-card">
           <div class="pricing-plan">Einmalig</div>
@@ -617,26 +712,26 @@
             <li>Alle zukünftigen Updates</li>
             <li>Unterstütze die Entwicklung</li>
           </ul>
-          <a class="pricing-cta-secondary" href="/downloads/eLadung-4.3.dmg">Mac herunterladen</a>
+          <a class="pricing-cta-secondary" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
         </div>
       </div>
       <p class="pricing-note">Abonnements werden über Apple abgerechnet. Kündigung jederzeit in den Mac-Systemeinstellungen → Apple-ID → Abonnements möglich.</p>
     </div>
   </section>
 
-  <!-- Download -->
+  <!-- App Store -->
   <section class="download-section" id="platforms">
-    <h2>Jetzt herunterladen.</h2>
-    <p>200 Tage kostenlos testen – kein Konto, keine Kreditkarte.<br>iPhone-App kommt bald im App Store.</p>
+    <h2>Jetzt im App Store.</h2>
+    <p>200 Tage kostenlos testen – kein Konto, keine Kreditkarte.</p>
     <div class="download-actions">
-      <a href="/downloads/eLadung-4.3.dmg" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Mac herunterladen
-        <span style="font-size:12px; font-weight:400; opacity:0.8;">v4.3 · macOS 14+</span>
+      <a href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="3" y="1" width="10" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="12" r="1" fill="currentColor"/></svg>
+        eLadung GO – iPhone
+        <span style="font-size:12px; font-weight:400; opacity:0.8;">iOS 17+</span>
       </a>
       <span class="hero-coming-soon">
-        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="3" y="1" width="10" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="12" r="1" fill="currentColor"/></svg>
-        iPhone – App Store
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
+        eLadung – Mac
         <span class="coming-badge">bald</span>
       </span>
     </div>
@@ -749,5 +844,22 @@
     </div>
   </footer>
 
+  <script>
+    // Mobile App Banner – nur auf iPhone/iPad anzeigen
+    const banner = document.getElementById('mobileBanner');
+    const closeBtn = document.getElementById('mobileBannerClose');
+    const isMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const dismissed = localStorage.getItem('el_mobile_banner_v1');
+
+    if (isMobile && !dismissed) {
+      banner.style.display = 'block';
+    }
+
+    closeBtn.addEventListener('click', () => {
+      banner.style.animation = 'slideUp 0.3s ease forwards';
+      setTimeout(() => { banner.style.display = 'none'; }, 300);
+      localStorage.setItem('el_mobile_banner_v1', '1');
+    });
+  </script>
 </body>
 </html>

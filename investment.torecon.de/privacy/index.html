@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung – Investment</title>
+  <meta name="description" content="Datenschutzerklärung der Investment App von torecon. DSGVO-konform.">
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #0A0A0F;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #4F7FFF;
+      --border:         rgba(0,0,0,0.08);
+      --border-strong:  rgba(0,0,0,0.15);
+      --nav-bg:         rgba(255,255,255,0.82);
+      --radius:         12px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .lang-toggle { display: flex; align-items: center; background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: 20px; padding: 3px; gap: 2px; }
+    .lang-btn { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 16px; border: none; background: transparent; color: var(--text-tertiary); cursor: pointer; transition: var(--transition); }
+    .lang-btn.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%); display: flex; align-items: center; justify-content: center; font-size: 17px; }
+    .nav-logo-main { font-size: 17px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
+    .nav-logo-main span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
+    .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+
+    .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+
+    .section { margin-bottom: 48px; }
+    .section h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .section h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; margin-top: 24px; }
+    .section p { color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { color: var(--text-secondary); font-size: 16px; line-height: 1.75; padding-left: 20px; margin-bottom: 14px; }
+    .section ul li { margin-bottom: 6px; }
+    .section strong { color: var(--text); font-weight: 600; }
+    .section a { color: var(--accent); }
+
+    .highlight-box { background: rgba(79,127,255,0.06); border: 1px solid rgba(79,127,255,0.2); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .highlight-box p { margin-bottom: 0; color: var(--text); }
+
+    .site-footer { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <div class="nav-logo-icon">📈</div>
+        <span class="nav-logo-main">Invest<span>ment</span></span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label" data-i18n="page_label">Rechtliches</span>
+    <h1 data-i18n="page_title">Datenschutzerklärung</h1>
+    <p class="page-meta" data-i18n="page_meta">Stand: April 2026 · Gilt für: Investment macOS App</p>
+
+    <div class="highlight-box">
+      <p data-i18n="summary"><strong>Kurz zusammengefasst:</strong> Investment speichert alle deine Daten — Portfolio, Signale, Fingerprints — ausschließlich lokal auf deinem Mac. Wir erheben keine personenbezogenen Daten und betreiben keinen eigenen Server. Kursdaten werden nur von der Leeway-API abgerufen, um Signale zu berechnen.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s1_title">1. Verantwortlicher</h2>
+      <p data-i18n="s1_p">Thomas Reinke · torecon<br>Roesgenstr. 22 · 53474 Ahrweiler · Deutschland<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a><br>Website: <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a></p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s2_title">2. Welche Daten werden verarbeitet?</h2>
+      <h3 data-i18n="s2_local_title">2.1 Lokale App-Daten</h3>
+      <p data-i18n="s2_local_p">Investment speichert folgende Daten <strong>ausschließlich lokal</strong> auf deinem Mac in einer CoreData-Datenbank:</p>
+      <ul>
+        <li data-i18n="s2_li1">Portfolio-Positionen und Transaktionen (Kauf-/Verkaufspreise, Mengen, Daten)</li>
+        <li data-i18n="s2_li2">Cash-Kontostand und Einzahlungen</li>
+        <li data-i18n="s2_li3">Generierte Buy- und Sell-Signale (werden nach 7 Tagen automatisch gelöscht)</li>
+        <li data-i18n="s2_li4">Security-Fingerprints (gelernte Indikatorschwellwerte je Wertpapier)</li>
+        <li data-i18n="s2_li5">App-Einstellungen (Screening-Universum, Zeitintervalle, API-Token)</li>
+      </ul>
+      <p data-i18n="s2_local_note">Diese Daten verlassen deinen Mac nicht. Es gibt keine Synchronisation mit unseren Servern.</p>
+
+      <h3 data-i18n="s2_api_title">2.2 Kursdaten-Abruf (Leeway-API)</h3>
+      <p data-i18n="s2_api_p">Für das automatische Screening ruft Investment historische Kursdaten und Nachrichten von der Leeway-API ab (<a href="https://leeway.tech" target="_blank" rel="noopener">leeway.tech</a>). Dabei werden folgende Daten übermittelt:</p>
+      <ul>
+        <li data-i18n="s2_api_li1">Wertpapiersymbole (Ticker + Börse, z. B. <em>SAP.XETRA</em>)</li>
+        <li data-i18n="s2_api_li2">Dein API-Token (zur Authentifizierung bei Leeway, wird lokal gespeichert)</li>
+      </ul>
+      <p data-i18n="s2_api_note">Es werden keine personenbezogenen Daten an die Leeway-API übermittelt. Die Datenschutzerklärung von Leeway findest du auf deren Website.</p>
+
+      <h3 data-i18n="s2_store_title">2.3 Mac App Store</h3>
+      <p data-i18n="s2_store_p">Der Kauf und die Lizenzverwaltung der App erfolgen ausschließlich über den Mac App Store von Apple. Apple verarbeitet dabei deine Zahlungsdaten und erstellt eine Kaufhistorie. Für diese Verarbeitung gilt die Datenschutzerklärung von Apple (<a href="https://www.apple.com/de/privacy/" target="_blank" rel="noopener">apple.com/de/privacy</a>).</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s3_title">3. Keine Analyse-Tools, kein Tracking</h2>
+      <p data-i18n="s3_p">Investment und diese Website (<a href="https://investment.torecon.de">investment.torecon.de</a>) verwenden keinerlei:</p>
+      <ul>
+        <li data-i18n="s3_li1">Web-Analyse-Tools (Google Analytics, Matomo o. Ä.)</li>
+        <li data-i18n="s3_li2">Tracking-Pixel oder Third-Party-Cookies</li>
+        <li data-i18n="s3_li3">Werbedienste oder Remarketing-Systeme</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s4_title">4. Deine Rechte</h2>
+      <p data-i18n="s4_p">Da wir keine personenbezogenen Daten erheben, entfallen die meisten datenschutzrechtlichen Auskunftspflichten. Dennoch hast du jederzeit das Recht, uns bei Fragen zum Datenschutz zu kontaktieren:</p>
+      <ul>
+        <li data-i18n="s4_li1">Auskunft über gespeicherte Daten</li>
+        <li data-i18n="s4_li2">Berichtigung unrichtiger Daten</li>
+        <li data-i18n="s4_li3">Löschung (alle App-Daten kannst du durch Deinstallation der App vollständig löschen)</li>
+        <li data-i18n="s4_li4">Widerspruch gegen eine etwaige Verarbeitung</li>
+      </ul>
+      <p data-i18n="s4_contact">Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s5_title">5. Datensicherheit</h2>
+      <p data-i18n="s5_p">Deine lokal gespeicherten Daten sind durch die macOS-Sandbox und die App-spezifische Keychain geschützt. Der Leeway-API-Token wird im macOS-Keychain gespeichert und ist für andere Apps nicht zugänglich.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s6_title">6. Änderungen dieser Datenschutzerklärung</h2>
+      <p data-i18n="s6_p">Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen. Die aktuelle Version ist stets unter <a href="https://investment.torecon.de/privacy/">investment.torecon.de/privacy/</a> abrufbar.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="s7_title">7. Beschwerderecht</h2>
+      <p data-i18n="s7_p">Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Die zuständige Behörde ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/" data-i18n="footer_home">investment.torecon.de</a>
+      <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+      <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
+      <a href="/#impressum" data-i18n="footer_imprint">Impressum</a>
+    </div>
+    <div class="footer-copy">&copy; <span id="footer-year"></span> Thomas Reinke · torecon</div>
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        nav_back:         '← Zurück',
+        page_label:       'Rechtliches',
+        page_title:       'Datenschutzerklärung',
+        page_meta:        'Stand: April 2026 · Gilt für: Investment macOS App',
+        summary:          '<strong>Kurz zusammengefasst:</strong> Investment speichert alle deine Daten — Portfolio, Signale, Fingerprints — ausschließlich lokal auf deinem Mac. Wir erheben keine personenbezogenen Daten und betreiben keinen eigenen Server. Kursdaten werden nur von der Leeway-API abgerufen, um Signale zu berechnen.',
+        s1_title:         '1. Verantwortlicher',
+        s1_p:             'Thomas Reinke · torecon<br>Roesgenstr. 22 · 53474 Ahrweiler · Deutschland<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a><br>Website: <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a>',
+        s2_title:         '2. Welche Daten werden verarbeitet?',
+        s2_local_title:   '2.1 Lokale App-Daten',
+        s2_local_p:       'Investment speichert folgende Daten <strong>ausschließlich lokal</strong> auf deinem Mac in einer CoreData-Datenbank:',
+        s2_li1:           'Portfolio-Positionen und Transaktionen (Kauf-/Verkaufspreise, Mengen, Daten)',
+        s2_li2:           'Cash-Kontostand und Einzahlungen',
+        s2_li3:           'Generierte Buy- und Sell-Signale (werden nach 7 Tagen automatisch gelöscht)',
+        s2_li4:           'Security-Fingerprints (gelernte Indikatorschwellwerte je Wertpapier)',
+        s2_li5:           'App-Einstellungen (Screening-Universum, Zeitintervalle, API-Token)',
+        s2_local_note:    'Diese Daten verlassen deinen Mac nicht. Es gibt keine Synchronisation mit unseren Servern.',
+        s2_api_title:     '2.2 Kursdaten-Abruf (Leeway-API)',
+        s2_api_p:         'Für das automatische Screening ruft Investment historische Kursdaten und Nachrichten von der Leeway-API ab (<a href="https://leeway.tech" target="_blank" rel="noopener">leeway.tech</a>). Dabei werden folgende Daten übermittelt:',
+        s2_api_li1:       'Wertpapiersymbole (Ticker + Börse, z. B. <em>SAP.XETRA</em>)',
+        s2_api_li2:       'Dein API-Token (zur Authentifizierung bei Leeway, wird lokal gespeichert)',
+        s2_api_note:      'Es werden keine personenbezogenen Daten an die Leeway-API übermittelt. Die Datenschutzerklärung von Leeway findest du auf deren Website.',
+        s2_store_title:   '2.3 Mac App Store',
+        s2_store_p:       'Der Kauf und die Lizenzverwaltung der App erfolgen ausschließlich über den Mac App Store von Apple. Apple verarbeitet dabei deine Zahlungsdaten und erstellt eine Kaufhistorie. Für diese Verarbeitung gilt die Datenschutzerklärung von Apple (<a href="https://www.apple.com/de/privacy/" target="_blank" rel="noopener">apple.com/de/privacy</a>).',
+        s3_title:         '3. Keine Analyse-Tools, kein Tracking',
+        s3_p:             'Investment und diese Website (<a href="https://investment.torecon.de">investment.torecon.de</a>) verwenden keinerlei:',
+        s3_li1:           'Web-Analyse-Tools (Google Analytics, Matomo o. Ä.)',
+        s3_li2:           'Tracking-Pixel oder Third-Party-Cookies',
+        s3_li3:           'Werbedienste oder Remarketing-Systeme',
+        s4_title:         '4. Deine Rechte',
+        s4_p:             'Da wir keine personenbezogenen Daten erheben, entfallen die meisten datenschutzrechtlichen Auskunftspflichten. Dennoch hast du jederzeit das Recht, uns bei Fragen zum Datenschutz zu kontaktieren:',
+        s4_li1:           'Auskunft über gespeicherte Daten',
+        s4_li2:           'Berichtigung unrichtiger Daten',
+        s4_li3:           'Löschung (alle App-Daten kannst du durch Deinstallation der App vollständig löschen)',
+        s4_li4:           'Widerspruch gegen eine etwaige Verarbeitung',
+        s4_contact:       'Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        s5_title:         '5. Datensicherheit',
+        s5_p:             'Deine lokal gespeicherten Daten sind durch die macOS-Sandbox und die App-spezifische Keychain geschützt. Der Leeway-API-Token wird im macOS-Keychain gespeichert und ist für andere Apps nicht zugänglich.',
+        s6_title:         '6. Änderungen dieser Datenschutzerklärung',
+        s6_p:             'Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen. Die aktuelle Version ist stets unter <a href="https://investment.torecon.de/privacy/">investment.torecon.de/privacy/</a> abrufbar.',
+        s7_title:         '7. Beschwerderecht',
+        s7_p:             'Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Die zuständige Behörde ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz.',
+        footer_home:      'investment.torecon.de',
+        footer_privacy:   'Datenschutz',
+        footer_terms:     'Nutzungsbedingungen',
+        footer_imprint:   'Impressum',
+      },
+      en: {
+        nav_back:         '← Back',
+        page_label:       'Legal',
+        page_title:       'Privacy Policy',
+        page_meta:        'Last updated: April 2026 · Applies to: Investment macOS App',
+        summary:          '<strong>In short:</strong> Investment stores all your data — portfolio, signals, fingerprints — exclusively on your Mac. We do not collect any personal data and do not operate our own servers. Market data is only retrieved from the Leeway API to calculate signals.',
+        s1_title:         '1. Data Controller',
+        s1_p:             'Thomas Reinke · torecon<br>Roesgenstr. 22 · 53474 Ahrweiler · Germany<br>Email: <a href="mailto:info@torecon.de">info@torecon.de</a><br>Website: <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a>',
+        s2_title:         '2. What Data Is Processed?',
+        s2_local_title:   '2.1 Local App Data',
+        s2_local_p:       'Investment stores the following data <strong>exclusively locally</strong> on your Mac in a CoreData database:',
+        s2_li1:           'Portfolio positions and transactions (buy/sell prices, quantities, dates)',
+        s2_li2:           'Cash account balance and deposits',
+        s2_li3:           'Generated buy and sell signals (automatically deleted after 7 days)',
+        s2_li4:           'Security fingerprints (learned indicator thresholds per security)',
+        s2_li5:           'App settings (screening universe, time intervals, API token)',
+        s2_local_note:    'This data never leaves your Mac. There is no synchronization with our servers.',
+        s2_api_title:     '2.2 Market Data Retrieval (Leeway API)',
+        s2_api_p:         'For automatic screening, Investment retrieves historical market data and news from the Leeway API (<a href="https://leeway.tech" target="_blank" rel="noopener">leeway.tech</a>). The following data is transmitted:',
+        s2_api_li1:       'Security symbols (ticker + exchange, e.g. <em>SAP.XETRA</em>)',
+        s2_api_li2:       'Your API token (for Leeway authentication, stored locally)',
+        s2_api_note:      'No personal data is transmitted to the Leeway API. Please refer to Leeway\'s own privacy policy on their website.',
+        s2_store_title:   '2.3 Mac App Store',
+        s2_store_p:       'Purchasing and license management are handled exclusively through the Mac App Store by Apple. Apple processes your payment data and maintains a purchase history. Apple\'s privacy policy applies to this processing (<a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">apple.com/privacy</a>).',
+        s3_title:         '3. No Analytics, No Tracking',
+        s3_p:             'Investment and this website (<a href="https://investment.torecon.de">investment.torecon.de</a>) do not use any:',
+        s3_li1:           'Web analytics tools (Google Analytics, Matomo, etc.)',
+        s3_li2:           'Tracking pixels or third-party cookies',
+        s3_li3:           'Advertising or remarketing services',
+        s4_title:         '4. Your Rights',
+        s4_p:             'Since we do not collect personal data, most data protection disclosure obligations do not apply. Nevertheless, you always have the right to contact us with privacy questions:',
+        s4_li1:           'Access to stored data',
+        s4_li2:           'Rectification of inaccurate data',
+        s4_li3:           'Erasure (you can completely delete all app data by uninstalling the app)',
+        s4_li4:           'Objection to any processing',
+        s4_contact:       'Contact: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        s5_title:         '5. Data Security',
+        s5_p:             'Your locally stored data is protected by the macOS sandbox and the app-specific Keychain. The Leeway API token is stored in the macOS Keychain and is not accessible to other apps.',
+        s6_title:         '6. Changes to This Privacy Policy',
+        s6_p:             'We reserve the right to update this privacy policy as needed. The current version is always available at <a href="https://investment.torecon.de/privacy/">investment.torecon.de/privacy/</a>.',
+        s7_title:         '7. Right to Complain',
+        s7_p:             'You have the right to lodge a complaint with a data protection supervisory authority. The competent authority is the State Commissioner for Data Protection and Freedom of Information of Rhineland-Palatinate, Germany.',
+        footer_home:      'investment.torecon.de',
+        footer_privacy:   'Privacy Policy',
+        footer_terms:     'Terms of Use',
+        footer_imprint:   'Legal Notice',
+      }
+    };
+
+    let currentLang = (() => {
+      const p = new URLSearchParams(window.location.search).get('lang');
+      if (p === 'en' || p === 'de') return p;
+      const stored = localStorage.getItem('inv_lang');
+      if (stored && translations[stored]) return stored;
+      const lang = navigator.language;
+      if (lang.startsWith('de')) return 'de';
+      return 'en';
+    })();
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('inv_lang', lang);
+      document.documentElement.lang = lang;
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.title = lang === 'en'
+        ? 'Privacy Policy – Investment'
+        : 'Datenschutzerklärung – Investment';
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+    });
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    applyLang(currentLang);
+  </script>
+</body>
+</html>

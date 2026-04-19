@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment — Signalbasiertes Portfolio-Management für den Mac</title>
+  <meta name="description" content="Investment ist die native macOS-App für signalbasiertes Portfolio-Management. Technische Analyse, Fingerprint-KI und automatisches Screening — alles offline, alles lokal.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Investment — Signalbasiertes Portfolio-Management für den Mac">
+  <meta property="og:description" content="Automatisches Screening, technische Analyse und eine KI, die von jedem Wertpapier lernt. Native macOS-App. Alle Daten lokal.">
+  <meta property="og:url" content="https://investment.torecon.de">
+  <meta property="og:type" content="website">
+
+  <style>
+    /* ── Design System ─────────────────────────────────────────────────────── */
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #0A0A0F;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #4F7FFF;
+      --accent-hover:   #3A6FEF;
+      --accent-green:   #34C759;
+      --accent-red:     #FF3B30;
+      --border:         rgba(0,0,0,0.08);
+      --border-strong:  rgba(0,0,0,0.15);
+      --nav-bg:         rgba(255,255,255,0.82);
+      --shadow-sm:      0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+      --shadow:         0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-lg:      0 12px 40px rgba(0,0,0,0.12);
+      --radius:         12px;
+      --radius-lg:      18px;
+      --radius-xl:      28px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --container:      980px;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    h1 { font-size: clamp(40px, 7vw, 80px); }
+    h2 { font-size: clamp(28px, 4vw, 48px); }
+    h3 { font-size: 20px; font-weight: 600; }
+    p  { line-height: 1.65; }
+    a  { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* ── Language Toggle ────────────────────────────────────────────────────── */
+    .lang-toggle { display: flex; align-items: center; background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: 20px; padding: 3px; gap: 2px; }
+    .lang-btn { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 16px; border: none; background: transparent; color: var(--text-tertiary); cursor: pointer; transition: var(--transition); }
+    .lang-btn.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    /* ── Navigation ─────────────────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); height: 60px;
+    }
+    .nav-inner {
+      max-width: var(--container); margin: 0 auto; padding: 0 24px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 10px; }
+    .nav-logo-icon {
+      width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
+    }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; gap: 1px; }
+    .nav-logo-main { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
+    .nav-logo-main span { color: var(--accent); }
+    .nav-logo-sub { font-size: 10px; font-weight: 500; color: var(--text-tertiary); }
+    .nav-logo-sub a { color: var(--text-tertiary); font-weight: 600; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-link { font-size: 14px; color: var(--text-secondary); padding: 6px 10px; border-radius: 8px; transition: var(--transition); }
+    .nav-link:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent); color: #fff; font-size: 14px; font-weight: 600;
+      padding: 8px 18px; border-radius: 20px; transition: var(--transition);
+    }
+    .nav-cta:hover { background: var(--accent-hover); opacity: 1; }
+
+    /* ── Hero ───────────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 96px 24px 80px; text-align: center;
+      background: linear-gradient(180deg, #fff 0%, var(--bg-alt) 100%);
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(79,127,255,0.08); border: 1px solid rgba(79,127,255,0.25);
+      border-radius: 40px; padding: 6px 16px;
+      font-size: 12px; font-weight: 600; color: var(--accent);
+      letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 32px;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; background: var(--accent-green);
+      border-radius: 50%; animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.7); }
+    }
+    .hero h1 { margin-bottom: 24px; color: var(--text); }
+    .hero h1 span { color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(18px, 2.5vw, 22px); color: var(--text-secondary);
+      line-height: 1.55; margin-bottom: 48px;
+      max-width: 580px; margin-left: auto; margin-right: auto;
+    }
+    .hero-actions {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff; font-size: 16px; font-weight: 600;
+      padding: 14px 28px; border-radius: var(--radius-xl); transition: var(--transition);
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: var(--accent-hover); opacity: 1; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg); color: var(--text); font-size: 16px; font-weight: 600;
+      padding: 14px 28px; border-radius: var(--radius-xl); transition: var(--transition);
+      border: 1.5px solid var(--border-strong); text-decoration: none;
+    }
+    .btn-secondary:hover { background: var(--bg-alt); opacity: 1; }
+    .hero-pills {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #fff; border: 1px solid var(--border-strong);
+      border-radius: 20px; padding: 7px 14px;
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ── App Mock Preview ───────────────────────────────────────────────────── */
+    .app-preview {
+      margin: 64px auto 0; max-width: 740px;
+      background: #1C1C1E; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.25), 0 8px 20px rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .app-preview-titlebar {
+      background: #2C2C2E; height: 38px; display: flex; align-items: center;
+      padding: 0 14px; gap: 8px;
+    }
+    .titlebar-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .titlebar-dot.red    { background: #FF5F57; }
+    .titlebar-dot.yellow { background: #FFBD2E; }
+    .titlebar-dot.green  { background: #28C840; }
+    .titlebar-title {
+      flex: 1; text-align: center; font-size: 12px; font-weight: 500;
+      color: rgba(255,255,255,0.4); margin-right: 36px;
+    }
+    .app-preview-body { padding: 20px; display: flex; gap: 16px; }
+    .app-sidebar {
+      width: 160px; flex-shrink: 0; display: flex; flex-direction: column; gap: 4px;
+    }
+    .sidebar-item {
+      padding: 8px 12px; border-radius: 8px; font-size: 13px;
+      color: rgba(255,255,255,0.5); cursor: pointer; display: flex; align-items: center; gap: 8px;
+    }
+    .sidebar-item.active {
+      background: rgba(79,127,255,0.2); color: var(--accent); font-weight: 600;
+    }
+    .sidebar-section {
+      font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.25); padding: 12px 12px 4px; margin-top: 8px;
+    }
+    .app-main { flex: 1; min-width: 0; }
+    .signal-table-header {
+      display: grid; grid-template-columns: 1fr 80px 90px 70px;
+      gap: 8px; padding: 8px 12px 6px;
+      font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3); border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .signal-row {
+      display: grid; grid-template-columns: 1fr 80px 90px 70px;
+      gap: 8px; padding: 11px 12px; border-radius: 8px; align-items: center;
+      transition: background 0.15s;
+    }
+    .signal-row:hover { background: rgba(255,255,255,0.04); }
+    .signal-row + .signal-row { border-top: 1px solid rgba(255,255,255,0.04); }
+    .signal-ticker { font-size: 14px; font-weight: 700; color: #fff; }
+    .signal-name   { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+    .confidence-bar { display: flex; flex-direction: column; gap: 3px; }
+    .confidence-track {
+      height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;
+    }
+    .confidence-fill { height: 100%; border-radius: 2px; }
+    .confidence-fill.high   { background: var(--accent-green); }
+    .confidence-fill.medium { background: var(--accent); }
+    .confidence-fill.low    { background: #FF9F0A; }
+    .confidence-label { font-size: 10px; color: rgba(255,255,255,0.4); }
+    .signal-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600;
+    }
+    .signal-badge.buy  { background: rgba(52,199,89,0.15); color: var(--accent-green); }
+    .signal-badge.sell { background: rgba(255,59,48,0.15);  color: var(--accent-red);  }
+    .signal-date { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .app-status-bar {
+      display: flex; align-items: center; gap: 8px; padding: 10px 12px 0;
+      font-size: 10px; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.05); margin-top: 12px;
+    }
+    .status-dot-live { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; animation: pulse 2s infinite; }
+
+    /* ── Sections ───────────────────────────────────────────────────────────── */
+    .section { padding: 96px 0; }
+    .section-alt { background: var(--bg-alt); }
+    .section-dark { background: var(--bg-dark); color: #fff; }
+    .section-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: block;
+    }
+    .section-headline { margin-bottom: 16px; }
+    .section-sub { font-size: clamp(17px, 2vw, 20px); color: var(--text-secondary); max-width: 560px; line-height: 1.6; margin-bottom: 56px; }
+    .section-sub-center { text-align: center; margin-left: auto; margin-right: auto; }
+    .text-center { text-align: center; }
+
+    /* ── Problem ────────────────────────────────────────────────────────────── */
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .problem-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px 28px; box-shadow: var(--shadow-sm); }
+    .problem-card-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .problem-card h3 { font-size: 18px; margin-bottom: 10px; }
+    .problem-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ── Features ───────────────────────────────────────────────────────────── */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+    .feature-item { display: flex; gap: 20px; align-items: flex-start; }
+    .feature-icon { flex-shrink: 0; width: 48px; height: 48px; background: rgba(79,127,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+    .feature-item h3 { font-size: 18px; margin-bottom: 8px; }
+    .feature-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ── How it works ───────────────────────────────────────────────────────── */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+    .step-card { text-align: center; padding: 32px 24px; }
+    .step-number {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-size: 22px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .step-card h3 { font-size: 18px; margin-bottom: 10px; }
+    .step-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ── Highlight Box ──────────────────────────────────────────────────────── */
+    .highlight-strip {
+      background: linear-gradient(135deg, rgba(79,127,255,0.08) 0%, rgba(52,199,89,0.06) 100%);
+      border: 1px solid rgba(79,127,255,0.2); border-radius: var(--radius-lg);
+      padding: 40px 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px;
+      margin-top: 64px;
+    }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 48px; font-weight: 700; letter-spacing: -0.03em; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 14px; color: var(--text-secondary); margin-top: 6px; }
+
+    /* ── Disclaimer ─────────────────────────────────────────────────────────── */
+    .disclaimer-box {
+      background: rgba(255,159,10,0.06); border: 1px solid rgba(255,159,10,0.25);
+      border-radius: var(--radius); padding: 20px 24px; margin-top: 56px;
+    }
+    .disclaimer-box p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+    .disclaimer-box strong { color: var(--text); }
+
+    /* ── FAQ ────────────────────────────────────────────────────────────────── */
+    .faq-list { display: flex; flex-direction: column; gap: 0; max-width: 720px; margin: 0 auto; }
+    .faq-item { padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+
+    /* ── Impressum ──────────────────────────────────────────────────────────── */
+    .imprint-section { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 64px 24px; }
+    .imprint-inner { max-width: 640px; margin: 0 auto; }
+    .imprint-section > .imprint-inner > h2 { font-size: 28px; margin-bottom: 32px; }
+    .imprint-block { margin-bottom: 28px; }
+    .imprint-block h3 { font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .imprint-block p, .imprint-block address { font-size: 15px; color: var(--text); font-style: normal; line-height: 1.75; }
+    .imprint-block a { color: var(--accent); }
+    .imprint-divider { border: none; border-top: 1px solid var(--border-strong); margin: 32px 0; }
+    .imprint-notice { font-size: 13px; color: var(--text-tertiary); background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; line-height: 1.6; }
+
+    /* ── Footer ─────────────────────────────────────────────────────────────── */
+    .site-footer { background: var(--bg-dark); padding: 40px 24px; }
+    .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo-icon {
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+      display: flex; align-items: center; justify-content: center; font-size: 16px;
+    }
+    .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: rgba(255,255,255,0.7); }
+    .footer-logo-main span { color: var(--accent); }
+    .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .footer-brand-line a { color: rgba(255,255,255,0.5); }
+    .footer-brand-line a:hover { color: #fff; opacity: 1; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+    .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
+    .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); opacity: 1; }
+
+    /* ── Responsive ─────────────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero { padding: 72px 20px 60px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .section { padding: 64px 0; }
+      .nav-cta { display: none; }
+      .nav-link { display: none; }
+      .app-sidebar { display: none; }
+      .signal-table-header,
+      .signal-row { grid-template-columns: 1fr 70px 80px; }
+      .signal-row > *:last-child { display: none; }
+      .highlight-strip { padding: 28px 20px; gap: 20px; }
+      .stat-number { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <div class="nav-logo-icon">📈</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Invest<span>ment</span></span>
+          <span class="nav-logo-sub" data-i18n="nav_sub">eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="nav-link" href="#funktionen" data-i18n="nav_features">Funktionen</a>
+        <a class="nav-link" href="#so-funktionierts" data-i18n="nav_how">So funktioniert's</a>
+        <a class="nav-link" href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a class="nav-cta" href="#download" data-i18n="nav_cta">Mac App Store</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span data-i18n="hero_badge">Nativ für macOS 14 Sonoma und neuer</span>
+      </div>
+      <h1 data-i18n="hero_h1">Investieren mit<br><span>System.</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">
+        Investment scannt dein Wertpapier-Universum stündlich, berechnet technische Signale und zeigt dir präzise, wann der Einstieg lohnt — vollständig offline, vollständig lokal.
+      </p>
+      <div class="hero-actions">
+        <a href="#download" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 6.5C13 10.09 8 14 8 14C8 14 3 10.09 3 6.5C3 3.46 5.24 1 8 1C10.76 1 13 3.46 13 6.5Z" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="6.5" r="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span data-i18n="hero_cta">Im Mac App Store</span>
+        </a>
+        <a href="#funktionen" class="btn-secondary">
+          <span data-i18n="hero_cta2">Funktionen entdecken</span>
+        </a>
+      </div>
+      <div class="hero-pills">
+        <span class="hero-pill" data-i18n="pill_indicators">📊 RSI · MACD · MA200</span>
+        <span class="hero-pill" data-i18n="pill_fp">🧠 Fingerprint-KI</span>
+        <span class="hero-pill" data-i18n="pill_screening">⏱ Stündliches Screening</span>
+        <span class="hero-pill" data-i18n="pill_local">🔒 100 % lokal</span>
+        <span class="hero-pill" data-i18n="pill_native">🖥 Native macOS-App</span>
+      </div>
+
+      <!-- Mock App Preview -->
+      <div class="app-preview">
+        <div class="app-preview-titlebar">
+          <div class="titlebar-dot red"></div>
+          <div class="titlebar-dot yellow"></div>
+          <div class="titlebar-dot green"></div>
+          <div class="titlebar-title" data-i18n="preview_title">Investment — Buy-Signale</div>
+        </div>
+        <div class="app-preview-body">
+          <div class="app-sidebar">
+            <div class="sidebar-section" data-i18n="sb_portfolio">Portfolio</div>
+            <div class="sidebar-item" data-i18n="sb_dashboard">💼 Dashboard</div>
+            <div class="sidebar-item" data-i18n="sb_positions">📁 Positionen</div>
+            <div class="sidebar-section" data-i18n="sb_signals">Signale</div>
+            <div class="sidebar-item active" data-i18n="sb_buy">📈 Buy-Signale</div>
+            <div class="sidebar-item" data-i18n="sb_sell">📉 Sell-Signale</div>
+            <div class="sidebar-section" data-i18n="sb_system">System</div>
+            <div class="sidebar-item" data-i18n="sb_settings">⚙️ Einstellungen</div>
+          </div>
+          <div class="app-main">
+            <div class="signal-table-header">
+              <span data-i18n="th_security">Wertpapier</span>
+              <span>Confidence</span>
+              <span>Signal</span>
+              <span data-i18n="th_date">Datum</span>
+            </div>
+            <div class="signal-row">
+              <div>
+                <div class="signal-ticker">SAP.XETRA</div>
+                <div class="signal-name">SAP SE</div>
+              </div>
+              <div class="confidence-bar">
+                <div class="confidence-track"><div class="confidence-fill high" style="width:85%"></div></div>
+                <div class="confidence-label">8,5 / 10</div>
+              </div>
+              <div><span class="signal-badge buy" data-i18n="badge_buy">Kaufen</span></div>
+              <div class="signal-date" data-i18n="date_today">heute</div>
+            </div>
+            <div class="signal-row">
+              <div>
+                <div class="signal-ticker">NVDA.US</div>
+                <div class="signal-name">NVIDIA Corp.</div>
+              </div>
+              <div class="confidence-bar">
+                <div class="confidence-track"><div class="confidence-fill high" style="width:75%"></div></div>
+                <div class="confidence-label">7,5 / 10</div>
+              </div>
+              <div><span class="signal-badge buy" data-i18n="badge_buy2">Kaufen</span></div>
+              <div class="signal-date" data-i18n="date_today2">heute</div>
+            </div>
+            <div class="signal-row">
+              <div>
+                <div class="signal-ticker">AAPL.US</div>
+                <div class="signal-name">Apple Inc.</div>
+              </div>
+              <div class="confidence-bar">
+                <div class="confidence-track"><div class="confidence-fill medium" style="width:62%"></div></div>
+                <div class="confidence-label">6,2 / 10</div>
+              </div>
+              <div><span class="signal-badge buy" data-i18n="badge_buy3">Kaufen</span></div>
+              <div class="signal-date" data-i18n="date_yesterday">gestern</div>
+            </div>
+            <div class="app-status-bar">
+              <span class="status-dot-live"></span>
+              <span data-i18n="status_bar">Letztes Screening: heute 14:30 · 9 Wertpapiere geprüft</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="section-label" data-i18n="problem_label">Warum Investment?</span>
+      <h2 class="section-headline" data-i18n="problem_headline">Bauchgefühl ist keine Strategie.</h2>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <span class="problem-card-icon">📉</span>
+          <h3 data-i18n="prob1_h">Zu viel Rauschen</h3>
+          <p data-i18n="prob1_p">News, Social Media, Analystenberichte — alle reden, niemand ist konsistent. Ein regelbasiertes System schlägt Impuls-Entscheidungen langfristig.</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-card-icon">🕐</span>
+          <h3 data-i18n="prob2_h">Keine Zeit für Analyse</h3>
+          <p data-i18n="prob2_p">Technische Analyse funktioniert, kostet aber Zeit. RSI, MACD und Gleitende Durchschnitte täglich manuell zu prüfen ist unrealistisch.</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-card-icon">📊</span>
+          <h3 data-i18n="prob3_h">Einheitsschwellwerte greifen nicht</h3>
+          <p data-i18n="prob3_p">Ein RSI unter 30 ist für SAP ein anderes Signal als für NVIDIA. Jedes Wertpapier verhält sich anders — und braucht eigene Schwellwerte.</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-card-icon">💾</span>
+          <h3 data-i18n="prob4_h">Daten in Excel und Tabellenkalkulationen</h3>
+          <p data-i18n="prob4_p">Portfolio-Tracking in Spreadsheets ist fehleranfällig, unübersichtlich und liefert keine automatisierten Kauf- oder Verkaufshinweise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="funktionen">
+    <div class="container">
+      <span class="section-label" data-i18n="feat_label">Funktionen</span>
+      <h2 class="section-headline" data-i18n="feat_headline">Alles, was du brauchst.</h2>
+      <p class="section-sub" data-i18n="feat_sub">Von der automatischen Signalgenerierung bis zur Portfolioverwaltung — Investment deckt den gesamten Workflow ab.</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div>
+            <h3 data-i18n="f1_h">Automatisches Screening</h3>
+            <p data-i18n="f1_p">Investment scannt dein Wertpapier-Universum stündlich im Hintergrund. Beim App-Start startet das Screening sofort — du verpasst keine Chance.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📐</div>
+          <div>
+            <h3 data-i18n="f2_h">Technische Analyse</h3>
+            <p data-i18n="f2_p">RSI, MACD, MA20/50/200 — alle Indikatoren werden auf Basis von bis zu 350 Tagen Kursdaten berechnet, vollständig automatisch.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🧠</div>
+          <div>
+            <h3 data-i18n="f3_h">Fingerprint-KI</h3>
+            <p data-i18n="f3_p">Jedes Wertpapier bekommt ein eigenes "Profil": Die App lernt, bei welchen RSI- und MACD-Werten ein Wertpapier historisch überverkauft war — und passt die Signale entsprechend an.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎯</div>
+          <div>
+            <h3 data-i18n="f4_h">Confidence-Score</h3>
+            <p data-i18n="f4_p">Jedes Signal erhält einen Score von 1–10. Mehrere bestätigende Indikatoren erhöhen den Score — du siehst auf Anhieb, wie stark ein Signal ist.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💼</div>
+          <div>
+            <h3 data-i18n="f5_h">Portfolio-Verwaltung</h3>
+            <p data-i18n="f5_p">Positionen, Transaktionen und ein Cash-Konto in einer Ansicht. Kauf- und Verkaufshistorie, P&amp;L je Position — alles offline in CoreData.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📰</div>
+          <div>
+            <h3 data-i18n="f6_h">Kursnachrichten</h3>
+            <p data-i18n="f6_p">Die neuesten Marktnachrichten direkt in der App — kontextuell zu deinen Wertpapieren, nicht als allgemeines Nachrichtenrauschen.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <div>
+            <h3 data-i18n="f7_h">100 % lokal &amp; offline-first</h3>
+            <p data-i18n="f7_p">Signale, Fingerprints und dein Portfolio liegen ausschließlich auf deinem Mac. Kein Account, kein Cloud-Zwang, kein Datenschutzproblem.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌍</div>
+          <div>
+            <h3 data-i18n="f8_h">Konfigurierbares Universum</h3>
+            <p data-i18n="f8_p">Standard: DAX-Blue-Chips und US-Technologietitel. Du kannst dein eigenes Screening-Universum frei konfigurieren — mit jedem Wertpapier weltweit.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🖥</div>
+          <div>
+            <h3 data-i18n="f9_h">Native macOS-App</h3>
+            <p data-i18n="f9_p">Kein Browser, kein Electron. Investment ist eine echte SwiftUI-App — schnell, ressourcenschonend und perfekt ins macOS-Design integriert.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="highlight-strip">
+        <div class="stat-item">
+          <div class="stat-number">350</div>
+          <div class="stat-label" data-i18n="stat1">Tage Kursdaten für MA200-Berechnung</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">60 min</div>
+          <div class="stat-label" data-i18n="stat2">Screening-Intervall im Hintergrund</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1–10</div>
+          <div class="stat-label" data-i18n="stat3">Confidence-Score pro Signal</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label" data-i18n="stat4">Wertpapiere im Universum konfigurierbar</div>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <p data-i18n="disclaimer"><strong>Risikohinweis:</strong> Investment ist ein Analyse-Werkzeug und ersetzt keine individuelle Anlageberatung. Alle Signale und Auswertungen dienen ausschließlich der persönlichen Information. Investitionen in Wertpapiere sind mit Risiken verbunden. Vergangene Kursverläufe sind kein verlässlicher Indikator für zukünftige Entwicklungen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section-alt" id="so-funktionierts">
+    <div class="container">
+      <span class="section-label text-center" style="display:block;" data-i18n="how_label">So funktioniert's</span>
+      <h2 class="section-headline text-center" data-i18n="how_headline">In drei Schritten zum Signal.</h2>
+      <p class="section-sub section-sub-center" data-i18n="how_sub">Investment automatisiert die technische Analyse vollständig — du entscheidest nur noch, ob du kaufst.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 data-i18n="step1_h">Universum konfigurieren</h3>
+          <p data-i18n="step1_p">Trage deine Wunsch-Wertpapiere ein. Investment startet direkt mit einem vorbereiteten Universum aus DAX-Blue-Chips und US-Tech-Titeln.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 data-i18n="step2_h">Screening läuft automatisch</h3>
+          <p data-i18n="step2_p">Stündlich werden Kursdaten abgerufen, Indikatoren berechnet und Fingerprints verfeinert. Beim App-Start sofort, danach im Hintergrund.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 data-i18n="step3_h">Signale prüfen &amp; handeln</h3>
+          <p data-i18n="step3_p">Buy-Liste und Sell-Liste zeigen aktuelle Signale mit Confidence-Score. Einmal geprüft, im Portfolio vermerkt — fertig.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section class="section" id="download">
+    <div class="container text-center">
+      <span class="section-label" style="display:block;" data-i18n="dl_label">Verfügbarkeit</span>
+      <h2 class="section-headline" data-i18n="dl_headline">Nur für Mac.</h2>
+      <p class="section-sub section-sub-center" data-i18n="dl_sub">Investment ist eine native macOS-App. Mindestanforderung: macOS 14 Sonoma. Optimiert für macOS 15 Sequoia.</p>
+      <a href="https://apps.apple.com/de/app/investment/id6746342657" class="btn-primary" style="font-size:18px;padding:16px 36px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span data-i18n="dl_cta">Im Mac App Store</span>
+      </a>
+      <p style="margin-top:16px; font-size:14px; color:var(--text-tertiary);" data-i18n="dl_req">macOS 14 Sonoma oder neuer · Mac App Store</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container text-center">
+      <span class="section-label" style="display:block;">FAQ</span>
+      <h2 class="section-headline" data-i18n="faq_headline">Häufige Fragen.</h2>
+      <p class="section-sub section-sub-center" style="margin-bottom:40px;"></p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 data-i18n="faq1_h">Woher kommen die Kursdaten?</h3>
+          <p data-i18n="faq1_p">Investment nutzt die Leeway-API als Datenquelle für historische Kurse, Intraday-Daten und Nachrichtenartikel. Die Kursdaten werden nur für die Signalberechnung verwendet und nicht dauerhaft gespeichert.</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq2_h">Was genau ist der Fingerprint?</h3>
+          <p data-i18n="faq2_p">Der Fingerprint ist ein wertpapierspezifisches Profil, das Investment über Zeit lernt. Die App analysiert historische RSI- und MACD-Verläufe und ermittelt, bei welchen Schwellwerten ein Wertpapier in der Vergangenheit überverkauft oder überkauft war. Diese gelernten Schwellwerte fließen in die Signalbewertung ein.</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq3_h">Welche Wertpapiere kann ich screenen?</h3>
+          <p data-i18n="faq3_p">Alle Wertpapiere, die über die Leeway-API verfügbar sind — das sind Aktien aus den meisten globalen Märkten, darunter XETRA, NYSE, NASDAQ, LSE und viele mehr. Das Standard-Universum enthält DAX-Blue-Chips und US-Tech-Titel.</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq4_h">Werden meine Daten in die Cloud übertragen?</h3>
+          <p data-i18n="faq4_p">Nein. Portfolio, Signale und Fingerprints liegen ausschließlich lokal auf deinem Mac in einer CoreData-Datenbank. Es gibt kein Nutzerkonto, keine Server-Kommunikation außer den Kursdaten-API-Abfragen.</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq5_h">Ist Investment ein Handels-Roboter?</h3>
+          <p data-i18n="faq5_p">Nein. Investment führt keine Trades aus und hat keinen Zugang zu deinem Depot. Die App ist ein Analyse-Werkzeug, das dir zeigt, welche Wertpapiere technisch interessant sein könnten. Kaufen und Verkaufen entscheidest du selbst, über deinen gewohnten Broker.</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq6_h">Funktioniert die App auch ohne Internetverbindung?</h3>
+          <p data-i18n="faq6_p">Portfolio-Ansicht, gespeicherte Signale und Fingerprints sind offline verfügbar. Für neue Screening-Zyklen wird eine Internetverbindung benötigt, um aktuelle Kursdaten abzurufen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impressum -->
+  <section class="imprint-section" id="impressum">
+    <div class="imprint-inner">
+      <h2 data-i18n="imp_title">Impressum</h2>
+
+      <div class="imprint-block">
+        <h3 data-i18n="imp_provider">Anbieter</h3>
+        <address>
+          Thomas Reinke<br>
+          torecon<br>
+          Roesgenstr. 22<br>
+          53474 Ahrweiler<br>
+          <span data-i18n="imp_country">Deutschland</span>
+        </address>
+      </div>
+
+      <div class="imprint-block">
+        <h3 data-i18n="imp_contact">Kontakt</h3>
+        <p><span data-i18n="imp_email">E-Mail:</span> <a href="mailto:info@torecon.de">info@torecon.de</a><br>
+        Website: <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a></p>
+      </div>
+
+      <div class="imprint-block">
+        <h3 data-i18n="imp_reg_label">Handelsregister</h3>
+        <p data-i18n="imp_reg">Keine Eintragung im Handelsregister.</p>
+      </div>
+
+      <div class="imprint-block">
+        <h3 data-i18n="imp_vat_label">Umsatzsteuer-ID</h3>
+        <p><span data-i18n="imp_vat">Gemäß § 27a UStG:</span> DE354936907</p>
+      </div>
+
+      <div class="imprint-block">
+        <h3 data-i18n="imp_resp_label">Verantwortlich für den Inhalt</h3>
+        <p>Thomas Reinke<br>Roesgenstr. 22, 53474 Ahrweiler</p>
+      </div>
+
+      <hr class="imprint-divider">
+
+      <div class="imprint-block">
+        <h3 data-i18n="imp_disc_label">Haftungsausschluss</h3>
+        <p data-i18n="imp_disc">Die Inhalte dieser App und Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+      </div>
+
+      <div class="imprint-block">
+        <h3 data-i18n="imp_advice_label">Kein Investment-Advice</h3>
+        <p data-i18n="imp_advice">Investment ist ein Software-Werkzeug für die technische Analyse und ersetzt ausdrücklich keine professionelle Anlageberatung. Die durch die App generierten Signale sind keine Kauf- oder Verkaufsempfehlungen. Alle Investitionsentscheidungen liegen in der alleinigen Verantwortung des Nutzers.</p>
+      </div>
+
+      <div class="imprint-notice" data-i18n="imp_odr">
+        Streitbeilegung: Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">📈</div>
+        <span class="footer-logo-main">Invest<span>ment</span></span>
+      </div>
+      <div class="footer-brand-line">
+        <span data-i18n="footer_brand">eine App von</span> <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> · Thomas Reinke
+      </div>
+      <div class="footer-links">
+        <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+        <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
+        <a href="#impressum" data-i18n="footer_imprint">Impressum</a>
+        <a href="mailto:info@torecon.de" data-i18n="footer_contact">Kontakt</a>
+      </div>
+      <div class="footer-apps">
+        <div class="footer-apps-label" data-i18n="footer_more">Weitere Apps von torecon</div>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">⚡ eLadung</a>
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
+          <a class="footer-app-pill" href="https://www.torecon.de/" target="_blank" rel="noopener">🌐 torecon.de</a>
+        </div>
+      </div>
+      <div class="footer-copy">&copy; <span id="footer-year"></span> Thomas Reinke · torecon · <span data-i18n="footer_rights">Alle Rechte vorbehalten</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        nav_sub:          'eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_features:     'Funktionen',
+        nav_how:          "So funktioniert's",
+        nav_faq:          'FAQ',
+        nav_cta:          'Mac App Store',
+        hero_badge:       'Nativ für macOS 14 Sonoma und neuer',
+        hero_h1:          'Investieren mit<br><span>System.</span>',
+        hero_sub:         'Investment scannt dein Wertpapier-Universum stündlich, berechnet technische Signale und zeigt dir präzise, wann der Einstieg lohnt — vollständig offline, vollständig lokal.',
+        hero_cta:         'Im Mac App Store',
+        hero_cta2:        'Funktionen entdecken',
+        pill_indicators:  '📊 RSI · MACD · MA200',
+        pill_fp:          '🧠 Fingerprint-KI',
+        pill_screening:   '⏱ Stündliches Screening',
+        pill_local:       '🔒 100 % lokal',
+        pill_native:      '🖥 Native macOS-App',
+        preview_title:    'Investment — Buy-Signale',
+        sb_portfolio:     'Portfolio',
+        sb_dashboard:     '💼 Dashboard',
+        sb_positions:     '📁 Positionen',
+        sb_signals:       'Signale',
+        sb_buy:           '📈 Buy-Signale',
+        sb_sell:          '📉 Sell-Signale',
+        sb_system:        'System',
+        sb_settings:      '⚙️ Einstellungen',
+        th_security:      'Wertpapier',
+        th_date:          'Datum',
+        badge_buy:        'Kaufen',
+        badge_buy2:       'Kaufen',
+        badge_buy3:       'Kaufen',
+        date_today:       'heute',
+        date_today2:      'heute',
+        date_yesterday:   'gestern',
+        status_bar:       'Letztes Screening: heute 14:30 · 9 Wertpapiere geprüft',
+        problem_label:    'Warum Investment?',
+        problem_headline: 'Bauchgefühl ist keine Strategie.',
+        prob1_h:          'Zu viel Rauschen',
+        prob1_p:          'News, Social Media, Analystenberichte — alle reden, niemand ist konsistent. Ein regelbasiertes System schlägt Impuls-Entscheidungen langfristig.',
+        prob2_h:          'Keine Zeit für Analyse',
+        prob2_p:          'Technische Analyse funktioniert, kostet aber Zeit. RSI, MACD und Gleitende Durchschnitte täglich manuell zu prüfen ist unrealistisch.',
+        prob3_h:          'Einheitsschwellwerte greifen nicht',
+        prob3_p:          'Ein RSI unter 30 ist für SAP ein anderes Signal als für NVIDIA. Jedes Wertpapier verhält sich anders — und braucht eigene Schwellwerte.',
+        prob4_h:          'Daten in Excel und Tabellenkalkulationen',
+        prob4_p:          'Portfolio-Tracking in Spreadsheets ist fehleranfällig, unübersichtlich und liefert keine automatisierten Kauf- oder Verkaufshinweise.',
+        feat_label:       'Funktionen',
+        feat_headline:    'Alles, was du brauchst.',
+        feat_sub:         'Von der automatischen Signalgenerierung bis zur Portfolioverwaltung — Investment deckt den gesamten Workflow ab.',
+        f1_h:             'Automatisches Screening',
+        f1_p:             'Investment scannt dein Wertpapier-Universum stündlich im Hintergrund. Beim App-Start startet das Screening sofort — du verpasst keine Chance.',
+        f2_h:             'Technische Analyse',
+        f2_p:             'RSI, MACD, MA20/50/200 — alle Indikatoren werden auf Basis von bis zu 350 Tagen Kursdaten berechnet, vollständig automatisch.',
+        f3_h:             'Fingerprint-KI',
+        f3_p:             'Jedes Wertpapier bekommt ein eigenes "Profil": Die App lernt, bei welchen RSI- und MACD-Werten ein Wertpapier historisch überverkauft war — und passt die Signale entsprechend an.',
+        f4_h:             'Confidence-Score',
+        f4_p:             'Jedes Signal erhält einen Score von 1–10. Mehrere bestätigende Indikatoren erhöhen den Score — du siehst auf Anhieb, wie stark ein Signal ist.',
+        f5_h:             'Portfolio-Verwaltung',
+        f5_p:             'Positionen, Transaktionen und ein Cash-Konto in einer Ansicht. Kauf- und Verkaufshistorie, P&L je Position — alles offline in CoreData.',
+        f6_h:             'Kursnachrichten',
+        f6_p:             'Die neuesten Marktnachrichten direkt in der App — kontextuell zu deinen Wertpapieren, nicht als allgemeines Nachrichtenrauschen.',
+        f7_h:             '100 % lokal & offline-first',
+        f7_p:             'Signale, Fingerprints und dein Portfolio liegen ausschließlich auf deinem Mac. Kein Account, kein Cloud-Zwang, kein Datenschutzproblem.',
+        f8_h:             'Konfigurierbares Universum',
+        f8_p:             'Standard: DAX-Blue-Chips und US-Technologietitel. Du kannst dein eigenes Screening-Universum frei konfigurieren — mit jedem Wertpapier weltweit.',
+        f9_h:             'Native macOS-App',
+        f9_p:             'Kein Browser, kein Electron. Investment ist eine echte SwiftUI-App — schnell, ressourcenschonend und perfekt ins macOS-Design integriert.',
+        stat1:            'Tage Kursdaten für MA200-Berechnung',
+        stat2:            'Screening-Intervall im Hintergrund',
+        stat3:            'Confidence-Score pro Signal',
+        stat4:            'Wertpapiere im Universum konfigurierbar',
+        disclaimer:       '<strong>Risikohinweis:</strong> Investment ist ein Analyse-Werkzeug und ersetzt keine individuelle Anlageberatung. Alle Signale und Auswertungen dienen ausschließlich der persönlichen Information. Investitionen in Wertpapiere sind mit Risiken verbunden. Vergangene Kursverläufe sind kein verlässlicher Indikator für zukünftige Entwicklungen.',
+        how_label:        "So funktioniert's",
+        how_headline:     'In drei Schritten zum Signal.',
+        how_sub:          'Investment automatisiert die technische Analyse vollständig — du entscheidest nur noch, ob du kaufst.',
+        step1_h:          'Universum konfigurieren',
+        step1_p:          'Trage deine Wunsch-Wertpapiere ein. Investment startet direkt mit einem vorbereiteten Universum aus DAX-Blue-Chips und US-Tech-Titeln.',
+        step2_h:          'Screening läuft automatisch',
+        step2_p:          'Stündlich werden Kursdaten abgerufen, Indikatoren berechnet und Fingerprints verfeinert. Beim App-Start sofort, danach im Hintergrund.',
+        step3_h:          'Signale prüfen & handeln',
+        step3_p:          'Buy-Liste und Sell-Liste zeigen aktuelle Signale mit Confidence-Score. Einmal geprüft, im Portfolio vermerkt — fertig.',
+        dl_label:         'Verfügbarkeit',
+        dl_headline:      'Nur für Mac.',
+        dl_sub:           'Investment ist eine native macOS-App. Mindestanforderung: macOS 14 Sonoma. Optimiert für macOS 15 Sequoia.',
+        dl_cta:           'Im Mac App Store',
+        dl_req:           'macOS 14 Sonoma oder neuer · Mac App Store',
+        faq_headline:     'Häufige Fragen.',
+        faq1_h:           'Woher kommen die Kursdaten?',
+        faq1_p:           'Investment nutzt die Leeway-API als Datenquelle für historische Kurse, Intraday-Daten und Nachrichtenartikel. Die Kursdaten werden nur für die Signalberechnung verwendet und nicht dauerhaft gespeichert.',
+        faq2_h:           'Was genau ist der Fingerprint?',
+        faq2_p:           'Der Fingerprint ist ein wertpapierspezifisches Profil, das Investment über Zeit lernt. Die App analysiert historische RSI- und MACD-Verläufe und ermittelt, bei welchen Schwellwerten ein Wertpapier in der Vergangenheit überverkauft oder überkauft war. Diese gelernten Schwellwerte fließen in die Signalbewertung ein.',
+        faq3_h:           'Welche Wertpapiere kann ich screenen?',
+        faq3_p:           'Alle Wertpapiere, die über die Leeway-API verfügbar sind — das sind Aktien aus den meisten globalen Märkten, darunter XETRA, NYSE, NASDAQ, LSE und viele mehr. Das Standard-Universum enthält DAX-Blue-Chips und US-Tech-Titel.',
+        faq4_h:           'Werden meine Daten in die Cloud übertragen?',
+        faq4_p:           'Nein. Portfolio, Signale und Fingerprints liegen ausschließlich lokal auf deinem Mac in einer CoreData-Datenbank. Es gibt kein Nutzerkonto, keine Server-Kommunikation außer den Kursdaten-API-Abfragen.',
+        faq5_h:           'Ist Investment ein Handels-Roboter?',
+        faq5_p:           'Nein. Investment führt keine Trades aus und hat keinen Zugang zu deinem Depot. Die App ist ein Analyse-Werkzeug, das dir zeigt, welche Wertpapiere technisch interessant sein könnten. Kaufen und Verkaufen entscheidest du selbst, über deinen gewohnten Broker.',
+        faq6_h:           'Funktioniert die App auch ohne Internetverbindung?',
+        faq6_p:           'Portfolio-Ansicht, gespeicherte Signale und Fingerprints sind offline verfügbar. Für neue Screening-Zyklen wird eine Internetverbindung benötigt, um aktuelle Kursdaten abzurufen.',
+        imp_title:        'Impressum',
+        imp_provider:     'Anbieter',
+        imp_country:      'Deutschland',
+        imp_contact:      'Kontakt',
+        imp_email:        'E-Mail:',
+        imp_reg_label:    'Handelsregister',
+        imp_reg:          'Keine Eintragung im Handelsregister.',
+        imp_vat_label:    'Umsatzsteuer-ID',
+        imp_vat:          'Gemäß § 27a UStG:',
+        imp_resp_label:   'Verantwortlich für den Inhalt',
+        imp_disc_label:   'Haftungsausschluss',
+        imp_disc:         'Die Inhalte dieser App und Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.',
+        imp_advice_label: 'Kein Investment-Advice',
+        imp_advice:       'Investment ist ein Software-Werkzeug für die technische Analyse und ersetzt ausdrücklich keine professionelle Anlageberatung. Die durch die App generierten Signale sind keine Kauf- oder Verkaufsempfehlungen. Alle Investitionsentscheidungen liegen in der alleinigen Verantwortung des Nutzers.',
+        imp_odr:          'Streitbeilegung: Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+        footer_brand:     'eine App von',
+        footer_privacy:   'Datenschutz',
+        footer_terms:     'Nutzungsbedingungen',
+        footer_imprint:   'Impressum',
+        footer_contact:   'Kontakt',
+        footer_more:      'Weitere Apps von torecon',
+        footer_rights:    'Alle Rechte vorbehalten',
+      },
+      en: {
+        nav_sub:          'an app by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_features:     'Features',
+        nav_how:          'How It Works',
+        nav_faq:          'FAQ',
+        nav_cta:          'Mac App Store',
+        hero_badge:       'Native for macOS 14 Sonoma and later',
+        hero_h1:          'Invest with<br><span>System.</span>',
+        hero_sub:         'Investment scans your security universe hourly, calculates technical signals, and shows you precisely when to enter — fully offline, fully local.',
+        hero_cta:         'On the Mac App Store',
+        hero_cta2:        'Explore Features',
+        pill_indicators:  '📊 RSI · MACD · MA200',
+        pill_fp:          '🧠 Fingerprint AI',
+        pill_screening:   '⏱ Hourly Screening',
+        pill_local:       '🔒 100% Local',
+        pill_native:      '🖥 Native macOS App',
+        preview_title:    'Investment — Buy Signals',
+        sb_portfolio:     'Portfolio',
+        sb_dashboard:     '💼 Dashboard',
+        sb_positions:     '📁 Positions',
+        sb_signals:       'Signals',
+        sb_buy:           '📈 Buy Signals',
+        sb_sell:          '📉 Sell Signals',
+        sb_system:        'System',
+        sb_settings:      '⚙️ Settings',
+        th_security:      'Security',
+        th_date:          'Date',
+        badge_buy:        'Buy',
+        badge_buy2:       'Buy',
+        badge_buy3:       'Buy',
+        date_today:       'today',
+        date_today2:      'today',
+        date_yesterday:   'yesterday',
+        status_bar:       'Last screening: today 14:30 · 9 securities scanned',
+        problem_label:    'Why Investment?',
+        problem_headline: 'Gut feeling is not a strategy.',
+        prob1_h:          'Too Much Noise',
+        prob1_p:          'News, social media, analyst reports — everyone talks, nobody is consistent. A rule-based system beats impulse decisions in the long run.',
+        prob2_h:          'No Time for Analysis',
+        prob2_p:          'Technical analysis works, but takes time. Manually checking RSI, MACD, and Moving Averages every day is unrealistic.',
+        prob3_h:          'One-Size Thresholds Don\'t Work',
+        prob3_p:          'An RSI below 30 means something different for SAP than for NVIDIA. Every security behaves differently — and needs its own thresholds.',
+        prob4_h:          'Data in Spreadsheets',
+        prob4_p:          'Portfolio tracking in spreadsheets is error-prone, hard to read, and provides no automated buy or sell signals.',
+        feat_label:       'Features',
+        feat_headline:    'Everything you need.',
+        feat_sub:         'From automated signal generation to portfolio management — Investment covers your entire workflow.',
+        f1_h:             'Automatic Screening',
+        f1_p:             'Investment scans your security universe hourly in the background. Screening starts immediately on app launch — you never miss an opportunity.',
+        f2_h:             'Technical Analysis',
+        f2_p:             'RSI, MACD, MA20/50/200 — all indicators are calculated from up to 350 days of price data, fully automatically.',
+        f3_h:             'Fingerprint AI',
+        f3_p:             'Each security gets its own "profile": The app learns at which RSI and MACD values a security was historically oversold — and adjusts signals accordingly.',
+        f4_h:             'Confidence Score',
+        f4_p:             'Every signal receives a score from 1–10. Multiple confirming indicators increase the score — you can see at a glance how strong a signal is.',
+        f5_h:             'Portfolio Management',
+        f5_p:             'Positions, transactions, and a cash account in one view. Buy and sell history, P&L per position — all offline in CoreData.',
+        f6_h:             'Market News',
+        f6_p:             'The latest market news right in the app — contextual to your securities, not generic market noise.',
+        f7_h:             '100% Local & Offline-First',
+        f7_p:             'Signals, fingerprints, and your portfolio stay exclusively on your Mac. No account, no cloud dependency, no privacy concerns.',
+        f8_h:             'Configurable Universe',
+        f8_p:             'Default: DAX blue-chips and US tech stocks. You can freely configure your own screening universe — with any security worldwide.',
+        f9_h:             'Native macOS App',
+        f9_p:             'No browser, no Electron. Investment is a true SwiftUI app — fast, resource-efficient, and perfectly integrated with macOS design.',
+        stat1:            'Days of price data for MA200 calculation',
+        stat2:            'Background screening interval',
+        stat3:            'Confidence score per signal',
+        stat4:            'Securities configurable in the universe',
+        disclaimer:       '<strong>Risk Notice:</strong> Investment is an analysis tool and does not replace individual investment advice. All signals and evaluations are for personal information only. Investing in securities involves risks. Past performance is not a reliable indicator of future results.',
+        how_label:        'How It Works',
+        how_headline:     'Three steps to a signal.',
+        how_sub:          'Investment fully automates technical analysis — you only decide whether to buy.',
+        step1_h:          'Configure Your Universe',
+        step1_p:          'Enter your desired securities. Investment starts with a pre-configured universe of DAX blue-chips and US tech stocks.',
+        step2_h:          'Screening Runs Automatically',
+        step2_p:          'Price data is fetched hourly, indicators are calculated, and fingerprints are refined. Immediately on launch, then in the background.',
+        step3_h:          'Review Signals & Act',
+        step3_p:          'The buy list and sell list show current signals with confidence scores. Review, add to portfolio — done.',
+        dl_label:         'Availability',
+        dl_headline:      'Mac Only.',
+        dl_sub:           'Investment is a native macOS app. Minimum requirement: macOS 14 Sonoma. Optimized for macOS 15 Sequoia.',
+        dl_cta:           'On the Mac App Store',
+        dl_req:           'macOS 14 Sonoma or later · Mac App Store',
+        faq_headline:     'Frequently Asked Questions.',
+        faq1_h:           'Where does the market data come from?',
+        faq1_p:           'Investment uses the Leeway API as a data source for historical prices, intraday data, and news articles. Market data is only used for signal calculation and is not permanently stored.',
+        faq2_h:           'What exactly is a Fingerprint?',
+        faq2_p:           'A fingerprint is a security-specific profile that Investment learns over time. The app analyzes historical RSI and MACD patterns to determine at which thresholds a security was oversold or overbought in the past. These learned thresholds feed into signal evaluation.',
+        faq3_h:           'Which securities can I screen?',
+        faq3_p:           'Any security available through the Leeway API — covering stocks from most global markets, including XETRA, NYSE, NASDAQ, LSE, and many more. The default universe contains DAX blue-chips and US tech stocks.',
+        faq4_h:           'Is my data uploaded to the cloud?',
+        faq4_p:           'No. Portfolio, signals, and fingerprints are stored exclusively on your Mac in a CoreData database. There is no user account, no server communication other than market data API queries.',
+        faq5_h:           'Is Investment a trading bot?',
+        faq5_p:           'No. Investment does not execute trades and has no access to your brokerage account. The app is an analysis tool that shows which securities may be technically interesting. Buying and selling is your decision, through your usual broker.',
+        faq6_h:           'Does the app work without internet?',
+        faq6_p:           'Portfolio view, saved signals, and fingerprints are available offline. An internet connection is needed for new screening cycles to fetch current market data.',
+        imp_title:        'Legal Notice',
+        imp_provider:     'Provider',
+        imp_country:      'Germany',
+        imp_contact:      'Contact',
+        imp_email:        'Email:',
+        imp_reg_label:    'Commercial Register',
+        imp_reg:          'Not registered in the commercial register.',
+        imp_vat_label:    'VAT ID',
+        imp_vat:          'Per § 27a UStG:',
+        imp_resp_label:   'Responsible for Content',
+        imp_disc_label:   'Disclaimer',
+        imp_disc:         'The content of this app and website has been created with the utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages under general law pursuant to § 7 (1) TMG.',
+        imp_advice_label: 'No Investment Advice',
+        imp_advice:       'Investment is a software tool for technical analysis and expressly does not replace professional investment advice. The signals generated by the app are not buy or sell recommendations. All investment decisions are the sole responsibility of the user.',
+        imp_odr:          'Dispute Resolution: The European Commission provides an online dispute resolution platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration body.',
+        footer_brand:     'an app by',
+        footer_privacy:   'Privacy Policy',
+        footer_terms:     'Terms of Use',
+        footer_imprint:   'Legal Notice',
+        footer_contact:   'Contact',
+        footer_more:      'More apps by torecon',
+        footer_rights:    'All rights reserved',
+      }
+    };
+
+    let currentLang = (() => {
+      const p = new URLSearchParams(window.location.search).get('lang');
+      if (p === 'en' || p === 'de') return p;
+      const stored = localStorage.getItem('inv_lang');
+      if (stored && translations[stored]) return stored;
+      const lang = navigator.language;
+      if (lang.startsWith('de')) return 'de';
+      return 'en';
+    })();
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('inv_lang', lang);
+      document.documentElement.lang = lang;
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.title = lang === 'en'
+        ? 'Investment — Signal-Based Portfolio Management for Mac'
+        : 'Investment — Signalbasiertes Portfolio-Management für den Mac';
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+    });
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    applyLang(currentLang);
+  </script>
+
+</body>
+</html>
