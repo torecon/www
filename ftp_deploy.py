@@ -15,6 +15,7 @@ Optional env vars (override defaults):
   REMOTE_DOWNLOADS     – Remote path for downloads.torecon.de
   REMOTE_GETBRAINBITES – Remote path for getbrainbites.ai
   REMOTE_GETTHINKLESS  – Remote path for getthinkless.ai
+  REMOTE_MEISTERLICH   – Remote path for meisterlich.torecon.de
 
 Usage:
   FTP_HOST=ftp.torecon.de FTP_USER=user FTP_PASS=secret python3 ftp_deploy.py
@@ -58,6 +59,10 @@ SITES = {
     "getthinkless": {
         "local":  BASE / "getthinkless.ai",
         "remote": os.environ.get("REMOTE_GETTHINKLESS", "/getthinkless.ai"),
+    },
+    "meisterlich": {
+        "local":  BASE / "meisterlich.torecon.de",
+        "remote": os.environ.get("REMOTE_MEISTERLICH", "/subdomains/meisterlich/html"),
     },
 }
 

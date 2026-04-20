@@ -41,6 +41,7 @@ Oder nur für eine bestimmte Subdomain:
 | downloads      | downloads.torecon.de/     | /subdomains/downloads/html        |
 | getbrainbites  | getbrainbites.ai/         | /getbrainbites.ai                 |
 | getthinkless   | getthinkless.ai/          | /getthinkless.ai                  |
+| meisterlich    | meisterlich.torecon.de/   | /subdomains/meisterlich/html      |
 
 `analytics` wird automatisch übersprungen, solange dort nur die README liegt.
 

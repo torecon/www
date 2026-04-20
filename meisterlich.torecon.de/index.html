@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meisterlich AI – Handwerker finden ohne Provision</title>
+  <meta name="description" content="Meisterlich AI verbindet Privatkunden mit Handwerkern in der Nähe. Für Kunden kostenlos. Für Handwerker planbare Fixkosten statt Lead-Gebühren.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+
+  <meta property="og:title" content="Meisterlich AI – Handwerker finden ohne Provision">
+  <meta property="og:description" content="Kostenlos für Kunden. Planbare Fixkosten für Handwerker. Die App für handwerkliche Aufträge in deiner Nähe.">
+  <meta property="og:url" content="https://meisterlich.torecon.de">
+  <meta property="og:type" content="website">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <img src="/logo.png" alt="Meisterlich AI" class="nav-logo-img">
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Meisterlich<span class="nav-logo-accent"> AI</span></span>
+          <span class="nav-logo-sub" data-i18n="nav_sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+        <a class="nav-back" href="#impressum" data-i18n="nav_imprint">Impressum</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <img src="/logo.png" alt="Meisterlich AI" class="hero-logo">
+        <h1>
+          <span data-i18n="hero_h1_1">Meister finden.</span><br>
+          <span class="accent" data-i18n="hero_h1_2">Ohne Provision.</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero_sub">Meisterlich AI verbindet Privatkunden mit Handwerkerbetrieben in der Nähe. <strong>Kostenlos für Kunden.</strong> Planbare Fixkosten für Meister — statt variabler Lead-Gebühren.</p>
+        <div class="hero-cta-row">
+          <a href="#pricing" class="btn-primary" data-i18n="hero_cta_pricing">Preise ansehen</a>
+          <a href="#how" class="btn-secondary" data-i18n="hero_cta_how">Wie es funktioniert</a>
+        </div>
+        <div class="hero-pills">
+          <span class="hero-pill">📱 <span data-i18n="pill_platform">iPhone · iOS 17+</span></span>
+          <span class="hero-pill">🇩🇪 <span data-i18n="pill_lang">Deutsch &amp; Englisch</span></span>
+          <span class="hero-pill">🔒 <span data-i18n="pill_privacy">Sign in with Apple</span></span>
+          <span class="hero-pill">🛠 <span data-i18n="pill_cats">85+ Leistungskategorien</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Role split: Kunde vs. Meister -->
+    <section class="section-home" id="how">
+      <h2 data-i18n="how_h2">Zwei Rollen. Ein iPhone.</h2>
+      <p class="section-sub" data-i18n="how_sub">Dieselbe App — je nachdem, ob du einen Meister suchst oder selbst einer bist.</p>
+      <div class="role-split">
+        <div class="role-card">
+          <h3 data-i18n="role_cust_h3">Privatkunde</h3>
+          <p class="role-price" data-i18n="role_cust_price">Kostenlos · keine Registrierung nötig</p>
+          <p data-i18n="role_cust_p">Such nach Leistung, PLZ und Radius. Schau dir Profile, Fotos und Bewertungen an. Starte den Chat — und ruf bei Bedarf direkt an.</p>
+          <ul>
+            <li data-i18n="role_cust_li1">Suche nach Kategorie + PLZ + Umkreis bis 150 km</li>
+            <li data-i18n="role_cust_li2">In-App-Chat (Text, bis 500 Zeichen je Nachricht)</li>
+            <li data-i18n="role_cust_li3">Direkt anrufen, wenn der Meister seine Nummer freigibt</li>
+            <li data-i18n="role_cust_li4">Keine Provision. Kein Lead-Verkauf. Kein Werbetracking.</li>
+          </ul>
+        </div>
+        <div class="role-card accent">
+          <h3 data-i18n="role_craft_h3">Meister (Handwerker)</h3>
+          <p class="role-price" data-i18n="role_craft_price">Ab 9,99 € pro Woche · keine Provision</p>
+          <p data-i18n="role_craft_p">Pflege dein Profil mit Fotos, Leistungen und Werbebanner. Du zahlst ein festes Abo und behältst jeden Auftrag vollständig — keine Lead-Gebühren, kein Stück vom Kuchen.</p>
+          <ul>
+            <li data-i18n="role_craft_li1">Öffentliches Profil mit bis zu 10 Fotos + Banner</li>
+            <li data-i18n="role_craft_li2">Sichtbar im Kundenradar, sobald das Abo aktiv ist</li>
+            <li data-i18n="role_craft_li3">Chat-Anfragen direkt vom Kunden, optional Telefon-Opt-in</li>
+            <li data-i18n="role_craft_li4">Du entscheidest selbst, ob Bewertungen öffentlich sind</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section-home">
+      <h2 data-i18n="feat_h2">Warum Meisterlich AI?</h2>
+      <p class="section-sub" data-i18n="feat_sub">Keine Lead-Gebühren. Keine Mittelsmänner. Nur eine App, die Kunden und Meister zusammenbringt.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-emoji">💰</span>
+          <h3 data-i18n="f1_h3">Planbare Fixkosten</h3>
+          <p data-i18n="f1_p">Fünf Laufzeiten von wöchentlich bis jährlich. Keine Provision pro Auftrag — das Geld bleibt beim Meister.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-emoji">📍</span>
+          <h3 data-i18n="f2_h3">Lokal & präzise</h3>
+          <p data-i18n="f2_p">Suche nach PLZ und Umkreis. Jeder Meister entscheidet selbst, in welchem Radius er arbeiten will.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-emoji">💬</span>
+          <h3 data-i18n="f3_h3">Chat statt Formular</h3>
+          <p data-i18n="f3_p">In-App-Text-Chat, kurz und fokussiert. Wenn es schneller gehen muss: ein Tap aufs Telefon.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-emoji">🛡</span>
+          <h3 data-i18n="f4_h3">Privatsphäre zuerst</h3>
+          <p data-i18n="f4_p">Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-home" id="pricing">
+      <div class="section-home">
+        <h2 data-i18n="price_h2">Preise für Meister</h2>
+        <p class="section-sub" data-i18n="price_sub">Fünf Laufzeiten. Kein Trial. Je länger, desto günstiger pro Monat. Kündigung jederzeit über die iPhone-Einstellungen.</p>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th data-i18n="price_col_term">Laufzeit</th>
+              <th data-i18n="price_col_price">Preis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="price_weekly">Wöchentlich</td><td>9,99&nbsp;€</td></tr>
+            <tr><td data-i18n="price_monthly">Monatlich</td><td>24,99&nbsp;€</td></tr>
+            <tr><td data-i18n="price_quarterly">Quartalsweise</td><td>69,99&nbsp;€</td></tr>
+            <tr><td data-i18n="price_halfyearly">Halbjährlich</td><td>129,99&nbsp;€</td></tr>
+            <tr><td data-i18n="price_yearly">Jährlich</td><td>249,99&nbsp;€</td></tr>
+          </tbody>
+        </table>
+        <p class="pricing-note" data-i18n="price_note">Abrechnung über Apple In-App Purchase. Für Privatkunden ist die App dauerhaft kostenlos.</p>
+      </div>
+    </section>
+
+    <!-- Impressum -->
+    <section class="impressum-block" id="impressum">
+      <h2 data-i18n="imp_h2">Impressum</h2>
+      <p data-i18n="imp_role"><strong>Anbieter und verantwortlich nach § 5 DDG:</strong></p>
+      <p>Thomas Reinke (<span data-i18n="imp_sole">Einzelunternehmen „torecon"</span>)<br>
+      Roesgenstr. 22<br>
+      53474 Ahrweiler<br>
+      <span data-i18n="imp_country">Deutschland</span></p>
+      <p><strong data-i18n="imp_contact">Kontakt:</strong><br>
+      <span data-i18n="imp_email">E-Mail:</span> <a href="mailto:support@torecon.de">support@torecon.de</a></p>
+      <p><strong data-i18n="imp_vat">Umsatzsteuer-ID gem. § 27a UStG:</strong> <span data-i18n="imp_vat_tbd">[noch einzutragen]</span></p>
+      <p><strong data-i18n="imp_legal">Rechtliches:</strong> <a href="/terms/" data-i18n="imp_terms">Nutzungsbedingungen</a> · <a href="/privacy/" data-i18n="imp_privacy">Datenschutzerklärung</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-main">Meisterlich<span class="footer-logo-accent"> AI</span></div>
+      <div class="footer-brand-line">
+        <span data-i18n="footer_brand">eine Marke von</span> <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>
+      </div>
+      <div class="footer-links">
+        <a href="/" data-i18n="footer_home">Startseite</a>
+        <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+        <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
+        <a href="#impressum" data-i18n="footer_imprint">Impressum</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">💡 ThinkLess AI</a>
+        </div>
+      </div>
+      <div class="footer-copy">&copy; <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      de: {
+        nav_sub: 'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_imprint: 'Impressum',
+        hero_h1_1: 'Meister finden.',
+        hero_h1_2: 'Ohne Provision.',
+        hero_sub: 'Meisterlich AI verbindet Privatkunden mit Handwerkerbetrieben in der Nähe. <strong>Kostenlos für Kunden.</strong> Planbare Fixkosten für Meister — statt variabler Lead-Gebühren.',
+        hero_cta_pricing: 'Preise ansehen',
+        hero_cta_how: 'Wie es funktioniert',
+        pill_platform: 'iPhone · iOS 17+',
+        pill_lang: 'Deutsch &amp; Englisch',
+        pill_privacy: 'Sign in with Apple',
+        pill_cats: '85+ Leistungskategorien',
+        how_h2: 'Zwei Rollen. Ein iPhone.',
+        how_sub: 'Dieselbe App — je nachdem, ob du einen Meister suchst oder selbst einer bist.',
+        role_cust_h3: 'Privatkunde',
+        role_cust_price: 'Kostenlos · keine Registrierung nötig',
+        role_cust_p: 'Such nach Leistung, PLZ und Radius. Schau dir Profile, Fotos und Bewertungen an. Starte den Chat — und ruf bei Bedarf direkt an.',
+        role_cust_li1: 'Suche nach Kategorie + PLZ + Umkreis bis 150 km',
+        role_cust_li2: 'In-App-Chat (Text, bis 500 Zeichen je Nachricht)',
+        role_cust_li3: 'Direkt anrufen, wenn der Meister seine Nummer freigibt',
+        role_cust_li4: 'Keine Provision. Kein Lead-Verkauf. Kein Werbetracking.',
+        role_craft_h3: 'Meister (Handwerker)',
+        role_craft_price: 'Ab 9,99 € pro Woche · keine Provision',
+        role_craft_p: 'Pflege dein Profil mit Fotos, Leistungen und Werbebanner. Du zahlst ein festes Abo und behältst jeden Auftrag vollständig — keine Lead-Gebühren, kein Stück vom Kuchen.',
+        role_craft_li1: 'Öffentliches Profil mit bis zu 10 Fotos + Banner',
+        role_craft_li2: 'Sichtbar im Kundenradar, sobald das Abo aktiv ist',
+        role_craft_li3: 'Chat-Anfragen direkt vom Kunden, optional Telefon-Opt-in',
+        role_craft_li4: 'Du entscheidest selbst, ob Bewertungen öffentlich sind',
+        feat_h2: 'Warum Meisterlich AI?',
+        feat_sub: 'Keine Lead-Gebühren. Keine Mittelsmänner. Nur eine App, die Kunden und Meister zusammenbringt.',
+        f1_h3: 'Planbare Fixkosten',
+        f1_p: 'Fünf Laufzeiten von wöchentlich bis jährlich. Keine Provision pro Auftrag — das Geld bleibt beim Meister.',
+        f2_h3: 'Lokal &amp; präzise',
+        f2_p: 'Suche nach PLZ und Umkreis. Jeder Meister entscheidet selbst, in welchem Radius er arbeiten will.',
+        f3_h3: 'Chat statt Formular',
+        f3_p: 'In-App-Text-Chat, kurz und fokussiert. Wenn es schneller gehen muss: ein Tap aufs Telefon.',
+        f4_h3: 'Privatsphäre zuerst',
+        f4_p: 'Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".',
+        price_h2: 'Preise für Meister',
+        price_sub: 'Fünf Laufzeiten. Kein Trial. Je länger, desto günstiger pro Monat. Kündigung jederzeit über die iPhone-Einstellungen.',
+        price_col_term: 'Laufzeit',
+        price_col_price: 'Preis',
+        price_weekly: 'Wöchentlich',
+        price_monthly: 'Monatlich',
+        price_quarterly: 'Quartalsweise',
+        price_halfyearly: 'Halbjährlich',
+        price_yearly: 'Jährlich',
+        price_note: 'Abrechnung über Apple In-App Purchase. Für Privatkunden ist die App dauerhaft kostenlos.',
+        imp_h2: 'Impressum',
+        imp_role: '<strong>Anbieter und verantwortlich nach § 5 DDG:</strong>',
+        imp_sole: 'Einzelunternehmen „torecon"',
+        imp_country: 'Deutschland',
+        imp_contact: 'Kontakt:',
+        imp_email: 'E-Mail:',
+        imp_vat: 'Umsatzsteuer-ID gem. § 27a UStG:',
+        imp_vat_tbd: '[noch einzutragen]',
+        imp_legal: 'Rechtliches:',
+        imp_terms: 'Nutzungsbedingungen',
+        imp_privacy: 'Datenschutzerklärung',
+        footer_brand: 'eine Marke von',
+        footer_home: 'Startseite',
+        footer_privacy: 'Datenschutz',
+        footer_terms: 'Nutzungsbedingungen',
+        footer_imprint: 'Impressum',
+        footer_rights: 'Alle Rechte vorbehalten.',
+        footer_also: 'Weitere Apps von torecon',
+      },
+      en: {
+        nav_sub: 'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_imprint: 'Legal Notice',
+        hero_h1_1: 'Find a craftsman.',
+        hero_h1_2: 'Without commission.',
+        hero_sub: 'Meisterlich AI connects private customers with local craftsmen. <strong>Free for customers.</strong> Predictable flat rates for Masters — instead of variable lead fees.',
+        hero_cta_pricing: 'See pricing',
+        hero_cta_how: 'How it works',
+        pill_platform: 'iPhone · iOS 17+',
+        pill_lang: 'German &amp; English',
+        pill_privacy: 'Sign in with Apple',
+        pill_cats: '85+ service categories',
+        how_h2: 'Two roles. One iPhone.',
+        how_sub: 'Same app — whether you are looking for a Master or are one yourself.',
+        role_cust_h3: 'Private customer',
+        role_cust_price: 'Free · no sign-up required',
+        role_cust_p: 'Search by service, postal code and radius. Browse profiles, photos and reviews. Start a chat — and call directly if needed.',
+        role_cust_li1: 'Search by category + postal code + radius up to 150 km',
+        role_cust_li2: 'In-app chat (text, up to 500 characters per message)',
+        role_cust_li3: 'Direct call when the Master shares their number',
+        role_cust_li4: 'No commission. No lead sales. No ad tracking.',
+        role_craft_h3: 'Master (Craftsman)',
+        role_craft_price: 'From €9.99 per week · no commission',
+        role_craft_p: 'Maintain your profile with photos, services and a banner. You pay a fixed subscription and keep every job fully — no lead fees, no cut.',
+        role_craft_li1: 'Public profile with up to 10 photos + banner',
+        role_craft_li2: 'Visible in customer search as soon as the subscription is active',
+        role_craft_li3: 'Chat requests direct from customers, optional phone opt-in',
+        role_craft_li4: 'You decide whether reviews are shown publicly',
+        feat_h2: 'Why Meisterlich AI?',
+        feat_sub: 'No lead fees. No middlemen. Just an app that connects customers and Masters.',
+        f1_h3: 'Predictable flat costs',
+        f1_p: 'Five subscription terms from weekly to yearly. No commission per job — the money stays with the Master.',
+        f2_h3: 'Local &amp; precise',
+        f2_p: 'Search by postal code and radius. Each Master decides their own service radius.',
+        f3_h3: 'Chat instead of forms',
+        f3_p: 'In-app text chat, short and focused. For anything urgent, tap the phone icon.',
+        f4_h3: 'Privacy first',
+        f4_p: 'No IDFA, no ad tracking, no Facebook SDK. Sign in with Apple.',
+        price_h2: 'Pricing for Masters',
+        price_sub: 'Five subscription terms. No free trial. Longer terms mean lower monthly rates. Cancel any time via iPhone Settings.',
+        price_col_term: 'Term',
+        price_col_price: 'Price',
+        price_weekly: 'Weekly',
+        price_monthly: 'Monthly',
+        price_quarterly: 'Quarterly',
+        price_halfyearly: 'Half-yearly',
+        price_yearly: 'Yearly',
+        price_note: 'Billed via Apple In-App Purchase. The app is always free for private customers.',
+        imp_h2: 'Legal Notice',
+        imp_role: '<strong>Provider and responsible per §5 DDG (German Digital Services Act):</strong>',
+        imp_sole: 'Sole proprietorship "torecon"',
+        imp_country: 'Germany',
+        imp_contact: 'Contact:',
+        imp_email: 'Email:',
+        imp_vat: 'VAT ID per §27a UStG:',
+        imp_vat_tbd: '[to be added]',
+        imp_legal: 'Legal:',
+        imp_terms: 'Terms of Use',
+        imp_privacy: 'Privacy Policy',
+        footer_brand: 'a brand by',
+        footer_home: 'Home',
+        footer_privacy: 'Privacy Policy',
+        footer_terms: 'Terms of Use',
+        footer_imprint: 'Legal Notice',
+        footer_rights: 'All rights reserved.',
+        footer_also: 'More apps by torecon',
+      }
+    };
+
+    let lang = 'de';
+    function setLang(l) { lang = l; localStorage.setItem('ml_lang', l); apply(); }
+    function apply() {
+      const t = T[lang];
+      document.documentElement.lang = lang;
+      ['de','en'].forEach(l => document.getElementById('btn-' + l).classList.toggle('active', lang === l));
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (t[k] !== undefined) el.innerHTML = t[k];
+      });
+      const titles = {
+        de: 'Meisterlich AI – Handwerker finden ohne Provision',
+        en: 'Meisterlich AI – Find craftsmen without commission'
+      };
+      document.title = titles[lang] || titles.en;
+    }
+    function detectLang() {
+      const param = new URLSearchParams(location.search).get('lang');
+      if (param && T[param]) return param;
+      const saved = localStorage.getItem('ml_lang');
+      if (saved && T[saved]) return saved;
+      return (navigator.language || '').toLowerCase().startsWith('de') ? 'de' : 'en';
+    }
+    lang = detectLang(); apply();
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
