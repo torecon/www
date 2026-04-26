@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Support – Zettelküche AI</title>
   <meta name="description" content="Hilfe und Kontakt für Zettelküche AI – die KI-Rezept-App von torecon.">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
   <style>
     :root {
       --bg:             #FFFFFF;
       --bg-alt:         #F8F6F2;
+      --bg-warm:        #FBF6F0;
       --bg-dark:        #1A1410;
       --text:           #1D1D1F;
       --text-secondary: #6E6E73;
       --text-tertiary:  #86868B;
       --accent:         #D97757;
+      --accent-strong:  #C8623E;
       --border:         rgba(0,0,0,0.08);
       --nav-bg:         rgba(255,255,255,0.85);
       --radius:         12px;
+      --container:      980px;
       --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
       --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -27,14 +32,18 @@
     a:hover { opacity: 0.8; }
 
     .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
-    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: var(--container); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 17px; color: #fff; }
+    .nav-logo-img { width: 32px; height: 32px; border-radius: 8px; }
     .nav-logo-main { font-size: 17px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
-    .nav-logo-main span { color: var(--accent); }
+    .nav-logo-main .accent { color: var(--accent); }
     .nav-right { display: flex; align-items: center; gap: 12px; }
     .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
     .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+    .lang-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
+    .lang-btn { border: 0; background: transparent; color: var(--text-tertiary); padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: var(--transition); }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active { background: var(--accent); color: #fff; }
 
     .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
     .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
@@ -43,7 +52,7 @@
     .page-content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 40px 0 14px; }
     .page-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
     .page-content ul { padding-left: 20px; margin-bottom: 16px; }
-    .page-content ul li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+    .page-content li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
     .page-content strong { color: var(--text); font-weight: 600; }
 
     .faq-item { border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 22px; margin-bottom: 14px; background: var(--bg-alt); }
@@ -66,97 +75,234 @@
   <nav class="site-nav">
     <div class="nav-inner">
       <a class="nav-logo" href="/">
-        <div class="nav-logo-icon">📝</div>
-        <span class="nav-logo-main">Zettel<span>küche</span></span>
+        <img src="/logo.png" alt="Zettelküche AI" class="nav-logo-img">
+        <span class="nav-logo-main">Zettel<span class="accent">küche</span> AI</span>
       </a>
       <div class="nav-right">
-        <a class="nav-back" href="/">← Zurück</a>
+        <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
       </div>
     </div>
   </nav>
 
   <main class="page-content">
-    <span class="page-label">Hilfe</span>
-    <h1>Support</h1>
-    <p class="page-meta">Antworten auf häufige Fragen — und so erreichst du uns.</p>
+    <span class="page-label" data-i18n="page_label">Hilfe</span>
+    <h1 data-i18n="page_title">Support</h1>
+    <p class="page-meta" data-i18n="page_meta">Antworten auf häufige Fragen — und so erreichst du uns.</p>
 
     <div class="contact-card">
-      <p><strong>Direkter Kontakt</strong></p>
+      <p data-i18n="contact_label"><strong>Direkter Kontakt</strong></p>
       <p class="contact-email"><a href="mailto:support@torecon.de">support@torecon.de</a></p>
-      <p>Wir antworten in der Regel innerhalb von 1–3 Werktagen.</p>
+      <p data-i18n="contact_response">Wir antworten in der Regel innerhalb von 1–3 Werktagen.</p>
     </div>
 
-    <h2>Häufige Fragen</h2>
+    <h2 data-i18n="faq_title">Häufige Fragen</h2>
 
     <div class="faq-item">
-      <h3>Wie funktioniert die Rezept-Erfassung?</h3>
-      <p>Tippe auf den großen Plus-Button am unteren Rand der App und wähle eine Quelle: Kamera, Foto-Mediathek oder ein Dokument (PDF/TXT/RTF) aus der Files-App. Die Texterkennung läuft auf deinem Gerät; die Strukturierung in Titel, Zutaten und Schritte erledigt unsere KI in wenigen Sekunden.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Wo werden meine Rezepte gespeichert?</h3>
-      <p>Lokal auf deinem iPhone oder iPad und – wenn du iCloud verwendest – in deiner privaten iCloud-Datenbank. Wir (torecon) haben darauf keinen Zugriff. Die Rezepte synchronisieren sich automatisch zwischen all deinen Geräten mit derselben Apple-ID.</p>
+      <h3 data-i18n="faq_1_q">Wie funktioniert die Rezept-Erfassung?</h3>
+      <p data-i18n="faq_1_a">Tippe auf den großen Plus-Button am unteren Rand der App und wähle eine Quelle: Kamera, Foto-Mediathek oder ein Dokument (PDF/TXT/RTF) aus der Files-App. Die Texterkennung läuft auf deinem Gerät; die Strukturierung in Titel, Zutaten und Schritte erledigt unsere KI in wenigen Sekunden.</p>
     </div>
 
     <div class="faq-item">
-      <h3>Was passiert, wenn ich offline bin?</h3>
-      <p>Die Bibliothek, das manuelle Anlegen, Bearbeiten und die Schritt-Ansicht funktionieren komplett offline. Nur die KI-gestützte Extraktion neuer Rezepte aus Bildern oder Dokumenten benötigt eine Internetverbindung.</p>
+      <h3 data-i18n="faq_2_q">Wo werden meine Rezepte gespeichert?</h3>
+      <p data-i18n="faq_2_a">Lokal auf deinem iPhone oder iPad und – wenn du iCloud verwendest – in deiner privaten iCloud-Datenbank. Wir (torecon) haben darauf keinen Zugriff. Die Rezepte synchronisieren sich automatisch zwischen all deinen Geräten mit derselben Apple-ID.</p>
     </div>
 
     <div class="faq-item">
-      <h3>Was ist im Free-Tier enthalten?</h3>
-      <p>Volle Bibliothek, manuelles Anlegen unbegrenzt, iCloud-Sync, Sharing einzelner Rezepte und 5 KI-Extraktionen pro Monat. Premium hebt die Limits auf und schaltet erweiterte Filter frei.</p>
+      <h3 data-i18n="faq_3_q">Was passiert, wenn ich offline bin?</h3>
+      <p data-i18n="faq_3_a">Die Bibliothek, das manuelle Anlegen, Bearbeiten und die Schritt-Ansicht funktionieren komplett offline. Nur die KI-gestützte Extraktion neuer Rezepte aus Bildern oder Dokumenten benötigt eine Internetverbindung.</p>
     </div>
 
     <div class="faq-item">
-      <h3>Wie kündige ich mein Premium-Abo?</h3>
-      <p>Über die System-Einstellungen deines iPhones: Einstellungen → [dein Name] → Abonnements → Zettelküche AI → Abo kündigen. Die Verwaltung läuft komplett über Apple — wir haben darauf keinen Einfluss.</p>
+      <h3 data-i18n="faq_4_q">Was ist im Free-Tier enthalten?</h3>
+      <p data-i18n="faq_4_a">Volle Bibliothek, manuelles Anlegen unbegrenzt, iCloud-Sync, Sharing einzelner Rezepte und 20 KI-Extraktionen pro Monat. Premium hebt die Limits auf und schaltet erweiterte Filter frei.</p>
     </div>
 
     <div class="faq-item">
-      <h3>Die KI hat mein Rezept falsch strukturiert. Was kann ich tun?</h3>
-      <p>Du kannst jedes Rezept nachträglich bearbeiten: Tippe auf das Rezept, dann auf „Bearbeiten". Mengen, Schritte, Tags und das Bild lassen sich jederzeit ändern. Bei groben Fehlern hilft oft ein klareres Foto und ein neuer Capture-Versuch.</p>
+      <h3 data-i18n="faq_5_q">Wie kündige ich mein Premium-Abo?</h3>
+      <p data-i18n="faq_5_a">Über die System-Einstellungen deines iPhones: Einstellungen → [dein Name] → Abonnements → Zettelküche AI → Abo kündigen. Die Verwaltung läuft komplett über Apple — wir haben darauf keinen Einfluss.</p>
     </div>
 
     <div class="faq-item">
-      <h3>Welche Sprachen unterstützt die App?</h3>
-      <p>Aktuell Deutsch und Englisch. Du kannst die App-Sprache jederzeit in den Einstellungen ändern (kein Neustart nötig). Weitere Sprachen folgen.</p>
+      <h3 data-i18n="faq_6_q">Die KI hat mein Rezept falsch strukturiert. Was kann ich tun?</h3>
+      <p data-i18n="faq_6_a">Du kannst jedes Rezept nachträglich bearbeiten: Tippe auf das Rezept, dann auf „Bearbeiten". Mengen, Schritte, Tags und das Bild lassen sich jederzeit ändern. Bei groben Fehlern hilft oft ein klareres Foto und ein neuer Capture-Versuch.</p>
     </div>
 
     <div class="faq-item">
-      <h3>Was bedeutet „ChatGPT-Adaption"?</h3>
-      <p>Bei jedem Rezept findest du die Aktion „An ChatGPT senden". Damit übergibst du den Rezepttext an die offizielle ChatGPT-App auf deinem iPhone (oder die ChatGPT-Website), z. B. um es vegetarisch zu adaptieren oder Portionen umzurechnen. Du nutzt dabei deinen eigenen ChatGPT-Account — wir sind dabei nicht beteiligt.</p>
+      <h3 data-i18n="faq_7_q">Welche Sprachen unterstützt die App?</h3>
+      <p data-i18n="faq_7_a">Aktuell Deutsch und Englisch. Du kannst die App-Sprache jederzeit in den Einstellungen ändern (kein Neustart nötig). Weitere Sprachen folgen.</p>
     </div>
 
     <div class="faq-item">
-      <h3>Was passiert mit meinen Daten, wenn ich die App lösche?</h3>
-      <p>Die lokalen Daten auf dem Gerät werden mit der App gelöscht. Wenn iCloud-Sync aktiv ist, bleiben die Rezepte in deiner iCloud bestehen, bis du sie dort löschst. In den Einstellungen findest du außerdem „Alle Daten löschen", um Rezepte gezielt zu entfernen.</p>
+      <h3 data-i18n="faq_8_q">Was bedeutet „ChatGPT-Adaption"?</h3>
+      <p data-i18n="faq_8_a">Bei jedem Rezept findest du die Aktion „An ChatGPT senden". Damit übergibst du den Rezepttext an die offizielle ChatGPT-App auf deinem iPhone (oder die ChatGPT-Website), z. B. um es vegetarisch zu adaptieren oder Portionen umzurechnen. Du nutzt dabei deinen eigenen ChatGPT-Account — wir sind dabei nicht beteiligt.</p>
     </div>
 
-    <h2>Bug gefunden oder Feature-Wunsch?</h2>
-    <p>Schreib uns kurz an <a href="mailto:support@torecon.de">support@torecon.de</a> mit:</p>
-    <ul>
+    <div class="faq-item">
+      <h3 data-i18n="faq_9_q">Was passiert mit meinen Daten, wenn ich die App lösche?</h3>
+      <p data-i18n="faq_9_a">Die lokalen Daten auf dem Gerät werden mit der App gelöscht. Wenn iCloud-Sync aktiv ist, bleiben die Rezepte in deiner iCloud bestehen, bis du sie dort löschst. In den Einstellungen findest du außerdem „Alle Daten löschen", um Rezepte gezielt zu entfernen.</p>
+    </div>
+
+    <h2 data-i18n="bug_title">Bug gefunden oder Feature-Wunsch?</h2>
+    <p data-i18n="bug_intro">Schreib uns kurz an <a href="mailto:support@torecon.de">support@torecon.de</a> mit:</p>
+    <ul data-i18n="bug_list">
       <li>Welches iPhone/iPad und welche iOS-Version</li>
       <li>Welche App-Version (Einstellungen → Über → Version)</li>
       <li>Was du tun wolltest und was tatsächlich passiert ist</li>
       <li>Wenn möglich ein Screenshot</li>
     </ul>
-    <p>Feature-Wünsche fließen direkt in die Roadmap ein — wir bauen Zettelküche AI iterativ weiter.</p>
+    <p data-i18n="bug_outro">Feature-Wünsche fließen direkt in die Roadmap ein — wir bauen Zettelküche AI iterativ weiter.</p>
 
-    <h2>Weitere Apps von torecon</h2>
-    <p>Wenn dir Zettelküche AI gefällt, schau dir gerne unsere anderen Apps an: <a href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a> (Micro-Learning), <a href="https://getthinkless.ai" target="_blank" rel="noopener">ThinkLess AI</a> (Entscheidungs-Support), <a href="https://eladung.torecon.de" target="_blank" rel="noopener">eLadung GO</a> (Smart Charging).</p>
+    <h2 data-i18n="more_title">Weitere Apps von torecon</h2>
+    <p data-i18n="more_text">Wenn dir Zettelküche AI gefällt, schau dir gerne unsere anderen Apps an: <a href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a> (Micro-Learning), <a href="https://getthinkless.ai" target="_blank" rel="noopener">ThinkLess AI</a> (Entscheidungs-Support), <a href="https://eladung.torecon.de" target="_blank" rel="noopener">eLadung GO</a> (Smart Charging).</p>
   </main>
 
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="/">Zettelküche AI</a>
-      <a href="/privacy/">Datenschutz</a>
-      <a href="/terms/">Nutzungsbedingungen</a>
-      <a href="/support/">Support</a>
-      <a href="/#impressum">Impressum</a>
+      <a href="/" data-i18n="nav_home">Zettelküche AI</a>
+      <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+      <a href="/terms/" data-i18n="footer_terms">AGB</a>
+      <a href="/support/" data-i18n="footer_support">Support</a>
+      <a href="/#impressum-block" data-i18n="footer_imprint">Impressum</a>
     </div>
-    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
+    <span class="footer-copy">© <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></span>
   </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    const translations = {
+      de: {
+        nav_back: '← Zurück',
+        nav_home: 'Zettelküche AI',
+        page_label: 'Hilfe',
+        page_title: 'Support',
+        page_meta: 'Antworten auf häufige Fragen — und so erreichst du uns.',
+        contact_label: '<strong>Direkter Kontakt</strong>',
+        contact_response: 'Wir antworten in der Regel innerhalb von 1–3 Werktagen.',
+        faq_title: 'Häufige Fragen',
+
+        faq_1_q: 'Wie funktioniert die Rezept-Erfassung?',
+        faq_1_a: 'Tippe auf den großen Plus-Button am unteren Rand der App und wähle eine Quelle: Kamera, Foto-Mediathek oder ein Dokument (PDF/TXT/RTF) aus der Files-App. Die Texterkennung läuft auf deinem Gerät; die Strukturierung in Titel, Zutaten und Schritte erledigt unsere KI in wenigen Sekunden.',
+
+        faq_2_q: 'Wo werden meine Rezepte gespeichert?',
+        faq_2_a: 'Lokal auf deinem iPhone oder iPad und – wenn du iCloud verwendest – in deiner privaten iCloud-Datenbank. Wir (torecon) haben darauf keinen Zugriff. Die Rezepte synchronisieren sich automatisch zwischen all deinen Geräten mit derselben Apple-ID.',
+
+        faq_3_q: 'Was passiert, wenn ich offline bin?',
+        faq_3_a: 'Die Bibliothek, das manuelle Anlegen, Bearbeiten und die Schritt-Ansicht funktionieren komplett offline. Nur die KI-gestützte Extraktion neuer Rezepte aus Bildern oder Dokumenten benötigt eine Internetverbindung.',
+
+        faq_4_q: 'Was ist im Free-Tier enthalten?',
+        faq_4_a: 'Volle Bibliothek, manuelles Anlegen unbegrenzt, iCloud-Sync, Sharing einzelner Rezepte und 20 KI-Extraktionen pro Monat. Premium hebt die Limits auf und schaltet erweiterte Filter frei.',
+
+        faq_5_q: 'Wie kündige ich mein Premium-Abo?',
+        faq_5_a: 'Über die System-Einstellungen deines iPhones: Einstellungen → [dein Name] → Abonnements → Zettelküche AI → Abo kündigen. Die Verwaltung läuft komplett über Apple — wir haben darauf keinen Einfluss.',
+
+        faq_6_q: 'Die KI hat mein Rezept falsch strukturiert. Was kann ich tun?',
+        faq_6_a: 'Du kannst jedes Rezept nachträglich bearbeiten: Tippe auf das Rezept, dann auf „Bearbeiten". Mengen, Schritte, Tags und das Bild lassen sich jederzeit ändern. Bei groben Fehlern hilft oft ein klareres Foto und ein neuer Capture-Versuch.',
+
+        faq_7_q: 'Welche Sprachen unterstützt die App?',
+        faq_7_a: 'Aktuell Deutsch und Englisch. Du kannst die App-Sprache jederzeit in den Einstellungen ändern (kein Neustart nötig). Weitere Sprachen folgen.',
+
+        faq_8_q: 'Was bedeutet „ChatGPT-Adaption"?',
+        faq_8_a: 'Bei jedem Rezept findest du die Aktion „An ChatGPT senden". Damit übergibst du den Rezepttext an die offizielle ChatGPT-App auf deinem iPhone (oder die ChatGPT-Website), z. B. um es vegetarisch zu adaptieren oder Portionen umzurechnen. Du nutzt dabei deinen eigenen ChatGPT-Account — wir sind dabei nicht beteiligt.',
+
+        faq_9_q: 'Was passiert mit meinen Daten, wenn ich die App lösche?',
+        faq_9_a: 'Die lokalen Daten auf dem Gerät werden mit der App gelöscht. Wenn iCloud-Sync aktiv ist, bleiben die Rezepte in deiner iCloud bestehen, bis du sie dort löschst. In den Einstellungen findest du außerdem „Alle Daten löschen", um Rezepte gezielt zu entfernen.',
+
+        bug_title: 'Bug gefunden oder Feature-Wunsch?',
+        bug_intro: 'Schreib uns kurz an <a href="mailto:support@torecon.de">support@torecon.de</a> mit:',
+        bug_list: '<li>Welches iPhone/iPad und welche iOS-Version</li><li>Welche App-Version (Einstellungen → Über → Version)</li><li>Was du tun wolltest und was tatsächlich passiert ist</li><li>Wenn möglich ein Screenshot</li>',
+        bug_outro: 'Feature-Wünsche fließen direkt in die Roadmap ein — wir bauen Zettelküche AI iterativ weiter.',
+
+        more_title: 'Weitere Apps von torecon',
+        more_text: 'Wenn dir Zettelküche AI gefällt, schau dir gerne unsere anderen Apps an: <a href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a> (Micro-Learning), <a href="https://getthinkless.ai" target="_blank" rel="noopener">ThinkLess AI</a> (Entscheidungs-Support), <a href="https://eladung.torecon.de" target="_blank" rel="noopener">eLadung GO</a> (Smart Charging).',
+
+        footer_privacy: 'Datenschutz',
+        footer_terms: 'AGB',
+        footer_support: 'Support',
+        footer_imprint: 'Impressum',
+        footer_rights: 'Alle Rechte vorbehalten.'
+      },
+      en: {
+        nav_back: '← Back',
+        nav_home: 'Zettelküche AI',
+        page_label: 'Help',
+        page_title: 'Support',
+        page_meta: 'Answers to common questions — and how to reach us.',
+        contact_label: '<strong>Direct contact</strong>',
+        contact_response: 'We typically reply within 1–3 business days.',
+        faq_title: 'Frequently asked questions',
+
+        faq_1_q: 'How does recipe capture work?',
+        faq_1_a: 'Tap the big plus button at the bottom of the app and pick a source: camera, photo library, or a document (PDF/TXT/RTF) from the Files app. Text recognition runs on your device; structuring into title, ingredients and steps is handled by our AI in a few seconds.',
+
+        faq_2_q: 'Where are my recipes stored?',
+        faq_2_a: 'Locally on your iPhone or iPad and — if you use iCloud — in your private iCloud database. We (torecon) have no access. Recipes sync automatically across all devices signed in to the same Apple ID.',
+
+        faq_3_q: 'What happens when I\'m offline?',
+        faq_3_a: 'The library, manual entry, editing and the step-by-step view all work fully offline. Only AI extraction of new recipes from images or documents needs an internet connection.',
+
+        faq_4_q: 'What\'s included in the free tier?',
+        faq_4_a: 'Full library, unlimited manual recipes, iCloud sync, sharing of individual recipes, and 20 AI extractions per month. Premium removes the limits and unlocks advanced filters.',
+
+        faq_5_q: 'How do I cancel my Premium subscription?',
+        faq_5_a: 'Through your iPhone\'s system settings: Settings → [your name] → Subscriptions → Zettelküche AI → Cancel. Management runs entirely through Apple — we have no influence on it.',
+
+        faq_6_q: 'The AI structured my recipe incorrectly. What can I do?',
+        faq_6_a: 'You can edit any recipe afterwards: tap the recipe, then "Edit". Quantities, steps, tags and the image can be changed any time. For severe errors a clearer photo and a fresh capture often help.',
+
+        faq_7_q: 'Which languages does the app support?',
+        faq_7_a: 'Currently German and English. You can switch the app language any time in Settings (no restart required). More languages will follow.',
+
+        faq_8_q: 'What does "ChatGPT adaptation" mean?',
+        faq_8_a: 'On every recipe you\'ll find the action "Send to ChatGPT". This hands the recipe text to the official ChatGPT app on your iPhone (or the ChatGPT website), e.g. to adapt it for a vegetarian version or to scale portions. You use your own ChatGPT account — we\'re not involved in that handoff.',
+
+        faq_9_q: 'What happens to my data if I delete the app?',
+        faq_9_a: 'Local data on the device is removed with the app. If iCloud sync is active, the recipes remain in your iCloud until you delete them there. In Settings you\'ll also find "Delete all data" to remove recipes deliberately.',
+
+        bug_title: 'Found a bug or got a feature request?',
+        bug_intro: 'Drop us a quick note at <a href="mailto:support@torecon.de">support@torecon.de</a> with:',
+        bug_list: '<li>Which iPhone/iPad and which iOS version</li><li>Which app version (Settings → About → Version)</li><li>What you tried to do and what actually happened</li><li>A screenshot if possible</li>',
+        bug_outro: 'Feature requests feed directly into the roadmap — we build Zettelküche AI iteratively.',
+
+        more_title: 'More apps by torecon',
+        more_text: 'If you like Zettelküche AI, check out our other apps: <a href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a> (micro-learning), <a href="https://getthinkless.ai" target="_blank" rel="noopener">ThinkLess AI</a> (decision support), <a href="https://eladung.torecon.de" target="_blank" rel="noopener">eLadung GO</a> (smart charging).',
+
+        footer_privacy: 'Privacy',
+        footer_terms: 'Terms',
+        footer_support: 'Support',
+        footer_imprint: 'Imprint',
+        footer_rights: 'All rights reserved.'
+      }
+    };
+
+    function setLang(code) {
+      const dict = translations[code] || translations.en;
+      document.documentElement.lang = code;
+      try { localStorage.setItem('lang', code); } catch (_) {}
+      for (const el of document.querySelectorAll('[data-i18n]')) {
+        const key = el.dataset.i18n;
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      }
+      for (const btn of document.querySelectorAll('.lang-btn')) {
+        btn.classList.toggle('active', btn.dataset.lang === code);
+      }
+    }
+
+    let initial = 'de';
+    try {
+      const stored = localStorage.getItem('lang');
+      if (stored && translations[stored]) initial = stored;
+      else {
+        const browserLang = (navigator.language || 'de').split('-')[0];
+        if (translations[browserLang]) initial = browserLang;
+      }
+    } catch (_) {}
+    setLang(initial);
+  </script>
 
 </body>
 </html>

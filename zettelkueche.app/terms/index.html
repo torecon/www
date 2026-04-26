@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nutzungsbedingungen – Zettelküche AI</title>
   <meta name="description" content="Nutzungsbedingungen der Zettelküche AI App von torecon.">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
   <style>
     :root {
       --bg:             #FFFFFF;
       --bg-alt:         #F8F6F2;
+      --bg-warm:        #FBF6F0;
       --bg-dark:        #1A1410;
       --text:           #1D1D1F;
       --text-secondary: #6E6E73;
       --text-tertiary:  #86868B;
       --accent:         #D97757;
+      --accent-strong:  #C8623E;
       --border:         rgba(0,0,0,0.08);
       --nav-bg:         rgba(255,255,255,0.85);
       --radius:         12px;
+      --container:      980px;
       --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
       --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -27,24 +32,27 @@
     a:hover { opacity: 0.8; }
 
     .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
-    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: var(--container); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 17px; color: #fff; }
+    .nav-logo-img { width: 32px; height: 32px; border-radius: 8px; }
     .nav-logo-main { font-size: 17px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
-    .nav-logo-main span { color: var(--accent); }
+    .nav-logo-main .accent { color: var(--accent); }
     .nav-right { display: flex; align-items: center; gap: 12px; }
     .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
     .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+    .lang-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
+    .lang-btn { border: 0; background: transparent; color: var(--text-tertiary); padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: var(--transition); }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active { background: var(--accent); color: #fff; }
 
     .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
     .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
     .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
     .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
     .page-content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 40px 0 14px; }
-    .page-content h3 { font-size: 17px; font-weight: 600; margin: 28px 0 10px; }
     .page-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
     .page-content ul { padding-left: 20px; margin-bottom: 16px; }
-    .page-content ul li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+    .page-content li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
     .page-content strong { color: var(--text); font-weight: 600; }
 
     .site-footer { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
@@ -59,30 +67,30 @@
   <nav class="site-nav">
     <div class="nav-inner">
       <a class="nav-logo" href="/">
-        <div class="nav-logo-icon">📝</div>
-        <span class="nav-logo-main">Zettel<span>küche</span></span>
+        <img src="/logo.png" alt="Zettelküche AI" class="nav-logo-img">
+        <span class="nav-logo-main">Zettel<span class="accent">küche</span> AI</span>
       </a>
       <div class="nav-right">
-        <a class="nav-back" href="/">← Zurück</a>
+        <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
       </div>
     </div>
   </nav>
 
   <main class="page-content">
-    <span class="page-label">Rechtliches</span>
-    <h1>Nutzungsbedingungen</h1>
-    <p class="page-meta">Stand: April 2026 · Zettelküche AI für iOS und iPadOS</p>
+    <span class="page-label" data-i18n="page_label">Rechtliches</span>
+    <h1 data-i18n="page_title">Nutzungsbedingungen</h1>
+    <p class="page-meta" data-i18n="page_meta">Stand: April 2026 · Zettelküche AI für iOS und iPadOS</p>
 
-    <h2>1. Anbieter und Kontakt</h2>
-    <p>
-      <strong>Thomas Reinke · torecon</strong><br>
-      Roesgenstr. 22, 53474 Ahrweiler<br>
-      E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a>
-    </p>
+    <h2 data-i18n="h_1">1. Anbieter und Kontakt</h2>
+    <p data-i18n="t_1"><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22, 53474 Ahrweiler<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
 
-    <h2>2. Leistungsbeschreibung</h2>
-    <p>Zettelküche AI ist eine iOS- und iPadOS-Anwendung zur Erfassung, Organisation und KI-gestützten Strukturierung von Rezepten. Die App umfasst:</p>
-    <ul>
+    <h2 data-i18n="h_2">2. Leistungsbeschreibung</h2>
+    <p data-i18n="t_2_intro">Zettelküche AI ist eine iOS- und iPadOS-Anwendung zur Erfassung, Organisation und KI-gestützten Strukturierung von Rezepten. Die App umfasst:</p>
+    <ul data-i18n="t_2_list">
       <li>Erfassung von Rezepten via Kamera, Foto-Mediathek, Datei-Import (PDF, TXT, RTF) oder manuelle Eingabe</li>
       <li>On-device-Texterkennung (OCR) und KI-gestützte Strukturierung in Titel, Zutaten, Schritte, Tags</li>
       <li>Bibliothek mit Suche, Filter, Tags, Favoriten, Kategorien</li>
@@ -90,65 +98,212 @@
       <li>Lokale Speicherung mit optionaler iCloud-Synchronisation zwischen eigenen Geräten</li>
       <li>Sharing einzelner Rezepte und Adaption über die offizielle ChatGPT-App</li>
     </ul>
-    <p>Die App wird als Einzelplatz-Lizenz für den persönlichen, nicht-kommerziellen Gebrauch auf Apple-Geräten bereitgestellt.</p>
+    <p data-i18n="t_2_outro">Die App wird als Einzelplatz-Lizenz für den persönlichen, nicht-kommerziellen Gebrauch auf Apple-Geräten bereitgestellt.</p>
 
-    <h2>3. Nutzungslizenz</h2>
-    <p>Mit dem Download von Zettelküche AI erhältst du eine nicht-ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der App für private Zwecke auf Apple-Geräten, die deinem Apple-Konto zugeordnet sind.</p>
-    <p>Folgendes ist nicht gestattet:</p>
-    <ul>
+    <h2 data-i18n="h_3">3. Nutzungslizenz</h2>
+    <p data-i18n="t_3_intro">Mit dem Download von Zettelküche AI erhältst du eine nicht-ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der App für private Zwecke auf Apple-Geräten, die deinem Apple-Konto zugeordnet sind.</p>
+    <p data-i18n="t_3_forbid_intro">Folgendes ist nicht gestattet:</p>
+    <ul data-i18n="t_3_forbid_list">
       <li>Kopieren, Modifizieren oder Erstellen abgeleiteter Werke der App</li>
       <li>Dekompilieren, Disassemblieren oder Reverse Engineering</li>
       <li>Gewerbliche Nutzung oder Weiterveräußerung</li>
       <li>Automatisierte Abfragen oder Massen-Aufrufe gegen die KI-Extraktions-Infrastruktur</li>
     </ul>
 
-    <h2>4. Free-Tier und Premium-Abonnement</h2>
-    <p>Zettelküche AI bietet einen kostenlosen Tarif mit eingeschränktem Umfang (5 KI-Extraktionen pro Kalendermonat) und ein optionales Premium-Abonnement (monatlich oder jährlich) mit folgenden Mehrwerten:</p>
-    <ul>
+    <h2 data-i18n="h_4">4. Free-Tier und Premium-Abonnement</h2>
+    <p data-i18n="t_4_intro">Zettelküche AI bietet einen kostenlosen Tarif mit eingeschränktem Umfang und ein optionales Premium-Abonnement mit folgenden Mehrwerten:</p>
+    <ul data-i18n="t_4_list">
       <li>Unbegrenzte KI-gestützte Rezept-Extraktionen</li>
       <li>Erweiterte Filter und Sortierungen</li>
       <li>Sharing-Funktionen ohne Limit</li>
     </ul>
-    <p>Manuelle Rezept-Anlage, lokale Bibliothek, iCloud-Sync und Sharing einzelner Rezepte sind im Free-Tier vollständig enthalten.</p>
+    <p data-i18n="t_4_outro">Manuelle Rezept-Anlage, lokale Bibliothek, iCloud-Sync und Sharing einzelner Rezepte sind im Free-Tier vollständig enthalten.</p>
 
-    <h2>5. In-App-Käufe und Abonnements</h2>
-    <p>Die jeweils gültigen Preise werden dir vor dem Kauf direkt in der App und im App Store angezeigt. Preise können je nach Region und Zeitpunkt abweichen.</p>
-    <p>Abonnements verlängern sich automatisch, sofern sie nicht mindestens 24 Stunden vor Ablauf des laufenden Zeitraums gekündigt werden. Kündigung über: Systemeinstellungen → Apple-ID → Abonnements.</p>
-    <p>Alle Zahlungen, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Wir haben keinen Einblick in Zahlungsdaten.</p>
+    <h2 data-i18n="h_5">5. In-App-Käufe und Abonnements</h2>
+    <p data-i18n="t_5_pricing">Die jeweils gültigen Preise und Konditionen werden dir vor dem Kauf direkt in der App und im App Store angezeigt. Die Konditionen können regional und im Zeitverlauf variieren — Apple steuert das Pricing automatisch je Region.</p>
+    <p data-i18n="t_5_renew">Abonnements verlängern sich automatisch zum Ende des laufenden Zeitraums, sofern sie nicht mindestens 24 Stunden vor Ablauf gekündigt werden. Kündigung über: Systemeinstellungen → Apple-ID → Abonnements.</p>
+    <p data-i18n="t_5_apple">Alle Zahlungen, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Wir haben keinen Einblick in Zahlungsdaten.</p>
+    <p data-i18n="t_5_trial">Apple kann eine kostenlose Einführungsphase gewähren. Existenz und Dauer einer solchen Phase werden im Kauf-Dialog des App Store angezeigt.</p>
 
-    <h2>6. Daten und Datensicherheit</h2>
-    <p>Alle in Zettelküche AI erfassten Rezepte werden lokal auf deinem Gerät gespeichert und optional über Apple iCloud (Private Database) zwischen deinen eigenen Geräten (gleiche Apple-ID) synchronisiert. Wir (torecon) haben keinen Zugriff auf deine Rezepte. Details zur KI-gestützten Verarbeitung von OCR-Text findest du in unserer <a href="/privacy/">Datenschutzerklärung</a>.</p>
-    <p>Für die Sicherung deiner Daten bist du selbst verantwortlich (z. B. über iCloud-Backup oder gelegentlichen manuellen Export). Wir haften nicht für Datenverlust durch Geräteschäden, Betriebssystem-Updates oder versehentliches Löschen.</p>
+    <h2 data-i18n="h_6">6. Daten und Datensicherheit</h2>
+    <p data-i18n="t_6_intro">Alle in Zettelküche AI erfassten Rezepte werden lokal auf deinem Gerät gespeichert und optional über Apple iCloud (Private Database) zwischen deinen eigenen Geräten (gleiche Apple-ID) synchronisiert. Wir (torecon) haben keinen Zugriff auf deine Rezepte. Details zur KI-gestützten Verarbeitung von OCR-Text findest du in unserer <a href="/privacy/">Datenschutzerklärung</a>.</p>
+    <p data-i18n="t_6_outro">Für die Sicherung deiner Daten bist du selbst verantwortlich (z. B. über iCloud-Backup oder gelegentlichen manuellen Export). Wir haften nicht für Datenverlust durch Geräteschäden, Betriebssystem-Updates oder versehentliches Löschen.</p>
 
-    <h2>7. Verfügbarkeit und Updates</h2>
-    <p>Wir sind bestrebt, Zettelküche AI kontinuierlich zu verbessern und für aktuelle Apple-Betriebssysteme aktuell zu halten. Wir garantieren jedoch keine bestimmte Verfügbarkeit oder Funktion. Wir behalten uns vor, Features zu ändern, hinzuzufügen oder zu entfernen — insbesondere die KI-Strukturierung kann sich qualitativ ändern, wenn sich der zugrundeliegende KI-Anbieter weiterentwickelt.</p>
+    <h2 data-i18n="h_7">7. Verfügbarkeit und Updates</h2>
+    <p data-i18n="t_7">Wir sind bestrebt, Zettelküche AI kontinuierlich zu verbessern und für aktuelle Apple-Betriebssysteme aktuell zu halten. Wir garantieren jedoch keine bestimmte Verfügbarkeit oder Funktion. Wir behalten uns vor, Features zu ändern, hinzuzufügen oder zu entfernen — insbesondere die KI-Strukturierung kann sich qualitativ ändern, wenn sich der zugrundeliegende KI-Anbieter weiterentwickelt.</p>
 
-    <h2>8. Haftungsausschluss</h2>
-    <p>Zettelküche AI ist ein persönliches Hilfsmittel zur Rezept-Verwaltung. Die KI-gestützte Strukturierung kann fehlerhaft oder unvollständig sein. Für die korrekte Erfassung und insbesondere für Allergen-Hinweise, Mengenangaben oder gesundheitsrelevante Inhalte bist du selbst verantwortlich. Verlasse dich nicht ungeprüft auf KI-erzeugte Rezeptdetails — kontrolliere wichtige Angaben (Mengen, Zutaten, Garzeiten) immer mit der Originalquelle.</p>
-    <p>Unsere Haftung ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Bei einfacher Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten, und in diesem Fall begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Die Haftung für Körper- und Gesundheitsschäden bleibt davon unberührt.</p>
+    <h2 data-i18n="h_8">8. Haftungsausschluss</h2>
+    <p data-i18n="t_8_intro">Zettelküche AI ist ein persönliches Hilfsmittel zur Rezept-Verwaltung. Die KI-gestützte Strukturierung kann fehlerhaft oder unvollständig sein. Für die korrekte Erfassung und insbesondere für Allergen-Hinweise, Mengenangaben oder gesundheitsrelevante Inhalte bist du selbst verantwortlich. Verlasse dich nicht ungeprüft auf KI-erzeugte Rezeptdetails — kontrolliere wichtige Angaben (Mengen, Zutaten, Garzeiten) immer mit der Originalquelle.</p>
+    <p data-i18n="t_8_liability">Unsere Haftung ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Bei einfacher Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten, und in diesem Fall begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Die Haftung für Körper- und Gesundheitsschäden bleibt davon unberührt.</p>
 
-    <h2>9. Änderungen der Nutzungsbedingungen</h2>
-    <p>Wir können diese Nutzungsbedingungen jederzeit anpassen. Die jeweils aktuelle Version ist stets unter <a href="https://zettelkueche.app/terms/">zettelkueche.app/terms/</a> abrufbar. Die weitere Nutzung der App nach einer Änderung gilt als Zustimmung zur neuen Version.</p>
+    <h2 data-i18n="h_9">9. Änderungen der Nutzungsbedingungen</h2>
+    <p data-i18n="t_9">Wir können diese Nutzungsbedingungen jederzeit anpassen. Die jeweils aktuelle Version ist stets unter <a href="https://zettelkueche.app/terms/">zettelkueche.app/terms/</a> abrufbar. Die weitere Nutzung der App nach einer Änderung gilt als Zustimmung zur neuen Version.</p>
 
-    <h2>10. Anwendbares Recht und Gerichtsstand</h2>
-    <p>Es gilt deutsches Recht. Gerichtsstand ist Ahrweiler, soweit gesetzlich zulässig.</p>
-    <p>Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    <h2 data-i18n="h_10">10. Anwendbares Recht und Gerichtsstand</h2>
+    <p data-i18n="t_10_intro">Es gilt deutsches Recht. Gerichtsstand ist Ahrweiler, soweit gesetzlich zulässig.</p>
+    <p data-i18n="t_10_odr">Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
-    <h2>11. Kontakt</h2>
-    <p>Bei Fragen zu diesen Nutzungsbedingungen wende dich an:<br>
-    <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+    <h2 data-i18n="h_11">11. Kontakt</h2>
+    <p data-i18n="t_11">Bei Fragen zu diesen Nutzungsbedingungen wende dich an: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
   </main>
 
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="/">Zettelküche AI</a>
-      <a href="/privacy/">Datenschutz</a>
-      <a href="/terms/">Nutzungsbedingungen</a>
-      <a href="/support/">Support</a>
-      <a href="/#impressum">Impressum</a>
+      <a href="/" data-i18n="nav_home">Zettelküche AI</a>
+      <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+      <a href="/terms/" data-i18n="footer_terms">AGB</a>
+      <a href="/support/" data-i18n="footer_support">Support</a>
+      <a href="/#impressum-block" data-i18n="footer_imprint">Impressum</a>
     </div>
-    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
+    <span class="footer-copy">© <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></span>
   </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    const translations = {
+      de: {
+        nav_back: '← Zurück',
+        nav_home: 'Zettelküche AI',
+        page_label: 'Rechtliches',
+        page_title: 'Nutzungsbedingungen',
+        page_meta: 'Stand: April 2026 · Zettelküche AI für iOS und iPadOS',
+
+        h_1: '1. Anbieter und Kontakt',
+        t_1: '<strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22, 53474 Ahrweiler<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+
+        h_2: '2. Leistungsbeschreibung',
+        t_2_intro: 'Zettelküche AI ist eine iOS- und iPadOS-Anwendung zur Erfassung, Organisation und KI-gestützten Strukturierung von Rezepten. Die App umfasst:',
+        t_2_list: '<li>Erfassung von Rezepten via Kamera, Foto-Mediathek, Datei-Import (PDF, TXT, RTF) oder manuelle Eingabe</li><li>On-device-Texterkennung (OCR) und KI-gestützte Strukturierung in Titel, Zutaten, Schritte, Tags</li><li>Bibliothek mit Suche, Filter, Tags, Favoriten, Kategorien</li><li>Schritt-für-Schritt-Kochansicht und Koch-Historie</li><li>Lokale Speicherung mit optionaler iCloud-Synchronisation zwischen eigenen Geräten</li><li>Sharing einzelner Rezepte und Adaption über die offizielle ChatGPT-App</li>',
+        t_2_outro: 'Die App wird als Einzelplatz-Lizenz für den persönlichen, nicht-kommerziellen Gebrauch auf Apple-Geräten bereitgestellt.',
+
+        h_3: '3. Nutzungslizenz',
+        t_3_intro: 'Mit dem Download von Zettelküche AI erhältst du eine nicht-ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der App für private Zwecke auf Apple-Geräten, die deinem Apple-Konto zugeordnet sind.',
+        t_3_forbid_intro: 'Folgendes ist nicht gestattet:',
+        t_3_forbid_list: '<li>Kopieren, Modifizieren oder Erstellen abgeleiteter Werke der App</li><li>Dekompilieren, Disassemblieren oder Reverse Engineering</li><li>Gewerbliche Nutzung oder Weiterveräußerung</li><li>Automatisierte Abfragen oder Massen-Aufrufe gegen die KI-Extraktions-Infrastruktur</li>',
+
+        h_4: '4. Free-Tier und Premium-Abonnement',
+        t_4_intro: 'Zettelküche AI bietet einen kostenlosen Tarif mit eingeschränktem Umfang und ein optionales Premium-Abonnement mit folgenden Mehrwerten:',
+        t_4_list: '<li>Unbegrenzte KI-gestützte Rezept-Extraktionen</li><li>Erweiterte Filter und Sortierungen</li><li>Sharing-Funktionen ohne Limit</li>',
+        t_4_outro: 'Manuelle Rezept-Anlage, lokale Bibliothek, iCloud-Sync und Sharing einzelner Rezepte sind im Free-Tier vollständig enthalten.',
+
+        h_5: '5. In-App-Käufe und Abonnements',
+        t_5_pricing: 'Die jeweils gültigen Preise und Konditionen werden dir vor dem Kauf direkt in der App und im App Store angezeigt. Die Konditionen können regional und im Zeitverlauf variieren — Apple steuert das Pricing automatisch je Region.',
+        t_5_renew: 'Abonnements verlängern sich automatisch zum Ende des laufenden Zeitraums, sofern sie nicht mindestens 24 Stunden vor Ablauf gekündigt werden. Kündigung über: Systemeinstellungen → Apple-ID → Abonnements.',
+        t_5_apple: 'Alle Zahlungen, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Wir haben keinen Einblick in Zahlungsdaten.',
+        t_5_trial: 'Apple kann eine kostenlose Einführungsphase gewähren. Existenz und Dauer einer solchen Phase werden im Kauf-Dialog des App Store angezeigt.',
+
+        h_6: '6. Daten und Datensicherheit',
+        t_6_intro: 'Alle in Zettelküche AI erfassten Rezepte werden lokal auf deinem Gerät gespeichert und optional über Apple iCloud (Private Database) zwischen deinen eigenen Geräten (gleiche Apple-ID) synchronisiert. Wir (torecon) haben keinen Zugriff auf deine Rezepte. Details zur KI-gestützten Verarbeitung von OCR-Text findest du in unserer <a href="/privacy/">Datenschutzerklärung</a>.',
+        t_6_outro: 'Für die Sicherung deiner Daten bist du selbst verantwortlich (z. B. über iCloud-Backup oder gelegentlichen manuellen Export). Wir haften nicht für Datenverlust durch Geräteschäden, Betriebssystem-Updates oder versehentliches Löschen.',
+
+        h_7: '7. Verfügbarkeit und Updates',
+        t_7: 'Wir sind bestrebt, Zettelküche AI kontinuierlich zu verbessern und für aktuelle Apple-Betriebssysteme aktuell zu halten. Wir garantieren jedoch keine bestimmte Verfügbarkeit oder Funktion. Wir behalten uns vor, Features zu ändern, hinzuzufügen oder zu entfernen — insbesondere die KI-Strukturierung kann sich qualitativ ändern, wenn sich der zugrundeliegende KI-Anbieter weiterentwickelt.',
+
+        h_8: '8. Haftungsausschluss',
+        t_8_intro: 'Zettelküche AI ist ein persönliches Hilfsmittel zur Rezept-Verwaltung. Die KI-gestützte Strukturierung kann fehlerhaft oder unvollständig sein. Für die korrekte Erfassung und insbesondere für Allergen-Hinweise, Mengenangaben oder gesundheitsrelevante Inhalte bist du selbst verantwortlich. Verlasse dich nicht ungeprüft auf KI-erzeugte Rezeptdetails — kontrolliere wichtige Angaben (Mengen, Zutaten, Garzeiten) immer mit der Originalquelle.',
+        t_8_liability: 'Unsere Haftung ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Bei einfacher Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten, und in diesem Fall begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Die Haftung für Körper- und Gesundheitsschäden bleibt davon unberührt.',
+
+        h_9: '9. Änderungen der Nutzungsbedingungen',
+        t_9: 'Wir können diese Nutzungsbedingungen jederzeit anpassen. Die jeweils aktuelle Version ist stets unter <a href="https://zettelkueche.app/terms/">zettelkueche.app/terms/</a> abrufbar. Die weitere Nutzung der App nach einer Änderung gilt als Zustimmung zur neuen Version.',
+
+        h_10: '10. Anwendbares Recht und Gerichtsstand',
+        t_10_intro: 'Es gilt deutsches Recht. Gerichtsstand ist Ahrweiler, soweit gesetzlich zulässig.',
+        t_10_odr: 'Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+
+        h_11: '11. Kontakt',
+        t_11: 'Bei Fragen zu diesen Nutzungsbedingungen wende dich an: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+
+        footer_privacy: 'Datenschutz',
+        footer_terms: 'AGB',
+        footer_support: 'Support',
+        footer_imprint: 'Impressum',
+        footer_rights: 'Alle Rechte vorbehalten.'
+      },
+      en: {
+        nav_back: '← Back',
+        nav_home: 'Zettelküche AI',
+        page_label: 'Legal',
+        page_title: 'Terms of Use',
+        page_meta: 'Last updated: April 2026 · Zettelküche AI for iOS and iPadOS',
+
+        h_1: '1. Provider and contact',
+        t_1: '<strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22, 53474 Ahrweiler, Germany<br>Email: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+
+        h_2: '2. Service description',
+        t_2_intro: 'Zettelküche AI is an iOS and iPadOS app for capturing, organizing and AI-structuring recipes. The app provides:',
+        t_2_list: '<li>Recipe capture via camera, photo library, file import (PDF, TXT, RTF) or manual entry</li><li>On-device text recognition (OCR) and AI-based structuring into title, ingredients, steps, tags</li><li>Library with search, filter, tags, favorites, categories</li><li>Step-by-step cooking view and cooking history</li><li>Local storage with optional iCloud sync between your own devices</li><li>Sharing of individual recipes and adaptation via the official ChatGPT app</li>',
+        t_2_outro: 'The app is provided as a single-seat license for personal, non-commercial use on Apple devices.',
+
+        h_3: '3. License grant',
+        t_3_intro: 'By downloading Zettelküche AI you receive a non-exclusive, non-transferable, revocable license to use the app for personal purposes on Apple devices linked to your Apple account.',
+        t_3_forbid_intro: 'The following is not permitted:',
+        t_3_forbid_list: '<li>Copying, modifying or creating derivative works of the app</li><li>Decompiling, disassembling or reverse engineering</li><li>Commercial use or resale</li><li>Automated queries or bulk calls against the AI extraction infrastructure</li>',
+
+        h_4: '4. Free tier and Premium subscription',
+        t_4_intro: 'Zettelküche AI offers a free tier with limited scope and an optional Premium subscription that adds:',
+        t_4_list: '<li>Unlimited AI-powered recipe extractions</li><li>Advanced filters and sort orders</li><li>Sharing without limits</li>',
+        t_4_outro: 'Manual recipe entry, local library, iCloud sync and sharing of individual recipes are fully included in the free tier.',
+
+        h_5: '5. In-app purchases and subscriptions',
+        t_5_pricing: 'The applicable prices and terms are shown to you before purchase directly in the app and on the App Store. Conditions may vary by region and over time — Apple controls regional pricing automatically.',
+        t_5_renew: 'Subscriptions renew automatically at the end of the current period unless cancelled at least 24 hours before expiry. Cancel via: System Settings → Apple ID → Subscriptions.',
+        t_5_apple: 'All payments, billing and refunds are handled exclusively by Apple. We have no insight into payment data.',
+        t_5_trial: 'Apple may grant a free introductory phase. The existence and duration of any such phase is shown in the App Store purchase dialog.',
+
+        h_6: '6. Data and security',
+        t_6_intro: 'All recipes captured in Zettelküche AI are stored locally on your device and optionally synced via Apple iCloud (Private Database) between your own devices (same Apple ID). We (torecon) have no access to your recipes. Details on AI processing of OCR text are in our <a href="/privacy/">Privacy Policy</a>.',
+        t_6_outro: 'You are responsible for backing up your data (e.g. via iCloud backup or occasional manual export). We are not liable for data loss caused by device damage, OS updates or accidental deletion.',
+
+        h_7: '7. Availability and updates',
+        t_7: 'We strive to continuously improve Zettelküche AI and keep it current with Apple\'s operating systems. However, we make no guarantees about specific availability or features. We reserve the right to change, add or remove features — in particular AI structuring quality may change as the underlying AI provider evolves.',
+
+        h_8: '8. Disclaimer',
+        t_8_intro: 'Zettelküche AI is a personal recipe-management tool. The AI structuring may be incorrect or incomplete. You are responsible for correct capture and especially for allergen warnings, quantities and any health-relevant content. Do not rely on AI-generated recipe details unverified — always cross-check critical fields (quantities, ingredients, cook times) against the original source.',
+        t_8_liability: 'Our liability is limited to intent and gross negligence. For ordinary negligence we are liable only for breach of essential contractual obligations, and in such cases limited to the foreseeable, contract-typical damage. Liability for personal injury and health damage remains unaffected.',
+
+        h_9: '9. Changes to these terms',
+        t_9: 'We may amend these terms at any time. The current version is always available at <a href="https://zettelkueche.app/terms/">zettelkueche.app/terms/</a>. Continued use of the app after a change constitutes acceptance of the new version.',
+
+        h_10: '10. Governing law and jurisdiction',
+        t_10_intro: 'German law applies. Place of jurisdiction is Ahrweiler, to the extent legally permissible.',
+        t_10_odr: 'The EU Commission provides an online dispute resolution platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.',
+
+        h_11: '11. Contact',
+        t_11: 'For questions about these terms, please contact: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+
+        footer_privacy: 'Privacy',
+        footer_terms: 'Terms',
+        footer_support: 'Support',
+        footer_imprint: 'Imprint',
+        footer_rights: 'All rights reserved.'
+      }
+    };
+
+    function setLang(code) {
+      const dict = translations[code] || translations.en;
+      document.documentElement.lang = code;
+      try { localStorage.setItem('lang', code); } catch (_) {}
+      for (const el of document.querySelectorAll('[data-i18n]')) {
+        const key = el.dataset.i18n;
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      }
+      for (const btn of document.querySelectorAll('.lang-btn')) {
+        btn.classList.toggle('active', btn.dataset.lang === code);
+      }
+    }
+
+    let initial = 'de';
+    try {
+      const stored = localStorage.getItem('lang');
+      if (stored && translations[stored]) initial = stored;
+      else {
+        const browserLang = (navigator.language || 'de').split('-')[0];
+        if (translations[browserLang]) initial = browserLang;
+      }
+    } catch (_) {}
+    setLang(initial);
+  </script>
 
 </body>
 </html>

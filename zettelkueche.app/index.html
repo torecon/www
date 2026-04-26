@@ -6,10 +6,14 @@
   <title>Zettelküche AI – Vom Foto zum strukturierten Rezept in Sekunden</title>
   <meta name="description" content="Zettelküche AI verwandelt Foto, Screenshot oder Dokument in ein strukturiertes Rezept – on-device-OCR plus KI. iOS und iPadOS, mit privater iCloud-Synchronisation.">
 
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
+
   <meta property="og:title" content="Zettelküche AI – Vom Foto zum strukturierten Rezept">
   <meta property="og:description" content="Foto rein, strukturiertes Rezept raus. Privacy-first, mit privater iCloud-Synchronisation.">
   <meta property="og:url" content="https://zettelkueche.app">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://zettelkueche.app/logo.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
@@ -28,6 +32,7 @@
       --nav-bg:         rgba(255,255,255,0.85);
       --radius:         14px;
       --radius-lg:      20px;
+      --container:      1080px;
       --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
       --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -40,14 +45,24 @@
 
     /* Nav */
     .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
-    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: var(--container); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 17px; color: #fff; }
+    .nav-logo-img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
     .nav-logo-main { font-size: 17px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
-    .nav-logo-main span { color: var(--accent); }
-    .nav-right { display: flex; align-items: center; gap: 18px; }
+    .nav-logo-main .accent { color: var(--accent); }
+    .nav-logo-sub { font-size: 11px; color: var(--text-tertiary); }
+    .nav-logo-sub a { color: var(--text-secondary); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-link { font-size: 14px; color: var(--text-secondary); transition: var(--transition); }
     .nav-link:hover { color: var(--text); opacity: 1; }
+    .lang-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
+    .lang-btn { border: 0; background: transparent; color: var(--text-tertiary); padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: var(--transition); }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active { background: var(--accent); color: #fff; }
+    @media (max-width: 720px) {
+      .nav-link { display: none; }
+    }
 
     /* Hero */
     .hero { background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%); padding: 80px 24px 64px; text-align: center; }
@@ -118,20 +133,33 @@
     .privacy-promise .accent { color: var(--accent); }
     .privacy-detail { font-size: 16px; color: var(--text-secondary); }
 
-    /* Download CTA */
+    /* CTA */
     .cta-section { background: var(--bg-dark); color: #fff; padding: 80px 24px; text-align: center; }
     .cta-section h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
     .cta-section p { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
 
-    /* Footer */
-    .site-footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 24px 32px; text-align: center; }
-    .footer-impressum { max-width: 720px; margin: 0 auto 24px; font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
-    .footer-impressum strong { color: rgba(255,255,255,0.9); }
-    .footer-impressum a { color: rgba(255,255,255,0.75); }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 12px; }
+    /* Footer (nach BrainBites-Pattern) */
+    .site-footer { background: var(--bg-dark); padding: 40px 24px; }
+    .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    .footer-logo { display: flex; align-items: center; gap: 8px; }
+    .footer-logo-img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: rgba(255,255,255,0.8); }
+    .footer-logo-main .accent { color: var(--accent); }
+    .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .footer-brand-line a { color: rgba(255,255,255,0.55); }
+    .footer-brand-line a:hover { color: #fff; opacity: 1; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
     .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
     .footer-links a:hover { color: #fff; opacity: 1; }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+    .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
+    .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
+    .footer-impressum { max-width: 720px; margin: 16px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .footer-impressum strong { color: rgba(255,255,255,0.85); }
+    .footer-impressum a { color: rgba(255,255,255,0.7); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -140,14 +168,21 @@
   <nav class="site-nav">
     <div class="nav-inner">
       <a class="nav-logo" href="/">
-        <div class="nav-logo-icon">📝</div>
-        <span class="nav-logo-main">Zettel<span>küche</span></span>
+        <img src="/logo.png" alt="Zettelküche AI" class="nav-logo-img">
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Zettel<span class="accent">küche</span> AI</span>
+          <span class="nav-logo-sub" data-i18n="nav_sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
+        </div>
       </a>
       <div class="nav-right">
-        <a class="nav-link" href="#features">Features</a>
-        <a class="nav-link" href="#how-it-works">So funktioniert's</a>
-        <a class="nav-link" href="#pricing">Preise</a>
-        <a class="nav-link" href="/support/">Support</a>
+        <a class="nav-link" href="#features" data-i18n="nav_features">Features</a>
+        <a class="nav-link" href="#how-it-works" data-i18n="nav_how">So funktioniert's</a>
+        <a class="nav-link" href="#pricing" data-i18n="nav_pricing">Tarife</a>
+        <a class="nav-link" href="/support/" data-i18n="nav_support">Support</a>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -159,13 +194,13 @@
       <div class="hero-inner">
         <div class="hero-badge">
           <span class="hero-badge-dot"></span>
-          <span>Bald im App Store</span>
+          <span data-i18n="hero_badge">Bald im App Store</span>
         </div>
         <h1>
-          Vom Foto zum<br>
-          <span class="accent">strukturierten Rezept.</span>
+          <span data-i18n="hero_h1_a">Vom Foto zum</span><br>
+          <span class="accent" data-i18n="hero_h1_b">strukturierten Rezept.</span>
         </h1>
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n="hero_sub">
           Zettelküche AI verwandelt Foto, Screenshot oder Dokument in <strong>wenigen Sekunden</strong> in ein durchsuchbares Rezept — Zutaten, Schritte, Tags, alles geordnet. <strong>Privat in deiner iCloud.</strong>
         </p>
         <div class="hero-cta-row">
@@ -173,13 +208,13 @@
             <svg height="52" viewBox="0 0 135 40" xmlns="http://www.w3.org/2000/svg">
               <rect width="135" height="40" rx="7" fill="#000"/>
               <path d="M27.2 20.2c0-3.4 2.8-5 2.9-5.1-1.6-2.3-4-2.6-4.9-2.6-2.1-.2-4.1 1.2-5.1 1.2-1.1 0-2.7-1.2-4.4-1.2-2.3 0-4.4 1.3-5.5 3.4-2.4 4.1-.6 10.1 1.7 13.4 1.1 1.6 2.5 3.4 4.2 3.4 1.7-.1 2.3-1.1 4.3-1.1 2 0 2.6 1.1 4.4 1.1 1.8 0 3-1.6 4.1-3.2 1.3-1.8 1.8-3.6 1.9-3.7-.1-.1-3.6-1.4-3.6-5.6zM23.8 10.7c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.9.9-3.8 2-.8.9-1.5 2.4-1.3 3.9 1.4.1 2.9-.7 3.8-1.8z" fill="#fff"/>
-              <text x="43" y="15" font-family="-apple-system,Helvetica,Arial" font-size="7" fill="rgba(255,255,255,0.7)">Demnächst im</text>
+              <text x="43" y="15" font-family="-apple-system,Helvetica,Arial" font-size="7" fill="rgba(255,255,255,0.7)" data-i18n-attr="appstore_pre">Demnächst im</text>
               <text x="43" y="27" font-family="-apple-system,Helvetica,Arial" font-size="13" font-weight="600" fill="#fff">App Store</text>
             </svg>
           </a>
-          <a href="#how-it-works" class="btn-secondary">So funktioniert's</a>
+          <a href="#how-it-works" class="btn-secondary" data-i18n="hero_cta_how">So funktioniert's</a>
         </div>
-        <p class="hero-meta">iPhone und iPad · iOS 18+ · privat synchronisiert über deine iCloud</p>
+        <p class="hero-meta" data-i18n="hero_meta">iPhone und iPad · iOS 18+ · privat synchronisiert über deine iCloud</p>
       </div>
     </section>
 
@@ -188,12 +223,12 @@
       <div class="section-inner">
         <div class="ps-grid">
           <div class="ps-card">
-            <h3>Das Problem</h3>
-            <p>Rezepte stapeln sich überall — Screenshots, abfotografierte Kochbuchseiten, Notizen-App, WhatsApp, geteilte PDFs. Wiederfinden? Schwierig. Kochen? Erst recht.</p>
+            <h3 data-i18n="ps_problem_title">Das Problem</h3>
+            <p data-i18n="ps_problem_text">Rezepte stapeln sich überall — Screenshots, abfotografierte Kochbuchseiten, Notizen-App, WhatsApp, geteilte PDFs. Wiederfinden? Schwierig. Kochen? Erst recht.</p>
           </div>
           <div class="ps-card solution">
-            <h3>Die Lösung</h3>
-            <p>Foto rein, strukturiertes Rezept raus. Zutatenliste mit Mengen, nummerierte Schritte, Tags und Bild — sofort durchsuchbar in deiner Bibliothek, sofort kochbereit auf dem iPad.</p>
+            <h3 data-i18n="ps_solution_title">Die Lösung</h3>
+            <p data-i18n="ps_solution_text">Foto rein, strukturiertes Rezept raus. Zutatenliste mit Mengen, nummerierte Schritte, Tags und Bild — sofort durchsuchbar in deiner Bibliothek, sofort kochbereit auf dem iPad.</p>
           </div>
         </div>
       </div>
@@ -202,40 +237,40 @@
     <!-- Features -->
     <section class="section" id="features" style="background: var(--bg-warm);">
       <div class="section-inner">
-        <p class="section-label">Features</p>
-        <h2 class="section-title">Alles, was du zum Sammeln brauchst.</h2>
-        <p class="section-sub">Capture, organisieren, kochen — vom ersten Foto bis zum fertigen Gericht.</p>
+        <p class="section-label" data-i18n="features_label">Features</p>
+        <h2 class="section-title" data-i18n="features_title">Alles, was du zum Sammeln brauchst.</h2>
+        <p class="section-sub" data-i18n="features_sub">Capture, organisieren, kochen — vom ersten Foto bis zum fertigen Gericht.</p>
 
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">📸</div>
-            <h3>Capture aus jeder Quelle</h3>
-            <p>Kamera, Foto-Mediathek, PDF-Import oder Share-Extension aus Safari, Instagram & Co.</p>
+            <h3 data-i18n="feat_1_title">Capture aus jeder Quelle</h3>
+            <p data-i18n="feat_1_text">Kamera, Foto-Mediathek, PDF-Import oder Share-Extension aus Safari, Instagram &amp; Co.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🤖</div>
-            <h3>KI-Strukturierung</h3>
-            <p>Zutaten, Schritte, Portionen, Garzeit — automatisch erkannt und sauber ausgezeichnet.</p>
+            <h3 data-i18n="feat_2_title">KI-Strukturierung</h3>
+            <p data-i18n="feat_2_text">Zutaten, Schritte, Portionen, Garzeit — automatisch erkannt und sauber ausgezeichnet.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">☁️</div>
-            <h3>Private iCloud-Sync</h3>
-            <p>Alle Rezepte synchron auf iPhone und iPad — in deiner privaten iCloud-Datenbank.</p>
+            <h3 data-i18n="feat_3_title">Private iCloud-Sync</h3>
+            <p data-i18n="feat_3_text">Alle Rezepte synchron auf iPhone und iPad — in deiner privaten iCloud-Datenbank.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🔍</div>
-            <h3>Suche & Filter</h3>
-            <p>Volltextsuche, Tags, Kategorien, Favoriten, „kürzlich gekocht" — finde alles in Sekunden.</p>
+            <h3 data-i18n="feat_4_title">Suche &amp; Filter</h3>
+            <p data-i18n="feat_4_text">Volltextsuche, Tags, Kategorien, Favoriten, „kürzlich gekocht" — finde alles in Sekunden.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">👨‍🍳</div>
-            <h3>Schritt-für-Schritt-Modus</h3>
-            <p>Große Schrift, ein Tap pro Schritt — perfekt fürs iPad neben dem Herd.</p>
+            <h3 data-i18n="feat_5_title">Schritt-für-Schritt-Modus</h3>
+            <p data-i18n="feat_5_text">Große Schrift, ein Tap pro Schritt — perfekt fürs iPad neben dem Herd.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">💬</div>
-            <h3>ChatGPT-Adaption</h3>
-            <p>Vegetarisch? Glutenfrei? Doppelte Portion? Ein Tap, dein ChatGPT-Account übernimmt.</p>
+            <h3 data-i18n="feat_6_title">ChatGPT-Adaption</h3>
+            <p data-i18n="feat_6_text">Vegetarisch? Glutenfrei? Doppelte Portion? Ein Tap, dein ChatGPT-Account übernimmt.</p>
           </div>
         </div>
       </div>
@@ -244,25 +279,25 @@
     <!-- How it works -->
     <section class="section how-bg" id="how-it-works">
       <div class="section-inner">
-        <p class="section-label">So funktioniert's</p>
-        <h2 class="section-title">In drei Schritten zum Rezept.</h2>
-        <p class="section-sub">Vom Foto zur sortierten Bibliothek — meist unter 15 Sekunden.</p>
+        <p class="section-label" data-i18n="how_label">So funktioniert's</p>
+        <h2 class="section-title" data-i18n="how_title">In drei Schritten zum Rezept.</h2>
+        <p class="section-sub" data-i18n="how_sub">Vom Foto zur sortierten Bibliothek — meist unter 15 Sekunden.</p>
 
         <div class="steps-grid">
           <div class="step-card">
             <div class="step-num">1</div>
-            <h3>Foto, PDF oder Notiz</h3>
-            <p>Tippe auf Plus, wähle eine Quelle. Auch direkt aus Safari oder der Files-App geteilt.</p>
+            <h3 data-i18n="step_1_title">Foto, PDF oder Notiz</h3>
+            <p data-i18n="step_1_text">Tippe auf Plus, wähle eine Quelle. Auch direkt aus Safari oder der Files-App geteilt.</p>
           </div>
           <div class="step-card">
             <div class="step-num">2</div>
-            <h3>OCR + KI</h3>
-            <p>Apples on-device-OCR liest den Text. Unsere KI strukturiert ihn in Titel, Zutaten, Schritte.</p>
+            <h3 data-i18n="step_2_title">OCR + KI</h3>
+            <p data-i18n="step_2_text">Apples on-device-OCR liest den Text. Unsere KI strukturiert ihn in Titel, Zutaten, Schritte.</p>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
-            <h3>Speichern, kochen, teilen</h3>
-            <p>Rezept landet in deiner Bibliothek, synchron auf allen Geräten. Kochen oder weiterleiten.</p>
+            <h3 data-i18n="step_3_title">Speichern, kochen, teilen</h3>
+            <p data-i18n="step_3_text">Rezept landet in deiner Bibliothek, synchron auf allen Geräten. Kochen oder weiterleiten.</p>
           </div>
         </div>
       </div>
@@ -271,33 +306,33 @@
     <!-- Pricing -->
     <section class="section" id="pricing">
       <div class="section-inner">
-        <p class="section-label">Preise</p>
-        <h2 class="section-title">Free starten. Premium, wenn du mehr willst.</h2>
-        <p class="section-sub">Manuelle Rezept-Anlage, iCloud-Sync und Bibliothek immer kostenlos.</p>
+        <p class="section-label" data-i18n="pricing_label">Tarife</p>
+        <h2 class="section-title" data-i18n="pricing_title">Free starten. Premium, wenn du mehr willst.</h2>
+        <p class="section-sub" data-i18n="pricing_sub">Manuelle Rezept-Anlage, iCloud-Sync und Bibliothek immer kostenlos.</p>
 
         <div class="pricing-grid">
           <div class="price-card">
             <p class="price-tier">Free</p>
-            <h3>Für Gelegenheits-Sammler</h3>
+            <h3 data-i18n="price_free_h">Für Gelegenheits-Sammler</h3>
             <ul>
-              <li>Unbegrenzte manuelle Rezepte</li>
-              <li>Volle Bibliothek mit Suche und Filtern</li>
-              <li>iCloud-Sync zwischen deinen Geräten</li>
-              <li>Sharing einzelner Rezepte</li>
-              <li>5 KI-gestützte Extraktionen pro Monat</li>
+              <li data-i18n="price_free_1">Unbegrenzte manuelle Rezepte</li>
+              <li data-i18n="price_free_2">Volle Bibliothek mit Suche und Filtern</li>
+              <li data-i18n="price_free_3">iCloud-Sync zwischen deinen Geräten</li>
+              <li data-i18n="price_free_4">Sharing einzelner Rezepte</li>
+              <li data-i18n="price_free_5">20 KI-gestützte Extraktionen pro Monat</li>
             </ul>
           </div>
           <div class="price-card premium">
             <p class="price-tier">Premium</p>
-            <h3>Für Vielsammler &amp; Foodies</h3>
+            <h3 data-i18n="price_prem_h">Für Vielsammler &amp; Foodies</h3>
             <ul>
-              <li>Alles aus Free</li>
-              <li>Unbegrenzte KI-Extraktionen</li>
-              <li>Erweiterte Filter und Sortierungen</li>
-              <li>Sharing ohne Limit</li>
-              <li>Bevorzugte Verarbeitung neuer Features</li>
+              <li data-i18n="price_prem_1">Alles aus Free</li>
+              <li data-i18n="price_prem_2">Unbegrenzte KI-Extraktionen</li>
+              <li data-i18n="price_prem_3">Erweiterte Filter und Sortierungen</li>
+              <li data-i18n="price_prem_4">Sharing ohne Limit</li>
+              <li data-i18n="price_prem_5">Bevorzugte Verarbeitung neuer Features</li>
             </ul>
-            <span class="price-trial">7 Tage kostenlos testen</span>
+            <span class="price-trial" data-i18n="price_trial">Kostenlos testen</span>
           </div>
         </div>
       </div>
@@ -307,11 +342,11 @@
     <section class="section privacy-bg">
       <div class="section-inner privacy-inner">
         <div class="privacy-icon">🔒</div>
-        <p class="privacy-promise">
+        <p class="privacy-promise" data-i18n="privacy_promise">
           Deine Rezepte bleiben in <span class="accent">deiner iCloud</span>.<br>
           Wir sehen sie nie.
         </p>
-        <p class="privacy-detail">
+        <p class="privacy-detail" data-i18n="privacy_detail">
           Kein Konto, kein Tracking, keine Werbung. Texterkennung läuft auf deinem Gerät; nur der erkannte Text wandert anonym zur KI-Strukturierung — ohne Verknüpfung zu dir. <a href="/privacy/">Volle Datenschutzerklärung</a>.
         </p>
       </div>
@@ -319,13 +354,13 @@
 
     <!-- Download CTA -->
     <section class="cta-section">
-      <h2>Bereit, deine Rezeptsammlung zu sortieren?</h2>
-      <p>Bald im App Store für iPhone und iPad.</p>
+      <h2 data-i18n="cta_title">Bereit, deine Rezeptsammlung zu sortieren?</h2>
+      <p data-i18n="cta_sub">Bald im App Store für iPhone und iPad.</p>
       <a class="appstore-badge" href="#" aria-label="Bald im App Store">
         <svg height="52" viewBox="0 0 135 40" xmlns="http://www.w3.org/2000/svg">
           <rect width="135" height="40" rx="7" fill="#fff"/>
           <path d="M27.2 20.2c0-3.4 2.8-5 2.9-5.1-1.6-2.3-4-2.6-4.9-2.6-2.1-.2-4.1 1.2-5.1 1.2-1.1 0-2.7-1.2-4.4-1.2-2.3 0-4.4 1.3-5.5 3.4-2.4 4.1-.6 10.1 1.7 13.4 1.1 1.6 2.5 3.4 4.2 3.4 1.7-.1 2.3-1.1 4.3-1.1 2 0 2.6 1.1 4.4 1.1 1.8 0 3-1.6 4.1-3.2 1.3-1.8 1.8-3.6 1.9-3.7-.1-.1-3.6-1.4-3.6-5.6zM23.8 10.7c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.9.9-3.8 2-.8.9-1.5 2.4-1.3 3.9 1.4.1 2.9-.7 3.8-1.8z" fill="#000"/>
-          <text x="43" y="15" font-family="-apple-system,Helvetica,Arial" font-size="7" fill="rgba(0,0,0,0.7)">Demnächst im</text>
+          <text x="43" y="15" font-family="-apple-system,Helvetica,Arial" font-size="7" fill="rgba(0,0,0,0.7)" data-i18n-attr="appstore_pre">Demnächst im</text>
           <text x="43" y="27" font-family="-apple-system,Helvetica,Arial" font-size="13" font-weight="600" fill="#000">App Store</text>
         </svg>
       </a>
@@ -333,23 +368,242 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (BrainBites-Pattern) -->
   <footer class="site-footer" id="impressum">
-    <div class="footer-impressum">
-      <strong>Impressum</strong><br>
-      Thomas Reinke · torecon<br>
-      Roesgenstr. 22, 53474 Ahrweiler, Deutschland<br>
-      E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a> · Support: <a href="mailto:support@torecon.de">support@torecon.de</a><br>
-      EU-DSA-Kontakt: <a href="mailto:thomas.reinke@torecon.de">thomas.reinke@torecon.de</a>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="/logo.png" alt="Zettelküche AI" class="footer-logo-img">
+        <span class="footer-logo-main">Zettel<span class="accent">küche</span> AI</span>
+      </div>
+      <div class="footer-brand-line" data-i18n="footer_brand">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></div>
+
+      <div class="footer-links">
+        <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+        <a href="/terms/" data-i18n="footer_terms">AGB</a>
+        <a href="/support/" data-i18n="footer_support">Support</a>
+        <a href="#impressum-block" data-i18n="footer_imprint">Impressum</a>
+      </div>
+
+      <div class="footer-apps">
+        <span class="footer-apps-label" data-i18n="footer_apps_label">Mehr von torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">💡 ThinkLess AI</a>
+          <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">⚡ eLadung GO</a>
+        </div>
+      </div>
+
+      <div class="footer-impressum" id="impressum-block">
+        <strong data-i18n="imprint_title">Impressum</strong><br>
+        Thomas Reinke · torecon<br>
+        Roesgenstr. 22, 53474 Ahrweiler, <span data-i18n="imprint_country">Deutschland</span><br>
+        <span data-i18n="imprint_email_label">E-Mail</span>: <a href="mailto:info@torecon.de">info@torecon.de</a><br>
+        <span data-i18n="imprint_dsa_label">EU-DSA-Kontakt</span>: <a href="mailto:info@torecon.de">info@torecon.de</a>
+      </div>
+
+      <div class="footer-copy">
+        &copy; <span id="footer-year"></span> torecon &ndash; Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="/">Zettelküche AI</a>
-      <a href="/privacy/">Datenschutz</a>
-      <a href="/terms/">Nutzungsbedingungen</a>
-      <a href="/support/">Support</a>
-    </div>
-    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
   </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    const translations = {
+      de: {
+        nav_sub:           'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_features:      'Features',
+        nav_how:           'So funktioniert\'s',
+        nav_pricing:       'Tarife',
+        nav_support:       'Support',
+
+        hero_badge:        'Bald im App Store',
+        hero_h1_a:         'Vom Foto zum',
+        hero_h1_b:         'strukturierten Rezept.',
+        hero_sub:          'Zettelküche AI verwandelt Foto, Screenshot oder Dokument in <strong>wenigen Sekunden</strong> in ein durchsuchbares Rezept — Zutaten, Schritte, Tags, alles geordnet. <strong>Privat in deiner iCloud.</strong>',
+        hero_cta_how:      'So funktioniert\'s',
+        hero_meta:         'iPhone und iPad · iOS 18+ · privat synchronisiert über deine iCloud',
+        appstore_pre:      'Demnächst im',
+
+        ps_problem_title:  'Das Problem',
+        ps_problem_text:   'Rezepte stapeln sich überall — Screenshots, abfotografierte Kochbuchseiten, Notizen-App, WhatsApp, geteilte PDFs. Wiederfinden? Schwierig. Kochen? Erst recht.',
+        ps_solution_title: 'Die Lösung',
+        ps_solution_text:  'Foto rein, strukturiertes Rezept raus. Zutatenliste mit Mengen, nummerierte Schritte, Tags und Bild — sofort durchsuchbar in deiner Bibliothek, sofort kochbereit auf dem iPad.',
+
+        features_label:    'Features',
+        features_title:    'Alles, was du zum Sammeln brauchst.',
+        features_sub:      'Capture, organisieren, kochen — vom ersten Foto bis zum fertigen Gericht.',
+        feat_1_title:      'Capture aus jeder Quelle',
+        feat_1_text:       'Kamera, Foto-Mediathek, PDF-Import oder Share-Extension aus Safari, Instagram &amp; Co.',
+        feat_2_title:      'KI-Strukturierung',
+        feat_2_text:       'Zutaten, Schritte, Portionen, Garzeit — automatisch erkannt und sauber ausgezeichnet.',
+        feat_3_title:      'Private iCloud-Sync',
+        feat_3_text:       'Alle Rezepte synchron auf iPhone und iPad — in deiner privaten iCloud-Datenbank.',
+        feat_4_title:      'Suche &amp; Filter',
+        feat_4_text:       'Volltextsuche, Tags, Kategorien, Favoriten, „kürzlich gekocht" — finde alles in Sekunden.',
+        feat_5_title:      'Schritt-für-Schritt-Modus',
+        feat_5_text:       'Große Schrift, ein Tap pro Schritt — perfekt fürs iPad neben dem Herd.',
+        feat_6_title:      'ChatGPT-Adaption',
+        feat_6_text:       'Vegetarisch? Glutenfrei? Doppelte Portion? Ein Tap, dein ChatGPT-Account übernimmt.',
+
+        how_label:         'So funktioniert\'s',
+        how_title:         'In drei Schritten zum Rezept.',
+        how_sub:           'Vom Foto zur sortierten Bibliothek — meist unter 15 Sekunden.',
+        step_1_title:      'Foto, PDF oder Notiz',
+        step_1_text:       'Tippe auf Plus, wähle eine Quelle. Auch direkt aus Safari oder der Files-App geteilt.',
+        step_2_title:      'OCR + KI',
+        step_2_text:       'Apples on-device-OCR liest den Text. Unsere KI strukturiert ihn in Titel, Zutaten, Schritte.',
+        step_3_title:      'Speichern, kochen, teilen',
+        step_3_text:       'Rezept landet in deiner Bibliothek, synchron auf allen Geräten. Kochen oder weiterleiten.',
+
+        pricing_label:     'Tarife',
+        pricing_title:     'Free starten. Premium, wenn du mehr willst.',
+        pricing_sub:       'Manuelle Rezept-Anlage, iCloud-Sync und Bibliothek immer kostenlos.',
+        price_free_h:      'Für Gelegenheits-Sammler',
+        price_free_1:      'Unbegrenzte manuelle Rezepte',
+        price_free_2:      'Volle Bibliothek mit Suche und Filtern',
+        price_free_3:      'iCloud-Sync zwischen deinen Geräten',
+        price_free_4:      'Sharing einzelner Rezepte',
+        price_free_5:      '20 KI-gestützte Extraktionen pro Monat',
+        price_prem_h:      'Für Vielsammler &amp; Foodies',
+        price_prem_1:      'Alles aus Free',
+        price_prem_2:      'Unbegrenzte KI-Extraktionen',
+        price_prem_3:      'Erweiterte Filter und Sortierungen',
+        price_prem_4:      'Sharing ohne Limit',
+        price_prem_5:      'Bevorzugte Verarbeitung neuer Features',
+        price_trial:       'Kostenlos testen',
+
+        privacy_promise:   'Deine Rezepte bleiben in <span class="accent">deiner iCloud</span>.<br>Wir sehen sie nie.',
+        privacy_detail:    'Kein Konto, kein Tracking, keine Werbung. Texterkennung läuft auf deinem Gerät; nur der erkannte Text wandert anonym zur KI-Strukturierung — ohne Verknüpfung zu dir. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
+
+        cta_title:         'Bereit, deine Rezeptsammlung zu sortieren?',
+        cta_sub:           'Bald im App Store für iPhone und iPad.',
+
+        footer_brand:      'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        footer_privacy:    'Datenschutz',
+        footer_terms:      'AGB',
+        footer_support:    'Support',
+        footer_imprint:    'Impressum',
+        footer_apps_label: 'Mehr von torecon',
+        footer_rights:     'Alle Rechte vorbehalten.',
+        imprint_title:     'Impressum',
+        imprint_country:   'Deutschland',
+        imprint_email_label: 'E-Mail',
+        imprint_dsa_label: 'EU-DSA-Kontakt'
+      },
+      en: {
+        nav_sub:           'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_features:      'Features',
+        nav_how:           'How it works',
+        nav_pricing:       'Pricing',
+        nav_support:       'Support',
+
+        hero_badge:        'Coming soon to the App Store',
+        hero_h1_a:         'From a photo to a',
+        hero_h1_b:         'structured recipe.',
+        hero_sub:          'Zettelküche AI turns a photo, screenshot or document into a searchable recipe in <strong>seconds</strong> — ingredients, steps, tags, all sorted. <strong>Private in your iCloud.</strong>',
+        hero_cta_how:      'How it works',
+        hero_meta:         'iPhone &amp; iPad · iOS 18+ · privately synced via your iCloud',
+        appstore_pre:      'Coming soon to the',
+
+        ps_problem_title:  'The problem',
+        ps_problem_text:   'Recipes pile up everywhere — screenshots, photos of cookbook pages, the Notes app, WhatsApp, shared PDFs. Finding them again? Hard. Cooking from them? Even harder.',
+        ps_solution_title: 'The solution',
+        ps_solution_text:  'Photo in, structured recipe out. Ingredient list with quantities, numbered steps, tags and image — instantly searchable in your library, instantly ready to cook on the iPad.',
+
+        features_label:    'Features',
+        features_title:    'Everything you need to collect.',
+        features_sub:      'Capture, organize, cook — from the first photo to the finished dish.',
+        feat_1_title:      'Capture from any source',
+        feat_1_text:       'Camera, photo library, PDF import, or share-extension from Safari, Instagram &amp; co.',
+        feat_2_title:      'AI structuring',
+        feat_2_text:       'Ingredients, steps, servings, cook time — recognized automatically and cleanly labeled.',
+        feat_3_title:      'Private iCloud sync',
+        feat_3_text:       'All recipes synced across iPhone and iPad — in your private iCloud database.',
+        feat_4_title:      'Search &amp; filter',
+        feat_4_text:       'Full-text search, tags, categories, favorites, "recently cooked" — find everything in seconds.',
+        feat_5_title:      'Step-by-step mode',
+        feat_5_text:       'Big text, one tap per step — perfect for the iPad next to the stove.',
+        feat_6_title:      'ChatGPT adaptation',
+        feat_6_text:       'Vegetarian? Gluten-free? Double portion? One tap and your ChatGPT account takes over.',
+
+        how_label:         'How it works',
+        how_title:         'Three steps to a recipe.',
+        how_sub:           'From photo to sorted library — usually under 15 seconds.',
+        step_1_title:      'Photo, PDF or note',
+        step_1_text:       'Tap plus, pick a source. Also shared directly from Safari or the Files app.',
+        step_2_title:      'OCR + AI',
+        step_2_text:       'Apple\'s on-device OCR reads the text. Our AI structures it into title, ingredients, steps.',
+        step_3_title:      'Save, cook, share',
+        step_3_text:       'The recipe lands in your library, synced across all your devices. Cook or share.',
+
+        pricing_label:     'Pricing',
+        pricing_title:     'Start with Free. Go Premium when you want more.',
+        pricing_sub:       'Manual recipe entry, iCloud sync and library always free.',
+        price_free_h:      'For occasional collectors',
+        price_free_1:      'Unlimited manual recipes',
+        price_free_2:      'Full library with search and filters',
+        price_free_3:      'iCloud sync between your devices',
+        price_free_4:      'Sharing individual recipes',
+        price_free_5:      '20 AI-powered extractions per month',
+        price_prem_h:      'For power collectors &amp; foodies',
+        price_prem_1:      'Everything in Free',
+        price_prem_2:      'Unlimited AI extractions',
+        price_prem_3:      'Advanced filters and sort orders',
+        price_prem_4:      'Sharing without limits',
+        price_prem_5:      'Priority on new features',
+        price_trial:       'Free trial included',
+
+        privacy_promise:   'Your recipes stay in <span class="accent">your iCloud</span>.<br>We never see them.',
+        privacy_detail:    'No account, no tracking, no ads. Text recognition runs on your device; only the recognized text travels anonymously for AI structuring — never linked to you. <a href="/privacy/">Full privacy policy</a>.',
+
+        cta_title:         'Ready to sort out your recipe collection?',
+        cta_sub:           'Coming soon to the App Store for iPhone and iPad.',
+
+        footer_brand:      'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        footer_privacy:    'Privacy',
+        footer_terms:      'Terms',
+        footer_support:    'Support',
+        footer_imprint:    'Imprint',
+        footer_apps_label: 'More from torecon',
+        footer_rights:     'All rights reserved.',
+        imprint_title:     'Imprint',
+        imprint_country:   'Germany',
+        imprint_email_label: 'Email',
+        imprint_dsa_label: 'EU DSA contact'
+      }
+    };
+
+    function setLang(code) {
+      const dict = translations[code] || translations.en;
+      document.documentElement.lang = code;
+      try { localStorage.setItem('lang', code); } catch (_) {}
+      for (const el of document.querySelectorAll('[data-i18n]')) {
+        const key = el.dataset.i18n;
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      }
+      // SVG / attribute targets
+      for (const el of document.querySelectorAll('[data-i18n-attr]')) {
+        const key = el.dataset.i18nAttr;
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      }
+      for (const btn of document.querySelectorAll('.lang-btn')) {
+        btn.classList.toggle('active', btn.dataset.lang === code);
+      }
+    }
+
+    let initial = 'de';
+    try {
+      const stored = localStorage.getItem('lang');
+      if (stored && translations[stored]) initial = stored;
+      else {
+        const browserLang = (navigator.language || 'de').split('-')[0];
+        if (translations[browserLang]) initial = browserLang;
+      }
+    } catch (_) {}
+    setLang(initial);
+  </script>
 
 </body>
 </html>
