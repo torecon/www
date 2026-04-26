@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support – Zettelküche AI</title>
+  <meta name="description" content="Hilfe und Kontakt für Zettelküche AI – die KI-Rezept-App von torecon.">
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F8F6F2;
+      --bg-dark:        #1A1410;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #D97757;
+      --border:         rgba(0,0,0,0.08);
+      --nav-bg:         rgba(255,255,255,0.85);
+      --radius:         12px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 17px; color: #fff; }
+    .nav-logo-main { font-size: 17px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
+    .nav-logo-main span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
+    .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+
+    .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
+    .page-content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 40px 0 14px; }
+    .page-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
+    .page-content ul { padding-left: 20px; margin-bottom: 16px; }
+    .page-content ul li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+    .page-content strong { color: var(--text); font-weight: 600; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 22px; margin-bottom: 14px; background: var(--bg-alt); }
+    .faq-item h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .faq-item p { font-size: 15px; margin-bottom: 0; }
+
+    .contact-card { background: rgba(217,119,87,0.06); border: 1px solid rgba(217,119,87,0.2); border-radius: var(--radius); padding: 24px; margin: 32px 0; }
+    .contact-card p { color: var(--text); margin-bottom: 8px; }
+    .contact-card .contact-email { font-size: 18px; font-weight: 600; }
+
+    .site-footer { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <div class="nav-logo-icon">📝</div>
+        <span class="nav-logo-main">Zettel<span>küche</span></span>
+      </a>
+      <div class="nav-right">
+        <a class="nav-back" href="/">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label">Hilfe</span>
+    <h1>Support</h1>
+    <p class="page-meta">Antworten auf häufige Fragen — und so erreichst du uns.</p>
+
+    <div class="contact-card">
+      <p><strong>Direkter Kontakt</strong></p>
+      <p class="contact-email"><a href="mailto:support@torecon.de">support@torecon.de</a></p>
+      <p>Wir antworten in der Regel innerhalb von 1–3 Werktagen.</p>
+    </div>
+
+    <h2>Häufige Fragen</h2>
+
+    <div class="faq-item">
+      <h3>Wie funktioniert die Rezept-Erfassung?</h3>
+      <p>Tippe auf den großen Plus-Button am unteren Rand der App und wähle eine Quelle: Kamera, Foto-Mediathek oder ein Dokument (PDF/TXT/RTF) aus der Files-App. Die Texterkennung läuft auf deinem Gerät; die Strukturierung in Titel, Zutaten und Schritte erledigt unsere KI in wenigen Sekunden.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Wo werden meine Rezepte gespeichert?</h3>
+      <p>Lokal auf deinem iPhone oder iPad und – wenn du iCloud verwendest – in deiner privaten iCloud-Datenbank. Wir (torecon) haben darauf keinen Zugriff. Die Rezepte synchronisieren sich automatisch zwischen all deinen Geräten mit derselben Apple-ID.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Was passiert, wenn ich offline bin?</h3>
+      <p>Die Bibliothek, das manuelle Anlegen, Bearbeiten und die Schritt-Ansicht funktionieren komplett offline. Nur die KI-gestützte Extraktion neuer Rezepte aus Bildern oder Dokumenten benötigt eine Internetverbindung.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Was ist im Free-Tier enthalten?</h3>
+      <p>Volle Bibliothek, manuelles Anlegen unbegrenzt, iCloud-Sync, Sharing einzelner Rezepte und 5 KI-Extraktionen pro Monat. Premium hebt die Limits auf und schaltet erweiterte Filter frei.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Wie kündige ich mein Premium-Abo?</h3>
+      <p>Über die System-Einstellungen deines iPhones: Einstellungen → [dein Name] → Abonnements → Zettelküche AI → Abo kündigen. Die Verwaltung läuft komplett über Apple — wir haben darauf keinen Einfluss.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Die KI hat mein Rezept falsch strukturiert. Was kann ich tun?</h3>
+      <p>Du kannst jedes Rezept nachträglich bearbeiten: Tippe auf das Rezept, dann auf „Bearbeiten". Mengen, Schritte, Tags und das Bild lassen sich jederzeit ändern. Bei groben Fehlern hilft oft ein klareres Foto und ein neuer Capture-Versuch.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Welche Sprachen unterstützt die App?</h3>
+      <p>Aktuell Deutsch und Englisch. Du kannst die App-Sprache jederzeit in den Einstellungen ändern (kein Neustart nötig). Weitere Sprachen folgen.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Was bedeutet „ChatGPT-Adaption"?</h3>
+      <p>Bei jedem Rezept findest du die Aktion „An ChatGPT senden". Damit übergibst du den Rezepttext an die offizielle ChatGPT-App auf deinem iPhone (oder die ChatGPT-Website), z. B. um es vegetarisch zu adaptieren oder Portionen umzurechnen. Du nutzt dabei deinen eigenen ChatGPT-Account — wir sind dabei nicht beteiligt.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Was passiert mit meinen Daten, wenn ich die App lösche?</h3>
+      <p>Die lokalen Daten auf dem Gerät werden mit der App gelöscht. Wenn iCloud-Sync aktiv ist, bleiben die Rezepte in deiner iCloud bestehen, bis du sie dort löschst. In den Einstellungen findest du außerdem „Alle Daten löschen", um Rezepte gezielt zu entfernen.</p>
+    </div>
+
+    <h2>Bug gefunden oder Feature-Wunsch?</h2>
+    <p>Schreib uns kurz an <a href="mailto:support@torecon.de">support@torecon.de</a> mit:</p>
+    <ul>
+      <li>Welches iPhone/iPad und welche iOS-Version</li>
+      <li>Welche App-Version (Einstellungen → Über → Version)</li>
+      <li>Was du tun wolltest und was tatsächlich passiert ist</li>
+      <li>Wenn möglich ein Screenshot</li>
+    </ul>
+    <p>Feature-Wünsche fließen direkt in die Roadmap ein — wir bauen Zettelküche AI iterativ weiter.</p>
+
+    <h2>Weitere Apps von torecon</h2>
+    <p>Wenn dir Zettelküche AI gefällt, schau dir gerne unsere anderen Apps an: <a href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a> (Micro-Learning), <a href="https://getthinkless.ai" target="_blank" rel="noopener">ThinkLess AI</a> (Entscheidungs-Support), <a href="https://eladung.torecon.de" target="_blank" rel="noopener">eLadung GO</a> (Smart Charging).</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Zettelküche AI</a>
+      <a href="/privacy/">Datenschutz</a>
+      <a href="/terms/">Nutzungsbedingungen</a>
+      <a href="/support/">Support</a>
+      <a href="/#impressum">Impressum</a>
+    </div>
+    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
+  </footer>
+
+</body>
+</html>
