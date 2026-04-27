@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung – eLadung</title>
+  <meta name="description" content="Datenschutzerklärung der eLadung App von torecon. DSGVO-konform.">
+  <style>
+    :root {
+      --bg:             #FFFFFF;
+      --bg-alt:         #F5F5F7;
+      --bg-dark:        #0A0A0F;
+      --text:           #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary:  #86868B;
+      --accent:         #4F7FFF;
+      --border:         rgba(0,0,0,0.08);
+      --border-strong:  rgba(0,0,0,0.15);
+      --nav-bg:         rgba(255,255,255,0.82);
+      --radius:         12px;
+      --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 17px; }
+    .nav-logo-main { font-size: 17px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
+    .nav-logo-main span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 13px; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
+    .nav-back:hover { background: var(--bg-alt); color: var(--text); opacity: 1; }
+
+    .page-content { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px; }
+    .page-content h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .page-meta { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
+    .page-content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 40px 0 14px; }
+    .page-content h3 { font-size: 17px; font-weight: 600; margin: 28px 0 10px; }
+    .page-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
+    .page-content ul { padding-left: 20px; margin-bottom: 16px; }
+    .page-content ul li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+    .page-content strong { color: var(--text); font-weight: 600; }
+    .page-content a { color: var(--accent); }
+
+    .highlight-box { background: rgba(79,127,255,0.06); border: 1px solid rgba(79,127,255,0.2); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .highlight-box p { margin-bottom: 0; color: var(--text); }
+
+    .site-footer { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links a:hover { color: #fff; opacity: 1; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <div class="nav-logo-icon">⚡</div>
+        <span class="nav-logo-main">e<span>Ladung</span></span>
+      </a>
+      <div class="nav-right">
+        <a class="nav-back" href="/">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label">Rechtliches</span>
+    <h1>Datenschutzerklärung</h1>
+    <p class="page-meta">Stand: April 2026 · eLadung für macOS und iOS</p>
+
+    <div class="highlight-box">
+      <p><strong>Kurzfassung:</strong> eLadung speichert deine Ladedaten lokal auf deinem Gerät. Auf iOS und macOS werden Daten optional über Apple iCloud zwischen deinen eigenen Geräten synchronisiert – vollständig unter deiner Kontrolle. Es werden keine persönlichen Daten an uns oder Dritte übermittelt. Kein Konto bei torecon, kein Tracking.</p>
+    </div>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      Verantwortlicher im Sinne der DSGVO ist:<br><br>
+      <strong>Thomas Reinke · torecon</strong><br>
+      Roesgenstr. 22<br>
+      53474 Ahrweiler<br>
+      Deutschland<br>
+      E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a>
+    </p>
+
+    <h2>2. Daten, die wir NICHT erheben</h2>
+    <p>eLadung erfordert kein Benutzerkonto und keine Registrierung. Folgende Daten werden von uns nicht erhoben:</p>
+    <ul>
+      <li>Namen, E-Mail-Adressen oder andere Identitätsmerkmale</li>
+      <li>Standortdaten oder GPS-Informationen</li>
+      <li>Kamera-, Mikrofon- oder Kontaktzugriff</li>
+      <li>Soziale Netzwerk-Daten</li>
+      <li>Zahlungsdaten (werden ausschließlich von Apple verarbeitet)</li>
+    </ul>
+
+    <h2>3. Daten, die auf deinem Gerät gespeichert werden</h2>
+    <p>eLadung speichert folgende Daten <strong>lokal</strong> auf deinem Mac oder iPhone (SQLite-Datenbank):</p>
+    <ul>
+      <li>Ladevorgänge (Datum, Kilometerstand, Ladeanbieter, Preis, Lademenge, Notizen)</li>
+      <li>Fahrzeug-Profile (Name, Batteriekapazität, Zielverbrauch)</li>
+      <li>Anbieter und Tarifmodelle</li>
+      <li>App-Einstellungen (Akzentfarbe, Kachel-Hintergrund, CO₂-Parameter) in UserDefaults</li>
+      <li>Aktiver Promo-Code (E-Mail + Code) in der lokalen Datenbank</li>
+    </ul>
+    <p>Diese Daten verlassen dein Gerät nur in folgenden Fällen: (a) du exportierst sie aktiv (z. B. als PDF oder Datenbankdatei), oder (b) iCloud-Sync ist aktiv (siehe Abschnitt 4a).</p>
+
+    <h2>4a. iCloud-Synchronisation (optional)</h2>
+    <p>eLadung nutzt auf iOS und macOS <strong>Apple iCloud Drive</strong>, um deine Datenbankdatei automatisch zwischen deinen eigenen Apple-Geräten zu synchronisieren. Dabei gilt:</p>
+    <ul>
+      <li>Die Synchronisation erfolgt ausschließlich zwischen Geräten, die mit derselben Apple-ID angemeldet sind.</li>
+      <li>Die Daten werden über Apple iCloud gespeichert und übertragen – vollständig unter deiner Kontrolle als Apple-Konto-Inhaber.</li>
+      <li>Wir (torecon) haben <strong>keinen Zugriff</strong> auf deine iCloud-Daten.</li>
+      <li>Die iCloud-Synchronisation unterliegt <a href="https://www.apple.com/de/legal/privacy/de-ww/" target="_blank" rel="noopener">Apples Datenschutzrichtlinien</a>.</li>
+      <li>Du kannst die iCloud-Nutzung jederzeit in den iOS- bzw. macOS-Systemeinstellungen unter „iCloud → eLadung" deaktivieren.</li>
+    </ul>
+
+    <h2>4b. In-App-Käufe (StoreKit 2)</h2>
+    <p>eLadung bietet optionale Abonnements und einen Einmalkauf über Apple an. Die Abwicklung von Zahlungen, Rechnungen und Rückerstattungen erfolgt ausschließlich durch Apple Inc. (USA) gemäß Apples Datenschutzrichtlinien. Wir erhalten dabei keine Zahlungsdaten oder personenbezogenen Informationen.</p>
+    <p>Für Fragen zu Zahlungen wende dich bitte direkt an Apple über die Systemeinstellungen deines Geräts.</p>
+
+    <h2>5. Website (eladung.torecon.de)</h2>
+    <p>Beim Besuch unserer Website werden durch den Webserver folgende Daten in Server-Logfiles gespeichert:</p>
+    <ul>
+      <li>IP-Adresse (anonymisiert nach 7 Tagen gelöscht)</li>
+      <li>Datum und Uhrzeit des Zugriffs</li>
+      <li>Aufgerufene URL</li>
+      <li>Browser und Betriebssystem (User-Agent)</li>
+      <li>Referrer-URL (falls vorhanden)</li>
+    </ul>
+    <p>Diese Daten werden ausschließlich zur Sicherstellung des Betriebs verwendet. Es werden keine Tracking-Cookies gesetzt.</p>
+
+    <h2>6. Drittanbieter-Dienste</h2>
+    <p>eLadung (App) kommuniziert für Update-Prüfungen mit unserem eigenen Server unter <strong>downloads.torecon.de</strong>. Dabei werden keine personenbezogenen Daten übermittelt – der Server liefert lediglich die aktuelle Versionsnummer zurück. Verbindungsdaten (IP-Adresse, Zeitstempel) werden für max. 7 Tage in Server-Logs gespeichert.</p>
+    <p>Darüber hinaus kommuniziert eLadung nur mit Apple-Diensten (App Store, StoreKit) gemäß Apples Datenschutzrichtlinien.</p>
+
+    <h2>7. Deine Rechte (DSGVO)</h2>
+    <p>Da eLadung keine personenbezogenen Daten erhebt oder speichert, gibt es bei uns keine Daten über dich, die wir abrufen, korrigieren oder löschen könnten. Deine Ladedaten liegen vollständig unter deiner Kontrolle auf deinem Gerät.</p>
+    <p>Für Anfragen bezüglich Website-Logdaten hast du folgende Rechte gemäß DSGVO:</p>
+    <ul>
+      <li>Auskunft (Art. 15 DSGVO)</li>
+      <li>Berichtigung (Art. 16 DSGVO)</li>
+      <li>Löschung (Art. 17 DSGVO)</li>
+      <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+      <li>Widerspruch (Art. 21 DSGVO)</li>
+    </ul>
+    <p>Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+    <p>Du hast außerdem das Recht, eine Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen. Für Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a></p>
+
+    <h2>8. Datensicherheit</h2>
+    <p>Die lokale SQLite-Datenbank von eLadung liegt unter macOS im Verzeichnis <code>~/Library/Application Support/eLadung/</code>, das durch die macOS App-Sandbox geschützt ist. Auf iOS wird die Datenbankdatei im App-Sandbox-Verzeichnis gespeichert. Beim iCloud-Sync wird die Datei verschlüsselt von Apple übertragen und in deinem persönlichen iCloud Drive gespeichert. Websiteverbindungen erfolgen ausschließlich über HTTPS/TLS.</p>
+
+    <h2>9. Änderungen dieser Datenschutzerklärung</h2>
+    <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren. Die aktuelle Version ist stets unter <a href="https://eladung.torecon.de/privacy/">eladung.torecon.de/privacy/</a> abrufbar.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">eLadung</a>
+      <a href="/privacy/">Datenschutz</a>
+      <a href="/terms/">Nutzungsbedingungen</a>
+      <a href="/#impressum">Impressum</a>
+    </div>
+    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
+  </footer>
+
+</body>
+</html>
