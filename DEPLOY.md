@@ -42,6 +42,7 @@ Oder nur für eine bestimmte Subdomain:
 | getbrainbites  | getbrainbites.ai/         | /getbrainbites.ai                 |
 | getthinkless   | getthinkless.ai/          | /getthinkless.ai                  |
 | meisterlich    | meisterlich.torecon.de/   | /subdomains/meisterlich/html      |
+| zettelkueche   | zettelkueche.app/         | /zettelkueche.app                 |
 
 `analytics` wird automatisch übersprungen, solange dort nur die README liegt.
 
