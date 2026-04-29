@@ -19,7 +19,7 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="torecon">
 
-  <link rel="stylesheet" href="./css/style.css?v=2026-04-29">
+  <link rel="stylesheet" href="./css/style.css?v=2026-04-29-2">
   <style>
     .earlybird-banner {
       background: linear-gradient(135deg, #0071E3 0%, #0A2FA8 100%);
@@ -106,6 +106,49 @@
       text-align: center; font-size: 14px; color: var(--text-tertiary);
       margin-top: -36px; margin-bottom: 56px;
     }
+
+    /* ── Early-Bird-Aktion beendet ─────────────────────────────────────── */
+    .earlybird-banner.expired {
+      background: linear-gradient(135deg, #6b6f78 0%, #4a4d56 100%);
+      filter: grayscale(0.4);
+    }
+    .earlybird-banner.expired .earlybird-body h2,
+    .earlybird-banner.expired .earlybird-body p {
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(255,255,255,0.55);
+    }
+    .earlybird-banner.expired .earlybird-icon {
+      filter: grayscale(1) opacity(0.6);
+    }
+    .earlybird-banner.expired .earlybird-spots {
+      background: rgba(255,59,48,0.15);
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+    .earlybird-banner.expired .earlybird-spots-num {
+      font-size: 18px; font-weight: 700; letter-spacing: 0.12em;
+      color: #fff; line-height: 1.3;
+    }
+
+    .reg-form-wrap.expired {
+      position: relative; opacity: 0.6;
+    }
+    .reg-form-wrap.expired::before {
+      content: ""; position: absolute; inset: 0;
+      background: rgba(245,245,247,0.35); border-radius: var(--radius-lg);
+      pointer-events: none; z-index: 1;
+    }
+    .reg-form-wrap.expired .reg-form-title {
+      color: #D70015;
+    }
+    .reg-form-wrap.expired input,
+    .reg-form-wrap.expired button,
+    .reg-form-wrap.expired textarea {
+      cursor: not-allowed;
+    }
+    .reg-form-wrap.expired button[type="submit"] {
+      background: #9ca3af; opacity: 0.8;
+    }
   </style>
 </head>
 <body>
@@ -123,17 +166,17 @@
 <section>
   <div class="container">
 
-    <!-- Early Bird Banner -->
-    <div class="earlybird-banner">
+    <!-- Early Bird Banner — Aktion BEENDET (siehe class "expired") -->
+    <div class="earlybird-banner expired">
       <div class="earlybird-icon">🎯</div>
       <div class="earlybird-body">
-        <div class="earlybird-eyebrow" data-i18n="nl_eb_eyebrow">Exklusives Early-Bird-Angebot</div>
+        <div class="earlybird-eyebrow" data-i18n="nl_eb_eyebrow">Early-Bird-Angebot · beendet</div>
         <h2 data-i18n="nl_eb_h2">Die ersten 100 Abonnenten erhalten<br>lebenslang kostenlosen Zugang</h2>
         <p data-i18n="nl_eb_p">Jetzt vormerken lassen und bis zu <strong>6 Themen</strong> wählen – dauerhaft kostenlos, solange der Platz noch verfügbar ist.</p>
       </div>
       <div class="earlybird-spots">
-        <div class="earlybird-spots-num" id="spots-remaining">100</div>
-        <div class="earlybird-spots-label" data-i18n="nl_eb_spots">Plätze verfügbar</div>
+        <div class="earlybird-spots-num">BEENDET</div>
+        <div class="earlybird-spots-label" data-i18n="nl_eb_spots">Aktion abgeschlossen</div>
       </div>
     </div>
 
@@ -218,9 +261,9 @@
       <p data-i18n="nl_success_p">Vielen Dank. Wir haben Ihre Anmeldung gespeichert und melden uns, sobald der Newsletter startet. Eine Bestätigungsmail folgt in Kürze.</p>
     </div>
 
-    <div class="reg-form-wrap" id="reg-form-wrap">
-      <div class="reg-form-title" data-i18n="nl_form_title">Vormerkung – Early-Bird-Zugang</div>
-      <div class="reg-form-sub" data-i18n="nl_form_sub">Sichern Sie sich jetzt Ihren dauerhaft kostenlosen Platz unter den ersten 100 Abonnenten.</div>
+    <div class="reg-form-wrap expired" id="reg-form-wrap">
+      <div class="reg-form-title" data-i18n="nl_form_title">Vormerkung geschlossen</div>
+      <div class="reg-form-sub" data-i18n="nl_form_sub">Die Early-Bird-Aktion ist abgeschlossen. Eine Anmeldung ist über dieses Formular nicht mehr möglich. Bei Marktstart des Newsletters informieren wir gesondert.</div>
 
       <div id="reg-error"></div>
 
@@ -274,8 +317,8 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;" data-i18n="nl_submit">
-          Jetzt Early-Bird-Platz sichern →
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;" disabled data-i18n="nl_submit">
+          Anmeldung geschlossen
         </button>
         <p style="font-size:12px;color:var(--text-tertiary);margin-top:12px;text-align:center;" data-i18n="nl_submit_note">
           Sie erhalten eine Bestätigungsmail an die angegebene Adresse. Kündigung jederzeit möglich.
@@ -288,77 +331,36 @@
 
 <div id="site-footer"></div>
 
-<script src="./js/i18n.js?v=2026-04-29"></script>
-<script src="./js/topics.js?v=2026-04-29"></script>
-<script src="./js/cookie.js?v=2026-04-29"></script>
-<script src="./js/layout.js?v=2026-04-29"></script>
+<script src="./js/i18n.js?v=2026-04-29-2"></script>
+<script src="./js/topics.js?v=2026-04-29-2"></script>
+<script src="./js/cookie.js?v=2026-04-29-2"></script>
+<script src="./js/layout.js?v=2026-04-29-2"></script>
 
 <script>
 (function () {
-  const STORAGE_KEY = 'torecon_newsletter_regs';
-  const SPOTS_KEY   = 'torecon_earlybird_spots';
+  // Early-Bird-Aktion ist beendet (Stand 2026-04-29).
+  // Topic-Picker rendert weiterhin (für visuelle Konsistenz),
+  // Form-Submit ist blockiert. Anmeldungs-Logik ist unten archiviert
+  // und kann reaktiviert werden, falls die Aktion neu aufgesetzt wird.
 
-  // Spots counter
-  function getSpots() {
-    const v = localStorage.getItem(SPOTS_KEY);
-    return v !== null ? parseInt(v, 10) : 100;
-  }
-  document.getElementById('spots-remaining').textContent = Math.max(0, getSpots());
-
-  // Render interactive topic chips
   document.addEventListener('DOMContentLoaded', function () {
     renderTopics('topics-newsletter', { interactive: true, max: 6 });
   });
 
-  // Form submission
-  const form    = document.getElementById('reg-form');
-  const errEl   = document.getElementById('reg-error');
-  const succEl  = document.getElementById('reg-success');
-  const wrapEl  = document.getElementById('reg-form-wrap');
-
-  function showError(msg) {
-    errEl.textContent = msg;
-    errEl.style.display = 'block';
-    errEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  const form = document.getElementById('reg-form');
+  if (form) {
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    errEl.style.display = 'none';
-
-    const firstname = document.getElementById('reg-firstname').value.trim();
-    const lastname  = document.getElementById('reg-lastname').value.trim();
-    const email     = document.getElementById('reg-email').value.trim().toLowerCase();
-    const company   = document.getElementById('reg-company').value.trim();
-    const gdpr      = document.getElementById('gdpr-consent').checked;
-    const topics    = getSelectedTopics('topics-newsletter');
-
-    if (!firstname || !lastname) return showError('Bitte geben Sie Vor- und Nachname an.');
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      return showError('Bitte geben Sie eine gültige E-Mail-Adresse an.');
-    if (topics.length === 0)
-      return showError('Bitte wählen Sie mindestens ein Thema aus.');
-    if (!gdpr)
-      return showError('Bitte stimmen Sie der Datenschutzerklärung zu, um fortzufahren.');
-
-    const regs = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    if (regs.some(r => r.email === email))
-      return showError('Diese E-Mail-Adresse ist bereits vorgemerkt.');
-
-    const spots = getSpots();
-    if (spots <= 0)
-      return showError('Leider sind alle Early-Bird-Plätze vergeben.');
-
-    regs.push({ firstname, lastname, email, company, topics, gdpr: true,
-                date: new Date().toISOString(), plan: 'earlybird' });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(regs));
-    localStorage.setItem(SPOTS_KEY, String(spots - 1));
-    document.getElementById('spots-remaining').textContent = Math.max(0, spots - 1);
-
-    wrapEl.style.display = 'none';
-    succEl.style.display = 'block';
-    succEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+  /* --- archiviert: aktive Vormerkungs-Logik vor Aktions-Ende ---
+  const STORAGE_KEY = 'torecon_newsletter_regs';
+  const SPOTS_KEY   = 'torecon_earlybird_spots';
+  function getSpots() {
+    const v = localStorage.getItem(SPOTS_KEY);
+    return v !== null ? parseInt(v, 10) : 100;
+  }
+  // (Submit-Handler mit Validierung + localStorage-Persistenz, siehe Git-History)
+  */
 })();
 </script>
 </body>
