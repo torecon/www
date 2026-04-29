@@ -1177,3 +1177,73 @@ hr.divider {
   .whatsapp-fab { bottom: 20px; right: 18px; width: 50px; height: 50px; }
   .whatsapp-fab svg { width: 26px; height: 26px; }
 }
+
+/* ── App Entwicklung — App-Card-Grid (homepage section) ──────────────── */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 8px;
+}
+.app-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.app-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+  border-color: rgba(0,113,227,0.35);
+}
+.app-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+  margin-bottom: 14px;
+}
+.app-name {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.app-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.app-status {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.app-status-live {
+  background: #dcfce7;
+  color: #15803d;
+}
+.app-status-soon {
+  background: #fef3c7;
+  color: #92400e;
+}
+.app-status-dev {
+  background: #e5e7eb;
+  color: #4b5563;
+}
+@media (max-width: 480px) {
+  .app-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .app-icon { width: 76px; height: 76px; border-radius: 18px; }
+}

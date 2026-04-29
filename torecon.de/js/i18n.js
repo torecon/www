@@ -87,6 +87,13 @@ const TRANSLATIONS = {
     ref_page_h1: 'Referenzkunden',
     ref_page_sub: 'Eine Auswahl der Institutionen, die wir erfolgreich begleitet haben.',
 
+    apps_eye: 'App Entwicklung',
+    apps_h2: 'Native Apple-Apps aus dem torecon-Lab',
+    apps_sub: 'Hands-on-Software für konkrete Tagesentscheidungen — gebaut, um zu lernen, was AI im Alltag wirklich leistet.',
+    app_status_live: 'Im App Store',
+    app_status_soon: 'In Apple-Review',
+    app_status_dev: 'In Entwicklung',
+
     topics_eye: 'Fokus-Themen',
     topics_h2: 'Unsere {topicCount} Themenschwerpunkte',
     topics_sub: 'Diese Themen stehen im Zentrum unserer Beratung und unseres Newsletters.',
@@ -304,6 +311,13 @@ const TRANSLATIONS = {
 
     ref_page_h1: 'Reference Clients',
     ref_page_sub: 'A selection of institutions we have successfully supported.',
+
+    apps_eye: 'App Development',
+    apps_h2: 'Native Apple Apps from the torecon Lab',
+    apps_sub: 'Hands-on software for everyday decisions — built to learn what AI really delivers in real-world use.',
+    app_status_live: 'On the App Store',
+    app_status_soon: 'In Apple Review',
+    app_status_dev: 'In Development',
 
     topics_eye: 'Focus Topics',
     topics_h2: 'Our {topicCount} Focus Areas',
