@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require_once __DIR__ . '/check_auth.php';
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/_pillars.php';
 
 $drafts_file      = __DIR__ . '/linkedin_drafts.json';
 $backup_file      = __DIR__ . '/linkedin_backup.json';
@@ -67,25 +68,9 @@ function li_backup_delete($path, $id) {
     file_put_contents($path, json_encode($filtered, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
-// Themen-Liste (Pillar 1–9) — Pflege-Quelle:
-// ~/Obsidian/MyBrain/03_Development/_projects/linkedin/pillars/index.md
+// Topic-Strings für Series-Dropdown — gehen 1:1 aus _pillars.php heraus.
 function li_load_topics() {
-    $pillars = array(
-        array('label_de'=>'Geldpolitik & Zinsen',                       'sub_de'=>'EZB, Leitzins, Inflation'),
-        array('label_de'=>'Digitale Customer Experience & Omnichannel', 'sub_de'=>'CX-Strategie, App, digitale Filiale'),
-        array('label_de'=>'Regulierung & Compliance',                   'sub_de'=>'Basel IV, BaFin, EBA'),
-        array('label_de'=>'Digitalisierung & KI',                       'sub_de'=>'Fintech, AI, Kreditscoring'),
-        array('label_de'=>'Nachhaltigkeit & ESG',                       'sub_de'=>'CSRD, Green Finance, Taxonomie'),
-        array('label_de'=>'Datenplattform für KI',                      'sub_de'=>'AI-Readiness, Data Mesh, Governance'),
-        array('label_de'=>'Agentic AI in der Praxis',                   'sub_de'=>'Agent-Orchestrierung, Memory, Tool-Use'),
-        array('label_de'=>'Legacy Transformation',                      'sub_de'=>'Kernbanksysteme, Migration, Modernisierung'),
-        array('label_de'=>'Pricing',                                    'sub_de'=>'Outcome-Based, Sprint-Tier, Quality-Gates'),
-    );
-    $result = array();
-    foreach ($pillars as $t) {
-        $result[] = $t['label_de'] . ' (' . $t['sub_de'] . ')';
-    }
-    return $result;
+    return torecon_pillar_topic_strings();
 }
 
 function li_read_settings($path) {
@@ -109,27 +94,9 @@ function li_read_settings($path) {
     return array_merge($defaults, $data);
 }
 
-// Hashtag-Pool pro Pillar (Pflege-Quelle: ~/Obsidian/MyBrain/03_Development/_projects/linkedin/pillars/index.md)
-// Lookup über das Prefix des topic-Strings vor dem ersten "(" — z.B. "Geldpolitik & Zinsen (EZB, Leitzins, Inflation)"
+// Hashtag-Pool — Wrapper auf _pillars.php (Single-Source).
 function li_hashtag_pool($topic_string) {
-    $map = array(
-        'Geldpolitik & Zinsen'                       => '#Geldpolitik #EZB #Zinswende #Treasury #ALM #Bankbilanz #Inflation',
-        'Digitale Customer Experience & Omnichannel' => '#DigitaleFiliale #Omnichannel #BankCX #Onboarding #MobileBanking #CustomerExperience #BankingApp',
-        'Regulierung & Compliance'                   => '#BaselIV #BaFin #EBA #Bankenaufsicht #Compliance #RegTech #MaRisk',
-        'Digitalisierung & KI'                       => '#KIimBanking #FintechDACH #Kreditscoring #GenAIBanking #Bankautomation #FraudDetection #BankIT',
-        'Nachhaltigkeit & ESG'                       => '#CSRD #GreenFinance #EUTaxonomie #SFDR #KlimaRisiko #ESGReporting #NachhaltigeBanken',
-        'Datenplattform für KI'                      => '#Datenplattform #AIReadiness #DataMesh #Lakehouse #DataQuality #DataGovernance #FeatureStore #BankIT',
-        'Agentic AI in der Praxis'                   => '#AgenticAI #AIagents #LLMOrchestration #MCP #AgentEngineering #BuildInPublic #KIPraxis #PromptEngineering',
-        'Legacy Transformation'                      => '#Kernbankmigration #LegacyTransformation #Coreplattform #StranglerFig #BankIT #Datenmigration #PlattformWechsel',
-        'Pricing'                                    => '#PricingStrategy #AgenticCoding #Gainshare #SprintTier #QualityGates #6PhasenModell #ITStrategy',
-    );
-    // Trim und nimm den Teil vor "(" als Schlüssel
-    $key = trim($topic_string);
-    $paren = strpos($key, '(');
-    if ($paren !== false) $key = trim(substr($key, 0, $paren));
-    if (isset($map[$key])) return $map[$key];
-    // Fallback: leerer Pool — das Modell wählt selbst (sollte selten passieren)
-    return '#Banking #Bankenstrategie';
+    return torecon_pillar_hashtag_pool($topic_string);
 }
 
 // Fix unescaped control characters inside JSON string values (PHP 5.x compatible)

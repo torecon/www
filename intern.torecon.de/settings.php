@@ -1,28 +1,9 @@
 <?php
 require_once __DIR__ . '/check_auth.php';
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/_pillars.php';
 
 $li_settings_file = __DIR__ . '/linkedin_settings.json';
-
-// ── Pillar-Liste (Single Source of Truth):
-// ~/Obsidian/MyBrain/03_Development/_projects/linkedin/pillars/index.md (Pillar 1–9)
-function pillars_list() {
-    return array(
-        array('icon'=>'📈',  'label_de'=>'Geldpolitik & Zinsen',                       'sub_de'=>'EZB, Leitzins, Inflation'),
-        array('icon'=>'📱',  'label_de'=>'Digitale Customer Experience & Omnichannel', 'sub_de'=>'CX-Strategie, App, digitale Filiale'),
-        array('icon'=>'⚖️', 'label_de'=>'Regulierung & Compliance',                    'sub_de'=>'Basel IV, BaFin, EBA'),
-        array('icon'=>'🤖',  'label_de'=>'Digitalisierung & KI',                       'sub_de'=>'Fintech, AI, Kreditscoring'),
-        array('icon'=>'🌱',  'label_de'=>'Nachhaltigkeit & ESG',                       'sub_de'=>'CSRD, Green Finance, Taxonomie'),
-        array('icon'=>'📊',  'label_de'=>'Datenplattform für KI',                      'sub_de'=>'AI-Readiness, Data Mesh, Governance'),
-        array('icon'=>'🧩',  'label_de'=>'Agentic AI in der Praxis',                   'sub_de'=>'Agent-Orchestrierung, Memory, Tool-Use'),
-        array('icon'=>'🔄',  'label_de'=>'Legacy Transformation',                      'sub_de'=>'Kernbanksysteme, Migration, Modernisierung'),
-        array('icon'=>'💼',  'label_de'=>'Pricing',                                    'sub_de'=>'Outcome-Based, Sprint-Tier, Quality-Gates'),
-    );
-}
-
-function topic_li_string($t) {
-    return $t['label_de'] . ' (' . $t['sub_de'] . ')';
-}
 
 function read_li_settings($path) {
     $defaults = array(
@@ -101,7 +82,7 @@ if ($action === 'credentials_save') {
 }
 
 // ── Daten laden ───────────────────────────────────────────────────────────────
-$pillars = pillars_list();
+$pillars = torecon_pillars();
 $li      = read_li_settings($li_settings_file);
 ?>
 <!DOCTYPE html>
@@ -178,7 +159,7 @@ $li      = read_li_settings($li_settings_file);
             <label>Themencluster (Pillar) für die nächste Generierung
               <select name="topic">
                 <?php foreach ($pillars as $t):
-                  $val = topic_li_string($t); ?>
+                  $val = torecon_pillar_topic_string($t); ?>
                   <option value="<?php echo htmlspecialchars($val); ?>"<?php echo ($li['topic'] === $val ? ' selected' : ''); ?>>
                     <?php echo htmlspecialchars($t['icon'] . ' ' . $t['label_de']); ?>
                   </option>
