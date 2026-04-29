@@ -5,10 +5,9 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/check_auth.php';
 require_once __DIR__ . '/config.php';
 
-$drafts_file          = __DIR__ . '/linkedin_drafts.json';
-$backup_file          = __DIR__ . '/linkedin_backup.json';
-$li_settings_file     = __DIR__ . '/linkedin_settings.json';
-$topics_settings_file = __DIR__ . '/topics_settings.json';
+$drafts_file      = __DIR__ . '/linkedin_drafts.json';
+$backup_file      = __DIR__ . '/linkedin_backup.json';
+$li_settings_file = __DIR__ . '/linkedin_settings.json';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 function li_read($path) {
@@ -68,39 +67,30 @@ function li_backup_delete($path, $id) {
     file_put_contents($path, json_encode($filtered, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
-// Themen aus topics_settings.json laden (Fallback: hardcoded)
-function li_load_topics($path) {
-    $defaults = array(
+// Themen-Liste (Pillar 1–9) — Pflege-Quelle:
+// ~/Obsidian/MyBrain/03_Development/_projects/linkedin/pillars/index.md
+function li_load_topics() {
+    $pillars = array(
         array('label_de'=>'Geldpolitik & Zinsen',                       'sub_de'=>'EZB, Leitzins, Inflation'),
         array('label_de'=>'Digitale Customer Experience & Omnichannel', 'sub_de'=>'CX-Strategie, App, digitale Filiale'),
         array('label_de'=>'Regulierung & Compliance',                   'sub_de'=>'Basel IV, BaFin, EBA'),
         array('label_de'=>'Digitalisierung & KI',                       'sub_de'=>'Fintech, AI, Kreditscoring'),
         array('label_de'=>'Nachhaltigkeit & ESG',                       'sub_de'=>'CSRD, Green Finance, Taxonomie'),
-        array('label_de'=>'Strategische Bankplanung',                   'sub_de'=>'CIR, PCR, Gesamtbanksteuerung'),
-        array('label_de'=>'Internationale Märkte',                      'sub_de'=>'EBRD, IMF, Osteuropa'),
+        array('label_de'=>'Datenplattform für KI',                      'sub_de'=>'AI-Readiness, Data Mesh, Governance'),
+        array('label_de'=>'Agentic AI in der Praxis',                   'sub_de'=>'Agent-Orchestrierung, Memory, Tool-Use'),
         array('label_de'=>'Legacy Transformation',                      'sub_de'=>'Kernbanksysteme, Migration, Modernisierung'),
+        array('label_de'=>'Pricing',                                    'sub_de'=>'Outcome-Based, Sprint-Tier, Quality-Gates'),
     );
-    // Fallback-Strings ohne Closures (PHP 5.x kompatibel)
-    $default_strings = array();
-    foreach ($defaults as $t) {
-        $default_strings[] = $t['label_de'] . ' (' . $t['sub_de'] . ')';
-    }
-    if (!file_exists($path)) return $default_strings;
-    $data = json_decode(file_get_contents($path), true);
-    if (!is_array($data) || count($data) < 8) return $default_strings;
     $result = array();
-    foreach ($data as $t) {
-        if (isset($t['label_de']) && isset($t['sub_de'])) {
-            $result[] = $t['label_de'] . ' (' . $t['sub_de'] . ')';
-        }
+    foreach ($pillars as $t) {
+        $result[] = $t['label_de'] . ' (' . $t['sub_de'] . ')';
     }
     return $result;
 }
 
 function li_read_settings($path) {
     $defaults = array(
-        'topic1'     => 'Digitalisierung & KI (Fintech, AI, Kreditscoring)',
-        'topic2'     => 'Legacy Transformation (Kernbanksysteme, Migration, Modernisierung)',
+        'topic'      => 'Digitalisierung & KI (Fintech, AI, Kreditscoring)',
         'post_hint'  => '',
         'post_count' => 4,
     );
@@ -111,7 +101,35 @@ function li_read_settings($path) {
     if (!isset($data['post_hint']) && isset($data['tone_hint'])) {
         $data['post_hint'] = $data['tone_hint'];
     }
+    // Migrate old keys 'topic1' (+'topic2' verworfen) → 'topic'
+    if (!isset($data['topic']) && isset($data['topic1'])) {
+        $data['topic'] = $data['topic1'];
+    }
+    unset($data['topic1'], $data['topic2']);
     return array_merge($defaults, $data);
+}
+
+// Hashtag-Pool pro Pillar (Pflege-Quelle: ~/Obsidian/MyBrain/03_Development/_projects/linkedin/pillars/index.md)
+// Lookup über das Prefix des topic-Strings vor dem ersten "(" — z.B. "Geldpolitik & Zinsen (EZB, Leitzins, Inflation)"
+function li_hashtag_pool($topic_string) {
+    $map = array(
+        'Geldpolitik & Zinsen'                       => '#Geldpolitik #EZB #Zinswende #Treasury #ALM #Bankbilanz #Inflation',
+        'Digitale Customer Experience & Omnichannel' => '#DigitaleFiliale #Omnichannel #BankCX #Onboarding #MobileBanking #CustomerExperience #BankingApp',
+        'Regulierung & Compliance'                   => '#BaselIV #BaFin #EBA #Bankenaufsicht #Compliance #RegTech #MaRisk',
+        'Digitalisierung & KI'                       => '#KIimBanking #FintechDACH #Kreditscoring #GenAIBanking #Bankautomation #FraudDetection #BankIT',
+        'Nachhaltigkeit & ESG'                       => '#CSRD #GreenFinance #EUTaxonomie #SFDR #KlimaRisiko #ESGReporting #NachhaltigeBanken',
+        'Datenplattform für KI'                      => '#Datenplattform #AIReadiness #DataMesh #Lakehouse #DataQuality #DataGovernance #FeatureStore #BankIT',
+        'Agentic AI in der Praxis'                   => '#AgenticAI #AIagents #LLMOrchestration #MCP #AgentEngineering #BuildInPublic #KIPraxis #PromptEngineering',
+        'Legacy Transformation'                      => '#Kernbankmigration #LegacyTransformation #Coreplattform #StranglerFig #BankIT #Datenmigration #PlattformWechsel',
+        'Pricing'                                    => '#PricingStrategy #AgenticCoding #Gainshare #SprintTier #QualityGates #6PhasenModell #ITStrategy',
+    );
+    // Trim und nimm den Teil vor "(" als Schlüssel
+    $key = trim($topic_string);
+    $paren = strpos($key, '(');
+    if ($paren !== false) $key = trim(substr($key, 0, $paren));
+    if (isset($map[$key])) return $map[$key];
+    // Fallback: leerer Pool — das Modell wählt selbst (sollte selten passieren)
+    return '#Banking #Bankenstrategie';
 }
 
 // Fix unescaped control characters inside JSON string values (PHP 5.x compatible)
@@ -188,18 +206,21 @@ function li_parse_json_response($text) {
 }
 
 // Single API call for exactly $n posts
-function li_call_claude_single($api_key, $today, $n, $topic1, $topic2, $post_hint) {
+function li_call_claude_single($api_key, $today, $n, $topic, $post_hint) {
+    $hashtag_pool = li_hashtag_pool($topic);
     $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
-            . 'Deine Kernthemen: ' . $topic1 . ' und ' . $topic2 . '. '
+            . 'Dein Themencluster fuer diese Posts: ' . $topic . '.'
             . "\n\nHeutiges Datum: " . $today . "\n\n"
-            . "Erstelle " . $n . " LinkedIn-Posts zu aktuellen, praxisrelevanten Themen aus diesen zwei Bereichen. Abwechslung ist wichtig.\n\n"
+            . "Erstelle " . $n . " LinkedIn-Posts zu aktuellen, praxisrelevanten Themen aus diesem Bereich. Abwechslung in Hook und Blickwinkel ist wichtig.\n\n"
             . "Jeder Post muss:\n"
-            . "- Mit einem starken Hook beginnen (1 Satz: provokante These, ueberraschende Zahl oder offene Frage)\n"
+            . "- Mit einem starken Hook beginnen (1 Satz: provokante These ODER ueberraschende Zahl — KEINE Frage-Hooks wie 'Wussten Sie...?')\n"
             . "- Ca. 900-1.300 Zeichen lang sein (ohne Hashtags)\n"
-            . "- Aus Ich-Perspektive geschrieben sein, praxisnah und ohne Buzzword-Bingo\n"
-            . "- Einen konkreten Insight oder Handlungsempfehlung enthalten\n"
-            . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
-            . "- Mit 4-5 Hashtags abschliessen (z.B. #Digitalisierung #Banking #KI #LegacyTransformation #Fintech)\n\n"
+            . "- Aus Ich-Perspektive geschrieben sein (Thomas spricht), den Leser in der Sie-Form ansprechen — niemals Du-Form\n"
+            . "- Adressat: Vorstand und Bereichsleitung in Kreditinstituten\n"
+            . "- Praxisnah und ohne Buzzword-Bingo formuliert sein\n"
+            . "- Einen konkreten Insight oder eine konkrete Handlungsempfehlung enthalten\n"
+            . "- Mit einer praktischen Konsequenz fuer Banker enden — NICHT mit einer Frage, NICHT mit einem generischen Call-to-Action, NICHT mit 'Folge mir auf LinkedIn'\n"
+            . "- Mit 4-5 Hashtags abschliessen, ausgewaehlt aus folgendem Pool: " . $hashtag_pool . "\n\n"
             . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
             . "JSON-Regeln (unbedingt einhalten):\n"
             . "- Ausgabe DIREKT als JSON-Array (kein Markdown, keine ```-Blöcke)\n"
@@ -243,8 +264,7 @@ function li_call_claude_single($api_key, $today, $n, $topic1, $topic2, $post_hin
 }
 
 function li_call_claude($api_key, $today, $settings) {
-    $topic1     = $settings['topic1'];
-    $topic2     = $settings['topic2'];
+    $topic      = isset($settings['topic']) ? $settings['topic'] : (isset($settings['topic1']) ? $settings['topic1'] : '');
     $post_count = intval($settings['post_count']);
     $post_hint  = isset($settings['post_hint']) ? trim($settings['post_hint']) : (isset($settings['tone_hint']) ? trim($settings['tone_hint']) : '');
 
@@ -252,25 +272,25 @@ function li_call_claude($api_key, $today, $settings) {
     if ($post_count >= 3) {
         $n1 = (int)ceil($post_count / 2);  // 5→3, 4→2, 3→2
         $n2 = $post_count - $n1;           // 5→2, 4→2, 3→1
-        $r1 = li_call_claude_single($api_key, $today, $n1, $topic1, $topic2, $post_hint);
+        $r1 = li_call_claude_single($api_key, $today, $n1, $topic, $post_hint);
         if (isset($r1['error'])) return $r1;
-        $r2 = li_call_claude_single($api_key, $today, $n2, $topic1, $topic2, $post_hint);
+        $r2 = li_call_claude_single($api_key, $today, $n2, $topic, $post_hint);
         if (isset($r2['error'])) return $r2;
         return array_merge($r1, $r2);
     }
 
     // 1–2 posts: single call
-    return li_call_claude_single($api_key, $today, $post_count, $topic1, $topic2, $post_hint);
+    return li_call_claude_single($api_key, $today, $post_count, $topic, $post_hint);
 }
 
 function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = '') {
     $parts_hint = '';
     if ($count == 3) {
-        $parts_hint = "Post 1: Einstieg – Warum ist dieses Thema gerade fuer Banken/Genossenschaftsbanken dringend relevant?\n"
+        $parts_hint = "Post 1: Einstieg – Warum ist dieses Thema gerade fuer Banken dringend relevant?\n"
                     . "Post 2: Vertiefung – Konkretes Praxisbeispiel oder aktuelle Entwicklung aus dem Markt.\n"
                     . "Post 3: Handlungsempfehlung – Was sollten Entscheider in Kreditinstituten jetzt konkret tun?";
     } elseif ($count == 4) {
-        $parts_hint = "Post 1: Einstieg – Warum ist dieses Thema gerade fuer Banken/Genossenschaftsbanken dringend relevant?\n"
+        $parts_hint = "Post 1: Einstieg – Warum ist dieses Thema gerade fuer Banken dringend relevant?\n"
                     . "Post 2: Problemanalyse – Wo scheitert die Praxis heute noch, und warum?\n"
                     . "Post 3: Best Practice – Was machen die Vorreiter anders?\n"
                     . "Post 4: Handlungsempfehlung – Was sollten Entscheider in Kreditinstituten jetzt konkret tun?";
@@ -280,18 +300,22 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
         }
     }
 
+    $hashtag_pool = li_hashtag_pool($topic);
+
     $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
             . "\nHeutiges Datum: " . $today . "\n\n"
             . 'Erstelle eine LinkedIn-Postserie von ' . $count . ' Beitraegen zum Thema: ' . $topic . "\n\n"
             . "Aufbau der Serie:\n" . $parts_hint . "\n\n"
             . "Regeln fuer jeden Post:\n"
             . "- Jeder Post funktioniert fuer sich allein – kein 'wie ich gestern schrieb'\n"
-            . "- Mit einem starken Hook beginnen (1 Satz: provokante These, ueberraschende Zahl oder offene Frage)\n"
+            . "- Mit einem starken Hook beginnen (1 Satz: provokante These ODER ueberraschende Zahl — KEINE Frage-Hooks wie 'Wussten Sie...?')\n"
             . "- Ca. 900-1.300 Zeichen lang (ohne Hashtags)\n"
-            . "- Ich-Perspektive, praxisnah, ohne Buzzword-Bingo\n"
+            . "- Ich-Perspektive (Thomas spricht), Leser in der Sie-Form ansprechen — niemals Du-Form\n"
+            . "- Adressat: Vorstand und Bereichsleitung in Kreditinstituten\n"
+            . "- Praxisnah, ohne Buzzword-Bingo\n"
             . "- Konkreter Insight oder Handlungsempfehlung enthalten\n"
-            . "- Mit einer Frage oder einem klaren Call-to-Action enden\n"
-            . "- Mit 4-5 Hashtags abschliessen\n\n"
+            . "- Mit einer praktischen Konsequenz fuer Banker enden — NICHT mit einer Frage, NICHT mit einem generischen Call-to-Action, NICHT mit 'Folge mir auf LinkedIn'\n"
+            . "- Mit 4-5 Hashtags abschliessen, ausgewaehlt aus folgendem Pool: " . $hashtag_pool . "\n\n"
             . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
             . "JSON-Regeln (unbedingt einhalten):\n"
             . "- Ausgabe DIREKT als JSON-Array (kein Markdown, keine ```-Blöcke)\n"
@@ -423,7 +447,7 @@ $msg         = '';
 $msg_type    = 'success';
 $api_key     = defined('CLAUDE_API_KEY') ? CLAUDE_API_KEY : '';
 $li_settings = li_read_settings($li_settings_file);
-$topics      = li_load_topics($topics_settings_file);
+$topics      = li_load_topics();
 
 // ── API TEST ─────────────────────────────────────────────────────────────────
 $api_test_result = '';
