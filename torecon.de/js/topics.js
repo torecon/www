@@ -1,4 +1,6 @@
-/* torecon – Shared topic definitions (Homepage & Newsletter – always identical) */
+/* torecon – Shared topic definitions (Homepage & Newsletter – always identical)
+   Pflege-Quelle (Single Source of Truth):
+   ~/Obsidian/MyBrain/03_Development/_projects/linkedin/pillars/index.md (Pillar 1–9) */
 const TOPICS = [
   {
     id: 'geldpolitik',
@@ -41,20 +43,20 @@ const TOPICS = [
     sub_en:   'CSRD, green finance, taxonomy',
   },
   {
-    id: 'bankplanung',
-    icon: '🗺️',
-    label_de: 'Strategische Bankplanung',
-    label_en: 'Strategic Bank Planning',
-    sub_de:   'CIR, PCR, Gesamtbanksteuerung',
-    sub_en:   'CIR, PCR, bank-wide management',
+    id: 'datenplattform',
+    icon: '📊',
+    label_de: 'Datenplattform für KI',
+    label_en: 'Data Platform for AI',
+    sub_de:   'AI-Readiness, Data Mesh, Governance',
+    sub_en:   'AI readiness, data mesh, governance',
   },
   {
-    id: 'international',
-    icon: '🌍',
-    label_de: 'Internationale Märkte',
-    label_en: 'International Markets',
-    sub_de:   'EBRD, IMF, Osteuropa',
-    sub_en:   'EBRD, IMF, Eastern Europe',
+    id: 'agentic-ai',
+    icon: '🧩',
+    label_de: 'Agentic AI in der Praxis',
+    label_en: 'Agentic AI in Practice',
+    sub_de:   'Agent-Orchestrierung, Memory, Tool-Use',
+    sub_en:   'Agent orchestration, memory, tool use',
   },
   {
     id: 'legacy',
@@ -63,6 +65,14 @@ const TOPICS = [
     label_en: 'Legacy Transformation',
     sub_de:   'Kernbanksysteme, Migration, Modernisierung',
     sub_en:   'Core banking, migration, modernisation',
+  },
+  {
+    id: 'pricing',
+    icon: '💼',
+    label_de: 'Pricing',
+    label_en: 'Pricing',
+    sub_de:   'Outcome-Based, Sprint-Tier, Quality-Gates',
+    sub_en:   'Outcome-based, sprint-tier, quality gates',
   },
 ];
 

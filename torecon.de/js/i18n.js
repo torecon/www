@@ -88,7 +88,7 @@ const TRANSLATIONS = {
     ref_page_sub: 'Eine Auswahl der Institutionen, die wir erfolgreich begleitet haben.',
 
     topics_eye: 'Fokus-Themen',
-    topics_h2: 'Unsere 8 Themenschwerpunkte',
+    topics_h2: 'Unsere 9 Themenschwerpunkte',
     topics_sub: 'Diese Themen stehen im Zentrum unserer Beratung und unseres Newsletters.',
     topics_cta: 'Newsletter abonnieren',
 
@@ -123,7 +123,7 @@ const TRANSLATIONS = {
 
     nl_eye: 'Newsletter',
     nl_h1: 'Financial Intelligence<br>direkt in Ihr Postfach',
-    nl_sub: 'Tägliche oder wöchentliche Briefings zu den 8 Themen, die Ihr Institut wirklich betreffen.',
+    nl_sub: 'Tägliche oder wöchentliche Briefings zu den 9 Themen, die Ihr Institut wirklich betreffen.',
     nl_eb_eyebrow: 'Exklusives Early-Bird-Angebot',
     nl_eb_h2: 'Die ersten 100 Abonnenten erhalten<br>lebenslang kostenlosen Zugang',
     nl_eb_p: 'Jetzt vormerken lassen und bis zu <strong>6 Themen</strong> wählen – dauerhaft kostenlos, solange der Platz noch verfügbar ist.',
@@ -306,7 +306,7 @@ const TRANSLATIONS = {
     ref_page_sub: 'A selection of institutions we have successfully supported.',
 
     topics_eye: 'Focus Topics',
-    topics_h2: 'Our 8 Focus Areas',
+    topics_h2: 'Our 9 Focus Areas',
     topics_sub: 'These topics are at the heart of our consulting work and newsletter.',
     topics_cta: 'Subscribe to newsletter',
 
@@ -341,7 +341,7 @@ const TRANSLATIONS = {
 
     nl_eye: 'Newsletter',
     nl_h1: 'Financial Intelligence<br>straight to your inbox',
-    nl_sub: 'Daily or weekly briefings on the 8 topics that really matter to your institution.',
+    nl_sub: 'Daily or weekly briefings on the 9 topics that really matter to your institution.',
     nl_eb_eyebrow: 'Exclusive Early-Bird Offer',
     nl_eb_h2: 'The first 100 subscribers receive<br>free access for life',
     nl_eb_p: 'Register now and choose up to <strong>6 topics</strong> – permanently free, while spots last.',
