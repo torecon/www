@@ -125,6 +125,7 @@ if (isset($_GET['edit'])) {
     <ul class="sidebar-nav">
       <li><a href="./linkedin.php">💼 LinkedIn Posts</a></li>
       <li><a href="./links.php" class="active">🔖 Linkfavoriten</a></li>
+      <li><a href="./routines.php">🔄 Routinen</a></li>
       <li><a href="./settings.php">⚙️ Einstellungen</a></li>
     </ul>
     <div class="sidebar-footer">
