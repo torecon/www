@@ -175,18 +175,19 @@ function li_parse_json_response($text) {
 // Single API call for exactly $n posts
 function li_call_claude_single($api_key, $today, $n, $topic, $post_hint) {
     $hashtag_pool = li_hashtag_pool($topic);
+    // Prompt A — gespiegelt aus pillars/index.md > "Prompt A — Einzel-Posts"
+    // Source-of-Truth: ~/Obsidian/MyBrain/03_Development/_projects/linkedin/pillars/index.md
     $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
             . 'Dein Themencluster fuer diese Posts: ' . $topic . '.'
             . "\n\nHeutiges Datum: " . $today . "\n\n"
             . "Erstelle " . $n . " LinkedIn-Posts zu aktuellen, praxisrelevanten Themen aus diesem Bereich. Abwechslung in Hook und Blickwinkel ist wichtig.\n\n"
             . "Jeder Post muss:\n"
-            . "- Mit einem starken Hook beginnen (1 Satz: provokante These ODER ueberraschende Zahl — KEINE Frage-Hooks wie 'Wussten Sie...?')\n"
+            . "- Mit einem starken Hook beginnen (1 Satz: provokante These ODER ueberraschende Zahl — KEINE Frage-Hooks wie „Wussten Sie...?\")\n"
             . "- Ca. 900-1.300 Zeichen lang sein (ohne Hashtags)\n"
-            . "- Aus Ich-Perspektive geschrieben sein (Thomas spricht), den Leser in der Sie-Form ansprechen — niemals Du-Form\n"
-            . "- Adressat: Vorstand und Bereichsleitung in Kreditinstituten\n"
+            . "- Aus Ich-Perspektive geschrieben sein (Thomas spricht), den Leser in der Sie-Form ansprechen\n"
             . "- Praxisnah und ohne Buzzword-Bingo formuliert sein\n"
             . "- Einen konkreten Insight oder eine konkrete Handlungsempfehlung enthalten\n"
-            . "- Mit einer praktischen Konsequenz fuer Banker enden — NICHT mit einer Frage, NICHT mit einem generischen Call-to-Action, NICHT mit 'Folge mir auf LinkedIn'\n"
+            . "- Mit einer praktischen Konsequenz fuer Banker enden — NICHT mit einer Frage, NICHT mit einem generischen Call-to-Action, NICHT mit „Folge mir auf LinkedIn\"\n"
             . "- Mit 4-5 Hashtags abschliessen, ausgewaehlt aus folgendem Pool: " . $hashtag_pool . "\n\n"
             . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
             . "JSON-Regeln (unbedingt einhalten):\n"
@@ -269,26 +270,26 @@ function li_call_claude_series($api_key, $today, $topic, $count, $post_hint = ''
 
     $hashtag_pool = li_hashtag_pool($topic);
 
+    // Prompt B — gespiegelt aus pillars/index.md > "Prompt B — Serie"
+    // Source-of-Truth: ~/Obsidian/MyBrain/03_Development/_projects/linkedin/pillars/index.md
     $prompt = 'Du bist Thomas Reinke, Unternehmensberater fuer Banken und Kreditinstitute (torecon.de), 25+ Jahre Erfahrung. '
             . "\nHeutiges Datum: " . $today . "\n\n"
             . 'Erstelle eine LinkedIn-Postserie von ' . $count . ' Beitraegen zum Thema: ' . $topic . "\n\n"
             . "Aufbau der Serie:\n" . $parts_hint . "\n\n"
             . "Regeln fuer jeden Post:\n"
-            . "- Jeder Post funktioniert fuer sich allein – kein 'wie ich gestern schrieb'\n"
-            . "- Mit einem starken Hook beginnen (1 Satz: provokante These ODER ueberraschende Zahl — KEINE Frage-Hooks wie 'Wussten Sie...?')\n"
+            . "- Jeder Post funktioniert fuer sich allein – kein „wie ich gestern schrieb\"\n"
+            . "- Mit einem starken Hook beginnen (1 Satz: provokante These ODER ueberraschende Zahl — KEINE Frage-Hooks wie „Wussten Sie...?\")\n"
             . "- Ca. 900-1.300 Zeichen lang (ohne Hashtags)\n"
-            . "- Ich-Perspektive (Thomas spricht), Leser in der Sie-Form ansprechen — niemals Du-Form\n"
-            . "- Adressat: Vorstand und Bereichsleitung in Kreditinstituten\n"
+            . "- Ich-Perspektive (Thomas spricht), Leser in der Sie-Form ansprechen\n"
             . "- Praxisnah, ohne Buzzword-Bingo\n"
             . "- Konkreter Insight oder Handlungsempfehlung enthalten\n"
-            . "- Mit einer praktischen Konsequenz fuer Banker enden — NICHT mit einer Frage, NICHT mit einem generischen Call-to-Action, NICHT mit 'Folge mir auf LinkedIn'\n"
+            . "- Mit einer praktischen Konsequenz fuer Banker enden — NICHT mit einer Frage, NICHT mit „Folge mir auf LinkedIn\"\n"
             . "- Mit 4-5 Hashtags abschliessen, ausgewaehlt aus folgendem Pool: " . $hashtag_pool . "\n\n"
             . ($post_hint !== '' ? "Zusaetzliche Hinweise (Ton, Stil & Inhalt):\n" . $post_hint . "\n\n" : '')
             . "JSON-Regeln (unbedingt einhalten):\n"
             . "- Ausgabe DIREKT als JSON-Array (kein Markdown, keine ```-Blöcke)\n"
             . "- Keine ASCII-Anfuehrungszeichen (\") im Fliesstext – nutze stattdessen >>...<<\n"
-            . "- Zeilenumbrueche im 'text'-Feld als \\n darstellen\n"
-            . '[{"part":1,"topic":"Kurztitel max 40 Zeichen","text":"Vollstaendiger Post\\n\\n#Hash1 #Hash2"},...]';
+            . "- Zeilenumbrueche im 'text'-Feld als \\n darstellen";
 
     $payload = json_encode(array(
         'model'      => 'claude-sonnet-4-6',
