@@ -824,6 +824,7 @@ foreach ($series_groups as $sid => $sg) {
     <ul class="sidebar-nav">
       <li><a href="./linkedin.php" class="active">💼 LinkedIn Posts</a></li>
       <li><a href="./links.php">🔖 Linkfavoriten</a></li>
+      <li><a href="./routines.php">🔄 Routinen</a></li>
       <li><a href="./settings.php">⚙️ Einstellungen</a></li>
     </ul>
     <div class="sidebar-footer">

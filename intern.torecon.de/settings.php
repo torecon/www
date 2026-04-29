@@ -127,6 +127,7 @@ $li      = read_li_settings($li_settings_file);
     <ul class="sidebar-nav">
       <li><a href="./linkedin.php">💼 LinkedIn Posts</a></li>
       <li><a href="./links.php">🔖 Linkfavoriten</a></li>
+      <li><a href="./routines.php">🔄 Routinen</a></li>
       <li><a href="./settings.php" class="active">⚙️ Einstellungen</a></li>
     </ul>
     <div class="sidebar-footer">
