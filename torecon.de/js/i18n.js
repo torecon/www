@@ -88,7 +88,7 @@ const TRANSLATIONS = {
     ref_page_sub: 'Eine Auswahl der Institutionen, die wir erfolgreich begleitet haben.',
 
     topics_eye: 'Fokus-Themen',
-    topics_h2: 'Unsere 9 Themenschwerpunkte',
+    topics_h2: 'Unsere {topicCount} Themenschwerpunkte',
     topics_sub: 'Diese Themen stehen im Zentrum unserer Beratung und unseres Newsletters.',
     topics_cta: 'Newsletter abonnieren',
 
@@ -123,7 +123,7 @@ const TRANSLATIONS = {
 
     nl_eye: 'Newsletter',
     nl_h1: 'Financial Intelligence<br>direkt in Ihr Postfach',
-    nl_sub: 'Tägliche oder wöchentliche Briefings zu den 9 Themen, die Ihr Institut wirklich betreffen.',
+    nl_sub: 'Tägliche oder wöchentliche Briefings zu den {topicCount} Themen, die Ihr Institut wirklich betreffen.',
     nl_eb_eyebrow: 'Exklusives Early-Bird-Angebot',
     nl_eb_h2: 'Die ersten 100 Abonnenten erhalten<br>lebenslang kostenlosen Zugang',
     nl_eb_p: 'Jetzt vormerken lassen und bis zu <strong>6 Themen</strong> wählen – dauerhaft kostenlos, solange der Platz noch verfügbar ist.',
@@ -148,7 +148,7 @@ const TRANSLATIONS = {
     nl_tier2_f5: 'Abmeldung jederzeit',
     nl_tier3_name: 'Premium',
     nl_tier3_period: 'pro Monat · jederzeit kündbar',
-    nl_tier3_f1: '20 Themen Ihrer Wahl',
+    nl_tier3_f1: 'Alle Themen Ihrer Wahl',
     nl_tier3_f2: 'Tägliche Ausgabe (Mo–Fr)',
     nl_tier3_f3: 'Vollständige Artikel-Zusammenfassungen',
     nl_tier3_f4: 'Quellenlinks zu Originalartikeln',
@@ -306,7 +306,7 @@ const TRANSLATIONS = {
     ref_page_sub: 'A selection of institutions we have successfully supported.',
 
     topics_eye: 'Focus Topics',
-    topics_h2: 'Our 9 Focus Areas',
+    topics_h2: 'Our {topicCount} Focus Areas',
     topics_sub: 'These topics are at the heart of our consulting work and newsletter.',
     topics_cta: 'Subscribe to newsletter',
 
@@ -341,7 +341,7 @@ const TRANSLATIONS = {
 
     nl_eye: 'Newsletter',
     nl_h1: 'Financial Intelligence<br>straight to your inbox',
-    nl_sub: 'Daily or weekly briefings on the 9 topics that really matter to your institution.',
+    nl_sub: 'Daily or weekly briefings on the {topicCount} topics that really matter to your institution.',
     nl_eb_eyebrow: 'Exclusive Early-Bird Offer',
     nl_eb_h2: 'The first 100 subscribers receive<br>free access for life',
     nl_eb_p: 'Register now and choose up to <strong>6 topics</strong> – permanently free, while spots last.',
@@ -366,7 +366,7 @@ const TRANSLATIONS = {
     nl_tier2_f5: 'Cancel anytime',
     nl_tier3_name: 'Premium',
     nl_tier3_period: 'per month · cancel anytime',
-    nl_tier3_f1: '20 topics of your choice',
+    nl_tier3_f1: 'All topics of your choice',
     nl_tier3_f2: 'Daily edition (Mon–Fri)',
     nl_tier3_f3: 'Full article summaries',
     nl_tier3_f4: 'Source links to original articles',
@@ -440,8 +440,26 @@ const TRANSLATIONS = {
 
 let currentLang = localStorage.getItem('torecon_lang') || 'de';
 
+// Platzhalter-Map für Strings.
+// {topicCount} → Anzahl Pillars (aus topics.js); Fallback 9, falls topics.js
+// vor i18n.js nicht geladen ist (defensiv — sollte nicht passieren, da
+// applyTranslations beim DOMContentLoaded läuft).
+function i18nVars() {
+  return {
+    topicCount: (typeof TOPICS !== 'undefined' && Array.isArray(TOPICS))
+      ? TOPICS.length : 9,
+  };
+}
+
+function interpolate(str) {
+  if (typeof str !== 'string') return str;
+  const vars = i18nVars();
+  return str.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+}
+
 function t(key) {
-  return TRANSLATIONS[currentLang]?.[key] ?? TRANSLATIONS.de[key] ?? key;
+  const raw = TRANSLATIONS[currentLang]?.[key] ?? TRANSLATIONS.de[key] ?? key;
+  return interpolate(raw);
 }
 
 function applyTranslations() {
