@@ -186,6 +186,32 @@
       font-family: inherit;
     }
     .ios-modal-secondary:hover { color: var(--text); }
+
+    /* ── Footer Cross-Promo (Logo-Pills statt Emoji) ─────────────────────── */
+    .footer-app-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px 6px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s;
+    }
+    .footer-app-pill:hover {
+      border-color: rgba(91,138,240,0.5);
+      color: #fff;
+      background: rgba(91,138,240,0.08);
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+    .footer-app-pill img {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -577,7 +603,18 @@
       <div class="footer-apps">
         <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
         <div class="footer-apps-pills">
-          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22">
+            <span>BrainBites AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener">
+            <img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22">
+            <span>Zettelküche AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">
+            <img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22">
+            <span>eLadung GO</span>
+          </a>
         </div>
       </div>
       <div class="footer-copy">&copy; <span id="footer-year"></span> torecon &ndash; Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
