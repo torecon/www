@@ -376,6 +376,13 @@
     .feature-item h3 { font-size: 18px; margin-bottom: 8px; }
     .feature-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
 
+    /* What's New in v1.5 */
+    .whatsnew-label { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,113,227,0.08); padding: 6px 12px; border-radius: 999px; color: var(--accent); }
+    .whatsnew-label::before { content: "✨"; font-size: 14px; }
+    .whatsnew-grid { margin-top: 16px; }
+    .whatsnew-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm); transition: var(--transition); }
+    .whatsnew-item:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
     /* Steps */
     .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
     .step { text-align: center; padding: 32px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); }
@@ -422,6 +429,39 @@
     .pricing-year-hint { display: inline-block; background: #34C759; color: #fff; font-size: 12px; font-weight: 600; border-radius: 6px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; }
 
     /* Download */
+    /* ── Roadmap-Section ──────────────────────────────────────────────────── */
+    .roadmap-bg { background: var(--bg-alt); }
+    .roadmap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+    @media (max-width: 720px) { .roadmap-grid { grid-template-columns: 1fr; } }
+    .roadmap-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .roadmap-card.delivered { border-left: 4px solid #34c759; }
+    .roadmap-card.coming { border-left: 4px solid var(--accent); }
+    .roadmap-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 14px; }
+    .roadmap-card.delivered .roadmap-tag { background: rgba(52,199,89,0.12); color: #1a8a3a; }
+    .roadmap-card.coming .roadmap-tag { background: rgba(0,113,227,0.12); color: var(--accent); }
+    .roadmap-card h3 { font-size: 22px; margin-bottom: 16px; }
+    .roadmap-card ul { list-style: none; padding: 0; margin: 0; }
+    .roadmap-card li { padding: 8px 0; font-size: 15px; color: var(--text-secondary); border-bottom: 1px solid rgba(0,0,0,0.04); padding-left: 22px; position: relative; }
+    .roadmap-card li:last-child { border-bottom: 0; }
+    .roadmap-card.delivered li::before { content: '✓'; color: #34c759; font-weight: 700; position: absolute; left: 0; top: 8px; }
+    .roadmap-card.coming li::before { content: '→'; color: var(--accent); font-weight: 700; position: absolute; left: 0; top: 8px; }
+    .roadmap-promise {
+      margin-top: 32px;
+      background: var(--bg-dark); color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .roadmap-promise p { font-size: 18px; line-height: 1.6; max-width: 720px; margin: 0 auto; opacity: 0.9; }
+    .roadmap-promise strong { color: #fff; opacity: 1; font-weight: 700; }
+
     .download-section { padding: 96px 24px; text-align: center; background: linear-gradient(180deg, var(--bg-alt) 0%, #fff 100%); }
     .download-section h2 { margin-bottom: 16px; }
     .download-section p { font-size: 18px; color: var(--text-secondary); margin-bottom: 40px; }
@@ -456,8 +496,9 @@
     .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
     .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
     .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
-    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(0,113,227,0.5); color: #fff; background: rgba(0,113,227,0.08); transform: translateY(-1px); opacity: 1; }
+    .footer-app-pill img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; display: block; }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
     .footer-qr { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
     .footer-qr-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
@@ -472,6 +513,50 @@
       .nav-cta { display: none; }
       .pricing-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── iPhone Modal (slide-up sheet, fires after 1.2s on iPhone Safari) ── */
+    .ios-modal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 200;
+      align-items: flex-end; justify-content: center;
+      padding: 0 16px 24px;
+    }
+    .ios-modal.show { display: flex; animation: fadeIn 0.25s ease both; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .ios-modal-card {
+      background: #fff; width: 100%; max-width: 420px;
+      border-radius: 22px;
+      padding: 16px 24px 24px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+      animation: slideUpModal 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    @keyframes slideUpModal { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .ios-modal-handle { width: 40px; height: 4px; border-radius: 2px; background: rgba(0,0,0,0.18); margin: 0 auto 14px; }
+    .ios-modal-icon-row { display: flex; justify-content: center; margin-bottom: 14px; }
+    .ios-modal-app-icon { width: 80px; height: 80px; border-radius: 18px; box-shadow: var(--shadow-lg); }
+    .ios-modal h3 { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .ios-modal p { text-align: center; font-size: 15px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 18px; }
+    .ios-modal-cta {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 14px 20px;
+      background: var(--accent); color: #fff;
+      font-size: 16px; font-weight: 600;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .ios-modal-cta:hover { background: var(--accent-hover); opacity: 1; }
+    .ios-modal-secondary {
+      display: block; width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      background: transparent; border: 0;
+      font-size: 14px; color: var(--text-tertiary);
+      text-align: center; cursor: pointer;
+      font-family: inherit;
+    }
+    .ios-modal-secondary:hover { color: var(--text); }
   </style>
 </head>
 <body>
@@ -489,7 +574,9 @@
         </div>
       </a>
       <div class="nav-right">
+        <a class="nav-link" href="#neu" data-i18n="nav_new">Neu in v1.6</a>
         <a class="nav-link" href="#kategorien" data-i18n="nav_categories">Kategorien</a>
+        <a class="nav-link" href="#roadmap" data-i18n="nav_roadmap">Entwicklung</a>
         <a class="nav-link" href="#preise" data-i18n="nav_pricing">Preise</a>
         <div class="lang-toggle">
           <button class="lang-btn active" data-lang="de">DE</button>
@@ -509,10 +596,10 @@
       <div class="launch-content">
         <div class="launch-pill">
           <span class="launch-pill-dot"></span>
-          <span data-i18n="launch_pill">Neu im App Store</span>
+          <span data-i18n="launch_pill">Version 1.6 ist da</span>
         </div>
-        <h2 class="launch-headline" data-i18n="launch_headline">BrainBites AI ist jetzt live.</h2>
-        <p class="launch-sub" data-i18n="launch_sub">KI lernen in 5 Minuten täglich — kostenlos auf deinem iPhone. Starte heute.</p>
+        <h2 class="launch-headline" data-i18n="launch_headline">Day-1-Bonus. <span style="color:#4F7FFF;">Streak-Karten</span>. iPad-Layout.</h2>
+        <p class="launch-sub" data-i18n="launch_sub">Mehr Tempo am ersten Tag, sichtbare Lern-Streaks zum Teilen, natives iPad-Erlebnis und drei neue Branchen-Kategorien — alles in einem Update.</p>
         <div class="launch-actions">
           <a class="launch-btn appstore-badge" href="#">
             <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -575,7 +662,60 @@
         <span class="hero-pill">📱 <span data-i18n="pill_platform">iPhone · iOS 17+</span></span>
         <span class="hero-pill">🆓 <span data-i18n="pill_free">Kostenlos starten</span></span>
         <span class="hero-pill">⏱ <span data-i18n="pill_time">5 Minuten täglich</span></span>
-        <span class="hero-pill">🇩🇪 <span data-i18n="pill_lang">Deutsch &amp; Englisch</span></span>
+        <span class="hero-pill">🇩🇪 <span data-i18n="pill_lang">DE · EN · PT-BR · UA</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's New in v1.6 -->
+  <section class="section section-alt" id="neu">
+    <div class="container">
+      <span class="section-label whatsnew-label" data-i18n="new_label">NEU in Version 1.6</span>
+      <h2 class="section-headline" data-i18n="new_headline">Mehr Tempo. Mehr Lernen. Mehr Branchen.</h2>
+      <p class="section-sub" data-i18n="new_sub">Engagement-Block, iPad-Layout und drei neue Branchen-Kategorien — alles in einem Update.</p>
+      <div class="features-grid whatsnew-grid">
+        <div class="feature-item whatsnew-item">
+          <div class="feature-icon">🎁</div>
+          <div>
+            <h3 data-i18n="new_1_title">Day-1-Bonus-Lektion</h3>
+            <p data-i18n="new_1_text">Erste Lektion fertig? Hol dir gratis eine zweite — am ersten Tag, ohne Limit. Dein schnellster Einstieg in den Lern-Flow.</p>
+          </div>
+        </div>
+        <div class="feature-item whatsnew-item">
+          <div class="feature-icon">🔥</div>
+          <div>
+            <h3 data-i18n="new_2_title">Streak sichtbar &amp; teilbar</h3>
+            <p data-i18n="new_2_text">Lern-Streak im Header, glüht ab Tag 3. Bei 7/14/30/100 Tagen erhältst du eine teilbare Achievement-Karte für LinkedIn, Instagram und X.</p>
+          </div>
+        </div>
+        <div class="feature-item whatsnew-item">
+          <div class="feature-icon">🧪</div>
+          <div>
+            <h3 data-i18n="new_3_title">Quiz wiederholen</h3>
+            <p data-i18n="new_3_text">Teste dein Wissen jederzeit auch zu bereits abgeschlossenen Lektionen — direkt aus dem Verlauf, mit XP für jede richtige Antwort.</p>
+          </div>
+        </div>
+        <div class="feature-item whatsnew-item">
+          <div class="feature-icon">📱</div>
+          <div>
+            <h3 data-i18n="new_4_title">Native iPad-App</h3>
+            <p data-i18n="new_4_text">NavigationSplitView mit Sidebar, lesefreundliche Spaltenbreite, alle Tabs in einem Blick. Endlich kein „Designed for iPad" mehr.</p>
+          </div>
+        </div>
+        <div class="feature-item whatsnew-item">
+          <div class="feature-icon">🎓</div>
+          <div>
+            <h3 data-i18n="new_5_title">Drei neue Branchen</h3>
+            <p data-i18n="new_5_text">Bildung (Free), Pflege (Premium) und Einzelhandel (Premium) — mit branchenspezifischen Lektionen, echten Tools und Compliance-Bewusstsein.</p>
+          </div>
+        </div>
+        <div class="feature-item whatsnew-item">
+          <div class="feature-icon">🛡</div>
+          <div>
+            <h3 data-i18n="new_6_title">Server-verifizierter Premium</h3>
+            <p data-i18n="new_6_text">StoreKit-Receipt-Verifizierung im Backend — deine Käufe sind kryptografisch geprüft, Premium-Status synchronisiert sich automatisch über alle Geräte.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -695,7 +835,7 @@
     <div class="container">
       <span class="section-label" data-i18n="cat_label">Kategorien</span>
       <h2 class="section-headline" data-i18n="cat_headline">Was du lernst.</h2>
-      <p class="section-sub" data-i18n="cat_sub">13 Kategorien — alle mit direktem KI-Bezug. Vier kostenlos, zwei im Premium, sieben in Kürze.</p>
+      <p class="section-sub" data-i18n="cat_sub">10 Kategorien — fünf kostenlos, fünf im Premium. Allgemeine KI-Skills plus vier Branchen-Verticals (Bildung, Finanzen, Pflege, Einzelhandel) mit branchenspezifischen Inhalten.</p>
       <div class="categories-grid">
         <div class="category-card">
           <span class="category-emoji">🤖</span>
@@ -725,76 +865,51 @@
             <p data-i18n="cat_4_text">Brain Dumps, Fokus-Techniken, KI als persönlicher Assistent.</p>
           </div>
         </div>
+        <div class="category-card">
+          <span class="category-emoji">🎓</span>
+          <div class="category-info">
+            <h3 data-i18n="cat_5_title">Bildung</h3>
+            <p data-i18n="cat_5_text">Für Lehrkräfte, Trainer, Tutoren — KI für Unterrichtsvorbereitung, Bewertung, Eltern-Kommunikation.</p>
+          </div>
+        </div>
         <div class="category-card premium">
           <span class="category-emoji">🎯</span>
           <div class="category-info">
-            <h3 data-i18n="cat_5_title">Leadership &amp; KI</h3>
-            <p data-i18n="cat_5_text">KI-Normen für Teams, Entscheidungsqualität, Führung im Wandel.</p>
+            <h3 data-i18n="cat_6_title">Leadership &amp; KI</h3>
+            <p data-i18n="cat_6_text">KI-Normen für Teams, Entscheidungsqualität, Führung im Wandel.</p>
             <span class="premium-badge" data-i18n="premium_badge">Premium</span>
           </div>
         </div>
         <div class="category-card premium">
           <span class="category-emoji">💬</span>
           <div class="category-info">
-            <h3 data-i18n="cat_6_title">Kommunikation</h3>
-            <p data-i18n="cat_6_text">E-Mails mit KI schreiben, überzeugender präsentieren, besser verhandeln.</p>
+            <h3 data-i18n="cat_7_title">Kommunikation</h3>
+            <p data-i18n="cat_7_text">E-Mails mit KI schreiben, überzeugender präsentieren, besser verhandeln.</p>
             <span class="premium-badge" data-i18n="premium_badge">Premium</span>
           </div>
         </div>
-        <div class="category-card coming-soon">
-          <span class="category-emoji">⚖️</span>
-          <div class="category-info">
-            <h3 data-i18n="cat_7_title">KI &amp; Ethik / Recht</h3>
-            <p data-i18n="cat_7_text">Regulierung, Haftung, Datenschutz — KI im rechtlichen und ethischen Kontext.</p>
-            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
-          </div>
-        </div>
-        <div class="category-card coming-soon">
-          <span class="category-emoji">🛠</span>
-          <div class="category-info">
-            <h3 data-i18n="cat_8_title">KI-Tools &amp; Technologie</h3>
-            <p data-i18n="cat_8_text">Die besten KI-Tools im Überblick — wofür sie taugen und wie du sie einsetzt.</p>
-            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
-          </div>
-        </div>
-        <div class="category-card coming-soon">
-          <span class="category-emoji">📊</span>
-          <div class="category-info">
-            <h3 data-i18n="cat_9_title">KI &amp; Daten</h3>
-            <p data-i18n="cat_9_text">Daten verstehen, interpretieren und mit KI sinnvoll nutzen.</p>
-            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
-          </div>
-        </div>
-        <div class="category-card coming-soon">
+        <div class="category-card premium">
           <span class="category-emoji">💰</span>
           <div class="category-info">
-            <h3 data-i18n="cat_10_title">KI &amp; Finanzen / Banking</h3>
-            <p data-i18n="cat_10_text">KI in Buchhaltung, Analyse, Kreditentscheidungen und persönlichen Finanzen.</p>
-            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+            <h3 data-i18n="cat_8_title">Finanzbranche</h3>
+            <p data-i18n="cat_8_text">Für Banker, Versicherer, Steuerberater — KI für Compliance-Doku, Marktanalyse, Kunden-Korrespondenz.</p>
+            <span class="premium-badge" data-i18n="premium_badge">Premium</span>
           </div>
         </div>
-        <div class="category-card coming-soon">
-          <span class="category-emoji">⚙️</span>
+        <div class="category-card premium">
+          <span class="category-emoji">🏥</span>
           <div class="category-info">
-            <h3 data-i18n="cat_11_title">KI &amp; Prozesse</h3>
-            <p data-i18n="cat_11_text">Workflows automatisieren, Abläufe optimieren, Ressourcen sparen.</p>
-            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+            <h3 data-i18n="cat_9_title">Pflege</h3>
+            <p data-i18n="cat_9_text">Für Pflegekräfte, MFA, Therapeuten — Pflegedokumentation, Übergabe, schwierige Familiengespräche.</p>
+            <span class="premium-badge" data-i18n="premium_badge">Premium</span>
           </div>
         </div>
-        <div class="category-card coming-soon">
-          <span class="category-emoji">🧪</span>
+        <div class="category-card premium">
+          <span class="category-emoji">🛍</span>
           <div class="category-info">
-            <h3 data-i18n="cat_12_title">KI-Experimente</h3>
-            <p data-i18n="cat_12_text">Unerwartetes ausprobieren — kreative und ungewöhnliche KI-Anwendungen.</p>
-            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
-          </div>
-        </div>
-        <div class="category-card coming-soon">
-          <span class="category-emoji">🌍</span>
-          <div class="category-info">
-            <h3 data-i18n="cat_13_title">KI &amp; Gesellschaft</h3>
-            <p data-i18n="cat_13_text">Wie KI Arbeit, Bildung und Gesellschaft verändert — und was das für dich bedeutet.</p>
-            <span class="premium-badge" data-i18n="cat_soon">Bald verfügbar</span>
+            <h3 data-i18n="cat_10_title">Einzelhandel</h3>
+            <p data-i18n="cat_10_text">Für Filialleiter, Online-Shop-Betreiber, Marketing — Produktbeschreibungen, Kundensupport, Social Media.</p>
+            <span class="premium-badge" data-i18n="premium_badge">Premium</span>
           </div>
         </div>
       </div>
@@ -861,6 +976,49 @@
     </div>
   </section>
 
+  <!-- Permanent weiterentwickelt / Roadmap -->
+  <section class="section roadmap-bg" id="roadmap">
+    <div class="container">
+      <span class="section-label" data-i18n="roadmap_label">Permanent weiterentwickelt</span>
+      <h2 class="section-headline" data-i18n="roadmap_title">Eine App, die mit dir wächst.</h2>
+      <p class="section-sub" data-i18n="roadmap_sub">Wir veröffentlichen regelmäßig Updates — auf User-Feedback, auf Apple-Plattform-Innovationen, auf neue KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:</p>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-card delivered">
+          <span class="roadmap-tag" data-i18n="roadmap_done_tag">Bereits geliefert</span>
+          <h3 data-i18n="roadmap_done_title">v1.5 + v1.6</h3>
+          <ul>
+            <li data-i18n="rm_done_1">Smart Day-1-Bonus: zweite Lektion am ersten Tag, gratis</li>
+            <li data-i18n="rm_done_2">Streak-Indicator mit Glow ab 3 Tagen + Milestone-Karten (7/14/30/100)</li>
+            <li data-i18n="rm_done_3">Quiz auch in abgeschlossenen Lektionen wiederholen</li>
+            <li data-i18n="rm_done_4">Premium-Soft-Confirm statt direkter Paywall</li>
+            <li data-i18n="rm_done_5">Brand-Share-Bilder (Lesson + Streak) für Instagram, X, LinkedIn</li>
+            <li data-i18n="rm_done_6">iPad-Layout: NavigationSplitView mit Sidebar</li>
+            <li data-i18n="rm_done_7">Drei neue Branchen-Kategorien: Bildung, Pflege, Einzelhandel</li>
+            <li data-i18n="rm_done_8">Server-verifizierte Premium-Käufe (StoreKit-Receipt)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card coming">
+          <span class="roadmap-tag" data-i18n="roadmap_next_tag">Als nächstes</span>
+          <h3 data-i18n="roadmap_next_title">v1.7+</h3>
+          <ul>
+            <li data-i18n="rm_next_1">Zertifikate als PDF — pro Branchen-Kategorie, 2 Jahre gültig</li>
+            <li data-i18n="rm_next_2">Open-Graph-Preview für Facebook + LinkedIn auf der Marketing-Seite</li>
+            <li data-i18n="rm_next_3">Gezielter History-Filter nach Kategorie</li>
+            <li data-i18n="rm_next_4">Onboarding kürzer: erste Lektion in unter 45 Sekunden</li>
+            <li data-i18n="rm_next_5">Streak-Achievement-Karten mit personalisiertem Namen</li>
+            <li data-i18n="rm_next_6">Invite-Link mit 7 Tagen Premium-Bonus</li>
+            <li data-i18n="rm_next_7">DailyLesson Two-Column-Body auf iPad (Phase iPad-1b)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="roadmap-promise">
+        <p data-i18n="roadmap_promise"><strong>BrainBites AI</strong> ist kein abgeschlossenes Produkt, sondern ein wachsendes. Was du heute bekommst, ist der solide Anfang — und jedes Update macht die App ein Stück besser.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Download -->
   <section class="download-section" id="download">
     <h2 data-i18n="dl_headline">Bereit? Starte heute.</h2>
@@ -914,6 +1072,22 @@
     </div>
   </section>
 
+  <!-- iPhone-Modal: erscheint auf Mobile-Touch-Devices nach 1.2s ────────────── -->
+  <div class="ios-modal" id="iosModal" role="dialog" aria-modal="true" aria-labelledby="iosModalTitle">
+    <div class="ios-modal-card">
+      <div class="ios-modal-handle"></div>
+      <div class="ios-modal-icon-row">
+        <img src="/apple-touch-icon.png" alt="BrainBites AI" class="ios-modal-app-icon">
+      </div>
+      <h3 id="iosModalTitle" data-i18n="modal_title">BrainBites AI direkt im App Store</h3>
+      <p data-i18n="modal_sub">Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.</p>
+      <a class="ios-modal-cta appstore-link" href="https://apps.apple.com/app/brainbites-ai-learn-faster/id6761427126" id="iosModalCta">
+        <span data-i18n="modal_cta">Im App Store öffnen</span>
+      </a>
+      <button type="button" class="ios-modal-secondary" id="iosModalDismiss" data-i18n="modal_dismiss">Auf der Webseite weiterlesen</button>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
@@ -935,9 +1109,18 @@
       <div class="footer-apps">
         <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
         <div class="footer-apps-pills">
-          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">⚡ ThinkLess AI</a>
-          <a class="footer-app-pill" href="https://getviolonge.torecon.de" target="_blank" rel="noopener">🌱 VioLonge AI</a>
-          <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">⚡ eLadung</a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22">
+            <span>ThinkLess AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener">
+            <img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22">
+            <span>Zettelküche AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">
+            <img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22">
+            <span>eLadung GO</span>
+          </a>
         </div>
       </div>
       <div class="footer-qr">
@@ -957,13 +1140,13 @@
     // ── Launch Banner dismiss ─────────────────────────────────────────────────
     const launchBanner = document.getElementById('launchBanner');
     const launchClose  = document.getElementById('launchClose');
-    if (localStorage.getItem('bb_launch_v1_dismissed')) {
+    if (localStorage.getItem('bb_launch_v16_dismissed')) {
       launchBanner.style.display = 'none';
     }
     launchClose.addEventListener('click', () => {
       launchBanner.style.animation = 'slideUp 0.3s ease forwards';
       setTimeout(() => { launchBanner.style.display = 'none'; }, 300);
-      localStorage.setItem('bb_launch_v1_dismissed', '1');
+      localStorage.setItem('bb_launch_v16_dismissed', '1');
     });
 
     document.querySelectorAll('.appstore-badge').forEach(a => {
@@ -971,27 +1154,80 @@
       a.target = '_blank';
       a.rel = 'noopener';
     });
+    document.querySelectorAll('.appstore-link').forEach(a => {
+      a.setAttribute('href', APP_STORE_URL);
+    });
+
+    // ── iPhone-Modal: nach 1.2s einblenden, einmal pro Session ───────────────
+    (function () {
+      const ua = navigator.userAgent || '';
+      const isIPhone = /iPhone|iPod/i.test(ua);
+      // iPad explizit ausschließen — iPad bekommt Apples Smart-App-Banner-Meta-Tag,
+      // ein zusätzliches Modal wäre Doppel-Push.
+      if (!isIPhone) return;
+
+      const KEY = 'bb_modal_dismissed';
+      try { if (sessionStorage.getItem(KEY) === '1') return; } catch (_) {}
+
+      const modal = document.getElementById('iosModal');
+      const dismiss = document.getElementById('iosModalDismiss');
+      const cta = document.getElementById('iosModalCta');
+      if (!modal || !dismiss || !cta) return;
+
+      const open = () => { modal.classList.add('show'); document.body.style.overflow = 'hidden'; };
+      const close = () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      };
+
+      dismiss.addEventListener('click', close);
+      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      cta.addEventListener('click', () => {
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      });
+
+      // 1.2s Verzögerung — User sieht erst die Hero-Section, dann Push
+      setTimeout(open, 1200);
+    })();
 
     // ── i18n ──────────────────────────────────────────────────────────────────
     const translations = {
       de: {
-        launch_pill:      'Neu im App Store',
-        launch_headline:  'BrainBites AI ist jetzt live.',
-        launch_sub:       'KI lernen in 5 Minuten täglich — kostenlos auf deinem iPhone. Starte heute.',
+        launch_pill:      'Version 1.6 ist da',
+        launch_headline:  'Day-1-Bonus. <span style="color:#4F7FFF;">Streak-Karten</span>. iPad-Layout.',
+        launch_sub:       'Mehr Tempo am ersten Tag, sichtbare Lern-Streaks zum Teilen, natives iPad-Erlebnis und drei neue Branchen-Kategorien — alles in einem Update.',
         launch_cta:       'Im App Store laden',
         launch_meta:      'Kostenlos · iPhone · iOS 17+',
         nav_sub:          'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_new:          'Neu in v1.6',
         nav_categories:   'Kategorien',
+        nav_roadmap:      'Entwicklung',
         nav_pricing:      'Pläne',
         nav_cta:          'App laden',
         hero_badge:       'Jetzt verfügbar im App Store',
         hero_h1_a:        'Werde smarter —',
         hero_h1_b:        '5 Minuten am Tag.',
         hero_sub:         'BrainBites AI liefert dir täglich eine praktische KI-Fähigkeit, die du sofort anwenden kannst. Kein Kurs. Kein Aufwand. Nur Ergebnisse.',
-        pill_platform:    'iPhone · iOS 17+',
+        pill_platform:    'iPhone · iPad · iOS 17+',
         pill_free:        'Kostenlos starten',
         pill_time:        '5 Minuten täglich',
         pill_lang:        'DE · EN · PT-BR · UA',
+        new_label:        'NEU in Version 1.6',
+        new_headline:     'Mehr Tempo. Mehr Lernen. Mehr Branchen.',
+        new_sub:          'Engagement-Block, iPad-Layout und drei neue Branchen-Kategorien — alles in einem Update.',
+        new_1_title:      'Day-1-Bonus-Lektion',
+        new_1_text:       'Erste Lektion fertig? Hol dir gratis eine zweite — am ersten Tag, ohne Limit. Dein schnellster Einstieg in den Lern-Flow.',
+        new_2_title:      'Streak sichtbar &amp; teilbar',
+        new_2_text:       'Lern-Streak im Header, glüht ab Tag 3. Bei 7/14/30/100 Tagen erhältst du eine teilbare Achievement-Karte für LinkedIn, Instagram und X.',
+        new_3_title:      'Quiz wiederholen',
+        new_3_text:       'Teste dein Wissen jederzeit auch zu bereits abgeschlossenen Lektionen — direkt aus dem Verlauf, mit XP für jede richtige Antwort.',
+        new_4_title:      'Native iPad-App',
+        new_4_text:       'NavigationSplitView mit Sidebar, lesefreundliche Spaltenbreite, alle Tabs in einem Blick. Endlich kein „Designed for iPad" mehr.',
+        new_5_title:      'Drei neue Branchen',
+        new_5_text:       'Bildung (Free), Pflege (Premium) und Einzelhandel (Premium) — mit branchenspezifischen Lektionen, echten Tools und Compliance-Bewusstsein.',
+        new_6_title:      'Server-verifizierter Premium',
+        new_6_text:       'StoreKit-Receipt-Verifizierung im Backend — deine Käufe sind kryptografisch geprüft, Premium-Status synchronisiert sich automatisch über alle Geräte.',
         prob_label:       'Warum BrainBites AI?',
         prob_headline:    'Die Welt verändert sich schneller als je zuvor.',
         prob_sub:         'KI verändert jeden Beruf. Aber zwischen Meetings, Projekten und Alltag bleibt keine Zeit für Kurse.',
@@ -1029,7 +1265,7 @@
         step_4_text:      'Nach 30 Tagen hast du 30 neue Fähigkeiten. Nach 90 Tagen bist du eine andere Person.',
         cat_label:        'Kategorien',
         cat_headline:     'Was du lernst.',
-        cat_sub:          '13 Kategorien — alle mit direktem KI-Bezug. Vier kostenlos, zwei im Premium, sieben in Kürze.',
+        cat_sub:          '10 Kategorien — fünf kostenlos, fünf im Premium. Allgemeine KI-Skills plus vier Branchen-Verticals (Bildung, Finanzen, Pflege, Einzelhandel) mit branchenspezifischen Inhalten.',
         cat_1_title:      'KI-Praxis',
         cat_1_text:       'Prompts schreiben, ChatGPT für Meetings nutzen, Workflows automatisieren.',
         cat_2_title:      'KI-Wissen',
@@ -1038,26 +1274,46 @@
         cat_3_text:       'Deine Positionierung im KI-Zeitalter, Performance-Reviews, LinkedIn-Strategie.',
         cat_4_title:      'Produktivität',
         cat_4_text:       'Brain Dumps, Fokus-Techniken, KI als persönlicher Assistent.',
-        cat_5_title:      'Leadership &amp; KI',
-        cat_5_text:       'KI-Normen für Teams, Entscheidungsqualität, Führung im Wandel.',
-        cat_6_title:      'Kommunikation',
-        cat_6_text:       'E-Mails mit KI schreiben, überzeugender präsentieren, besser verhandeln.',
-        cat_7_title:      'KI &amp; Ethik / Recht',
-        cat_7_text:       'Regulierung, Haftung, Datenschutz — KI im rechtlichen und ethischen Kontext.',
-        cat_8_title:      'KI-Tools &amp; Technologie',
-        cat_8_text:       'Die besten KI-Tools im Überblick — wofür sie taugen und wie du sie einsetzt.',
-        cat_9_title:      'KI &amp; Daten',
-        cat_9_text:       'Daten verstehen, interpretieren und mit KI sinnvoll nutzen.',
-        cat_10_title:     'KI &amp; Finanzen / Banking',
-        cat_10_text:      'KI in Buchhaltung, Analyse, Kreditentscheidungen und persönlichen Finanzen.',
-        cat_11_title:     'KI &amp; Prozesse',
-        cat_11_text:      'Workflows automatisieren, Abläufe optimieren, Ressourcen sparen.',
-        cat_12_title:     'KI-Experimente',
-        cat_12_text:      'Unerwartetes ausprobieren — kreative und ungewöhnliche KI-Anwendungen.',
-        cat_13_title:     'KI &amp; Gesellschaft',
-        cat_13_text:      'Wie KI Arbeit, Bildung und Gesellschaft verändert — und was das für dich bedeutet.',
-        cat_soon:         'Bald verfügbar',
+        cat_5_title:      'Bildung',
+        cat_5_text:       'Für Lehrkräfte, Trainer, Tutoren — KI für Unterrichtsvorbereitung, Bewertung, Eltern-Kommunikation.',
+        cat_6_title:      'Leadership &amp; KI',
+        cat_6_text:       'KI-Normen für Teams, Entscheidungsqualität, Führung im Wandel.',
+        cat_7_title:      'Kommunikation',
+        cat_7_text:       'E-Mails mit KI schreiben, überzeugender präsentieren, besser verhandeln.',
+        cat_8_title:      'Finanzbranche',
+        cat_8_text:       'Für Banker, Versicherer, Steuerberater — KI für Compliance-Doku, Marktanalyse, Kunden-Korrespondenz.',
+        cat_9_title:      'Pflege',
+        cat_9_text:       'Für Pflegekräfte, MFA, Therapeuten — Pflegedokumentation, Übergabe, schwierige Familiengespräche.',
+        cat_10_title:     'Einzelhandel',
+        cat_10_text:      'Für Filialleiter, Online-Shop-Betreiber, Marketing — Produktbeschreibungen, Kundensupport, Social Media.',
         premium_badge:    'Premium',
+        roadmap_label:    'Permanent weiterentwickelt',
+        roadmap_title:    'Eine App, die mit dir wächst.',
+        roadmap_sub:      'Wir veröffentlichen regelmäßig Updates — auf User-Feedback, auf Apple-Plattform-Innovationen, auf neue KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:',
+        roadmap_done_tag: 'Bereits geliefert',
+        roadmap_done_title: 'v1.5 + v1.6',
+        rm_done_1:        'Smart Day-1-Bonus: zweite Lektion am ersten Tag, gratis',
+        rm_done_2:        'Streak-Indicator mit Glow ab 3 Tagen + Milestone-Karten (7/14/30/100)',
+        rm_done_3:        'Quiz auch in abgeschlossenen Lektionen wiederholen',
+        rm_done_4:        'Premium-Soft-Confirm statt direkter Paywall',
+        rm_done_5:        'Brand-Share-Bilder (Lesson + Streak) für Instagram, X, LinkedIn',
+        rm_done_6:        'iPad-Layout: NavigationSplitView mit Sidebar',
+        rm_done_7:        'Drei neue Branchen-Kategorien: Bildung, Pflege, Einzelhandel',
+        rm_done_8:        'Server-verifizierte Premium-Käufe (StoreKit-Receipt)',
+        roadmap_next_tag: 'Als nächstes',
+        roadmap_next_title: 'v1.7+',
+        rm_next_1:        'Zertifikate als PDF — pro Branchen-Kategorie, 2 Jahre gültig',
+        rm_next_2:        'Open-Graph-Preview für Facebook + LinkedIn auf der Marketing-Seite',
+        rm_next_3:        'Gezielter History-Filter nach Kategorie',
+        rm_next_4:        'Onboarding kürzer: erste Lektion in unter 45 Sekunden',
+        rm_next_5:        'Streak-Achievement-Karten mit personalisiertem Namen',
+        rm_next_6:        'Invite-Link mit 7 Tagen Premium-Bonus',
+        rm_next_7:        'DailyLesson Two-Column-Body auf iPad (Phase iPad-1b)',
+        roadmap_promise:  '<strong>BrainBites AI</strong> ist kein abgeschlossenes Produkt, sondern ein wachsendes. Was du heute bekommst, ist der solide Anfang — und jedes Update macht die App ein Stück besser.',
+        modal_title:      'BrainBites AI direkt im App Store',
+        modal_sub:        'Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.',
+        modal_cta:        'Im App Store öffnen',
+        modal_dismiss:    'Auf der Webseite weiterlesen',
         rev_label:        'Stimmen aus der Community',
         rev_headline:     'Was Professionals sagen.',
         rev_1_text:       '"Endlich eine App, die mir KI wirklich erklärt — nicht als Werbung, sondern als echte Fähigkeit."',
@@ -1107,23 +1363,40 @@
         footer_qr_label:  'App direkt laden',
       },
       en: {
-        launch_pill:      'Now on the App Store',
-        launch_headline:  'BrainBites AI is live.',
-        launch_sub:       'Learn AI in 5 minutes a day — free on your iPhone. Start today.',
+        launch_pill:      'Version 1.6 is here',
+        launch_headline:  'Day-1 Bonus. <span style="color:#4F7FFF;">Streak Cards</span>. iPad Layout.',
+        launch_sub:       'More momentum on day one, shareable learning streaks, native iPad experience, and three new industry verticals — all in one update.',
         launch_cta:       'Get it on the App Store',
         launch_meta:      'Free · iPhone · iOS 17+',
         nav_sub:          'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_new:          'New in v1.6',
         nav_categories:   'Categories',
+        nav_roadmap:      'Roadmap',
         nav_pricing:      'Plans',
         nav_cta:          'Get the App',
         hero_badge:       'Now available on the App Store',
         hero_h1_a:        'Get smarter —',
         hero_h1_b:        '5 minutes a day.',
         hero_sub:         'BrainBites AI delivers a practical AI skill every day that you can apply immediately. No course. No effort. Just results.',
-        pill_platform:    'iPhone · iOS 17+',
+        pill_platform:    'iPhone · iPad · iOS 17+',
         pill_free:        'Start for free',
         pill_time:        '5 minutes daily',
         pill_lang:        'DE · EN · PT-BR · UA',
+        new_label:        'NEW in Version 1.6',
+        new_headline:     'More momentum. More learning. More verticals.',
+        new_sub:          'Engagement boost, iPad layout, and three new industry verticals — all in one update.',
+        new_1_title:      'Day-1 Bonus Lesson',
+        new_1_text:       'Finished your first lesson? Get a free second one — on day one, no limit. Your fastest path into the learning flow.',
+        new_2_title:      'Streak — visible &amp; shareable',
+        new_2_text:       'Learning streak in the header, glows from day 3. At 7/14/30/100 days you get a shareable achievement card for LinkedIn, Instagram and X.',
+        new_3_title:      'Replay quizzes',
+        new_3_text:       'Test your knowledge anytime, even on already-completed lessons — straight from history, with XP for every correct answer.',
+        new_4_title:      'Native iPad app',
+        new_4_text:       'NavigationSplitView with sidebar, comfortable reading width, all tabs at a glance. No more "Designed for iPad".',
+        new_5_title:      'Three new verticals',
+        new_5_text:       'Education (free), Healthcare (Premium) and Retail (Premium) — with industry-specific lessons, real tools, and compliance awareness.',
+        new_6_title:      'Server-verified Premium',
+        new_6_text:       'StoreKit receipt verification on the backend — your purchases are cryptographically verified, Premium status syncs automatically across devices.',
         prob_label:       'Why BrainBites AI?',
         prob_headline:    'The world is changing faster than ever.',
         prob_sub:         'AI is transforming every profession. But between meetings, projects, and daily life, there\'s no time for courses.',
@@ -1161,7 +1434,7 @@
         step_4_text:      'After 30 days you have 30 new skills. After 90 days you\'re a different person.',
         cat_label:        'Categories',
         cat_headline:     'What you learn.',
-        cat_sub:          '13 categories — all with direct AI relevance. Four free, two in Premium, seven coming soon.',
+        cat_sub:          '10 categories — five free, five in Premium. General AI skills plus four industry verticals (Education, Finance, Healthcare, Retail) with industry-specific content.',
         cat_1_title:      'AI in Practice',
         cat_1_text:       'Write prompts, use ChatGPT for meetings, automate workflows.',
         cat_2_title:      'AI Knowledge',
@@ -1170,26 +1443,46 @@
         cat_3_text:       'Your positioning in the AI age, performance reviews, LinkedIn strategy.',
         cat_4_title:      'Productivity',
         cat_4_text:       'Brain dumps, focus techniques, AI as your personal assistant.',
-        cat_5_title:      'Leadership &amp; AI',
-        cat_5_text:       'AI norms for teams, decision quality, leading through change.',
-        cat_6_title:      'Communication',
-        cat_6_text:       'Write emails with AI, present more persuasively, negotiate better.',
-        cat_7_title:      'AI &amp; Ethics / Law',
-        cat_7_text:       'Regulation, liability, privacy — AI in legal and ethical context.',
-        cat_8_title:      'AI Tools &amp; Technology',
-        cat_8_text:       'The best AI tools at a glance — what they do and how to use them.',
-        cat_9_title:      'AI &amp; Data',
-        cat_9_text:       'Understand, interpret and use data meaningfully with AI.',
-        cat_10_title:     'AI &amp; Finance / Banking',
-        cat_10_text:      'AI in accounting, analysis, credit decisions and personal finance.',
-        cat_11_title:     'AI &amp; Processes',
-        cat_11_text:      'Automate workflows, optimize operations, save resources.',
-        cat_12_title:     'AI Experiments',
-        cat_12_text:      'Try the unexpected — creative and unusual AI applications.',
-        cat_13_title:     'AI &amp; Society',
-        cat_13_text:      'How AI changes work, education and society — and what it means for you.',
-        cat_soon:         'Coming Soon',
+        cat_5_title:      'Education',
+        cat_5_text:       'For teachers, trainers, tutors — AI for lesson prep, grading, parent communication.',
+        cat_6_title:      'Leadership &amp; AI',
+        cat_6_text:       'AI norms for teams, decision quality, leading through change.',
+        cat_7_title:      'Communication',
+        cat_7_text:       'Write emails with AI, present more persuasively, negotiate better.',
+        cat_8_title:      'Financial Sector',
+        cat_8_text:       'For bankers, insurance brokers, tax advisors — AI for compliance docs, market analysis, client correspondence.',
+        cat_9_title:      'Healthcare &amp; Nursing',
+        cat_9_text:       'For nurses, medical assistants, therapists — care documentation, shift handover, difficult family conversations.',
+        cat_10_title:     'Retail',
+        cat_10_text:      'For store managers, online-shop operators, marketing — product descriptions, customer support, social media.',
         premium_badge:    'Premium',
+        roadmap_label:    'Continuously evolving',
+        roadmap_title:    'An app that grows with you.',
+        roadmap_sub:      'We ship updates regularly — based on user feedback, on Apple platform innovations, on new AI capabilities. What\'s shipped and what\'s next:',
+        roadmap_done_tag: 'Already shipped',
+        roadmap_done_title: 'v1.5 + v1.6',
+        rm_done_1:        'Smart Day-1 bonus: free second lesson on day one',
+        rm_done_2:        'Streak indicator with glow from 3 days + milestone cards (7/14/30/100)',
+        rm_done_3:        'Replay quizzes on completed lessons',
+        rm_done_4:        'Premium soft-confirm instead of direct paywall',
+        rm_done_5:        'Brand share images (Lesson + Streak) for Instagram, X, LinkedIn',
+        rm_done_6:        'iPad layout: NavigationSplitView with sidebar',
+        rm_done_7:        'Three new industry verticals: Education, Healthcare, Retail',
+        rm_done_8:        'Server-verified Premium purchases (StoreKit receipt)',
+        roadmap_next_tag: 'Up next',
+        roadmap_next_title: 'v1.7+',
+        rm_next_1:        'PDF certificates — per industry vertical, valid 2 years',
+        rm_next_2:        'Open Graph preview for Facebook + LinkedIn on the marketing site',
+        rm_next_3:        'Targeted history filter by category',
+        rm_next_4:        'Shorter onboarding: first lesson in under 45 seconds',
+        rm_next_5:        'Streak achievement cards with personalized name',
+        rm_next_6:        'Invite link with 7 days of Premium bonus',
+        rm_next_7:        'DailyLesson two-column body on iPad (Phase iPad-1b)',
+        roadmap_promise:  '<strong>BrainBites AI</strong> isn\'t a finished product, it\'s a growing one. What you get today is the solid start — and every update makes the app a little better.',
+        modal_title:      'BrainBites AI — straight from the App Store',
+        modal_sub:        'You\'re on iPhone. Tap below and download the app in seconds — free, no signup.',
+        modal_cta:        'Open App Store',
+        modal_dismiss:    'Continue reading on the website',
         rev_label:        'Community voices',
         rev_headline:     'What professionals say.',
         rev_1_text:       '"Finally an app that truly explains AI to me — not as marketing, but as a real skill."',
@@ -1239,23 +1532,40 @@
         footer_qr_label:  'Download app directly',
       },
       pt: {
-        launch_pill:      'Novo na App Store',
-        launch_headline:  'BrainBites AI está no ar.',
-        launch_sub:       'Aprenda IA em 5 minutos por dia — grátis no seu iPhone. Comece hoje.',
+        launch_pill:      'Versão 1.6 chegou',
+        launch_headline:  'Bônus do Dia 1. <span style="color:#4F7FFF;">Cards de Sequência</span>. Layout de iPad.',
+        launch_sub:       'Mais ritmo no primeiro dia, sequências de aprendizagem visíveis e compartilháveis, experiência nativa em iPad e três novas verticais — tudo em uma atualização.',
         launch_cta:       'Baixar na App Store',
         launch_meta:      'Grátis · iPhone · iOS 17+',
         nav_sub:          'uma marca da <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_new:          'Novo na v1.6',
         nav_categories:   'Categorias',
+        nav_roadmap:      'Roadmap',
         nav_pricing:      'Planos',
         nav_cta:          'Baixar App',
         hero_badge:       'Disponível agora na App Store',
         hero_h1_a:        'Fique mais inteligente —',
         hero_h1_b:        '5 minutos por dia.',
         hero_sub:         'BrainBites AI entrega uma habilidade prática de IA todos os dias que você pode aplicar imediatamente. Sem curso. Sem esforço. Só resultados.',
-        pill_platform:    'iPhone · iOS 17+',
+        pill_platform:    'iPhone · iPad · iOS 17+',
         pill_free:        'Comece grátis',
         pill_time:        '5 minutos diários',
         pill_lang:        'DE · EN · PT-BR · UA',
+        new_label:        'NOVO na Versão 1.6',
+        new_headline:     'Mais ritmo. Mais aprendizado. Mais setores.',
+        new_sub:          'Boost de engajamento, layout para iPad e três novas verticais — tudo em uma atualização.',
+        new_1_title:      'Lição Bônus do Dia 1',
+        new_1_text:       'Concluiu sua primeira lição? Ganhe uma segunda grátis — no primeiro dia, sem limite. Seu caminho mais rápido para o fluxo de aprendizado.',
+        new_2_title:      'Sequência visível &amp; compartilhável',
+        new_2_text:       'Sequência de aprendizagem no cabeçalho, brilha a partir do dia 3. Aos 7/14/30/100 dias você ganha um card de conquista para compartilhar no LinkedIn, Instagram e X.',
+        new_3_title:      'Repetir quizzes',
+        new_3_text:       'Teste seu conhecimento a qualquer momento, mesmo em lições já concluídas — direto do histórico, com XP a cada resposta correta.',
+        new_4_title:      'App nativo para iPad',
+        new_4_text:       'NavigationSplitView com sidebar, largura de leitura confortável, todas as abas em um relance. Chega de "Designed for iPad".',
+        new_5_title:      'Três novos setores',
+        new_5_text:       'Educação (grátis), Saúde (Premium) e Varejo (Premium) — com lições específicas do setor, ferramentas reais e consciência sobre conformidade.',
+        new_6_title:      'Premium verificado no servidor',
+        new_6_text:       'Verificação do recibo StoreKit no backend — suas compras são verificadas criptograficamente, status Premium sincroniza automaticamente entre dispositivos.',
         prob_label:       'Por que BrainBites AI?',
         prob_headline:    'O mundo está mudando mais rápido do que nunca.',
         prob_sub:         'A IA está transformando todas as profissões. Mas entre reuniões, projetos e rotina, não há tempo para cursos.',
@@ -1293,7 +1603,7 @@
         step_4_text:      'Após 30 dias você tem 30 novas habilidades. Após 90 dias você é uma pessoa diferente.',
         cat_label:        'Categorias',
         cat_headline:     'O que você aprende.',
-        cat_sub:          '13 categorias — todas com relevância direta para IA. Quatro grátis, duas no Premium, sete em breve.',
+        cat_sub:          '10 categorias — cinco grátis, cinco no Premium. Habilidades gerais de IA mais quatro verticais (Educação, Finanças, Saúde, Varejo) com conteúdo específico do setor.',
         cat_1_title:      'IA na Prática',
         cat_1_text:       'Escreva prompts, use ChatGPT para reuniões, automatize fluxos de trabalho.',
         cat_2_title:      'Conhecimento em IA',
@@ -1302,26 +1612,46 @@
         cat_3_text:       'Seu posicionamento na era da IA, avaliações de desempenho, estratégia no LinkedIn.',
         cat_4_title:      'Produtividade',
         cat_4_text:       'Brain dumps, técnicas de foco, IA como seu assistente pessoal.',
-        cat_5_title:      'Liderança &amp; IA',
-        cat_5_text:       'Normas de IA para equipes, qualidade de decisão, liderança na mudança.',
-        cat_6_title:      'Comunicação',
-        cat_6_text:       'Escreva e-mails com IA, apresente com mais persuasão, negocie melhor.',
-        cat_7_title:      'IA &amp; Ética / Direito',
-        cat_7_text:       'Regulamentação, responsabilidade, privacidade — IA no contexto legal e ético.',
-        cat_8_title:      'Ferramentas de IA &amp; Tecnologia',
-        cat_8_text:       'As melhores ferramentas de IA — para que servem e como usá-las.',
-        cat_9_title:      'IA &amp; Dados',
-        cat_9_text:       'Entender, interpretar e usar dados de forma eficaz com IA.',
-        cat_10_title:     'IA &amp; Finanças / Banking',
-        cat_10_text:      'IA em contabilidade, análise, decisões de crédito e finanças pessoais.',
-        cat_11_title:     'IA &amp; Processos',
-        cat_11_text:      'Automatizar fluxos de trabalho, otimizar operações, economizar recursos.',
-        cat_12_title:     'Experimentos com IA',
-        cat_12_text:      'Tente o inesperado — aplicações criativas e incomuns de IA.',
-        cat_13_title:     'IA &amp; Sociedade',
-        cat_13_text:      'Como a IA muda o trabalho, a educação e a sociedade — e o que isso significa para você.',
-        cat_soon:         'Em breve',
+        cat_5_title:      'Educação',
+        cat_5_text:       'Para professores, instrutores, tutores — IA para preparação de aulas, correção, comunicação com pais.',
+        cat_6_title:      'Liderança &amp; IA',
+        cat_6_text:       'Normas de IA para equipes, qualidade de decisão, liderança na mudança.',
+        cat_7_title:      'Comunicação',
+        cat_7_text:       'Escreva e-mails com IA, apresente com mais persuasão, negocie melhor.',
+        cat_8_title:      'Setor Financeiro',
+        cat_8_text:       'Para bancários, corretores, contadores — IA para documentação de compliance, análise de mercado, correspondência com clientes.',
+        cat_9_title:      'Saúde e Enfermagem',
+        cat_9_text:       'Para enfermeiros, técnicos, terapeutas — documentação de cuidados, passagem de plantão, conversas difíceis com famílias.',
+        cat_10_title:     'Varejo',
+        cat_10_text:      'Para gerentes de loja, operadores de e-commerce, marketing — descrições de produtos, atendimento ao cliente, redes sociais.',
         premium_badge:    'Premium',
+        roadmap_label:    'Em desenvolvimento contínuo',
+        roadmap_title:    'Um app que cresce com você.',
+        roadmap_sub:      'Lançamos atualizações regularmente — baseadas em feedback dos usuários, em inovações da plataforma Apple, em novas capacidades de IA. O que já chegou e o que vem por aí:',
+        roadmap_done_tag: 'Já entregue',
+        roadmap_done_title: 'v1.5 + v1.6',
+        rm_done_1:        'Bônus inteligente do Dia 1: segunda lição grátis no primeiro dia',
+        rm_done_2:        'Indicador de sequência com brilho a partir de 3 dias + cards de marco (7/14/30/100)',
+        rm_done_3:        'Repetir quiz em lições concluídas',
+        rm_done_4:        'Confirmação suave Premium em vez de paywall direto',
+        rm_done_5:        'Imagens de marca para compartilhar (Lição + Sequência) no Instagram, X, LinkedIn',
+        rm_done_6:        'Layout iPad: NavigationSplitView com sidebar',
+        rm_done_7:        'Três novas verticais: Educação, Saúde, Varejo',
+        rm_done_8:        'Compras Premium verificadas no servidor (recibo StoreKit)',
+        roadmap_next_tag: 'A seguir',
+        roadmap_next_title: 'v1.7+',
+        rm_next_1:        'Certificados em PDF — por vertical de setor, válidos 2 anos',
+        rm_next_2:        'Pré-visualização Open Graph para Facebook + LinkedIn no site',
+        rm_next_3:        'Filtro de histórico por categoria',
+        rm_next_4:        'Onboarding mais curto: primeira lição em menos de 45 segundos',
+        rm_next_5:        'Cards de conquista de sequência com nome personalizado',
+        rm_next_6:        'Link de convite com 7 dias de bônus Premium',
+        rm_next_7:        'DailyLesson em layout de duas colunas no iPad (Fase iPad-1b)',
+        roadmap_promise:  '<strong>BrainBites AI</strong> não é um produto pronto, é um produto que cresce. O que você tem hoje é o começo sólido — e cada atualização deixa o app um pouco melhor.',
+        modal_title:      'BrainBites AI direto na App Store',
+        modal_sub:        'Você está em um iPhone. Toque abaixo e baixe o app em segundos — grátis, sem cadastro.',
+        modal_cta:        'Abrir App Store',
+        modal_dismiss:    'Continuar lendo no site',
         rev_label:        'Vozes da comunidade',
         rev_headline:     'O que os profissionais dizem.',
         rev_1_text:       '"Finalmente um app que realmente me explica IA — não como marketing, mas como uma habilidade real."',
@@ -1372,10 +1702,12 @@
       },
       uk: {
         nav_sub:          'бренд <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_new:          'Нове у v1.6',
         nav_categories:   'Категорії',
-        launch_pill:      'Нове в App Store',
-        launch_headline:  'BrainBites AI вже доступний.',
-        launch_sub:       'Вивчай ШІ за 5 хвилин на день — безкоштовно на iPhone. Починай сьогодні.',
+        nav_roadmap:      'Розвиток',
+        launch_pill:      'Версія 1.6 вже тут',
+        launch_headline:  'Бонус Дня 1. <span style="color:#4F7FFF;">Серії-картки</span>. iPad-розкладка.',
+        launch_sub:       'Більше темпу першого дня, видимі та шерувані серії навчання, нативний досвід на iPad і три нові галузі — все в одному оновленні.',
         launch_cta:       'Завантажити в App Store',
         launch_meta:      'Безкоштовно · iPhone · iOS 17+',
         nav_pricing:      'Плани',
@@ -1384,10 +1716,25 @@
         hero_h1_a:        'Стань розумнішим —',
         hero_h1_b:        '5 хвилин на день.',
         hero_sub:         'BrainBites AI щодня надає практичний навик ШІ, який ти можеш застосувати одразу. Без курсу. Без зусиль. Лише результати.',
-        pill_platform:    'iPhone · iOS 17+',
+        pill_platform:    'iPhone · iPad · iOS 17+',
         pill_free:        'Почни безкоштовно',
         pill_time:        '5 хвилин щодня',
         pill_lang:        'DE · EN · PT-BR · UA',
+        new_label:        'НОВЕ у Версії 1.6',
+        new_headline:     'Більше темпу. Більше навчання. Більше галузей.',
+        new_sub:          'Engagement-блок, iPad-розкладка та три нові галузеві категорії — все в одному оновленні.',
+        new_1_title:      'Бонусна лекція Дня 1',
+        new_1_text:       'Завершив першу лекцію? Отримай другу безкоштовно — у перший день, без обмежень. Найшвидший шлях у потік навчання.',
+        new_2_title:      'Серія видима та шерувана',
+        new_2_text:       'Серія навчання у заголовку, світиться з 3-го дня. На 7/14/30/100 днях ти отримуєш картку досягнень для LinkedIn, Instagram та X.',
+        new_3_title:      'Повторити вікторини',
+        new_3_text:       'Перевіряй знання у будь-який час — навіть на вже завершених лекціях. Прямо з історії, з XP за кожну правильну відповідь.',
+        new_4_title:      'Нативний iPad-додаток',
+        new_4_text:       'NavigationSplitView з sidebar, зручна ширина читання, всі вкладки одним поглядом. Більше ніякого "Designed for iPad".',
+        new_5_title:      'Три нові галузі',
+        new_5_text:       'Освіта (Free), Догляд (Premium) і Роздрібна торгівля (Premium) — з галузевими лекціями, реальними інструментами та compliance-усвідомленням.',
+        new_6_title:      'Premium з серверною верифікацією',
+        new_6_text:       'Перевірка StoreKit-чека на бекенді — твої покупки криптографічно перевірені, статус Premium синхронізується автоматично між пристроями.',
         prob_label:       'Чому BrainBites AI?',
         prob_headline:    'Світ змінюється швидше, ніж будь-коли.',
         prob_sub:         'ШІ трансформує кожну професію. Але між зустрічами, проектами та повсякденням немає часу на курси.',
@@ -1425,7 +1772,7 @@
         step_4_text:      'Через 30 днів у тебе 30 нових навиків. Через 90 днів ти — інша людина.',
         cat_label:        'Категорії',
         cat_headline:     'Що ти вивчаєш.',
-        cat_sub:          '13 категорій — усі з прямим зв\'язком з ШІ. Чотири безкоштовно, дві в Premium, сім незабаром.',
+        cat_sub:          '10 категорій — п\'ять безкоштовно, п\'ять у Premium. Загальні навики ШІ плюс чотири галузі (Освіта, Фінанси, Догляд, Роздрібна торгівля) з галузевим контентом.',
         cat_1_title:      'Практика ШІ',
         cat_1_text:       'Писати промпти, використовувати ChatGPT для зустрічей, автоматизувати процеси.',
         cat_2_title:      'Знання про ШІ',
@@ -1434,26 +1781,46 @@
         cat_3_text:       'Твоє позиціонування в епоху ШІ, оцінка ефективності, стратегія LinkedIn.',
         cat_4_title:      'Продуктивність',
         cat_4_text:       'Brain dump, техніки фокусу, ШІ як персональний асистент.',
-        cat_5_title:      'Лідерство &amp; ШІ',
-        cat_5_text:       'Норми ШІ для команд, якість рішень, лідерство під час змін.',
-        cat_6_title:      'Комунікація',
-        cat_6_text:       'Писати листи з ШІ, переконливіше презентувати, краще вести переговори.',
-        cat_7_title:      'ШІ &amp; Етика / Право',
-        cat_7_text:       'Регулювання, відповідальність, конфіденційність — ШІ у правовому та етичному контексті.',
-        cat_8_title:      'ШІ-Інструменти &amp; Технології',
-        cat_8_text:       'Найкращі ШІ-інструменти — для чого вони і як їх використовувати.',
-        cat_9_title:      'ШІ &amp; Дані',
-        cat_9_text:       'Розуміти, інтерпретувати і ефективно використовувати дані з ШІ.',
-        cat_10_title:     'ШІ &amp; Фінанси / Банкінг',
-        cat_10_text:      'ШІ в бухгалтерії, аналізі, кредитних рішеннях та особистих фінансах.',
-        cat_11_title:     'ШІ &amp; Процеси',
-        cat_11_text:      'Автоматизувати процеси, оптимізувати операції, заощаджувати ресурси.',
-        cat_12_title:     'Експерименти з ШІ',
-        cat_12_text:      'Спробуй несподіване — творчі і незвичні застосування ШІ.',
-        cat_13_title:     'ШІ &amp; Суспільство',
-        cat_13_text:      'Як ШІ змінює роботу, освіту і суспільство — і що це означає для тебе.',
-        cat_soon:         'Незабаром',
+        cat_5_title:      'Освіта',
+        cat_5_text:       'Для вчителів, тренерів, репетиторів — ШІ для підготовки уроків, оцінювання, спілкування з батьками.',
+        cat_6_title:      'Лідерство &amp; ШІ',
+        cat_6_text:       'Норми ШІ для команд, якість рішень, лідерство під час змін.',
+        cat_7_title:      'Комунікація',
+        cat_7_text:       'Писати листи з ШІ, переконливіше презентувати, краще вести переговори.',
+        cat_8_title:      'Фінансова галузь',
+        cat_8_text:       'Для банкірів, страхових брокерів, податкових консультантів — ШІ для compliance-документації, аналізу ринку, клієнтської кореспонденції.',
+        cat_9_title:      'Догляд',
+        cat_9_text:       'Для медсестер, фельдшерів, терапевтів — документація догляду, передача зміни, складні розмови з родинами.',
+        cat_10_title:     'Роздрібна торгівля',
+        cat_10_text:      'Для керівників магазинів, операторів онлайн-магазинів, маркетингу — описи товарів, підтримка клієнтів, соцмережі.',
         premium_badge:    'Premium',
+        roadmap_label:    'Постійний розвиток',
+        roadmap_title:    'Додаток, що росте з тобою.',
+        roadmap_sub:      'Ми регулярно випускаємо оновлення — на основі відгуків користувачів, інновацій Apple-платформ, нових можливостей ШІ. Що вже зроблено і що далі:',
+        roadmap_done_tag: 'Вже випущено',
+        roadmap_done_title: 'v1.5 + v1.6',
+        rm_done_1:        'Розумний бонус Дня 1: друга лекція безкоштовно у перший день',
+        rm_done_2:        'Індикатор серії з підсвіткою з 3 дня + картки досягнень (7/14/30/100)',
+        rm_done_3:        'Повторювати вікторини у завершених лекціях',
+        rm_done_4:        'М\'яке Premium-підтвердження замість прямого paywall',
+        rm_done_5:        'Брендовані картки для шерингу (Лекція + Серія) для Instagram, X, LinkedIn',
+        rm_done_6:        'iPad-розкладка: NavigationSplitView з sidebar',
+        rm_done_7:        'Три нові галузі: Освіта, Догляд, Роздрібна торгівля',
+        rm_done_8:        'Premium-покупки з серверною перевіркою (StoreKit-чек)',
+        roadmap_next_tag: 'Далі',
+        roadmap_next_title: 'v1.7+',
+        rm_next_1:        'Сертифікати у PDF — на кожну галузь, дійсні 2 роки',
+        rm_next_2:        'Open-Graph-прев\'ю для Facebook + LinkedIn на маркетинг-сайті',
+        rm_next_3:        'Цільовий фільтр історії за категорією',
+        rm_next_4:        'Коротший onboarding: перша лекція менш ніж за 45 секунд',
+        rm_next_5:        'Картки досягнень серії з персоналізованим іменем',
+        rm_next_6:        'Запрошення з 7 днями Premium-бонусу',
+        rm_next_7:        'DailyLesson двостовпчиковий вигляд на iPad (Фаза iPad-1b)',
+        roadmap_promise:  '<strong>BrainBites AI</strong> — це не завершений продукт, а той, що росте. Те, що ти отримуєш сьогодні — це міцний початок, і кожне оновлення робить додаток трохи кращим.',
+        modal_title:      'BrainBites AI прямо в App Store',
+        modal_sub:        'Ти на iPhone. Натисни нижче і завантаж додаток за секунди — безкоштовно, без реєстрації.',
+        modal_cta:        'Відкрити App Store',
+        modal_dismiss:    'Продовжити читати на сайті',
         rev_label:        'Голоси спільноти',
         rev_headline:     'Що кажуть профі.',
         rev_1_text:       '"Нарешті додаток, який справді пояснює мені ШІ — не як рекламу, а як реальний навик."',
