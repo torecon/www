@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zettelküche AI – Rezepte fotografieren, übersetzen, strukturieren</title>
-  <meta name="description" content="Zettelküche AI verwandelt Foto, Screenshot oder Dokument in ein strukturiertes Rezept – in deiner Sprache, auch wenn die Quelle eine andere hat. iOS und iPadOS, mit privater iCloud-Synchronisation.">
+  <title>Zettelküche AI — Rezepte fotografieren, übersetzen, strukturieren</title>
+  <meta name="description" content="Foto rein, strukturiertes Rezept raus — in deiner Sprache. Privat in deiner iCloud. iPhone und iPad. Jetzt mit nativem iPad-Layout und Backup-Funktion.">
 
   <link rel="icon" type="image/png" href="/logo.png">
   <link rel="apple-touch-icon" href="/logo.png">
 
-  <meta property="og:title" content="Zettelküche AI – Foto rein, Rezept in deiner Sprache raus">
-  <meta property="og:description" content="Italienisches Kochbuch, deutsches Rezept. Foto, OCR, KI-Strukturierung und Sprach-Übersetzung in einem. Privacy-first.">
+  <!-- iOS Smart App Banner (Safari rendert das natives Banner oben) -->
+  <meta name="apple-itunes-app" content="app-id=6763764154">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Zettelküche AI — Foto rein, Rezept in deiner Sprache raus">
+  <meta property="og:description" content="Italienisches Kochbuch, deutsches Rezept. Foto, OCR, KI-Strukturierung und Sprach-Übersetzung in einem. Privat in deiner iCloud.">
   <meta property="og:url" content="https://zettelkueche.app">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://zettelkueche.app/logo.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
+    /* ── Design System ─────────────────────────────────────────────────────── */
     :root {
       --bg:             #FFFFFF;
       --bg-alt:         #F8F6F2;
@@ -32,9 +37,12 @@
       --nav-bg:         rgba(255,255,255,0.85);
       --radius:         14px;
       --radius-lg:      20px;
+      --radius-xl:      28px;
       --container:      1080px;
       --font:           -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
       --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --shadow:         0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-lg:      0 12px 40px rgba(0,0,0,0.12);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -43,7 +51,98 @@
     a:hover { opacity: 0.85; }
     img { max-width: 100%; display: block; }
 
-    /* Nav */
+    /* ── Launch Banner (top, gradient, slide-down) ─────────────────────────── */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);   opacity: 1;   }
+      50%      { transform: scale(1.4); opacity: 0.6; }
+    }
+    .launch-banner {
+      background: linear-gradient(135deg, #1A1410 0%, #2a1d12 50%, #1f1410 100%);
+      border-bottom: 1px solid rgba(217,119,87,0.3);
+      position: relative;
+      overflow: hidden;
+      animation: slideDown 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .launch-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 120% at 50% -20%, rgba(217,119,87,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .launch-banner-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 28px 24px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+    }
+    .launch-content { flex: 1; }
+    .launch-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(217,119,87,0.18);
+      border: 1px solid rgba(217,119,87,0.4);
+      border-radius: 40px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffb89c;
+      margin-bottom: 14px;
+    }
+    .launch-pill-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .launch-headline {
+      font-size: clamp(22px, 3.6vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .launch-headline .accent { color: var(--accent); }
+    .launch-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      max-width: 580px;
+    }
+    .launch-cta-wrap { flex-shrink: 0; }
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #1A1410;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .launch-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.5); }
+    @media (max-width: 720px) {
+      .launch-banner-inner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 18px; }
+      .launch-cta-wrap { width: 100%; }
+      .launch-btn { width: 100%; justify-content: center; }
+    }
+
+    /* ── Navigation ────────────────────────────────────────────────────────── */
     .site-nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; }
     .nav-inner { max-width: var(--container); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -56,6 +155,8 @@
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-link { font-size: 14px; color: var(--text-secondary); transition: var(--transition); }
     .nav-link:hover { color: var(--text); opacity: 1; }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; transition: var(--transition); }
+    .nav-cta:hover { background: var(--accent-strong); opacity: 1; transform: translateY(-1px); }
     .lang-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
     .lang-btn { border: 0; background: transparent; color: var(--text-tertiary); padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: var(--transition); }
     .lang-btn:hover { color: var(--text); }
@@ -64,30 +165,32 @@
       .nav-link { display: none; }
     }
 
-    /* Hero */
-    .hero { background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%); padding: 80px 24px 64px; text-align: center; }
-    .hero-inner { max-width: 820px; margin: 0 auto; }
+    /* ── Hero ──────────────────────────────────────────────────────────────── */
+    .hero { background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%); padding: 88px 24px 72px; text-align: center; }
+    .hero-inner { max-width: 860px; margin: 0 auto; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-soft); color: var(--accent-strong); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
     .hero-badge-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-    .hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 22px; }
+    .hero h1 { font-size: clamp(38px, 6.5vw, 64px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.06; margin-bottom: 22px; }
     .hero h1 .accent { color: var(--accent); }
-    .hero-sub { font-size: clamp(17px, 2vw, 21px); color: var(--text-secondary); max-width: 640px; margin: 0 auto 36px; line-height: 1.55; }
+    .hero-sub { font-size: clamp(17px, 2vw, 21px); color: var(--text-secondary); max-width: 660px; margin: 0 auto 36px; line-height: 1.55; }
     .hero-sub strong { color: var(--text); font-weight: 600; }
-    .hero-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+    .hero-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
     .appstore-badge { display: inline-block; transition: var(--transition); }
     .appstore-badge:hover { transform: translateY(-2px); }
+    .appstore-badge img, .appstore-badge svg { height: 52px; display: block; }
     .btn-secondary { display: inline-flex; align-items: center; gap: 6px; padding: 14px 22px; background: var(--bg-alt); color: var(--text); border-radius: 12px; font-size: 15px; font-weight: 600; transition: var(--transition); }
     .btn-secondary:hover { background: var(--accent-soft); opacity: 1; }
     .hero-meta { font-size: 13px; color: var(--text-tertiary); margin-top: 8px; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; background: var(--bg-alt); color: var(--text-secondary); font-size: 12px; margin-bottom: 16px; }
 
-    /* Section base */
-    .section { padding: 80px 24px; }
+    /* ── Section Base ──────────────────────────────────────────────────────── */
+    .section { padding: 84px 24px; }
     .section-inner { max-width: 980px; margin: 0 auto; }
     .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 12px; text-align: center; }
-    .section-title { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; text-align: center; margin-bottom: 16px; }
-    .section-sub { font-size: 17px; color: var(--text-secondary); text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.02em; text-align: center; margin-bottom: 16px; line-height: 1.15; }
+    .section-sub { font-size: 17px; color: var(--text-secondary); text-align: center; max-width: 660px; margin: 0 auto 56px; }
 
-    /* Pain → Solution */
+    /* ── Pain → Solution ───────────────────────────────────────────────────── */
     .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 0 auto; }
     .ps-card { background: var(--bg-alt); border-radius: var(--radius-lg); padding: 32px; }
     .ps-card.solution { background: var(--accent-soft); }
@@ -96,15 +199,17 @@
     .ps-card p { font-size: 15px; color: var(--text-secondary); }
     @media (max-width: 720px) { .ps-grid { grid-template-columns: 1fr; } }
 
-    /* Features */
+    /* ── Features ──────────────────────────────────────────────────────────── */
     .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .feature-card { background: var(--bg-alt); border-radius: var(--radius); padding: 28px; transition: var(--transition); }
-    .feature-card:hover { transform: translateY(-2px); }
+    .feature-card { background: var(--bg-alt); border-radius: var(--radius); padding: 28px; transition: var(--transition); position: relative; }
+    .feature-card.new { background: linear-gradient(135deg, rgba(217,119,87,0.08) 0%, rgba(217,119,87,0.03) 100%); border: 1px solid rgba(217,119,87,0.2); }
+    .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .feature-card .new-pill { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
     .feature-icon { width: 44px; height: 44px; background: var(--accent-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
     .feature-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
     .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
-    /* How it works */
+    /* ── How it works ──────────────────────────────────────────────────────── */
     .how-bg { background: var(--bg-warm); }
     .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 880px; margin: 0 auto; }
     .step-card { text-align: center; padding: 16px; }
@@ -112,7 +217,26 @@
     .step-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
     .step-card p { font-size: 15px; color: var(--text-secondary); }
 
-    /* Pricing */
+    /* ── Roadmap / Permanent weiterentwickelt ──────────────────────────────── */
+    .roadmap-bg { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%); }
+    .roadmap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 880px; margin: 40px auto 0; }
+    @media (max-width: 720px) { .roadmap-grid { grid-template-columns: 1fr; } }
+    .roadmap-card { background: var(--bg); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); }
+    .roadmap-card.delivered { border-left: 4px solid #34c759; }
+    .roadmap-card.coming { border-left: 4px solid var(--accent); }
+    .roadmap-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 14px; }
+    .roadmap-card.delivered .roadmap-tag { background: rgba(52,199,89,0.14); color: #1d8a3a; }
+    .roadmap-card.coming .roadmap-tag { background: var(--accent-soft); color: var(--accent-strong); }
+    .roadmap-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 16px; }
+    .roadmap-card ul { list-style: none; padding: 0; }
+    .roadmap-card ul li { font-size: 14px; color: var(--text-secondary); padding: 6px 0; padding-left: 22px; position: relative; line-height: 1.55; }
+    .roadmap-card.delivered ul li::before { content: "✓"; position: absolute; left: 0; color: #34c759; font-weight: 700; }
+    .roadmap-card.coming ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .roadmap-promise { max-width: 720px; margin: 56px auto 0; text-align: center; padding: 32px; background: var(--bg-dark); color: #fff; border-radius: var(--radius-lg); }
+    .roadmap-promise p { font-size: 18px; line-height: 1.6; margin: 0; }
+    .roadmap-promise p strong { color: var(--accent); font-weight: 700; }
+
+    /* ── Pricing ───────────────────────────────────────────────────────────── */
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 0 auto; }
     .price-card { background: var(--bg-alt); border-radius: var(--radius-lg); padding: 36px 32px; border: 2px solid transparent; transition: var(--transition); }
     .price-card.premium { background: var(--bg); border-color: var(--accent); }
@@ -123,9 +247,12 @@
     .price-card ul li { font-size: 15px; color: var(--text-secondary); padding: 8px 0; padding-left: 22px; position: relative; line-height: 1.5; }
     .price-card ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
     .price-trial { display: inline-block; background: var(--accent-soft); color: var(--accent-strong); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-top: 14px; }
+    .pricing-cta-wrap { text-align: center; margin-top: 32px; }
+    .pricing-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; padding: 16px 32px; border-radius: 14px; font-size: 16px; font-weight: 700; transition: var(--transition); }
+    .pricing-cta:hover { background: var(--accent-strong); opacity: 1; transform: translateY(-2px); box-shadow: var(--shadow); }
     @media (max-width: 720px) { .pricing-grid { grid-template-columns: 1fr; } }
 
-    /* Privacy promise */
+    /* ── Privacy promise ───────────────────────────────────────────────────── */
     .privacy-bg { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%); }
     .privacy-inner { max-width: 720px; margin: 0 auto; text-align: center; }
     .privacy-icon { font-size: 48px; margin-bottom: 16px; }
@@ -133,13 +260,86 @@
     .privacy-promise .accent { color: var(--accent); }
     .privacy-detail { font-size: 16px; color: var(--text-secondary); }
 
-    /* CTA */
-    .cta-section { background: var(--bg-dark); color: #fff; padding: 80px 24px; text-align: center; }
-    .cta-section h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
+    /* ── Final CTA ─────────────────────────────────────────────────────────── */
+    .cta-section { background: var(--bg-dark); color: #fff; padding: 84px 24px; text-align: center; }
+    .cta-section h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
     .cta-section p { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+    .qr-row { display: flex; gap: 28px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 24px; }
+    .qr-block { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .qr-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; }
 
-    /* Footer (nach BrainBites-Pattern) */
-    .site-footer { background: var(--bg-dark); padding: 40px 24px; }
+    /* ── iPhone-Modal (App-Store-Push beim Mobile-Open) ────────────────────── */
+    @keyframes fadeInBackdrop {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideUpModal {
+      from { transform: translateY(40px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .ios-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      animation: fadeInBackdrop 0.25s ease both;
+    }
+    .ios-modal.show { display: flex; }
+    .ios-modal-card {
+      background: #fff;
+      border-radius: 24px 24px 0 0;
+      padding: 28px 24px 36px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.25);
+      animation: slideUpModal 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both;
+      position: relative;
+    }
+    .ios-modal-handle {
+      width: 36px; height: 5px;
+      background: rgba(0,0,0,0.15);
+      border-radius: 999px;
+      margin: 0 auto 18px;
+    }
+    .ios-modal-icon-row { display: flex; justify-content: center; margin-bottom: 16px; }
+    .ios-modal-app-icon { width: 80px; height: 80px; border-radius: 18px; box-shadow: var(--shadow-lg); }
+    .ios-modal h3 { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .ios-modal p { text-align: center; font-size: 15px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 22px; }
+    .ios-modal-cta {
+      display: block;
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 16px 24px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      width: 100%;
+      transition: var(--transition);
+      box-shadow: 0 6px 18px rgba(217,119,87,0.4);
+    }
+    .ios-modal-cta:hover { background: var(--accent-strong); opacity: 1; }
+    .ios-modal-secondary {
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: var(--text-secondary);
+      border: 0;
+      padding: 14px;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+    .ios-modal-secondary:hover { color: var(--text); }
+
+    /* ── Footer ────────────────────────────────────────────────────────────── */
+    .site-footer { background: var(--bg-dark); padding: 48px 24px; }
     .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
     .footer-logo { display: flex; align-items: center; gap: 8px; }
     .footer-logo-img { width: 32px; height: 32px; border-radius: 8px; }
@@ -164,7 +364,29 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- ── Launch-Banner (oben, gradient) ──────────────────────────────────── -->
+  <div class="launch-banner">
+    <div class="launch-banner-inner">
+      <div class="launch-content">
+        <span class="launch-pill">
+          <span class="launch-pill-dot"></span>
+          <span data-i18n="launch_pill">Update v1.1 jetzt verfügbar</span>
+        </span>
+        <h2 class="launch-headline" data-i18n="launch_headline">Native iPad-App, <span class="accent">Backup</span> &amp; mehr — frisch im App Store.</h2>
+        <p class="launch-sub" data-i18n="launch_sub">v1.1 bringt das volle iPad-Layout mit 3-Spalten-Sidebar, Backup-Funktion zum Sichern deiner Sammlung, Texte direkt aus Mail oder Notizen einfügen, und ein deutlich aufgeräumteres Premium-Erlebnis.</p>
+      </div>
+      <div class="launch-cta-wrap">
+        <a class="launch-btn appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+          <span data-i18n="launch_cta">Im App Store laden</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Navigation ──────────────────────────────────────────────────────── -->
   <nav class="site-nav">
     <div class="nav-inner">
       <a class="nav-logo" href="/">
@@ -177,8 +399,9 @@
       <div class="nav-right">
         <a class="nav-link" href="#features" data-i18n="nav_features">Features</a>
         <a class="nav-link" href="#how-it-works" data-i18n="nav_how">So funktioniert's</a>
+        <a class="nav-link" href="#roadmap" data-i18n="nav_roadmap">Entwicklung</a>
         <a class="nav-link" href="#pricing" data-i18n="nav_pricing">Tarife</a>
-        <a class="nav-link" href="/support/" data-i18n="nav_support">Support</a>
+        <a class="nav-cta appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154" data-i18n="nav_cta">App laden</a>
         <div class="lang-toggle">
           <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
           <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
@@ -189,26 +412,26 @@
 
   <main>
 
-    <!-- Hero -->
+    <!-- ── Hero ──────────────────────────────────────────────────────────── -->
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-badge">
           <span class="hero-badge-dot"></span>
-          <span data-i18n="hero_badge">Bald im App Store</span>
+          <span data-i18n="hero_badge">Jetzt verfügbar im App Store</span>
         </div>
         <h1>
           <span data-i18n="hero_h1_a">Vom Foto zum</span><br>
           <span class="accent" data-i18n="hero_h1_b">strukturierten Rezept.</span>
         </h1>
         <p class="hero-sub" data-i18n="hero_sub">
-          Zettelküche AI verwandelt Foto, Screenshot oder Dokument in <strong>wenigen Sekunden</strong> in ein durchsuchbares Rezept — <strong>in deiner Sprache</strong>, auch wenn die Quelle eine andere hat. <strong>Privat in deiner iCloud.</strong>
+          Zettelküche AI verwandelt Foto, Screenshot oder Dokument in <strong>wenigen Sekunden</strong> in ein durchsuchbares Rezept — <strong>in deiner Sprache</strong>, auch wenn die Quelle eine andere hat. Privat in deiner iCloud, native auf iPhone und iPad.
         </p>
         <div class="hero-cta-row">
-          <a class="appstore-badge" href="#" aria-label="Bald im App Store">
+          <a class="appstore-badge appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154" aria-label="Download on the App Store">
             <svg height="52" viewBox="0 0 135 40" xmlns="http://www.w3.org/2000/svg">
               <rect width="135" height="40" rx="7" fill="#000"/>
               <path d="M27.2 20.2c0-3.4 2.8-5 2.9-5.1-1.6-2.3-4-2.6-4.9-2.6-2.1-.2-4.1 1.2-5.1 1.2-1.1 0-2.7-1.2-4.4-1.2-2.3 0-4.4 1.3-5.5 3.4-2.4 4.1-.6 10.1 1.7 13.4 1.1 1.6 2.5 3.4 4.2 3.4 1.7-.1 2.3-1.1 4.3-1.1 2 0 2.6 1.1 4.4 1.1 1.8 0 3-1.6 4.1-3.2 1.3-1.8 1.8-3.6 1.9-3.7-.1-.1-3.6-1.4-3.6-5.6zM23.8 10.7c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.9.9-3.8 2-.8.9-1.5 2.4-1.3 3.9 1.4.1 2.9-.7 3.8-1.8z" fill="#fff"/>
-              <text x="43" y="15" font-family="-apple-system,Helvetica,Arial" font-size="7" fill="rgba(255,255,255,0.7)" data-i18n-attr="appstore_pre">Demnächst im</text>
+              <text x="43" y="15" font-family="-apple-system,Helvetica,Arial" font-size="7" fill="rgba(255,255,255,0.7)" data-i18n-attr="appstore_pre">Laden im</text>
               <text x="43" y="27" font-family="-apple-system,Helvetica,Arial" font-size="13" font-weight="600" fill="#fff">App Store</text>
             </svg>
           </a>
@@ -218,7 +441,7 @@
       </div>
     </section>
 
-    <!-- Pain Point → Lösung -->
+    <!-- ── Pain Point → Lösung ─────────────────────────────────────────── -->
     <section class="section">
       <div class="section-inner">
         <div class="ps-grid">
@@ -234,7 +457,7 @@
       </div>
     </section>
 
-    <!-- Features -->
+    <!-- ── Features ────────────────────────────────────────────────────── -->
     <section class="section" id="features" style="background: var(--bg-warm);">
       <div class="section-inner">
         <p class="section-label" data-i18n="features_label">Features</p>
@@ -245,43 +468,55 @@
           <div class="feature-card">
             <div class="feature-icon">📸</div>
             <h3 data-i18n="feat_1_title">Capture aus jeder Quelle</h3>
-            <p data-i18n="feat_1_text">Kamera, Foto-Mediathek, PDF-Import oder Share-Extension aus Safari, Instagram &amp; Co.</p>
+            <p data-i18n="feat_1_text">Kamera, Foto-Mediathek, PDF, oder Text direkt aus Mail oder Notizen einfügen. Originaldokument bleibt erhalten.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🌍</div>
             <h3 data-i18n="feat_translate_title">Sprache nach Wahl</h3>
-            <p data-i18n="feat_translate_text">Italienisches Kochbuch, deutsches Rezept. Setze deine Zielsprache in den Einstellungen — Zettelküche AI liest die Quelle und übersetzt direkt in Deutsch oder Englisch.</p>
+            <p data-i18n="feat_translate_text">Italienisches Kochbuch, deutsches Rezept. Setze deine Zielsprache in den Einstellungen — die KI liest die Quelle und übersetzt direkt in Deutsch oder Englisch.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🤖</div>
             <h3 data-i18n="feat_2_title">KI-Strukturierung</h3>
-            <p data-i18n="feat_2_text">Zutaten, Schritte, Portionen, Garzeit — automatisch erkannt und sauber ausgezeichnet.</p>
+            <p data-i18n="feat_2_text">Zutaten mit Mengen, nummerierte Schritte, Portionen, Garzeit, Schwierigkeit — automatisch erkannt und sauber ausgezeichnet.</p>
+          </div>
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v1.1 NEU</span>
+            <div class="feature-icon">📱</div>
+            <h3 data-i18n="feat_ipad_title">Natives iPad-Layout</h3>
+            <p data-i18n="feat_ipad_text">3-Spalten-Sidebar mit Filter und Kategorien, große Detail-Ansicht mit Hero-Bild und Tabs — der perfekte Begleiter neben dem Herd.</p>
+          </div>
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v1.1 NEU</span>
+            <div class="feature-icon">💾</div>
+            <h3 data-i18n="feat_backup_title">Backup &amp; Wiederherstellen</h3>
+            <p data-i18n="feat_backup_text">Premium: Sicherung deiner Bibliothek inklusive Bilder als Datei — speichere sie in iCloud Drive, Dropbox oder lokal. Restore auf einem neuen Gerät mit einem Tap.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">☁️</div>
             <h3 data-i18n="feat_3_title">Private iCloud-Sync</h3>
-            <p data-i18n="feat_3_text">Alle Rezepte synchron auf iPhone und iPad — in deiner privaten iCloud-Datenbank.</p>
+            <p data-i18n="feat_3_text">Alle Rezepte synchron auf iPhone und iPad — in deiner privaten iCloud-Datenbank, ohne Konto, ohne Server.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🔍</div>
             <h3 data-i18n="feat_4_title">Suche &amp; Filter</h3>
-            <p data-i18n="feat_4_text">Volltextsuche, Tags, Kategorien, Favoriten, „kürzlich gekocht" — finde alles in Sekunden.</p>
+            <p data-i18n="feat_4_text">Volltextsuche, Tags, Kategorien, Favoriten, „Zu prüfen" — finde alles in Sekunden. Auf dem iPad als Sidebar dauerhaft sichtbar.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">👨‍🍳</div>
             <h3 data-i18n="feat_5_title">Schritt-für-Schritt-Modus</h3>
-            <p data-i18n="feat_5_text">Große Schrift, ein Tap pro Schritt — perfekt fürs iPad neben dem Herd.</p>
+            <p data-i18n="feat_5_text">Große Schrift, ein Tap pro Schritt — perfekt fürs iPad neben dem Herd. Kein Versehentliches-Wegtippen.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">💬</div>
             <h3 data-i18n="feat_6_title">ChatGPT-Adaption</h3>
-            <p data-i18n="feat_6_text">Vegetarisch? Glutenfrei? Doppelte Portion? Ein Tap, dein ChatGPT-Account übernimmt.</p>
+            <p data-i18n="feat_6_text">Vegetarisch? Glutenfrei? Doppelte Portion? Einkaufsliste? Ein Tap, dein ChatGPT-Account übernimmt den Rest.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- How it works -->
+    <!-- ── How it works ────────────────────────────────────────────────── -->
     <section class="section how-bg" id="how-it-works">
       <div class="section-inner">
         <p class="section-label" data-i18n="how_label">So funktioniert's</p>
@@ -291,24 +526,66 @@
         <div class="steps-grid">
           <div class="step-card">
             <div class="step-num">1</div>
-            <h3 data-i18n="step_1_title">Foto, PDF oder Notiz</h3>
-            <p data-i18n="step_1_text">Tippe auf Plus, wähle eine Quelle. Auch direkt aus Safari oder der Files-App geteilt.</p>
+            <h3 data-i18n="step_1_title">Foto, PDF oder Text</h3>
+            <p data-i18n="step_1_text">Tippe auf Plus, wähle eine Quelle. Auch direkt aus Mail, Notizen oder Safari einfügbar.</p>
           </div>
           <div class="step-card">
             <div class="step-num">2</div>
             <h3 data-i18n="step_2_title">OCR + KI</h3>
-            <p data-i18n="step_2_text">Apples on-device-OCR liest den Text. Unsere KI strukturiert ihn in Titel, Zutaten, Schritte.</p>
+            <p data-i18n="step_2_text">Apples on-device-OCR liest den Text. Anthropic Claude strukturiert ihn in Titel, Zutaten, Schritte — in deiner Sprache.</p>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
             <h3 data-i18n="step_3_title">Speichern, kochen, teilen</h3>
-            <p data-i18n="step_3_text">Rezept landet in deiner Bibliothek, synchron auf allen Geräten. Kochen oder weiterleiten.</p>
+            <p data-i18n="step_3_text">Rezept landet in deiner Bibliothek, synchron auf allen Geräten. Kochen, bewerten, weiterleiten.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pricing -->
+    <!-- ── Permanent weiterentwickelt / Roadmap ────────────────────────── -->
+    <section class="section roadmap-bg" id="roadmap">
+      <div class="section-inner">
+        <p class="section-label" data-i18n="roadmap_label">Permanent weiterentwickelt</p>
+        <h2 class="section-title" data-i18n="roadmap_title">Eine App, die mit dir wächst.</h2>
+        <p class="section-sub" data-i18n="roadmap_sub">Wir veröffentlichen regelmäßig Updates — auf User-Feedback, auf Apple-Plattform-Innovationen, auf neue KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:</p>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-card delivered">
+            <span class="roadmap-tag" data-i18n="roadmap_done_tag">Bereits geliefert</span>
+            <h3 data-i18n="roadmap_done_title">v1.0 + v1.1</h3>
+            <ul>
+              <li data-i18n="rm_done_1">Capture aus Foto, Mediathek, PDF, Text-Einfügung</li>
+              <li data-i18n="rm_done_2">KI-Sprach-Übersetzung beim Capture</li>
+              <li data-i18n="rm_done_3">Natives iPad-3-Spalten-Layout</li>
+              <li data-i18n="rm_done_4">Backup-Funktion (Premium)</li>
+              <li data-i18n="rm_done_5">Source- und Titelfoto getrennt verwaltet</li>
+              <li data-i18n="rm_done_6">Sidebar-Filter für Favoriten und Kategorien</li>
+              <li data-i18n="rm_done_7">Vollständige iPadOS-Konformität</li>
+            </ul>
+          </div>
+          <div class="roadmap-card coming">
+            <span class="roadmap-tag" data-i18n="roadmap_next_tag">Als nächstes</span>
+            <h3 data-i18n="roadmap_next_title">v1.2 und weiter</h3>
+            <ul>
+              <li data-i18n="rm_next_1">KI-Kategorisierung automatisch beim Capture</li>
+              <li data-i18n="rm_next_2">Capture-UX mit Foto als prominentem Hauptpfad</li>
+              <li data-i18n="rm_next_3">Rezepte als Bild-Karte teilen (Social-Ready)</li>
+              <li data-i18n="rm_next_4">Portugiesisch (Brasilien) und Ukrainisch</li>
+              <li data-i18n="rm_next_5">Universal Links zwischen iCloud-Geräten</li>
+              <li data-i18n="rm_next_6">URL-Import für Web-Rezepte</li>
+              <li data-i18n="rm_next_7">Timer-Integration und Bring!-Anbindung</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-promise">
+          <p data-i18n="roadmap_promise">Zettelküche AI ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser. Daran kommt keine Rezept-App vorbei, die mit der Zeit gehen will.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pricing ─────────────────────────────────────────────────────── -->
     <section class="section" id="pricing">
       <div class="section-inner">
         <p class="section-label" data-i18n="pricing_label">Tarife</p>
@@ -323,8 +600,8 @@
               <li data-i18n="price_free_1">Unbegrenzte manuelle Rezepte</li>
               <li data-i18n="price_free_2">Volle Bibliothek mit Suche und Filtern</li>
               <li data-i18n="price_free_3">iCloud-Sync zwischen deinen Geräten</li>
-              <li data-i18n="price_free_4">Sharing einzelner Rezepte</li>
-              <li data-i18n="price_free_5">20 KI-gestützte Extraktionen zum Testen</li>
+              <li data-i18n="price_free_4">20 KI-gestützte Extraktionen zum Testen</li>
+              <li data-i18n="price_free_5">Bis zu 3 eigene Kategorien</li>
             </ul>
           </div>
           <div class="price-card premium">
@@ -333,17 +610,25 @@
             <ul>
               <li data-i18n="price_prem_1">Alles aus Free</li>
               <li data-i18n="price_prem_2">Unbegrenzte KI-Extraktionen</li>
-              <li data-i18n="price_prem_3">Erweiterte Filter und Sortierungen</li>
-              <li data-i18n="price_prem_4">Sharing ohne Limit</li>
-              <li data-i18n="price_prem_5">Bevorzugte Verarbeitung neuer Features</li>
+              <li data-i18n="price_prem_3">Backup &amp; Wiederherstellen</li>
+              <li data-i18n="price_prem_4">Sharing als .recipebundle</li>
+              <li data-i18n="price_prem_5">ChatGPT-Verfeinerungen</li>
+              <li data-i18n="price_prem_6">Unbegrenzt eigene Kategorien</li>
             </ul>
-            <span class="price-trial" data-i18n="price_trial">Kostenlos testen</span>
+            <span class="price-trial" data-i18n="price_trial">Kostenlos testen über Apple</span>
           </div>
+        </div>
+
+        <div class="pricing-cta-wrap">
+          <a class="pricing-cta appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154">
+            <span data-i18n="pricing_cta_text">Jetzt kostenlos laden</span>
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Privacy Promise -->
+    <!-- ── Privacy Promise ─────────────────────────────────────────────── -->
     <section class="section privacy-bg">
       <div class="section-inner privacy-inner">
         <div class="privacy-icon">🔒</div>
@@ -352,20 +637,20 @@
           Wir sehen sie nie.
         </p>
         <p class="privacy-detail" data-i18n="privacy_detail">
-          Kein Konto, kein Tracking, keine Werbung. Texterkennung läuft auf deinem Gerät; nur der erkannte Text wandert anonym zur KI-Strukturierung — ohne Verknüpfung zu dir. <a href="/privacy/">Volle Datenschutzerklärung</a>.
+          Kein Konto, kein Tracking, keine Werbung, keine Drittanbieter-SDKs. Texterkennung läuft auf deinem Gerät; nur der erkannte Text wandert anonym zur KI-Strukturierung — ohne Verknüpfung zu dir. <a href="/privacy/">Volle Datenschutzerklärung</a>.
         </p>
       </div>
     </section>
 
-    <!-- Download CTA -->
+    <!-- ── Final CTA ───────────────────────────────────────────────────── -->
     <section class="cta-section">
       <h2 data-i18n="cta_title">Bereit, deine Rezeptsammlung zu sortieren?</h2>
-      <p data-i18n="cta_sub">Bald im App Store für iPhone und iPad.</p>
-      <a class="appstore-badge" href="#" aria-label="Bald im App Store">
+      <p data-i18n="cta_sub">Jetzt im App Store für iPhone und iPad.</p>
+      <a class="appstore-badge appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154" aria-label="Download on the App Store">
         <svg height="52" viewBox="0 0 135 40" xmlns="http://www.w3.org/2000/svg">
           <rect width="135" height="40" rx="7" fill="#fff"/>
           <path d="M27.2 20.2c0-3.4 2.8-5 2.9-5.1-1.6-2.3-4-2.6-4.9-2.6-2.1-.2-4.1 1.2-5.1 1.2-1.1 0-2.7-1.2-4.4-1.2-2.3 0-4.4 1.3-5.5 3.4-2.4 4.1-.6 10.1 1.7 13.4 1.1 1.6 2.5 3.4 4.2 3.4 1.7-.1 2.3-1.1 4.3-1.1 2 0 2.6 1.1 4.4 1.1 1.8 0 3-1.6 4.1-3.2 1.3-1.8 1.8-3.6 1.9-3.7-.1-.1-3.6-1.4-3.6-5.6zM23.8 10.7c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.9.9-3.8 2-.8.9-1.5 2.4-1.3 3.9 1.4.1 2.9-.7 3.8-1.8z" fill="#000"/>
-          <text x="43" y="15" font-family="-apple-system,Helvetica,Arial" font-size="7" fill="rgba(0,0,0,0.7)" data-i18n-attr="appstore_pre">Demnächst im</text>
+          <text x="43" y="15" font-family="-apple-system,Helvetica,Arial" font-size="7" fill="rgba(0,0,0,0.7)" data-i18n-attr="appstore_pre">Laden im</text>
           <text x="43" y="27" font-family="-apple-system,Helvetica,Arial" font-size="13" font-weight="600" fill="#000">App Store</text>
         </svg>
       </a>
@@ -373,7 +658,23 @@
 
   </main>
 
-  <!-- Footer (BrainBites-Pattern) -->
+  <!-- ── iPhone-Modal: erscheint auf Mobile-Touch-Devices ───────────────── -->
+  <div class="ios-modal" id="iosModal" role="dialog" aria-modal="true" aria-labelledby="iosModalTitle">
+    <div class="ios-modal-card">
+      <div class="ios-modal-handle"></div>
+      <div class="ios-modal-icon-row">
+        <img src="/logo.png" alt="Zettelküche AI" class="ios-modal-app-icon">
+      </div>
+      <h3 id="iosModalTitle" data-i18n="modal_title">Zettelküche AI direkt im App Store</h3>
+      <p data-i18n="modal_sub">Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.</p>
+      <a class="ios-modal-cta appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154" id="iosModalCta">
+        <span data-i18n="modal_cta">Im App Store öffnen</span>
+      </a>
+      <button type="button" class="ios-modal-secondary" id="iosModalDismiss" data-i18n="modal_dismiss">Auf der Webseite weiterlesen</button>
+    </div>
+  </div>
+
+  <!-- ── Footer ──────────────────────────────────────────────────────────── -->
   <footer class="site-footer" id="impressum">
     <div class="footer-inner">
       <div class="footer-logo">
@@ -413,23 +714,34 @@
   </footer>
 
   <script>
+    // ── App-Store-URL ─────────────────────────────────────────────────────
+    const APP_STORE_URL = 'https://apps.apple.com/app/zettelkueche-ai/id6763764154';
+
+    // Footer-Year
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
+    // ── Übersetzungen ─────────────────────────────────────────────────────
     const translations = {
       de: {
         nav_sub:           'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_features:      'Features',
         nav_how:           'So funktioniert\'s',
+        nav_roadmap:       'Entwicklung',
         nav_pricing:       'Tarife',
-        nav_support:       'Support',
+        nav_cta:           'App laden',
 
-        hero_badge:        'Bald im App Store',
+        launch_pill:       'Update v1.1 jetzt verfügbar',
+        launch_headline:   'Native iPad-App, <span class="accent">Backup</span> &amp; mehr — frisch im App Store.',
+        launch_sub:        'v1.1 bringt das volle iPad-Layout mit 3-Spalten-Sidebar, Backup-Funktion zum Sichern deiner Sammlung, Texte direkt aus Mail oder Notizen einfügen, und ein deutlich aufgeräumteres Premium-Erlebnis.',
+        launch_cta:        'Im App Store laden',
+
+        hero_badge:        'Jetzt verfügbar im App Store',
         hero_h1_a:         'Vom Foto zum',
         hero_h1_b:         'strukturierten Rezept.',
-        hero_sub:          'Zettelküche AI verwandelt Foto, Screenshot oder Dokument in <strong>wenigen Sekunden</strong> in ein durchsuchbares Rezept — <strong>in deiner Sprache</strong>, auch wenn die Quelle eine andere hat. <strong>Privat in deiner iCloud.</strong>',
+        hero_sub:          'Zettelküche AI verwandelt Foto, Screenshot oder Dokument in <strong>wenigen Sekunden</strong> in ein durchsuchbares Rezept — <strong>in deiner Sprache</strong>, auch wenn die Quelle eine andere hat. Privat in deiner iCloud, native auf iPhone und iPad.',
         hero_cta_how:      'So funktioniert\'s',
         hero_meta:         'iPhone und iPad · iOS 18+ · privat synchronisiert über deine iCloud',
-        appstore_pre:      'Demnächst im',
+        appstore_pre:      'Laden im',
 
         ps_problem_title:  'Das Problem',
         ps_problem_text:   'Rezepte stapeln sich überall — Screenshots, abfotografierte Kochbuchseiten, Notizen-App, WhatsApp, geteilte PDFs. Wiederfinden? Schwierig. Kochen? Erst recht.',
@@ -439,30 +751,58 @@
         features_label:    'Features',
         features_title:    'Alles, was du zum Sammeln brauchst.',
         features_sub:      'Capture, organisieren, kochen — vom ersten Foto bis zum fertigen Gericht.',
+        new_pill:          'v1.1 NEU',
         feat_1_title:      'Capture aus jeder Quelle',
-        feat_1_text:       'Kamera, Foto-Mediathek, PDF-Import oder Share-Extension aus Safari, Instagram &amp; Co.',
+        feat_1_text:       'Kamera, Foto-Mediathek, PDF, oder Text direkt aus Mail oder Notizen einfügen. Originaldokument bleibt erhalten.',
         feat_translate_title: 'Sprache nach Wahl',
-        feat_translate_text:  'Italienisches Kochbuch, deutsches Rezept. Setze deine Zielsprache in den Einstellungen — Zettelküche AI liest die Quelle und übersetzt direkt in Deutsch oder Englisch.',
+        feat_translate_text:  'Italienisches Kochbuch, deutsches Rezept. Setze deine Zielsprache in den Einstellungen — die KI liest die Quelle und übersetzt direkt in Deutsch oder Englisch.',
         feat_2_title:      'KI-Strukturierung',
-        feat_2_text:       'Zutaten, Schritte, Portionen, Garzeit — automatisch erkannt und sauber ausgezeichnet.',
+        feat_2_text:       'Zutaten mit Mengen, nummerierte Schritte, Portionen, Garzeit, Schwierigkeit — automatisch erkannt und sauber ausgezeichnet.',
+        feat_ipad_title:   'Natives iPad-Layout',
+        feat_ipad_text:    '3-Spalten-Sidebar mit Filter und Kategorien, große Detail-Ansicht mit Hero-Bild und Tabs — der perfekte Begleiter neben dem Herd.',
+        feat_backup_title: 'Backup &amp; Wiederherstellen',
+        feat_backup_text:  'Premium: Sicherung deiner Bibliothek inklusive Bilder als Datei — speichere sie in iCloud Drive, Dropbox oder lokal. Restore auf einem neuen Gerät mit einem Tap.',
         feat_3_title:      'Private iCloud-Sync',
-        feat_3_text:       'Alle Rezepte synchron auf iPhone und iPad — in deiner privaten iCloud-Datenbank.',
+        feat_3_text:       'Alle Rezepte synchron auf iPhone und iPad — in deiner privaten iCloud-Datenbank, ohne Konto, ohne Server.',
         feat_4_title:      'Suche &amp; Filter',
-        feat_4_text:       'Volltextsuche, Tags, Kategorien, Favoriten, „kürzlich gekocht" — finde alles in Sekunden.',
+        feat_4_text:       'Volltextsuche, Tags, Kategorien, Favoriten, „Zu prüfen" — finde alles in Sekunden. Auf dem iPad als Sidebar dauerhaft sichtbar.',
         feat_5_title:      'Schritt-für-Schritt-Modus',
-        feat_5_text:       'Große Schrift, ein Tap pro Schritt — perfekt fürs iPad neben dem Herd.',
+        feat_5_text:       'Große Schrift, ein Tap pro Schritt — perfekt fürs iPad neben dem Herd. Kein Versehentliches-Wegtippen.',
         feat_6_title:      'ChatGPT-Adaption',
-        feat_6_text:       'Vegetarisch? Glutenfrei? Doppelte Portion? Ein Tap, dein ChatGPT-Account übernimmt.',
+        feat_6_text:       'Vegetarisch? Glutenfrei? Doppelte Portion? Einkaufsliste? Ein Tap, dein ChatGPT-Account übernimmt den Rest.',
 
         how_label:         'So funktioniert\'s',
         how_title:         'In drei Schritten zum Rezept.',
         how_sub:           'Vom Foto zur sortierten Bibliothek — meist unter 15 Sekunden.',
-        step_1_title:      'Foto, PDF oder Notiz',
-        step_1_text:       'Tippe auf Plus, wähle eine Quelle. Auch direkt aus Safari oder der Files-App geteilt.',
+        step_1_title:      'Foto, PDF oder Text',
+        step_1_text:       'Tippe auf Plus, wähle eine Quelle. Auch direkt aus Mail, Notizen oder Safari einfügbar.',
         step_2_title:      'OCR + KI',
-        step_2_text:       'Apples on-device-OCR liest den Text. Unsere KI strukturiert ihn in Titel, Zutaten, Schritte.',
+        step_2_text:       'Apples on-device-OCR liest den Text. Anthropic Claude strukturiert ihn in Titel, Zutaten, Schritte — in deiner Sprache.',
         step_3_title:      'Speichern, kochen, teilen',
-        step_3_text:       'Rezept landet in deiner Bibliothek, synchron auf allen Geräten. Kochen oder weiterleiten.',
+        step_3_text:       'Rezept landet in deiner Bibliothek, synchron auf allen Geräten. Kochen, bewerten, weiterleiten.',
+
+        roadmap_label:     'Permanent weiterentwickelt',
+        roadmap_title:     'Eine App, die mit dir wächst.',
+        roadmap_sub:       'Wir veröffentlichen regelmäßig Updates — auf User-Feedback, auf Apple-Plattform-Innovationen, auf neue KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:',
+        roadmap_done_tag:  'Bereits geliefert',
+        roadmap_done_title:'v1.0 + v1.1',
+        rm_done_1:         'Capture aus Foto, Mediathek, PDF, Text-Einfügung',
+        rm_done_2:         'KI-Sprach-Übersetzung beim Capture',
+        rm_done_3:         'Natives iPad-3-Spalten-Layout',
+        rm_done_4:         'Backup-Funktion (Premium)',
+        rm_done_5:         'Source- und Titelfoto getrennt verwaltet',
+        rm_done_6:         'Sidebar-Filter für Favoriten und Kategorien',
+        rm_done_7:         'Vollständige iPadOS-Konformität',
+        roadmap_next_tag:  'Als nächstes',
+        roadmap_next_title:'v1.2 und weiter',
+        rm_next_1:         'KI-Kategorisierung automatisch beim Capture',
+        rm_next_2:         'Capture-UX mit Foto als prominentem Hauptpfad',
+        rm_next_3:         'Rezepte als Bild-Karte teilen (Social-Ready)',
+        rm_next_4:         'Portugiesisch (Brasilien) und Ukrainisch',
+        rm_next_5:         'Universal Links zwischen iCloud-Geräten',
+        rm_next_6:         'URL-Import für Web-Rezepte',
+        rm_next_7:         'Timer-Integration und Bring!-Anbindung',
+        roadmap_promise:   'Zettelküche AI ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser. Daran kommt keine Rezept-App vorbei, die mit der Zeit gehen will.',
 
         pricing_label:     'Tarife',
         pricing_title:     'Free starten. Premium, wenn du mehr willst.',
@@ -471,21 +811,28 @@
         price_free_1:      'Unbegrenzte manuelle Rezepte',
         price_free_2:      'Volle Bibliothek mit Suche und Filtern',
         price_free_3:      'iCloud-Sync zwischen deinen Geräten',
-        price_free_4:      'Sharing einzelner Rezepte',
-        price_free_5:      '20 KI-gestützte Extraktionen zum Testen',
+        price_free_4:      '20 KI-gestützte Extraktionen zum Testen',
+        price_free_5:      'Bis zu 3 eigene Kategorien',
         price_prem_h:      'Für Vielsammler &amp; Foodies',
         price_prem_1:      'Alles aus Free',
         price_prem_2:      'Unbegrenzte KI-Extraktionen',
-        price_prem_3:      'Erweiterte Filter und Sortierungen',
-        price_prem_4:      'Sharing ohne Limit',
-        price_prem_5:      'Bevorzugte Verarbeitung neuer Features',
-        price_trial:       'Kostenlos testen',
+        price_prem_3:      'Backup &amp; Wiederherstellen',
+        price_prem_4:      'Sharing als .recipebundle',
+        price_prem_5:      'ChatGPT-Verfeinerungen',
+        price_prem_6:      'Unbegrenzt eigene Kategorien',
+        price_trial:       'Kostenlos testen über Apple',
+        pricing_cta_text:  'Jetzt kostenlos laden',
 
         privacy_promise:   'Deine Rezepte bleiben in <span class="accent">deiner iCloud</span>.<br>Wir sehen sie nie.',
-        privacy_detail:    'Kein Konto, kein Tracking, keine Werbung. Texterkennung läuft auf deinem Gerät; nur der erkannte Text wandert anonym zur KI-Strukturierung — ohne Verknüpfung zu dir. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
+        privacy_detail:    'Kein Konto, kein Tracking, keine Werbung, keine Drittanbieter-SDKs. Texterkennung läuft auf deinem Gerät; nur der erkannte Text wandert anonym zur KI-Strukturierung — ohne Verknüpfung zu dir. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
 
         cta_title:         'Bereit, deine Rezeptsammlung zu sortieren?',
-        cta_sub:           'Bald im App Store für iPhone und iPad.',
+        cta_sub:           'Jetzt im App Store für iPhone und iPad.',
+
+        modal_title:       'Zettelküche AI direkt im App Store',
+        modal_sub:         'Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.',
+        modal_cta:         'Im App Store öffnen',
+        modal_dismiss:     'Auf der Webseite weiterlesen',
 
         footer_brand:      'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         footer_privacy:    'Datenschutz',
@@ -503,16 +850,22 @@
         nav_sub:           'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_features:      'Features',
         nav_how:           'How it works',
+        nav_roadmap:       'Roadmap',
         nav_pricing:       'Pricing',
-        nav_support:       'Support',
+        nav_cta:           'Get the app',
 
-        hero_badge:        'Coming soon to the App Store',
+        launch_pill:       'Update v1.1 out now',
+        launch_headline:   'Native iPad app, <span class="accent">backup</span> &amp; more — fresh on the App Store.',
+        launch_sub:        'v1.1 brings the full iPad layout with 3-column sidebar, a backup feature to safeguard your collection, paste-text from Mail or Notes, and a much cleaner Premium experience.',
+        launch_cta:        'Open in App Store',
+
+        hero_badge:        'Available now on the App Store',
         hero_h1_a:         'From a photo to a',
         hero_h1_b:         'structured recipe.',
-        hero_sub:          'Zettelküche AI turns a photo, screenshot or document into a searchable recipe in <strong>seconds</strong> — <strong>in your language</strong>, even if the source is in another. <strong>Private in your iCloud.</strong>',
+        hero_sub:          'Zettelküche AI turns a photo, screenshot or document into a searchable recipe in <strong>seconds</strong> — <strong>in your language</strong>, even if the source is in another. Private in your iCloud, native on iPhone and iPad.',
         hero_cta_how:      'How it works',
         hero_meta:         'iPhone &amp; iPad · iOS 18+ · privately synced via your iCloud',
-        appstore_pre:      'Coming soon to the',
+        appstore_pre:      'Download on the',
 
         ps_problem_title:  'The problem',
         ps_problem_text:   'Recipes pile up everywhere — screenshots, photos of cookbook pages, the Notes app, WhatsApp, shared PDFs. Finding them again? Hard. Cooking from them? Even harder.',
@@ -522,30 +875,58 @@
         features_label:    'Features',
         features_title:    'Everything you need to collect.',
         features_sub:      'Capture, organize, cook — from the first photo to the finished dish.',
+        new_pill:          'v1.1 NEW',
         feat_1_title:      'Capture from any source',
-        feat_1_text:       'Camera, photo library, PDF import, or share-extension from Safari, Instagram &amp; co.',
+        feat_1_text:       'Camera, photo library, PDF, or paste text directly from Mail or Notes. Original document is kept.',
         feat_translate_title: 'Language of your choice',
-        feat_translate_text:  'Italian cookbook, English recipe. Set your target language in Settings — Zettelküche AI reads the source and translates directly to English or German.',
+        feat_translate_text:  'Italian cookbook, English recipe. Set your target language in Settings — the AI reads the source and translates directly to English or German.',
         feat_2_title:      'AI structuring',
-        feat_2_text:       'Ingredients, steps, servings, cook time — recognized automatically and cleanly labeled.',
+        feat_2_text:       'Ingredients with quantities, numbered steps, servings, cook time, difficulty — recognized automatically and cleanly labeled.',
+        feat_ipad_title:   'Native iPad layout',
+        feat_ipad_text:    '3-column sidebar with filters and categories, larger detail view with hero image and tabs — the perfect companion next to the stove.',
+        feat_backup_title: 'Backup &amp; restore',
+        feat_backup_text:  'Premium: save your library including images as a file — store it on iCloud Drive, Dropbox, or locally. Restore on a new device with a single tap.',
         feat_3_title:      'Private iCloud sync',
-        feat_3_text:       'All recipes synced across iPhone and iPad — in your private iCloud database.',
+        feat_3_text:       'All recipes synced across iPhone and iPad — in your private iCloud database, no account, no server.',
         feat_4_title:      'Search &amp; filter',
-        feat_4_text:       'Full-text search, tags, categories, favorites, "recently cooked" — find everything in seconds.',
+        feat_4_text:       'Full-text search, tags, categories, favorites, "to-review" — find everything in seconds. On iPad as a persistent sidebar.',
         feat_5_title:      'Step-by-step mode',
-        feat_5_text:       'Big text, one tap per step — perfect for the iPad next to the stove.',
+        feat_5_text:       'Large type, one tap per step — perfect for the iPad next to the stove. No accidental dismissals.',
         feat_6_title:      'ChatGPT adaptation',
-        feat_6_text:       'Vegetarian? Gluten-free? Double portion? One tap and your ChatGPT account takes over.',
+        feat_6_text:       'Vegetarian? Gluten-free? Double portion? Shopping list? One tap and your ChatGPT account takes over.',
 
         how_label:         'How it works',
         how_title:         'Three steps to a recipe.',
         how_sub:           'From photo to sorted library — usually under 15 seconds.',
-        step_1_title:      'Photo, PDF or note',
-        step_1_text:       'Tap plus, pick a source. Also shared directly from Safari or the Files app.',
+        step_1_title:      'Photo, PDF or text',
+        step_1_text:       'Tap plus, pick a source. Also paste directly from Mail, Notes or Safari.',
         step_2_title:      'OCR + AI',
-        step_2_text:       'Apple\'s on-device OCR reads the text. Our AI structures it into title, ingredients, steps.',
+        step_2_text:       'Apple\'s on-device OCR reads the text. Anthropic Claude structures it into title, ingredients, steps — in your language.',
         step_3_title:      'Save, cook, share',
-        step_3_text:       'The recipe lands in your library, synced across all your devices. Cook or share.',
+        step_3_text:       'The recipe lands in your library, synced across all your devices. Cook, rate, share.',
+
+        roadmap_label:     'Permanently evolving',
+        roadmap_title:     'An app that grows with you.',
+        roadmap_sub:       'We ship updates regularly — driven by user feedback, by Apple platform innovations, by new AI capabilities. What landed so far and what\'s next:',
+        roadmap_done_tag:  'Already shipped',
+        roadmap_done_title:'v1.0 + v1.1',
+        rm_done_1:         'Capture from photo, library, PDF, text paste',
+        rm_done_2:         'AI language translation at capture',
+        rm_done_3:         'Native iPad 3-column layout',
+        rm_done_4:         'Backup feature (Premium)',
+        rm_done_5:         'Separate source and hero image management',
+        rm_done_6:         'Sidebar filters for favorites and categories',
+        rm_done_7:         'Full iPadOS compliance',
+        roadmap_next_tag:  'Coming next',
+        roadmap_next_title:'v1.2 and beyond',
+        rm_next_1:         'AI auto-categorization at capture',
+        rm_next_2:         'Capture UX with photo as the primary path',
+        rm_next_3:         'Share recipes as image cards (social-ready)',
+        rm_next_4:         'Portuguese (Brazil) and Ukrainian',
+        rm_next_5:         'Universal links between iCloud devices',
+        rm_next_6:         'URL import for web recipes',
+        rm_next_7:         'Timer integration and Bring! shopping list',
+        roadmap_promise:   'Zettelküche AI is <strong>not a finished product</strong> — it\'s an evolving one. What you get today is <strong>a solid start</strong>, and every update makes the app better. No recipe app that wants to keep up will get past it.',
 
         pricing_label:     'Pricing',
         pricing_title:     'Start with Free. Go Premium when you want more.',
@@ -554,21 +935,28 @@
         price_free_1:      'Unlimited manual recipes',
         price_free_2:      'Full library with search and filters',
         price_free_3:      'iCloud sync between your devices',
-        price_free_4:      'Sharing individual recipes',
-        price_free_5:      '20 AI-powered extractions to try out',
+        price_free_4:      '20 AI-powered extractions to try out',
+        price_free_5:      'Up to 3 custom categories',
         price_prem_h:      'For power collectors &amp; foodies',
         price_prem_1:      'Everything in Free',
         price_prem_2:      'Unlimited AI extractions',
-        price_prem_3:      'Advanced filters and sort orders',
-        price_prem_4:      'Sharing without limits',
-        price_prem_5:      'Priority on new features',
-        price_trial:       'Free trial included',
+        price_prem_3:      'Backup &amp; restore',
+        price_prem_4:      'Sharing as .recipebundle files',
+        price_prem_5:      'ChatGPT refinements',
+        price_prem_6:      'Unlimited custom categories',
+        price_trial:       'Free trial via Apple',
+        pricing_cta_text:  'Get it free now',
 
         privacy_promise:   'Your recipes stay in <span class="accent">your iCloud</span>.<br>We never see them.',
-        privacy_detail:    'No account, no tracking, no ads. Text recognition runs on your device; only the recognized text travels anonymously for AI structuring — never linked to you. <a href="/privacy/">Full privacy policy</a>.',
+        privacy_detail:    'No account, no tracking, no ads, no third-party SDKs. Text recognition runs on your device; only the recognized text travels anonymously for AI structuring — never linked to you. <a href="/privacy/">Full privacy policy</a>.',
 
         cta_title:         'Ready to sort out your recipe collection?',
-        cta_sub:           'Coming soon to the App Store for iPhone and iPad.',
+        cta_sub:           'Available now on the App Store for iPhone and iPad.',
+
+        modal_title:       'Zettelküche AI on the App Store',
+        modal_sub:         'You\'re on iPhone. Tap below and download the app in seconds — free, no signup.',
+        modal_cta:         'Open in App Store',
+        modal_dismiss:     'Continue on the website',
 
         footer_brand:      'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         footer_privacy:    'Privacy',
@@ -612,6 +1000,50 @@
       }
     } catch (_) {}
     setLang(initial);
+
+    // ── Alle App-Store-Links auf APP_STORE_URL setzen ────────────────────
+    document.querySelectorAll('.appstore-link').forEach(a => {
+      a.setAttribute('href', APP_STORE_URL);
+    });
+
+    // ── iPhone-Modal: nach 1.2s einblenden, einmal pro Session ───────────
+    (function () {
+      const ua = navigator.userAgent || '';
+      const isIPhone = /iPhone|iPod/i.test(ua);
+      // iPad erkennt sich oft als Mac — wir zeigen das Modal NUR auf iPhone.
+      // iPad-User sehen die Sidebar-Splitview-Promo der App schon prominent in den Features.
+      if (!isIPhone) return;
+
+      const KEY = 'zk_modal_dismissed';
+      try { if (sessionStorage.getItem(KEY) === '1') return; } catch (_) {}
+
+      const modal = document.getElementById('iosModal');
+      const dismiss = document.getElementById('iosModalDismiss');
+      const cta = document.getElementById('iosModalCta');
+
+      const open = () => {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      };
+      const close = () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      };
+
+      dismiss.addEventListener('click', close);
+      // Tap auf Backdrop schließt auch
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) close();
+      });
+      // Tap auf CTA setzt sessionStorage → kein Re-Open beim Zurückkehren
+      cta.addEventListener('click', () => {
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      });
+
+      // 1.2s Verzögerung — User sieht erst die Hero-Section, dann Push
+      setTimeout(open, 1200);
+    })();
   </script>
 
 </body>
