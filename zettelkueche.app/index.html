@@ -354,8 +354,9 @@
     .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
     .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
     .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
-    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(217,119,87,0.5); color: #fff; background: rgba(217,119,87,0.08); transform: translateY(-1px); opacity: 1; }
+    .footer-app-pill img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; display: block; }
     .footer-impressum { max-width: 720px; margin: 16px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
     .footer-impressum strong { color: rgba(255,255,255,0.85); }
     .footer-impressum a { color: rgba(255,255,255,0.7); }
@@ -693,9 +694,18 @@
       <div class="footer-apps">
         <span class="footer-apps-label" data-i18n="footer_apps_label">Mehr von torecon</span>
         <div class="footer-apps-pills">
-          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
-          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">💡 ThinkLess AI</a>
-          <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">⚡ eLadung GO</a>
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22">
+            <span>BrainBites AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22">
+            <span>ThinkLess AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener">
+            <img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22">
+            <span>eLadung GO</span>
+          </a>
         </div>
       </div>
 
@@ -1007,12 +1017,24 @@
     });
 
     // ── iPhone-Modal: nach 1.2s einblenden, einmal pro Session ───────────
+    // Hardware-Detection (robust gegen UA-Spoofing):
+    //   iPhone/iPod → UA enthält "iPhone" oder "iPod"
+    //   iPad ab iPadOS 13 → sendet UA "Macintosh" + MacIntel-Platform + maxTouchPoints > 1
+    //   iPad älter / Mobile-Site-Mode → UA enthält "iPad"
+    //   Mac → UA "Macintosh"/"Mac OS X" UND kein Touch-Support
+    // Modal erscheint NUR auf iPhone. iPad sieht die Sidebar-Splitview-Promo
+    // schon prominent in den Features. Mac hat die App ohnehin nicht
+    // (Zettelküche ist iPhone+iPad-only).
     (function () {
       const ua = navigator.userAgent || '';
+      const platform = navigator.platform || '';
+      const touchPoints = navigator.maxTouchPoints || 0;
+
       const isIPhone = /iPhone|iPod/i.test(ua);
-      // iPad erkennt sich oft als Mac — wir zeigen das Modal NUR auf iPhone.
-      // iPad-User sehen die Sidebar-Splitview-Promo der App schon prominent in den Features.
-      if (!isIPhone) return;
+      const isIPad   = /iPad/i.test(ua) || (platform === 'MacIntel' && touchPoints > 1);
+      const isMac    = !isIPhone && !isIPad && /Macintosh|Mac OS X/i.test(ua);
+
+      if (!isIPhone || isIPad || isMac) return;
 
       const KEY = 'zk_modal_dismissed';
       try { if (sessionStorage.getItem(KEY) === '1') return; } catch (_) {}
