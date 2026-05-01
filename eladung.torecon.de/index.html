@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eLadung — Ladekosten clever tracken</title>
-  <meta name="description" content="eLadung ist der smarte Ladekosten-Tracker für Elektrofahrzeuge. Jetzt für iPhone im App Store. Mac-Version folgt in Kürze.">
+  <title>eLadung GO — Ladekosten clever tracken</title>
+  <meta name="description" content="eLadung ist der smarte Ladekosten-Tracker für Elektrofahrzeuge. Auto-Backup in iCloud Drive, Heim/Fremd-Trennung, Tarifvergleich. Jetzt für iPhone und Mac im App Store.">
 
   <!-- iOS Smart App Banner (Safari auf iPhone zeigt nativen App-Store-Hinweis) -->
   <meta name="apple-itunes-app" content="app-id=6761632018">
@@ -17,7 +17,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="eLadung — Ladekosten clever tracken">
-  <meta property="og:description" content="Dein smarter Ladekosten-Tracker für Elektrofahrzeuge. Jetzt für iPhone im App Store. Mac folgt in Kürze.">
+  <meta property="og:description" content="Dein smarter Ladekosten-Tracker für Elektrofahrzeuge. Auto-Backup, Heim/Fremd-Trennung, Tarifvergleich. Jetzt für iPhone und Mac im App Store.">
   <meta property="og:url" content="https://eladung.torecon.de">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://eladung.torecon.de/icon-512.png">
@@ -33,6 +33,7 @@
       --text-tertiary:  #86868B;
       --accent:         #4F7FFF;
       --accent-hover:   #3A6FEF;
+      --accent-soft:    rgba(79,127,255,0.10);
       --accent-green:   #34C759;
       --border:         rgba(0,0,0,0.08);
       --border-strong:  rgba(0,0,0,0.15);
@@ -58,7 +59,99 @@
     p  { line-height: 1.65; }
     a  { color: var(--accent); text-decoration: none; }
     a:hover { opacity: 0.8; }
+    img { max-width: 100%; display: block; }
     .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* ── Launch-Banner (oben, gradient, slide-down) ────────────────────────── */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);   opacity: 1;   }
+      50%      { transform: scale(1.4); opacity: 0.6; }
+    }
+    .launch-banner {
+      background: linear-gradient(135deg, #0A0A0F 0%, #122050 50%, #0A0A0F 100%);
+      border-bottom: 1px solid rgba(79,127,255,0.35);
+      position: relative;
+      overflow: hidden;
+      animation: slideDown 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .launch-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 120% at 50% -20%, rgba(79,127,255,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .launch-banner-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 28px 24px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+    }
+    .launch-content { flex: 1; }
+    .launch-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79,127,255,0.18);
+      border: 1px solid rgba(79,127,255,0.4);
+      border-radius: 40px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9fb8ff;
+      margin-bottom: 14px;
+    }
+    .launch-pill-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .launch-headline {
+      font-size: clamp(22px, 3.6vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .launch-headline .accent { color: var(--accent); }
+    .launch-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      max-width: 580px;
+    }
+    .launch-cta-wrap { flex-shrink: 0; }
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #0A0A0F;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .launch-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.5); opacity: 1; }
+    @media (max-width: 720px) {
+      .launch-banner-inner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 22px 18px; }
+      .launch-cta-wrap { width: 100%; }
+      .launch-btn { width: 100%; justify-content: center; }
+    }
 
     /* ── Navigation ─────────────────────────────────────────────────────────── */
     .site-nav {
@@ -68,13 +161,10 @@
     }
     .nav-inner {
       max-width: var(--container); margin: 0 auto; padding: 0 24px;
-      height: 100%; display: flex; align-items: center; justify-content: space-between;
+      height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
     }
     .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 10px; }
-    .nav-logo-icon {
-      width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
-      overflow: hidden;
-    }
+    .nav-logo-icon { width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0; overflow: hidden; }
     .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; gap: 1px; }
     .nav-logo-main { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
     .nav-logo-main span { color: var(--accent); }
@@ -89,6 +179,13 @@
       padding: 8px 18px; border-radius: 20px; transition: var(--transition);
     }
     .nav-cta:hover { background: var(--accent-hover); opacity: 1; }
+    .lang-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
+    .lang-btn { border: 0; background: transparent; color: var(--text-tertiary); padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: var(--transition); font-family: var(--font); }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active { background: var(--accent); color: #fff; }
+    @media (max-width: 720px) {
+      .nav-link { display: none; }
+    }
 
     /* ── Hero ───────────────────────────────────────────────────────────────── */
     .hero {
@@ -98,7 +195,7 @@
     .hero-inner { max-width: 760px; margin: 0 auto; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(79,127,255,0.08); border: 1px solid rgba(79,127,255,0.25);
+      background: var(--accent-soft); border: 1px solid rgba(79,127,255,0.25);
       border-radius: 40px; padding: 6px 16px;
       font-size: 12px; font-weight: 600; color: var(--accent);
       letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 32px;
@@ -107,16 +204,12 @@
       width: 7px; height: 7px; background: var(--accent-green);
       border-radius: 50%; animation: pulse 2s ease-in-out infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.4; transform: scale(0.7); }
-    }
     .hero h1 { margin-bottom: 24px; color: var(--text); }
     .hero h1 span { color: var(--accent); }
     .hero-sub {
       font-size: clamp(18px, 2.5vw, 22px); color: var(--text-secondary);
       line-height: 1.55; margin-bottom: 48px;
-      max-width: 560px; margin-left: auto; margin-right: auto;
+      max-width: 580px; margin-left: auto; margin-right: auto;
     }
     .hero-actions {
       display: flex; align-items: center; justify-content: center;
@@ -220,10 +313,31 @@
 
     /* ── Features ───────────────────────────────────────────────────────────── */
     .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-    .feature-item { display: flex; gap: 20px; align-items: flex-start; }
-    .feature-icon { flex-shrink: 0; width: 48px; height: 48px; background: rgba(79,127,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+    .feature-item { display: flex; gap: 20px; align-items: flex-start; padding: 16px; border-radius: var(--radius-lg); transition: var(--transition); position: relative; }
+    .feature-item.new { background: linear-gradient(135deg, rgba(79,127,255,0.08) 0%, rgba(79,127,255,0.03) 100%); border: 1px solid rgba(79,127,255,0.22); }
+    .feature-item .new-pill { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; text-transform: uppercase; }
+    .feature-icon { flex-shrink: 0; width: 48px; height: 48px; background: var(--accent-soft); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
     .feature-item h3 { font-size: 18px; margin-bottom: 8px; }
     .feature-item p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ── Roadmap / Permanent weiterentwickelt ──────────────────────────────── */
+    .roadmap-bg { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+    .roadmap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 880px; margin: 40px auto 0; }
+    @media (max-width: 720px) { .roadmap-grid { grid-template-columns: 1fr; } }
+    .roadmap-card { background: var(--bg); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); }
+    .roadmap-card.delivered { border-left: 4px solid var(--accent-green); }
+    .roadmap-card.coming { border-left: 4px solid var(--accent); }
+    .roadmap-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 14px; }
+    .roadmap-card.delivered .roadmap-tag { background: rgba(52,199,89,0.14); color: #1d8a3a; }
+    .roadmap-card.coming .roadmap-tag { background: var(--accent-soft); color: var(--accent-hover); }
+    .roadmap-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 16px; }
+    .roadmap-card ul { list-style: none; padding: 0; }
+    .roadmap-card ul li { font-size: 14px; color: var(--text-secondary); padding: 6px 0; padding-left: 22px; position: relative; line-height: 1.55; }
+    .roadmap-card.delivered ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-green); font-weight: 700; }
+    .roadmap-card.coming ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .roadmap-promise { max-width: 720px; margin: 56px auto 0; text-align: center; padding: 32px; background: var(--bg-dark); color: #fff; border-radius: var(--radius-lg); }
+    .roadmap-promise p { font-size: 18px; line-height: 1.6; margin: 0; }
+    .roadmap-promise p strong { color: var(--accent); font-weight: 700; }
 
     /* ── Platform Cards ─────────────────────────────────────────────────────── */
     .platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
@@ -264,6 +378,14 @@
     .pricing-save { display: inline-block; background: var(--accent-green); color: #fff; font-size: 11px; font-weight: 600; border-radius: 6px; padding: 2px 7px; margin-left: 6px; vertical-align: middle; }
     .pricing-note { font-size: 13px; color: var(--text-tertiary); text-align: center; margin-top: 20px; }
 
+    /* ── Privacy Promise ────────────────────────────────────────────────────── */
+    .privacy-bg { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+    .privacy-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+    .privacy-icon { font-size: 48px; margin-bottom: 16px; }
+    .privacy-promise { font-size: clamp(20px, 3vw, 28px); font-weight: 600; line-height: 1.4; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .privacy-promise span { color: var(--accent); }
+    .privacy-detail { font-size: 16px; color: var(--text-secondary); }
+
     /* ── Download ───────────────────────────────────────────────────────────── */
     .download-section { padding: 96px 24px; text-align: center; background: linear-gradient(180deg, var(--bg-alt) 0%, #fff 100%); }
     .download-section h2 { margin-bottom: 16px; }
@@ -288,25 +410,171 @@
     .imprint-divider { border: none; border-top: 1px solid var(--border-strong); margin: 32px 0; }
     .imprint-notice { font-size: 13px; color: var(--text-tertiary); background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; line-height: 1.6; }
 
+    /* ── macOS-Banner (App-Store-Push für Mac-Safari/Chrome/Firefox) ───────── */
+    @keyframes slideInBottomRight {
+      from { transform: translate(20px, 20px); opacity: 0; }
+      to   { transform: translate(0, 0);       opacity: 1; }
+    }
+    .mac-banner {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      width: 360px;
+      max-width: calc(100vw - 32px);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18), 0 4px 12px rgba(0,0,0,0.08);
+      padding: 16px 18px 18px;
+    }
+    .mac-banner.show { display: block; animation: slideInBottomRight 0.45s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .mac-banner-close {
+      position: absolute; top: 8px; right: 8px;
+      background: none; border: 0; padding: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      color: var(--text-tertiary); font-size: 16px; line-height: 1;
+      cursor: pointer; transition: var(--transition);
+      font-family: var(--font);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mac-banner-close:hover { background: var(--bg-alt); color: var(--text); }
+    .mac-banner-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; padding-right: 24px; }
+    .mac-banner-icon { width: 56px; height: 56px; border-radius: 12px; flex-shrink: 0; box-shadow: var(--shadow-sm); }
+    .mac-banner-text { flex: 1; min-width: 0; }
+    .mac-banner-title { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 2px; color: var(--text); }
+    .mac-banner-sub { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+    .mac-banner-cta {
+      display: block;
+      background: var(--accent); color: #fff;
+      text-align: center;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .mac-banner-cta:hover { background: var(--accent-hover); opacity: 1; }
+
+    /* ── iPhone-Modal (App-Store-Push beim Mobile-Open) ────────────────────── */
+    @keyframes fadeInBackdrop { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUpModal {
+      from { transform: translateY(40px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .ios-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      animation: fadeInBackdrop 0.25s ease both;
+    }
+    .ios-modal.show { display: flex; }
+    .ios-modal-card {
+      background: #fff;
+      border-radius: 24px 24px 0 0;
+      padding: 28px 24px 36px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.25);
+      animation: slideUpModal 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both;
+      position: relative;
+    }
+    .ios-modal-handle {
+      width: 36px; height: 5px;
+      background: rgba(0,0,0,0.15);
+      border-radius: 999px;
+      margin: 0 auto 18px;
+    }
+    .ios-modal-icon-row { display: flex; justify-content: center; margin-bottom: 16px; }
+    .ios-modal-app-icon { width: 80px; height: 80px; border-radius: 18px; box-shadow: var(--shadow-lg); }
+    .ios-modal h3 { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .ios-modal p { text-align: center; font-size: 15px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 22px; }
+    .ios-modal-cta {
+      display: block;
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 16px 24px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      width: 100%;
+      transition: var(--transition);
+      box-shadow: 0 6px 18px rgba(79,127,255,0.4);
+    }
+    .ios-modal-cta:hover { background: var(--accent-hover); opacity: 1; }
+    .ios-modal-secondary {
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: var(--text-secondary);
+      border: 0;
+      padding: 14px;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+    .ios-modal-secondary:hover { color: var(--text); }
+
     /* ── Footer ─────────────────────────────────────────────────────────────── */
-    .site-footer { background: var(--bg-dark); padding: 40px 24px; }
+    .site-footer { background: var(--bg-dark); padding: 48px 24px; }
     .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
     .footer-logo { display: flex; align-items: center; gap: 10px; }
     .footer-logo-icon { width: 32px; height: 32px; border-radius: 8px; overflow: hidden; flex-shrink: 0; }
     .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: rgba(255,255,255,0.7); }
     .footer-logo-main span { color: var(--accent); }
     .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
-    .footer-brand-line a { color: rgba(255,255,255,0.5); }
+    .footer-brand-line a { color: rgba(255,255,255,0.55); }
     .footer-brand-line a:hover { color: #fff; opacity: 1; }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
     .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
     .footer-links a:hover { color: #fff; opacity: 1; }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
-    .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
-    .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 12px; }
+
+    .footer-apps {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      width: 100%;
+    }
+    .footer-apps-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
+    }
     .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
-    .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
+    .footer-app-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px 6px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s;
+    }
+    .footer-app-pill:hover {
+      border-color: rgba(79,127,255,0.5);
+      color: #fff;
+      background: rgba(79,127,255,0.08);
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+    .footer-app-pill img {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: block;
+    }
 
     /* ── Responsive ─────────────────────────────────────────────────────────── */
     @media (max-width: 640px) {
@@ -318,99 +586,29 @@
       .pricing-grid { grid-template-columns: 1fr; }
       .app-preview { margin-top: 40px; }
     }
-
-    /* ── Mobile App Banner ──────────────────────────────────────────────────── */
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to   { transform: translateY(0);     opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(0);     opacity: 1; }
-      to   { transform: translateY(-100%); opacity: 0; }
-    }
-    .mobile-banner {
-      display: none;
-      background: linear-gradient(135deg, #001a4d 0%, #002a7a 50%, #001a4d 100%);
-      border-bottom: 1px solid rgba(79,127,255,0.35);
-      position: relative;
-      overflow: hidden;
-      animation: slideDown 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both;
-    }
-    .mobile-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 120% at 50% -20%, rgba(79,127,255,0.2) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .mobile-banner-inner {
-      padding: 20px 20px 18px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      position: relative;
-    }
-    .mobile-banner-icon {
-      width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0;
-      overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-    .mobile-banner-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .mobile-banner-content { flex: 1; }
-    .mobile-banner-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(79,127,255,0.2); border: 1px solid rgba(79,127,255,0.4);
-      border-radius: 20px; padding: 3px 10px;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
-      text-transform: uppercase; color: #7fa8ff; margin-bottom: 6px;
-    }
-    .mobile-banner-pill-dot {
-      width: 5px; height: 5px; background: #34C759;
-      border-radius: 50%;
-    }
-    .mobile-banner-title {
-      font-size: 15px; font-weight: 700; color: #fff;
-      letter-spacing: -0.02em; margin-bottom: 2px;
-    }
-    .mobile-banner-sub {
-      font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.4;
-    }
-    .mobile-banner-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #4F7FFF; color: #fff;
-      font-size: 13px; font-weight: 700;
-      padding: 9px 16px; border-radius: 20px;
-      text-decoration: none; flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(79,127,255,0.4);
-    }
-    .mobile-banner-close {
-      position: absolute; top: 10px; right: 12px;
-      background: none; border: none; color: rgba(255,255,255,0.4);
-      font-size: 16px; cursor: pointer; padding: 4px;
-      line-height: 1;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Mobile App Banner (nur iPhone) -->
-  <div class="mobile-banner" id="mobileBanner">
-    <button class="mobile-banner-close" id="mobileBannerClose" aria-label="Schließen">✕</button>
-    <div class="mobile-banner-inner">
-      <div class="mobile-banner-icon">
-        <img src="/icon-512.png" alt="eLadung GO">
+  <!-- ── Launch-Banner (oben, gradient, slide-down) ────────────────────────── -->
+  <div class="launch-banner">
+    <div class="launch-banner-inner">
+      <div class="launch-content">
+        <span class="launch-pill">
+          <span class="launch-pill-dot"></span>
+          <span data-i18n="launch_pill">Update v4.7 jetzt verfügbar</span>
+        </span>
+        <h2 class="launch-headline" data-i18n="launch_headline">Auto-Backup in iCloud Drive, <span class="accent">aufgeräumte Einstellungen</span> &amp; mehr Stabilität — frisch im App Store.</h2>
+        <p class="launch-sub" data-i18n="launch_sub">v4.7 bringt automatische Backups deiner Lade-Datenbank in dein iCloud Drive, eine vereinheitlichte Settings-Oberfläche, einen Live-Sprachwechsel sowie deutlich härtere Cold-Start-Robustheit auf iPhone und Mac.</p>
       </div>
-      <div class="mobile-banner-content">
-        <div class="mobile-banner-pill">
-          <span class="mobile-banner-pill-dot"></span>
-          Jetzt im App Store
-        </div>
-        <div class="mobile-banner-title">eLadung GO</div>
-        <div class="mobile-banner-sub">Ladekosten tracken · kostenlos · iPhone</div>
+      <div class="launch-cta-wrap">
+<a class="launch-btn appstore-link-platform" href="https://apps.apple.com/app/eladung-go/id6761632018">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+          <span data-i18n="launch_cta">Im App Store laden</span>
+        </a>
       </div>
-      <a class="mobile-banner-btn" href="https://apps.apple.com/us/app/eladung-go/id6761632018">
-        <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M14.6 10.2c-.01-1.72 1.4-2.54 1.46-2.58-.8-1.17-2.04-1.33-2.49-1.35-1.07-.1-2.08.62-2.62.62-.55 0-1.39-.6-2.28-.59-1.18.01-2.26.68-2.87 1.74-1.22 2.1-.31 5.22.88 6.93.57.82 1.26 1.75 2.17 1.72.87-.04 1.19-.56 2.24-.56 1.04 0 1.33.56 2.24.55.94-.02 1.54-.84 2.12-1.66.67-.94.95-1.85.96-1.89-.02 0-1.8-.7-1.81-2.93z" fill="currentColor"/><path d="M12.3 5.17c.48-.58.8-1.37.71-2.17-.68.03-1.5.45-1.99 1.03-.44.5-.82 1.28-.71 2.03.75.06 1.5-.38 1.99-.89z" fill="currentColor"/></svg>
-        Laden
-      </a>
     </div>
   </div>
 
@@ -421,14 +619,19 @@
         <div class="nav-logo-icon"><img src="/icon-512.png" alt="eLadung" width="36" height="36" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
         <div class="nav-logo-text">
           <span class="nav-logo-main">e<span>Ladung</span></span>
-          <span class="nav-logo-sub">eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
+          <span class="nav-logo-sub" data-i18n="nav_sub">eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
         </div>
       </a>
       <div class="nav-right">
-        <a class="nav-link" href="#funktionen">Funktionen</a>
-        <a class="nav-link" href="#preise">Preise</a>
-        <a class="nav-link" href="#faq">FAQ</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
+        <a class="nav-link" href="#funktionen" data-i18n="nav_features">Funktionen</a>
+        <a class="nav-link" href="#roadmap" data-i18n="nav_roadmap">Entwicklung</a>
+        <a class="nav-link" href="#preise" data-i18n="nav_pricing">Preise</a>
+        <a class="nav-link" href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a class="nav-cta appstore-link-platform" href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" data-i18n="nav_cta">Im App Store</a>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -438,29 +641,31 @@
     <div class="hero-inner">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Jetzt im App Store
+        <span data-i18n="hero_badge">Jetzt im App Store</span>
       </div>
-      <h1>Ladekosten<br><span>clever tracken.</span></h1>
-      <p class="hero-sub">
-        eLadung ist dein smarter Begleiter für Elektrofahrzeuge. Erfasse Ladevorgänge, analysiere Kosten und vergleiche Tarife – für Mac und iPhone.
+      <h1>
+        <span data-i18n="hero_h1_a">Ladekosten</span><br>
+        <span data-i18n="hero_h1_b">clever tracken.</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">
+        eLadung ist dein smarter Begleiter für Elektrofahrzeuge. Erfasse Ladevorgänge, analysiere Kosten und vergleiche Tarife — privat, lokal, mit iCloud-Sync zwischen iPhone und Mac.
       </p>
       <div class="hero-actions">
-        <a href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener" class="btn-primary">
+        <a href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" class="btn-primary appstore-link">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="1" width="10" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="12" r="1" fill="currentColor"/></svg>
-          iPhone – App Store
+          <span data-i18n="hero_btn_iphone">iPhone — App Store</span>
         </a>
-        <span class="hero-coming-soon">
+        <a href="https://apps.apple.com/app/eladung/id6760964990" target="_blank" rel="noopener" class="btn-secondary macappstore-link">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
-          Mac
-          <span class="coming-badge">App Store · bald</span>
-        </span>
+          <span data-i18n="hero_btn_mac">Mac — App Store</span>
+        </a>
       </div>
       <div class="hero-pills">
-        <span class="hero-pill">⚡ Ladekosten tracken</span>
-        <span class="hero-pill">📊 Verbrauch analysieren</span>
-        <span class="hero-pill">🚗 Mehrere Fahrzeuge</span>
-        <span class="hero-pill">🔒 Alle Daten lokal</span>
-        <span class="hero-pill">🆓 Gratis testen</span>
+        <span class="hero-pill" data-i18n="pill_track">⚡ Ladekosten tracken</span>
+        <span class="hero-pill" data-i18n="pill_analyze">📊 Verbrauch analysieren</span>
+        <span class="hero-pill" data-i18n="pill_multi">🚗 Mehrere Fahrzeuge</span>
+        <span class="hero-pill" data-i18n="pill_local">🔒 Alle Daten lokal</span>
+        <span class="hero-pill" data-i18n="pill_free">🆓 Gratis testen</span>
       </div>
 
       <!-- Schematische App-Vorschau -->
@@ -469,24 +674,24 @@
           <div class="titlebar-dot red"></div>
           <div class="titlebar-dot yellow"></div>
           <div class="titlebar-dot green"></div>
-          <div class="titlebar-title">eLadung — Dashboard</div>
+          <div class="titlebar-title" data-i18n="preview_title">eLadung — Dashboard</div>
         </div>
         <div class="app-preview-body">
           <div class="kpi-grid">
             <div class="kpi-card accent">
-              <div class="kpi-label">Kosten gesamt</div>
+              <div class="kpi-label" data-i18n="kpi_cost">Kosten gesamt</div>
               <div class="kpi-value">342<span> €</span></div>
             </div>
             <div class="kpi-card">
-              <div class="kpi-label">Geladen</div>
+              <div class="kpi-label" data-i18n="kpi_charged">Geladen</div>
               <div class="kpi-value">1.847<span> kWh</span></div>
             </div>
             <div class="kpi-card">
-              <div class="kpi-label">Verbrauch</div>
+              <div class="kpi-label" data-i18n="kpi_consumption">Verbrauch</div>
               <div class="kpi-value">18,5<span> kWh/100</span></div>
             </div>
             <div class="kpi-card">
-              <div class="kpi-label">Ø Preis/kWh</div>
+              <div class="kpi-label" data-i18n="kpi_avg">Ø Preis/kWh</div>
               <div class="kpi-value">0,18<span> €</span></div>
             </div>
           </div>
@@ -512,28 +717,28 @@
   <!-- Problem -->
   <section class="section section-alt">
     <div class="container">
-      <span class="section-label">Warum eLadung?</span>
-      <h2 class="section-headline">Du weißt nicht, was dein E-Auto wirklich kostet?</h2>
+      <span class="section-label" data-i18n="problem_label">Warum eLadung?</span>
+      <h2 class="section-headline" data-i18n="problem_title">Du weißt nicht, was dein E-Auto wirklich kostet?</h2>
       <div class="problem-grid">
         <div class="problem-card">
           <span class="problem-card-icon">🧾</span>
-          <h3>Unübersichtliche Abrechnungen</h3>
-          <p>Verschiedene Anbieter, unterschiedliche Tarife, mal kWh-basiert, mal pauschal – der Überblick geht schnell verloren.</p>
+          <h3 data-i18n="prob_1_title">Unübersichtliche Abrechnungen</h3>
+          <p data-i18n="prob_1_text">Verschiedene Anbieter, unterschiedliche Tarife, mal kWh-basiert, mal pauschal — der Überblick geht schnell verloren.</p>
         </div>
         <div class="problem-card">
           <span class="problem-card-icon">📉</span>
-          <h3>Kein Kostenvergleich</h3>
-          <p>Wie viel kostet Laden bei IONITY wirklich im Vergleich zur PV-Anlage zu Hause? Ohne Tracking keine Antwort.</p>
+          <h3 data-i18n="prob_2_title">Kein Kostenvergleich</h3>
+          <p data-i18n="prob_2_text">Wie viel kostet Laden bei IONITY wirklich im Vergleich zur PV-Anlage zu Hause? Ohne Tracking keine Antwort.</p>
         </div>
         <div class="problem-card">
           <span class="problem-card-icon">🚗</span>
-          <h3>Verbrauch im Dunkeln</h3>
-          <p>Welches Fahrzeug ist effizienter? Wie hat sich der Verbrauch über die Jahreszeiten verändert? Schwer zu sagen ohne Daten.</p>
+          <h3 data-i18n="prob_3_title">Verbrauch im Dunkeln</h3>
+          <p data-i18n="prob_3_text">Welches Fahrzeug ist effizienter? Wie hat sich der Verbrauch über die Jahreszeiten verändert? Schwer zu sagen ohne Daten.</p>
         </div>
         <div class="problem-card">
           <span class="problem-card-icon">💸</span>
-          <h3>Arbeitgeber-Erstattung</h3>
-          <p>Wer ein Elektroauto dienstlich nutzt, braucht Nachweise. Ohne strukturiertes Tracking fehlen die Daten für Arbeitgeber oder Steuerberater.</p>
+          <h3 data-i18n="prob_4_title">Arbeitgeber-Erstattung</h3>
+          <p data-i18n="prob_4_text">Wer ein Elektroauto dienstlich nutzt, braucht Nachweise. Ohne strukturiertes Tracking fehlen die Daten für Arbeitgeber oder Steuerberater.</p>
         </div>
       </div>
     </div>
@@ -542,87 +747,161 @@
   <!-- Features -->
   <section class="section" id="funktionen">
     <div class="container">
-      <span class="section-label">Funktionen</span>
-      <h2 class="section-headline">Alles, was du brauchst.</h2>
-      <p class="section-sub">Von der einfachen Erfassung bis zur Wirtschaftlichkeitsanalyse – eLadung deckt alles ab.</p>
+      <span class="section-label" data-i18n="features_label">Funktionen</span>
+      <h2 class="section-headline" data-i18n="features_title">Alles, was du brauchst.</h2>
+      <p class="section-sub" data-i18n="features_sub">Von der einfachen Erfassung bis zur Wirtschaftlichkeitsanalyse — eLadung deckt alles ab.</p>
       <div class="features-grid">
+
+        <!-- v4.7 NEU: Auto-Backup -->
+        <div class="feature-item new">
+          <span class="new-pill" data-i18n="new_pill">v4.7 NEU</span>
+          <div class="feature-icon">💾</div>
+          <div>
+            <h3 data-i18n="feat_backup_title">Auto-Backup in iCloud Drive</h3>
+            <p data-i18n="feat_backup_text">Automatische, datierte Sicherung deiner kompletten Lade-Datenbank in einen Ordner deiner Wahl in iCloud Drive — keine Drittanbieter, kein Konto, alles unter deiner Kontrolle.</p>
+          </div>
+        </div>
+
+        <!-- v4.7 NEU: Cold-Start-Robustheit -->
+        <div class="feature-item new">
+          <span class="new-pill" data-i18n="new_pill">v4.7 NEU</span>
+          <div class="feature-icon">🛡️</div>
+          <div>
+            <h3 data-i18n="feat_stability_title">Cold-Start-Robustheit</h3>
+            <p data-i18n="feat_stability_text">Härteres Bootstrap auf iPhone und Mac — eLadung startet zuverlässig, selbst ohne aktiven iCloud-Login oder bei leerer Datenbank. Keine Frühe-Lebenszeichen-Probleme mehr.</p>
+          </div>
+        </div>
+
+        <!-- v4.7 NEU: Vereinheitlichte Einstellungen + Live-Sprachwechsel -->
+        <div class="feature-item new">
+          <span class="new-pill" data-i18n="new_pill">v4.7 NEU</span>
+          <div class="feature-icon">🌐</div>
+          <div>
+            <h3 data-i18n="feat_settings_title">Aufgeräumte Einstellungen</h3>
+            <p data-i18n="feat_settings_text">Vereinheitlichte Settings-Oberfläche im torecon-Portfolio-Standard, inklusive Live-Sprachwechsel zwischen Deutsch und Englisch ohne App-Neustart.</p>
+          </div>
+        </div>
+
         <div class="feature-item">
           <div class="feature-icon">📊</div>
           <div>
-            <h3>Smartes Dashboard</h3>
-            <p>KPI-Kacheln, Monats-Charts und Anbietervergleich auf einen Blick. Drill-Down auf jeden Monat mit einem Klick.</p>
+            <h3 data-i18n="feat_dashboard_title">Smartes Dashboard</h3>
+            <p data-i18n="feat_dashboard_text">KPI-Kacheln, Monats-Charts und Anbietervergleich auf einen Blick. Drill-Down auf jeden Monat mit einem Klick.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">⚡</div>
           <div>
-            <h3>Einfache Erfassung</h3>
-            <p>Ladevorgang in Sekunden eingetragen. Autofill für Preise und Anbieter, km-Plausibilitätsprüfung inklusive.</p>
+            <h3 data-i18n="feat_capture_title">Einfache Erfassung</h3>
+            <p data-i18n="feat_capture_text">Ladevorgang in Sekunden eingetragen. Autofill für Preise und Anbieter, km-Plausibilitätsprüfung inklusive.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🏠</div>
           <div>
-            <h3>Heim vs. Fremdladen</h3>
-            <p>Trenne Heimladung (PV-Anlage oder Netz) von öffentlichem Laden. Sieh auf Anhieb, wo du am günstigsten lädst.</p>
+            <h3 data-i18n="feat_home_title">Heim vs. Fremdladen</h3>
+            <p data-i18n="feat_home_text">Trenne Heimladung (PV-Anlage oder Netz) von öffentlichem Laden. Sieh auf Anhieb, wo du am günstigsten lädst.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🔄</div>
           <div>
-            <h3>Tarifvergleich</h3>
-            <p>What-if-Analyse: Wäre ein Abo-Tarif bei deinem Ladeverhalten günstiger als Pay-per-Use? eLadung rechnet es vor.</p>
+            <h3 data-i18n="feat_tariff_title">Tarifvergleich</h3>
+            <p data-i18n="feat_tariff_text">What-if-Analyse: Wäre ein Abo-Tarif bei deinem Ladeverhalten günstiger als Pay-per-Use? eLadung rechnet es vor.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🚘</div>
           <div>
-            <h3>Mehrere Fahrzeuge</h3>
-            <p>Verwalte Fahrzeug-Profile mit Batteriegrößen und Zielverbräuchen. Perfekt für Haushalte mit mehreren E-Autos.</p>
+            <h3 data-i18n="feat_multi_title">Mehrere Fahrzeuge</h3>
+            <p data-i18n="feat_multi_text">Verwalte Fahrzeug-Profile mit Batteriegrößen und Zielverbräuchen. Perfekt für Haushalte mit mehreren E-Autos.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">📄</div>
           <div>
-            <h3>PDF-Export</h3>
-            <p>Statistiken als PDF exportieren – für die Steuererklärung, den Arbeitgeber oder einfach zur Dokumentation.</p>
+            <h3 data-i18n="feat_pdf_title">PDF-Export</h3>
+            <p data-i18n="feat_pdf_text">Statistiken als PDF exportieren — für die Steuererklärung, den Arbeitgeber oder einfach zur Dokumentation.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🔒</div>
           <div>
-            <h3>Daten bleiben lokal</h3>
-            <p>Alle Ladedaten liegen lokal auf deinem Gerät. Optionale iCloud-Synchronisation hält Mac und iPhone automatisch aktuell — deine Daten bleiben ausschließlich bei dir.</p>
+            <h3 data-i18n="feat_local_title">Daten bleiben lokal</h3>
+            <p data-i18n="feat_local_text">Alle Ladedaten liegen lokal auf deinem Gerät. Optionale iCloud-Synchronisation hält Mac und iPhone automatisch aktuell — deine Daten bleiben ausschließlich bei dir.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🌙</div>
           <div>
-            <h3>Dark Mode & Themes</h3>
-            <p>Native Apple-Oberfläche mit Dark Mode, anpassbarer Akzentfarbe und individualisierbaren Kachel-Farben. Auf Mac und iPhone.</p>
+            <h3 data-i18n="feat_themes_title">Dark Mode &amp; Themes</h3>
+            <p data-i18n="feat_themes_text">Native Apple-Oberfläche mit Dark Mode, anpassbarer Akzentfarbe und individualisierbaren Kachel-Farben. Auf Mac und iPhone.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🔍</div>
           <div>
-            <h3>Spotlight-Integration</h3>
-            <p>Ladevorgänge direkt über macOS Spotlight finden. Siri-Shortcuts für schnellen Zugriff auf deine Statistiken.</p>
+            <h3 data-i18n="feat_spotlight_title">Spotlight-Integration</h3>
+            <p data-i18n="feat_spotlight_text">Ladevorgänge direkt über macOS Spotlight finden. Siri-Shortcuts für schnellen Zugriff auf deine Statistiken.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">☁️</div>
           <div>
-            <h3>iCloud Sync</h3>
-            <p>Mac und iPhone immer synchron — ohne Cloud-Konto bei uns. eLadung nutzt dein persönliches iCloud Drive, vollständig unter deiner Kontrolle.</p>
+            <h3 data-i18n="feat_sync_title">iCloud Sync</h3>
+            <p data-i18n="feat_sync_text">Mac und iPhone immer synchron — ohne Cloud-Konto bei uns. eLadung nutzt dein persönliches iCloud Drive, vollständig unter deiner Kontrolle.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">📈</div>
           <div>
-            <h3>Kostenprognose</h3>
-            <p>eLadung schätzt deine Monatskosten basierend auf deinem bisherigen Ladeverhalten — damit du weißt, wo du am Ende des Monats stehst.</p>
+            <h3 data-i18n="feat_forecast_title">Kostenprognose</h3>
+            <p data-i18n="feat_forecast_text">eLadung schätzt deine Monatskosten basierend auf deinem bisherigen Ladeverhalten — damit du weißt, wo du am Ende des Monats stehst.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap / Permanent weiterentwickelt -->
+  <section class="section roadmap-bg" id="roadmap">
+    <div class="container">
+      <span class="section-label text-center" style="display:block;" data-i18n="roadmap_label">Permanent weiterentwickelt</span>
+      <h2 class="section-headline text-center" data-i18n="roadmap_title">Eine App, die mit dir wächst.</h2>
+      <p class="section-sub section-sub-center" data-i18n="roadmap_sub">Wir veröffentlichen regelmäßig Updates — angetrieben von Nutzer-Feedback, Apple-Plattform-Innovationen und neuen Anforderungen aus dem Alltag mit dem E-Auto. Was bisher kam und was als nächstes ansteht:</p>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-card delivered">
+          <span class="roadmap-tag" data-i18n="roadmap_done_tag">Bereits geliefert</span>
+          <h3 data-i18n="roadmap_done_title">v3.x bis v4.7</h3>
+          <ul>
+            <li data-i18n="rm_done_1">Universal-App für iPhone und Mac mit iCloud-Sync</li>
+            <li data-i18n="rm_done_2">Detailliertes Dashboard mit Charts &amp; Drill-Down</li>
+            <li data-i18n="rm_done_3">Heim- vs. Fremdladen-Trennung mit PV/Netz-Aufteilung</li>
+            <li data-i18n="rm_done_4">Tarifvergleich &amp; What-if-Wirtschaftlichkeitsanalyse</li>
+            <li data-i18n="rm_done_5">PDF-Export für Steuer und Arbeitgeber-Erstattung</li>
+            <li data-i18n="rm_done_6">Schema-Migrations-Disziplin (Datenintegritäts-Welle v4.6.x)</li>
+            <li data-i18n="rm_done_7">Auto-Backup in iCloud Drive (v4.7)</li>
+            <li data-i18n="rm_done_8">Cold-Start-Robustheit auf iPhone &amp; Mac (v4.7)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card coming">
+          <span class="roadmap-tag" data-i18n="roadmap_next_tag">Als nächstes</span>
+          <h3 data-i18n="roadmap_next_title">v4.8 und weiter</h3>
+          <ul>
+            <li data-i18n="rm_next_1">Tiered-Lizenz-Modell (Free + Premium ohne Hard-Paywall)</li>
+            <li data-i18n="rm_next_2">Natives iPad-Layout mit NavigationSplitView</li>
+            <li data-i18n="rm_next_3">Fahrzeug-Bild im Profil &amp; in Listen</li>
+            <li data-i18n="rm_next_4">Onboarding-Flow für neue Nutzer</li>
+            <li data-i18n="rm_next_5">Dienstfahrzeug-Modus mit offiziellem Strompreis-Referenzwert</li>
+            <li data-i18n="rm_next_6">Beleg-Scan beim Erfassen (KI-OCR)</li>
+            <li data-i18n="rm_next_7">macOS-UX-Konsolidierung &amp; Menüführungs-Refactor</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="roadmap-promise">
+        <p data-i18n="roadmap_promise">eLadung ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser. Daran kommt keine Tracking-App für Elektrofahrzeuge vorbei, die mit der Zeit gehen will.</p>
       </div>
     </div>
   </section>
@@ -630,26 +909,26 @@
   <!-- Platforms -->
   <section class="section section-alt" id="platforms">
     <div class="container">
-      <span class="section-label">Verfügbarkeit</span>
-      <h2 class="section-headline text-center">Auf deinen Apple-Geräten.</h2>
-      <p class="section-sub section-sub-center">eLadung GO ist jetzt für iPhone im App Store verfügbar. Die Mac-App folgt in Kürze.</p>
+      <span class="section-label" data-i18n="platforms_label">Verfügbarkeit</span>
+      <h2 class="section-headline text-center" data-i18n="platforms_title">Auf deinen Apple-Geräten.</h2>
+      <p class="section-sub section-sub-center" data-i18n="platforms_sub">eLadung GO für iPhone und eLadung für Mac sind jetzt im App Store verfügbar — mit nahtloser iCloud-Sync zwischen beiden.</p>
       <div class="platform-grid">
-        <div class="platform-card soon">
+        <div class="platform-card">
           <span class="platform-icon">💻</span>
-          <h3>Mac</h3>
-          <p>Die vollständige eLadung-Erfahrung: NavigationSplitView, Charts, Menüleisten-Schnellzugriff, PDF-Export und mehr. Optimiert für macOS 14 Sonoma und neuer.</p>
-          <div class="platform-status soon-status">
-            <div class="status-dot soon-dot"></div>
-            App Store · bald
+          <h3 data-i18n="plat_mac_title">Mac</h3>
+          <p data-i18n="plat_mac_text">Die vollständige eLadung-Erfahrung: NavigationSplitView, Charts, Menüleisten-Schnellzugriff, PDF-Export und mehr. Optimiert für macOS 14 Sonoma und neuer.</p>
+          <div class="platform-status" style="color:var(--accent-green);">
+            <div class="status-dot" style="background:var(--accent-green);"></div>
+            <a href="https://apps.apple.com/app/eladung/id6760964990" target="_blank" rel="noopener" class="macappstore-link" style="color:var(--accent-green); font-weight:600;" data-i18n="plat_mac_status">Im Mac App Store</a>
           </div>
         </div>
         <div class="platform-card">
           <span class="platform-icon">📱</span>
-          <h3>iPhone</h3>
-          <p>eLadung GO für unterwegs: Ladevorgang schnell erfassen, Dashboard im Blick, Wirtschaftlichkeitsanalyse und Tarifvergleich. Nahtlose iCloud-Sync mit der Mac-App.</p>
+          <h3 data-i18n="plat_iphone_title">iPhone</h3>
+          <p data-i18n="plat_iphone_text">eLadung GO für unterwegs: Ladevorgang schnell erfassen, Dashboard im Blick, Wirtschaftlichkeitsanalyse und Tarifvergleich. Nahtlose iCloud-Sync mit der Mac-App.</p>
           <div class="platform-status" style="color:var(--accent-green);">
             <div class="status-dot" style="background:var(--accent-green);"></div>
-            <a href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener" style="color:var(--accent-green); font-weight:600;">Im App Store</a>
+            <a href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" class="appstore-link" style="color:var(--accent-green); font-weight:600;" data-i18n="plat_iphone_status">Im App Store</a>
           </div>
         </div>
       </div>
@@ -659,97 +938,113 @@
   <!-- Pricing -->
   <section class="section" id="preise">
     <div class="container">
-      <span class="section-label text-center" style="display:block;">Preise</span>
-      <h2 class="section-headline text-center">Fair und transparent.</h2>
-      <p class="section-sub section-sub-center">Einführungsangebot bis 31.12.2026 — Monatsabo mit 2 Wochen gratis, Jahresabo mit 1 Monat gratis. Jederzeit kündbar.</p>
+      <span class="section-label text-center" style="display:block;" data-i18n="pricing_label">Preise</span>
+      <h2 class="section-headline text-center" data-i18n="pricing_title">Fair und transparent.</h2>
+      <p class="section-sub section-sub-center" data-i18n="pricing_sub">Einführungsangebot bis 31.12.2026 — Monatsabo mit 2 Wochen gratis, Jahresabo mit 1 Monat gratis. Jederzeit kündbar.</p>
       <div class="pricing-grid">
         <div class="pricing-card featured">
-          <div class="pricing-plan">Jährlich</div>
-          <div class="pricing-price">8,99 €<span class="pricing-save">24% gespart</span></div>
-          <div class="pricing-period">pro Jahr · 0,75 €/Monat · jederzeit kündbar</div>
+          <div class="pricing-plan" data-i18n="price_year">Jährlich</div>
+          <div class="pricing-price">8,99 €<span class="pricing-save" data-i18n="price_save">24% gespart</span></div>
+          <div class="pricing-period" data-i18n="price_year_period">pro Jahr · 0,75 €/Monat · jederzeit kündbar</div>
           <ul class="pricing-features">
-            <li><strong>1 Monat gratis testen</strong> (bis 31.12.2026)</li>
-            <li>Unbegrenzte Ladevorgänge</li>
-            <li>Dashboard, Charts &amp; Prognosen</li>
-            <li>Wirtschaftlichkeitsanalyse</li>
-            <li>PDF-Export, Spotlight &amp; Siri</li>
+            <li><strong data-i18n="price_year_trial">1 Monat gratis testen</strong> <span data-i18n="price_until">(bis 31.12.2026)</span></li>
+            <li data-i18n="price_unlimited">Unbegrenzte Ladevorgänge</li>
+            <li data-i18n="price_dashboard">Dashboard, Charts &amp; Prognosen</li>
+            <li data-i18n="price_analysis">Wirtschaftlichkeitsanalyse</li>
+            <li data-i18n="price_pdf">PDF-Export, Spotlight &amp; Siri</li>
           </ul>
-          <a class="pricing-cta" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
+          <a class="pricing-cta appstore-link" href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" data-i18n="price_cta">Im App Store</a>
         </div>
         <div class="pricing-card">
-          <div class="pricing-plan">Monatlich</div>
+          <div class="pricing-plan" data-i18n="price_month">Monatlich</div>
           <div class="pricing-price">0,99 €</div>
-          <div class="pricing-period">pro Monat · jederzeit kündbar</div>
+          <div class="pricing-period" data-i18n="price_month_period">pro Monat · jederzeit kündbar</div>
           <ul class="pricing-features">
-            <li><strong>2 Wochen gratis testen</strong> (bis 31.12.2026)</li>
-            <li>Unbegrenzte Ladevorgänge</li>
-            <li>Dashboard, Charts &amp; Prognosen</li>
-            <li>Wirtschaftlichkeitsanalyse</li>
-            <li>PDF-Export, Spotlight &amp; Siri</li>
+            <li><strong data-i18n="price_month_trial">2 Wochen gratis testen</strong> <span data-i18n="price_until">(bis 31.12.2026)</span></li>
+            <li data-i18n="price_unlimited">Unbegrenzte Ladevorgänge</li>
+            <li data-i18n="price_dashboard">Dashboard, Charts &amp; Prognosen</li>
+            <li data-i18n="price_analysis">Wirtschaftlichkeitsanalyse</li>
+            <li data-i18n="price_pdf">PDF-Export, Spotlight &amp; Siri</li>
           </ul>
-          <a class="pricing-cta-secondary" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
+          <a class="pricing-cta-secondary appstore-link" href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" data-i18n="price_cta">Im App Store</a>
         </div>
         <div class="pricing-card">
-          <div class="pricing-plan">Einmalig</div>
+          <div class="pricing-plan" data-i18n="price_once">Einmalig</div>
           <div class="pricing-price">44,99 €</div>
-          <div class="pricing-period">einmalig, dauerhafter Zugang</div>
+          <div class="pricing-period" data-i18n="price_once_period">einmalig, dauerhafter Zugang</div>
           <ul class="pricing-features">
-            <li>Alles inklusive</li>
-            <li>Kein Abo, zahle einmal</li>
-            <li>Alle zukünftigen Updates</li>
-            <li>Unterstütze die Entwicklung</li>
+            <li data-i18n="price_once_1">Alles inklusive</li>
+            <li data-i18n="price_once_2">Kein Abo, zahle einmal</li>
+            <li data-i18n="price_once_3">Alle zukünftigen Updates</li>
+            <li data-i18n="price_once_4">Unterstütze die Entwicklung</li>
           </ul>
-          <a class="pricing-cta-secondary" href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener">Im App Store</a>
+          <a class="pricing-cta-secondary appstore-link" href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" data-i18n="price_cta">Im App Store</a>
         </div>
       </div>
-      <p class="pricing-note">Preise für die iOS-App eLadung GO. Abonnements werden über Apple abgerechnet, Kündigung jederzeit unter Apple-ID → Abonnements. Die macOS-App kommt mit eigener Preisstruktur.</p>
+      <p class="pricing-note" data-i18n="price_note">Preise für die iOS-App eLadung GO. Abonnements werden über Apple abgerechnet, Kündigung jederzeit unter Apple-ID → Abonnements. Die macOS-App eLadung hat im Mac App Store eine eigene Preisstruktur.</p>
+    </div>
+  </section>
+
+  <!-- Privacy Promise -->
+  <section class="section privacy-bg">
+    <div class="container">
+      <div class="privacy-inner">
+        <div class="privacy-icon">🔒</div>
+        <p class="privacy-promise" data-i18n="privacy_promise">
+          Deine Ladedaten bleiben in <span>deiner iCloud</span>.<br>
+          Wir sehen sie nie.
+        </p>
+        <p class="privacy-detail" data-i18n="privacy_detail">
+          Kein Konto, kein Tracking, keine Werbung, keine Drittanbieter-SDKs. Alle Ladedaten liegen lokal auf deinem Gerät; optionale iCloud-Sync läuft vollständig in deiner privaten iCloud-Datenbank — niemand bei torecon hat Zugriff. <a href="/privacy/" data-i18n="privacy_link">Volle Datenschutzerklärung</a>.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- App Store -->
-  <section class="download-section" id="platforms">
-    <h2>Jetzt im App Store.</h2>
-    <p>Einführungsangebot bis 31.12.2026: Monatsabo 2 Wochen gratis · Jahresabo 1 Monat gratis – direkt über den App Store.</p>
+  <section class="download-section">
+    <h2 data-i18n="download_title">Jetzt im App Store.</h2>
+    <p data-i18n="download_sub">Einführungsangebot bis 31.12.2026: Monatsabo 2 Wochen gratis · Jahresabo 1 Monat gratis — direkt über den App Store.</p>
     <div class="download-actions">
-      <a href="https://apps.apple.com/us/app/eladung-go/id6761632018" target="_blank" rel="noopener" class="btn-primary">
+      <a href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" class="btn-primary appstore-link">
         <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="3" y="1" width="10" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="12" r="1" fill="currentColor"/></svg>
-        eLadung GO – iPhone
+        <span data-i18n="download_iphone">eLadung GO — iPhone</span>
         <span style="font-size:12px; font-weight:400; opacity:0.8;">iOS 17+</span>
       </a>
-      <span class="hero-coming-soon">
+      <a href="https://apps.apple.com/app/eladung/id6760964990" target="_blank" rel="noopener" class="btn-primary macappstore-link">
         <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
-        eLadung – Mac
-        <span class="coming-badge">bald</span>
-      </span>
+        <span data-i18n="download_mac">eLadung — Mac</span>
+        <span style="font-size:12px; font-weight:400; opacity:0.8;">macOS 14+</span>
+      </a>
     </div>
-    <p style="font-size:14px; color:var(--text-tertiary); margin-top:24px;">Fragen? <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+    <p style="font-size:14px; color:var(--text-tertiary); margin-top:24px;"><span data-i18n="download_questions">Fragen?</span> <a href="mailto:info@torecon.de">info@torecon.de</a></p>
   </section>
 
   <!-- FAQ -->
   <section class="section section-alt" id="faq">
     <div class="container">
-      <span class="section-label">Häufige Fragen</span>
-      <h2 class="section-headline">Gute Fragen.</h2>
+      <span class="section-label" data-i18n="faq_label">Häufige Fragen</span>
+      <h2 class="section-headline" data-i18n="faq_title">Gute Fragen.</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <h3>Wie funktioniert die kostenlose Testphase?</h3>
-          <p>Beim <strong>Monatsabo</strong> sind die ersten 14 Tage kostenlos, beim <strong>Jahresabo</strong> der erste Monat. Das Einführungsangebot läuft über den App Store und gilt bis 31.12.2026. Wenn du vor Ablauf der Testphase kündigst, fällt keine Gebühr an. Deine Daten bleiben auch nach einer Kündigung lesbar, analysierbar und exportierbar — neue Ladevorgänge erfassen geht dann nur mit einem aktiven Abo oder Einmalkauf.</p>
+          <h3 data-i18n="faq_1_q">Wie funktioniert die kostenlose Testphase?</h3>
+          <p data-i18n="faq_1_a">Beim <strong>Monatsabo</strong> sind die ersten 14 Tage kostenlos, beim <strong>Jahresabo</strong> der erste Monat. Das Einführungsangebot läuft über den App Store und gilt bis 31.12.2026. Wenn du vor Ablauf der Testphase kündigst, fällt keine Gebühr an. Deine Daten bleiben auch nach einer Kündigung lesbar, analysierbar und exportierbar — neue Ladevorgänge erfassen geht dann nur mit einem aktiven Abo oder Einmalkauf.</p>
         </div>
         <div class="faq-item">
-          <h3>Werden meine Daten gelöscht?</h3>
-          <p>Nein. Deine Daten gehören dir und bleiben auf deinem Gerät — unabhängig davon, ob du ein Abo hast oder nicht.</p>
+          <h3 data-i18n="faq_2_q">Werden meine Daten gelöscht?</h3>
+          <p data-i18n="faq_2_a">Nein. Deine Daten gehören dir und bleiben auf deinem Gerät — unabhängig davon, ob du ein Abo hast oder nicht.</p>
         </div>
         <div class="faq-item">
-          <h3>Auf wie vielen Geräten kann ich eLadung nutzen?</h3>
-          <p>Du kannst eLadung auf all deinen Apple-Geräten mit derselben Apple-ID nutzen. Mac und iPhone synchronisieren sich automatisch über iCloud.</p>
+          <h3 data-i18n="faq_3_q">Auf wie vielen Geräten kann ich eLadung nutzen?</h3>
+          <p data-i18n="faq_3_a">Du kannst eLadung auf all deinen Apple-Geräten mit derselben Apple-ID nutzen. Mac und iPhone synchronisieren sich automatisch über iCloud.</p>
         </div>
         <div class="faq-item">
-          <h3>Wie kündige ich das Abo?</h3>
-          <p>Abonnements werden über Apple abgewickelt und können jederzeit in den Systemeinstellungen unter Apple-ID → Abonnements gekündigt werden.</p>
+          <h3 data-i18n="faq_4_q">Wie kündige ich das Abo?</h3>
+          <p data-i18n="faq_4_a">Abonnements werden über Apple abgewickelt und können jederzeit in den Systemeinstellungen unter Apple-ID → Abonnements gekündigt werden.</p>
         </div>
         <div class="faq-item">
-          <h3>Kann ich meine Daten exportieren?</h3>
-          <p>Ja. Du kannst jederzeit einen PDF-Bericht exportieren oder die vollständige Datenbankdatei sichern — zum Beispiel als Nachweis für den Arbeitgeber oder die Steuer.</p>
+          <h3 data-i18n="faq_5_q">Kann ich meine Daten exportieren?</h3>
+          <p data-i18n="faq_5_a">Ja. Du kannst jederzeit einen PDF-Bericht exportieren oder die vollständige Datenbankdatei sichern — zum Beispiel als Nachweis für den Arbeitgeber oder die Steuer. Mit v4.7 läuft zusätzlich ein Auto-Backup in dein iCloud Drive.</p>
         </div>
       </div>
     </div>
@@ -758,52 +1053,81 @@
   <!-- Impressum -->
   <section class="imprint-section" id="impressum">
     <div class="imprint-inner">
-      <h2>Impressum</h2>
+      <h2 data-i18n="imprint_h">Impressum</h2>
 
       <div class="imprint-block">
-        <h3>Anbieter</h3>
+        <h3 data-i18n="imprint_provider">Anbieter</h3>
         <address>
           Thomas Reinke<br>
           torecon<br>
           Roesgenstr. 22<br>
           53474 Ahrweiler<br>
-          Deutschland
+          <span data-i18n="imprint_country">Deutschland</span>
         </address>
       </div>
 
       <div class="imprint-block">
-        <h3>Kontakt</h3>
+        <h3 data-i18n="imprint_contact">Kontakt</h3>
         <p>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a><br>
         Website: <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a></p>
       </div>
 
       <div class="imprint-block">
-        <h3>Handelsregister</h3>
-        <p>Keine Eintragung im Handelsregister.</p>
+        <h3 data-i18n="imprint_register">Handelsregister</h3>
+        <p data-i18n="imprint_register_text">Keine Eintragung im Handelsregister.</p>
       </div>
 
       <div class="imprint-block">
-        <h3>Umsatzsteuer-ID</h3>
-        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: auf Anfrage.</p>
+        <h3 data-i18n="imprint_vat">Umsatzsteuer-ID</h3>
+        <p data-i18n="imprint_vat_text">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: auf Anfrage.</p>
       </div>
 
       <div class="imprint-block">
-        <h3>Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV)</h3>
+        <h3 data-i18n="imprint_responsible">Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV)</h3>
         <p>Thomas Reinke<br>Roesgenstr. 22, 53474 Ahrweiler</p>
       </div>
 
       <hr class="imprint-divider">
 
       <div class="imprint-block">
-        <h3>Haftungsausschluss</h3>
-        <p>Die Inhalte dieser App und Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+        <h3 data-i18n="imprint_disclaimer">Haftungsausschluss</h3>
+        <p data-i18n="imprint_disclaimer_text">Die Inhalte dieser App und Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
       </div>
 
-      <div class="imprint-notice">
-        Dieses Impressum gilt für die Website <strong>eladung.torecon.de</strong> sowie die macOS- und iOS-App <strong>eLadung</strong> von torecon – Thomas Reinke.
+      <div class="imprint-notice" data-i18n="imprint_notice">
+        Dieses Impressum gilt für die Website <strong>eladung.torecon.de</strong> sowie die macOS- und iOS-App <strong>eLadung</strong> von torecon — Thomas Reinke.
       </div>
     </div>
   </section>
+
+  <!-- macOS-Banner: erscheint auf macOS (Safari/Chrome/Firefox), nicht auf iPad -->
+  <div class="mac-banner" id="macBanner" role="dialog" aria-labelledby="macBannerTitle">
+    <button class="mac-banner-close" id="macBannerClose" aria-label="Schließen">&times;</button>
+    <div class="mac-banner-row">
+      <img src="/icon-512.png" alt="" class="mac-banner-icon">
+      <div class="mac-banner-text">
+        <div class="mac-banner-title" id="macBannerTitle" data-i18n="mac_banner_title">eLadung für Mac</div>
+        <div class="mac-banner-sub" data-i18n="mac_banner_sub">Hol dir eLadung direkt aus dem Mac App Store — mit iCloud-Sync zu deinem iPhone.</div>
+      </div>
+    </div>
+    <a class="mac-banner-cta macappstore-link" href="https://apps.apple.com/app/eladung/id6760964990" id="macBannerCta" data-i18n="mac_banner_cta">Im Mac App Store öffnen</a>
+  </div>
+
+  <!-- iPhone-Modal: erscheint auf iPhone-Devices -->
+  <div class="ios-modal" id="iosModal" role="dialog" aria-modal="true" aria-labelledby="iosModalTitle">
+    <div class="ios-modal-card">
+      <div class="ios-modal-handle"></div>
+      <div class="ios-modal-icon-row">
+        <img src="/icon-512.png" alt="eLadung GO" class="ios-modal-app-icon">
+      </div>
+      <h3 id="iosModalTitle" data-i18n="modal_title">eLadung GO direkt im App Store</h3>
+      <p data-i18n="modal_sub">Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos starten, jederzeit kündbar.</p>
+      <a class="ios-modal-cta appstore-link" href="https://apps.apple.com/app/eladung-go/id6761632018" id="iosModalCta">
+        <span data-i18n="modal_cta">Im App Store öffnen</span>
+      </a>
+      <button type="button" class="ios-modal-secondary" id="iosModalDismiss" data-i18n="modal_dismiss">Auf der Webseite weiterlesen</button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -812,41 +1136,520 @@
         <div class="footer-logo-icon"><img src="/icon-512.png" alt="eLadung" width="32" height="32" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
         <span class="footer-logo-main">e<span>Ladung</span></span>
       </div>
-      <span class="footer-brand-line">eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> – Thomas Reinke</span>
+      <span class="footer-brand-line" data-i18n="footer_brand">eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — Thomas Reinke</span>
       <div class="footer-links">
-        <a href="/privacy/">Datenschutz</a>
-        <a href="/terms/">Nutzungsbedingungen</a>
-        <a href="#impressum">Impressum</a>
+        <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+        <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
+        <a href="#impressum" data-i18n="footer_imprint">Impressum</a>
         <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon.de</a>
       </div>
       <div class="footer-apps">
-        <span class="footer-apps-label">Weitere Apps von torecon</span>
+        <span class="footer-apps-label" data-i18n="footer_apps_label">Weitere Apps von torecon</span>
         <div class="footer-apps-pills">
-          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
-          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">⚡ ThinkLess AI</a>
-          <a class="footer-app-pill" href="https://getviolonge.torecon.de" target="_blank" rel="noopener">🌱 VioLonge AI</a>
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22">
+            <span>BrainBites AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22">
+            <span>ThinkLess AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener">
+            <img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22">
+            <span>Zettelküche AI</span>
+          </a>
         </div>
       </div>
-      <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
+      <span class="footer-copy">&copy; <span id="footer-year"></span> torecon &ndash; Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></span>
     </div>
   </footer>
 
   <script>
-    // Mobile App Banner – nur auf iPhone/iPad anzeigen
-    const banner = document.getElementById('mobileBanner');
-    const closeBtn = document.getElementById('mobileBannerClose');
-    const isMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const dismissed = localStorage.getItem('el_mobile_banner_v1');
+    // ── App-Store-URLs (Single-Source-of-Truth) ─────────────────────────────
+    const APP_STORE_URL     = 'https://apps.apple.com/app/eladung-go/id6761632018';
+    const MAC_APP_STORE_URL = 'https://apps.apple.com/app/eladung/id6760964990';
 
-    if (isMobile && !dismissed) {
-      banner.style.display = 'block';
+    // Footer-Year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── Übersetzungen ───────────────────────────────────────────────────────
+    const translations = {
+      de: {
+        nav_sub:           'eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_features:      'Funktionen',
+        nav_roadmap:       'Entwicklung',
+        nav_pricing:       'Preise',
+        nav_faq:           'FAQ',
+        nav_cta:           'Im App Store',
+
+        launch_pill:       'Update v4.7 jetzt verfügbar',
+        launch_headline:   'Auto-Backup in iCloud Drive, <span class="accent">aufgeräumte Einstellungen</span> &amp; mehr Stabilität — frisch im App Store.',
+        launch_sub:        'v4.7 bringt automatische Backups deiner Lade-Datenbank in dein iCloud Drive, eine vereinheitlichte Settings-Oberfläche, einen Live-Sprachwechsel sowie deutlich härtere Cold-Start-Robustheit auf iPhone und Mac.',
+        launch_cta:        'Im App Store laden',
+
+        hero_badge:        'Jetzt im App Store',
+        hero_h1_a:         'Ladekosten',
+        hero_h1_b:         'clever tracken.',
+        hero_sub:          'eLadung ist dein smarter Begleiter für Elektrofahrzeuge. Erfasse Ladevorgänge, analysiere Kosten und vergleiche Tarife — privat, lokal, mit iCloud-Sync zwischen iPhone und Mac.',
+        hero_btn_iphone:   'iPhone — App Store',
+        hero_btn_mac:      'Mac — App Store',
+
+        pill_track:        '⚡ Ladekosten tracken',
+        pill_analyze:      '📊 Verbrauch analysieren',
+        pill_multi:        '🚗 Mehrere Fahrzeuge',
+        pill_local:        '🔒 Alle Daten lokal',
+        pill_free:         '🆓 Gratis testen',
+
+        preview_title:     'eLadung — Dashboard',
+        kpi_cost:          'Kosten gesamt',
+        kpi_charged:       'Geladen',
+        kpi_consumption:   'Verbrauch',
+        kpi_avg:           'Ø Preis/kWh',
+
+        problem_label:     'Warum eLadung?',
+        problem_title:     'Du weißt nicht, was dein E-Auto wirklich kostet?',
+        prob_1_title:      'Unübersichtliche Abrechnungen',
+        prob_1_text:       'Verschiedene Anbieter, unterschiedliche Tarife, mal kWh-basiert, mal pauschal — der Überblick geht schnell verloren.',
+        prob_2_title:      'Kein Kostenvergleich',
+        prob_2_text:       'Wie viel kostet Laden bei IONITY wirklich im Vergleich zur PV-Anlage zu Hause? Ohne Tracking keine Antwort.',
+        prob_3_title:      'Verbrauch im Dunkeln',
+        prob_3_text:       'Welches Fahrzeug ist effizienter? Wie hat sich der Verbrauch über die Jahreszeiten verändert? Schwer zu sagen ohne Daten.',
+        prob_4_title:      'Arbeitgeber-Erstattung',
+        prob_4_text:       'Wer ein Elektroauto dienstlich nutzt, braucht Nachweise. Ohne strukturiertes Tracking fehlen die Daten für Arbeitgeber oder Steuerberater.',
+
+        features_label:    'Funktionen',
+        features_title:    'Alles, was du brauchst.',
+        features_sub:      'Von der einfachen Erfassung bis zur Wirtschaftlichkeitsanalyse — eLadung deckt alles ab.',
+        new_pill:          'v4.7 NEU',
+
+        feat_backup_title:    'Auto-Backup in iCloud Drive',
+        feat_backup_text:     'Automatische, datierte Sicherung deiner kompletten Lade-Datenbank in einen Ordner deiner Wahl in iCloud Drive — keine Drittanbieter, kein Konto, alles unter deiner Kontrolle.',
+        feat_stability_title: 'Cold-Start-Robustheit',
+        feat_stability_text:  'Härteres Bootstrap auf iPhone und Mac — eLadung startet zuverlässig, selbst ohne aktiven iCloud-Login oder bei leerer Datenbank. Keine Frühe-Lebenszeichen-Probleme mehr.',
+        feat_settings_title:  'Aufgeräumte Einstellungen',
+        feat_settings_text:   'Vereinheitlichte Settings-Oberfläche im torecon-Portfolio-Standard, inklusive Live-Sprachwechsel zwischen Deutsch und Englisch ohne App-Neustart.',
+
+        feat_dashboard_title: 'Smartes Dashboard',
+        feat_dashboard_text:  'KPI-Kacheln, Monats-Charts und Anbietervergleich auf einen Blick. Drill-Down auf jeden Monat mit einem Klick.',
+        feat_capture_title:   'Einfache Erfassung',
+        feat_capture_text:    'Ladevorgang in Sekunden eingetragen. Autofill für Preise und Anbieter, km-Plausibilitätsprüfung inklusive.',
+        feat_home_title:      'Heim vs. Fremdladen',
+        feat_home_text:       'Trenne Heimladung (PV-Anlage oder Netz) von öffentlichem Laden. Sieh auf Anhieb, wo du am günstigsten lädst.',
+        feat_tariff_title:    'Tarifvergleich',
+        feat_tariff_text:     'What-if-Analyse: Wäre ein Abo-Tarif bei deinem Ladeverhalten günstiger als Pay-per-Use? eLadung rechnet es vor.',
+        feat_multi_title:     'Mehrere Fahrzeuge',
+        feat_multi_text:      'Verwalte Fahrzeug-Profile mit Batteriegrößen und Zielverbräuchen. Perfekt für Haushalte mit mehreren E-Autos.',
+        feat_pdf_title:       'PDF-Export',
+        feat_pdf_text:        'Statistiken als PDF exportieren — für die Steuererklärung, den Arbeitgeber oder einfach zur Dokumentation.',
+        feat_local_title:     'Daten bleiben lokal',
+        feat_local_text:      'Alle Ladedaten liegen lokal auf deinem Gerät. Optionale iCloud-Synchronisation hält Mac und iPhone automatisch aktuell — deine Daten bleiben ausschließlich bei dir.',
+        feat_themes_title:    'Dark Mode &amp; Themes',
+        feat_themes_text:     'Native Apple-Oberfläche mit Dark Mode, anpassbarer Akzentfarbe und individualisierbaren Kachel-Farben. Auf Mac und iPhone.',
+        feat_spotlight_title: 'Spotlight-Integration',
+        feat_spotlight_text:  'Ladevorgänge direkt über macOS Spotlight finden. Siri-Shortcuts für schnellen Zugriff auf deine Statistiken.',
+        feat_sync_title:      'iCloud Sync',
+        feat_sync_text:       'Mac und iPhone immer synchron — ohne Cloud-Konto bei uns. eLadung nutzt dein persönliches iCloud Drive, vollständig unter deiner Kontrolle.',
+        feat_forecast_title:  'Kostenprognose',
+        feat_forecast_text:   'eLadung schätzt deine Monatskosten basierend auf deinem bisherigen Ladeverhalten — damit du weißt, wo du am Ende des Monats stehst.',
+
+        roadmap_label:     'Permanent weiterentwickelt',
+        roadmap_title:     'Eine App, die mit dir wächst.',
+        roadmap_sub:       'Wir veröffentlichen regelmäßig Updates — angetrieben von Nutzer-Feedback, Apple-Plattform-Innovationen und neuen Anforderungen aus dem Alltag mit dem E-Auto. Was bisher kam und was als nächstes ansteht:',
+        roadmap_done_tag:  'Bereits geliefert',
+        roadmap_done_title:'v3.x bis v4.7',
+        rm_done_1:         'Universal-App für iPhone und Mac mit iCloud-Sync',
+        rm_done_2:         'Detailliertes Dashboard mit Charts &amp; Drill-Down',
+        rm_done_3:         'Heim- vs. Fremdladen-Trennung mit PV/Netz-Aufteilung',
+        rm_done_4:         'Tarifvergleich &amp; What-if-Wirtschaftlichkeitsanalyse',
+        rm_done_5:         'PDF-Export für Steuer und Arbeitgeber-Erstattung',
+        rm_done_6:         'Schema-Migrations-Disziplin (Datenintegritäts-Welle v4.6.x)',
+        rm_done_7:         'Auto-Backup in iCloud Drive (v4.7)',
+        rm_done_8:         'Cold-Start-Robustheit auf iPhone &amp; Mac (v4.7)',
+        roadmap_next_tag:  'Als nächstes',
+        roadmap_next_title:'v4.8 und weiter',
+        rm_next_1:         'Tiered-Lizenz-Modell (Free + Premium ohne Hard-Paywall)',
+        rm_next_2:         'Natives iPad-Layout mit NavigationSplitView',
+        rm_next_3:         'Fahrzeug-Bild im Profil &amp; in Listen',
+        rm_next_4:         'Onboarding-Flow für neue Nutzer',
+        rm_next_5:         'Dienstfahrzeug-Modus mit offiziellem Strompreis-Referenzwert',
+        rm_next_6:         'Beleg-Scan beim Erfassen (KI-OCR)',
+        rm_next_7:         'macOS-UX-Konsolidierung &amp; Menüführungs-Refactor',
+        roadmap_promise:   'eLadung ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser. Daran kommt keine Tracking-App für Elektrofahrzeuge vorbei, die mit der Zeit gehen will.',
+
+        platforms_label:   'Verfügbarkeit',
+        platforms_title:   'Auf deinen Apple-Geräten.',
+        platforms_sub:     'eLadung GO für iPhone und eLadung für Mac sind jetzt im App Store verfügbar — mit nahtloser iCloud-Sync zwischen beiden.',
+        plat_mac_title:    'Mac',
+        plat_mac_text:     'Die vollständige eLadung-Erfahrung: NavigationSplitView, Charts, Menüleisten-Schnellzugriff, PDF-Export und mehr. Optimiert für macOS 14 Sonoma und neuer.',
+        plat_mac_status:   'Im Mac App Store',
+        plat_iphone_title: 'iPhone',
+        plat_iphone_text:  'eLadung GO für unterwegs: Ladevorgang schnell erfassen, Dashboard im Blick, Wirtschaftlichkeitsanalyse und Tarifvergleich. Nahtlose iCloud-Sync mit der Mac-App.',
+        plat_iphone_status:'Im App Store',
+
+        pricing_label:     'Preise',
+        pricing_title:     'Fair und transparent.',
+        pricing_sub:       'Einführungsangebot bis 31.12.2026 — Monatsabo mit 2 Wochen gratis, Jahresabo mit 1 Monat gratis. Jederzeit kündbar.',
+        price_year:        'Jährlich',
+        price_save:        '24% gespart',
+        price_year_period: 'pro Jahr · 0,75 €/Monat · jederzeit kündbar',
+        price_year_trial:  '1 Monat gratis testen',
+        price_until:       '(bis 31.12.2026)',
+        price_unlimited:   'Unbegrenzte Ladevorgänge',
+        price_dashboard:   'Dashboard, Charts &amp; Prognosen',
+        price_analysis:    'Wirtschaftlichkeitsanalyse',
+        price_pdf:         'PDF-Export, Spotlight &amp; Siri',
+        price_cta:         'Im App Store',
+        price_month:       'Monatlich',
+        price_month_period:'pro Monat · jederzeit kündbar',
+        price_month_trial: '2 Wochen gratis testen',
+        price_once:        'Einmalig',
+        price_once_period: 'einmalig, dauerhafter Zugang',
+        price_once_1:      'Alles inklusive',
+        price_once_2:      'Kein Abo, zahle einmal',
+        price_once_3:      'Alle zukünftigen Updates',
+        price_once_4:      'Unterstütze die Entwicklung',
+        price_note:        'Preise für die iOS-App eLadung GO. Abonnements werden über Apple abgerechnet, Kündigung jederzeit unter Apple-ID → Abonnements. Die macOS-App eLadung hat im Mac App Store eine eigene Preisstruktur.',
+
+        privacy_promise:   'Deine Ladedaten bleiben in <span>deiner iCloud</span>.<br>Wir sehen sie nie.',
+        privacy_detail:    'Kein Konto, kein Tracking, keine Werbung, keine Drittanbieter-SDKs. Alle Ladedaten liegen lokal auf deinem Gerät; optionale iCloud-Sync läuft vollständig in deiner privaten iCloud-Datenbank — niemand bei torecon hat Zugriff. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
+        privacy_link:      'Volle Datenschutzerklärung',
+
+        download_title:    'Jetzt im App Store.',
+        download_sub:      'Einführungsangebot bis 31.12.2026: Monatsabo 2 Wochen gratis · Jahresabo 1 Monat gratis — direkt über den App Store. Mac-Version mit eigener Preisstruktur.',
+        download_iphone:   'eLadung GO — iPhone',
+        download_mac:      'eLadung — Mac',
+        download_questions:'Fragen?',
+
+        faq_label:         'Häufige Fragen',
+        faq_title:         'Gute Fragen.',
+        faq_1_q:           'Wie funktioniert die kostenlose Testphase?',
+        faq_1_a:           'Beim <strong>Monatsabo</strong> sind die ersten 14 Tage kostenlos, beim <strong>Jahresabo</strong> der erste Monat. Das Einführungsangebot läuft über den App Store und gilt bis 31.12.2026. Wenn du vor Ablauf der Testphase kündigst, fällt keine Gebühr an. Deine Daten bleiben auch nach einer Kündigung lesbar, analysierbar und exportierbar — neue Ladevorgänge erfassen geht dann nur mit einem aktiven Abo oder Einmalkauf.',
+        faq_2_q:           'Werden meine Daten gelöscht?',
+        faq_2_a:           'Nein. Deine Daten gehören dir und bleiben auf deinem Gerät — unabhängig davon, ob du ein Abo hast oder nicht.',
+        faq_3_q:           'Auf wie vielen Geräten kann ich eLadung nutzen?',
+        faq_3_a:           'Du kannst eLadung auf all deinen Apple-Geräten mit derselben Apple-ID nutzen. Mac und iPhone synchronisieren sich automatisch über iCloud.',
+        faq_4_q:           'Wie kündige ich das Abo?',
+        faq_4_a:           'Abonnements werden über Apple abgewickelt und können jederzeit in den Systemeinstellungen unter Apple-ID → Abonnements gekündigt werden.',
+        faq_5_q:           'Kann ich meine Daten exportieren?',
+        faq_5_a:           'Ja. Du kannst jederzeit einen PDF-Bericht exportieren oder die vollständige Datenbankdatei sichern — zum Beispiel als Nachweis für den Arbeitgeber oder die Steuer. Mit v4.7 läuft zusätzlich ein Auto-Backup in dein iCloud Drive.',
+
+        modal_title:       'eLadung GO direkt im App Store',
+        modal_sub:         'Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos starten, jederzeit kündbar.',
+        modal_cta:         'Im App Store öffnen',
+        modal_dismiss:     'Auf der Webseite weiterlesen',
+
+        mac_banner_title:  'eLadung für Mac',
+        mac_banner_sub:    'Hol dir eLadung direkt aus dem Mac App Store — mit iCloud-Sync zu deinem iPhone.',
+        mac_banner_cta:    'Im Mac App Store öffnen',
+
+        imprint_h:         'Impressum',
+        imprint_provider:  'Anbieter',
+        imprint_country:   'Deutschland',
+        imprint_contact:   'Kontakt',
+        imprint_register:  'Handelsregister',
+        imprint_register_text: 'Keine Eintragung im Handelsregister.',
+        imprint_vat:       'Umsatzsteuer-ID',
+        imprint_vat_text:  'Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: auf Anfrage.',
+        imprint_responsible: 'Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV)',
+        imprint_disclaimer: 'Haftungsausschluss',
+        imprint_disclaimer_text: 'Die Inhalte dieser App und Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.',
+        imprint_notice:    'Dieses Impressum gilt für die Website <strong>eladung.torecon.de</strong> sowie die macOS- und iOS-App <strong>eLadung</strong> von torecon — Thomas Reinke.',
+
+        footer_brand:      'eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — Thomas Reinke',
+        footer_privacy:    'Datenschutz',
+        footer_terms:      'Nutzungsbedingungen',
+        footer_imprint:    'Impressum',
+        footer_apps_label: 'Weitere Apps von torecon',
+        footer_rights:     'Alle Rechte vorbehalten.'
+      },
+      en: {
+        nav_sub:           'an app by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_features:      'Features',
+        nav_roadmap:       'Roadmap',
+        nav_pricing:       'Pricing',
+        nav_faq:           'FAQ',
+        nav_cta:           'On the App Store',
+
+        launch_pill:       'Update v4.7 out now',
+        launch_headline:   'Auto-backup to iCloud Drive, <span class="accent">cleaner settings</span> &amp; rock-solid launch — fresh on the App Store.',
+        launch_sub:        'v4.7 brings automatic backups of your charging database to your iCloud Drive, a unified settings UI, live language switching, and significantly hardened cold-start reliability on iPhone and Mac.',
+        launch_cta:        'Open in App Store',
+
+        hero_badge:        'Available on the App Store',
+        hero_h1_a:         'Charging costs,',
+        hero_h1_b:         'tracked smart.',
+        hero_sub:          'eLadung is your smart companion for electric vehicles. Log charging sessions, analyze costs and compare tariffs — private, local, with iCloud sync between iPhone and Mac.',
+        hero_btn_iphone:   'iPhone — App Store',
+        hero_btn_mac:      'Mac — App Store',
+
+        pill_track:        '⚡ Track charging cost',
+        pill_analyze:      '📊 Analyze consumption',
+        pill_multi:        '🚗 Multiple vehicles',
+        pill_local:        '🔒 All data local',
+        pill_free:         '🆓 Free trial',
+
+        preview_title:     'eLadung — Dashboard',
+        kpi_cost:          'Total cost',
+        kpi_charged:       'Charged',
+        kpi_consumption:   'Consumption',
+        kpi_avg:           'Avg. price/kWh',
+
+        problem_label:     'Why eLadung?',
+        problem_title:     'Don\'t know what your EV really costs?',
+        prob_1_title:      'Confusing invoices',
+        prob_1_text:       'Different providers, different tariffs, sometimes per kWh, sometimes flat-rate — the overview is gone in no time.',
+        prob_2_title:      'No cost comparison',
+        prob_2_text:       'How much does charging at IONITY really cost compared to your home PV system? Without tracking, no answer.',
+        prob_3_title:      'Consumption in the dark',
+        prob_3_text:       'Which vehicle is more efficient? How has consumption changed across seasons? Hard to say without data.',
+        prob_4_title:      'Employer reimbursement',
+        prob_4_text:       'If you use an EV for business, you need records. Without structured tracking, the data for HR or your tax advisor is missing.',
+
+        features_label:    'Features',
+        features_title:    'Everything you need.',
+        features_sub:      'From simple capture to economic analysis — eLadung covers it all.',
+        new_pill:          'v4.7 NEW',
+
+        feat_backup_title:    'Auto-backup to iCloud Drive',
+        feat_backup_text:     'Automatic, dated backup of your complete charging database to a folder of your choice in iCloud Drive — no third parties, no account, all under your control.',
+        feat_stability_title: 'Cold-start reliability',
+        feat_stability_text:  'Hardened bootstrap on iPhone and Mac — eLadung launches reliably even without an active iCloud login or with an empty database. No more early-life-cycle hiccups.',
+        feat_settings_title:  'Cleaner settings',
+        feat_settings_text:   'Unified settings UI matching the torecon portfolio standard, including live switching between German and English without an app restart.',
+
+        feat_dashboard_title: 'Smart dashboard',
+        feat_dashboard_text:  'KPI tiles, monthly charts and a provider comparison at a glance. Drill down into any month with one click.',
+        feat_capture_title:   'Easy capture',
+        feat_capture_text:    'Log a charging session in seconds. Autofill for prices and providers, km plausibility check included.',
+        feat_home_title:      'Home vs. away charging',
+        feat_home_text:       'Separate home charging (PV system or grid) from public charging. See at a glance where you charge cheapest.',
+        feat_tariff_title:    'Tariff comparison',
+        feat_tariff_text:     'What-if analysis: would a subscription tariff be cheaper than pay-per-use given your charging behavior? eLadung does the math.',
+        feat_multi_title:     'Multiple vehicles',
+        feat_multi_text:      'Manage vehicle profiles with battery sizes and target consumptions. Perfect for households with several EVs.',
+        feat_pdf_title:       'PDF export',
+        feat_pdf_text:        'Export statistics as a PDF — for your tax return, your employer, or simply for your records.',
+        feat_local_title:     'Data stays local',
+        feat_local_text:      'All charging data lives locally on your device. Optional iCloud sync keeps Mac and iPhone in sync automatically — your data stays exclusively with you.',
+        feat_themes_title:    'Dark mode &amp; themes',
+        feat_themes_text:     'Native Apple UI with dark mode, customizable accent color and personalizable tile colors. On Mac and iPhone.',
+        feat_spotlight_title: 'Spotlight integration',
+        feat_spotlight_text:  'Find charging sessions directly via macOS Spotlight. Siri shortcuts for quick access to your statistics.',
+        feat_sync_title:      'iCloud sync',
+        feat_sync_text:       'Mac and iPhone always in sync — without a cloud account at our end. eLadung uses your personal iCloud Drive, fully under your control.',
+        feat_forecast_title:  'Cost forecast',
+        feat_forecast_text:   'eLadung estimates your monthly costs based on your charging behavior so far — so you know where you\'ll land at month-end.',
+
+        roadmap_label:     'Permanently evolving',
+        roadmap_title:     'An app that grows with you.',
+        roadmap_sub:       'We ship updates regularly — driven by user feedback, Apple platform innovations, and new requirements from everyday EV life. What landed so far and what\'s next:',
+        roadmap_done_tag:  'Already shipped',
+        roadmap_done_title:'v3.x through v4.7',
+        rm_done_1:         'Universal app for iPhone and Mac with iCloud sync',
+        rm_done_2:         'Detailed dashboard with charts &amp; drill-down',
+        rm_done_3:         'Home vs. away charging split with PV/grid breakdown',
+        rm_done_4:         'Tariff comparison &amp; what-if economic analysis',
+        rm_done_5:         'PDF export for tax and employer reimbursement',
+        rm_done_6:         'Schema-migration discipline (data integrity wave v4.6.x)',
+        rm_done_7:         'Auto-backup to iCloud Drive (v4.7)',
+        rm_done_8:         'Cold-start reliability on iPhone &amp; Mac (v4.7)',
+        roadmap_next_tag:  'Coming next',
+        roadmap_next_title:'v4.8 and beyond',
+        rm_next_1:         'Tiered license model (Free + Premium without hard paywall)',
+        rm_next_2:         'Native iPad layout with NavigationSplitView',
+        rm_next_3:         'Vehicle photo in profile &amp; in lists',
+        rm_next_4:         'Onboarding flow for new users',
+        rm_next_5:         'Company-car mode with official electricity reference price',
+        rm_next_6:         'Receipt scanning at capture (AI OCR)',
+        rm_next_7:         'macOS UX consolidation &amp; navigation refactor',
+        roadmap_promise:   'eLadung is <strong>not a finished product</strong> — it\'s an evolving one. What you get today is <strong>a solid start</strong>, and every update makes the app better. No EV-tracking app that wants to keep up will get past it.',
+
+        platforms_label:   'Availability',
+        platforms_title:   'On your Apple devices.',
+        platforms_sub:     'eLadung GO is available for iPhone on the App Store. The Mac app is coming soon.',
+        plat_mac_title:    'Mac',
+        plat_mac_text:     'The full eLadung experience: NavigationSplitView, charts, menu-bar quick access, PDF export and more. Optimized for macOS 14 Sonoma and newer.',
+        plat_mac_status:   'App Store · soon',
+        plat_iphone_title: 'iPhone',
+        plat_iphone_text:  'eLadung GO on the go: log charging sessions quickly, dashboard at a glance, economic analysis and tariff comparison. Seamless iCloud sync with the Mac app.',
+        plat_iphone_status:'On the App Store',
+
+        pricing_label:     'Pricing',
+        pricing_title:     'Fair and transparent.',
+        pricing_sub:       'Introductory offer until 2026-12-31 — monthly with 2 weeks free, yearly with 1 month free. Cancel anytime.',
+        price_year:        'Yearly',
+        price_save:        'save 24%',
+        price_year_period: 'per year · €0.75/month · cancel anytime',
+        price_year_trial:  '1 month free trial',
+        price_until:       '(until 2026-12-31)',
+        price_unlimited:   'Unlimited charging sessions',
+        price_dashboard:   'Dashboard, charts &amp; forecast',
+        price_analysis:    'Economic analysis',
+        price_pdf:         'PDF export, Spotlight &amp; Siri',
+        price_cta:         'On the App Store',
+        price_month:       'Monthly',
+        price_month_period:'per month · cancel anytime',
+        price_month_trial: '2 weeks free trial',
+        price_once:        'One-time',
+        price_once_period: 'one-time, lifetime access',
+        price_once_1:      'Everything included',
+        price_once_2:      'No subscription, pay once',
+        price_once_3:      'All future updates',
+        price_once_4:      'Support development',
+        price_note:        'Prices for the iOS app eLadung GO. Subscriptions are billed via Apple, cancellation anytime under Apple ID → Subscriptions. The macOS app comes with its own pricing structure.',
+
+        privacy_promise:   'Your charging data stays in <span>your iCloud</span>.<br>We never see it.',
+        privacy_detail:    'No account, no tracking, no ads, no third-party SDKs. All charging data lives locally on your device; optional iCloud sync runs entirely in your private iCloud database — nobody at torecon has access. <a href="/privacy/">Full privacy policy</a>.',
+        privacy_link:      'Full privacy policy',
+
+        download_title:    'Get it on the App Store.',
+        download_sub:      'Introductory offer until 2026-12-31: monthly with 2 weeks free · yearly with 1 month free — directly via the App Store.',
+        download_iphone:   'eLadung GO — iPhone',
+        download_mac:      'eLadung — Mac',
+        download_mac_badge:'soon',
+        download_questions:'Questions?',
+
+        faq_label:         'Frequently asked',
+        faq_title:         'Good questions.',
+        faq_1_q:           'How does the free trial work?',
+        faq_1_a:           'With the <strong>monthly subscription</strong>, the first 14 days are free; with the <strong>yearly subscription</strong>, the first month. The introductory offer runs via the App Store and is valid until 2026-12-31. If you cancel before the trial ends, no charge is made. Your data stays readable, analyzable and exportable even after cancellation — capturing new sessions then requires an active subscription or a one-time purchase.',
+        faq_2_q:           'Will my data be deleted?',
+        faq_2_a:           'No. Your data belongs to you and stays on your device — regardless of whether you have a subscription.',
+        faq_3_q:           'On how many devices can I use eLadung?',
+        faq_3_a:           'You can use eLadung on all your Apple devices signed in with the same Apple ID. Mac and iPhone sync automatically via iCloud.',
+        faq_4_q:           'How do I cancel the subscription?',
+        faq_4_a:           'Subscriptions are handled by Apple and can be cancelled anytime under System Settings → Apple ID → Subscriptions.',
+        faq_5_q:           'Can I export my data?',
+        faq_5_a:           'Yes. You can export a PDF report at any time, or back up the full database file — for example as proof for your employer or your tax. With v4.7 there\'s also an automatic backup to your iCloud Drive.',
+
+        modal_title:       'eLadung GO on the App Store',
+        modal_sub:         'You\'re on iPhone. Tap below and download the app in seconds — start free, cancel anytime.',
+        modal_cta:         'Open in App Store',
+        modal_dismiss:     'Continue on the website',
+
+        mac_banner_title:  'eLadung for Mac',
+        mac_banner_sub:    'Get eLadung directly from the Mac App Store — with iCloud sync to your iPhone.',
+        mac_banner_cta:    'Open in Mac App Store',
+
+        imprint_h:         'Imprint',
+        imprint_provider:  'Provider',
+        imprint_country:   'Germany',
+        imprint_contact:   'Contact',
+        imprint_register:  'Commercial register',
+        imprint_register_text: 'No commercial-register entry.',
+        imprint_vat:       'VAT ID',
+        imprint_vat_text:  'VAT identification number per § 27 a UStG: on request.',
+        imprint_responsible: 'Responsible for content (§ 55 (2) RStV)',
+        imprint_disclaimer: 'Disclaimer',
+        imprint_disclaimer_text: 'The contents of this app and website were created with the greatest possible care. We make no warranty for accuracy, completeness or timeliness. As a service provider, we are responsible for our own content on these pages under § 7 (1) TMG and the general laws.',
+        imprint_notice:    'This imprint applies to the website <strong>eladung.torecon.de</strong> as well as the macOS and iOS app <strong>eLadung</strong> by torecon — Thomas Reinke.',
+
+        footer_brand:      'an app by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — Thomas Reinke',
+        footer_privacy:    'Privacy',
+        footer_terms:      'Terms',
+        footer_imprint:    'Imprint',
+        footer_apps_label: 'More apps by torecon',
+        footer_rights:     'All rights reserved.'
+      }
+    };
+
+    function setLang(code) {
+      const dict = translations[code] || translations.en;
+      document.documentElement.lang = code;
+      try { localStorage.setItem('lang', code); } catch (_) {}
+      for (const el of document.querySelectorAll('[data-i18n]')) {
+        const key = el.dataset.i18n;
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      }
+      for (const btn of document.querySelectorAll('.lang-btn')) {
+        btn.classList.toggle('active', btn.dataset.lang === code);
+      }
     }
 
-    closeBtn.addEventListener('click', () => {
-      banner.style.animation = 'slideUp 0.3s ease forwards';
-      setTimeout(() => { banner.style.display = 'none'; }, 300);
-      localStorage.setItem('el_mobile_banner_v1', '1');
+    let initial = 'de';
+    try {
+      const stored = localStorage.getItem('lang');
+      if (stored && translations[stored]) initial = stored;
+      else {
+        const browserLang = (navigator.language || 'de').split('-')[0];
+        if (translations[browserLang]) initial = browserLang;
+      }
+    } catch (_) {}
+    setLang(initial);
+
+    // ── Plattform-Detection (iPhone XOR Mac, niemals beide) ────────────────
+    const ua = navigator.userAgent || '';
+    const isIPhone = /iPhone|iPod/i.test(ua);
+    // macOS: iPad maskiert sich seit iPadOS 13 als Macintosh — via 'ontouchend' filtern.
+    const isMac    = /Macintosh/i.test(ua) && !('ontouchend' in document) && !isIPhone;
+
+    // ── App-Store-Links auf zentrale URLs setzen ───────────────────────────
+    // .appstore-link             → iOS-App-Store (explizit iPhone-Buttons + Default)
+    // .macappstore-link          → Mac-App-Store (explizit Mac-Buttons + Mac-Banner)
+    // .appstore-link-platform    → plattform-aware (ambivalent benannte CTAs: Launch-Banner, Nav-CTA)
+    document.querySelectorAll('.appstore-link').forEach(a => {
+      a.setAttribute('href', APP_STORE_URL);
     });
+    document.querySelectorAll('.macappstore-link').forEach(a => {
+      a.setAttribute('href', MAC_APP_STORE_URL);
+    });
+    const platformURL = isMac ? MAC_APP_STORE_URL : APP_STORE_URL;
+    document.querySelectorAll('.appstore-link-platform').forEach(a => {
+      a.setAttribute('href', platformURL);
+    });
+
+    // ── iPhone-Modal: nach 1.2s einblenden, einmal pro Session ─────────────
+    if (isIPhone) (function () {
+      const KEY = 'el_modal_dismissed';
+      try { if (sessionStorage.getItem(KEY) === '1') return; } catch (_) {}
+
+      const modal = document.getElementById('iosModal');
+      const dismiss = document.getElementById('iosModalDismiss');
+      const cta = document.getElementById('iosModalCta');
+
+      const open = () => {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      };
+      const close = () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      };
+
+      dismiss.addEventListener('click', close);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) close();
+      });
+      cta.addEventListener('click', () => {
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      });
+
+      setTimeout(open, 1200);
+    })();
+
+    // ── macOS-Banner: nach 1.2s einblenden, einmal pro Session ─────────────
+    if (isMac) (function () {
+      const KEY = 'el_mac_banner_dismissed';
+      try { if (sessionStorage.getItem(KEY) === '1') return; } catch (_) {}
+
+      const banner = document.getElementById('macBanner');
+      const closeBtn = document.getElementById('macBannerClose');
+      const cta = document.getElementById('macBannerCta');
+
+      const open = () => banner.classList.add('show');
+      const close = () => {
+        banner.classList.remove('show');
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      };
+
+      closeBtn.addEventListener('click', close);
+      cta.addEventListener('click', () => {
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      });
+
+      setTimeout(open, 1200);
+    })();
   </script>
 </body>
 </html>
