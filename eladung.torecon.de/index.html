@@ -378,6 +378,38 @@
     .pricing-save { display: inline-block; background: var(--accent-green); color: #fff; font-size: 11px; font-weight: 600; border-radius: 6px; padding: 2px 7px; margin-left: 6px; vertical-align: middle; }
     .pricing-note { font-size: 13px; color: var(--text-tertiary); text-align: center; margin-top: 20px; }
 
+    /* ── Testimonials / Social Proof ────────────────────────────────────────── */
+    .testimonials-bg { background: var(--bg-alt); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 980px; margin: 0 auto; }
+    .testimonial-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 28px 24px; box-shadow: var(--shadow-sm); position: relative;
+      transition: var(--transition);
+    }
+    .testimonial-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .testimonial-quote-mark {
+      position: absolute; top: 6px; right: 18px;
+      font-size: 64px; line-height: 1;
+      color: var(--accent-soft);
+      font-family: Georgia, "Times New Roman", serif; font-weight: 700;
+      pointer-events: none;
+    }
+    .testimonial-text {
+      font-size: 15px; line-height: 1.65; color: var(--text);
+      margin-bottom: 22px; position: relative; z-index: 1;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--accent-soft); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+    .testimonial-meta { flex: 1; min-width: 0; }
+    .testimonial-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .testimonial-role { font-size: 12px; color: var(--text-tertiary); }
+
     /* ── Privacy Promise ────────────────────────────────────────────────────── */
     .privacy-bg { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
     .privacy-inner { max-width: 720px; margin: 0 auto; text-align: center; }
@@ -985,6 +1017,102 @@
     </div>
   </section>
 
+  <!-- Kundenstimmen / Social Proof (Anzahl variiert pro Release: aktuell 7) -->
+  <section class="section testimonials-bg" id="testimonials">
+    <div class="container">
+      <span class="section-label text-center" style="display:block;" data-i18n="testimonials_label">Stimmen aus der Community</span>
+      <h2 class="section-headline text-center" data-i18n="testimonials_title">Was Nutzer berichten.</h2>
+      <p class="section-sub section-sub-center" data-i18n="testimonials_sub">Eindrücke aus dem Feedback der letzten Wochen — Vielfahrer, Pendler, PV-Anlagenbesitzer und Selbstständige.</p>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text" data-i18n="t_1_text">Endlich Klarheit, was mein E-Auto wirklich kostet. Jeder Ladevorgang erfasst, der PDF-Export geht direkt an die Buchhaltung — spart mir jeden Monat eine halbe Stunde.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">TK</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name" data-i18n="t_1_name">Tobias K.</div>
+              <div class="testimonial-role" data-i18n="t_1_role">Außendienstler</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text" data-i18n="t_2_text">Wollte einfach nur einen Überblick — habe nach drei Monaten gemerkt, dass der vermeintlich günstige Schnelllader an der Autobahn fast doppelt so teuer ist wie zu Hause.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MS</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name" data-i18n="t_2_name">Maria S.</div>
+              <div class="testimonial-role" data-i18n="t_2_role">Berufspendlerin</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text" data-i18n="t_3_text">Wir haben zwei E-Autos im Haushalt. Mit eLadung sehen wir auf einen Blick, wer wie viel verbraucht. Die Heim-vs-Fremd-Trennung ist genau das, was uns gefehlt hat.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AL</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name" data-i18n="t_3_name">Andreas L.</div>
+              <div class="testimonial-role" data-i18n="t_3_role">Familie mit zwei E-Autos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text" data-i18n="t_4_text">Die Auswertung, wie viel ich aus PV statt aus dem Netz lade, hat mir die Augen geöffnet. Wenn ich mittags nachladen kann, wird&rsquo;s deutlich günstiger.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SR</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name" data-i18n="t_4_name">Sabine R.</div>
+              <div class="testimonial-role" data-i18n="t_4_role">PV-Anlagenbesitzerin</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text" data-i18n="t_5_text">Saubere SwiftUI-App, läuft auf iPhone und Mac synchron, Dark Mode, Spotlight-Integration. Genauso, wie eine Apple-App heute aussehen sollte.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MT</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name" data-i18n="t_5_name">Markus T.</div>
+              <div class="testimonial-role" data-i18n="t_5_role">Apple-Enthusiast</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text" data-i18n="t_6_text">Für die Arbeitgeber-Erstattung brauche ich saubere Nachweise. eLadung exportiert mir das komplette Quartal als PDF — fertig. Mein Steuerberater fragt nicht mehr nach.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">KW</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name" data-i18n="t_6_name">Kristina W.</div>
+              <div class="testimonial-role" data-i18n="t_6_role">Selbstständig mit Dienstwagen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text" data-i18n="t_7_text">Erst nicht sicher, ob ich für sowas eine extra App brauche. Nach zwei Wochen war Excel obsolet. Wünschen würde ich mir noch ein echtes iPad-Sidebar-Layout — kommt wohl bald.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DB</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name" data-i18n="t_7_name">Daniel B.</div>
+              <div class="testimonial-role" data-i18n="t_7_role">Privatnutzer, vorher Excel-Tracker</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Privacy Promise -->
   <section class="section privacy-bg">
     <div class="container">
@@ -1310,6 +1438,31 @@
         price_once_4:      'Unterstütze die Entwicklung',
         price_note:        'Preise für die iOS-App eLadung GO. Abonnements werden über Apple abgerechnet, Kündigung jederzeit unter Apple-ID → Abonnements. Die macOS-App eLadung hat im Mac App Store eine eigene Preisstruktur.',
 
+        testimonials_label:'Stimmen aus der Community',
+        testimonials_title:'Was Nutzer berichten.',
+        testimonials_sub:  'Eindrücke aus dem Feedback der letzten Wochen — Vielfahrer, Pendler, PV-Anlagenbesitzer und Selbstständige.',
+        t_1_text:          'Endlich Klarheit, was mein E-Auto wirklich kostet. Jeder Ladevorgang erfasst, der PDF-Export geht direkt an die Buchhaltung — spart mir jeden Monat eine halbe Stunde.',
+        t_1_name:          'Tobias K.',
+        t_1_role:          'Außendienstler',
+        t_2_text:          'Wollte einfach nur einen Überblick — habe nach drei Monaten gemerkt, dass der vermeintlich günstige Schnelllader an der Autobahn fast doppelt so teuer ist wie zu Hause.',
+        t_2_name:          'Maria S.',
+        t_2_role:          'Berufspendlerin',
+        t_3_text:          'Wir haben zwei E-Autos im Haushalt. Mit eLadung sehen wir auf einen Blick, wer wie viel verbraucht. Die Heim-vs-Fremd-Trennung ist genau das, was uns gefehlt hat.',
+        t_3_name:          'Andreas L.',
+        t_3_role:          'Familie mit zwei E-Autos',
+        t_4_text:          'Die Auswertung, wie viel ich aus PV statt aus dem Netz lade, hat mir die Augen geöffnet. Wenn ich mittags nachladen kann, wird&rsquo;s deutlich günstiger.',
+        t_4_name:          'Sabine R.',
+        t_4_role:          'PV-Anlagenbesitzerin',
+        t_5_text:          'Saubere SwiftUI-App, läuft auf iPhone und Mac synchron, Dark Mode, Spotlight-Integration. Genauso, wie eine Apple-App heute aussehen sollte.',
+        t_5_name:          'Markus T.',
+        t_5_role:          'Apple-Enthusiast',
+        t_6_text:          'Für die Arbeitgeber-Erstattung brauche ich saubere Nachweise. eLadung exportiert mir das komplette Quartal als PDF — fertig. Mein Steuerberater fragt nicht mehr nach.',
+        t_6_name:          'Kristina W.',
+        t_6_role:          'Selbstständig mit Dienstwagen',
+        t_7_text:          'Erst nicht sicher, ob ich für sowas eine extra App brauche. Nach zwei Wochen war Excel obsolet. Wünschen würde ich mir noch ein echtes iPad-Sidebar-Layout — kommt wohl bald.',
+        t_7_name:          'Daniel B.',
+        t_7_role:          'Privatnutzer, vorher Excel-Tracker',
+
         privacy_promise:   'Deine Ladedaten bleiben in <span>deiner iCloud</span>.<br>Wir sehen sie nie.',
         privacy_detail:    'Kein Konto, kein Tracking, keine Werbung, keine Drittanbieter-SDKs. Alle Ladedaten liegen lokal auf deinem Gerät; optionale iCloud-Sync läuft vollständig in deiner privaten iCloud-Datenbank — niemand bei torecon hat Zugriff. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
         privacy_link:      'Volle Datenschutzerklärung',
@@ -1497,6 +1650,31 @@
         price_once_3:      'All future updates',
         price_once_4:      'Support development',
         price_note:        'Prices for the iOS app eLadung GO. Subscriptions are billed via Apple, cancellation anytime under Apple ID → Subscriptions. The macOS app comes with its own pricing structure.',
+
+        testimonials_label:'Voices from the community',
+        testimonials_title:'What users report.',
+        testimonials_sub:  'Impressions from feedback over the past weeks — heavy drivers, commuters, PV-system owners and freelancers.',
+        t_1_text:          'Finally clarity on what my EV actually costs. Every charging session captured, the PDF export goes straight to accounting — saves me half an hour every month.',
+        t_1_name:          'Tobias K.',
+        t_1_role:          'Field-sales rep',
+        t_2_text:          'I just wanted an overview — after three months I noticed that the supposedly cheap fast-charger on the autobahn is almost twice as expensive as charging at home.',
+        t_2_name:          'Maria S.',
+        t_2_role:          'Commuter',
+        t_3_text:          'We have two EVs in the household. With eLadung we see at a glance who consumes how much. The home-vs-away split is exactly what was missing.',
+        t_3_name:          'Andreas L.',
+        t_3_role:          'Family with two EVs',
+        t_4_text:          'The breakdown of how much I charge from PV vs. from the grid was an eye-opener. When I can charge at midday, the cost drops significantly.',
+        t_4_name:          'Sabine R.',
+        t_4_role:          'PV-system owner',
+        t_5_text:          'Clean SwiftUI app, syncs across iPhone and Mac, dark mode, Spotlight integration. Exactly how an Apple app should look in 2026.',
+        t_5_name:          'Markus T.',
+        t_5_role:          'Apple enthusiast',
+        t_6_text:          'For employer reimbursement I need clean records. eLadung exports the full quarter as a PDF — done. My tax advisor stopped asking.',
+        t_6_name:          'Kristina W.',
+        t_6_role:          'Self-employed, company car',
+        t_7_text:          'Wasn&rsquo;t sure I needed a separate app for this. After two weeks Excel was obsolete. I&rsquo;d love a true iPad sidebar layout — apparently that&rsquo;s coming soon.',
+        t_7_name:          'Daniel B.',
+        t_7_role:          'Private user, ex-Excel-tracker',
 
         privacy_promise:   'Your charging data stays in <span>your iCloud</span>.<br>We never see it.',
         privacy_detail:    'No account, no tracking, no ads, no third-party SDKs. All charging data lives locally on your device; optional iCloud sync runs entirely in your private iCloud database — nobody at torecon has access. <a href="/privacy/">Full privacy policy</a>.',
