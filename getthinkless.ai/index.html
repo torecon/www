@@ -10,6 +10,9 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/style.css">
 
+  <!-- iOS Smart App Banner (Safari rendert nativ ein Banner oben auf iPhone) -->
+  <meta name="apple-itunes-app" content="app-id=6762284671">
+
   <meta property="og:title" content="ThinkLess AI – Bessere Entscheidungen in Sekunden">
   <meta property="og:description" content="Schneller entscheiden. Weniger Stress. Die KI-App für klare Entscheidungen – jetzt im App Store.">
   <meta property="og:url" content="https://getthinkless.ai">
@@ -18,8 +21,196 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ThinkLess AI – Bessere Entscheidungen in Sekunden">
   <meta name="twitter:description" content="Schneller entscheiden. Weniger Stress. Jetzt im App Store.">
+
+  <style>
+    /* ── Launch Banner (top, gradient, slide-down) ───────────────────────── */
+    @keyframes tl-slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    @keyframes tl-pulse {
+      0%, 100% { transform: scale(1);   opacity: 1;   }
+      50%      { transform: scale(1.4); opacity: 0.6; }
+    }
+    .launch-banner {
+      background: linear-gradient(135deg, #0A0A0F 0%, #1a1c2a 50%, #0A0A0F 100%);
+      border-bottom: 1px solid rgba(91,138,240,0.3);
+      position: relative;
+      overflow: hidden;
+      animation: tl-slideDown 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .launch-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 120% at 50% -20%, rgba(91,138,240,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .launch-banner-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 24px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; position: relative;
+    }
+    .launch-content { flex: 1; }
+    .launch-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(91,138,240,0.20);
+      border: 1px solid rgba(91,138,240,0.45);
+      border-radius: 40px; padding: 5px 14px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #b8cdfb; margin-bottom: 14px;
+    }
+    .launch-pill-dot {
+      width: 6px; height: 6px;
+      background: #5B8AF0; border-radius: 50%;
+      animation: tl-pulse 2s ease-in-out infinite;
+    }
+    .launch-headline {
+      font-size: clamp(22px, 3.6vw, 36px);
+      font-weight: 800; letter-spacing: -0.025em;
+      color: #fff; line-height: 1.15; margin-bottom: 8px;
+    }
+    .launch-headline .accent { color: #5B8AF0; }
+    .launch-sub {
+      font-size: 14px; color: rgba(255,255,255,0.78); max-width: 580px; line-height: 1.55;
+    }
+    .launch-cta-wrap { flex-shrink: 0; }
+    .launch-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; color: #0A0A0F;
+      padding: 14px 22px; border-radius: 14px;
+      font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      text-decoration: none;
+    }
+    .launch-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.5); opacity: 1; }
+    @media (max-width: 720px) {
+      .launch-banner-inner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 18px; }
+      .launch-cta-wrap { width: 100%; }
+      .launch-btn { width: 100%; justify-content: center; }
+    }
+
+    /* ── Feature-Card "NEU" Variant ──────────────────────────────────────── */
+    .feature-card.is-new {
+      background: linear-gradient(135deg, rgba(91,138,240,0.10) 0%, rgba(91,138,240,0.03) 100%);
+      border: 1px solid rgba(91,138,240,0.28);
+      position: relative;
+    }
+    .feature-card .new-pill {
+      position: absolute; top: 12px; right: 12px;
+      background: #5B8AF0; color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      padding: 3px 9px; border-radius: 999px;
+    }
+
+    /* ── Roadmap-Section ─────────────────────────────────────────────────── */
+    .section-roadmap {
+      padding: 84px 24px;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+    }
+    .section-roadmap-inner { max-width: 980px; margin: 0 auto; }
+    .roadmap-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+      max-width: 880px; margin: 40px auto 0;
+    }
+    @media (max-width: 720px) { .roadmap-grid { grid-template-columns: 1fr; } }
+    .roadmap-card {
+      background: #fff; border-radius: 20px; padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .roadmap-card.delivered { border-left: 4px solid #34c759; }
+    .roadmap-card.coming    { border-left: 4px solid #5B8AF0; }
+    .roadmap-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 999px; margin-bottom: 14px;
+    }
+    .roadmap-card.delivered .roadmap-tag { background: rgba(52,199,89,0.14); color: #1d8a3a; }
+    .roadmap-card.coming    .roadmap-tag { background: rgba(91,138,240,0.12); color: #2f5cd1; }
+    .roadmap-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 16px; }
+    .roadmap-card ul { list-style: none; padding: 0; margin: 0; }
+    .roadmap-card ul li {
+      font-size: 14px; color: var(--text-secondary);
+      padding: 6px 0 6px 22px; position: relative; line-height: 1.55;
+    }
+    .roadmap-card.delivered ul li::before { content: "✓"; position: absolute; left: 0; color: #34c759; font-weight: 700; }
+    .roadmap-card.coming    ul li::before { content: "→"; position: absolute; left: 0; color: #5B8AF0; font-weight: 700; }
+    .roadmap-promise {
+      max-width: 720px; margin: 56px auto 0;
+      text-align: center; padding: 32px;
+      background: #0A0A0F; color: #fff; border-radius: 20px;
+    }
+    .roadmap-promise p { font-size: 18px; line-height: 1.6; margin: 0; color: rgba(255,255,255,0.92); }
+    .roadmap-promise p strong { color: #5B8AF0; font-weight: 700; }
+
+    /* ── iPhone-Modal (App-Store-Push beim Mobile-Open) ──────────────────── */
+    @keyframes tl-fadeBackdrop { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes tl-slideUpModal { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .ios-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      display: none; align-items: flex-end; justify-content: center;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      animation: tl-fadeBackdrop 0.25s ease both;
+    }
+    .ios-modal.show { display: flex; }
+    .ios-modal-card {
+      background: #fff; border-radius: 24px 24px 0 0;
+      padding: 28px 24px 36px; width: 100%; max-width: 480px;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.25);
+      animation: tl-slideUpModal 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both;
+      position: relative;
+    }
+    .ios-modal-handle { width: 36px; height: 5px; background: rgba(0,0,0,0.15); border-radius: 999px; margin: 0 auto 18px; }
+    .ios-modal-icon-row { display: flex; justify-content: center; margin-bottom: 16px; }
+    .ios-modal-app-icon { width: 80px; height: 80px; border-radius: 18px; box-shadow: 0 12px 36px rgba(0,0,0,0.18); }
+    .ios-modal h3 { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .ios-modal p { text-align: center; font-size: 15px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 22px; }
+    .ios-modal-cta {
+      display: block; background: #5B8AF0; color: #fff; text-align: center;
+      padding: 16px 24px; border-radius: 14px;
+      font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+      width: 100%; transition: background 0.2s ease;
+      box-shadow: 0 6px 18px rgba(91,138,240,0.4);
+      text-decoration: none;
+    }
+    .ios-modal-cta:hover { background: #4070d8; opacity: 1; }
+    .ios-modal-secondary {
+      display: block; width: 100%;
+      background: transparent; color: var(--text-secondary);
+      border: 0; padding: 14px; margin-top: 6px;
+      font-size: 14px; font-weight: 500; cursor: pointer;
+      font-family: inherit;
+    }
+    .ios-modal-secondary:hover { color: var(--text); }
+  </style>
 </head>
 <body>
+
+  <!-- ── Launch-Banner (oben, v1.4 Highlights) ──────────────────────────── -->
+  <div class="launch-banner">
+    <div class="launch-banner-inner">
+      <div class="launch-content">
+        <span class="launch-pill">
+          <span class="launch-pill-dot"></span>
+          <span data-i18n="launch_pill">Update v1.4 jetzt verfügbar</span>
+        </span>
+        <h2 class="launch-headline" data-i18n="launch_headline">Streaks, <span class="accent">Mastery-Level</span> &amp; smarte Erinnerungen — frisch im App Store.</h2>
+        <p class="launch-sub" data-i18n="launch_sub">v1.4 bringt Gamification mit Streak-Badges und vier Mastery-Stufen, Reflexions-Erinnerungen sieben Tage nach jeder Entscheidung, und einen aufgeräumteren Premium-Status. Alles 4-sprachig.</p>
+      </div>
+      <div class="launch-cta-wrap">
+        <a class="launch-btn appstore-link" href="https://apps.apple.com/app/thinkless-ai/id6762284671">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+          <span data-i18n="launch_cta">Im App Store laden</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Navigation -->
   <nav class="site-nav">
@@ -168,6 +359,20 @@
             <p data-i18n="f6_p">Die App ist vollständig viersprachig — mit automatischer Spracherkennung.</p>
             <span class="feature-tag">DE / EN / PT / UA</span>
           </div>
+          <div class="feature-card is-new">
+            <span class="new-pill" data-i18n="new_pill">v1.4 NEU</span>
+            <span class="feature-emoji">🎖</span>
+            <h3 data-i18n="f7_h3">Streaks &amp; Mastery</h3>
+            <p data-i18n="f7_p">Vier Mastery-Stufen vom Anfänger bis zum Master, Streak-Badges für 7, 30 und 100 Entscheidungen, Spezialgebiete pro Kategorie. Sichtbare Belohnung für jede Entscheidung.</p>
+            <span class="feature-tag" data-i18n="f7_tag">Gamification</span>
+          </div>
+          <div class="feature-card is-new">
+            <span class="new-pill" data-i18n="new_pill">v1.4 NEU</span>
+            <span class="feature-emoji">🔔</span>
+            <h3 data-i18n="f8_h3">Reflexions-Erinnerung</h3>
+            <p data-i18n="f8_p">Sieben Tage nach jeder Entscheidung fragt die App nach: hat sie sich bewährt? Bewerte mit einem Tap — und sieh in deinem Fortschritt, wie gut du wirklich entscheidest.</p>
+            <span class="feature-tag" data-i18n="f8_tag">Lokal &amp; privat</span>
+          </div>
         </div>
       </div>
     </section>
@@ -199,6 +404,47 @@
             <div class="vs-item lose"><span class="icon">❌</span> <span data-i18n="vs_gpt5">Kein Verlauf deiner Entscheidungen</span></div>
             <div class="vs-item lose"><span class="icon">❌</span> <span data-i18n="vs_gpt6">Selten ein konkreter nächster Schritt</span></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Permanent weiterentwickelt / Roadmap ─────────────────────────────── -->
+    <section class="section-roadmap" id="roadmap">
+      <div class="section-roadmap-inner">
+        <p class="section-label" style="text-align:center;" data-i18n="roadmap_label">Permanent weiterentwickelt</p>
+        <h2 style="text-align:center;" data-i18n="roadmap_h2">Eine App, die mit dir wächst.</h2>
+        <p style="text-align:center;max-width:660px;margin:16px auto 0;color:var(--text-secondary);" data-i18n="roadmap_sub">Wir veröffentlichen regelmäßig Updates — getrieben von User-Feedback, Apple-Plattform-Innovationen und neuen KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:</p>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-card delivered">
+            <span class="roadmap-tag" data-i18n="rm_done_tag">Bereits geliefert</span>
+            <h3 data-i18n="rm_done_title">v1.0 bis v1.4</h3>
+            <ul>
+              <li data-i18n="rm_done_1">Fast Mode &amp; Guided Mode — Ergebnis in 20 bis 60 Sekunden</li>
+              <li data-i18n="rm_done_2">Confidence Meter und konkreter nächster Schritt</li>
+              <li data-i18n="rm_done_3">Vier Sprachen (EN/DE/pt-BR/UK) mit automatischer Erkennung</li>
+              <li data-i18n="rm_done_4">Sechs Kategorien mit Filter und tappbarem Verlauf</li>
+              <li data-i18n="rm_done_5">Fortschritts-Tab mit Streaks, Wochenbalken &amp; Top-Kategorien (v1.3)</li>
+              <li data-i18n="rm_done_6">Mastery-Level, Streak-Badges &amp; Spezialgebiete (v1.4)</li>
+              <li data-i18n="rm_done_7">Lokale Reflexions-Erinnerungen sieben Tage später (v1.4)</li>
+            </ul>
+          </div>
+          <div class="roadmap-card coming">
+            <span class="roadmap-tag" data-i18n="rm_next_tag">Als nächstes</span>
+            <h3 data-i18n="rm_next_title">v1.5, v1.6 und weiter</h3>
+            <ul>
+              <li data-i18n="rm_next_1">Server-Push via APNs — Erinnerungen auch bei geschlossener App</li>
+              <li data-i18n="rm_next_2">Decision-Sharing per Universal Link (App-zu-App)</li>
+              <li data-i18n="rm_next_3">Share-Cards für Instagram, X und WhatsApp</li>
+              <li data-i18n="rm_next_4">Premium-Trial-Decision — einmal volle Premium-Tiefe gratis</li>
+              <li data-i18n="rm_next_5">Apple-Watch-Integration mit Komplikationen</li>
+              <li data-i18n="rm_next_6">Decision-Context-Memory — die App lernt aus deinen früheren Entscheidungen</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-promise">
+          <p data-i18n="roadmap_promise">ThinkLess AI ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser.</p>
         </div>
       </div>
     </section>
@@ -338,12 +584,28 @@
     </div>
   </footer>
 
+  <!-- ── iPhone-Modal: erscheint auf iPhone-Touch-Devices nach 1.2 s ────── -->
+  <div class="ios-modal" id="iosModal" role="dialog" aria-modal="true" aria-labelledby="iosModalTitle">
+    <div class="ios-modal-card">
+      <div class="ios-modal-handle"></div>
+      <div class="ios-modal-icon-row">
+        <img src="/apple-touch-icon.png" alt="ThinkLess AI" class="ios-modal-app-icon">
+      </div>
+      <h3 id="iosModalTitle" data-i18n="modal_title">ThinkLess AI direkt im App Store</h3>
+      <p data-i18n="modal_sub">Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.</p>
+      <a class="ios-modal-cta appstore-link" href="https://apps.apple.com/app/thinkless-ai/id6762284671" id="iosModalCta">
+        <span data-i18n="modal_cta">Im App Store öffnen</span>
+      </a>
+      <button type="button" class="ios-modal-secondary" id="iosModalDismiss" data-i18n="modal_dismiss">Auf der Webseite weiterlesen</button>
+    </div>
+  </div>
+
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-    // ── App Store URL ────────────────────────────────────────────────────────
+    // ── App Store URL (zentral) ──────────────────────────────────────────────
     const APP_STORE_URL = 'https://apps.apple.com/app/thinkless-ai/id6762284671';
-    document.querySelectorAll('.appstore-badge').forEach(a => {
+    document.querySelectorAll('.appstore-badge, .appstore-link').forEach(a => {
       a.href = APP_STORE_URL;
       a.target = '_blank';
       a.rel = 'noopener';
@@ -354,6 +616,42 @@
       de: {
         nav_sub:           'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint:       'Impressum',
+        launch_pill:       'Update v1.4 jetzt verfügbar',
+        launch_headline:   'Streaks, <span class="accent">Mastery-Level</span> &amp; smarte Erinnerungen — frisch im App Store.',
+        launch_sub:        'v1.4 bringt Gamification mit Streak-Badges und vier Mastery-Stufen, Reflexions-Erinnerungen sieben Tage nach jeder Entscheidung, und einen aufgeräumteren Premium-Status. Alles 4-sprachig.',
+        launch_cta:        'Im App Store laden',
+        new_pill:          'v1.4 NEU',
+        f7_h3:             'Streaks &amp; Mastery',
+        f7_p:              'Vier Mastery-Stufen vom Anfänger bis zum Master, Streak-Badges für 7, 30 und 100 Entscheidungen, Spezialgebiete pro Kategorie. Sichtbare Belohnung für jede Entscheidung.',
+        f7_tag:            'Gamification',
+        f8_h3:             'Reflexions-Erinnerung',
+        f8_p:              'Sieben Tage nach jeder Entscheidung fragt die App nach: hat sie sich bewährt? Bewerte mit einem Tap — und sieh in deinem Fortschritt, wie gut du wirklich entscheidest.',
+        f8_tag:            'Lokal &amp; privat',
+        roadmap_label:     'Permanent weiterentwickelt',
+        roadmap_h2:        'Eine App, die mit dir wächst.',
+        roadmap_sub:       'Wir veröffentlichen regelmäßig Updates — getrieben von User-Feedback, Apple-Plattform-Innovationen und neuen KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:',
+        rm_done_tag:       'Bereits geliefert',
+        rm_done_title:     'v1.0 bis v1.4',
+        rm_done_1:         'Fast Mode &amp; Guided Mode — Ergebnis in 20 bis 60 Sekunden',
+        rm_done_2:         'Confidence Meter und konkreter nächster Schritt',
+        rm_done_3:         'Vier Sprachen (EN/DE/pt-BR/UK) mit automatischer Erkennung',
+        rm_done_4:         'Sechs Kategorien mit Filter und tappbarem Verlauf',
+        rm_done_5:         'Fortschritts-Tab mit Streaks, Wochenbalken &amp; Top-Kategorien (v1.3)',
+        rm_done_6:         'Mastery-Level, Streak-Badges &amp; Spezialgebiete (v1.4)',
+        rm_done_7:         'Lokale Reflexions-Erinnerungen sieben Tage später (v1.4)',
+        rm_next_tag:       'Als nächstes',
+        rm_next_title:     'v1.5, v1.6 und weiter',
+        rm_next_1:         'Server-Push via APNs — Erinnerungen auch bei geschlossener App',
+        rm_next_2:         'Decision-Sharing per Universal Link (App-zu-App)',
+        rm_next_3:         'Share-Cards für Instagram, X und WhatsApp',
+        rm_next_4:         'Premium-Trial-Decision — einmal volle Premium-Tiefe gratis',
+        rm_next_5:         'Apple-Watch-Integration mit Komplikationen',
+        rm_next_6:         'Decision-Context-Memory — die App lernt aus deinen früheren Entscheidungen',
+        roadmap_promise:   'ThinkLess AI ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser.',
+        modal_title:       'ThinkLess AI direkt im App Store',
+        modal_sub:         'Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.',
+        modal_cta:         'Im App Store öffnen',
+        modal_dismiss:     'Auf der Webseite weiterlesen',
         hero_badge:        'Jetzt verfügbar im App Store',
         hero_h1_1:         'Bessere Entscheidungen.',
         hero_h1_2:         'Schneller.',
@@ -445,6 +743,42 @@
       en: {
         nav_sub:           'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint:       'Legal',
+        launch_pill:       'Update v1.4 out now',
+        launch_headline:   'Streaks, <span class="accent">mastery levels</span> &amp; smart reminders — fresh on the App Store.',
+        launch_sub:        'v1.4 adds gamification with streak badges and four mastery tiers, reflection reminders seven days after each decision, and a cleaner Premium status. All four languages.',
+        launch_cta:        'Open in App Store',
+        new_pill:          'v1.4 NEW',
+        f7_h3:             'Streaks &amp; Mastery',
+        f7_p:              'Four mastery tiers from Beginner to Master, streak badges at 7, 30, and 100 decisions, specialties per category. Visible reward for every decision.',
+        f7_tag:            'Gamification',
+        f8_h3:             'Reflection reminder',
+        f8_p:              'Seven days after each decision the app asks: did it work out? Rate with a tap — and see in your Progress how well you actually decide.',
+        f8_tag:            'Local &amp; private',
+        roadmap_label:     'Permanently evolving',
+        roadmap_h2:        'An app that grows with you.',
+        roadmap_sub:       'We ship updates regularly — driven by user feedback, by Apple platform innovations, and by new AI capabilities. What landed so far and what\'s next:',
+        rm_done_tag:       'Already shipped',
+        rm_done_title:     'v1.0 through v1.4',
+        rm_done_1:         'Fast Mode &amp; Guided Mode — result in 20 to 60 seconds',
+        rm_done_2:         'Confidence Meter and a concrete next step',
+        rm_done_3:         'Four languages (EN/DE/pt-BR/UK) with automatic detection',
+        rm_done_4:         'Six categories with filter and tappable history',
+        rm_done_5:         'Progress tab with streaks, weekly bars &amp; top categories (v1.3)',
+        rm_done_6:         'Mastery levels, streak badges &amp; specialties (v1.4)',
+        rm_done_7:         'Local reflection reminders seven days later (v1.4)',
+        rm_next_tag:       'Coming next',
+        rm_next_title:     'v1.5, v1.6 and beyond',
+        rm_next_1:         'Server push via APNs — reminders even with the app closed',
+        rm_next_2:         'Decision sharing via universal link (app-to-app)',
+        rm_next_3:         'Share cards for Instagram, X, and WhatsApp',
+        rm_next_4:         'Premium trial decision — one full Premium depth on the house',
+        rm_next_5:         'Apple Watch integration with complications',
+        rm_next_6:         'Decision context memory — the app learns from your earlier decisions',
+        roadmap_promise:   'ThinkLess AI is <strong>not a finished product</strong> — it\'s an evolving one. What you get today is <strong>a solid start</strong>, and every update makes the app a bit better.',
+        modal_title:       'ThinkLess AI on the App Store',
+        modal_sub:         'You\'re on iPhone. Tap below and download the app in seconds — free, no signup.',
+        modal_cta:         'Open in App Store',
+        modal_dismiss:     'Continue on the website',
         hero_badge:        'Now available on the App Store',
         hero_h1_1:         'Better Decisions.',
         hero_h1_2:         'Faster.',
@@ -536,6 +870,42 @@
       pt: {
         nav_sub:           'uma marca da <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint:       'Legal',
+        launch_pill:       'Atualização v1.4 disponível',
+        launch_headline:   'Sequências, <span class="accent">níveis de maestria</span> e lembretes inteligentes — recém-chegados à App Store.',
+        launch_sub:        'A v1.4 traz gamificação com badges de sequência e quatro níveis de maestria, lembretes de reflexão sete dias após cada decisão, e um status Premium mais limpo. Tudo em quatro idiomas.',
+        launch_cta:        'Abrir na App Store',
+        new_pill:          'v1.4 NOVO',
+        f7_h3:             'Sequências &amp; Maestria',
+        f7_p:              'Quatro níveis de maestria de Iniciante a Mestre, badges de sequência aos 7, 30 e 100 decisões, especialidades por categoria. Recompensa visível a cada decisão.',
+        f7_tag:            'Gamificação',
+        f8_h3:             'Lembrete de reflexão',
+        f8_p:              'Sete dias após cada decisão o app pergunta: deu certo? Avalie com um toque — e veja no seu Progresso o quão bem você realmente decide.',
+        f8_tag:            'Local &amp; privado',
+        roadmap_label:     'Em evolução permanente',
+        roadmap_h2:        'Um app que cresce com você.',
+        roadmap_sub:       'Lançamos atualizações regularmente — guiados por feedback de usuários, inovações da Apple e novas capacidades de IA. O que já chegou e o que vem a seguir:',
+        rm_done_tag:       'Já entregue',
+        rm_done_title:     'v1.0 até v1.4',
+        rm_done_1:         'Modo Rápido &amp; Modo Guiado — resultado em 20 a 60 segundos',
+        rm_done_2:         'Indicador de confiança e próximo passo concreto',
+        rm_done_3:         'Quatro idiomas (EN/DE/pt-BR/UK) com detecção automática',
+        rm_done_4:         'Seis categorias com filtro e histórico tocável',
+        rm_done_5:         'Aba de Progresso com sequências, barras semanais e top categorias (v1.3)',
+        rm_done_6:         'Níveis de maestria, badges de sequência e especialidades (v1.4)',
+        rm_done_7:         'Lembretes locais de reflexão sete dias depois (v1.4)',
+        rm_next_tag:       'A seguir',
+        rm_next_title:     'v1.5, v1.6 e além',
+        rm_next_1:         'Push via APNs — lembretes mesmo com o app fechado',
+        rm_next_2:         'Compartilhamento de decisão via universal link (app a app)',
+        rm_next_3:         'Cards de compartilhamento para Instagram, X e WhatsApp',
+        rm_next_4:         'Decisão Premium de avaliação — uma vez com profundidade Premium total',
+        rm_next_5:         'Integração com Apple Watch com complicações',
+        rm_next_6:         'Memória de contexto — o app aprende com suas decisões anteriores',
+        roadmap_promise:   'ThinkLess AI <strong>não é um produto finalizado</strong>, é um produto em evolução. O que você recebe hoje é <strong>um começo sólido</strong> — e cada atualização melhora o app um pouco mais.',
+        modal_title:       'ThinkLess AI na App Store',
+        modal_sub:         'Você está no iPhone. Toque abaixo e baixe o app em segundos — grátis, sem cadastro.',
+        modal_cta:         'Abrir na App Store',
+        modal_dismiss:     'Continuar no site',
         hero_badge:        'Já disponível na App Store',
         hero_h1_1:         'Melhores Decisões.',
         hero_h1_2:         'Mais Rápido.',
@@ -627,6 +997,42 @@
       uk: {
         nav_sub:           'бренд від <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint:       'Про нас',
+        launch_pill:       'Оновлення v1.4 вже тут',
+        launch_headline:   'Серії, <span class="accent">рівні майстерності</span> та розумні нагадування — щойно в App Store.',
+        launch_sub:        'v1.4 додає гейміфікацію з бейджами серій і чотирма рівнями майстерності, нагадування про рефлексію через сім днів після кожного рішення, і чистіший Premium-статус. Усе чотирма мовами.',
+        launch_cta:        'Відкрити в App Store',
+        new_pill:          'v1.4 НОВЕ',
+        f7_h3:             'Серії &amp; Майстерність',
+        f7_p:              'Чотири рівні майстерності від Початківця до Майстра, бейджі за серії 7, 30 і 100 рішень, спеціалізації за категоріями. Видима винагорода за кожне рішення.',
+        f7_tag:            'Гейміфікація',
+        f8_h3:             'Нагадування про рефлексію',
+        f8_p:              'Через сім днів після кожного рішення додаток запитує: чи спрацювало? Оціни одним дотиком — і побач у Прогресі, наскільки добре ти насправді вирішуєш.',
+        f8_tag:            'Локально &amp; приватно',
+        roadmap_label:     'Постійний розвиток',
+        roadmap_h2:        'Додаток, що росте з тобою.',
+        roadmap_sub:       'Ми регулярно випускаємо оновлення — на основі відгуків користувачів, інновацій платформи Apple та нових можливостей ШІ. Що вже є і що далі:',
+        rm_done_tag:       'Вже випущено',
+        rm_done_title:     'v1.0 до v1.4',
+        rm_done_1:         'Швидкий і Керований режими — результат за 20–60 секунд',
+        rm_done_2:         'Індикатор впевненості та конкретний наступний крок',
+        rm_done_3:         'Чотири мови (EN/DE/pt-BR/UK) з автоматичним визначенням',
+        rm_done_4:         'Шість категорій з фільтром і керованою історією',
+        rm_done_5:         'Вкладка Прогрес із серіями, тижневими стовпцями та топ-категоріями (v1.3)',
+        rm_done_6:         'Рівні майстерності, бейджі серій та спеціалізації (v1.4)',
+        rm_done_7:         'Локальні нагадування про рефлексію через сім днів (v1.4)',
+        rm_next_tag:       'Далі',
+        rm_next_title:     'v1.5, v1.6 і далі',
+        rm_next_1:         'Server-Push через APNs — нагадування навіть із закритим додатком',
+        rm_next_2:         'Поширення рішень через Universal Link (додаток-додаток)',
+        rm_next_3:         'Картки для Instagram, X та WhatsApp',
+        rm_next_4:         'Premium-пробне рішення — раз із повною Premium-глибиною безкоштовно',
+        rm_next_5:         'Інтеграція з Apple Watch і Complications',
+        rm_next_6:         'Пам\'ять контексту — додаток вчиться з твоїх попередніх рішень',
+        roadmap_promise:   'ThinkLess AI — <strong>це не завершений продукт</strong>, а продукт, що розвивається. Те, що ти отримуєш сьогодні, — <strong>міцний початок</strong>, і кожне оновлення робить додаток кращим.',
+        modal_title:       'ThinkLess AI в App Store',
+        modal_sub:         'Ти на iPhone. Натисни нижче і завантаж додаток за секунди — безкоштовно, без реєстрації.',
+        modal_cta:         'Відкрити в App Store',
+        modal_dismiss:     'Продовжити на сайті',
         hero_badge:        'Вже доступно в App Store',
         hero_h1_1:         'Кращі рішення.',
         hero_h1_2:         'Швидше.',
@@ -791,6 +1197,40 @@
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
     });
+
+    // ── iPhone-Modal: nach 1.2 s einblenden, einmal pro Session ─────────────
+    (function () {
+      const ua = navigator.userAgent || '';
+      const isIPhone = /iPhone|iPod/i.test(ua);
+      // iPad explizit ausgeschlossen — iPad-User sehen die Features-Section schon prominent.
+      if (!isIPhone) return;
+
+      const KEY = 'tl_modal_dismissed';
+      try { if (sessionStorage.getItem(KEY) === '1') return; } catch (_) {}
+
+      const modal   = document.getElementById('iosModal');
+      const dismiss = document.getElementById('iosModalDismiss');
+      const cta     = document.getElementById('iosModalCta');
+      if (!modal || !dismiss || !cta) return;
+
+      const open = () => {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      };
+      const close = () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      };
+
+      dismiss.addEventListener('click', close);
+      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      cta.addEventListener('click', () => {
+        try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+      });
+
+      setTimeout(open, 1200);
+    })();
   </script>
 </body>
 </html>
