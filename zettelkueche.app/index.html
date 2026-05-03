@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zettelküche AI — Rezepte fotografieren, übersetzen, strukturieren</title>
-  <meta name="description" content="Foto rein, strukturiertes Rezept raus — in deiner Sprache. Privat in deiner iCloud. iPhone, iPad und Mac. Jetzt mit 4-Achsen-Filter, Smart Collections und in vier Sprachen.">
+  <meta name="description" content="Foto rein, strukturiertes Rezept raus — in deiner Sprache. Privat in deiner iCloud. iPhone, iPad und Mac. Jetzt mit 4-Achsen-Filter, Smart Collections und konfigurierbarer Sidebar.">
 
   <link rel="icon" type="image/png" href="/logo.png">
   <link rel="apple-touch-icon" href="/logo.png">
@@ -385,7 +385,7 @@
           <span data-i18n="launch_pill">Update v2.0 jetzt verfügbar</span>
         </span>
         <h2 class="launch-headline" data-i18n="launch_headline">4-Achsen-Filter, <span class="accent">Smart Collections</span> &amp; Mac-App — neu in v2.0.</h2>
-        <p class="launch-sub" data-i18n="launch_sub">Filtere Mahlzeit, Region, Diät und Anlass mit einem Tap. Smart Collections finden was schnell, beliebt oder neu zu prüfen ist — automatisch. Jetzt auch als Mac-App und in vier Sprachen (DE · EN · pt-BR · UK).</p>
+        <p class="launch-sub" data-i18n="launch_sub">Filtere Mahlzeit, Region, Diät und Anlass mit einem Tap. Smart Collections finden was schnell, beliebt oder neu zu prüfen ist — automatisch. Jetzt auch als Mac-App.</p>
       </div>
       <div class="launch-cta-wrap">
         <a class="launch-btn appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154">
@@ -415,10 +415,15 @@
         <a class="nav-link" href="#pricing" data-i18n="nav_pricing">Tarife</a>
         <a class="nav-cta appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154" data-i18n="nav_cta">App laden</a>
         <div class="lang-toggle">
-          <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
-          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" data-lang="en-GB" onclick="setLang('en-GB')">UK</button>
-          <button class="lang-btn" data-lang="pt-BR" onclick="setLang('pt-BR')">BR</button>
+          <button class="lang-btn active" data-lang="de" onclick="setLang('de')" title="Deutsch" aria-label="Deutsch">DE</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English" aria-label="English">EN</button>
+          <!-- en-GB und pt-BR sind in der JS-translations-Dict bereits hinterlegt, aber
+               als Buttons deaktiviert bis die zugehörige App-Version (v2.0) im App Store
+               live ist (Principle „landing-page-follows-app" 2026-05-03). Re-Enable nach
+               v2.0-Approval, dann auch ASC-Listing-Sprachen freischalten.
+          <button class="lang-btn" data-lang="en-GB" onclick="setLang('en-GB')" title="English (United Kingdom)" aria-label="English (United Kingdom)">EN-GB</button>
+          <button class="lang-btn" data-lang="pt-BR" onclick="setLang('pt-BR')" title="Português (Brasil)" aria-label="Português (Brasil)">PT-BR</button>
+          -->
         </div>
       </div>
     </div>
@@ -593,7 +598,7 @@
               <li data-i18n="rm_done_6">Natives iPad-Layout mit konfigurierbarer Sidebar und Tag-Pinning</li>
               <li data-i18n="rm_done_7">Mac-App via Catalyst — eigene App-Store-Listung</li>
               <li data-i18n="rm_done_8">Backup-Funktion mit Bildern (Premium)</li>
-              <li data-i18n="rm_done_9">Vier Sprachen: Deutsch, Englisch, Brasilianisch, britisches Englisch</li>
+              <li data-i18n="rm_done_9">Tag-Pinning + Promotion freier Tags zu Achsen-Tags via Long-Press</li>
             </ul>
           </div>
           <div class="roadmap-card coming">
@@ -857,7 +862,7 @@
 
         launch_pill:       'Update v2.0 jetzt verfügbar',
         launch_headline:   '4-Achsen-Filter, <span class="accent">Smart Collections</span> &amp; Mac-App — neu in v2.0.',
-        launch_sub:        'Filtere Mahlzeit, Region, Diät und Anlass mit einem Tap. Smart Collections finden was schnell, beliebt oder neu zu prüfen ist — automatisch. Jetzt auch als Mac-App und in vier Sprachen (DE · EN · pt-BR · UK).',
+        launch_sub:        'Filtere Mahlzeit, Region, Diät und Anlass mit einem Tap. Smart Collections finden was schnell, beliebt oder neu zu prüfen ist — automatisch. Jetzt auch als Mac-App.',
         launch_cta:        'Im App Store laden',
 
         hero_badge:        'Jetzt verfügbar im App Store',
@@ -925,7 +930,7 @@
         rm_done_6:         'Natives iPad-Layout mit konfigurierbarer Sidebar und Tag-Pinning',
         rm_done_7:         'Mac-App via Catalyst — eigene App-Store-Listung',
         rm_done_8:         'Backup-Funktion mit Bildern (Premium)',
-        rm_done_9:         'Vier Sprachen: Deutsch, Englisch, Brasilianisch, britisches Englisch',
+        rm_done_9:         'Tag-Pinning + Promotion freier Tags zu Achsen-Tags via Long-Press',
         roadmap_next_tag:  'Als nächstes',
         voices_label:      'Stimmen aus der Community',
         voices_title:      'Was Hobby-Köche und Foodies erleben.',
@@ -1007,7 +1012,7 @@
 
         launch_pill:       'Update v2.0 out now',
         launch_headline:   'Four-axis filter, <span class="accent">Smart Collections</span> &amp; Mac app — new in v2.0.',
-        launch_sub:        'Filter meal, cuisine, diet and occasion in one tap. Smart Collections surface what is quick, loved or worth a second look — automatically. Now also as a Mac app and in four languages (DE · EN · pt-BR · UK).',
+        launch_sub:        'Filter meal, cuisine, diet and occasion in one tap. Smart Collections surface what is quick, loved or worth a second look — automatically. Now also as a Mac app.',
         launch_cta:        'Open in App Store',
 
         hero_badge:        'Available now on the App Store',
@@ -1075,7 +1080,7 @@
         rm_done_6:         'Native iPad layout with configurable sidebar and tag pinning',
         rm_done_7:         'Mac app via Catalyst — its own App Store listing',
         rm_done_8:         'Backup feature with images (Premium)',
-        rm_done_9:         'Four languages: German, English, Brazilian Portuguese, British English',
+        rm_done_9:         'Tag pinning + promote free tags to axis tags via long-press',
         roadmap_next_tag:  'Coming next',
         voices_label:      'Voices from the community',
         voices_title:      'What home cooks and foodies experience.',
@@ -1157,7 +1162,7 @@
 
         launch_pill:       'Update v2.0 out now',
         launch_headline:   'Four-axis filter, <span class="accent">Smart Collections</span> &amp; Mac app — new in v2.0.',
-        launch_sub:        'Filter meal, cuisine, diet and occasion in one tap. Smart Collections surface what is quick, loved or worth a second look — automatically. Now also as a Mac app and in four languages (DE · EN · pt-BR · UK).',
+        launch_sub:        'Filter meal, cuisine, diet and occasion in one tap. Smart Collections surface what is quick, loved or worth a second look — automatically. Now also as a Mac app.',
         launch_cta:        'Open in App Store',
 
         hero_badge:        'Available now on the App Store',
@@ -1225,7 +1230,7 @@
         rm_done_6:         'Native iPad layout with configurable sidebar and tag pinning',
         rm_done_7:         'Mac app via Catalyst — its own App Store listing',
         rm_done_8:         'Backup feature with images (Premium)',
-        rm_done_9:         'Four languages: German, English, Brazilian Portuguese, British English',
+        rm_done_9:         'Tag pinning + promote free tags to axis tags via long-press',
         roadmap_next_tag:  'Coming next',
         voices_label:      'Voices from the community',
         voices_title:      'What home cooks and foodies are experiencing.',
@@ -1307,7 +1312,7 @@
 
         launch_pill:       'Atualização v2.0 disponível',
         launch_headline:   'Filtro de 4 eixos, <span class="accent">Smart Collections</span> &amp; app para Mac — novidades da v2.0.',
-        launch_sub:        'Filtre refeição, região, dieta e ocasião com um toque. As Smart Collections mostram automaticamente o que é rápido, querido ou precisa de uma segunda olhada. Agora também como app para Mac e em quatro idiomas (DE · EN · pt-BR · UK).',
+        launch_sub:        'Filtre refeição, região, dieta e ocasião com um toque. As Smart Collections mostram automaticamente o que é rápido, querido ou precisa de uma segunda olhada. Agora também como app para Mac.',
         launch_cta:        'Abrir na App Store',
 
         hero_badge:        'Disponível agora na App Store',
@@ -1375,7 +1380,7 @@
         rm_done_6:         'Layout nativo para iPad com barra lateral configurável e fixação de tags',
         rm_done_7:         'App para Mac via Catalyst — listagem própria na App Store',
         rm_done_8:         'Função de backup com imagens (Premium)',
-        rm_done_9:         'Quatro idiomas: alemão, inglês, português brasileiro, inglês britânico',
+        rm_done_9:         'Tag pinning + promoção de tags livres a tags de eixo com pressionar e segurar',
         roadmap_next_tag:  'Em seguida',
         voices_label:      'Vozes da comunidade',
         voices_title:      'O que cozinheiros caseiros e foodies estão vivendo.',
