@@ -1,0 +1,22 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["54AWG8Y4U6.de.torecon.zettelkueche"],
+        "components": [
+          {
+            "/": "/recipe/*",
+            "comment": "Universal Link auf ein konkretes Rezept (Recipe-ID oder embedded-data im Pfad-Suffix)"
+          },
+          {
+            "/": "/r/*",
+            "comment": "Kurzform — gleiches Routing-Verhalten wie /recipe/, aber kürzer für QR-Codes (#20)"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["54AWG8Y4U6.de.torecon.zettelkueche"]
+  }
+}
