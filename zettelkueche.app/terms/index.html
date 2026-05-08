@@ -73,8 +73,10 @@
       <div class="nav-right">
         <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
         <div class="lang-toggle">
-          <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
-          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn active" data-lang="de" onclick="setLang('de')" title="Deutsch" aria-label="Deutsch">DE</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English" aria-label="English">EN</button>
+          <button class="lang-btn" data-lang="uk" onclick="setLang('uk')" title="Українська" aria-label="Українська">UA</button>
+          <button class="lang-btn" data-lang="pt-BR" onclick="setLang('pt-BR')" title="Português (Brasil)" aria-label="Português (Brasil)">PT-BR</button>
         </div>
       </div>
     </div>
@@ -277,6 +279,122 @@
         footer_support: 'Support',
         footer_imprint: 'Imprint',
         footer_rights: 'All rights reserved.'
+      },
+      'uk': {
+        nav_back: '← Назад',
+        nav_home: 'Zettelküche AI',
+        page_label: 'Юридична інформація',
+        page_title: 'Умови використання',
+        page_meta: 'Останнє оновлення: квітень 2026 · Zettelküche AI для iOS та iPadOS',
+
+        h_1: '1. Постачальник і контакт',
+        t_1: '<strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22, 53474 Ahrweiler, Німеччина<br>Електронна пошта: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+
+        h_2: '2. Опис послуги',
+        t_2_intro: 'Zettelküche AI — застосунок для iOS та iPadOS для збору, упорядкування та AI-структурування рецептів. Застосунок надає:',
+        t_2_list: '<li>Захоплення рецептів через камеру, медіатеку, імпорт файлів (PDF, TXT, RTF) або введення вручну</li><li>Розпізнавання тексту на пристрої (OCR) та AI-структурування у назву, інгредієнти, кроки, теги</li><li>Бібліотеку з пошуком, фільтрами, тегами, обраним, категоріями</li><li>Покроковий режим приготування та історію приготування</li><li>Локальне зберігання з опційною синхронізацією iCloud між власними пристроями</li><li>Поширення окремих рецептів і адаптацію через офіційний застосунок ChatGPT</li>',
+        t_2_outro: 'Застосунок надається як ліцензія для одного користувача для особистого, некомерційного використання на пристроях Apple.',
+
+        h_3: '3. Надання ліцензії',
+        t_3_intro: 'Завантажуючи Zettelküche AI, ви отримуєте невиключну, неперевідну, відкличну ліцензію на використання застосунку для приватних цілей на пристроях Apple, прив\'язаних до вашого облікового запису Apple.',
+        t_3_forbid_intro: 'Заборонено наступне:',
+        t_3_forbid_list: '<li>Копіювання, модифікація або створення похідних робіт застосунку</li><li>Декомпіляція, дизасемблювання або зворотна розробка</li><li>Комерційне використання або перепродаж</li><li>Автоматизовані запити або масові виклики до AI-інфраструктури</li>',
+
+        h_4: '4. Безкоштовний тариф і Premium-підписка',
+        t_4_intro: 'Zettelküche AI пропонує безкоштовний тариф з обмеженим обсягом і опційну Premium-підписку, що додає:',
+        t_4_list: '<li>Необмежені AI-вилучення рецептів</li><li>Розширені фільтри та сортування</li><li>Поширення без обмежень</li>',
+        t_4_outro: 'Ручне додавання рецептів, локальна бібліотека, синхронізація iCloud та поширення окремих рецептів повністю включені до безкоштовного тарифу.',
+
+        h_5: '5. Покупки в застосунку та підписки',
+        t_5_pricing: 'Поточні ціни та умови показуються вам перед покупкою безпосередньо в застосунку та в App Store. Умови можуть змінюватися за регіоном і в часі — Apple автоматично керує регіональним ціноутворенням.',
+        t_5_renew: 'Підписки автоматично поновлюються наприкінці поточного періоду, якщо їх не скасовано принаймні за 24 години до закінчення. Скасування через: Системні налаштування → Apple ID → Підписки.',
+        t_5_apple: 'Усі платежі, виставлення рахунків та повернення коштів обробляються виключно Apple. Ми не маємо доступу до платіжних даних.',
+        t_5_trial: 'Apple може надати безкоштовний ввідний період. Наявність і тривалість будь-якого такого періоду показуються в діалозі покупки App Store.',
+
+        h_6: '6. Дані та безпека',
+        t_6_intro: 'Усі рецепти, захоплені в Zettelküche AI, зберігаються локально на вашому пристрої та опційно синхронізуються через Apple iCloud (Private Database) між вашими власними пристроями (той самий Apple ID). Ми (torecon) не маємо доступу до ваших рецептів. Деталі AI-обробки OCR-тексту — у нашій <a href="/privacy/">Політиці конфіденційності</a>.',
+        t_6_outro: 'Ви відповідаєте за резервне копіювання своїх даних (наприклад, через iCloud-резервне копіювання або періодичний ручний експорт). Ми не несемо відповідальності за втрату даних, спричинену пошкодженням пристрою, оновленням ОС або випадковим видаленням.',
+
+        h_7: '7. Доступність і оновлення',
+        t_7: 'Ми прагнемо постійно покращувати Zettelküche AI та підтримувати його актуальним для операційних систем Apple. Однак ми не надаємо гарантій щодо конкретної доступності чи функцій. Ми залишаємо за собою право змінювати, додавати чи видаляти функції — зокрема, якість AI-структурування може змінюватися в міру розвитку базового AI-провайдера.',
+
+        h_8: '8. Відмова від відповідальності',
+        t_8_intro: 'Zettelküche AI — це особистий інструмент керування рецептами. AI-структурування може бути неправильним або неповним. Ви відповідаєте за коректне захоплення і особливо за попередження про алергени, кількості та будь-який вміст, що стосується здоров\'я. Не покладайтеся на AI-згенеровані деталі рецептів без перевірки — завжди звіряйте критичні поля (кількості, інгредієнти, час приготування) з оригінальним джерелом.',
+        t_8_liability: 'Наша відповідальність обмежена умислом і грубою недбалістю. За звичайну недбалість ми відповідаємо лише за порушення суттєвих договірних зобов\'язань, і в таких випадках обмежено передбачуваною, типовою для договору шкодою. Відповідальність за тілесні ушкодження та шкоду здоров\'ю залишається без змін.',
+
+        h_9: '9. Зміни цих умов',
+        t_9: 'Ми можемо змінювати ці умови в будь-який час. Поточна версія завжди доступна за адресою <a href="https://zettelkueche.app/terms/">zettelkueche.app/terms/</a>. Подальше використання застосунку після змін означає прийняття нової версії.',
+
+        h_10: '10. Застосовне право та юрисдикція',
+        t_10_intro: 'Застосовується законодавство Німеччини. Місце юрисдикції — Ahrweiler, наскільки це юридично допустимо.',
+        t_10_odr: 'Європейська комісія надає платформу онлайн-вирішення спорів: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Ми не зобов\'язані й не готові брати участь у процедурах вирішення спорів через споживчий арбітраж.',
+
+        h_11: '11. Контакт',
+        t_11: 'З питань щодо цих умов звертайтеся до: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+
+        footer_privacy: 'Конфіденційність',
+        footer_terms: 'Умови',
+        footer_support: 'Підтримка',
+        footer_imprint: 'Вихідні дані',
+        footer_rights: 'Усі права захищено.'
+      },
+      'pt-BR': {
+        nav_back: '← Voltar',
+        nav_home: 'Zettelküche AI',
+        page_label: 'Jurídico',
+        page_title: 'Termos de Uso',
+        page_meta: 'Última atualização: abril de 2026 · Zettelküche AI para iOS e iPadOS',
+
+        h_1: '1. Provedor e contato',
+        t_1: '<strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22, 53474 Ahrweiler, Alemanha<br>E-mail: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+
+        h_2: '2. Descrição do serviço',
+        t_2_intro: 'O Zettelküche AI é um app para iOS e iPadOS de captura, organização e estruturação por IA de receitas. O app oferece:',
+        t_2_list: '<li>Captura de receitas via câmera, fototeca, importação de arquivo (PDF, TXT, RTF) ou entrada manual</li><li>Reconhecimento de texto no aparelho (OCR) e estruturação por IA em título, ingredientes, passos, tags</li><li>Biblioteca com busca, filtros, tags, favoritos, categorias</li><li>Modo de cozimento passo a passo e histórico de cozimento</li><li>Armazenamento local com sincronização opcional via iCloud entre seus aparelhos</li><li>Compartilhamento de receitas individuais e adaptação via app oficial do ChatGPT</li>',
+        t_2_outro: 'O app é fornecido como licença individual para uso pessoal e não comercial em aparelhos Apple.',
+
+        h_3: '3. Concessão de licença',
+        t_3_intro: 'Ao baixar o Zettelküche AI você recebe uma licença não exclusiva, intransferível e revogável para usar o app para fins pessoais em aparelhos Apple vinculados à sua conta Apple.',
+        t_3_forbid_intro: 'Não é permitido:',
+        t_3_forbid_list: '<li>Copiar, modificar ou criar obras derivadas do app</li><li>Descompilar, desmontar ou fazer engenharia reversa</li><li>Uso comercial ou revenda</li><li>Consultas automatizadas ou chamadas em massa contra a infraestrutura de extração por IA</li>',
+
+        h_4: '4. Tier gratuito e assinatura Premium',
+        t_4_intro: 'O Zettelküche AI oferece um tier gratuito com escopo limitado e uma assinatura Premium opcional que acrescenta:',
+        t_4_list: '<li>Extrações de receita por IA ilimitadas</li><li>Filtros e ordenações avançados</li><li>Compartilhamento sem limites</li>',
+        t_4_outro: 'Cadastro manual de receitas, biblioteca local, sincronização via iCloud e compartilhamento de receitas individuais estão totalmente incluídos no tier gratuito.',
+
+        h_5: '5. Compras no app e assinaturas',
+        t_5_pricing: 'Os preços e termos aplicáveis são exibidos antes da compra, diretamente no app e na App Store. As condições podem variar por região e ao longo do tempo — a Apple controla automaticamente o preço regional.',
+        t_5_renew: 'As assinaturas renovam-se automaticamente ao final do período corrente, salvo cancelamento com pelo menos 24 horas de antecedência. Cancelamento via: Ajustes do sistema → Apple ID → Assinaturas.',
+        t_5_apple: 'Todos os pagamentos, faturamento e reembolsos são tratados exclusivamente pela Apple. Não temos acesso a dados de pagamento.',
+        t_5_trial: 'A Apple pode conceder um período introdutório gratuito. A existência e duração de qualquer período desse tipo são exibidas no diálogo de compra da App Store.',
+
+        h_6: '6. Dados e segurança',
+        t_6_intro: 'Todas as receitas capturadas no Zettelküche AI são armazenadas localmente no seu aparelho e, opcionalmente, sincronizadas via Apple iCloud (Private Database) entre seus aparelhos (mesmo Apple ID). Nós (torecon) não temos acesso às suas receitas. Detalhes sobre o tratamento por IA do texto OCR estão em nossa <a href="/privacy/">Política de Privacidade</a>.',
+        t_6_outro: 'Você é responsável pelo backup dos seus dados (por ex., backup do iCloud ou exportação manual ocasional). Não nos responsabilizamos por perda de dados causada por dano ao aparelho, atualizações de SO ou exclusão acidental.',
+
+        h_7: '7. Disponibilidade e atualizações',
+        t_7: 'Buscamos melhorar continuamente o Zettelküche AI e mantê-lo atualizado para os sistemas operacionais da Apple. Contudo, não fazemos garantias sobre disponibilidade ou recursos específicos. Reservamo-nos o direito de alterar, adicionar ou remover recursos — em particular a qualidade da estruturação por IA pode mudar conforme o provedor de IA subjacente evoluir.',
+
+        h_8: '8. Isenção de responsabilidade',
+        t_8_intro: 'O Zettelküche AI é uma ferramenta pessoal de gerenciamento de receitas. A estruturação por IA pode estar incorreta ou incompleta. Você é responsável pela captura correta e, especialmente, por avisos sobre alérgenos, quantidades e qualquer conteúdo relevante para a saúde. Não dependa sem verificação dos detalhes gerados por IA — sempre confira campos críticos (quantidades, ingredientes, tempos de cozimento) com a fonte original.',
+        t_8_liability: 'Nossa responsabilidade limita-se a dolo e culpa grave. Por culpa leve, respondemos apenas pela violação de obrigações contratuais essenciais e, nesses casos, limitada ao dano previsível, típico do contrato. A responsabilidade por danos pessoais e à saúde permanece inalterada.',
+
+        h_9: '9. Alterações destes termos',
+        t_9: 'Podemos alterar estes termos a qualquer momento. A versão atual está sempre disponível em <a href="https://zettelkueche.app/terms/">zettelkueche.app/terms/</a>. O uso continuado do app após uma alteração constitui aceitação da nova versão.',
+
+        h_10: '10. Lei aplicável e foro',
+        t_10_intro: 'Aplica-se a lei alemã. O foro é Ahrweiler, na medida juridicamente permitida.',
+        t_10_odr: 'A Comissão Europeia oferece uma plataforma de resolução online de litígios: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Não somos obrigados nem dispostos a participar de procedimentos de arbitragem do consumidor.',
+
+        h_11: '11. Contato',
+        t_11: 'Para dúvidas sobre estes termos entre em contato: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+
+        footer_privacy: 'Privacidade',
+        footer_terms: 'Termos',
+        footer_support: 'Suporte',
+        footer_imprint: 'Impressum',
+        footer_rights: 'Todos os direitos reservados.'
       }
     };
 
@@ -298,8 +416,12 @@
       const stored = localStorage.getItem('lang');
       if (stored && translations[stored]) initial = stored;
       else {
-        const browserLang = (navigator.language || 'de').split('-')[0];
-        if (translations[browserLang]) initial = browserLang;
+        const full = (navigator.language || 'de');
+        if (translations[full]) initial = full;                       // e.g. 'pt-BR'
+        else {
+          const short = full.split('-')[0];
+          if (translations[short]) initial = short;                   // e.g. 'uk', 'en', 'de'
+        }
       }
     } catch (_) {}
     setLang(initial);

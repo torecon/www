@@ -81,8 +81,10 @@
       <div class="nav-right">
         <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
         <div class="lang-toggle">
-          <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
-          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn active" data-lang="de" onclick="setLang('de')" title="Deutsch" aria-label="Deutsch">DE</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English" aria-label="English">EN</button>
+          <button class="lang-btn" data-lang="uk" onclick="setLang('uk')" title="Українська" aria-label="Українська">UA</button>
+          <button class="lang-btn" data-lang="pt-BR" onclick="setLang('pt-BR')" title="Português (Brasil)" aria-label="Português (Brasil)">PT-BR</button>
         </div>
       </div>
     </div>
@@ -133,7 +135,7 @@
 
     <div class="faq-item">
       <h3 data-i18n="faq_7_q">Welche Sprachen unterstützt die App?</h3>
-      <p data-i18n="faq_7_a">Aktuell Deutsch und Englisch. Du kannst die App-Sprache jederzeit in den Einstellungen ändern (kein Neustart nötig). Weitere Sprachen folgen.</p>
+      <p data-i18n="faq_7_a">Deutsch, Englisch, Ukrainisch und brasilianisches Portugiesisch. Du kannst die App-Sprache jederzeit in den Einstellungen umschalten — Live-Wechsel ohne App-Neustart, auch System-Tags wie „Frühstück" / „Breakfast" / „Café da manhã" / „Сніданок" passen sich automatisch an.</p>
     </div>
 
     <div class="faq-item">
@@ -204,7 +206,7 @@
         faq_6_a: 'Du kannst jedes Rezept nachträglich bearbeiten: Tippe auf das Rezept, dann auf „Bearbeiten". Mengen, Schritte, Tags und das Bild lassen sich jederzeit ändern. Bei groben Fehlern hilft oft ein klareres Foto und ein neuer Capture-Versuch.',
 
         faq_7_q: 'Welche Sprachen unterstützt die App?',
-        faq_7_a: 'Aktuell Deutsch und Englisch. Du kannst die App-Sprache jederzeit in den Einstellungen ändern (kein Neustart nötig). Weitere Sprachen folgen.',
+        faq_7_a: 'Deutsch, Englisch, Ukrainisch und brasilianisches Portugiesisch. Du kannst die App-Sprache jederzeit in den Einstellungen umschalten — Live-Wechsel ohne App-Neustart, auch System-Tags wie „Frühstück" / „Breakfast" / „Café da manhã" / „Сніданок" passen sich automatisch an.',
 
         faq_8_q: 'Was bedeutet „ChatGPT-Adaption"?',
         faq_8_a: 'Bei jedem Rezept findest du die Aktion „An ChatGPT senden". Damit übergibst du den Rezepttext an die offizielle ChatGPT-App auf deinem iPhone (oder die ChatGPT-Website), z. B. um es vegetarisch zu adaptieren oder Portionen umzurechnen. Du nutzt dabei deinen eigenen ChatGPT-Account — wir sind dabei nicht beteiligt.',
@@ -255,7 +257,7 @@
         faq_6_a: 'You can edit any recipe afterwards: tap the recipe, then "Edit". Quantities, steps, tags and the image can be changed any time. For severe errors a clearer photo and a fresh capture often help.',
 
         faq_7_q: 'Which languages does the app support?',
-        faq_7_a: 'Currently German and English. You can switch the app language any time in Settings (no restart required). More languages will follow.',
+        faq_7_a: 'German, English, Ukrainian and Brazilian Portuguese. You can switch the app language any time in Settings — live switch without restart, and system tags like „Frühstück" / "Breakfast" / "Café da manhã" / „Сніданок" adapt automatically.',
 
         faq_8_q: 'What does "ChatGPT adaptation" mean?',
         faq_8_a: 'On every recipe you\'ll find the action "Send to ChatGPT". This hands the recipe text to the official ChatGPT app on your iPhone (or the ChatGPT website), e.g. to adapt it for a vegetarian version or to scale portions. You use your own ChatGPT account — we\'re not involved in that handoff.',
@@ -276,6 +278,108 @@
         footer_support: 'Support',
         footer_imprint: 'Imprint',
         footer_rights: 'All rights reserved.'
+      },
+      'uk': {
+        nav_back: '← Назад',
+        nav_home: 'Zettelküche AI',
+        page_label: 'Допомога',
+        page_title: 'Підтримка',
+        page_meta: 'Відповіді на часті запитання — і як з нами зв\'язатися.',
+        contact_label: '<strong>Прямий контакт</strong>',
+        contact_response: 'Зазвичай відповідаємо протягом 1–3 робочих днів.',
+        faq_title: 'Часті запитання',
+
+        faq_1_q: 'Як працює захоплення рецептів?',
+        faq_1_a: 'Натисніть велику кнопку «плюс» унизу застосунку та оберіть джерело: камера, медіатека або документ (PDF/TXT/RTF) із застосунку Files. Розпізнавання тексту відбувається на вашому пристрої; структурування у назву, інгредієнти й кроки виконує наш AI за кілька секунд.',
+
+        faq_2_q: 'Де зберігаються мої рецепти?',
+        faq_2_a: 'Локально на вашому iPhone чи iPad та — якщо ви використовуєте iCloud — у вашій приватній базі iCloud. Ми (torecon) не маємо доступу. Рецепти автоматично синхронізуються між усіма вашими пристроями з тим самим Apple ID.',
+
+        faq_3_q: 'Що відбувається офлайн?',
+        faq_3_a: 'Бібліотека, ручне додавання, редагування та покроковий перегляд працюють повністю офлайн. Лише AI-вилучення нових рецептів із зображень або документів потребує інтернет-з\'єднання.',
+
+        faq_4_q: 'Що входить до безкоштовного тарифу?',
+        faq_4_a: 'Повна бібліотека, необмежені рецепти вручну, синхронізація iCloud, поширення окремих рецептів і 20 AI-вилучень на місяць. Premium знімає обмеження та розблоковує розширені фільтри.',
+
+        faq_5_q: 'Як скасувати Premium-підписку?',
+        faq_5_a: 'Через системні налаштування iPhone: Налаштування → [ваше ім\'я] → Підписки → Zettelküche AI → Скасувати. Керування повністю через Apple — ми не маємо на це впливу.',
+
+        faq_6_q: 'AI неправильно структурував мій рецепт. Що робити?',
+        faq_6_a: 'Будь-який рецепт можна редагувати: торкніться рецепта, потім «Редагувати». Кількості, кроки, теги та зображення можна змінити будь-коли. У разі грубих помилок часто допомагає чіткіше фото та повторне захоплення.',
+
+        faq_7_q: 'Які мови підтримує застосунок?',
+        faq_7_a: 'Німецька, англійська, українська та бразильська португальська. Ви можете перемкнути мову застосунку будь-коли в Налаштуваннях — наживо, без перезапуску, й навіть системні теги на кшталт „Frühstück" / „Breakfast" / „Café da manhã" / „Сніданок" автоматично адаптуються.',
+
+        faq_8_q: 'Що означає «Адаптація через ChatGPT»?',
+        faq_8_a: 'У кожному рецепті є дія «Надіслати в ChatGPT». Це передає текст рецепта в офіційний застосунок ChatGPT на вашому iPhone (або на вебсайт ChatGPT), напр., щоб адаптувати його під вегетаріанський варіант або змінити порції. Ви використовуєте власний обліковий запис ChatGPT — ми в цій передачі не беремо участі.',
+
+        faq_9_q: 'Що буде з моїми даними, якщо я видалю застосунок?',
+        faq_9_a: 'Локальні дані на пристрої видаляються разом із застосунком. Якщо синхронізація iCloud активна, рецепти залишаються у вашій iCloud, доки ви не видалите їх там. У Налаштуваннях також є «Видалити всі дані», щоб видалити рецепти цілеспрямовано.',
+
+        bug_title: 'Знайшли помилку чи маєте побажання щодо функції?',
+        bug_intro: 'Напишіть нам коротко на <a href="mailto:support@torecon.de">support@torecon.de</a> з:',
+        bug_list: '<li>Який iPhone/iPad і яка версія iOS</li><li>Яка версія застосунку (Налаштування → Про застосунок → Версія)</li><li>Що ви хотіли зробити і що сталося насправді</li><li>Скріншот, якщо можливо</li>',
+        bug_outro: 'Побажання щодо функцій надходять прямо в дорожню карту — ми розвиваємо Zettelküche AI ітеративно.',
+
+        more_title: 'Більше застосунків від torecon',
+        more_text: 'Якщо вам подобається Zettelküche AI, погляньте на наші інші застосунки: <a href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a> (мікро-навчання), <a href="https://getthinkless.ai" target="_blank" rel="noopener">ThinkLess AI</a> (підтримка рішень), <a href="https://eladung.torecon.de" target="_blank" rel="noopener">eLadung GO</a> (smart charging).',
+
+        footer_privacy: 'Конфіденційність',
+        footer_terms: 'Умови',
+        footer_support: 'Підтримка',
+        footer_imprint: 'Вихідні дані',
+        footer_rights: 'Усі права захищено.'
+      },
+      'pt-BR': {
+        nav_back: '← Voltar',
+        nav_home: 'Zettelküche AI',
+        page_label: 'Ajuda',
+        page_title: 'Suporte',
+        page_meta: 'Respostas para perguntas frequentes — e como falar conosco.',
+        contact_label: '<strong>Contato direto</strong>',
+        contact_response: 'Costumamos responder em 1–3 dias úteis.',
+        faq_title: 'Perguntas frequentes',
+
+        faq_1_q: 'Como funciona a captura de receitas?',
+        faq_1_a: 'Toque no botão grande de mais na parte de baixo do app e escolha uma fonte: câmera, fototeca ou um documento (PDF/TXT/RTF) do app Arquivos. O reconhecimento de texto roda no seu aparelho; a estruturação em título, ingredientes e passos é feita pela nossa IA em alguns segundos.',
+
+        faq_2_q: 'Onde minhas receitas são armazenadas?',
+        faq_2_a: 'Localmente no seu iPhone ou iPad e — se você usa o iCloud — no seu banco de dados privado do iCloud. Nós (torecon) não temos acesso. As receitas sincronizam automaticamente entre todos os aparelhos conectados ao mesmo Apple ID.',
+
+        faq_3_q: 'O que acontece quando estou offline?',
+        faq_3_a: 'A biblioteca, o cadastro manual, a edição e o modo passo a passo funcionam totalmente offline. Apenas a extração por IA de novas receitas a partir de imagens ou documentos precisa de conexão à internet.',
+
+        faq_4_q: 'O que está incluído no tier gratuito?',
+        faq_4_a: 'Biblioteca completa, receitas manuais ilimitadas, sincronização via iCloud, compartilhamento de receitas individuais e 20 extrações por IA por mês. O Premium remove os limites e libera filtros avançados.',
+
+        faq_5_q: 'Como cancelar minha assinatura Premium?',
+        faq_5_a: 'Pelos Ajustes do sistema do seu iPhone: Ajustes → [seu nome] → Assinaturas → Zettelküche AI → Cancelar. O gerenciamento é totalmente pela Apple — não temos influência sobre isso.',
+
+        faq_6_q: 'A IA estruturou minha receita de forma errada. O que posso fazer?',
+        faq_6_a: 'Você pode editar qualquer receita depois: toque na receita, depois em „Editar". Quantidades, passos, tags e a imagem podem ser alterados a qualquer momento. Para erros grandes, geralmente ajuda uma foto mais clara e uma nova tentativa de captura.',
+
+        faq_7_q: 'Quais idiomas o app suporta?',
+        faq_7_a: 'Alemão, inglês, ucraniano e português brasileiro. Você pode trocar o idioma do app a qualquer momento em Ajustes — troca ao vivo, sem reiniciar, e tags do sistema como „Frühstück" / „Breakfast" / „Café da manhã" / „Сніданок" se adaptam automaticamente.',
+
+        faq_8_q: 'O que significa „Adaptação via ChatGPT"?',
+        faq_8_a: 'Em cada receita você encontra a ação „Enviar para o ChatGPT". Isso entrega o texto da receita ao app oficial do ChatGPT no seu iPhone (ou ao site do ChatGPT), por ex., para adaptar para vegetariano ou recalcular porções. Você usa sua própria conta do ChatGPT — não temos envolvimento nessa entrega.',
+
+        faq_9_q: 'O que acontece com meus dados se eu apagar o app?',
+        faq_9_a: 'Os dados locais no aparelho são removidos junto com o app. Se a sincronização via iCloud estiver ativa, as receitas continuam no seu iCloud até você excluí-las lá. Em Ajustes você também encontra „Apagar todos os dados" para remover receitas deliberadamente.',
+
+        bug_title: 'Encontrou um bug ou tem um pedido de recurso?',
+        bug_intro: 'Mande uma mensagem rápida para <a href="mailto:support@torecon.de">support@torecon.de</a> com:',
+        bug_list: '<li>Qual iPhone/iPad e qual versão do iOS</li><li>Qual versão do app (Ajustes → Sobre → Versão)</li><li>O que você tentou fazer e o que de fato aconteceu</li><li>Um screenshot, se possível</li>',
+        bug_outro: 'Pedidos de recurso entram direto no roadmap — construímos o Zettelküche AI de forma iterativa.',
+
+        more_title: 'Mais apps da torecon',
+        more_text: 'Se você gosta do Zettelküche AI, dê uma olhada em nossos outros apps: <a href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a> (micro-aprendizado), <a href="https://getthinkless.ai" target="_blank" rel="noopener">ThinkLess AI</a> (suporte a decisões), <a href="https://eladung.torecon.de" target="_blank" rel="noopener">eLadung GO</a> (smart charging).',
+
+        footer_privacy: 'Privacidade',
+        footer_terms: 'Termos',
+        footer_support: 'Suporte',
+        footer_imprint: 'Impressum',
+        footer_rights: 'Todos os direitos reservados.'
       }
     };
 
@@ -297,8 +401,12 @@
       const stored = localStorage.getItem('lang');
       if (stored && translations[stored]) initial = stored;
       else {
-        const browserLang = (navigator.language || 'de').split('-')[0];
-        if (translations[browserLang]) initial = browserLang;
+        const full = (navigator.language || 'de');
+        if (translations[full]) initial = full;                       // e.g. 'pt-BR'
+        else {
+          const short = full.split('-')[0];
+          if (translations[short]) initial = short;                   // e.g. 'uk', 'en', 'de'
+        }
       }
     } catch (_) {}
     setLang(initial);
