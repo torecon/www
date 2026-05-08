@@ -657,7 +657,6 @@
       <div class="nav-right">
         <a class="nav-link" href="#funktionen" data-i18n="nav_features">Funktionen</a>
         <a class="nav-link" href="#roadmap" data-i18n="nav_roadmap">Entwicklung</a>
-        <a class="nav-link" href="#preise" data-i18n="nav_pricing">Preise</a>
         <a class="nav-link" href="#faq" data-i18n="nav_faq">FAQ</a>
         <a class="nav-cta appstore-link-platform" href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" data-i18n="nav_cta">Im App Store</a>
         <div class="lang-toggle">
@@ -970,55 +969,12 @@
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section class="section" id="preise">
-    <div class="container">
-      <span class="section-label text-center" style="display:block;" data-i18n="pricing_label">Preise</span>
-      <h2 class="section-headline text-center" data-i18n="pricing_title">Fair und transparent.</h2>
-      <p class="section-sub section-sub-center" data-i18n="pricing_sub">Einführungsangebot bis 31.12.2026 — Monatsabo mit 2 Wochen gratis, Jahresabo mit 1 Monat gratis. Jederzeit kündbar.</p>
-      <div class="pricing-grid">
-        <div class="pricing-card featured">
-          <div class="pricing-plan" data-i18n="price_year">Jährlich</div>
-          <div class="pricing-price">8,99 €<span class="pricing-save" data-i18n="price_save">24% gespart</span></div>
-          <div class="pricing-period" data-i18n="price_year_period">pro Jahr · 0,75 €/Monat · jederzeit kündbar</div>
-          <ul class="pricing-features">
-            <li><strong data-i18n="price_year_trial">1 Monat gratis testen</strong> <span data-i18n="price_until">(bis 31.12.2026)</span></li>
-            <li data-i18n="price_unlimited">Unbegrenzte Ladevorgänge</li>
-            <li data-i18n="price_dashboard">Dashboard, Charts &amp; Prognosen</li>
-            <li data-i18n="price_analysis">Wirtschaftlichkeitsanalyse</li>
-            <li data-i18n="price_pdf">PDF-Export, Spotlight &amp; Siri</li>
-          </ul>
-          <a class="pricing-cta appstore-link" href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" data-i18n="price_cta">Im App Store</a>
-        </div>
-        <div class="pricing-card">
-          <div class="pricing-plan" data-i18n="price_month">Monatlich</div>
-          <div class="pricing-price">0,99 €</div>
-          <div class="pricing-period" data-i18n="price_month_period">pro Monat · jederzeit kündbar</div>
-          <ul class="pricing-features">
-            <li><strong data-i18n="price_month_trial">2 Wochen gratis testen</strong> <span data-i18n="price_until">(bis 31.12.2026)</span></li>
-            <li data-i18n="price_unlimited">Unbegrenzte Ladevorgänge</li>
-            <li data-i18n="price_dashboard">Dashboard, Charts &amp; Prognosen</li>
-            <li data-i18n="price_analysis">Wirtschaftlichkeitsanalyse</li>
-            <li data-i18n="price_pdf">PDF-Export, Spotlight &amp; Siri</li>
-          </ul>
-          <a class="pricing-cta-secondary appstore-link" href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" data-i18n="price_cta">Im App Store</a>
-        </div>
-        <div class="pricing-card">
-          <div class="pricing-plan" data-i18n="price_once">Einmalig</div>
-          <div class="pricing-price">44,99 €</div>
-          <div class="pricing-period" data-i18n="price_once_period">einmalig, dauerhafter Zugang</div>
-          <ul class="pricing-features">
-            <li data-i18n="price_once_1">Alles inklusive</li>
-            <li data-i18n="price_once_2">Kein Abo, zahle einmal</li>
-            <li data-i18n="price_once_3">Alle zukünftigen Updates</li>
-            <li data-i18n="price_once_4">Unterstütze die Entwicklung</li>
-          </ul>
-          <a class="pricing-cta-secondary appstore-link" href="https://apps.apple.com/app/eladung-go/id6761632018" target="_blank" rel="noopener" data-i18n="price_cta">Im App Store</a>
-        </div>
-      </div>
-      <p class="pricing-note" data-i18n="price_note">Preise für die iOS-App eLadung GO. Abonnements werden über Apple abgerechnet, Kündigung jederzeit unter Apple-ID → Abonnements. Die macOS-App eLadung hat im Mac App Store eine eigene Preisstruktur.</p>
-    </div>
-  </section>
+  <!-- Pricing-Section bewusst entfernt (User-Direktive 2026-05-08, gilt für alle Apps):
+       Keine konkreten Preise auf Landing-Pages oder in Terms — siehe
+       _principles/landing-page-after-release.md §7. App Store zeigt aktuelles
+       Pricing automatisch regional, eine zweite Wahrheit hier auf der Landing
+       wäre irreführend in BR / UA / US. Trial-Hinweis bleibt in der Hero-CTA
+       und der Download-Section unten. -->
 
   <!-- Kundenstimmen / Social Proof (Anzahl variiert pro Release: aktuell 6) -->
   <section class="section testimonials-bg" id="testimonials">
@@ -1297,7 +1253,6 @@
         nav_sub:           'eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_features:      'Funktionen',
         nav_roadmap:       'Entwicklung',
-        nav_pricing:       'Preise',
         nav_faq:           'FAQ',
         nav_cta:           'Im App Store',
 
@@ -1408,30 +1363,6 @@
         plat_iphone_text:  'eLadung GO für unterwegs: Ladevorgang schnell erfassen, Dashboard im Blick, Wirtschaftlichkeitsanalyse und Tarifvergleich. Nahtlose iCloud-Sync mit der Mac-App.',
         plat_iphone_status:'Im App Store',
 
-        pricing_label:     'Preise',
-        pricing_title:     'Fair und transparent.',
-        pricing_sub:       'Einführungsangebot bis 31.12.2026 — Monatsabo mit 2 Wochen gratis, Jahresabo mit 1 Monat gratis. Jederzeit kündbar.',
-        price_year:        'Jährlich',
-        price_save:        '24% gespart',
-        price_year_period: 'pro Jahr · 0,75 €/Monat · jederzeit kündbar',
-        price_year_trial:  '1 Monat gratis testen',
-        price_until:       '(bis 31.12.2026)',
-        price_unlimited:   'Unbegrenzte Ladevorgänge',
-        price_dashboard:   'Dashboard, Charts &amp; Prognosen',
-        price_analysis:    'Wirtschaftlichkeitsanalyse',
-        price_pdf:         'PDF-Export, Spotlight &amp; Siri',
-        price_cta:         'Im App Store',
-        price_month:       'Monatlich',
-        price_month_period:'pro Monat · jederzeit kündbar',
-        price_month_trial: '2 Wochen gratis testen',
-        price_once:        'Einmalig',
-        price_once_period: 'einmalig, dauerhafter Zugang',
-        price_once_1:      'Alles inklusive',
-        price_once_2:      'Kein Abo, zahle einmal',
-        price_once_3:      'Alle zukünftigen Updates',
-        price_once_4:      'Unterstütze die Entwicklung',
-        price_note:        'Preise für die iOS-App eLadung GO. Abonnements werden über Apple abgerechnet, Kündigung jederzeit unter Apple-ID → Abonnements. Die macOS-App eLadung hat im Mac App Store eine eigene Preisstruktur.',
-
         testimonials_label:'Stimmen aus der Community',
         testimonials_title:'Was Nutzer berichten.',
         testimonials_sub:  'Eindrücke aus dem Feedback nach dem v4.8-Update — iPad-Nutzer, Mehrfahrzeug-Haushalte, PV-Anlagenbesitzer und Pendler.',
@@ -1510,7 +1441,6 @@
         nav_sub:           'an app by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_features:      'Features',
         nav_roadmap:       'Roadmap',
-        nav_pricing:       'Pricing',
         nav_faq:           'FAQ',
         nav_cta:           'On the App Store',
 
@@ -1620,30 +1550,6 @@
         plat_iphone_title: 'iPhone',
         plat_iphone_text:  'eLadung GO on the go: log charging sessions quickly, dashboard at a glance, economic analysis and tariff comparison. Seamless iCloud sync with the Mac app.',
         plat_iphone_status:'On the App Store',
-
-        pricing_label:     'Pricing',
-        pricing_title:     'Fair and transparent.',
-        pricing_sub:       'Introductory offer until 2026-12-31 — monthly with 2 weeks free, yearly with 1 month free. Cancel anytime.',
-        price_year:        'Yearly',
-        price_save:        'save 24%',
-        price_year_period: 'per year · €0.75/month · cancel anytime',
-        price_year_trial:  '1 month free trial',
-        price_until:       '(until 2026-12-31)',
-        price_unlimited:   'Unlimited charging sessions',
-        price_dashboard:   'Dashboard, charts &amp; forecast',
-        price_analysis:    'Economic analysis',
-        price_pdf:         'PDF export, Spotlight &amp; Siri',
-        price_cta:         'On the App Store',
-        price_month:       'Monthly',
-        price_month_period:'per month · cancel anytime',
-        price_month_trial: '2 weeks free trial',
-        price_once:        'One-time',
-        price_once_period: 'one-time, lifetime access',
-        price_once_1:      'Everything included',
-        price_once_2:      'No subscription, pay once',
-        price_once_3:      'All future updates',
-        price_once_4:      'Support development',
-        price_note:        'Prices for the iOS app eLadung GO. Subscriptions are billed via Apple, cancellation anytime under Apple ID → Subscriptions. The macOS app comes with its own pricing structure.',
 
         testimonials_label:'Voices from the community',
         testimonials_title:'What users report.',
