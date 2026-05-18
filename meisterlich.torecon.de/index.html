@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meisterlich AI – Handwerker finden ohne Provision</title>
-  <meta name="description" content="Meisterlich AI verbindet Privatkunden mit Handwerkern in der Nähe. Für Kunden kostenlos. Für Handwerker planbare Fixkosten statt Lead-Gebühren.">
+  <meta name="description" content="Meisterlich AI verbindet Privatkunden mit Handwerkern in der Nähe. Aktuell kostenlos für alle — wir starten die Plattform mit den ersten Meistern.">
 
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/style.css">
 
   <meta property="og:title" content="Meisterlich AI – Handwerker finden ohne Provision">
-  <meta property="og:description" content="Kostenlos für Kunden. Planbare Fixkosten für Handwerker. Die App für handwerkliche Aufträge in deiner Nähe.">
+  <meta property="og:description" content="Aktuell kostenlos für alle. Die App für handwerkliche Aufträge in deiner Nähe — keine Provision, keine Lead-Gebühren.">
   <meta property="og:url" content="https://meisterlich.torecon.de">
   <meta property="og:type" content="website">
 </head>
@@ -45,10 +45,10 @@
           <span data-i18n="hero_h1_1">Meister finden.</span><br>
           <span class="accent" data-i18n="hero_h1_2">Ohne Provision.</span>
         </h1>
-        <p class="hero-sub" data-i18n="hero_sub">Meisterlich AI verbindet Privatkunden mit Handwerkerbetrieben in der Nähe. <strong>Kostenlos für Kunden.</strong> Planbare Fixkosten für Meister — statt variabler Lead-Gebühren.</p>
+        <p class="hero-sub" data-i18n="hero_sub">Meisterlich AI verbindet Privatkunden mit Handwerkerbetrieben in der Nähe. <strong>Aktuell kostenlos für alle.</strong> Keine Provision, keine Lead-Gebühren — wir starten die Plattform mit den ersten Meistern.</p>
         <div class="hero-cta-row">
-          <a href="#pricing" class="btn-primary" data-i18n="hero_cta_pricing">Preise ansehen</a>
-          <a href="#how" class="btn-secondary" data-i18n="hero_cta_how">Wie es funktioniert</a>
+          <a href="#how" class="btn-primary" data-i18n="hero_cta_how">Wie es funktioniert</a>
+          <a href="#for-masters" class="btn-secondary" data-i18n="hero_cta_masters">Für Meister</a>
         </div>
         <div class="hero-pills">
           <span class="hero-pill">📱 <span data-i18n="pill_platform">iPhone · iOS 17+</span></span>
@@ -75,13 +75,13 @@
             <li data-i18n="role_cust_li4">Keine Provision. Kein Lead-Verkauf. Kein Werbetracking.</li>
           </ul>
         </div>
-        <div class="role-card accent">
+        <div class="role-card accent" id="for-masters">
           <h3 data-i18n="role_craft_h3">Meister (Handwerker)</h3>
-          <p class="role-price" data-i18n="role_craft_price">Ab 9,99 € pro Woche · keine Provision</p>
-          <p data-i18n="role_craft_p">Pflege dein Profil mit Fotos, Leistungen und Werbebanner. Du zahlst ein festes Abo und behältst jeden Auftrag vollständig — keine Lead-Gebühren, kein Stück vom Kuchen.</p>
+          <p class="role-price" data-i18n="role_craft_price">Aktuell kostenlos · keine Provision</p>
+          <p data-i18n="role_craft_p">Pflege dein Profil mit Fotos, Leistungen und Werbebanner. Aktuell kostenlos für alle Meister — du behältst jeden Auftrag vollständig, keine Lead-Gebühren, keine Provision.</p>
           <ul>
             <li data-i18n="role_craft_li1">Öffentliches Profil mit bis zu 10 Fotos + Banner</li>
-            <li data-i18n="role_craft_li2">Sichtbar im Kundenradar, sobald das Abo aktiv ist</li>
+            <li data-i18n="role_craft_li2">Sofort sichtbar im Kundenradar — kein Abo nötig</li>
             <li data-i18n="role_craft_li3">Chat-Anfragen direkt vom Kunden, optional Telefon-Opt-in</li>
             <li data-i18n="role_craft_li4">Du entscheidest selbst, ob Bewertungen öffentlich sind</li>
           </ul>
@@ -96,8 +96,8 @@
       <div class="feature-grid">
         <div class="feature-card">
           <span class="feature-emoji">💰</span>
-          <h3 data-i18n="f1_h3">Planbare Fixkosten</h3>
-          <p data-i18n="f1_p">Fünf Laufzeiten von wöchentlich bis jährlich. Keine Provision pro Auftrag — das Geld bleibt beim Meister.</p>
+          <h3 data-i18n="f1_h3">Kostenlos starten</h3>
+          <p data-i18n="f1_p">Aktuell für alle Meister kostenlos. Wir starten die Plattform mit dir — Pricing kommt erst, wenn die Plattform echte Aufträge bringt.</p>
         </div>
         <div class="feature-card">
           <span class="feature-emoji">📍</span>
@@ -117,27 +117,12 @@
       </div>
     </section>
 
-    <!-- Pricing -->
+    <!-- Free-Mode-Banner (ersetzt Pricing-Tabelle während Cold-Start-Phase) -->
     <section class="pricing-home" id="pricing">
       <div class="section-home">
-        <h2 data-i18n="price_h2">Preise für Meister</h2>
-        <p class="section-sub" data-i18n="price_sub">Fünf Laufzeiten. Kein Trial. Je länger, desto günstiger pro Monat. Kündigung jederzeit über die iPhone-Einstellungen.</p>
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th data-i18n="price_col_term">Laufzeit</th>
-              <th data-i18n="price_col_price">Preis</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td data-i18n="price_weekly">Wöchentlich</td><td>9,99&nbsp;€</td></tr>
-            <tr><td data-i18n="price_monthly">Monatlich</td><td>24,99&nbsp;€</td></tr>
-            <tr><td data-i18n="price_quarterly">Quartalsweise</td><td>69,99&nbsp;€</td></tr>
-            <tr><td data-i18n="price_halfyearly">Halbjährlich</td><td>129,99&nbsp;€</td></tr>
-            <tr><td data-i18n="price_yearly">Jährlich</td><td>249,99&nbsp;€</td></tr>
-          </tbody>
-        </table>
-        <p class="pricing-note" data-i18n="price_note">Abrechnung über Apple In-App Purchase. Für Privatkunden ist die App dauerhaft kostenlos.</p>
+        <h2 data-i18n="price_h2">Aktuell kostenlos für alle Meister</h2>
+        <p class="section-sub" data-i18n="price_sub">Wir bauen die Plattform Schritt für Schritt auf. Meister, die jetzt einsteigen, sind Gründungsmitglieder — sie prägen die ersten Aufträge und bauen Reichweite vor allen anderen.</p>
+        <p class="pricing-note" data-i18n="price_note">Pricing aktivieren wir erst, wenn die Plattform echte Liquidität hat — wenn aus jeder Region täglich Aufträge bei den Meistern landen. Bis dahin: keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig.</p>
       </div>
     </section>
 
@@ -186,9 +171,9 @@
         nav_imprint: 'Impressum',
         hero_h1_1: 'Meister finden.',
         hero_h1_2: 'Ohne Provision.',
-        hero_sub: 'Meisterlich AI verbindet Privatkunden mit Handwerkerbetrieben in der Nähe. <strong>Kostenlos für Kunden.</strong> Planbare Fixkosten für Meister — statt variabler Lead-Gebühren.',
-        hero_cta_pricing: 'Preise ansehen',
+        hero_sub: 'Meisterlich AI verbindet Privatkunden mit Handwerkerbetrieben in der Nähe. <strong>Aktuell kostenlos für alle.</strong> Keine Provision, keine Lead-Gebühren — wir starten die Plattform mit den ersten Meistern.',
         hero_cta_how: 'Wie es funktioniert',
+        hero_cta_masters: 'Für Meister',
         pill_platform: 'iPhone · iOS 17+',
         pill_lang: 'Deutsch &amp; Englisch',
         pill_privacy: 'Sign in with Apple',
@@ -203,32 +188,25 @@
         role_cust_li3: 'Direkt anrufen, wenn der Meister seine Nummer freigibt',
         role_cust_li4: 'Keine Provision. Kein Lead-Verkauf. Kein Werbetracking.',
         role_craft_h3: 'Meister (Handwerker)',
-        role_craft_price: 'Ab 9,99 € pro Woche · keine Provision',
-        role_craft_p: 'Pflege dein Profil mit Fotos, Leistungen und Werbebanner. Du zahlst ein festes Abo und behältst jeden Auftrag vollständig — keine Lead-Gebühren, kein Stück vom Kuchen.',
+        role_craft_price: 'Aktuell kostenlos · keine Provision',
+        role_craft_p: 'Pflege dein Profil mit Fotos, Leistungen und Werbebanner. Aktuell kostenlos für alle Meister — du behältst jeden Auftrag vollständig, keine Lead-Gebühren, keine Provision.',
         role_craft_li1: 'Öffentliches Profil mit bis zu 10 Fotos + Banner',
-        role_craft_li2: 'Sichtbar im Kundenradar, sobald das Abo aktiv ist',
+        role_craft_li2: 'Sofort sichtbar im Kundenradar — kein Abo nötig',
         role_craft_li3: 'Chat-Anfragen direkt vom Kunden, optional Telefon-Opt-in',
         role_craft_li4: 'Du entscheidest selbst, ob Bewertungen öffentlich sind',
         feat_h2: 'Warum Meisterlich AI?',
         feat_sub: 'Keine Lead-Gebühren. Keine Mittelsmänner. Nur eine App, die Kunden und Meister zusammenbringt.',
-        f1_h3: 'Planbare Fixkosten',
-        f1_p: 'Fünf Laufzeiten von wöchentlich bis jährlich. Keine Provision pro Auftrag — das Geld bleibt beim Meister.',
+        f1_h3: 'Kostenlos starten',
+        f1_p: 'Aktuell für alle Meister kostenlos. Wir starten die Plattform mit dir — Pricing kommt erst, wenn die Plattform echte Aufträge bringt.',
         f2_h3: 'Lokal &amp; präzise',
         f2_p: 'Suche nach PLZ und Umkreis. Jeder Meister entscheidet selbst, in welchem Radius er arbeiten will.',
         f3_h3: 'Chat statt Formular',
         f3_p: 'In-App-Text-Chat, kurz und fokussiert. Wenn es schneller gehen muss: ein Tap aufs Telefon.',
         f4_h3: 'Privatsphäre zuerst',
         f4_p: 'Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".',
-        price_h2: 'Preise für Meister',
-        price_sub: 'Fünf Laufzeiten. Kein Trial. Je länger, desto günstiger pro Monat. Kündigung jederzeit über die iPhone-Einstellungen.',
-        price_col_term: 'Laufzeit',
-        price_col_price: 'Preis',
-        price_weekly: 'Wöchentlich',
-        price_monthly: 'Monatlich',
-        price_quarterly: 'Quartalsweise',
-        price_halfyearly: 'Halbjährlich',
-        price_yearly: 'Jährlich',
-        price_note: 'Abrechnung über Apple In-App Purchase. Für Privatkunden ist die App dauerhaft kostenlos.',
+        price_h2: 'Aktuell kostenlos für alle Meister',
+        price_sub: 'Wir bauen die Plattform Schritt für Schritt auf. Meister, die jetzt einsteigen, sind Gründungsmitglieder — sie prägen die ersten Aufträge und bauen Reichweite vor allen anderen.',
+        price_note: 'Pricing aktivieren wir erst, wenn die Plattform echte Liquidität hat — wenn aus jeder Region täglich Aufträge bei den Meistern landen. Bis dahin: keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig.',
         imp_h2: 'Impressum',
         imp_role: '<strong>Anbieter und verantwortlich nach § 5 DDG:</strong>',
         imp_sole: 'Einzelunternehmen „torecon"',
@@ -253,9 +231,9 @@
         nav_imprint: 'Legal Notice',
         hero_h1_1: 'Find a craftsman.',
         hero_h1_2: 'Without commission.',
-        hero_sub: 'Meisterlich AI connects private customers with local craftsmen. <strong>Free for customers.</strong> Predictable flat rates for Masters — instead of variable lead fees.',
-        hero_cta_pricing: 'See pricing',
+        hero_sub: 'Meisterlich AI connects private customers with local craftsmen. <strong>Currently free for everyone.</strong> No commission, no lead fees — we are starting the platform with the first Masters.',
         hero_cta_how: 'How it works',
+        hero_cta_masters: 'For Masters',
         pill_platform: 'iPhone · iOS 17+',
         pill_lang: 'German &amp; English',
         pill_privacy: 'Sign in with Apple',
@@ -270,32 +248,25 @@
         role_cust_li3: 'Direct call when the Master shares their number',
         role_cust_li4: 'No commission. No lead sales. No ad tracking.',
         role_craft_h3: 'Master (Craftsman)',
-        role_craft_price: 'From €9.99 per week · no commission',
-        role_craft_p: 'Maintain your profile with photos, services and a banner. You pay a fixed subscription and keep every job fully — no lead fees, no cut.',
+        role_craft_price: 'Currently free · no commission',
+        role_craft_p: 'Maintain your profile with photos, services and a banner. Currently free for all Masters — you keep every job fully, no lead fees, no commission.',
         role_craft_li1: 'Public profile with up to 10 photos + banner',
-        role_craft_li2: 'Visible in customer search as soon as the subscription is active',
+        role_craft_li2: 'Visible in customer search immediately — no subscription needed',
         role_craft_li3: 'Chat requests direct from customers, optional phone opt-in',
         role_craft_li4: 'You decide whether reviews are shown publicly',
         feat_h2: 'Why Meisterlich AI?',
         feat_sub: 'No lead fees. No middlemen. Just an app that connects customers and Masters.',
-        f1_h3: 'Predictable flat costs',
-        f1_p: 'Five subscription terms from weekly to yearly. No commission per job — the money stays with the Master.',
+        f1_h3: 'Start for free',
+        f1_p: 'Currently free for all Masters. We are starting the platform with you — pricing kicks in only when the platform brings real jobs.',
         f2_h3: 'Local &amp; precise',
         f2_p: 'Search by postal code and radius. Each Master decides their own service radius.',
         f3_h3: 'Chat instead of forms',
         f3_p: 'In-app text chat, short and focused. For anything urgent, tap the phone icon.',
         f4_h3: 'Privacy first',
         f4_p: 'No IDFA, no ad tracking, no Facebook SDK. Sign in with Apple.',
-        price_h2: 'Pricing for Masters',
-        price_sub: 'Five subscription terms. No free trial. Longer terms mean lower monthly rates. Cancel any time via iPhone Settings.',
-        price_col_term: 'Term',
-        price_col_price: 'Price',
-        price_weekly: 'Weekly',
-        price_monthly: 'Monthly',
-        price_quarterly: 'Quarterly',
-        price_halfyearly: 'Half-yearly',
-        price_yearly: 'Yearly',
-        price_note: 'Billed via Apple In-App Purchase. The app is always free for private customers.',
+        price_h2: 'Currently free for all Masters',
+        price_sub: 'We are building the platform step by step. Masters who join now are founding members — they shape the first jobs and build reach before everyone else.',
+        price_note: 'Pricing kicks in only once the platform has real liquidity — when every region sends jobs to Masters daily. Until then: no commission, no lead fees, no subscription. You keep every job fully.',
         imp_h2: 'Legal Notice',
         imp_role: '<strong>Provider and responsible per §5 DDG (German Digital Services Act):</strong>',
         imp_sole: 'Sole proprietorship "torecon"',
