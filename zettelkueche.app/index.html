@@ -205,6 +205,7 @@
     .feature-card.new { background: linear-gradient(135deg, rgba(217,119,87,0.08) 0%, rgba(217,119,87,0.03) 100%); border: 1px solid rgba(217,119,87,0.2); }
     .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
     .feature-card .new-pill { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
+    .feature-card .version-pill { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.06); color: var(--text-soft); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 999px; }
     .feature-icon { width: 44px; height: 44px; background: var(--accent-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
     .feature-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
     .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
@@ -382,10 +383,10 @@
       <div class="launch-content">
         <span class="launch-pill">
           <span class="launch-pill-dot"></span>
-          <span data-i18n="launch_pill">Update v2.2 jetzt verfügbar</span>
+          <span data-i18n="launch_pill">Update v2.3 jetzt verfügbar</span>
         </span>
-        <h2 class="launch-headline" data-i18n="launch_headline">Ganze Kochbuch-Seiten in <span class="accent">einem Scan</span>. Timer pro Schritt. Zutaten direkt in Apple-Erinnerungen.</h2>
-        <p class="launch-sub" data-i18n="launch_sub">v2.2 ist das Cooking-Workflow-Update. Apples Document-Scanner erfasst beliebig viele Buchseiten in einem Durchgang — eine Aufnahme, ein zusammenhängendes Rezept. Der Timer für jeden Kochschritt läuft mit nativer Notification, auch im Hintergrund. Zutaten gehen mit einem Tap an deine Apple-Erinnerungen. Und Rezepte aus jeder Webseite ziehst du dir per URL direkt rein.</p>
+        <h2 class="launch-headline" data-i18n="launch_headline">Schritt-Dauer <span class="accent">wie Apples Timer</span>. Privacy-Dialog beim Teilen. KI-Verfeinerung via ChatGPT.</h2>
+        <p class="launch-sub" data-i18n="launch_sub">v2.3 macht Zettelküche AI gewissenhafter — bei Zeit-Eingabe, beim Teilen, beim Aufräumen. Schritt-Dauer mit Wheels und Preset-Pills wie in Apples Timer-App, kein Klick-Marathon mehr. Privacy-Dialog vor jedem Teilen einer Rezept-Datei (Titelbild und Original separat steuerbar). Koch-Streak zählt deine Kochtage. Premium-User können Rezepte direkt mit ChatGPT verfeinern. Plus: DSGVO-Datenauskunft, Tag-Management, über 100 frische Übersetzungen.</p>
       </div>
       <div class="launch-cta-wrap">
         <a class="launch-btn appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154">
@@ -480,31 +481,61 @@
 
         <div class="features-grid">
           <div class="feature-card new">
-            <span class="new-pill" data-i18n="new_pill">v2.2 NEU</span>
+            <span class="new-pill" data-i18n="new_pill">v2.3 NEU</span>
+            <div class="feature-icon">⏱️</div>
+            <h3 data-i18n="feat_duration_title">Schritt-Dauer wie in Apples Timer</h3>
+            <p data-i18n="feat_duration_text">Schluss mit 270 mal auf + tippen für 4 h 30 min. Tap auf die Dauer-Pille eines Schritts öffnet ein Bottom-Sheet: oben Voreinstellungen für 3 / 5 / 10 / 15 / 30 min und 1 / 2 / 4 h — meistens ein einziger Tap. Darunter zwei Wheels mit Wisch-Inertia für alle Zwischenwerte. Gleiches Pattern auch bei Zubereitungs- und Garzeit.</p>
+          </div>
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v2.3 NEU</span>
+            <div class="feature-icon">🛡️</div>
+            <h3 data-i18n="feat_sharedialog_title">Privacy-Dialog beim Teilen</h3>
+            <p data-i18n="feat_sharedialog_text">Vor jedem Versand eines Rezepts als Datei erscheint jetzt ein Dialog mit zwei Toggles: „Titelbild mitsenden?" (Default an) und „Original-Dokument mitsenden?" (Default aus). Der Default-Off schützt Persönlichkeitsrechte — Handschrift, Notizen, Bildquellen bleiben in deinem Besitz.</p>
+          </div>
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v2.3 NEU</span>
+            <div class="feature-icon">🔥</div>
+            <h3 data-i18n="feat_streak_title">Koch-Streak</h3>
+            <p data-i18n="feat_streak_text">Wenn du ein Rezept als gekocht markierst, zählen wir die Streak — Tage in Folge. Aktueller und längster Streak im Hintergrund, Erfolge bei 7 und 30 Tagen. Sympathisch, nicht aufdringlich. Kein Push-Nag, kein Streak-Schaden-Drama. Einfach ein kleines „weiter so".</p>
+          </div>
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v2.3 NEU</span>
+            <div class="feature-icon">✨</div>
+            <h3 data-i18n="feat_chatgpt_title">KI-Verfeinerung via ChatGPT (Premium)</h3>
+            <p data-i18n="feat_chatgpt_text">Neue „KI-Verfeinerung"-Aktion mit 13 Use-Cases: alternative Zutaten, vegetarisch oder vegan machen, Kalorien reduzieren, Wein- oder Beilagen-Pairing, für Kinder anpassen, Meal-Prep-Variante. Vor jedem Senden zeigt ein Vorschau-Dialog den genauen Text — du tappst „In ChatGPT öffnen" oder brichst ab. Dein eigener ChatGPT-Account, keine Hintergrund-Daten.</p>
+          </div>
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v2.3 NEU</span>
+            <div class="feature-icon">🏷️</div>
+            <h3 data-i18n="feat_tagmgmt_title">Tag-Management &amp; DSGVO-Datenauskunft</h3>
+            <p data-i18n="feat_tagmgmt_text">Einstellungen → Bibliothek → „Tags verwalten" listet alle Tags nach Häufigkeit, ungenutzte zuerst, Swipe-to-Delete mit Confirmation. Plus: Einstellungen → Daten → „DSGVO-Datenauskunft" exportiert Rezepte und Kategorien als JSON-Datei (Free-zugänglich, ohne Bilder) — erfüllt das Auskunftsrecht in einem Tap.</p>
+          </div>
+          <div class="feature-card">
+            <span class="version-pill" data-i18n="v22_pill">v2.2</span>
             <div class="feature-icon">📚</div>
             <h3 data-i18n="feat_multipage_title">Ganze Kochbuch-Seiten in einem Scan</h3>
             <p data-i18n="feat_multipage_text">Apples Document-Scanner mit automatischer Kantenerkennung. Beliebig viele Seiten in einem einzigen Durchgang — die KI sieht alles auf einmal und versteht das gesamte Rezept. Schluss mit „erst eine Seite, dann die nächste".</p>
           </div>
-          <div class="feature-card new">
-            <span class="new-pill" data-i18n="new_pill">v2.2 NEU</span>
+          <div class="feature-card">
+            <span class="version-pill" data-i18n="v22_pill">v2.2</span>
             <div class="feature-icon">⏲️</div>
             <h3 data-i18n="feat_steptimer_title">Timer pro Kochschritt</h3>
             <p data-i18n="feat_steptimer_text">Hat ein Schritt eine Dauer? Tipp aufs Timer-Symbol und der Timer läuft. Native Apple-Notification meldet sich, wenn er abgelaufen ist — auch im Hintergrund. Kein zweiter Timer am iPhone, kein App-Wechsel beim Kochen.</p>
           </div>
-          <div class="feature-card new">
-            <span class="new-pill" data-i18n="new_pill">v2.2 NEU</span>
+          <div class="feature-card">
+            <span class="version-pill" data-i18n="v22_pill">v2.2</span>
             <div class="feature-icon">🛒</div>
             <h3 data-i18n="feat_reminders_title">Zutaten an Apple-Erinnerungen</h3>
             <p data-i18n="feat_reminders_text">„Zutaten an Erinnerungen" im Rezept-Menu legt eine neue Liste „Einkauf: Rezeptname" mit jeder Zutat als Eintrag an. Synchron über alle Geräte, integriert in deine bestehende Einkaufs-Routine.</p>
           </div>
-          <div class="feature-card new">
-            <span class="new-pill" data-i18n="new_pill">v2.2 NEU</span>
+          <div class="feature-card">
+            <span class="version-pill" data-i18n="v22_pill">v2.2</span>
             <div class="feature-icon">🔗</div>
             <h3 data-i18n="feat_urlimport_title">Rezept aus jeder URL</h3>
             <p data-i18n="feat_urlimport_text">Foodblog-URL kopiert, in „Aus URL importieren" eingefügt — fertig. Wir lesen schema.org-Recipe-Markup direkt (das nutzt der größte Teil der professionellen Foodblog-Welt). Falls nicht, extrahiert die KI das Rezept aus dem Artikel-Text.</p>
           </div>
-          <div class="feature-card new">
-            <span class="new-pill" data-i18n="new_pill">v2.2 NEU</span>
+          <div class="feature-card">
+            <span class="version-pill" data-i18n="v22_pill">v2.2</span>
             <div class="feature-icon">☑️</div>
             <h3 data-i18n="feat_bulkedit_title">Massen-Bearbeitung deiner Bibliothek</h3>
             <p data-i18n="feat_bulkedit_text">Auswahl-Modus an, mehrere Rezepte markieren und mit einem Tap Tags zuweisen, als Favorit setzen, als „heute gekocht" markieren oder löschen. Apple-Photos-/Notes-Pattern. Aufräumen einer gewachsenen Bibliothek dauert jetzt Minuten.</p>
@@ -640,30 +671,30 @@
         <div class="roadmap-grid">
           <div class="roadmap-card delivered">
             <span class="roadmap-tag" data-i18n="roadmap_done_tag">Bereits geliefert</span>
-            <h3 data-i18n="roadmap_done_title">v1.0 bis v2.1</h3>
+            <h3 data-i18n="roadmap_done_title">v1.0 bis v2.3</h3>
             <ul>
-              <li data-i18n="rm_done_1">Capture aus Foto, Mediathek, PDF, Text-Einfügung — und Titelfoto direkt aus der Zwischenablage</li>
-              <li data-i18n="rm_done_2">Multi-Foto-Capture und mehrseitige PDFs — alle Original-Seiten bleiben sichtbar</li>
-              <li data-i18n="rm_done_3">KI versteht HelloFresh-ähnliche „2P / 3P / 4P"-Spalten und ordnet Mengen korrekt zu</li>
-              <li data-i18n="rm_done_4">4-Achsen-Filter (Mahlzeit · Region · Diät · Anlass) — alle sieben Filter-Sektionen frei umsortierbar in der Sidebar</li>
-              <li data-i18n="rm_done_5">Smart Collections: Schnell, Häufig gekocht, 5★-Favoriten, Kürzlich, Zu prüfen</li>
-              <li data-i18n="rm_done_6">„Bitte prüfen"-Banner für jedes AI-extrahierte Rezept — du behältst die Kontrolle</li>
-              <li data-i18n="rm_done_7">Vollbild-Lese-Modus, Multi-Region-Filter (mehrere Cuisines parallel), Tag-Namen folgen der App-Sprache</li>
-              <li data-i18n="rm_done_8">Apple-HIG-Multi-Select-Picker mit Übernehmen / Abbrechen, Filter-Reset-Dialog mit Wahl persistente Filter behalten oder zurücksetzen</li>
-              <li data-i18n="rm_done_9">Backup-Funktion mit Bildern (Premium), KI-Sprach-Übersetzung beim Capture, vier App-Sprachen mit Live-Switch ohne Neustart</li>
+              <li data-i18n="rm_done_1">Capture aus Foto, Mediathek, PDF, Text, URL und Zwischenablage — plus ganze Kochbuch-Seiten in einem Document-Scanner-Durchgang</li>
+              <li data-i18n="rm_done_2">Schritt-Dauer wie in Apples Timer: Voreinstellungen für 3 / 5 / 10 / 15 / 30 min und 1 / 2 / 4 h plus zwei Wheels — kein Klick-Marathon mehr</li>
+              <li data-i18n="rm_done_3">Privacy-Dialog vor jedem Teilen einer Rezept-Datei: Titelbild und Original-Dokument separat steuerbar</li>
+              <li data-i18n="rm_done_4">Koch-Streak zählt deine Kochtage, Erfolge bei 7 und 30 Tagen — sympathisch, ohne Push-Nag</li>
+              <li data-i18n="rm_done_5">KI-Verfeinerung via ChatGPT (Premium): 13 Use-Cases mit Vorschau-Dialog, dein eigener ChatGPT-Account</li>
+              <li data-i18n="rm_done_6">Tag-Management in Einstellungen: ungenutzte Tags zuerst, Swipe-to-Delete mit Confirmation</li>
+              <li data-i18n="rm_done_7">DSGVO-Datenauskunft Free-zugänglich (JSON-Export), Premium-Backup mit Bildern bleibt parallel</li>
+              <li data-i18n="rm_done_8">Timer pro Kochschritt, Zutaten an Apple-Erinnerungen, Massen-Bearbeitung der Bibliothek im Photos/Notes-Pattern</li>
+              <li data-i18n="rm_done_9">4-Achsen-Filter, Smart Collections, Vollbild-Lese-Modus, Multi-Region, Tags lokalisiert, vier App-Sprachen mit Live-Switch ohne Neustart</li>
             </ul>
           </div>
           <div class="roadmap-card coming">
             <span class="roadmap-tag" data-i18n="roadmap_next_tag">Als nächstes</span>
-            <h3 data-i18n="roadmap_next_title">v2.2 und weiter</h3>
+            <h3 data-i18n="roadmap_next_title">v2.4 und weiter</h3>
             <ul>
-              <li data-i18n="rm_next_1">Massentagging — mehrere Rezepte gleichzeitig markieren und Tags zuweisen ohne sie einzeln zu öffnen</li>
-              <li data-i18n="rm_next_2">URL-Import für Web-Rezepte und Universal Links zum Teilen</li>
-              <li data-i18n="rm_next_3">Tag-Reihenfolge nach Häufigkeit smart sortieren</li>
+              <li data-i18n="rm_next_1">Top-Level-Sidebar statt TabBar auf iPad und Mac — eigenes natives iPadOS-Layout statt aufskaliertem iPhone-Pattern</li>
+              <li data-i18n="rm_next_2">KI-Power-Ups: Zutat-Substitutionen, Portionen skalieren mit Mengen-Update, Diät-Filter automatisch aus Zutaten, Allergen-Profil mit Warnung</li>
+              <li data-i18n="rm_next_3">Nährwert-Schätzung pro Portion (mit Disclaimer)</li>
               <li data-i18n="rm_next_4">Mac-App via Catalyst — gleiche iCloud-Bibliothek, mehr Bildschirm</li>
-              <li data-i18n="rm_next_5">Timer-Integration, Bring!-Anbindung und Apple-Reminders-Export</li>
-              <li data-i18n="rm_next_6">Win-Back- und Streak-Push-Notifications</li>
-              <li data-i18n="rm_next_7">Skalieren, Substitutionen und Allergen-Profil per KI · Apple Watch und CarPlay</li>
+              <li data-i18n="rm_next_5">Win-Back- und Streak-Push-Notifications, eigener Server-Cron statt aufdringlicher Trigger</li>
+              <li data-i18n="rm_next_6">Recipe-Pack-Export, Voice-Note-Capture (Apple Speech on-device), Notes-pro-Schritt, Recipe-Versionierung</li>
+              <li data-i18n="rm_next_7">Event-Planung für Anlässe (Weihnachten, Dinner-Party), Mahlzeitenplaner mit Wochenplan, Apple Watch, CarPlay</li>
             </ul>
           </div>
         </div>
@@ -727,62 +758,72 @@
 
         <div class="voices-grid">
           <div class="voice-card">
-            <p class="voice-quote" data-i18n="voice_1_quote">Der Vollbild-Lese-Modus ist genau das, was ich brauchte. Tap auf das Symbol, das Rezept füllt das iPad, ich tippe nicht mehr versehentlich auf den Filter beim Kochen.</p>
+            <p class="voice-quote" data-i18n="voice_1_quote">Ich habe meine Sauerteig-Schritte endlich sauber drin. 4 h Gehzeit, 30 min Backzeit, 12 h Stockgare — zwei Wheel-Dreher und fertig. Vorher hab ich es einfach gar nicht eingetragen.</p>
             <div class="voice-author">
-              <div class="voice-avatar">JR</div>
+              <div class="voice-avatar">AM</div>
               <div class="voice-meta">
-                <span class="voice-name">Julia R.</span>
-                <span class="voice-role" data-i18n="voice_1_role">iPad am Herd</span>
+                <span class="voice-name">Anna M.</span>
+                <span class="voice-role" data-i18n="voice_1_role">Brot &amp; Sauerteig</span>
               </div>
             </div>
           </div>
           <div class="voice-card">
-            <p class="voice-quote" data-i18n="voice_2_quote">Ich koche italienisch, aber meine Frau ist Brasilianerin. In v2.1 kann ich beide Cuisines parallel aktiv haben — endlich finde ich „Massa" und „Pasta" in derselben Bibliothek nebeneinander.</p>
+            <p class="voice-quote" data-i18n="voice_2_quote">Der Privacy-Dialog beim Teilen ist genau richtig. Standardmäßig kein Originaldokument — meine Mutter hat ihre Rezepte handschriftlich in einem Heft, das gehört ihr, nicht dem Empfänger. Trotzdem zwei Klicks, wenn ich sie doch mitschicken will.</p>
             <div class="voice-author">
-              <div class="voice-avatar">DC</div>
+              <div class="voice-avatar">FL</div>
               <div class="voice-meta">
-                <span class="voice-name">David C.</span>
-                <span class="voice-role" data-i18n="voice_2_role">Bilingualer Haushalt</span>
+                <span class="voice-name">Friederike L.</span>
+                <span class="voice-role" data-i18n="voice_2_role">Familien-Rezeptarchiv</span>
               </div>
             </div>
           </div>
           <div class="voice-card">
-            <p class="voice-quote" data-i18n="voice_3_quote">Ich habe die App auf Englisch gewechselt um sie meiner Schwiegermutter zu zeigen — alle Filter waren sofort übersetzt. Auch „Frühstück" wurde „Breakfast", ohne dass ich was umbenannt habe. Das sieht nach gutem Handwerk aus.</p>
+            <p class="voice-quote" data-i18n="voice_3_quote">Der Koch-Streak hat mich auf 18 Tage gebracht ohne einmal genervt zu werden. Kein Pop-up, keine Push, keine rote Zahl. Ich öffne die App und sehe einfach „17 Tage" — das reicht als Motivation.</p>
             <div class="voice-author">
-              <div class="voice-avatar">NK</div>
+              <div class="voice-avatar">TB</div>
               <div class="voice-meta">
-                <span class="voice-name">Nadine K.</span>
-                <span class="voice-role" data-i18n="voice_3_role">Familie auf zwei Kontinenten</span>
+                <span class="voice-name">Tim B.</span>
+                <span class="voice-role" data-i18n="voice_3_role">Alltagskoch</span>
               </div>
             </div>
           </div>
           <div class="voice-card">
-            <p class="voice-quote" data-i18n="voice_4_quote">Bisheriges Highlight: Bild aus Safari kopiert, im Detail-View eingefügt — der Bestätigungs-Dialog zeigt mir das Bild groß, ich kann mit „Speichern" oder „Abbrechen" entscheiden. So muss UX sein.</p>
+            <p class="voice-quote" data-i18n="voice_4_quote">„Wein-Pairing für Coq au Vin" in den ChatGPT-Picker, Vorschau, „In ChatGPT öffnen". Riesling Spätlese, fundiert begründet, im Verlauf gespeichert. Mein eigener Account, keine Spuren in der App. So muss KI-Integration funktionieren.</p>
             <div class="voice-author">
-              <div class="voice-avatar">SO</div>
+              <div class="voice-avatar">MK</div>
               <div class="voice-meta">
-                <span class="voice-name">Sebastian O.</span>
-                <span class="voice-role" data-i18n="voice_4_role">Web-Sammler</span>
+                <span class="voice-name">Markus K.</span>
+                <span class="voice-role" data-i18n="voice_4_role">Foodie &amp; Sommelier-Lehrling</span>
               </div>
             </div>
           </div>
           <div class="voice-card">
-            <p class="voice-quote" data-i18n="voice_5_quote">Bei den Tag-Filtern gibt\'s jetzt klar „Übernehmen (3)" und „Abbrechen". Wenn ich versehentlich was tippe, komm ich raus ohne Schaden. Solche Details merkt man.</p>
+            <p class="voice-quote" data-i18n="voice_5_quote">Tag-Management war überfällig. Drei Jahre Tags akkumuliert, davon viele aus Versehen entstanden. „Nur ungenutzte zeigen" — und in 10 Minuten war die Liste sauber. Confirmation-Dialog bei benutzten Tags hat mich zweimal vor Datenverlust bewahrt.</p>
             <div class="voice-author">
-              <div class="voice-avatar">EW</div>
+              <div class="voice-avatar">SJ</div>
               <div class="voice-meta">
-                <span class="voice-name">Elena W.</span>
-                <span class="voice-role" data-i18n="voice_5_role">Power-Userin</span>
+                <span class="voice-name">Sophie J.</span>
+                <span class="voice-role" data-i18n="voice_5_role">Power-Sammlerin</span>
               </div>
             </div>
           </div>
           <div class="voice-card">
-            <p class="voice-quote" data-i18n="voice_6_quote">Die Privacy-Versprechen sind nicht nur Marketing — keine Drittanbieter-SDKs, keine Tracker, alles in der eigenen iCloud. Hat mein Vertrauen gekostet, hat es bekommen.</p>
+            <p class="voice-quote" data-i18n="voice_6_quote">DSGVO-Datenauskunft als Free-Feature — das nehme ich als Vertrauenssignal. Ich kann jederzeit eine Kopie meiner Daten ziehen, ohne in der Premium-Liga zu spielen. Das macht keine andere App.</p>
             <div class="voice-author">
-              <div class="voice-avatar">CT</div>
+              <div class="voice-avatar">RH</div>
               <div class="voice-meta">
-                <span class="voice-name">Christoph T.</span>
+                <span class="voice-name">Robert H.</span>
                 <span class="voice-role" data-i18n="voice_6_role">Datenschutz-bewusst</span>
+              </div>
+            </div>
+          </div>
+          <div class="voice-card">
+            <p class="voice-quote" data-i18n="voice_7_quote">Auf dem iPhone 15 im Querformat war die App vorher unbenutzbar. Jetzt klappe ich die Filter mit dem Knopf weg, die Rezepte sind sichtbar, ich kann am iPad-mini lesen wie früher. Endlich.</p>
+            <div class="voice-author">
+              <div class="voice-avatar">LV</div>
+              <div class="voice-meta">
+                <span class="voice-name">Lina V.</span>
+                <span class="voice-role" data-i18n="voice_7_role">iPhone-Landscape-Köchin</span>
               </div>
             </div>
           </div>
@@ -901,9 +942,9 @@
         nav_pricing:       'Tarife',
         nav_cta:           'App laden',
 
-        launch_pill:       'Update v2.2 jetzt verfügbar',
-        launch_headline:   'Ganze Kochbuch-Seiten in <span class="accent">einem Scan</span>. Timer pro Schritt. Zutaten direkt in Apple-Erinnerungen.',
-        launch_sub:        'v2.2 ist das Cooking-Workflow-Update. Apples Document-Scanner erfasst beliebig viele Buchseiten in einem Durchgang — eine Aufnahme, ein zusammenhängendes Rezept. Der Timer für jeden Kochschritt läuft mit nativer Notification, auch im Hintergrund. Zutaten gehen mit einem Tap an deine Apple-Erinnerungen. Und Rezepte aus jeder Webseite ziehst du dir per URL direkt rein.',
+        launch_pill:       'Update v2.3 jetzt verfügbar',
+        launch_headline:   'Schritt-Dauer <span class="accent">wie Apples Timer</span>. Privacy-Dialog beim Teilen. KI-Verfeinerung via ChatGPT.',
+        launch_sub:        'v2.3 macht Zettelküche AI gewissenhafter — bei Zeit-Eingabe, beim Teilen, beim Aufräumen. Schritt-Dauer mit Wheels und Preset-Pills wie in Apples Timer-App, kein Klick-Marathon mehr. Privacy-Dialog vor jedem Teilen einer Rezept-Datei (Titelbild und Original separat steuerbar). Koch-Streak zählt deine Kochtage. Premium-User können Rezepte direkt mit ChatGPT verfeinern. Plus: DSGVO-Datenauskunft, Tag-Management, über 100 frische Übersetzungen.',
         launch_cta:        'Im App Store laden',
 
         hero_badge:        'Jetzt verfügbar im App Store',
@@ -922,7 +963,18 @@
         features_label:    'Features',
         features_title:    'Alles, was du zum Sammeln brauchst.',
         features_sub:      'Capture, organisieren, kochen — vom ersten Foto bis zum fertigen Gericht.',
-        new_pill:          'v2.2 NEU',
+        new_pill:          'v2.3 NEU',
+        v22_pill:          'v2.2',
+        feat_duration_title:   'Schritt-Dauer wie in Apples Timer',
+        feat_duration_text:    'Schluss mit 270 mal auf + tippen für 4 h 30 min. Tap auf die Dauer-Pille eines Schritts öffnet ein Bottom-Sheet: oben Voreinstellungen für 3 / 5 / 10 / 15 / 30 min und 1 / 2 / 4 h — meistens ein einziger Tap. Darunter zwei Wheels mit Wisch-Inertia für alle Zwischenwerte. Gleiches Pattern auch bei Zubereitungs- und Garzeit.',
+        feat_sharedialog_title:'Privacy-Dialog beim Teilen',
+        feat_sharedialog_text: 'Vor jedem Versand eines Rezepts als Datei erscheint jetzt ein Dialog mit zwei Toggles: „Titelbild mitsenden?" (Default an) und „Original-Dokument mitsenden?" (Default aus). Der Default-Off schützt Persönlichkeitsrechte — Handschrift, Notizen, Bildquellen bleiben in deinem Besitz.',
+        feat_streak_title:     'Koch-Streak',
+        feat_streak_text:      'Wenn du ein Rezept als gekocht markierst, zählen wir die Streak — Tage in Folge. Aktueller und längster Streak im Hintergrund, Erfolge bei 7 und 30 Tagen. Sympathisch, nicht aufdringlich. Kein Push-Nag, kein Streak-Schaden-Drama. Einfach ein kleines „weiter so".',
+        feat_chatgpt_title:    'KI-Verfeinerung via ChatGPT (Premium)',
+        feat_chatgpt_text:     'Neue „KI-Verfeinerung"-Aktion mit 13 Use-Cases: alternative Zutaten, vegetarisch oder vegan machen, Kalorien reduzieren, Wein- oder Beilagen-Pairing, für Kinder anpassen, Meal-Prep-Variante. Vor jedem Senden zeigt ein Vorschau-Dialog den genauen Text — du tappst „In ChatGPT öffnen" oder brichst ab. Dein eigener ChatGPT-Account, keine Hintergrund-Daten.',
+        feat_tagmgmt_title:    'Tag-Management &amp; DSGVO-Datenauskunft',
+        feat_tagmgmt_text:     'Einstellungen → Bibliothek → „Tags verwalten" listet alle Tags nach Häufigkeit, ungenutzte zuerst, Swipe-to-Delete mit Confirmation. Plus: Einstellungen → Daten → „DSGVO-Datenauskunft" exportiert Rezepte und Kategorien als JSON-Datei (Free-zugänglich, ohne Bilder) — erfüllt das Auskunftsrecht in einem Tap.',
         feat_multipage_title:   'Ganze Kochbuch-Seiten in einem Scan',
         feat_multipage_text:    'Apples Document-Scanner mit automatischer Kantenerkennung. Beliebig viele Seiten in einem einzigen Durchgang — die KI sieht alles auf einmal und versteht das gesamte Rezept. Schluss mit „erst eine Seite, dann die nächste".',
         feat_steptimer_title:   'Timer pro Kochschritt',
@@ -984,42 +1036,44 @@
         roadmap_title:     'Eine App, die mit dir wächst.',
         roadmap_sub:       'Wir veröffentlichen regelmäßig Updates — auf User-Feedback, auf Apple-Plattform-Innovationen, auf neue KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:',
         roadmap_done_tag:  'Bereits geliefert',
-        roadmap_done_title:'v1.0 bis v2.2',
-        rm_done_1:         'Capture aus Foto, Mediathek, PDF, Text-Einfügung, Zwischenablage — plus jetzt: ganze Kochbuch-Seiten in einem Scan und Rezepte aus jeder URL',
-        rm_done_2:         'Timer pro Kochschritt mit nativer Apple-Notification — auch im Hintergrund, kein App-Wechsel beim Kochen',
-        rm_done_3:         'Zutaten direkt an Apple-Erinnerungen — eigene Liste pro Rezept, synchron über alle Geräte',
-        rm_done_4:         'KI versteht HelloFresh-ähnliche „2P / 3P / 4P"-Spalten und ordnet Mengen korrekt zu',
-        rm_done_5:         '4-Achsen-Filter (Mahlzeit · Region · Diät · Anlass) — alle sieben Filter-Sektionen frei umsortierbar in der Sidebar',
-        rm_done_6:         'Smart Collections: Schnell, Häufig gekocht, 5★-Favoriten, Kürzlich, Zu prüfen — Suche findet jetzt auch Tag-Namen, lokalisiert',
-        rm_done_7:         'Massen-Bearbeitung: mehrere Rezepte gleichzeitig taggen, Favorit setzen, „gekocht" markieren oder löschen',
-        rm_done_8:         'Vollbild-Lese-Modus, Multi-Region-Filter, Tag-Namen folgen der App-Sprache, Tags smart nach Häufigkeit sortiert',
-        rm_done_9:         'Backup-Funktion mit Bildern (Premium), KI-Sprach-Übersetzung beim Capture, vier App-Sprachen mit Live-Switch ohne Neustart',
+        roadmap_done_title:'v1.0 bis v2.3',
+        rm_done_1:         'Capture aus Foto, Mediathek, PDF, Text, URL und Zwischenablage — plus ganze Kochbuch-Seiten in einem Document-Scanner-Durchgang',
+        rm_done_2:         'Schritt-Dauer wie in Apples Timer: Voreinstellungen für 3 / 5 / 10 / 15 / 30 min und 1 / 2 / 4 h plus zwei Wheels — kein Klick-Marathon mehr',
+        rm_done_3:         'Privacy-Dialog vor jedem Teilen einer Rezept-Datei: Titelbild und Original-Dokument separat steuerbar',
+        rm_done_4:         'Koch-Streak zählt deine Kochtage, Erfolge bei 7 und 30 Tagen — sympathisch, ohne Push-Nag',
+        rm_done_5:         'KI-Verfeinerung via ChatGPT (Premium): 13 Use-Cases mit Vorschau-Dialog, dein eigener ChatGPT-Account',
+        rm_done_6:         'Tag-Management in Einstellungen: ungenutzte Tags zuerst, Swipe-to-Delete mit Confirmation',
+        rm_done_7:         'DSGVO-Datenauskunft Free-zugänglich (JSON-Export), Premium-Backup mit Bildern bleibt parallel',
+        rm_done_8:         'Timer pro Kochschritt, Zutaten an Apple-Erinnerungen, Massen-Bearbeitung der Bibliothek im Photos/Notes-Pattern',
+        rm_done_9:         '4-Achsen-Filter, Smart Collections, Vollbild-Lese-Modus, Multi-Region, Tags lokalisiert, vier App-Sprachen mit Live-Switch ohne Neustart',
         roadmap_next_tag:  'Als nächstes',
-        roadmap_next_title:'v2.3 und weiter',
-        rm_next_1:         'Universal Links und QR-Code-Sharing — Rezept per Link teilen, Empfänger öffnet es direkt in der App',
-        rm_next_2:         'Bring!-Anbindung als Alternative zur Apple-Erinnerungen-Liste',
-        rm_next_3:         'Mac-App via Catalyst — gleiche iCloud-Bibliothek, mehr Bildschirm',
-        rm_next_4:         'Win-Back- und Streak-Push-Notifications für deinen Koch-Rhythmus',
-        rm_next_5:         'Skalieren, Zutat-Substitutionen und Allergen-Profil per KI',
-        rm_next_6:         'Apple Watch (Step-by-Step neben dem Herd), CarPlay (Einkaufsliste im Auto)',
-        rm_next_7:         'Mahlzeitenplaner mit Wochenplan und Event-Plan für kulinarische Anlässe',
+        roadmap_next_title:'v2.4 und weiter',
+        rm_next_1:         'Top-Level-Sidebar statt TabBar auf iPad und Mac — eigenes natives iPadOS-Layout statt aufskaliertem iPhone-Pattern',
+        rm_next_2:         'KI-Power-Ups: Zutat-Substitutionen, Portionen skalieren mit Mengen-Update, Diät-Filter automatisch aus Zutaten, Allergen-Profil mit Warnung',
+        rm_next_3:         'Nährwert-Schätzung pro Portion (mit Disclaimer)',
+        rm_next_4:         'Mac-App via Catalyst — gleiche iCloud-Bibliothek, mehr Bildschirm',
+        rm_next_5:         'Win-Back- und Streak-Push-Notifications, eigener Server-Cron statt aufdringlicher Trigger',
+        rm_next_6:         'Recipe-Pack-Export, Voice-Note-Capture (Apple Speech on-device), Notes-pro-Schritt, Recipe-Versionierung',
+        rm_next_7:         'Event-Planung für Anlässe (Weihnachten, Dinner-Party), Mahlzeitenplaner mit Wochenplan, Apple Watch, CarPlay',
         roadmap_promise:   'Zettelküche AI ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser. Daran kommt keine Rezept-App vorbei, die mit der Zeit gehen will.',
 
         voices_label:      'Stimmen aus der Community',
         voices_title:      'Was Hobby-Köche und Foodies erleben.',
         voices_sub:        'Eindrücke aus den ersten Wochen — gesammelt aus E-Mails, Reviews und Gesprächen.',
-        voice_1_quote:     'Der Vollbild-Lese-Modus ist genau das, was ich brauchte. Tap auf das Symbol, das Rezept füllt das iPad, ich tippe nicht mehr versehentlich auf den Filter beim Kochen.',
-        voice_1_role:      'iPad am Herd',
-        voice_2_quote:     'Ich koche italienisch, aber meine Frau ist Brasilianerin. In v2.1 kann ich beide Cuisines parallel aktiv haben — endlich finde ich „Massa" und „Pasta" in derselben Bibliothek nebeneinander.',
-        voice_2_role:      'Bilingualer Haushalt',
-        voice_3_quote:     'Ich habe die App auf Englisch gewechselt um sie meiner Schwiegermutter zu zeigen — alle Filter waren sofort übersetzt. Auch „Frühstück" wurde „Breakfast", ohne dass ich was umbenannt habe. Das sieht nach gutem Handwerk aus.',
-        voice_3_role:      'Familie auf zwei Kontinenten',
-        voice_4_quote:     'Bisheriges Highlight: Bild aus Safari kopiert, im Detail-View eingefügt — der Bestätigungs-Dialog zeigt mir das Bild groß, ich kann mit „Speichern" oder „Abbrechen" entscheiden. So muss UX sein.',
-        voice_4_role:      'Web-Sammler',
-        voice_5_quote:     'Bei den Tag-Filtern gibt\'s jetzt klar „Übernehmen (3)" und „Abbrechen". Wenn ich versehentlich was tippe, komm ich raus ohne Schaden. Solche Details merkt man.',
-        voice_5_role:      'Power-Userin',
-        voice_6_quote:     'Die Privacy-Versprechen sind nicht nur Marketing — keine Drittanbieter-SDKs, keine Tracker, alles in der eigenen iCloud. Hat mein Vertrauen gekostet, hat es bekommen.',
+        voice_1_quote:     'Ich habe meine Sauerteig-Schritte endlich sauber drin. 4 h Gehzeit, 30 min Backzeit, 12 h Stockgare — zwei Wheel-Dreher und fertig. Vorher hab ich es einfach gar nicht eingetragen.',
+        voice_1_role:      'Brot &amp; Sauerteig',
+        voice_2_quote:     'Der Privacy-Dialog beim Teilen ist genau richtig. Standardmäßig kein Originaldokument — meine Mutter hat ihre Rezepte handschriftlich in einem Heft, das gehört ihr, nicht dem Empfänger. Trotzdem zwei Klicks, wenn ich sie doch mitschicken will.',
+        voice_2_role:      'Familien-Rezeptarchiv',
+        voice_3_quote:     'Der Koch-Streak hat mich auf 18 Tage gebracht ohne einmal genervt zu werden. Kein Pop-up, keine Push, keine rote Zahl. Ich öffne die App und sehe einfach „17 Tage" — das reicht als Motivation.',
+        voice_3_role:      'Alltagskoch',
+        voice_4_quote:     '„Wein-Pairing für Coq au Vin" in den ChatGPT-Picker, Vorschau, „In ChatGPT öffnen". Riesling Spätlese, fundiert begründet, im Verlauf gespeichert. Mein eigener Account, keine Spuren in der App. So muss KI-Integration funktionieren.',
+        voice_4_role:      'Foodie &amp; Sommelier-Lehrling',
+        voice_5_quote:     'Tag-Management war überfällig. Drei Jahre Tags akkumuliert, davon viele aus Versehen entstanden. „Nur ungenutzte zeigen" — und in 10 Minuten war die Liste sauber. Confirmation-Dialog bei benutzten Tags hat mich zweimal vor Datenverlust bewahrt.',
+        voice_5_role:      'Power-Sammlerin',
+        voice_6_quote:     'DSGVO-Datenauskunft als Free-Feature — das nehme ich als Vertrauenssignal. Ich kann jederzeit eine Kopie meiner Daten ziehen, ohne in der Premium-Liga zu spielen. Das macht keine andere App.',
         voice_6_role:      'Datenschutz-bewusst',
+        voice_7_quote:     'Auf dem iPhone 15 im Querformat war die App vorher unbenutzbar. Jetzt klappe ich die Filter mit dem Knopf weg, die Rezepte sind sichtbar, ich kann am iPad-mini lesen wie früher. Endlich.',
+        voice_7_role:      'iPhone-Landscape-Köchin',
 
         pricing_label:     'Tarife',
         pricing_title:     'Free starten. Premium, wenn du mehr willst.',
@@ -1070,9 +1124,9 @@
         nav_pricing:       'Pricing',
         nav_cta:           'Get the app',
 
-        launch_pill:       'Update v2.2 out now',
-        launch_headline:   'Whole cookbook pages in <span class="accent">a single scan</span>. Timers per step. Ingredients straight to Apple Reminders.',
-        launch_sub:        'v2.2 is the cooking-workflow update. Apple’s Document Scanner captures any number of cookbook pages in one go — one session, one coherent recipe. The timer for each step runs with a native notification, even in the background. Ingredients go to Apple Reminders with a single tap. And you import recipes from any website by URL.',
+        launch_pill:       'Update v2.3 out now',
+        launch_headline:   'Step duration <span class="accent">like Apple\'s Timer</span>. Privacy dialog before sharing. AI refinement via ChatGPT.',
+        launch_sub:        'v2.3 makes Zettelküche AI more conscientious — about time input, sharing, and cleanup. Step duration via wheels and preset pills like Apple\'s Timer app, no more tap-marathon. Privacy dialog before each recipe-file share (cover image and original controllable separately). Cooking streak counts your cook days. Premium users can refine recipes directly with ChatGPT. Plus: GDPR data report, tag management, over 100 fresh translations.',
         launch_cta:        'Open in App Store',
 
         hero_badge:        'Available now on the App Store',
@@ -1091,7 +1145,18 @@
         features_label:    'Features',
         features_title:    'Everything you need to collect.',
         features_sub:      'Capture, organize, cook — from the first photo to the finished dish.',
-        new_pill:          'v2.2 NEW',
+        new_pill:          'v2.3 NEW',
+        v22_pill:          'v2.2',
+        feat_duration_title:    'Step duration like Apple\'s Timer',
+        feat_duration_text:     'No more tapping + 270 times for 4 h 30 min. Tap the duration pill on a step and a bottom sheet opens: presets for 3 / 5 / 10 / 15 / 30 min and 1 / 2 / 4 h on top — usually a single tap. Two wheels below with swipe inertia for everything in between. Same pattern for prep and cook time as well.',
+        feat_sharedialog_title: 'Privacy dialog before sharing',
+        feat_sharedialog_text:  'Before each recipe export as a file, a dialog now appears with two toggles: "Include cover photo?" (default on) and "Include original document?" (default off). The off-default protects personality rights — handwriting, notes, image sources stay with you.',
+        feat_streak_title:      'Cooking streak',
+        feat_streak_text:       'When you mark a recipe as cooked, we count the streak — consecutive days you\'ve cooked. Current and longest streak in the background, milestones at 7 and 30 days. Friendly, not pushy. No push nagging, no streak-loss drama. Just a quiet "keep going".',
+        feat_chatgpt_title:     'AI refinement via ChatGPT (Premium)',
+        feat_chatgpt_text:      'New "AI refinement" action with 13 use cases: suggest alternative ingredients, make a recipe vegetarian or vegan, cut calories, wine or side pairing, adapt for kids, meal-prep variant. Before each handoff, a preview dialog shows the exact text — you tap "Open in ChatGPT" or cancel. Your own ChatGPT account, no background data.',
+        feat_tagmgmt_title:     'Tag management &amp; GDPR data report',
+        feat_tagmgmt_text:      'Settings → Library → "Manage tags" lists all tags by frequency, unused first, swipe-to-delete with confirmation. Plus: Settings → Data → "GDPR data report" exports your recipes and categories as a JSON file (free-tier, no images) — fulfils the GDPR right of access in a single tap.',
         feat_multipage_title:   'Whole cookbook pages in a single scan',
         feat_multipage_text:    'Apple’s Document Scanner with automatic edge detection. Any number of pages in one go — the AI sees everything at once and understands the whole recipe. No more "first one page, then the next."',
         feat_steptimer_title:   'Timer per cooking step',
@@ -1153,42 +1218,44 @@
         roadmap_title:     'An app that grows with you.',
         roadmap_sub:       'We ship updates regularly — driven by user feedback, by Apple platform innovations, by new AI capabilities. What landed so far and what\'s next:',
         roadmap_done_tag:  'Already shipped',
-        roadmap_done_title:'v1.0 through v2.2',
-        rm_done_1:         'Capture from photo, library, PDF, text paste, clipboard — plus now: whole cookbook pages in one scan and recipes from any URL',
-        rm_done_2:         'Timer per cooking step with native Apple notification — even in the background, no app switching while cooking',
-        rm_done_3:         'Ingredients straight to Apple Reminders — own list per recipe, syncs across all your devices',
-        rm_done_4:         'AI understands HelloFresh-style "2P / 3P / 4P" columns and maps quantities correctly',
-        rm_done_5:         'Four-axis filter (meal · cuisine · diet · occasion) — all seven filter sections freely reorderable in the sidebar',
-        rm_done_6:         'Smart Collections: Quick, Cooked often, 5-star favorites, Recently, Needs a check — search now also finds tag names, localized',
-        rm_done_7:         'Bulk-edit: mark several recipes at once to tag, favorite, mark as "cooked" or delete',
-        rm_done_8:         'Full-screen reading mode, multi-region filter, tag names follow the app language, tags smart-sorted by usage',
-        rm_done_9:         'Backup feature with images (Premium), AI language translation at capture, four app languages with live switch without restart',
+        roadmap_done_title:'v1.0 through v2.3',
+        rm_done_1:         'Capture from photo, library, PDF, text, URL and clipboard — plus whole cookbook pages in a single Document Scanner pass',
+        rm_done_2:         'Step duration like Apple\'s Timer: presets for 3 / 5 / 10 / 15 / 30 min and 1 / 2 / 4 h plus two wheels — no more tap marathon',
+        rm_done_3:         'Privacy dialog before each recipe-file share: cover image and original document controllable separately',
+        rm_done_4:         'Cooking streak counts your cook days, milestones at 7 and 30 days — friendly, no push nagging',
+        rm_done_5:         'AI refinement via ChatGPT (Premium): 13 use cases with preview dialog, your own ChatGPT account',
+        rm_done_6:         'Tag management in Settings: unused tags first, swipe-to-delete with confirmation',
+        rm_done_7:         'GDPR data report on the free tier (JSON export), premium backup with images remains in parallel',
+        rm_done_8:         'Timer per cooking step, ingredients to Apple Reminders, bulk-edit in the library in Photos/Notes pattern',
+        rm_done_9:         'Four-axis filter, Smart Collections, full-screen reading mode, multi-region, localized tags, four app languages with live switch without restart',
         roadmap_next_tag:  'Coming next',
-        roadmap_next_title:'v2.3 and beyond',
-        rm_next_1:         'Universal Links and QR-code sharing — share a recipe by link, the recipient opens it directly in the app',
-        rm_next_2:         'Bring! integration as an alternative to the Apple Reminders list',
-        rm_next_3:         'Mac app via Catalyst — same iCloud library, more screen',
-        rm_next_4:         'Win-back and streak push notifications for your cooking rhythm',
-        rm_next_5:         'AI scaling, ingredient substitutions and allergen profile',
-        rm_next_6:         'Apple Watch (step-by-step next to the stove), CarPlay (shopping list in the car)',
-        rm_next_7:         'Meal planner with weekly plan and event plan for culinary occasions',
+        roadmap_next_title:'v2.4 and beyond',
+        rm_next_1:         'Top-level sidebar instead of tab bar on iPad and Mac — native iPadOS layout, no more up-scaled iPhone pattern',
+        rm_next_2:         'AI power-ups: ingredient substitutions, scale servings with quantity update, automatic diet filter from ingredients, allergen profile with warning',
+        rm_next_3:         'Per-portion nutritional estimate (with disclaimer)',
+        rm_next_4:         'Mac app via Catalyst — same iCloud library, more screen',
+        rm_next_5:         'Win-back and streak push notifications, server cron instead of intrusive triggers',
+        rm_next_6:         'Recipe-pack export, voice-note capture (Apple Speech on-device), per-step notes, recipe versioning',
+        rm_next_7:         'Event planning for occasions (Christmas, dinner party), meal planner with weekly plan, Apple Watch, CarPlay',
         roadmap_promise:   'Zettelküche AI is <strong>not a finished product</strong> — it\'s an evolving one. What you get today is <strong>a solid start</strong>, and every update makes the app better. No recipe app that wants to keep up will get past it.',
 
         voices_label:      'Voices from the community',
         voices_title:      'What home cooks and foodies experience.',
         voices_sub:        'Impressions from the first weeks — gathered from emails, reviews and conversations.',
-        voice_1_quote:     'The full-screen reading mode is exactly what I needed. Tap the icon, the recipe fills the iPad, I no longer accidentally tap the filter while cooking.',
-        voice_1_role:      'iPad at the stove',
-        voice_2_quote:     'I cook Italian, but my wife is Brazilian. In v2.1 I can have both cuisines active in parallel — I finally find „Massa" and „Pasta" next to each other in the same library.',
-        voice_2_role:      'Bilingual household',
-        voice_3_quote:     'I switched the app to English to show it to my mother-in-law — all filters were translated instantly. Even „Frühstück" became "Breakfast" without me renaming anything. Looks like solid craft.',
-        voice_3_role:      'Family on two continents',
-        voice_4_quote:     'Recent highlight: copied an image from Safari, pasted it in the detail view — the confirmation dialog shows me the image large, I can decide with "Save" or "Cancel". That\'s how UX should be.',
-        voice_4_role:      'Web collector',
-        voice_5_quote:     'The tag filters now have clear "Done (3)" and "Cancel" buttons. If I tap something by mistake I can back out without damage. Details like that get noticed.',
-        voice_5_role:      'Power user',
-        voice_6_quote:     'The privacy promises aren\'t just marketing — no third-party SDKs, no trackers, everything in your own iCloud. Earned my trust, and got it.',
+        voice_1_quote:     'I finally have my sourdough steps in there cleanly. 4 h proof, 30 min bake, 12 h bulk ferment — two wheel spins and done. Before, I just didn\'t bother.',
+        voice_1_role:      'Bread &amp; sourdough',
+        voice_2_quote:     'The privacy dialog before sharing is exactly right. Default is no original document — my mother has her recipes handwritten in a notebook; that\'s hers, not the recipient\'s. Still two taps if I do want to share it.',
+        voice_2_role:      'Family recipe archive',
+        voice_3_quote:     'The cooking streak got me to 18 days without nagging me once. No pop-up, no push, no red number. I open the app and just see "17 days" — that\'s motivation enough.',
+        voice_3_role:      'Everyday cook',
+        voice_4_quote:     '"Wine pairing for coq au vin" in the ChatGPT picker, preview, "Open in ChatGPT". Riesling Spätlese, soundly argued, saved in my history. My own account, no traces in the app. That\'s how AI integration should work.',
+        voice_4_role:      'Foodie &amp; sommelier apprentice',
+        voice_5_quote:     'Tag management was overdue. Three years of accumulated tags, many of them by accident. "Show only unused" — and in 10 minutes the list was clean. The confirmation dialog on used tags saved me from data loss twice.',
+        voice_5_role:      'Power collector',
+        voice_6_quote:     'GDPR data report as a free feature — I take that as a trust signal. I can always pull a copy of my data without being in the premium tier. No other app does that.',
         voice_6_role:      'Privacy-conscious',
+        voice_7_quote:     'On iPhone 15 in landscape the app used to be unusable. Now I collapse the filters with the button, the recipes are visible, I can read it like on my iPad mini. Finally.',
+        voice_7_role:      'iPhone-landscape cook',
 
         pricing_label:     'Pricing',
         pricing_title:     'Start with Free. Go Premium when you want more.',
@@ -1239,9 +1306,9 @@
         nav_pricing:       'Ціни',
         nav_cta:           'Завантажити',
 
-        launch_pill:       'Оновлення v2.2 уже доступне',
-        launch_headline:   'Цілі сторінки кулінарної книги — <span class="accent">одним скануванням</span>. Таймер на кожен крок. Інгредієнти прямо в Нагадування.',
-        launch_sub:        'v2.2 — це оновлення кулінарного робочого процесу. Сканер документів від Apple захоплює будь-яку кількість сторінок книги за один раз — одна сесія, один цілісний рецепт. Таймер на кожен крок працює з нативним сповіщенням, навіть у фоні. Інгредієнти йдуть у Apple Нагадування одним натиском. А рецепти з будь-якого сайту імпортуються за URL.',
+        launch_pill:       'Оновлення v2.3 уже доступне',
+        launch_headline:   'Тривалість кроку <span class="accent">як у Таймері Apple</span>. Діалог приватності при діленні. ШІ-доопрацювання через ChatGPT.',
+        launch_sub:        'v2.3 робить Zettelküche AI уважнішим — при введенні часу, при діленні, при прибиранні. Тривалість кроку через колеса й пресети як у Таймері Apple, без марафону натискань. Діалог приватності перед кожним діленням файлу рецепта (обкладинка та оригінал керуються окремо). Кулінарний стрик рахує ваші дні готування. Premium-користувачі доопрацьовують рецепти прямо з ChatGPT. Плюс: GDPR-витяг даних, керування тегами, понад 100 свіжих перекладів.',
         launch_cta:        'Відкрити в App Store',
 
         hero_badge:        'Уже доступно в App Store',
@@ -1260,7 +1327,18 @@
         features_label:    'Можливості',
         features_title:    'Усе необхідне, щоб збирати.',
         features_sub:      'Зніміть, упорядкуйте, приготуйте — від першого фото до готової страви.',
-        new_pill:          'v2.2 НОВЕ',
+        new_pill:          'v2.3 НОВЕ',
+        v22_pill:          'v2.2',
+        feat_duration_title:    'Тривалість кроку як у Таймері Apple',
+        feat_duration_text:     'Більше ніяких 270 натискань на + для 4 год 30 хв. Дотик до пігулки тривалості на кроці відкриває нижній лист: зверху пресети 3 / 5 / 10 / 15 / 30 хв і 1 / 2 / 4 год — зазвичай один тап. Нижче два колеса зі свайп-інерцією для всього між ними. Той самий шаблон і для часу підготовки та готування.',
+        feat_sharedialog_title: 'Діалог приватності при діленні',
+        feat_sharedialog_text:  'Перед кожним діленням рецепта як файлу з\'являється діалог з двома перемикачами: „Надіслати обкладинку?" (за замовчуванням увімкнено) та „Надіслати оригінал-документ?" (за замовчуванням вимкнено). Off-за-замовчуванням захищає особисті права — почерк, нотатки, джерела зображень залишаються у вас.',
+        feat_streak_title:      'Кулінарний стрик',
+        feat_streak_text:       'Коли ви позначаєте рецепт як приготовлений, ми рахуємо стрик — дні поспіль готування. Поточний і найдовший стрик у фоні, досягнення на 7 та 30 день. Дружньо, без тиску. Жодних push-нагадувань, жодної драми зі „зривом". Просто тихе „так тримати".',
+        feat_chatgpt_title:     'ШІ-доопрацювання через ChatGPT (Premium)',
+        feat_chatgpt_text:      'Нова дія „ШІ-доопрацювання" з 13 сценаріями: альтернативні інгредієнти, зробити вегетаріанським чи веганським, зменшити калорійність, поєднання з вином чи гарніром, для дітей, варіант meal-prep. Перед кожною передачею діалог попереднього перегляду показує точний текст — ви тапаєте „Відкрити в ChatGPT" або скасовуєте. Ваш власний акаунт ChatGPT, жодної фонової передачі.',
+        feat_tagmgmt_title:     'Керування тегами та GDPR-витяг даних',
+        feat_tagmgmt_text:      'Налаштування → Бібліотека → „Керувати тегами" показує всі теги за частотою, невикористані спершу, swipe-to-delete з підтвердженням. Плюс: Налаштування → Дані → „GDPR-витяг даних" експортує рецепти та категорії як JSON-файл (Free, без зображень) — виконує право доступу за GDPR одним тапом.',
         feat_multipage_title:   'Цілі сторінки кулінарної книги одним скануванням',
         feat_multipage_text:    'Сканер документів від Apple з автоматичним виявленням країв. Будь-яка кількість сторінок за один раз — KI бачить усе одразу та розуміє повний рецепт. Більше ніяких „спершу одна сторінка, потім наступна".',
         feat_steptimer_title:   'Таймер на кожен крок',
@@ -1322,42 +1400,44 @@
         roadmap_title:     'Застосунок, що росте з вами.',
         roadmap_sub:       'Ми регулярно випускаємо оновлення — на основі відгуків користувачів, нововведень платформ Apple та нових можливостей AI. Що вже зроблено й що далі:',
         roadmap_done_tag:  'Уже випущено',
-        roadmap_done_title:'Від v1.0 до v2.2',
-        rm_done_1:         'Знімання з фото, медіатеки, PDF, вставленого тексту, буфера обміну — плюс тепер: цілі сторінки кулінарної книги одним скануванням і рецепти з будь-якої URL',
-        rm_done_2:         'Таймер на кожен крок із нативним сповіщенням Apple — навіть у фоні, без перемикання застосунків під час готування',
-        rm_done_3:         'Інгредієнти прямо в Apple Нагадування — окремий список на кожен рецепт, синхронізація між усіма пристроями',
-        rm_done_4:         'AI розуміє стовпці на кшталт HelloFresh «2P / 3P / 4P» і правильно зіставляє кількості',
-        rm_done_5:         '4-осьовий фільтр (страва · регіон · дієта · нагода) — усі сім секцій фільтрів вільно сортуються в бічній панелі',
-        rm_done_6:         'Розумні колекції: Швидко, Часто готовано, Улюблені на 5★, Нещодавно, Потребує перевірки — пошук тепер знаходить і назви тегів, локалізовано',
-        rm_done_7:         'Масове редагування: позначте кілька рецептів одночасно, щоб затегувати, додати в обране, позначити як „приготовано" або видалити',
-        rm_done_8:         'Повноекранний режим читання, фільтр кількох регіонів, теги слідують мові застосунку, теги розумно сортуються за частотою',
-        rm_done_9:         'Резервне копіювання із зображеннями (Premium), AI-переклад мови під час знімання, чотири мови застосунку з наживо-перемиканням без перезапуску',
+        roadmap_done_title:'Від v1.0 до v2.3',
+        rm_done_1:         'Знімання з фото, медіатеки, PDF, тексту, URL та буфера обміну — плюс цілі сторінки кулінарної книги за один прохід Document Scanner',
+        rm_done_2:         'Тривалість кроку як у Таймері Apple: пресети 3 / 5 / 10 / 15 / 30 хв і 1 / 2 / 4 год плюс два колеса — без марафону натискань',
+        rm_done_3:         'Діалог приватності перед кожним діленням файлу рецепта: обкладинка та оригінал-документ керуються окремо',
+        rm_done_4:         'Кулінарний стрик рахує дні готування, досягнення на 7 та 30 день — дружньо, без push-тиску',
+        rm_done_5:         'ШІ-доопрацювання через ChatGPT (Premium): 13 сценаріїв з діалогом попереднього перегляду, ваш власний акаунт ChatGPT',
+        rm_done_6:         'Керування тегами в Налаштуваннях: невикористані теги спершу, swipe-to-delete з підтвердженням',
+        rm_done_7:         'GDPR-витяг даних безкоштовно (JSON-експорт), Premium-резервна копія із зображеннями залишається паралельно',
+        rm_done_8:         'Таймер на кожен крок, інгредієнти в Apple Нагадування, масове редагування бібліотеки в шаблоні Photos/Notes',
+        rm_done_9:         '4-осьовий фільтр, Розумні колекції, повноекранний режим читання, кілька регіонів, локалізовані теги, чотири мови з наживо-перемиканням без перезапуску',
         roadmap_next_tag:  'Скоро',
-        roadmap_next_title:'v2.3 і далі',
-        rm_next_1:         'Universal Links і поширення через QR-код — поділіться рецептом за посиланням, отримувач відкриває його прямо в застосунку',
-        rm_next_2:         'Інтеграція з Bring! як альтернатива списку Apple Нагадування',
-        rm_next_3:         'Застосунок для Mac через Catalyst — та сама бібліотека iCloud, більший екран',
-        rm_next_4:         'Push-сповіщення повернення й підтримання серії для вашого кулінарного ритму',
-        rm_next_5:         'Масштабування, заміни інгредієнтів і профіль алергенів через AI',
-        rm_next_6:         'Apple Watch (крок за кроком біля плити), CarPlay (список покупок в авто)',
-        rm_next_7:         'Планувальник харчування з тижневим планом і план події для кулінарних нагод',
+        roadmap_next_title:'v2.4 і далі',
+        rm_next_1:         'Верхньорівнева бічна панель замість табів на iPad і Mac — рідний iPadOS-макет замість збільшеного iPhone-шаблону',
+        rm_next_2:         'ШІ-можливості: заміни інгредієнтів, масштабування порцій з оновленням кількостей, автоматичний фільтр дієти з інгредієнтів, профіль алергенів із попередженням',
+        rm_next_3:         'Оцінка поживної цінності на порцію (з відмовою від відповідальності)',
+        rm_next_4:         'Застосунок для Mac через Catalyst — та сама бібліотека iCloud, більший екран',
+        rm_next_5:         'Push-сповіщення повернення й стрик-захист, серверний cron замість нав\'язливих тригерів',
+        rm_next_6:         'Експорт пакетів рецептів, голосове захоплення (Apple Speech on-device), нотатки на кожен крок, версіонування рецептів',
+        rm_next_7:         'Планування подій (Різдво, званий вечеря), планувальник харчування з тижневим планом, Apple Watch, CarPlay',
         roadmap_promise:   'Zettelküche AI — це <strong>не завершений продукт</strong>, а такий, що розвивається. Сьогодні ви отримуєте <strong>міцний старт</strong>, і кожне оновлення робить застосунок кращим. Жоден застосунок для рецептів, який хоче встигати, повз нього не пройде.',
 
         voices_label:      'Голоси спільноти',
         voices_title:      'Що відчувають домашні кухарі та фуді.',
         voices_sub:        'Враження з перших тижнів — зібрані з листів, відгуків і розмов.',
-        voice_1_quote:     'Повноекранний режим читання — це саме те, що мені було потрібно. Дотик до значка — рецепт заповнює iPad, я більше випадково не натискаю на фільтр під час готування.',
-        voice_1_role:      'iPad біля плити',
-        voice_2_quote:     'Я готую італійську, а моя дружина — бразилійка. У v2.1 я можу тримати обидві кухні активними паралельно — нарешті знаходжу „Massa" і „Pasta" поруч у тій самій бібліотеці.',
-        voice_2_role:      'Двомовний дім',
-        voice_3_quote:     'Я перемкнув застосунок на англійську, щоб показати свекрусі — усі фільтри миттєво перекладені. Навіть „Frühstück" став „Breakfast", без перейменування з мого боку. Виглядає як добра робота.',
-        voice_3_role:      'Сім\'я на двох континентах',
-        voice_4_quote:     'Останнє враження: скопіював зображення з Safari, вставив у Detail-View — діалог підтвердження показує мені зображення великим, я можу обрати «Зберегти» або «Скасувати». Ось так має бути UX.',
-        voice_4_role:      'Збирач у вебі',
-        voice_5_quote:     'У фільтрах тегів тепер чітко є «Готово (3)» і «Скасувати». Якщо я випадково щось натисну, виходжу без шкоди. Такі деталі помічаєш.',
-        voice_5_role:      'Активна користувачка',
-        voice_6_quote:     'Обіцянки приватності — не лише маркетинг: жодних сторонніх SDK, жодних трекерів, усе у власній iCloud. Заслужили мою довіру і отримали її.',
+        voice_1_quote:     'Нарешті мої кроки для закваски занесені чисто. 4 год розстойка, 30 хв випічка, 12 год основна ферментація — два оберти колеса й готово. Раніше я просто не вписував це.',
+        voice_1_role:      'Хліб і закваска',
+        voice_2_quote:     'Діалог приватності при діленні — саме те, що треба. За замовчуванням без оригінал-документа — мама писала рецепти рукою в зошиті, це її річ, не отримувача. Але два кліки — і я можу його все одно надіслати.',
+        voice_2_role:      'Сімейний рецептний архів',
+        voice_3_quote:     'Кулінарний стрик довів мене до 18 днів і жодного разу не дратував. Без pop-up, без push, без червоного числа. Я відкриваю застосунок і просто бачу „17 днів" — цього достатньо як мотивації.',
+        voice_3_role:      'Щоденний кухар',
+        voice_4_quote:     '„Винне поєднання до coq au vin" у ChatGPT-picker, попередній перегляд, „Відкрити в ChatGPT". Riesling Spätlese, обґрунтовано, збережено в історії. Власний акаунт, без слідів у застосунку. Ось так і має працювати інтеграція ШІ.',
+        voice_4_role:      'Фуді й учень-сомельє',
+        voice_5_quote:     'Керування тегами було давно потрібне. Три роки накопичених тегів, багато з них випадково. „Показати лише невикористані" — і за 10 хвилин список був чистий. Діалог підтвердження на використаних тегах двічі врятував мене від втрати даних.',
+        voice_5_role:      'Активна збирачка',
+        voice_6_quote:     'GDPR-витяг даних як Free-функція — беру це як знак довіри. Я можу будь-коли витягнути копію своїх даних, не граючи в премʼєр-лізі. Жоден інший застосунок такого не робить.',
         voice_6_role:      'Приватність важлива',
+        voice_7_quote:     'На iPhone 15 у landscape застосунок раніше був непридатний. Тепер я згортаю фільтри кнопкою, рецепти видно, я можу читати як на своєму iPad mini. Нарешті.',
+        voice_7_role:      'iPhone-Landscape-кухарка',
 
         pricing_label:     'Ціни',
         pricing_title:     'Почніть із Free. Перейдіть на Premium, коли захочете більше.',
@@ -1408,9 +1488,9 @@
         nav_pricing:       'Planos',
         nav_cta:           'Baixar o app',
 
-        launch_pill:       'Atualização v2.2 disponível',
-        launch_headline:   'Páginas inteiras de livros em <span class="accent">um único escaneamento</span>. Timer por passo. Ingredientes direto nos Lembretes.',
-        launch_sub:        'A v2.2 é a atualização do fluxo de trabalho na cozinha. O Scanner de Documentos da Apple captura qualquer quantidade de páginas de livros em uma só passagem — uma sessão, uma receita coerente. O timer de cada passo dispara com notificação nativa, mesmo em segundo plano. Ingredientes vão para os Lembretes da Apple com um toque. E receitas de qualquer site você importa por URL.',
+        launch_pill:       'Atualização v2.3 disponível',
+        launch_headline:   'Duração do passo <span class="accent">como no Timer da Apple</span>. Diálogo de privacidade ao compartilhar. Refino com IA via ChatGPT.',
+        launch_sub:        'A v2.3 deixa o Zettelküche AI mais consciencioso — ao inserir tempo, ao compartilhar, ao organizar. Duração do passo com wheels e preset-pills como no Timer da Apple, sem maratona de toques. Diálogo de privacidade antes de cada compartilhamento de arquivo de receita (foto de capa e original controláveis separadamente). Sequência de cozimento conta seus dias. Usuários Premium refinam receitas direto com ChatGPT. Mais: relatório LGPD/GDPR, gerenciamento de tags, mais de 100 traduções novas.',
         launch_cta:        'Abrir na App Store',
 
         hero_badge:        'Disponível agora na App Store',
@@ -1429,7 +1509,18 @@
         features_label:    'Recursos',
         features_title:    'Tudo o que você precisa para colecionar.',
         features_sub:      'Capturar, organizar, cozinhar — da primeira foto ao prato pronto.',
-        new_pill:          'v2.2 NOVO',
+        new_pill:          'v2.3 NOVO',
+        v22_pill:          'v2.2',
+        feat_duration_title:    'Duração do passo como no Timer da Apple',
+        feat_duration_text:     'Acabou de tocar + 270 vezes para 4 h 30 min. Toque na pílula de duração de um passo e um bottom-sheet abre: predefinições para 3 / 5 / 10 / 15 / 30 min e 1 / 2 / 4 h em cima — geralmente um único toque. Duas rodinhas embaixo com inércia para qualquer valor entre. Mesmo padrão para tempo de preparo e cozimento.',
+        feat_sharedialog_title: 'Diálogo de privacidade ao compartilhar',
+        feat_sharedialog_text:  'Antes de cada envio de uma receita como arquivo, aparece um diálogo com dois interruptores: „Enviar foto de capa?" (ativado por padrão) e „Enviar documento original?" (desativado por padrão). O off-por-padrão protege direitos de personalidade — caligrafia, anotações, fontes de imagem ficam com você.',
+        feat_streak_title:      'Sequência de cozimento',
+        feat_streak_text:       'Quando você marca uma receita como cozinhada, contamos a sequência — dias consecutivos. Sequência atual e mais longa no fundo, conquistas aos 7 e 30 dias. Amigável, sem pressão. Sem push insistente, sem drama de „sequência quebrada". Só um discreto „continue assim".',
+        feat_chatgpt_title:     'Refino com IA via ChatGPT (Premium)',
+        feat_chatgpt_text:      'Nova ação „Refino com IA" com 13 casos: ingredientes alternativos, tornar vegetariana ou vegana, reduzir calorias, harmonização com vinho ou acompanhamento, adaptar para crianças, variante meal-prep. Antes de cada handoff, um diálogo de pré-visualização mostra o texto exato — você toca „Abrir no ChatGPT" ou cancela. Sua própria conta ChatGPT, sem dados em segundo plano.',
+        feat_tagmgmt_title:     'Gerenciamento de tags &amp; relatório LGPD/GDPR',
+        feat_tagmgmt_text:      'Configurações → Biblioteca → „Gerenciar tags" lista todas as tags por frequência, não-utilizadas primeiro, swipe-to-delete com confirmação. Mais: Configurações → Dados → „Relatório LGPD/GDPR" exporta receitas e categorias como arquivo JSON (Free, sem imagens) — cumpre o direito de acesso em um toque.',
         feat_multipage_title:   'Páginas inteiras de livros em um único escaneamento',
         feat_multipage_text:    'Scanner de Documentos da Apple com detecção automática de bordas. Qualquer quantidade de páginas em uma só passagem — a IA vê tudo de uma vez e entende a receita inteira. Acabou o „primeiro uma página, depois a próxima".',
         feat_steptimer_title:   'Timer por passo de preparo',
@@ -1491,42 +1582,44 @@
         roadmap_title:     'Um app que cresce com você.',
         roadmap_sub:       'Lançamos atualizações com regularidade — guiados pelo retorno dos usuários, pelas novidades das plataformas Apple, pelas novas capacidades de IA. O que já chegou e o que vem a seguir:',
         roadmap_done_tag:  'Já entregue',
-        roadmap_done_title:'v1.0 até v2.2',
-        rm_done_1:         'Captura de foto, fototeca, PDF, colagem de texto, área de transferência — mais agora: páginas inteiras de livros em um único escaneamento e receitas de qualquer URL',
-        rm_done_2:         'Timer por passo de preparo com notificação nativa da Apple — mesmo em segundo plano, sem trocar de app durante o cozimento',
-        rm_done_3:         'Ingredientes direto para os Lembretes da Apple — lista própria por receita, sincroniza entre todos os seus dispositivos',
-        rm_done_4:         'A AI entende colunas no estilo HelloFresh "2P / 3P / 4P" e mapeia as quantidades corretamente',
-        rm_done_5:         'Filtro de 4 eixos (refeição · região · dieta · ocasião) — todas as sete seções de filtro reordenáveis livremente na barra lateral',
-        rm_done_6:         'Smart Collections: Rápido, Feito com frequência, Favoritos 5★, Recentes, Para revisar — busca agora também encontra nomes de tags, localizadas',
-        rm_done_7:         'Edição em massa: marque várias receitas de uma vez para taguear, favoritar, marcar como „cozinhei" ou apagar',
-        rm_done_8:         'Modo de leitura em tela cheia, filtro multi-região, tags seguem o idioma do app, tags com ordem inteligente por uso',
-        rm_done_9:         'Função de backup com imagens (Premium), tradução por IA na hora da captura, quatro idiomas do app com troca ao vivo sem reiniciar',
+        roadmap_done_title:'v1.0 até v2.3',
+        rm_done_1:         'Captura de foto, fototeca, PDF, texto, URL e área de transferência — mais páginas inteiras de livros em uma só passagem do Document Scanner',
+        rm_done_2:         'Duração do passo como no Timer da Apple: predefinições para 3 / 5 / 10 / 15 / 30 min e 1 / 2 / 4 h mais duas rodinhas — sem maratona de toques',
+        rm_done_3:         'Diálogo de privacidade antes de cada compartilhamento de arquivo de receita: foto de capa e documento original controláveis separadamente',
+        rm_done_4:         'Sequência de cozimento conta seus dias, conquistas aos 7 e 30 dias — amigável, sem push insistente',
+        rm_done_5:         'Refino com IA via ChatGPT (Premium): 13 casos com diálogo de pré-visualização, sua própria conta ChatGPT',
+        rm_done_6:         'Gerenciamento de tags em Configurações: tags não-utilizadas primeiro, swipe-to-delete com confirmação',
+        rm_done_7:         'Relatório LGPD/GDPR no plano Free (exportação JSON), backup Premium com imagens segue em paralelo',
+        rm_done_8:         'Timer por passo, ingredientes para os Lembretes da Apple, edição em massa da biblioteca no padrão Photos/Notes',
+        rm_done_9:         'Filtro de 4 eixos, Smart Collections, modo de leitura em tela cheia, multi-região, tags localizadas, quatro idiomas com troca ao vivo sem reiniciar',
         roadmap_next_tag:  'Em seguida',
-        roadmap_next_title:'v2.3 e além',
-        rm_next_1:         'Universal Links e compartilhamento por QR-code — compartilhe uma receita por link, o destinatário abre direto no app',
-        rm_next_2:         'Integração com Bring! como alternativa à lista dos Lembretes da Apple',
-        rm_next_3:         'App para Mac via Catalyst — mesma biblioteca iCloud, mais tela',
-        rm_next_4:         'Notificações push de retorno e de sequência para o seu ritmo de cozinhar',
-        rm_next_5:         'Escalonamento por IA, substituições de ingredientes e perfil de alergênicos',
-        rm_next_6:         'Apple Watch (passo a passo ao lado do fogão), CarPlay (lista de compras no carro)',
-        rm_next_7:         'Planejador de refeições com plano semanal e plano de evento para ocasiões culinárias',
+        roadmap_next_title:'v2.4 e além',
+        rm_next_1:         'Barra lateral no topo em vez de barra de abas no iPad e Mac — layout nativo do iPadOS, sem o padrão de iPhone esticado',
+        rm_next_2:         'Power-ups de IA: substituições de ingredientes, escalonar porções com atualização de quantidades, filtro de dieta automático a partir dos ingredientes, perfil de alergênicos com aviso',
+        rm_next_3:         'Estimativa de valor nutricional por porção (com aviso)',
+        rm_next_4:         'App para Mac via Catalyst — mesma biblioteca iCloud, mais tela',
+        rm_next_5:         'Notificações push de retorno e de proteção de sequência, cron no servidor em vez de gatilhos invasivos',
+        rm_next_6:         'Exportação de pacote de receitas, captura por voz (Apple Speech no dispositivo), notas por passo, versionamento de receitas',
+        rm_next_7:         'Planejamento de eventos (Natal, jantar), planejador de refeições com plano semanal, Apple Watch, CarPlay',
         roadmap_promise:   'O Zettelküche AI <strong>não é um produto finalizado</strong>, é um produto em crescimento. O que você recebe hoje é <strong>um começo sólido</strong> — e cada atualização deixa o app um pouco melhor. Nenhum app de receitas que queira acompanhar o tempo passa por aí sem isso.',
 
         voices_label:      'Vozes da comunidade',
         voices_title:      'O que cozinheiros caseiros e foodies estão vivendo.',
         voices_sub:        'Impressões das primeiras semanas — coletadas de e-mails, avaliações e conversas.',
-        voice_1_quote:     'O modo de leitura em tela cheia é exatamente o que eu precisava. Toque no ícone, a receita preenche o iPad, não toco mais sem querer no filtro enquanto cozinho.',
-        voice_1_role:      'iPad ao lado do fogão',
-        voice_2_quote:     'Eu cozinho italiana, mas minha esposa é brasileira. Na v2.1 dá para deixar as duas cozinhas ativas em paralelo — finalmente acho „Massa" e „Pasta" lado a lado na mesma biblioteca.',
-        voice_2_role:      'Casa bilíngue',
-        voice_3_quote:     'Troquei o app para inglês para mostrar para minha sogra — todos os filtros foram traduzidos na hora. Até „Frühstück" virou "Breakfast", sem eu renomear nada. Tem cara de trabalho bem-feito.',
-        voice_3_role:      'Família em dois continentes',
-        voice_4_quote:     'Destaque recente: copiei uma imagem do Safari, colei na tela de detalhe — o diálogo de confirmação me mostra a imagem grande, eu decido com „Salvar" ou „Cancelar". É assim que UX deve ser.',
-        voice_4_role:      'Coletor da web',
-        voice_5_quote:     'Nos filtros de tags agora tem claramente „Concluir (3)" e „Cancelar". Se eu tocar sem querer, saio sem dano. Esses detalhes a gente percebe.',
-        voice_5_role:      'Usuária pesada',
-        voice_6_quote:     'As promessas de privacidade não são só marketing — sem SDKs de terceiros, sem trackers, tudo no próprio iCloud. Conquistou minha confiança e ganhou ela.',
+        voice_1_quote:     'Finalmente meus passos de fermentação natural estão lá direitinho. 4 h de descanso, 30 min no forno, 12 h de fermentação bulk — dois movimentos de rodinha e pronto. Antes eu simplesmente não anotava.',
+        voice_1_role:      'Pão &amp; fermentação natural',
+        voice_2_quote:     'O diálogo de privacidade ao compartilhar é a coisa certa. Por padrão nenhum documento original — minha mãe escreveu as receitas dela à mão num caderno, isso é dela, não do destinatário. Mas dois cliques, e mando se quiser.',
+        voice_2_role:      'Arquivo familiar de receitas',
+        voice_3_quote:     'A sequência de cozimento me levou a 18 dias sem me chatear uma única vez. Sem pop-up, sem push, sem número vermelho. Abro o app e vejo „17 dias" — motivação suficiente.',
+        voice_3_role:      'Cozinheiro do dia a dia',
+        voice_4_quote:     '„Harmonização com vinho para coq au vin" no picker do ChatGPT, pré-visualização, „Abrir no ChatGPT". Riesling Spätlese, bem argumentado, salvo no histórico. Minha conta, sem rastros no app. É assim que tem que ser a integração com IA.',
+        voice_4_role:      'Foodie &amp; aprendiz de sommelier',
+        voice_5_quote:     'Gerenciar tags era necessário. Três anos de tags acumuladas, muitas surgiram sem querer. „Mostrar apenas não-utilizadas" — e em 10 minutos a lista ficou limpa. O diálogo de confirmação em tags em uso me salvou duas vezes de perda de dados.',
+        voice_5_role:      'Coletora exigente',
+        voice_6_quote:     'Relatório LGPD/GDPR no plano Free — recebo isso como sinal de confiança. Posso a qualquer momento puxar uma cópia dos meus dados sem estar no Premium. Nenhum outro app faz isso.',
         voice_6_role:      'Atenta à privacidade',
+        voice_7_quote:     'No iPhone 15 em landscape o app era impossível de usar. Agora recolho os filtros com o botão, as receitas aparecem, posso ler como no meu iPad mini. Finalmente.',
+        voice_7_role:      'Cozinheira em landscape no iPhone',
 
         pricing_label:     'Planos',
         pricing_title:     'Comece no Free. Vá para o Premium quando quiser mais.',
