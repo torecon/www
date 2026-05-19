@@ -4,16 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meisterlich AI – Handwerker finden ohne Provision</title>
-  <meta name="description" content="Meisterlich AI verbindet Privatkunden mit Handwerkern in der Nähe. Aktuell kostenlos für alle — wir starten die Plattform mit den ersten Handwerkern.">
+  <meta name="description" content="Meisterlich AI verbindet Privatkunden direkt mit Handwerkern. Kostenlos für alle — keine Lead-Gebühren, keine Provision, kein Mittelsmann.">
 
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/style.css">
 
   <meta property="og:title" content="Meisterlich AI – Handwerker finden ohne Provision">
-  <meta property="og:description" content="Aktuell kostenlos für alle. Die App für handwerkliche Aufträge in deiner Nähe — keine Provision, keine Lead-Gebühren.">
+  <meta property="og:description" content="Kostenlos für alle. Keine Lead-Gebühren, keine Provision — direkte Verbindung zwischen Kunden und Handwerkern.">
   <meta property="og:url" content="https://meisterlich.torecon.de">
   <meta property="og:type" content="website">
+
+  <style>
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .compare-card {
+      border-radius: 12px;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.04);
+    }
+    .compare-card.ours {
+      border: 2px solid #4F7FFF;
+    }
+    .compare-card.theirs {
+      border: 2px solid rgba(255,255,255,0.12);
+    }
+    .compare-card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .compare-card.ours h3 { color: #4F7FFF; }
+    .compare-card.theirs h3 { color: rgba(255,255,255,0.5); }
+    .compare-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compare-card ul li {
+      padding: 0.4rem 0;
+      font-size: 0.93rem;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .compare-card ul li:last-child { border-bottom: none; }
+    .compare-card.ours ul li::before { content: "✓ "; color: #4ade80; font-weight: 700; }
+    .compare-card.theirs ul li { color: rgba(255,255,255,0.5); }
+    .compare-card.theirs ul li::before { content: "✗ "; color: #f87171; font-weight: 700; }
+    @media (max-width: 600px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -45,7 +90,7 @@
           <span data-i18n="hero_h1_1">Handwerker finden.</span><br>
           <span class="accent" data-i18n="hero_h1_2">Ohne Provision.</span>
         </h1>
-        <p class="hero-sub" data-i18n="hero_sub">Meisterlich AI verbindet Privatkunden mit Handwerkerbetrieben in der Nähe. <strong>Aktuell kostenlos für alle.</strong> Keine Provision, keine Lead-Gebühren — wir starten die Plattform mit den ersten Handwerkern.</p>
+        <p class="hero-sub" data-i18n="hero_sub">Meisterlich AI verbindet Privatkunden direkt mit Handwerkerbetrieben in der Nähe. <strong>Kostenlos für alle.</strong> Keine Lead-Gebühren, keine Provision — nur die direkte Verbindung.</p>
         <div class="hero-cta-row">
           <a href="#how" class="btn-primary" data-i18n="hero_cta_how">Wie es funktioniert</a>
           <a href="#for-craftsmen" class="btn-secondary" data-i18n="hero_cta_masters">Für Handwerker</a>
@@ -77,13 +122,13 @@
         </div>
         <div class="role-card accent" id="for-craftsmen">
           <h3 data-i18n="role_craft_h3">Handwerker</h3>
-          <p class="role-price" data-i18n="role_craft_price">Aktuell kostenlos · keine Provision</p>
-          <p data-i18n="role_craft_p">Pflege dein Profil mit Fotos, Leistungen und Werbebanner. Aktuell kostenlos für alle Handwerker — du behältst jeden Auftrag vollständig, keine Lead-Gebühren, keine Provision.</p>
+          <p class="role-price" data-i18n="role_craft_price">Kostenlos · keine Provision · keine Lead-Gebühren</p>
+          <p data-i18n="role_craft_p">Erstelle dein Profil, lege deinen Arbeitsradius fest und werde für Kunden in deiner Region sichtbar. Der KI-Assistent hilft dir beim Formulieren — Profiltexte, Antworten, Werbetexte.</p>
           <ul>
             <li data-i18n="role_craft_li1">Öffentliches Profil mit bis zu 10 Fotos + Banner</li>
-            <li data-i18n="role_craft_li2">Sofort sichtbar im Kundenradar — kein Abo nötig</li>
-            <li data-i18n="role_craft_li3">Chat-Anfragen direkt vom Kunden, optional Telefon-Opt-in</li>
-            <li data-i18n="role_craft_li4">Du entscheidest selbst, ob Bewertungen öffentlich sind</li>
+            <li data-i18n="role_craft_li2">Sofort sichtbar im Kundenradar — kein Abo, keine Lead-Gebühren</li>
+            <li data-i18n="role_craft_li3">KI-Assistent für Profil, Antworten &amp; Werbetexte (3 kostenlos)</li>
+            <li data-i18n="role_craft_li4">Chat-Anfragen direkt vom Kunden, optional Telefon-Opt-in</li>
           </ul>
         </div>
       </div>
@@ -96,13 +141,13 @@
       <div class="feature-grid">
         <div class="feature-card">
           <span class="feature-emoji">💰</span>
-          <h3 data-i18n="f1_h3">Kostenlos starten</h3>
-          <p data-i18n="f1_p">Aktuell für alle Handwerker kostenlos. Wir starten die Plattform mit dir — Pricing kommt erst, wenn die Plattform echte Aufträge bringt.</p>
+          <h3 data-i18n="f1_h3">Kostenlos für alle</h3>
+          <p data-i18n="f1_p">Kunden zahlen nichts. Handwerker zahlen nichts. Keine Lead-Gebühren, keine Provision — der Kontakt gehört euch, nicht uns.</p>
         </div>
         <div class="feature-card">
           <span class="feature-emoji">📍</span>
           <h3 data-i18n="f2_h3">Lokal &amp; präzise</h3>
-          <p data-i18n="f2_p">Suche nach PLZ und Umkreis. Jeder Handwerker entscheidet selbst, in welchem Radius er arbeiten will.</p>
+          <p data-i18n="f2_p">Suche nach PLZ und Radius. Jeder Handwerker entscheidet selbst, in welchem Umkreis er arbeiten will — und wird nur dort angezeigt.</p>
         </div>
         <div class="feature-card">
           <span class="feature-emoji">💬</span>
@@ -110,19 +155,56 @@
           <p data-i18n="f3_p">In-App-Text-Chat, kurz und fokussiert. Wenn es schneller gehen muss: ein Tap aufs Telefon.</p>
         </div>
         <div class="feature-card">
+          <span class="feature-emoji">🤖</span>
+          <h3 data-i18n="f4_h3">KI-Assistent</h3>
+          <p data-i18n="f4_p">Handwerker formulieren Profiltexte, Antworten und Werbetexte mit KI-Unterstützung. Nach Profilerststellung 3 Generierungen inklusive.</p>
+        </div>
+        <div class="feature-card">
           <span class="feature-emoji">🛡</span>
-          <h3 data-i18n="f4_h3">Privatsphäre zuerst</h3>
-          <p data-i18n="f4_p">Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".</p>
+          <h3 data-i18n="f5_h3">Privatsphäre zuerst</h3>
+          <p data-i18n="f5_p">Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".</p>
         </div>
       </div>
     </section>
 
-    <!-- Free-Mode-Banner (ersetzt Pricing-Tabelle während Cold-Start-Phase) -->
+    <!-- Vergleich -->
+    <section class="section-home">
+      <h2 data-i18n="compare_h2">Warum Meisterlich — und nicht myHammer?</h2>
+      <p class="section-sub" data-i18n="compare_sub">Weil Handwerker nicht für Kontakte zahlen sollten, die zu nichts führen.</p>
+      <div class="compare-grid">
+        <div class="compare-card ours">
+          <h3 data-i18n="compare_ml_h3">Meisterlich AI</h3>
+          <ul>
+            <li data-i18n="compare_ml_1">Kostenlos für Handwerker — keine Lead-Gebühren</li>
+            <li data-i18n="compare_ml_2">Kostenlos für Kunden — keine Registrierung nötig</li>
+            <li data-i18n="compare_ml_3">Kein Zahlen pro Kontakt — egal ob Auftrag zustande kommt</li>
+            <li data-i18n="compare_ml_4">Direkter In-App-Chat + Anruf</li>
+            <li data-i18n="compare_ml_5">Radius frei wählbar — Handwerker entscheidet</li>
+            <li data-i18n="compare_ml_6">KI-Assistent inklusive (3 kostenlose Starts)</li>
+            <li data-i18n="compare_ml_7">Keine Provision bei Auftragsabschluss</li>
+          </ul>
+        </div>
+        <div class="compare-card theirs">
+          <h3 data-i18n="compare_mh_h3">myHammer</h3>
+          <ul>
+            <li data-i18n="compare_mh_1">Lead-Gebühren für Handwerker — pro Kontakt</li>
+            <li data-i18n="compare_mh_2">Zahlen ohne garantierten Auftrag</li>
+            <li data-i18n="compare_mh_3">Intransparentes Credit-System</li>
+            <li data-i18n="compare_mh_4">Kontakt läuft über das Portal, nicht direkt</li>
+            <li data-i18n="compare_mh_5">Eingeschränkte Radius-Kontrolle</li>
+            <li data-i18n="compare_mh_6">Kein KI-Assistent</li>
+            <li data-i18n="compare_mh_7">Provision teils fällig</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Free-Mode -->
     <section class="pricing-home" id="pricing">
       <div class="section-home">
-        <h2 data-i18n="price_h2">Aktuell kostenlos für alle Handwerker</h2>
+        <h2 data-i18n="price_h2">Kostenlos für alle Handwerker</h2>
         <p class="section-sub" data-i18n="price_sub">Wir bauen die Plattform Schritt für Schritt auf. Handwerker, die jetzt einsteigen, sind Gründungsmitglieder — sie prägen die ersten Aufträge und bauen Reichweite vor allen anderen.</p>
-        <p class="pricing-note" data-i18n="price_note">Pricing aktivieren wir erst, wenn die Plattform echte Liquidität hat — wenn aus jeder Region täglich Aufträge bei den Handwerkern landen. Bis dahin: keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig.</p>
+        <p class="pricing-note" data-i18n="price_note">Keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig. Wer mehr Sichtbarkeit möchte, kann sein Profil optional als gesponsert hervorheben lassen.</p>
       </div>
     </section>
 
@@ -171,7 +253,7 @@
         nav_imprint: 'Impressum',
         hero_h1_1: 'Handwerker finden.',
         hero_h1_2: 'Ohne Provision.',
-        hero_sub: 'Meisterlich AI verbindet Privatkunden mit Handwerkerbetrieben in der Nähe. <strong>Aktuell kostenlos für alle.</strong> Keine Provision, keine Lead-Gebühren — wir starten die Plattform mit den ersten Handwerkern.',
+        hero_sub: 'Meisterlich AI verbindet Privatkunden direkt mit Handwerkerbetrieben in der Nähe. <strong>Kostenlos für alle.</strong> Keine Lead-Gebühren, keine Provision — nur die direkte Verbindung.',
         hero_cta_how: 'Wie es funktioniert',
         hero_cta_masters: 'Für Handwerker',
         pill_platform: 'iPhone · iOS 17+',
@@ -188,25 +270,45 @@
         role_cust_li3: 'Direkt anrufen, wenn der Handwerker seine Nummer freigibt',
         role_cust_li4: 'Keine Provision. Kein Lead-Verkauf. Kein Werbetracking.',
         role_craft_h3: 'Handwerker',
-        role_craft_price: 'Aktuell kostenlos · keine Provision',
-        role_craft_p: 'Pflege dein Profil mit Fotos, Leistungen und Werbebanner. Aktuell kostenlos für alle Handwerker — du behältst jeden Auftrag vollständig, keine Lead-Gebühren, keine Provision.',
+        role_craft_price: 'Kostenlos · keine Provision · keine Lead-Gebühren',
+        role_craft_p: 'Erstelle dein Profil, lege deinen Arbeitsradius fest und werde für Kunden in deiner Region sichtbar. Der KI-Assistent hilft dir beim Formulieren — Profiltexte, Antworten, Werbetexte.',
         role_craft_li1: 'Öffentliches Profil mit bis zu 10 Fotos + Banner',
-        role_craft_li2: 'Sofort sichtbar im Kundenradar — kein Abo nötig',
-        role_craft_li3: 'Chat-Anfragen direkt vom Kunden, optional Telefon-Opt-in',
-        role_craft_li4: 'Du entscheidest selbst, ob Bewertungen öffentlich sind',
+        role_craft_li2: 'Sofort sichtbar im Kundenradar — kein Abo, keine Lead-Gebühren',
+        role_craft_li3: 'KI-Assistent für Profil, Antworten &amp; Werbetexte (3 kostenlos)',
+        role_craft_li4: 'Chat-Anfragen direkt vom Kunden, optional Telefon-Opt-in',
         feat_h2: 'Warum Meisterlich AI?',
         feat_sub: 'Keine Lead-Gebühren. Keine Mittelsmänner. Nur eine App, die Kunden und Handwerker zusammenbringt.',
-        f1_h3: 'Kostenlos starten',
-        f1_p: 'Aktuell für alle Handwerker kostenlos. Wir starten die Plattform mit dir — Pricing kommt erst, wenn die Plattform echte Aufträge bringt.',
+        f1_h3: 'Kostenlos für alle',
+        f1_p: 'Kunden zahlen nichts. Handwerker zahlen nichts. Keine Lead-Gebühren, keine Provision — der Kontakt gehört euch, nicht uns.',
         f2_h3: 'Lokal &amp; präzise',
-        f2_p: 'Suche nach PLZ und Umkreis. Jeder Handwerker entscheidet selbst, in welchem Radius er arbeiten will.',
+        f2_p: 'Suche nach PLZ und Radius. Jeder Handwerker entscheidet selbst, in welchem Umkreis er arbeiten will — und wird nur dort angezeigt.',
         f3_h3: 'Chat statt Formular',
         f3_p: 'In-App-Text-Chat, kurz und fokussiert. Wenn es schneller gehen muss: ein Tap aufs Telefon.',
-        f4_h3: 'Privatsphäre zuerst',
-        f4_p: 'Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".',
-        price_h2: 'Aktuell kostenlos für alle Handwerker',
+        f4_h3: 'KI-Assistent',
+        f4_p: 'Handwerker formulieren Profiltexte, Antworten und Werbetexte mit KI-Unterstützung. Nach Profilerststellung 3 Generierungen inklusive.',
+        f5_h3: 'Privatsphäre zuerst',
+        f5_p: 'Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".',
+        compare_h2: 'Warum Meisterlich — und nicht myHammer?',
+        compare_sub: 'Weil Handwerker nicht für Kontakte zahlen sollten, die zu nichts führen.',
+        compare_ml_h3: 'Meisterlich AI',
+        compare_ml_1: 'Kostenlos für Handwerker — keine Lead-Gebühren',
+        compare_ml_2: 'Kostenlos für Kunden — keine Registrierung nötig',
+        compare_ml_3: 'Kein Zahlen pro Kontakt — egal ob Auftrag zustande kommt',
+        compare_ml_4: 'Direkter In-App-Chat + Anruf',
+        compare_ml_5: 'Radius frei wählbar — Handwerker entscheidet',
+        compare_ml_6: 'KI-Assistent inklusive (3 kostenlose Starts)',
+        compare_ml_7: 'Keine Provision bei Auftragsabschluss',
+        compare_mh_h3: 'myHammer',
+        compare_mh_1: 'Lead-Gebühren für Handwerker — pro Kontakt',
+        compare_mh_2: 'Zahlen ohne garantierten Auftrag',
+        compare_mh_3: 'Intransparentes Credit-System',
+        compare_mh_4: 'Kontakt läuft über das Portal, nicht direkt',
+        compare_mh_5: 'Eingeschränkte Radius-Kontrolle',
+        compare_mh_6: 'Kein KI-Assistent',
+        compare_mh_7: 'Provision teils fällig',
+        price_h2: 'Kostenlos für alle Handwerker',
         price_sub: 'Wir bauen die Plattform Schritt für Schritt auf. Handwerker, die jetzt einsteigen, sind Gründungsmitglieder — sie prägen die ersten Aufträge und bauen Reichweite vor allen anderen.',
-        price_note: 'Pricing aktivieren wir erst, wenn die Plattform echte Liquidität hat — wenn aus jeder Region täglich Aufträge bei den Handwerkern landen. Bis dahin: keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig.',
+        price_note: 'Keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig. Wer mehr Sichtbarkeit möchte, kann sein Profil optional als gesponsert hervorheben lassen.',
         imp_h2: 'Impressum',
         imp_role: '<strong>Anbieter und verantwortlich nach § 5 DDG:</strong>',
         imp_sole: 'Einzelunternehmen „torecon"',
@@ -231,7 +333,7 @@
         nav_imprint: 'Legal Notice',
         hero_h1_1: 'Find a craftsman.',
         hero_h1_2: 'Without commission.',
-        hero_sub: 'Meisterlich AI connects private customers with local craftsmen. <strong>Currently free for everyone.</strong> No commission, no lead fees — we are starting the platform with the first craftsmen.',
+        hero_sub: 'Meisterlich AI connects private customers directly with local craftsmen. <strong>Free for everyone.</strong> No lead fees, no commission — just the direct connection.',
         hero_cta_how: 'How it works',
         hero_cta_masters: 'For craftsmen',
         pill_platform: 'iPhone · iOS 17+',
@@ -248,25 +350,45 @@
         role_cust_li3: 'Direct call when the craftsman shares their number',
         role_cust_li4: 'No commission. No lead sales. No ad tracking.',
         role_craft_h3: 'Craftsman',
-        role_craft_price: 'Currently free · no commission',
-        role_craft_p: 'Maintain your profile with photos, services and a banner. Currently free for all craftsmen — you keep every job fully, no lead fees, no commission.',
+        role_craft_price: 'Free · no commission · no lead fees',
+        role_craft_p: 'Create your profile, set your service radius and become visible to customers in your region. The AI assistant helps you write — profile texts, replies, ad copy.',
         role_craft_li1: 'Public profile with up to 10 photos + banner',
-        role_craft_li2: 'Visible in customer search immediately — no subscription needed',
-        role_craft_li3: 'Chat requests direct from customers, optional phone opt-in',
-        role_craft_li4: 'You decide whether reviews are shown publicly',
+        role_craft_li2: 'Visible in customer search immediately — no subscription, no lead fees',
+        role_craft_li3: 'AI assistant for profile, replies &amp; ad copy (3 free)',
+        role_craft_li4: 'Chat requests direct from customers, optional phone opt-in',
         feat_h2: 'Why Meisterlich AI?',
         feat_sub: 'No lead fees. No middlemen. Just an app that connects customers and craftsmen.',
-        f1_h3: 'Start for free',
-        f1_p: 'Currently free for all craftsmen. We are starting the platform with you — pricing kicks in only when the platform brings real jobs.',
+        f1_h3: 'Free for everyone',
+        f1_p: 'Customers pay nothing. Craftsmen pay nothing. No lead fees, no commission — the contact is yours, not ours.',
         f2_h3: 'Local &amp; precise',
-        f2_p: 'Search by postal code and radius. Each craftsman decides their own service radius.',
+        f2_p: 'Search by postal code and radius. Each craftsman decides their own service radius — and only appears within it.',
         f3_h3: 'Chat instead of forms',
         f3_p: 'In-app text chat, short and focused. For anything urgent, tap the phone icon.',
-        f4_h3: 'Privacy first',
-        f4_p: 'No IDFA, no ad tracking, no Facebook SDK. Sign in with Apple.',
-        price_h2: 'Currently free for all craftsmen',
+        f4_h3: 'AI assistant',
+        f4_p: 'Craftsmen write profile texts, replies and ad copy with AI support. 3 generations included after profile creation.',
+        f5_h3: 'Privacy first',
+        f5_p: 'No IDFA, no ad tracking, no Facebook SDK. Sign in with Apple.',
+        compare_h2: 'Why Meisterlich — and not myHammer?',
+        compare_sub: 'Because craftsmen should not pay for contacts that lead nowhere.',
+        compare_ml_h3: 'Meisterlich AI',
+        compare_ml_1: 'Free for craftsmen — no lead fees',
+        compare_ml_2: 'Free for customers — no sign-up required',
+        compare_ml_3: 'Never pay per contact — regardless of outcome',
+        compare_ml_4: 'Direct in-app chat + call',
+        compare_ml_5: 'Radius freely adjustable — craftsman decides',
+        compare_ml_6: 'AI assistant included (3 free starts)',
+        compare_ml_7: 'No commission on completed jobs',
+        compare_mh_h3: 'myHammer',
+        compare_mh_1: 'Lead fees for craftsmen — per contact',
+        compare_mh_2: 'Pay without guaranteed job outcome',
+        compare_mh_3: 'Opaque credit system',
+        compare_mh_4: 'Contact runs through the portal, not direct',
+        compare_mh_5: 'Limited radius control',
+        compare_mh_6: 'No AI assistant',
+        compare_mh_7: 'Commission sometimes due',
+        price_h2: 'Free for all craftsmen',
         price_sub: 'We are building the platform step by step. Craftsmen who join now are founding members — they shape the first jobs and build reach before everyone else.',
-        price_note: 'Pricing kicks in only once the platform has real liquidity — when every region sends jobs to craftsmen daily. Until then: no commission, no lead fees, no subscription. You keep every job fully.',
+        price_note: 'No commission, no lead fees, no subscription. You keep every job fully. Craftsmen who want more visibility can optionally sponsor their profile.',
         imp_h2: 'Legal Notice',
         imp_role: '<strong>Provider and responsible per §5 DDG (German Digital Services Act):</strong>',
         imp_sole: 'Sole proprietorship "torecon"',
