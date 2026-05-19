@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6762597134">
   <title>Meisterlich AI – Handwerker finden ohne Provision</title>
   <meta name="description" content="Meisterlich AI verbindet Privatkunden direkt mit Handwerkern. Kostenlos für alle — keine Lead-Gebühren, keine Provision, kein Mittelsmann.">
 
@@ -14,82 +15,90 @@
   <meta property="og:description" content="Kostenlos für alle. Keine Lead-Gebühren, keine Provision — direkte Verbindung zwischen Kunden und Handwerkern.">
   <meta property="og:url" content="https://meisterlich.torecon.de">
   <meta property="og:type" content="website">
-
   <style>
-    /* Comparison table — site design tokens: Navy + Gold */
-    .compare-table {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 2px solid var(--accent);
-      box-shadow: var(--shadow);
-      margin-top: 2rem;
-    }
-    .compare-row {
-      display: grid;
-      grid-template-columns: 1.7fr 1.2fr 1.2fr;
-      align-items: center;
-    }
-    .compare-row:not(.compare-head) { border-top: 1px solid var(--border); }
-    .compare-row:not(.compare-head):nth-child(odd)  { background: var(--bg-alt); }
-    .compare-row:not(.compare-head):nth-child(even) { background: var(--bg); }
-    .compare-head { background: var(--bg-dark); }
-    .compare-feat-col {
-      padding: 0.85rem 1.2rem;
-      font-size: 0.87rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-    .compare-head .compare-feat-col {
-      color: rgba(255,255,255,0.35);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-    }
-    .compare-col-ml {
-      padding: 0.85rem 1rem;
-      background: rgba(224,168,76,0.12);
-      color: var(--accent-dark);
-      font-weight: 700;
-      font-size: 0.87rem;
-      text-align: center;
-      border-left: 1px solid var(--border);
-    }
-    .compare-col-ml.good::before { content: "✓ "; color: #16a34a; font-weight: 900; }
-    .compare-head .compare-col-ml {
-      background: var(--accent);
-      color: var(--accent-dark);
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 1.1rem 1rem;
-      text-align: center;
-      border-left: none;
-    }
-    .compare-col-mh {
-      padding: 0.85rem 0.8rem;
-      color: var(--text-tertiary);
-      font-size: 0.84rem;
-      text-align: center;
-      border-left: 1px solid var(--border);
-    }
-    .compare-col-mh.bad::before { content: "✗ "; color: var(--ai-red); font-weight: 900; }
-    .compare-head .compare-col-mh {
-      background: var(--text-secondary);
-      color: rgba(255,255,255,0.75);
-      font-size: 0.95rem;
-      padding: 1.1rem 1rem;
-      text-align: center;
-      font-weight: 700;
-      border-left: none;
-    }
-    @media (max-width: 580px) {
-      .compare-row { grid-template-columns: 1fr 1fr 1fr; }
-      .compare-feat-col { padding: 0.65rem 0.5rem; font-size: 0.74rem; }
-      .compare-col-ml, .compare-col-mh { padding: 0.65rem 0.35rem; font-size: 0.74rem; }
+    /* Comparison table — Navy + Gold design tokens */
+    .compare-table{width:100%;border-radius:var(--radius-lg);overflow:hidden;border:2px solid var(--accent);box-shadow:var(--shadow);margin-top:2rem}
+    .compare-row{display:grid;grid-template-columns:1.7fr 1.2fr 1.2fr;align-items:center}
+    .compare-row:not(.compare-head){border-top:1px solid var(--border)}
+    .compare-row:not(.compare-head):nth-child(odd){background:var(--bg-alt)}
+    .compare-row:not(.compare-head):nth-child(even){background:var(--bg)}
+    .compare-head{background:var(--bg-dark)}
+    .compare-feat-col{padding:.85rem 1.2rem;font-size:.87rem;font-weight:600;color:var(--text-secondary)}
+    .compare-head .compare-feat-col{color:rgba(255,255,255,.35);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em}
+    .compare-col-ml{padding:.85rem 1rem;background:rgba(224,168,76,.12);color:var(--accent-dark);font-weight:700;font-size:.87rem;text-align:center;border-left:1px solid var(--border)}
+    .compare-col-ml.good::before{content:"✓ ";color:#16a34a;font-weight:900}
+    .compare-head .compare-col-ml{background:var(--accent);color:var(--accent-dark);font-weight:800;font-size:.95rem;padding:1.1rem 1rem;text-align:center;border-left:none}
+    .compare-col-mh{padding:.85rem .8rem;color:var(--text-tertiary);font-size:.84rem;text-align:center;border-left:1px solid var(--border)}
+    .compare-col-mh.bad::before{content:"✗ ";color:var(--ai-red);font-weight:900}
+    .compare-head .compare-col-mh{background:var(--text-secondary);color:rgba(255,255,255,.75);font-size:.95rem;padding:1.1rem 1rem;text-align:center;font-weight:700;border-left:none}
+    /* Launch Banner */
+    .launch-banner{background:var(--bg-dark);padding:11px 24px;position:relative}
+    .banner-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding-right:32px}
+    .banner-pill{background:var(--accent);color:var(--bg-dark);padding:2px 9px;border-radius:999px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
+    .banner-text{font-size:13px;color:rgba(255,255,255,.85)}
+    .banner-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.5);font-size:18px;cursor:pointer;line-height:1;padding:4px 8px;font-family:inherit}
+    .banner-close:hover{color:#fff}
+    /* Pain → Solution */
+    .pain-section{background:var(--bg-dark);padding:48px 24px;text-align:center}
+    .pain-inner{max-width:680px;margin:0 auto}
+    .pain-stat{font-size:clamp(17px,2.2vw,20px);color:rgba(255,255,255,.7);margin-bottom:14px;line-height:1.65}
+    .pain-stat strong{color:#fff}
+    .pain-solution{font-size:clamp(19px,2.6vw,25px);font-weight:700;color:var(--accent);letter-spacing:-.01em}
+    /* Roadmap */
+    .roadmap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:32px}
+    .roadmap-item{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;display:flex;gap:12px;align-items:flex-start}
+    .rm-emoji{font-size:20px;flex-shrink:0;margin-top:1px}
+    .rm-content h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
+    .rm-content p{font-size:13px;color:var(--text-secondary);line-height:1.5;margin:0}
+    /* Final CTA */
+    .final-cta{background:var(--bg-dark);padding:80px 24px;text-align:center}
+    .cta-inner{max-width:600px;margin:0 auto}
+    .cta-badge{display:inline-block;background:rgba(224,168,76,.15);border:1px solid var(--accent);color:var(--accent);padding:5px 16px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+    .final-cta h2{font-size:clamp(26px,4vw,40px);font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:14px}
+    .final-cta p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:28px}
+    .platform-info{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:10px 22px;font-size:14px;color:rgba(255,255,255,.6)}
+    /* iPhone Modal */
+    .modal-overlay{display:none;position:fixed;inset:0;z-index:1000;align-items:flex-end;justify-content:center}
+    .modal-overlay.show{display:flex}
+    .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(4px)}
+    .modal-card{position:relative;z-index:1;background:var(--bg);border-radius:20px 20px 0 0;padding:28px 24px 44px;width:100%;max-width:480px;text-align:center}
+    .modal-icon{width:68px;height:68px;border-radius:15px;margin:0 auto 14px;box-shadow:var(--shadow)}
+    .modal-card h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:6px}
+    .modal-pill{display:inline-block;background:rgba(224,168,76,.15);color:var(--accent-hover);border-radius:999px;padding:3px 12px;font-size:12px;font-weight:700;margin-bottom:10px}
+    .modal-card p{font-size:14px;color:var(--text-secondary);line-height:1.55;margin-bottom:20px}
+    .modal-close-btn{display:block;width:100%;padding:13px;background:var(--bg-alt);border:none;border-radius:var(--radius);font-size:15px;font-weight:600;color:var(--text);cursor:pointer;font-family:inherit}
+    /* Cookie Consent */
+    #cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(15,39,69,.96);backdrop-filter:blur(20px);padding:14px 24px;transform:translateY(100%);transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+    #cookie-banner.show{transform:translateY(0)}
+    .cookie-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .cookie-text{flex:1;min-width:200px;font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+    .cookie-text a{color:var(--accent);text-decoration:none}
+    .cookie-actions{display:flex;gap:8px;flex-shrink:0}
+    .btn-cookie-accept{background:var(--accent);color:var(--bg-dark);border:none;border-radius:999px;padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+    .btn-cookie-decline{background:rgba(255,255,255,.1);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+    /* Icon cross-promo */
+    .footer-app-pill{display:inline-flex;align-items:center;gap:7px}
+    .footer-app-icon{width:22px;height:22px;border-radius:5px;flex-shrink:0;vertical-align:middle}
+    /* Responsive */
+    @media(max-width:580px){
+      .compare-row{grid-template-columns:1fr 1fr 1fr}
+      .compare-feat-col{padding:.65rem .5rem;font-size:.74rem}
+      .compare-col-ml,.compare-col-mh{padding:.65rem .35rem;font-size:.74rem}
+      .cookie-inner{flex-direction:column;align-items:flex-start}
+      .cookie-actions{width:100%}
+      .btn-cookie-accept,.btn-cookie-decline{flex:1;text-align:center}
     }
   </style>
 </head>
 <body>
+  <!-- Launch Banner -->
+  <div class="launch-banner" id="launch-banner">
+    <div class="banner-inner">
+      <span class="banner-pill" data-i18n="banner_pill">Coming Soon</span>
+      <span class="banner-text" data-i18n="banner_text">Meisterlich AI erscheint bald im App Store.</span>
+    </div>
+    <button class="banner-close" onclick="closeBanner()" aria-label="Schließen">×</button>
+  </div>
 
   <nav class="site-nav">
     <div class="nav-inner">
@@ -129,11 +138,20 @@
           <span class="hero-pill">🇩🇪 <span data-i18n="pill_lang">Deutsch &amp; Englisch</span></span>
           <span class="hero-pill">🔒 <span data-i18n="pill_privacy">Sign in with Apple</span></span>
           <span class="hero-pill">🛠 <span data-i18n="pill_cats">85+ Leistungskategorien</span></span>
+          <span class="hero-pill">🚀 <span data-i18n="pill_soon">Bald im App Store</span></span>
         </div>
       </div>
     </section>
 
-    <!-- Role split: Kunde vs. Handwerker -->
+    <!-- Pain → Solution -->
+    <section class="pain-section">
+      <div class="pain-inner">
+        <p class="pain-stat" data-i18n="pain_stat">Handwerksbetriebe zahlen heute für jeden Lead — <strong>egal ob ein Auftrag zustande kommt oder nicht.</strong></p>
+        <p class="pain-solution" data-i18n="pain_solution">Meisterlich ändert das: Direktkontakt. Kostenlos für alle.</p>
+      </div>
+    </section>
+
+    <!-- Role split -->
     <section class="section-home" id="how">
       <h2 data-i18n="how_h2">Zwei Rollen. Ein iPhone.</h2>
       <p class="section-sub" data-i18n="how_sub">Dieselbe App — je nachdem, ob du einen Handwerker suchst oder selbst einer bist.</p>
@@ -168,31 +186,11 @@
       <h2 data-i18n="feat_h2">Warum Meisterlich AI?</h2>
       <p class="section-sub" data-i18n="feat_sub">Keine Lead-Gebühren. Keine Mittelsmänner. Nur eine App, die Kunden und Handwerker zusammenbringt.</p>
       <div class="feature-grid">
-        <div class="feature-card">
-          <span class="feature-emoji">💰</span>
-          <h3 data-i18n="f1_h3">Kostenlos für alle</h3>
-          <p data-i18n="f1_p">Kunden zahlen nichts. Handwerker zahlen nichts. Keine Lead-Gebühren, keine Provision — der Kontakt gehört euch, nicht uns.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-emoji">📍</span>
-          <h3 data-i18n="f2_h3">Lokal &amp; präzise</h3>
-          <p data-i18n="f2_p">Suche nach PLZ und Radius. Jeder Handwerker entscheidet selbst, in welchem Umkreis er arbeiten will — und wird nur dort angezeigt.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-emoji">💬</span>
-          <h3 data-i18n="f3_h3">Chat statt Formular</h3>
-          <p data-i18n="f3_p">In-App-Text-Chat, kurz und fokussiert. Wenn es schneller gehen muss: ein Tap aufs Telefon.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-emoji">🤖</span>
-          <h3 data-i18n="f4_h3">KI-Assistent</h3>
-          <p data-i18n="f4_p">Handwerker formulieren Profiltexte, Antworten und Werbetexte mit KI-Unterstützung. Nach Profilerststellung 3 Generierungen inklusive.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-emoji">🛡</span>
-          <h3 data-i18n="f5_h3">Privatsphäre zuerst</h3>
-          <p data-i18n="f5_p">Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".</p>
-        </div>
+        <div class="feature-card"><span class="feature-emoji">💰</span><h3 data-i18n="f1_h3">Kostenlos für alle</h3><p data-i18n="f1_p">Kunden zahlen nichts. Handwerker zahlen nichts. Keine Lead-Gebühren, keine Provision — der Kontakt gehört euch, nicht uns.</p></div>
+        <div class="feature-card"><span class="feature-emoji">📍</span><h3 data-i18n="f2_h3">Lokal &amp; präzise</h3><p data-i18n="f2_p">Suche nach PLZ und Radius. Jeder Handwerker entscheidet selbst, in welchem Umkreis er arbeiten will — und wird nur dort angezeigt.</p></div>
+        <div class="feature-card"><span class="feature-emoji">💬</span><h3 data-i18n="f3_h3">Chat statt Formular</h3><p data-i18n="f3_p">In-App-Text-Chat, kurz und fokussiert. Wenn es schneller gehen muss: ein Tap aufs Telefon.</p></div>
+        <div class="feature-card"><span class="feature-emoji">🤖</span><h3 data-i18n="f4_h3">KI-Assistent</h3><p data-i18n="f4_p">Handwerker formulieren Profiltexte, Antworten und Werbetexte mit KI-Unterstützung. Nach Profilerststellung 3 Generierungen inklusive.</p></div>
+        <div class="feature-card"><span class="feature-emoji">🛡</span><h3 data-i18n="f5_h3">Privatsphäre zuerst</h3><p data-i18n="f5_p">Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple“.</p></div>
       </div>
     </section>
 
@@ -206,40 +204,30 @@
           <div class="compare-col-ml" data-i18n="compare_ml_h3">Meisterlich AI</div>
           <div class="compare-col-mh" data-i18n="compare_mh_h3">myHammer</div>
         </div>
-        <div class="compare-row">
-          <div class="compare-feat-col" data-i18n="compare_r1">Für Handwerker</div>
-          <div class="compare-col-ml good" data-i18n="compare_ml_1">Kostenlos</div>
-          <div class="compare-col-mh bad" data-i18n="compare_mh_1">Lead-Gebühren pro Kontakt</div>
-        </div>
-        <div class="compare-row">
-          <div class="compare-feat-col" data-i18n="compare_r2">Zahlen pro Kontakt</div>
-          <div class="compare-col-ml good" data-i18n="compare_ml_2">Nie</div>
-          <div class="compare-col-mh bad" data-i18n="compare_mh_2">Ja — egal ob Auftrag oder nicht</div>
-        </div>
-        <div class="compare-row">
-          <div class="compare-feat-col" data-i18n="compare_r3">Provision bei Auftrag</div>
-          <div class="compare-col-ml good" data-i18n="compare_ml_3">Keine</div>
-          <div class="compare-col-mh bad" data-i18n="compare_mh_3">Teils fällig</div>
-        </div>
-        <div class="compare-row">
-          <div class="compare-feat-col" data-i18n="compare_r4">Direktkontakt</div>
-          <div class="compare-col-ml good" data-i18n="compare_ml_4">In-App-Chat + Anruf</div>
-          <div class="compare-col-mh bad" data-i18n="compare_mh_4">Über Portal</div>
-        </div>
-        <div class="compare-row">
-          <div class="compare-feat-col" data-i18n="compare_r5">Radius-Kontrolle</div>
-          <div class="compare-col-ml good" data-i18n="compare_ml_5">Frei wählbar</div>
-          <div class="compare-col-mh bad" data-i18n="compare_mh_5">Begrenzt</div>
-        </div>
-        <div class="compare-row">
-          <div class="compare-feat-col" data-i18n="compare_r6">KI-Assistent</div>
-          <div class="compare-col-ml good" data-i18n="compare_ml_6">Inklusive (3 kostenlos)</div>
-          <div class="compare-col-mh bad" data-i18n="compare_mh_6">Nicht vorhanden</div>
-        </div>
+        <div class="compare-row"><div class="compare-feat-col" data-i18n="compare_r1">Für Handwerker</div><div class="compare-col-ml good" data-i18n="compare_ml_1">Kostenlos</div><div class="compare-col-mh bad" data-i18n="compare_mh_1">Lead-Gebühren pro Kontakt</div></div>
+        <div class="compare-row"><div class="compare-feat-col" data-i18n="compare_r2">Zahlen pro Kontakt</div><div class="compare-col-ml good" data-i18n="compare_ml_2">Nie</div><div class="compare-col-mh bad" data-i18n="compare_mh_2">Ja — egal ob Auftrag oder nicht</div></div>
+        <div class="compare-row"><div class="compare-feat-col" data-i18n="compare_r3">Provision bei Auftrag</div><div class="compare-col-ml good" data-i18n="compare_ml_3">Keine</div><div class="compare-col-mh bad" data-i18n="compare_mh_3">Teils fällig</div></div>
+        <div class="compare-row"><div class="compare-feat-col" data-i18n="compare_r4">Direktkontakt</div><div class="compare-col-ml good" data-i18n="compare_ml_4">In-App-Chat + Anruf</div><div class="compare-col-mh bad" data-i18n="compare_mh_4">Über Portal</div></div>
+        <div class="compare-row"><div class="compare-feat-col" data-i18n="compare_r5">Radius-Kontrolle</div><div class="compare-col-ml good" data-i18n="compare_ml_5">Frei wählbar</div><div class="compare-col-mh bad" data-i18n="compare_mh_5">Begrenzt</div></div>
+        <div class="compare-row"><div class="compare-feat-col" data-i18n="compare_r6">KI-Assistent</div><div class="compare-col-ml good" data-i18n="compare_ml_6">Inklusive (3 kostenlos)</div><div class="compare-col-mh bad" data-i18n="compare_mh_6">Nicht vorhanden</div></div>
       </div>
     </section>
 
-    <!-- Pricing / Free-Mode -->
+    <!-- Roadmap -->
+    <section class="section-home">
+      <h2 data-i18n="rm_h2">Was als Nächstes kommt</h2>
+      <p class="section-sub" data-i18n="rm_sub">Meisterlich wächst mit seinen Gründungsmitgliedern. Das ist unsere Roadmap.</p>
+      <div class="roadmap-grid">
+        <div class="roadmap-item"><span class="rm-emoji">📋</span><div class="rm-content"><h3 data-i18n="rm_1_title">Strukturierte Anfrage</h3><p data-i18n="rm_1_desc">Foto-Upload, Budget-Range, Dringlichkeit und Zeitfenster — strukturiert statt Freitext.</p></div></div>
+        <div class="roadmap-item"><span class="rm-emoji">📥</span><div class="rm-content"><h3 data-i18n="rm_2_title">Handwerker-Posteingang</h3><p data-i18n="rm_2_desc">Filter, Sortierung und «Nicht relevant»-Swipe — für mehr Kontrolle über eingehende Anfragen.</p></div></div>
+        <div class="roadmap-item"><span class="rm-emoji">📄</span><div class="rm-content"><h3 data-i18n="rm_3_title">Kostenvoranschlag im Chat</h3><p data-i18n="rm_3_desc">Strukturierter KV als Chat-Nachrichtentyp — mit MwSt., Gültigkeit und optionalem PDF.</p></div></div>
+        <div class="roadmap-item"><span class="rm-emoji">📊</span><div class="rm-content"><h3 data-i18n="rm_4_title">Dashboard-KPIs</h3><p data-i18n="rm_4_desc">Profilaufrufe, Anfragen, Response-Zeit — auf einen Blick im Handwerker-Dashboard.</p></div></div>
+        <div class="roadmap-item"><span class="rm-emoji">📡</span><div class="rm-content"><h3 data-i18n="rm_5_title">Broadcast-Anfragen</h3><p data-i18n="rm_5_desc">Ein Auftrag, mehrere Angebote — Kunden vergleichen Angebote verschiedener Handwerker.</p></div></div>
+        <div class="roadmap-item"><span class="rm-emoji">⭐</span><div class="rm-content"><h3 data-i18n="rm_6_title">Gesponsert-Hervorhebung</h3><p data-i18n="rm_6_desc">Optionale Sichtbarkeit: Profil-Boost für Handwerker, die mehr Reichweite wollen.</p></div></div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
     <section class="pricing-home" id="pricing">
       <div class="section-home">
         <h2 data-i18n="price_h2">Kostenlos für alle Handwerker</h2>
@@ -248,16 +236,22 @@
       </div>
     </section>
 
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="cta-inner">
+        <div class="cta-badge" data-i18n="cta_badge">Bald im App Store</div>
+        <h2 data-i18n="cta_h2">Sei dabei — von Anfang an.</h2>
+        <p data-i18n="cta_p">Meisterlich AI erscheint bald für iPhone. Handwerker, die sich jetzt registrieren, sind Gründungsmitglieder — sie prägen die Plattform von Anfang an.</p>
+        <div class="platform-info"><span data-i18n="cta_platform">📱 iPhone · iOS 17+</span></div>
+      </div>
+    </section>
+
     <!-- Impressum -->
     <section class="impressum-block" id="impressum">
       <h2 data-i18n="imp_h2">Impressum</h2>
       <p data-i18n="imp_role"><strong>Anbieter und verantwortlich nach § 5 DDG:</strong></p>
-      <p>Thomas Reinke (<span data-i18n="imp_sole">Einzelunternehmen „torecon"</span>)<br>
-      Roesgenstr. 22<br>
-      53474 Ahrweiler<br>
-      <span data-i18n="imp_country">Deutschland</span></p>
-      <p><strong data-i18n="imp_contact">Kontakt:</strong><br>
-      <span data-i18n="imp_email">E-Mail:</span> <a href="mailto:support@torecon.de">support@torecon.de</a></p>
+      <p>Thomas Reinke (<span data-i18n="imp_sole">Einzelunternehmen „torecon“</span>)<br>Roesgenstr. 22<br>53474 Ahrweiler<br><span data-i18n="imp_country">Deutschland</span></p>
+      <p><strong data-i18n="imp_contact">Kontakt:</strong><br><span data-i18n="imp_email">E-Mail:</span> <a href="mailto:support@torecon.de">support@torecon.de</a></p>
       <p><strong data-i18n="imp_vat">Umsatzsteuer-ID gem. § 27a UStG:</strong> <span data-i18n="imp_vat_tbd"><em>nicht erhoben, Kleinunternehmer nach § 19 UStG</em></span></p>
       <p><strong data-i18n="imp_legal">Rechtliches:</strong> <a href="/terms/" data-i18n="imp_terms">Nutzungsbedingungen</a> · <a href="/privacy/" data-i18n="imp_privacy">Datenschutzerklärung</a></p>
     </section>
@@ -266,9 +260,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-logo-main">Meisterlich<span class="footer-logo-accent"> AI</span></div>
-      <div class="footer-brand-line">
-        <span data-i18n="footer_brand">eine Marke von</span> <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>
-      </div>
+      <div class="footer-brand-line"><span data-i18n="footer_brand">eine Marke von</span> <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></div>
       <div class="footer-links">
         <a href="/" data-i18n="footer_home">Startseite</a>
         <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
@@ -278,19 +270,50 @@
       <div class="footer-apps">
         <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
         <div class="footer-apps-pills">
-          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">🧠 BrainBites AI</a>
-          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">💡 ThinkLess AI</a>
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener"><img src="/cross-promo/brainbites.png" alt="" class="footer-app-icon">BrainBites AI</a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener"><img src="/cross-promo/thinkless.png" alt="" class="footer-app-icon">ThinkLess AI</a>
+          <a class="footer-app-pill" href="https://eladung.torecon.de" target="_blank" rel="noopener"><img src="/cross-promo/eladung.png" alt="" class="footer-app-icon">eLadung GO</a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener"><img src="/cross-promo/zettelkueche.png" alt="" class="footer-app-icon">Zettelküche AI</a>
         </div>
       </div>
       <div class="footer-copy">&copy; <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
     </div>
   </footer>
 
+  <!-- iPhone Modal -->
+  <div class="modal-overlay" id="iphone-modal">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-card">
+      <img src="/apple-touch-icon.png" alt="Meisterlich AI" class="modal-icon">
+      <div class="modal-pill" data-i18n="modal_pill">Bald verfügbar</div>
+      <h3 data-i18n="modal_title">Meisterlich AI</h3>
+      <p data-i18n="modal_sub">Die App erscheint in Kürze im App Store für iPhone. Handwerker und Kunden in deiner Region warten schon.</p>
+      <button class="modal-close-btn" onclick="closeModal()" data-i18n="modal_close">Schließen</button>
+    </div>
+  </div>
+
+  <!-- Cookie Consent -->
+  <div id="cookie-banner">
+    <div class="cookie-inner">
+      <p class="cookie-text" data-i18n="cookie_text">Diese Website verwendet ausschließlich technisch notwendige Cookies. <a href="/privacy/" data-i18n="cookie_more">Datenschutz</a></p>
+      <div class="cookie-actions">
+        <button class="btn-cookie-decline" onclick="setCookieConsent('necessary')" data-i18n="cookie_necessary">Nur notwendige</button>
+        <button class="btn-cookie-accept" onclick="setCookieConsent('all')" data-i18n="cookie_accept">Verstanden</button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    const APP_STORE_ID = '6762597134';
+    // App not yet live — activate on launch:
+    // const APP_STORE_URL = `https://apps.apple.com/app/id${APP_STORE_ID}`;
+
     const T = {
       de: {
         nav_sub: 'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint: 'Impressum',
+        banner_pill: 'Coming Soon',
+        banner_text: 'Meisterlich AI erscheint bald im App Store.',
         hero_h1_1: 'Handwerker finden.',
         hero_h1_2: 'Ohne Provision.',
         hero_sub: 'Meisterlich AI verbindet Privatkunden direkt mit Handwerkerbetrieben in der Nähe. <strong>Kostenlos für alle.</strong> Keine Lead-Gebühren, keine Provision — nur die direkte Verbindung.',
@@ -300,6 +323,9 @@
         pill_lang: 'Deutsch &amp; Englisch',
         pill_privacy: 'Sign in with Apple',
         pill_cats: '85+ Leistungskategorien',
+        pill_soon: 'Bald im App Store',
+        pain_stat: 'Handwerksbetriebe zahlen heute für jeden Lead — <strong>egal ob ein Auftrag zustande kommt oder nicht.</strong>',
+        pain_solution: 'Meisterlich ändert das: Direktkontakt. Kostenlos für alle.',
         how_h2: 'Zwei Rollen. Ein iPhone.',
         how_sub: 'Dieselbe App — je nachdem, ob du einen Handwerker suchst oder selbst einer bist.',
         role_cust_h3: 'Privatkunde',
@@ -327,7 +353,7 @@
         f4_h3: 'KI-Assistent',
         f4_p: 'Handwerker formulieren Profiltexte, Antworten und Werbetexte mit KI-Unterstützung. Nach Profilerststellung 3 Generierungen inklusive.',
         f5_h3: 'Privatsphäre zuerst',
-        f5_p: 'Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".',
+        f5_p: 'Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple“.',
         compare_h2: 'Warum Meisterlich — und nicht myHammer?',
         compare_sub: 'Weil Handwerker nicht für Kontakte zahlen sollten, die zu nichts führen.',
         compare_feat_head: '',
@@ -351,12 +377,38 @@
         compare_r6: 'KI-Assistent',
         compare_ml_6: 'Inklusive (3 kostenlos)',
         compare_mh_6: 'Nicht vorhanden',
+        rm_h2: 'Was als Nächstes kommt',
+        rm_sub: 'Meisterlich wächst mit seinen Gründungsmitgliedern. Das ist unsere Roadmap.',
+        rm_1_title: 'Strukturierte Anfrage',
+        rm_1_desc: 'Foto-Upload, Budget-Range, Dringlichkeit und Zeitfenster — strukturiert statt Freitext.',
+        rm_2_title: 'Handwerker-Posteingang',
+        rm_2_desc: 'Filter, Sortierung und «Nicht relevant»-Swipe — für mehr Kontrolle über eingehende Anfragen.',
+        rm_3_title: 'Kostenvoranschlag im Chat',
+        rm_3_desc: 'Strukturierter KV als Chat-Nachrichtentyp — mit MwSt., Gültigkeit und optionalem PDF.',
+        rm_4_title: 'Dashboard-KPIs',
+        rm_4_desc: 'Profilaufrufe, Anfragen, Response-Zeit — auf einen Blick im Handwerker-Dashboard.',
+        rm_5_title: 'Broadcast-Anfragen',
+        rm_5_desc: 'Ein Auftrag, mehrere Angebote — Kunden vergleichen Angebote verschiedener Handwerker.',
+        rm_6_title: 'Gesponsert-Hervorhebung',
+        rm_6_desc: 'Optionale Sichtbarkeit: Profil-Boost für Handwerker, die mehr Reichweite wollen.',
         price_h2: 'Kostenlos für alle Handwerker',
         price_sub: 'Wir bauen die Plattform Schritt für Schritt auf. Handwerker, die jetzt einsteigen, sind Gründungsmitglieder — sie prägen die ersten Aufträge und bauen Reichweite vor allen anderen.',
         price_note: 'Keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig. Wer mehr Sichtbarkeit möchte, kann sein Profil optional als gesponsert hervorheben lassen.',
+        cta_badge: 'Bald im App Store',
+        cta_h2: 'Sei dabei — von Anfang an.',
+        cta_p: 'Meisterlich AI erscheint bald für iPhone. Handwerker, die sich jetzt registrieren, sind Gründungsmitglieder — sie prägen die Plattform von Anfang an.',
+        cta_platform: '📱 iPhone · iOS 17+',
+        modal_pill: 'Bald verfügbar',
+        modal_title: 'Meisterlich AI',
+        modal_sub: 'Die App erscheint in Kürze im App Store für iPhone. Handwerker und Kunden in deiner Region warten schon.',
+        modal_close: 'Schließen',
+        cookie_text: 'Diese Website verwendet ausschließlich technisch notwendige Cookies.',
+        cookie_more: 'Datenschutz',
+        cookie_necessary: 'Nur notwendige',
+        cookie_accept: 'Verstanden',
         imp_h2: 'Impressum',
         imp_role: '<strong>Anbieter und verantwortlich nach § 5 DDG:</strong>',
-        imp_sole: 'Einzelunternehmen „torecon"',
+        imp_sole: 'Einzelunternehmen „torecon“',
         imp_country: 'Deutschland',
         imp_contact: 'Kontakt:',
         imp_email: 'E-Mail:',
@@ -376,6 +428,8 @@
       en: {
         nav_sub: 'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint: 'Legal Notice',
+        banner_pill: 'Coming Soon',
+        banner_text: 'Meisterlich AI is coming soon to the App Store.',
         hero_h1_1: 'Find a craftsman.',
         hero_h1_2: 'Without commission.',
         hero_sub: 'Meisterlich AI connects private customers directly with local craftsmen. <strong>Free for everyone.</strong> No lead fees, no commission — just the direct connection.',
@@ -385,6 +439,9 @@
         pill_lang: 'German &amp; English',
         pill_privacy: 'Sign in with Apple',
         pill_cats: '85+ service categories',
+        pill_soon: 'Coming soon',
+        pain_stat: 'Craftsmen today pay for every lead — <strong>whether a job materialises or not.</strong>',
+        pain_solution: 'Meisterlich changes that: direct contact. Free for everyone.',
         how_h2: 'Two roles. One iPhone.',
         how_sub: 'Same app — whether you are looking for a craftsman or are one yourself.',
         role_cust_h3: 'Private customer',
@@ -436,9 +493,35 @@
         compare_r6: 'AI assistant',
         compare_ml_6: 'Included (3 free)',
         compare_mh_6: 'Not available',
+        rm_h2: "What's coming next",
+        rm_sub: 'Meisterlich grows with its founding members. Here is our roadmap.',
+        rm_1_title: 'Structured request',
+        rm_1_desc: 'Photo upload, budget range, urgency and time window — structured instead of free text.',
+        rm_2_title: 'Craftsman inbox',
+        rm_2_desc: 'Filter, sort and swipe away irrelevant requests — for more control over incoming jobs.',
+        rm_3_title: 'Quote in chat',
+        rm_3_desc: 'Structured quote as a chat message type — with VAT, validity period and optional PDF.',
+        rm_4_title: 'Dashboard KPIs',
+        rm_4_desc: 'Profile views, requests, response time — at a glance in the craftsman dashboard.',
+        rm_5_title: 'Broadcast requests',
+        rm_5_desc: 'One job, multiple offers — customers compare quotes from different craftsmen side by side.',
+        rm_6_title: 'Sponsored highlight',
+        rm_6_desc: 'Optional visibility: a profile boost for craftsmen who want more reach.',
         price_h2: 'Free for all craftsmen',
         price_sub: 'We are building the platform step by step. Craftsmen who join now are founding members — they shape the first jobs and build reach before everyone else.',
         price_note: 'No commission, no lead fees, no subscription. You keep every job fully. Craftsmen who want more visibility can optionally sponsor their profile.',
+        cta_badge: 'Coming soon to the App Store',
+        cta_h2: 'Be there — from the start.',
+        cta_p: 'Meisterlich AI is coming soon for iPhone. Craftsmen who sign up now are founding members — they shape the platform from day one.',
+        cta_platform: '📱 iPhone · iOS 17+',
+        modal_pill: 'Coming soon',
+        modal_title: 'Meisterlich AI',
+        modal_sub: 'The app is coming soon to the App Store for iPhone. Craftsmen and customers in your region are already waiting.',
+        modal_close: 'Close',
+        cookie_text: 'This website uses only technically necessary cookies.',
+        cookie_more: 'Privacy Policy',
+        cookie_necessary: 'Necessary only',
+        cookie_accept: 'Got it',
         imp_h2: 'Legal Notice',
         imp_role: '<strong>Provider and responsible per §5 DDG (German Digital Services Act):</strong>',
         imp_sole: 'Sole proprietorship "torecon"',
@@ -461,30 +544,55 @@
     };
 
     let lang = 'de';
-    function setLang(l) { lang = l; localStorage.setItem('ml_lang', l); apply(); }
-    function apply() {
-      const t = T[lang];
-      document.documentElement.lang = lang;
-      ['de','en'].forEach(l => document.getElementById('btn-' + l).classList.toggle('active', lang === l));
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const k = el.getAttribute('data-i18n');
-        if (t[k] !== undefined) el.innerHTML = t[k];
+    function setLang(l){lang=l;localStorage.setItem('ml_lang',l);apply();}
+    function apply(){
+      const t=T[lang];
+      document.documentElement.lang=lang;
+      ['de','en'].forEach(l=>document.getElementById('btn-'+l).classList.toggle('active',lang===l));
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k=el.getAttribute('data-i18n');
+        if(t[k]!==undefined)el.innerHTML=t[k];
       });
-      const titles = {
-        de: 'Meisterlich AI – Handwerker finden ohne Provision',
-        en: 'Meisterlich AI – Find craftsmen without commission'
-      };
-      document.title = titles[lang] || titles.en;
+      const titles={de:'Meisterlich AI – Handwerker finden ohne Provision',en:'Meisterlich AI – Find craftsmen without commission'};
+      document.title=titles[lang]||titles.en;
     }
-    function detectLang() {
-      const param = new URLSearchParams(location.search).get('lang');
-      if (param && T[param]) return param;
-      const saved = localStorage.getItem('ml_lang');
-      if (saved && T[saved]) return saved;
-      return (navigator.language || '').toLowerCase().startsWith('de') ? 'de' : 'en';
+    function detectLang(){
+      const param=new URLSearchParams(location.search).get('lang');
+      if(param&&T[param])return param;
+      const saved=localStorage.getItem('ml_lang');
+      if(saved&&T[saved])return saved;
+      return(navigator.language||'').toLowerCase().startsWith('de')?'de':'en';
     }
-    lang = detectLang(); apply();
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    function closeBanner(){
+      const b=document.getElementById('launch-banner');
+      if(b)b.style.display='none';
+      sessionStorage.setItem('ml_banner_dismissed','1');
+    }
+    if(sessionStorage.getItem('ml_banner_dismissed')==='1'){
+      const b=document.getElementById('launch-banner');
+      if(b)b.style.display='none';
+    }
+    function closeModal(){
+      document.getElementById('iphone-modal').classList.remove('show');
+      sessionStorage.setItem('ml_modal_dismissed','1');
+    }
+    const isIPhone=/iPhone|iPod/i.test(navigator.userAgent||'');
+    if(isIPhone&&sessionStorage.getItem('ml_modal_dismissed')!=='1'){
+      setTimeout(()=>{const m=document.getElementById('iphone-modal');if(m)m.classList.add('show');},1200);
+    }
+    function initCookieBanner(){
+      if(localStorage.getItem('ml_cookie_consent'))return;
+      const b=document.getElementById('cookie-banner');
+      if(b)setTimeout(()=>b.classList.add('show'),700);
+    }
+    function setCookieConsent(val){
+      localStorage.setItem('ml_cookie_consent',val);
+      const b=document.getElementById('cookie-banner');
+      if(b){b.style.transform='translateY(100%)';setTimeout(()=>b.remove(),400);}
+    }
+    lang=detectLang();apply();
+    document.getElementById('footer-year').textContent=new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded',initCookieBanner);
   </script>
 </body>
 </html>
