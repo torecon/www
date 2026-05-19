@@ -16,47 +16,75 @@
   <meta property="og:type" content="website">
 
   <style>
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+    .compare-table {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #4F7FFF;
+      box-shadow: 0 8px 40px rgba(79,127,255,0.22);
       margin-top: 2rem;
     }
-    .compare-card {
-      border-radius: 12px;
-      padding: 1.5rem;
-      background: rgba(255,255,255,0.04);
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1.7fr 1.2fr 1.2fr;
+      align-items: center;
     }
-    .compare-card.ours {
-      border: 2px solid #4F7FFF;
+    .compare-row:not(.compare-head) { border-top: 1px solid #e8ecf0; }
+    .compare-row:not(.compare-head):nth-child(odd) { background: #f7f9ff; }
+    .compare-row:not(.compare-head):nth-child(even) { background: #ffffff; }
+    .compare-head { background: #111827; }
+    .compare-feat-col {
+      padding: 0.85rem 1.2rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #374151;
     }
-    .compare-card.theirs {
-      border: 2px solid rgba(255,255,255,0.12);
+    .compare-head .compare-feat-col {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
-    .compare-card h3 {
-      margin: 0 0 1rem;
-      font-size: 1.05rem;
+    .compare-col-ml {
+      padding: 0.85rem 1rem;
+      background: rgba(79,127,255,0.09);
+      color: #1e40af;
       font-weight: 700;
+      font-size: 0.87rem;
+      text-align: center;
+      border-left: 1px solid rgba(79,127,255,0.2);
     }
-    .compare-card.ours h3 { color: #4F7FFF; }
-    .compare-card.theirs h3 { color: rgba(255,255,255,0.5); }
-    .compare-card ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    .compare-col-ml.good::before { content: "✓ "; color: #16a34a; font-weight: 900; }
+    .compare-head .compare-col-ml {
+      background: #4F7FFF;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 1.1rem 1rem;
+      text-align: center;
+      border-left: none;
     }
-    .compare-card ul li {
-      padding: 0.4rem 0;
-      font-size: 0.93rem;
-      line-height: 1.5;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+    .compare-col-mh {
+      padding: 0.85rem 0.8rem;
+      color: #9ca3af;
+      font-size: 0.84rem;
+      text-align: center;
+      border-left: 1px solid #e8ecf0;
     }
-    .compare-card ul li:last-child { border-bottom: none; }
-    .compare-card.ours ul li::before { content: "✓ "; color: #4ade80; font-weight: 700; }
-    .compare-card.theirs ul li { color: rgba(255,255,255,0.5); }
-    .compare-card.theirs ul li::before { content: "✗ "; color: #f87171; font-weight: 700; }
-    @media (max-width: 600px) {
-      .compare-grid { grid-template-columns: 1fr; }
+    .compare-col-mh.bad::before { content: "✗ "; color: #ef4444; font-weight: 900; }
+    .compare-head .compare-col-mh {
+      background: #374151;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      padding: 1.1rem 1rem;
+      text-align: center;
+      font-weight: 700;
+      border-left: none;
+    }
+    @media (max-width: 580px) {
+      .compare-row { grid-template-columns: 1fr 1fr 1fr; }
+      .compare-feat-col { padding: 0.65rem 0.5rem; font-size: 0.74rem; }
+      .compare-col-ml, .compare-col-mh { padding: 0.65rem 0.4rem; font-size: 0.74rem; }
     }
   </style>
 </head>
@@ -171,30 +199,41 @@
     <section class="section-home">
       <h2 data-i18n="compare_h2">Warum Meisterlich — und nicht myHammer?</h2>
       <p class="section-sub" data-i18n="compare_sub">Weil Handwerker nicht für Kontakte zahlen sollten, die zu nichts führen.</p>
-      <div class="compare-grid">
-        <div class="compare-card ours">
-          <h3 data-i18n="compare_ml_h3">Meisterlich AI</h3>
-          <ul>
-            <li data-i18n="compare_ml_1">Kostenlos für Handwerker — keine Lead-Gebühren</li>
-            <li data-i18n="compare_ml_2">Kostenlos für Kunden — keine Registrierung nötig</li>
-            <li data-i18n="compare_ml_3">Kein Zahlen pro Kontakt — egal ob Auftrag zustande kommt</li>
-            <li data-i18n="compare_ml_4">Direkter In-App-Chat + Anruf</li>
-            <li data-i18n="compare_ml_5">Radius frei wählbar — Handwerker entscheidet</li>
-            <li data-i18n="compare_ml_6">KI-Assistent inklusive (3 kostenlose Starts)</li>
-            <li data-i18n="compare_ml_7">Keine Provision bei Auftragsabschluss</li>
-          </ul>
+      <div class="compare-table">
+        <div class="compare-row compare-head">
+          <div class="compare-feat-col" data-i18n="compare_feat_head"> </div>
+          <div class="compare-col-ml" data-i18n="compare_ml_h3">Meisterlich AI</div>
+          <div class="compare-col-mh" data-i18n="compare_mh_h3">myHammer</div>
         </div>
-        <div class="compare-card theirs">
-          <h3 data-i18n="compare_mh_h3">myHammer</h3>
-          <ul>
-            <li data-i18n="compare_mh_1">Lead-Gebühren für Handwerker — pro Kontakt</li>
-            <li data-i18n="compare_mh_2">Zahlen ohne garantierten Auftrag</li>
-            <li data-i18n="compare_mh_3">Intransparentes Credit-System</li>
-            <li data-i18n="compare_mh_4">Kontakt läuft über das Portal, nicht direkt</li>
-            <li data-i18n="compare_mh_5">Eingeschränkte Radius-Kontrolle</li>
-            <li data-i18n="compare_mh_6">Kein KI-Assistent</li>
-            <li data-i18n="compare_mh_7">Provision teils fällig</li>
-          </ul>
+        <div class="compare-row">
+          <div class="compare-feat-col" data-i18n="compare_r1">Für Handwerker</div>
+          <div class="compare-col-ml good" data-i18n="compare_ml_1">Kostenlos</div>
+          <div class="compare-col-mh bad" data-i18n="compare_mh_1">Lead-Gebühren pro Kontakt</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feat-col" data-i18n="compare_r2">Zahlen pro Kontakt</div>
+          <div class="compare-col-ml good" data-i18n="compare_ml_2">Nie</div>
+          <div class="compare-col-mh bad" data-i18n="compare_mh_2">Ja — egal ob Auftrag oder nicht</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feat-col" data-i18n="compare_r3">Provision bei Auftrag</div>
+          <div class="compare-col-ml good" data-i18n="compare_ml_3">Keine</div>
+          <div class="compare-col-mh bad" data-i18n="compare_mh_3">Teils fällig</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feat-col" data-i18n="compare_r4">Direktkontakt</div>
+          <div class="compare-col-ml good" data-i18n="compare_ml_4">In-App-Chat + Anruf</div>
+          <div class="compare-col-mh bad" data-i18n="compare_mh_4">Über Portal</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feat-col" data-i18n="compare_r5">Radius-Kontrolle</div>
+          <div class="compare-col-ml good" data-i18n="compare_ml_5">Frei wählbar</div>
+          <div class="compare-col-mh bad" data-i18n="compare_mh_5">Begrenzt</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feat-col" data-i18n="compare_r6">KI-Assistent</div>
+          <div class="compare-col-ml good" data-i18n="compare_ml_6">Inklusive (3 kostenlos)</div>
+          <div class="compare-col-mh bad" data-i18n="compare_mh_6">Nicht vorhanden</div>
         </div>
       </div>
     </section>
@@ -290,22 +329,27 @@
         f5_p: 'Kein IDFA, kein Werbetracking, kein Facebook-SDK. Login via „Sign in with Apple".',
         compare_h2: 'Warum Meisterlich — und nicht myHammer?',
         compare_sub: 'Weil Handwerker nicht für Kontakte zahlen sollten, die zu nichts führen.',
+        compare_feat_head: '',
         compare_ml_h3: 'Meisterlich AI',
-        compare_ml_1: 'Kostenlos für Handwerker — keine Lead-Gebühren',
-        compare_ml_2: 'Kostenlos für Kunden — keine Registrierung nötig',
-        compare_ml_3: 'Kein Zahlen pro Kontakt — egal ob Auftrag zustande kommt',
-        compare_ml_4: 'Direkter In-App-Chat + Anruf',
-        compare_ml_5: 'Radius frei wählbar — Handwerker entscheidet',
-        compare_ml_6: 'KI-Assistent inklusive (3 kostenlose Starts)',
-        compare_ml_7: 'Keine Provision bei Auftragsabschluss',
         compare_mh_h3: 'myHammer',
-        compare_mh_1: 'Lead-Gebühren für Handwerker — pro Kontakt',
-        compare_mh_2: 'Zahlen ohne garantierten Auftrag',
-        compare_mh_3: 'Intransparentes Credit-System',
-        compare_mh_4: 'Kontakt läuft über das Portal, nicht direkt',
-        compare_mh_5: 'Eingeschränkte Radius-Kontrolle',
-        compare_mh_6: 'Kein KI-Assistent',
-        compare_mh_7: 'Provision teils fällig',
+        compare_r1: 'Für Handwerker',
+        compare_ml_1: 'Kostenlos',
+        compare_mh_1: 'Lead-Gebühren pro Kontakt',
+        compare_r2: 'Zahlen pro Kontakt',
+        compare_ml_2: 'Nie',
+        compare_mh_2: 'Ja — egal ob Auftrag oder nicht',
+        compare_r3: 'Provision bei Auftrag',
+        compare_ml_3: 'Keine',
+        compare_mh_3: 'Teils fällig',
+        compare_r4: 'Direktkontakt',
+        compare_ml_4: 'In-App-Chat + Anruf',
+        compare_mh_4: 'Über Portal',
+        compare_r5: 'Radius-Kontrolle',
+        compare_ml_5: 'Frei wählbar',
+        compare_mh_5: 'Begrenzt',
+        compare_r6: 'KI-Assistent',
+        compare_ml_6: 'Inklusive (3 kostenlos)',
+        compare_mh_6: 'Nicht vorhanden',
         price_h2: 'Kostenlos für alle Handwerker',
         price_sub: 'Wir bauen die Plattform Schritt für Schritt auf. Handwerker, die jetzt einsteigen, sind Gründungsmitglieder — sie prägen die ersten Aufträge und bauen Reichweite vor allen anderen.',
         price_note: 'Keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig. Wer mehr Sichtbarkeit möchte, kann sein Profil optional als gesponsert hervorheben lassen.',
@@ -370,22 +414,27 @@
         f5_p: 'No IDFA, no ad tracking, no Facebook SDK. Sign in with Apple.',
         compare_h2: 'Why Meisterlich — and not myHammer?',
         compare_sub: 'Because craftsmen should not pay for contacts that lead nowhere.',
+        compare_feat_head: '',
         compare_ml_h3: 'Meisterlich AI',
-        compare_ml_1: 'Free for craftsmen — no lead fees',
-        compare_ml_2: 'Free for customers — no sign-up required',
-        compare_ml_3: 'Never pay per contact — regardless of outcome',
-        compare_ml_4: 'Direct in-app chat + call',
-        compare_ml_5: 'Radius freely adjustable — craftsman decides',
-        compare_ml_6: 'AI assistant included (3 free starts)',
-        compare_ml_7: 'No commission on completed jobs',
         compare_mh_h3: 'myHammer',
-        compare_mh_1: 'Lead fees for craftsmen — per contact',
-        compare_mh_2: 'Pay without guaranteed job outcome',
-        compare_mh_3: 'Opaque credit system',
-        compare_mh_4: 'Contact runs through the portal, not direct',
-        compare_mh_5: 'Limited radius control',
-        compare_mh_6: 'No AI assistant',
-        compare_mh_7: 'Commission sometimes due',
+        compare_r1: 'For craftsmen',
+        compare_ml_1: 'Free',
+        compare_mh_1: 'Lead fees per contact',
+        compare_r2: 'Pay per contact',
+        compare_ml_2: 'Never',
+        compare_mh_2: 'Yes — regardless of outcome',
+        compare_r3: 'Commission on job',
+        compare_ml_3: 'None',
+        compare_mh_3: 'Sometimes due',
+        compare_r4: 'Direct contact',
+        compare_ml_4: 'In-app chat + call',
+        compare_mh_4: 'Via portal',
+        compare_r5: 'Radius control',
+        compare_ml_5: 'Freely adjustable',
+        compare_mh_5: 'Limited',
+        compare_r6: 'AI assistant',
+        compare_ml_6: 'Included (3 free)',
+        compare_mh_6: 'Not available',
         price_h2: 'Free for all craftsmen',
         price_sub: 'We are building the platform step by step. Craftsmen who join now are founding members — they shape the first jobs and build reach before everyone else.',
         price_note: 'No commission, no lead fees, no subscription. You keep every job fully. Craftsmen who want more visibility can optionally sponsor their profile.',
