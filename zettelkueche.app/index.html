@@ -373,9 +373,39 @@
     .footer-impressum strong { color: rgba(255,255,255,0.85); }
     .footer-impressum a { color: rgba(255,255,255,0.7); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 12px; }
+
+    /* ── Cookie-Consent-Banner ─────────────────────────────────────────────── */
+    #cookieBanner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000;
+      background: rgba(26,20,16,0.97); backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(217,119,87,0.25);
+      padding: 16px 24px; display: none;
+      animation: slideUpModal 0.3s ease both;
+    }
+    #cookieBanner.show { display: block; }
+    .cookie-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .cookie-text { flex: 1; font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; min-width: 220px; }
+    .cookie-text a { color: var(--accent); }
+    .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
+    .cookie-btn-necessary { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.65); padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font); transition: var(--transition); }
+    .cookie-btn-necessary:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .cookie-btn-accept { background: var(--accent); border: none; color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font); transition: var(--transition); }
+    .cookie-btn-accept:hover { background: var(--accent-strong); }
+    @media (max-width: 560px) { .cookie-btns { width: 100%; justify-content: flex-end; } }
   </style>
 </head>
 <body>
+
+  <!-- ── Cookie-Consent-Banner ───────────────────────────────────────────── -->
+  <div id="cookieBanner">
+    <div class="cookie-inner">
+      <p class="cookie-text" data-i18n="cookie_text">Wir verwenden technisch notwendige Cookies sowie optionale Analyse-Cookies zur Verbesserung dieser Seite. <a href="/privacy/">Datenschutz</a></p>
+      <div class="cookie-btns">
+        <button class="cookie-btn-necessary" id="cookieNecessary" data-i18n="cookie_necessary">Nur notwendige</button>
+        <button class="cookie-btn-accept" id="cookieAccept" data-i18n="cookie_accept">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ── Launch-Banner (oben, gradient) ──────────────────────────────────── -->
   <div class="launch-banner">
@@ -383,10 +413,10 @@
       <div class="launch-content">
         <span class="launch-pill">
           <span class="launch-pill-dot"></span>
-          <span data-i18n="launch_pill">Update v2.3 jetzt verfügbar</span>
+          <span data-i18n="launch_pill">v2.4 jetzt verfügbar</span>
         </span>
-        <h2 class="launch-headline" data-i18n="launch_headline">Schritt-Dauer <span class="accent">wie Apples Timer</span>. Privacy-Dialog beim Teilen. KI-Verfeinerung via ChatGPT.</h2>
-        <p class="launch-sub" data-i18n="launch_sub">v2.3 macht Zettelküche AI gewissenhafter — bei Zeit-Eingabe, beim Teilen, beim Aufräumen. Schritt-Dauer mit Wheels und Preset-Pills wie in Apples Timer-App, kein Klick-Marathon mehr. Privacy-Dialog vor jedem Teilen einer Rezept-Datei (Titelbild und Original separat steuerbar). Koch-Streak zählt deine Kochtage. Premium-User können Rezepte direkt mit ChatGPT verfeinern. Plus: DSGVO-Datenauskunft, Tag-Management, über 100 frische Übersetzungen.</p>
+        <h2 class="launch-headline" data-i18n="launch_headline">Thermomix-Ablauf per KI. <span class="accent">Allergen-Profil. Skalieren. Nährwerte.</span></h2>
+        <p class="launch-sub" data-i18n="launch_sub">v2.4 bringt KI direkt an den Herd. Thermomix-tauglicher Ablauf auf Knopfdruck (Premium), Allergen-Warnungen in der Zutatenliste, Portionen skalieren, Nährwerte schätzen — plus native iPad-Seitenleiste für das große Bildschirm-Erlebnis.</p>
       </div>
       <div class="launch-cta-wrap">
         <a class="launch-btn appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154">
@@ -671,7 +701,7 @@
         <div class="roadmap-grid">
           <div class="roadmap-card delivered">
             <span class="roadmap-tag" data-i18n="roadmap_done_tag">Bereits geliefert</span>
-            <h3 data-i18n="roadmap_done_title">v1.0 bis v2.3</h3>
+            <h3 data-i18n="roadmap_done_title">v1.0 bis v2.4</h3>
             <ul>
               <li data-i18n="rm_done_1">Capture aus Foto, Mediathek, PDF, Text, URL und Zwischenablage — plus ganze Kochbuch-Seiten in einem Document-Scanner-Durchgang</li>
               <li data-i18n="rm_done_2">Schritt-Dauer wie in Apples Timer: Voreinstellungen für 3 / 5 / 10 / 15 / 30 min und 1 / 2 / 4 h plus zwei Wheels — kein Klick-Marathon mehr</li>
@@ -682,19 +712,18 @@
               <li data-i18n="rm_done_7">DSGVO-Datenauskunft Free-zugänglich (JSON-Export), Premium-Backup mit Bildern bleibt parallel</li>
               <li data-i18n="rm_done_8">Timer pro Kochschritt, Zutaten an Apple-Erinnerungen, Massen-Bearbeitung der Bibliothek im Photos/Notes-Pattern</li>
               <li data-i18n="rm_done_9">4-Achsen-Filter, Smart Collections, Vollbild-Lese-Modus, Multi-Region, Tags lokalisiert, vier App-Sprachen mit Live-Switch ohne Neustart</li>
+              <li data-i18n="rm_done_10">Native iPad/Mac-Seitenleiste, Thermomix-kompatibler Ablauf per KI (Premium), KI-Assistent: Zutat ersetzen, skalieren, Nährwerte schätzen, Allergen-Profil mit Warnungen</li>
             </ul>
           </div>
           <div class="roadmap-card coming">
             <span class="roadmap-tag" data-i18n="roadmap_next_tag">Als nächstes</span>
-            <h3 data-i18n="roadmap_next_title">v2.4 und weiter</h3>
+            <h3 data-i18n="roadmap_next_title">v2.5 und weiter</h3>
             <ul>
-              <li data-i18n="rm_next_1">Top-Level-Sidebar statt TabBar auf iPad und Mac — eigenes natives iPadOS-Layout statt aufskaliertem iPhone-Pattern</li>
-              <li data-i18n="rm_next_2">KI-Power-Ups: Zutat-Substitutionen, Portionen skalieren mit Mengen-Update, Diät-Filter automatisch aus Zutaten, Allergen-Profil mit Warnung</li>
-              <li data-i18n="rm_next_3">Nährwert-Schätzung pro Portion (mit Disclaimer)</li>
-              <li data-i18n="rm_next_4">Mac-App via Catalyst — gleiche iCloud-Bibliothek, mehr Bildschirm</li>
-              <li data-i18n="rm_next_5">Win-Back- und Streak-Push-Notifications, eigener Server-Cron statt aufdringlicher Trigger</li>
-              <li data-i18n="rm_next_6">Recipe-Pack-Export, Voice-Note-Capture (Apple Speech on-device), Notes-pro-Schritt, Recipe-Versionierung</li>
-              <li data-i18n="rm_next_7">Event-Planung für Anlässe (Weihnachten, Dinner-Party), Mahlzeitenplaner mit Wochenplan, Apple Watch, CarPlay</li>
+              <li data-i18n="rm_next_1">Recipe-Pack-Export (Premium): mehrere Rezepte als ein Bundle — Familienkochbuch, Reise-Sammlung</li>
+              <li data-i18n="rm_next_2">Voice-Note-Capture: Rezept diktieren → Apple Speech on-device → KI-Strukturierung</li>
+              <li data-i18n="rm_next_3">Notes-pro-Schritt, Recipe-Versionierung, Sektion-Reihenfolge frei konfigurierbar (iCloud-synchronisiert)</li>
+              <li data-i18n="rm_next_4">Win-Back- und Streak-Push-Notifications, eigener Server-Cron statt aufdringlicher Trigger</li>
+              <li data-i18n="rm_next_5">Event-Planung für Anlässe (Weihnachten, Dinner-Party), Mahlzeitenplaner mit Wochenplan, Apple Watch, CarPlay</li>
             </ul>
           </div>
         </div>
@@ -942,9 +971,12 @@
         nav_pricing:       'Tarife',
         nav_cta:           'App laden',
 
-        launch_pill:       'Update v2.3 jetzt verfügbar',
-        launch_headline:   'Schritt-Dauer <span class="accent">wie Apples Timer</span>. Privacy-Dialog beim Teilen. KI-Verfeinerung via ChatGPT.',
-        launch_sub:        'v2.3 macht Zettelküche AI gewissenhafter — bei Zeit-Eingabe, beim Teilen, beim Aufräumen. Schritt-Dauer mit Wheels und Preset-Pills wie in Apples Timer-App, kein Klick-Marathon mehr. Privacy-Dialog vor jedem Teilen einer Rezept-Datei (Titelbild und Original separat steuerbar). Koch-Streak zählt deine Kochtage. Premium-User können Rezepte direkt mit ChatGPT verfeinern. Plus: DSGVO-Datenauskunft, Tag-Management, über 100 frische Übersetzungen.',
+        launch_pill:       'v2.4 jetzt verfügbar',
+        launch_headline:   'Thermomix-Ablauf per KI. <span class="accent">Allergen-Profil. Skalieren. Nährwerte.</span>',
+        launch_sub:        'v2.4 bringt KI direkt an den Herd. Thermomix-tauglicher Ablauf auf Knopfdruck (Premium), Allergen-Warnungen in der Zutatenliste, Portionen skalieren, Nährwerte schätzen — plus native iPad-Seitenleiste für das große Bildschirm-Erlebnis.',
+        cookie_text:       'Wir verwenden technisch notwendige Cookies sowie optionale Analyse-Cookies zur Verbesserung dieser Seite. <a href="/privacy/">Datenschutz</a>',
+        cookie_necessary:  'Nur notwendige',
+        cookie_accept:     'Alle akzeptieren',
         launch_cta:        'Im App Store laden',
 
         hero_badge:        'Jetzt verfügbar im App Store',
@@ -1036,7 +1068,7 @@
         roadmap_title:     'Eine App, die mit dir wächst.',
         roadmap_sub:       'Wir veröffentlichen regelmäßig Updates — auf User-Feedback, auf Apple-Plattform-Innovationen, auf neue KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:',
         roadmap_done_tag:  'Bereits geliefert',
-        roadmap_done_title:'v1.0 bis v2.3',
+        roadmap_done_title:'v1.0 bis v2.4',
         rm_done_1:         'Capture aus Foto, Mediathek, PDF, Text, URL und Zwischenablage — plus ganze Kochbuch-Seiten in einem Document-Scanner-Durchgang',
         rm_done_2:         'Schritt-Dauer wie in Apples Timer: Voreinstellungen für 3 / 5 / 10 / 15 / 30 min und 1 / 2 / 4 h plus zwei Wheels — kein Klick-Marathon mehr',
         rm_done_3:         'Privacy-Dialog vor jedem Teilen einer Rezept-Datei: Titelbild und Original-Dokument separat steuerbar',
@@ -1046,15 +1078,14 @@
         rm_done_7:         'DSGVO-Datenauskunft Free-zugänglich (JSON-Export), Premium-Backup mit Bildern bleibt parallel',
         rm_done_8:         'Timer pro Kochschritt, Zutaten an Apple-Erinnerungen, Massen-Bearbeitung der Bibliothek im Photos/Notes-Pattern',
         rm_done_9:         '4-Achsen-Filter, Smart Collections, Vollbild-Lese-Modus, Multi-Region, Tags lokalisiert, vier App-Sprachen mit Live-Switch ohne Neustart',
+        rm_done_10:        'Native iPad/Mac-Seitenleiste, Thermomix-kompatibler Ablauf per KI (Premium), KI-Assistent: Zutat ersetzen, skalieren, Nährwerte schätzen, Allergen-Profil mit Warnungen',
         roadmap_next_tag:  'Als nächstes',
-        roadmap_next_title:'v2.4 und weiter',
-        rm_next_1:         'Top-Level-Sidebar statt TabBar auf iPad und Mac — eigenes natives iPadOS-Layout statt aufskaliertem iPhone-Pattern',
-        rm_next_2:         'KI-Power-Ups: Zutat-Substitutionen, Portionen skalieren mit Mengen-Update, Diät-Filter automatisch aus Zutaten, Allergen-Profil mit Warnung',
-        rm_next_3:         'Nährwert-Schätzung pro Portion (mit Disclaimer)',
-        rm_next_4:         'Mac-App via Catalyst — gleiche iCloud-Bibliothek, mehr Bildschirm',
-        rm_next_5:         'Win-Back- und Streak-Push-Notifications, eigener Server-Cron statt aufdringlicher Trigger',
-        rm_next_6:         'Recipe-Pack-Export, Voice-Note-Capture (Apple Speech on-device), Notes-pro-Schritt, Recipe-Versionierung',
-        rm_next_7:         'Event-Planung für Anlässe (Weihnachten, Dinner-Party), Mahlzeitenplaner mit Wochenplan, Apple Watch, CarPlay',
+        roadmap_next_title:'v2.5 und weiter',
+        rm_next_1:         'Recipe-Pack-Export (Premium): mehrere Rezepte als ein Bundle — Familienkochbuch, Reise-Sammlung',
+        rm_next_2:         'Voice-Note-Capture: Rezept diktieren → Apple Speech on-device → KI-Strukturierung',
+        rm_next_3:         'Notes-pro-Schritt, Recipe-Versionierung, Sektion-Reihenfolge frei konfigurierbar (iCloud-synchronisiert)',
+        rm_next_4:         'Win-Back- und Streak-Push-Notifications, eigener Server-Cron statt aufdringlicher Trigger',
+        rm_next_5:         'Event-Planung für Anlässe (Weihnachten, Dinner-Party), Mahlzeitenplaner mit Wochenplan, Apple Watch, CarPlay',
         roadmap_promise:   'Zettelküche AI ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser. Daran kommt keine Rezept-App vorbei, die mit der Zeit gehen will.',
 
         voices_label:      'Stimmen aus der Community',
@@ -1124,9 +1155,12 @@
         nav_pricing:       'Pricing',
         nav_cta:           'Get the app',
 
-        launch_pill:       'Update v2.3 out now',
-        launch_headline:   'Step duration <span class="accent">like Apple\'s Timer</span>. Privacy dialog before sharing. AI refinement via ChatGPT.',
-        launch_sub:        'v2.3 makes Zettelküche AI more conscientious — about time input, sharing, and cleanup. Step duration via wheels and preset pills like Apple\'s Timer app, no more tap-marathon. Privacy dialog before each recipe-file share (cover image and original controllable separately). Cooking streak counts your cook days. Premium users can refine recipes directly with ChatGPT. Plus: GDPR data report, tag management, over 100 fresh translations.',
+        launch_pill:       'v2.4 out now',
+        launch_headline:   'Thermomix workflow by AI. <span class="accent">Allergen profile. Scale. Nutrients.</span>',
+        launch_sub:        'v2.4 brings AI to the kitchen. Thermomix-ready workflow on demand (Premium), allergen warnings in the ingredient list, scale servings, estimate nutrients — plus native iPad sidebar for the full large-screen experience.',
+        cookie_text:       'We use technically necessary cookies and optional analytics cookies to improve this site. <a href="/privacy/">Privacy policy</a>',
+        cookie_necessary:  'Necessary only',
+        cookie_accept:     'Accept all',
         launch_cta:        'Open in App Store',
 
         hero_badge:        'Available now on the App Store',
@@ -1218,7 +1252,7 @@
         roadmap_title:     'An app that grows with you.',
         roadmap_sub:       'We ship updates regularly — driven by user feedback, by Apple platform innovations, by new AI capabilities. What landed so far and what\'s next:',
         roadmap_done_tag:  'Already shipped',
-        roadmap_done_title:'v1.0 through v2.3',
+        roadmap_done_title:'v1.0 through v2.4',
         rm_done_1:         'Capture from photo, library, PDF, text, URL and clipboard — plus whole cookbook pages in a single Document Scanner pass',
         rm_done_2:         'Step duration like Apple\'s Timer: presets for 3 / 5 / 10 / 15 / 30 min and 1 / 2 / 4 h plus two wheels — no more tap marathon',
         rm_done_3:         'Privacy dialog before each recipe-file share: cover image and original document controllable separately',
@@ -1228,15 +1262,14 @@
         rm_done_7:         'GDPR data report on the free tier (JSON export), premium backup with images remains in parallel',
         rm_done_8:         'Timer per cooking step, ingredients to Apple Reminders, bulk-edit in the library in Photos/Notes pattern',
         rm_done_9:         'Four-axis filter, Smart Collections, full-screen reading mode, multi-region, localized tags, four app languages with live switch without restart',
+        rm_done_10:        'Native iPad/Mac sidebar, Thermomix-compatible workflow by AI (Premium), AI assistant: substitute ingredients, scale, estimate nutrients, allergen profile with warnings',
         roadmap_next_tag:  'Coming next',
-        roadmap_next_title:'v2.4 and beyond',
-        rm_next_1:         'Top-level sidebar instead of tab bar on iPad and Mac — native iPadOS layout, no more up-scaled iPhone pattern',
-        rm_next_2:         'AI power-ups: ingredient substitutions, scale servings with quantity update, automatic diet filter from ingredients, allergen profile with warning',
-        rm_next_3:         'Per-portion nutritional estimate (with disclaimer)',
-        rm_next_4:         'Mac app via Catalyst — same iCloud library, more screen',
-        rm_next_5:         'Win-back and streak push notifications, server cron instead of intrusive triggers',
-        rm_next_6:         'Recipe-pack export, voice-note capture (Apple Speech on-device), per-step notes, recipe versioning',
-        rm_next_7:         'Event planning for occasions (Christmas, dinner party), meal planner with weekly plan, Apple Watch, CarPlay',
+        roadmap_next_title:'v2.5 and beyond',
+        rm_next_1:         'Recipe-pack export (Premium): multiple recipes as one bundle — family cookbook, travel collection',
+        rm_next_2:         'Voice-note capture: dictate a recipe → Apple Speech on-device → AI structuring',
+        rm_next_3:         'Per-step notes, recipe versioning, freely configurable section order (iCloud-synced)',
+        rm_next_4:         'Win-back and streak push notifications, server cron instead of intrusive triggers',
+        rm_next_5:         'Event planning for occasions (Christmas, dinner party), meal planner with weekly plan, Apple Watch, CarPlay',
         roadmap_promise:   'Zettelküche AI is <strong>not a finished product</strong> — it\'s an evolving one. What you get today is <strong>a solid start</strong>, and every update makes the app better. No recipe app that wants to keep up will get past it.',
 
         voices_label:      'Voices from the community',
@@ -1306,9 +1339,12 @@
         nav_pricing:       'Ціни',
         nav_cta:           'Завантажити',
 
-        launch_pill:       'Оновлення v2.3 уже доступне',
-        launch_headline:   'Тривалість кроку <span class="accent">як у Таймері Apple</span>. Діалог приватності при діленні. ШІ-доопрацювання через ChatGPT.',
-        launch_sub:        'v2.3 робить Zettelküche AI уважнішим — при введенні часу, при діленні, при прибиранні. Тривалість кроку через колеса й пресети як у Таймері Apple, без марафону натискань. Діалог приватності перед кожним діленням файлу рецепта (обкладинка та оригінал керуються окремо). Кулінарний стрик рахує ваші дні готування. Premium-користувачі доопрацьовують рецепти прямо з ChatGPT. Плюс: GDPR-витяг даних, керування тегами, понад 100 свіжих перекладів.',
+        launch_pill:       'v2.4 вже доступне',
+        launch_headline:   'Інструкція Thermomix через ШІ. <span class="accent">Алергени. Масштабування. Поживність.</span>',
+        launch_sub:        'v2.4 виводить ШІ прямо на кухню. Thermomix-сумісна інструкція на один дотик (Premium), попередження про алергени в списку інгредієнтів, масштабування порцій, оцінка поживності — плюс нативна бічна панель iPad.',
+        cookie_text:       'Ми використовуємо технічно необхідні файли cookie та додаткові аналітичні cookie для покращення цього сайту. <a href="/privacy/">Конфіденційність</a>',
+        cookie_necessary:  'Лише необхідні',
+        cookie_accept:     'Прийняти всі',
         launch_cta:        'Відкрити в App Store',
 
         hero_badge:        'Уже доступно в App Store',
@@ -1400,7 +1436,7 @@
         roadmap_title:     'Застосунок, що росте з вами.',
         roadmap_sub:       'Ми регулярно випускаємо оновлення — на основі відгуків користувачів, нововведень платформ Apple та нових можливостей AI. Що вже зроблено й що далі:',
         roadmap_done_tag:  'Уже випущено',
-        roadmap_done_title:'Від v1.0 до v2.3',
+        roadmap_done_title:'Від v1.0 до v2.4',
         rm_done_1:         'Знімання з фото, медіатеки, PDF, тексту, URL та буфера обміну — плюс цілі сторінки кулінарної книги за один прохід Document Scanner',
         rm_done_2:         'Тривалість кроку як у Таймері Apple: пресети 3 / 5 / 10 / 15 / 30 хв і 1 / 2 / 4 год плюс два колеса — без марафону натискань',
         rm_done_3:         'Діалог приватності перед кожним діленням файлу рецепта: обкладинка та оригінал-документ керуються окремо',
@@ -1410,15 +1446,14 @@
         rm_done_7:         'GDPR-витяг даних безкоштовно (JSON-експорт), Premium-резервна копія із зображеннями залишається паралельно',
         rm_done_8:         'Таймер на кожен крок, інгредієнти в Apple Нагадування, масове редагування бібліотеки в шаблоні Photos/Notes',
         rm_done_9:         '4-осьовий фільтр, Розумні колекції, повноекранний режим читання, кілька регіонів, локалізовані теги, чотири мови з наживо-перемиканням без перезапуску',
+        rm_done_10:        'Нативна бічна панель iPad/Mac, Thermomix-сумісна інструкція через ШІ (Premium), ШІ-помічник: заміна інгредієнтів, масштабування, поживність, профіль алергенів',
         roadmap_next_tag:  'Скоро',
-        roadmap_next_title:'v2.4 і далі',
-        rm_next_1:         'Верхньорівнева бічна панель замість табів на iPad і Mac — рідний iPadOS-макет замість збільшеного iPhone-шаблону',
-        rm_next_2:         'ШІ-можливості: заміни інгредієнтів, масштабування порцій з оновленням кількостей, автоматичний фільтр дієти з інгредієнтів, профіль алергенів із попередженням',
-        rm_next_3:         'Оцінка поживної цінності на порцію (з відмовою від відповідальності)',
-        rm_next_4:         'Застосунок для Mac через Catalyst — та сама бібліотека iCloud, більший екран',
-        rm_next_5:         'Push-сповіщення повернення й стрик-захист, серверний cron замість нав\'язливих тригерів',
-        rm_next_6:         'Експорт пакетів рецептів, голосове захоплення (Apple Speech on-device), нотатки на кожен крок, версіонування рецептів',
-        rm_next_7:         'Планування подій (Різдво, званий вечеря), планувальник харчування з тижневим планом, Apple Watch, CarPlay',
+        roadmap_next_title:'v2.5 і далі',
+        rm_next_1:         'Експорт пакету рецептів (Premium): кілька рецептів як один пакет — сімейна кулінарна книга, дорожня колекція',
+        rm_next_2:         'Голосове захоплення: продиктуйте рецепт → Apple Speech на пристрої → ШІ-структурування',
+        rm_next_3:         'Нотатки на кожен крок, версіонування рецептів, вільно налаштовуваний порядок секцій (iCloud-синхронізація)',
+        rm_next_4:         'Push-сповіщення повернення й стрик-захист, серверний cron замість нав\'язливих тригерів',
+        rm_next_5:         'Планування подій (Різдво, званий вечеря), планувальник харчування з тижневим планом, Apple Watch, CarPlay',
         roadmap_promise:   'Zettelküche AI — це <strong>не завершений продукт</strong>, а такий, що розвивається. Сьогодні ви отримуєте <strong>міцний старт</strong>, і кожне оновлення робить застосунок кращим. Жоден застосунок для рецептів, який хоче встигати, повз нього не пройде.',
 
         voices_label:      'Голоси спільноти',
@@ -1488,9 +1523,12 @@
         nav_pricing:       'Planos',
         nav_cta:           'Baixar o app',
 
-        launch_pill:       'Atualização v2.3 disponível',
-        launch_headline:   'Duração do passo <span class="accent">como no Timer da Apple</span>. Diálogo de privacidade ao compartilhar. Refino com IA via ChatGPT.',
-        launch_sub:        'A v2.3 deixa o Zettelküche AI mais consciencioso — ao inserir tempo, ao compartilhar, ao organizar. Duração do passo com wheels e preset-pills como no Timer da Apple, sem maratona de toques. Diálogo de privacidade antes de cada compartilhamento de arquivo de receita (foto de capa e original controláveis separadamente). Sequência de cozimento conta seus dias. Usuários Premium refinam receitas direto com ChatGPT. Mais: relatório LGPD/GDPR, gerenciamento de tags, mais de 100 traduções novas.',
+        launch_pill:       'v2.4 disponível',
+        launch_headline:   'Fluxo Thermomix por IA. <span class="accent">Perfil de alergênicos. Escalonar. Nutrientes.</span>',
+        launch_sub:        'A v2.4 leva a IA para a cozinha. Fluxo Thermomix sob demanda (Premium), alertas de alergênicos na lista de ingredientes, escalonar porções, estimar nutrientes — mais barra lateral nativa no iPad para a experiência de tela grande.',
+        cookie_text:       'Usamos cookies tecnicamente necessários e cookies analíticos opcionais para melhorar este site. <a href="/privacy/">Política de privacidade</a>',
+        cookie_necessary:  'Apenas necessários',
+        cookie_accept:     'Aceitar todos',
         launch_cta:        'Abrir na App Store',
 
         hero_badge:        'Disponível agora na App Store',
@@ -1582,7 +1620,7 @@
         roadmap_title:     'Um app que cresce com você.',
         roadmap_sub:       'Lançamos atualizações com regularidade — guiados pelo retorno dos usuários, pelas novidades das plataformas Apple, pelas novas capacidades de IA. O que já chegou e o que vem a seguir:',
         roadmap_done_tag:  'Já entregue',
-        roadmap_done_title:'v1.0 até v2.3',
+        roadmap_done_title:'v1.0 até v2.4',
         rm_done_1:         'Captura de foto, fototeca, PDF, texto, URL e área de transferência — mais páginas inteiras de livros em uma só passagem do Document Scanner',
         rm_done_2:         'Duração do passo como no Timer da Apple: predefinições para 3 / 5 / 10 / 15 / 30 min e 1 / 2 / 4 h mais duas rodinhas — sem maratona de toques',
         rm_done_3:         'Diálogo de privacidade antes de cada compartilhamento de arquivo de receita: foto de capa e documento original controláveis separadamente',
@@ -1592,15 +1630,14 @@
         rm_done_7:         'Relatório LGPD/GDPR no plano Free (exportação JSON), backup Premium com imagens segue em paralelo',
         rm_done_8:         'Timer por passo, ingredientes para os Lembretes da Apple, edição em massa da biblioteca no padrão Photos/Notes',
         rm_done_9:         'Filtro de 4 eixos, Smart Collections, modo de leitura em tela cheia, multi-região, tags localizadas, quatro idiomas com troca ao vivo sem reiniciar',
+        rm_done_10:        'Barra lateral nativa iPad/Mac, fluxo Thermomix por IA (Premium), assistente IA: substituir ingredientes, escalonar, estimar nutrientes, perfil de alergênicos com avisos',
         roadmap_next_tag:  'Em seguida',
-        roadmap_next_title:'v2.4 e além',
-        rm_next_1:         'Barra lateral no topo em vez de barra de abas no iPad e Mac — layout nativo do iPadOS, sem o padrão de iPhone esticado',
-        rm_next_2:         'Power-ups de IA: substituições de ingredientes, escalonar porções com atualização de quantidades, filtro de dieta automático a partir dos ingredientes, perfil de alergênicos com aviso',
-        rm_next_3:         'Estimativa de valor nutricional por porção (com aviso)',
-        rm_next_4:         'App para Mac via Catalyst — mesma biblioteca iCloud, mais tela',
-        rm_next_5:         'Notificações push de retorno e de proteção de sequência, cron no servidor em vez de gatilhos invasivos',
-        rm_next_6:         'Exportação de pacote de receitas, captura por voz (Apple Speech no dispositivo), notas por passo, versionamento de receitas',
-        rm_next_7:         'Planejamento de eventos (Natal, jantar), planejador de refeições com plano semanal, Apple Watch, CarPlay',
+        roadmap_next_title:'v2.5 e além',
+        rm_next_1:         'Exportação de pacote de receitas (Premium): várias receitas como um pacote — livro de família, coleção de viagem',
+        rm_next_2:         'Captura por voz: dite uma receita → Apple Speech no dispositivo → estruturação por IA',
+        rm_next_3:         'Notas por passo, versionamento de receitas, ordem de seções livremente configurável (sincronizada via iCloud)',
+        rm_next_4:         'Notificações push de retorno e proteção de sequência, cron no servidor em vez de gatilhos invasivos',
+        rm_next_5:         'Planejamento de eventos (Natal, jantar), planejador de refeições com plano semanal, Apple Watch, CarPlay',
         roadmap_promise:   'O Zettelküche AI <strong>não é um produto finalizado</strong>, é um produto em crescimento. O que você recebe hoje é <strong>um começo sólido</strong> — e cada atualização deixa o app um pouco melhor. Nenhum app de receitas que queira acompanhar o tempo passa por aí sem isso.',
 
         voices_label:      'Vozes da comunidade',
@@ -1697,6 +1734,23 @@
     document.querySelectorAll('.appstore-link').forEach(a => {
       a.setAttribute('href', APP_STORE_URL);
     });
+
+    // ── Cookie-Consent-Banner ────────────────────────────────────────────
+    (function () {
+      const KEY = 'zettelkueche_cookie_consent';
+      try { if (localStorage.getItem(KEY)) return; } catch (_) {}
+      const banner = document.getElementById('cookieBanner');
+      if (!banner) return;
+      banner.classList.add('show');
+      document.getElementById('cookieAccept').addEventListener('click', function () {
+        try { localStorage.setItem(KEY, 'all'); } catch (_) {}
+        banner.classList.remove('show');
+      });
+      document.getElementById('cookieNecessary').addEventListener('click', function () {
+        try { localStorage.setItem(KEY, 'necessary'); } catch (_) {}
+        banner.classList.remove('show');
+      });
+    })();
 
     // ── iPhone-Modal: nach 1.2s einblenden, einmal pro Session ───────────
     // Hardware-Detection (robust gegen UA-Spoofing):
