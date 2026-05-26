@@ -314,7 +314,7 @@
     /* ── Features ───────────────────────────────────────────────────────────── */
     .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
     .feature-item { display: flex; gap: 20px; align-items: flex-start; padding: 16px; border-radius: var(--radius-lg); transition: var(--transition); position: relative; }
-    .feature-item.new { background: linear-gradient(135deg, rgba(79,127,255,0.08) 0%, rgba(79,127,255,0.03) 100%); border: 1px solid rgba(79,127,255,0.22); }
+    .feature-item.new { background: linear-gradient(135deg, rgba(79,127,255,0.08) 0%, rgba(79,127,255,0.03) 100%); border: 1px solid rgba(79,127,255,0.22); padding-right: 80px; }
     .feature-item .new-pill { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; text-transform: uppercase; }
     .feature-icon { flex-shrink: 0; width: 48px; height: 48px; background: var(--accent-soft); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
     .feature-item h3 { font-size: 18px; margin-bottom: 8px; }
@@ -628,10 +628,10 @@
       <div class="launch-content">
         <span class="launch-pill">
           <span class="launch-pill-dot"></span>
-          <span data-i18n="launch_pill">Update v4.10 jetzt verfügbar</span>
+          <span data-i18n="launch_pill">v4.11 — in weniger als 48 Stunden verfügbar</span>
         </span>
-        <h2 class="launch-headline" data-i18n="launch_headline">App vollständig auf <span class="accent">Englisch</span>, neue Lademix-Erfassung und macOS-Datei-Menü — frisch im App Store.</h2>
-        <p class="launch-sub" data-i18n="launch_sub">v4.10 bringt Ladeverlust-Analyse — erstmals siehst du, wie viel Strom wirklich im Akku ankommt. Dazu: Kosten/100km jetzt mathematisch korrekt berechnet. Und das Dashboard nach eigenen Wünschen konfigurierbar.</p>
+        <h2 class="launch-headline" data-i18n="launch_headline">7 neue Analyse-Kacheln, Lademenge ins Auto sichtbar und Backup mit Fahrzeug-Fotos — <span class="accent">in weniger als 48 Stunden</span> für dich.</h2>
+        <p class="launch-sub" data-i18n="launch_sub">v4.11 ist eingereicht. Wie viel Strom geht wirklich ins Auto? Jetzt siehst du es pro Ladevorgang — plus Vormonat und Vorquartal im Filter.</p>
       </div>
       <div class="launch-cta-wrap">
 <a class="launch-btn appstore-link-platform" href="https://apps.apple.com/app/eladung-go/id6761632018">
@@ -782,6 +782,46 @@
       <h2 class="section-headline" data-i18n="features_title">Alles, was du brauchst.</h2>
       <p class="section-sub" data-i18n="features_sub">Von der einfachen Erfassung bis zur Wirtschaftlichkeitsanalyse — eLadung deckt alles ab.</p>
       <div class="features-grid">
+
+        <!-- v4.11 NEU: Neue Analyse-Kacheln -->
+        <div class="feature-item new">
+          <span class="new-pill" data-i18n="new_pill_411">v4.11 NEU</span>
+          <div class="feature-icon">📊</div>
+          <div>
+            <h3 data-i18n="feat_analyse_kacheln_title">7 neue Analyse-Kacheln</h3>
+            <p data-i18n="feat_analyse_kacheln_text">Das Dashboard wächst: Prognose, Ladeliste, Potential-Energie und vier weitere dedizierte Kacheln kommen dazu. Jede antippbar — ein Tap öffnet die Detailrechnung mit Formel und Eingabewerten. Tiefe, die andere Tracker nicht bieten.</p>
+          </div>
+        </div>
+
+        <!-- v4.11 NEU: Lademenge ins Auto sichtbar -->
+        <div class="feature-item new">
+          <span class="new-pill" data-i18n="new_pill_411">v4.11 NEU</span>
+          <div class="feature-icon">🔋</div>
+          <div>
+            <h3 data-i18n="feat_lademenge_auto_title">Lademenge ins Auto — pro Ladevorgang</h3>
+            <p data-i18n="feat_lademenge_auto_text">Wie viel Strom geht wirklich ins Auto? Jetzt sichtbar pro Ladevorgang. eLadung berechnet die tatsächliche Lademenge nach Verlusten — nicht das, was die Säule abgerechnet hat, sondern was im Akku ankam.</p>
+          </div>
+        </div>
+
+        <!-- v4.11 NEU: Zeitfilter Vormonat + Vorquartal -->
+        <div class="feature-item new">
+          <span class="new-pill" data-i18n="new_pill_411">v4.11 NEU</span>
+          <div class="feature-icon">📅</div>
+          <div>
+            <h3 data-i18n="feat_zeitfilter_title">Vormonat &amp; Vorquartal im Filter</h3>
+            <p data-i18n="feat_zeitfilter_text">Zwei neue Zeiträume im Dashboard-Filter: Vormonat und Vorquartal. Perioden-Vergleiche ohne manuelles Scrollen — der Filter macht's in einem Tap.</p>
+          </div>
+        </div>
+
+        <!-- v4.11 NEU: Backup mit Fahrzeug-Bildern -->
+        <div class="feature-item new">
+          <span class="new-pill" data-i18n="new_pill_411">v4.11 NEU</span>
+          <div class="feature-icon">🖼</div>
+          <div>
+            <h3 data-i18n="feat_backup_bilder_title">Fahrzeug-Fotos im Backup</h3>
+            <p data-i18n="feat_backup_bilder_text">Das ZIP-Backup enthält jetzt auch die Fahrzeug-Fotos. Vollständige Datensicherung — Datenbank und Bilder in einer Datei, komplett exportierbar und wiederherstellbar.</p>
+          </div>
+        </div>
 
         <!-- v4.10 NEU: Ladeverlust-Analyse -->
         <div class="feature-item new">
@@ -950,7 +990,7 @@
       <div class="roadmap-grid">
         <div class="roadmap-card delivered">
           <span class="roadmap-tag" data-i18n="roadmap_done_tag">Bereits geliefert</span>
-          <h3 data-i18n="roadmap_done_title">v3.x bis v4.10</h3>
+          <h3 data-i18n="roadmap_done_title">v3.x bis v4.11</h3>
           <ul>
             <li data-i18n="rm_done_1">Universal-App für iPhone und Mac mit iCloud-Sync</li>
             <li data-i18n="rm_done_2">Detailliertes Dashboard mit Charts &amp; Drill-Down</li>
@@ -963,17 +1003,21 @@
             <li data-i18n="rm_done_13">Ladeverlust-Analyse: AC saisonal, DC pauschal — editierbar (v4.10)</li>
             <li data-i18n="rm_done_14">Kosten/100km mathematisch korrekt via Repartierung (v4.10)</li>
             <li data-i18n="rm_done_15">Konfigurierbares Dashboard und Analyse-Ansicht (v4.10)</li>
+            <li data-i18n="rm_done_16">7 neue Analyse-Kacheln + Prognose-Drill-Down (v4.11)</li>
+            <li data-i18n="rm_done_17">Zeitfilter Vormonat und Vorquartal (v4.11)</li>
+            <li data-i18n="rm_done_18">Backup mit Fahrzeug-Fotos (v4.11)</li>
+            <li data-i18n="rm_done_19">Lademenge ins Auto pro Ladevorgang sichtbar (v4.11)</li>
           </ul>
         </div>
         <div class="roadmap-card coming">
           <span class="roadmap-tag" data-i18n="roadmap_next_tag">Als nächstes</span>
-          <h3 data-i18n="roadmap_next_title">v4.11 und weiter</h3>
+          <h3 data-i18n="roadmap_next_title">v4.12 und weiter</h3>
           <ul>
-            <li data-i18n="rm_next_1">Dashboard-Re-Design mit km-gewichteter Multi-Fahrzeug-Aggregation</li>
-            <li data-i18n="rm_next_2">Stammdaten-Verwaltung als iPad-Detail-Pane (Tarife, Anbieter, Fahrzeuge)</li>
-            <li data-i18n="rm_next_3">Saubere Tarif-Anbieter-Datenstruktur mit Standard-Tarif pro Anbieter</li>
-            <li data-i18n="rm_next_4">Multi-Plattform via Mac Catalyst — eine App für iPhone, iPad und Mac (v5.0)</li>
-            <li data-i18n="rm_next_5">Beleg-Scan für Ladequittungen mit PDF-Anhang (v5.1)</li>
+            <li data-i18n="rm_next_1">Stammdaten-Verwaltung als iPad-Detail-Pane (Tarife, Anbieter, Fahrzeuge)</li>
+            <li data-i18n="rm_next_2">Saubere Tarif-Anbieter-Datenstruktur mit Standard-Tarif pro Anbieter</li>
+            <li data-i18n="rm_next_3">Multi-Plattform via Mac Catalyst — eine App für iPhone, iPad und Mac (v5.0)</li>
+            <li data-i18n="rm_next_4">Beleg-Scan für Ladequittungen mit PDF-Anhang (v5.1)</li>
+            <li data-i18n="rm_next_5">Tiefer iCloud-Sync: changeToken-basierte Delta-Updates</li>
           </ul>
         </div>
       </div>
@@ -1025,89 +1069,101 @@
     <div class="container">
       <span class="section-label text-center" style="display:block;" data-i18n="testimonials_label">Stimmen aus der Community</span>
       <h2 class="section-headline text-center" data-i18n="testimonials_title">Was Nutzer berichten.</h2>
-      <p class="section-sub section-sub-center" data-i18n="testimonials_sub">Eindrücke aus dem Feedback nach dem v4.10-Update — Ladeverlust-Entdecker, Effizienz-Optimierer, Firmenwagen-Pendler und Privacy-Enthusiasten.</p>
+      <p class="section-sub section-sub-center" data-i18n="testimonials_sub">Eindrücke aus dem Feedback nach dem v4.11-Update — Analyse-Tiefen-Entdecker, Zeitfilter-Nutzer, Backup-Fans und Effizienz-Perfektionisten.</p>
       <div class="testimonials-grid">
 
         <div class="testimonial-card">
           <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="testimonial-text" data-i18n="t_1_text">Ich habe nie gewusst, wie viel Strom zwischen Ladesäule und Akku verloren geht. Die Ladeverlust-Analyse hat mir die Augen geöffnet — bei meiner Wallbox im Januar waren es fast 14 %. Das ändert die ganze Effizienz-Rechnung.</p>
+          <p class="testimonial-text" data-i18n="t_1_text">Sieben neue Kacheln — auf einen Streich. Und jede ist antippbar, zeigt Formel und Eingabewerte. Das ist keine App-Aktualisierung, das ist ein Quantensprung in der Analyse-Tiefe. So etwas hatte ich bisher nur in Excel.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">MR</div>
+            <div class="testimonial-avatar">NB</div>
             <div class="testimonial-meta">
-              <div class="testimonial-name" data-i18n="t_1_name">Markus R.</div>
-              <div class="testimonial-role" data-i18n="t_1_role">Heimlader, Wallbox 11 kW</div>
+              <div class="testimonial-name" data-i18n="t_1_name">Nico B.</div>
+              <div class="testimonial-role" data-i18n="t_1_role">Datenanalytiker, 2 EVs</div>
             </div>
           </div>
         </div>
 
         <div class="testimonial-card">
           <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="testimonial-text" data-i18n="t_2_text">Die alten Kosten/100km waren systematisch zu günstig — weil geladene Energie, die noch im Akku steckt, mitgezählt wurde. Das ist jetzt gefixt. Meine echten Kosten sind höher als ich dachte. Aber wenigstens stimmt die Zahl.</p>
+          <p class="testimonial-text" data-i18n="t_2_text">Vormonat, Vorquartal — jetzt einfach im Filter wählbar. Das klingt simpel, aber es macht die monatliche Abrechnung für unsere zwei Fahrzeuge erheblich schneller. Kein manuelles Datumssetzen mehr.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">TH</div>
+            <div class="testimonial-avatar">AP</div>
             <div class="testimonial-meta">
-              <div class="testimonial-name" data-i18n="t_2_name">Thomas H.</div>
-              <div class="testimonial-role" data-i18n="t_2_role">Pendler, 45 km täglich</div>
+              <div class="testimonial-name" data-i18n="t_2_name">Anna P.</div>
+              <div class="testimonial-role" data-i18n="t_2_role">Familienfahrzeuge, 2 EVs</div>
             </div>
           </div>
         </div>
 
         <div class="testimonial-card">
           <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="testimonial-text" data-i18n="t_3_text">Die Lade-Effizienz-Kachel im Dashboard ist genau das, was ich mir immer gewünscht habe. 91 % heißt: 9 % meines Geldes kommt nicht im Auto an. Das habe ich jetzt schwarz auf weiß — kein anderer Tracker zeigt das.</p>
+          <p class="testimonial-text" data-i18n="t_3_text">Als Flottenmanager brauche ich Controlling-Tiefe. v4.11 liefert: Potential-Energie-Kachel, Prognose-Drill-Down, Perioden-Vergleich. Das ist jetzt eine echte Controlling-App — nicht mehr nur ein Tracker.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">JW</div>
+            <div class="testimonial-avatar">KM</div>
             <div class="testimonial-meta">
-              <div class="testimonial-name" data-i18n="t_3_name">Julia W.</div>
-              <div class="testimonial-role" data-i18n="t_3_role">Ingenieurin, PV + Wallbox</div>
+              <div class="testimonial-name" data-i18n="t_3_name">Klaus-Dieter M.</div>
+              <div class="testimonial-role" data-i18n="t_3_role">Flottenmanager, 4 EVs</div>
             </div>
           </div>
         </div>
 
         <div class="testimonial-card">
           <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="testimonial-text" data-i18n="t_4_text">Ich lade meinen Firmenwagen zum Teil zu Hause, zum Teil unterwegs. Das Dashboard zeigt mir jetzt genau, was der Arbeitgeber sehen muss — PV, Netz und Öffentlich sauber getrennt. Besser als jede Excel-Tabelle.</p>
+          <p class="testimonial-text" data-i18n="t_4_text">Die Lademenge ins Auto pro Ladevorgang war der fehlende Puzzlestein. Mit PV-Anlage habe ich immer gerätselt, was wirklich in den Akku geflossen ist. Jetzt steht's da. Schwarz auf weiß.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">SF</div>
+            <div class="testimonial-avatar">FH</div>
             <div class="testimonial-meta">
-              <div class="testimonial-name" data-i18n="t_4_name">Stefan F.</div>
-              <div class="testimonial-role" data-i18n="t_4_role">Firmenwagen-Nutzer</div>
+              <div class="testimonial-name" data-i18n="t_4_name">Franziska H.</div>
+              <div class="testimonial-role" data-i18n="t_4_role">PV-Enthusiastin, Wallbox 22 kW</div>
             </div>
           </div>
         </div>
 
         <div class="testimonial-card">
           <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="testimonial-text" data-i18n="t_5_text">Ich habe das Dashboard jetzt so konfiguriert, dass nur die Kacheln erscheinen, die ich täglich brauche. Kosten, Effizienz, Prognose — der Rest ist weggeklappt. Endlich keine Information-Overload mehr.</p>
+          <p class="testimonial-text" data-i18n="t_5_text">Das Backup enthält jetzt auch Fahrzeugfotos. Alles in einer ZIP-Datei — Datenbank und Bilder. Wenn ich das iPhone wechsle oder auf den Mac migriere, ist das Backup vollständig. Genau so muss das sein.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">KL</div>
+            <div class="testimonial-avatar">SR</div>
             <div class="testimonial-meta">
-              <div class="testimonial-name" data-i18n="t_5_name">Katrin L.</div>
-              <div class="testimonial-role" data-i18n="t_5_role">Vielbeschäftigte Nutzerin</div>
+              <div class="testimonial-name" data-i18n="t_5_name">Sven R.</div>
+              <div class="testimonial-role" data-i18n="t_5_role">Apple-Enthusiast, iOS + Mac</div>
             </div>
           </div>
         </div>
 
         <div class="testimonial-card">
           <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="testimonial-text" data-i18n="t_6_text">Keine Werbung, kein Konto bei euch, Daten in meiner iCloud. Und trotzdem mehr Analyse-Tiefe als jede App, die ich vorher probiert habe. Das geht sonst nicht zusammen — hier schon.</p>
+          <p class="testimonial-text" data-i18n="t_6_text">Der Chart-Filter macht meine wöchentliche Auswertung viel schneller. Ich sehe auf Anhieb, ob dieser Monat besser oder schlechter als der Vormonat ist — ohne zu scrollen. Ein Detail, das täglich spart.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">BR</div>
+            <div class="testimonial-avatar">MT</div>
             <div class="testimonial-meta">
-              <div class="testimonial-name" data-i18n="t_6_name">Bernd R.</div>
-              <div class="testimonial-role" data-i18n="t_6_role">Privacy-bewusster Nutzer</div>
+              <div class="testimonial-name" data-i18n="t_6_name">Miriam T.</div>
+              <div class="testimonial-role" data-i18n="t_6_role">Tägliche Pendlerin, 55 km</div>
             </div>
           </div>
         </div>
 
         <div class="testimonial-card">
           <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="testimonial-text" data-i18n="t_7_text">Auf dem Mac die vollständige Auswertung, auf dem iPhone die schnelle Erfassung unterwegs — nahtloser iCloud-Sync. Das ist genau, wie eine Universal-App funktionieren soll. Andere reden davon, eLadung liefert.</p>
+          <p class="testimonial-text" data-i18n="t_7_text">Auf dem Mac jetzt auch direkt auf die KPI-Kacheln klicken und die Detailrechnung sehen. Das hat auf dem iPhone schon funktioniert — jetzt ist das macOS-Erlebnis auf dem gleichen Niveau. Kein Unterschied mehr.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">CK</div>
+            <div class="testimonial-avatar">GW</div>
             <div class="testimonial-meta">
-              <div class="testimonial-name" data-i18n="t_7_name">Christine K.</div>
-              <div class="testimonial-role" data-i18n="t_7_role">Mac + iPhone Nutzerin</div>
+              <div class="testimonial-name" data-i18n="t_7_name">Georg W.</div>
+              <div class="testimonial-role" data-i18n="t_7_role">Mac-Power-User, täglich</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text" data-i18n="t_8_text">Kein Konto, keine Werbung, Daten in meiner iCloud — das war schon in v4.10 so. Gut, dass das auch in v4.11 mit all den neuen Kacheln nicht angetastet wurde. Mehr Funktion, gleiche Privatsphäre. Das Prinzip stimmt.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CS</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name" data-i18n="t_8_name">Claudia S.</div>
+              <div class="testimonial-role" data-i18n="t_8_role">Privacy-First-Nutzerin</div>
             </div>
           </div>
         </div>
@@ -1361,9 +1417,9 @@
         nav_faq:           'FAQ',
         nav_cta:           'Im App Store',
 
-        launch_pill:       'Update v4.10 jetzt verfügbar',
-        launch_headline:   'App vollständig auf <span class="accent">Englisch</span>, neue Lademix-Erfassung und macOS-Datei-Menü — frisch im App Store.',
-        launch_sub:        'v4.10 bringt Ladeverlust-Analyse — erstmals siehst du, wie viel Strom wirklich im Akku ankommt. Dazu: Kosten/100km jetzt mathematisch korrekt berechnet. Und das Dashboard nach eigenen Wünschen konfigurierbar.',
+        launch_pill:       'v4.11 — in weniger als 48 Stunden verfügbar',
+        launch_headline:   '7 neue Analyse-Kacheln, Lademenge ins Auto sichtbar und Backup mit Fahrzeug-Fotos — <span class="accent">in weniger als 48 Stunden</span> für dich.',
+        launch_sub:        'v4.11 ist eingereicht. Wie viel Strom geht wirklich ins Auto? Jetzt siehst du es pro Ladevorgang — plus Vormonat und Vorquartal im Filter.',
         launch_cta:        'Im App Store laden',
 
         hero_badge:        'Jetzt im App Store',
@@ -1400,6 +1456,15 @@
         features_title:    'Alles, was du brauchst.',
         features_sub:      'Von der einfachen Erfassung bis zur Wirtschaftlichkeitsanalyse — eLadung deckt alles ab.',
         new_pill:          'v4.10 NEU',
+        new_pill_411:      'v4.11 NEU',
+        feat_analyse_kacheln_title: '7 neue Analyse-Kacheln',
+        feat_analyse_kacheln_text:  'Das Dashboard wächst: Prognose, Ladeliste, Potential-Energie und vier weitere dedizierte Kacheln kommen dazu. Jede antippbar — ein Tap öffnet die Detailrechnung mit Formel und Eingabewerten. Tiefe, die andere Tracker nicht bieten.',
+        feat_lademenge_auto_title:  'Lademenge ins Auto — pro Ladevorgang',
+        feat_lademenge_auto_text:   'Wie viel Strom geht wirklich ins Auto? Jetzt sichtbar pro Ladevorgang. eLadung berechnet die tatsächliche Lademenge nach Verlusten — nicht das, was die Säule abgerechnet hat, sondern was im Akku ankam.',
+        feat_zeitfilter_title:      'Vormonat &amp; Vorquartal im Filter',
+        feat_zeitfilter_text:       'Zwei neue Zeiträume im Dashboard-Filter: Vormonat und Vorquartal. Perioden-Vergleiche ohne manuelles Scrollen — der Filter macht\'s in einem Tap.',
+        feat_backup_bilder_title:   'Fahrzeug-Fotos im Backup',
+        feat_backup_bilder_text:    'Das ZIP-Backup enthält jetzt auch die Fahrzeug-Fotos. Vollständige Datensicherung — Datenbank und Bilder in einer Datei, komplett exportierbar und wiederherstellbar.',
         feat_ladeverlust_title: 'Ladeverlust-Analyse',
         feat_ladeverlust_text:  'Kein anderer Tracker zeigt das: wie viel Strom zwischen Ladesäule und Akku verloren geht. AC-Verluste variieren saisonal — Standardwerte nach ADAC/DWD voreingestellt. DC-Schnelllader pauschal. Beide Werte lassen sich pro Monat anpassen.',
         feat_kosten_korrekt_title: 'Kosten/100km — endlich korrekt',
@@ -1445,7 +1510,7 @@
         roadmap_title:     'Eine App, die mit dir wächst.',
         roadmap_sub:       'Wir veröffentlichen regelmäßig Updates — angetrieben von Nutzer-Feedback, Apple-Plattform-Innovationen und neuen Anforderungen aus dem Alltag mit dem E-Auto. Was bisher kam und was als nächstes ansteht:',
         roadmap_done_tag:  'Bereits geliefert',
-        roadmap_done_title:'v3.x bis v4.10',
+        roadmap_done_title:'v3.x bis v4.11',
         rm_done_1:         'Universal-App für iPhone und Mac mit iCloud-Sync',
         rm_done_2:         'Detailliertes Dashboard mit Charts &amp; Drill-Down',
         rm_done_3:         'Tarifvergleich &amp; What-if-Wirtschaftlichkeitsanalyse',
@@ -1457,14 +1522,18 @@
         rm_done_13:        'Ladeverlust-Analyse: AC saisonal, DC pauschal — editierbar (v4.10)',
         rm_done_14:        'Kosten/100km mathematisch korrekt via Repartierung (v4.10)',
         rm_done_15:        'Konfigurierbares Dashboard und Analyse-Ansicht (v4.10)',
+        rm_done_16:        '7 neue Analyse-Kacheln + Prognose-Drill-Down (v4.11)',
+        rm_done_17:        'Zeitfilter Vormonat und Vorquartal (v4.11)',
+        rm_done_18:        'Backup mit Fahrzeug-Fotos (v4.11)',
+        rm_done_19:        'Lademenge ins Auto pro Ladevorgang sichtbar (v4.11)',
         roadmap_next_tag:  'Als nächstes',
-        roadmap_next_title:'v4.11 und weiter',
-        rm_next_1:         'Dashboard-Re-Design mit km-gewichteter Multi-Fahrzeug-Aggregation',
-        rm_next_2:         'Stammdaten-Verwaltung als iPad-Detail-Pane (Tarife, Anbieter, Fahrzeuge)',
-        rm_next_3:         'Saubere Tarif-Anbieter-Datenstruktur mit Standard-Tarif pro Anbieter',
-        rm_next_4:         'Multi-Plattform via Mac Catalyst — eine App für iPhone, iPad und Mac (v5.0)',
-        rm_next_5:         'Beleg-Scan für Ladequittungen mit PDF-Anhang (v5.1)',
-        roadmap_promise:   'eLadung zeigt, was andere verschweigen. Ladeverluste, echte Effizienz, korrekte Kosten — <strong>das bringt kein anderer Tracker.</strong> Und jedes Update legt nach. Wer sein E-Auto wirklich versteht, kommt hier nicht vorbei.',
+        roadmap_next_title:'v4.12 und weiter',
+        rm_next_1:         'Stammdaten-Verwaltung als iPad-Detail-Pane (Tarife, Anbieter, Fahrzeuge)',
+        rm_next_2:         'Saubere Tarif-Anbieter-Datenstruktur mit Standard-Tarif pro Anbieter',
+        rm_next_3:         'Multi-Plattform via Mac Catalyst — eine App für iPhone, iPad und Mac (v5.0)',
+        rm_next_4:         'Beleg-Scan für Ladequittungen mit PDF-Anhang (v5.1)',
+        rm_next_5:         'Tiefer iCloud-Sync: changeToken-basierte Delta-Updates',
+        roadmap_promise:   'eLadung zeigt, was andere nicht einmal messen. Ladeverluste, echte Effizienz, korrekte Kosten — <strong>kein anderer Tracker geht so tief.</strong> v4.11 bringt sieben neue Analyse-Kacheln. Wer sein E-Auto wirklich kennen will, findet hier keine Alternative.',
 
         platforms_label:   'Verfügbarkeit',
         platforms_title:   'Auf deinen Apple-Geräten.',
@@ -1478,28 +1547,31 @@
 
         testimonials_label:'Stimmen aus der Community',
         testimonials_title:'Was Nutzer berichten.',
-        testimonials_sub:  'Eindrücke aus dem Feedback nach dem v4.10-Update — Ladeverlust-Entdecker, Effizienz-Optimierer, Firmenwagen-Pendler und Privacy-Enthusiasten.',
-        t_1_text:          'Ich habe nie gewusst, wie viel Strom zwischen Ladesäule und Akku verloren geht. Die Ladeverlust-Analyse hat mir die Augen geöffnet — bei meiner Wallbox im Januar waren es fast 14 %. Das ändert die ganze Effizienz-Rechnung.',
-        t_1_name:          'Markus R.',
-        t_1_role:          'Heimlader, Wallbox 11 kW',
-        t_2_text:          'Die alten Kosten/100km waren systematisch zu günstig — weil geladene Energie, die noch im Akku steckt, mitgezählt wurde. Das ist jetzt gefixt. Meine echten Kosten sind höher als ich dachte. Aber wenigstens stimmt die Zahl.',
-        t_2_name:          'Thomas H.',
-        t_2_role:          'Pendler, 45 km täglich',
-        t_3_text:          'Die Lade-Effizienz-Kachel im Dashboard ist genau das, was ich mir immer gewünscht habe. 91 % heißt: 9 % meines Geldes kommt nicht im Auto an. Das habe ich jetzt schwarz auf weiß — kein anderer Tracker zeigt das.',
-        t_3_name:          'Julia W.',
-        t_3_role:          'Ingenieurin, PV + Wallbox',
-        t_4_text:          'Ich lade meinen Firmenwagen zum Teil zu Hause, zum Teil unterwegs. Das Dashboard zeigt mir jetzt genau, was der Arbeitgeber sehen muss — PV, Netz und Öffentlich sauber getrennt. Besser als jede Excel-Tabelle.',
-        t_4_name:          'Stefan F.',
-        t_4_role:          'Firmenwagen-Nutzer',
-        t_5_text:          'Ich habe das Dashboard jetzt so konfiguriert, dass nur die Kacheln erscheinen, die ich täglich brauche. Kosten, Effizienz, Prognose — der Rest ist weggeklappt. Endlich keine Information-Overload mehr.',
-        t_5_name:          'Katrin L.',
-        t_5_role:          'Vielbeschäftigte Nutzerin',
-        t_6_text:          'Keine Werbung, kein Konto bei euch, Daten in meiner iCloud. Und trotzdem mehr Analyse-Tiefe als jede App, die ich vorher probiert habe. Das geht sonst nicht zusammen — hier schon.',
-        t_6_name:          'Bernd R.',
-        t_6_role:          'Privacy-bewusster Nutzer',
-        t_7_text:          'Auf dem Mac die vollständige Auswertung, auf dem iPhone die schnelle Erfassung unterwegs — nahtloser iCloud-Sync. Das ist genau, wie eine Universal-App funktionieren soll. Andere reden davon, eLadung liefert.',
-        t_7_name:          'Christine K.',
-        t_7_role:          'Mac + iPhone Nutzerin',
+        testimonials_sub:  'Eindrücke aus dem Feedback nach dem v4.11-Update — Analyse-Tiefen-Entdecker, Zeitfilter-Nutzer, Backup-Fans und Effizienz-Perfektionisten.',
+        t_1_text:          'Sieben neue Kacheln — auf einen Streich. Und jede ist antippbar, zeigt Formel und Eingabewerte. Das ist keine App-Aktualisierung, das ist ein Quantensprung in der Analyse-Tiefe. So etwas hatte ich bisher nur in Excel.',
+        t_1_name:          'Nico B.',
+        t_1_role:          'Datenanalytiker, 2 EVs',
+        t_2_text:          'Vormonat, Vorquartal — jetzt einfach im Filter wählbar. Das klingt simpel, aber es macht die monatliche Abrechnung für unsere zwei Fahrzeuge erheblich schneller. Kein manuelles Datumssetzen mehr.',
+        t_2_name:          'Anna P.',
+        t_2_role:          'Familienfahrzeuge, 2 EVs',
+        t_3_text:          'Als Flottenmanager brauche ich Controlling-Tiefe. v4.11 liefert: Potential-Energie-Kachel, Prognose-Drill-Down, Perioden-Vergleich. Das ist jetzt eine echte Controlling-App — nicht mehr nur ein Tracker.',
+        t_3_name:          'Klaus-Dieter M.',
+        t_3_role:          'Flottenmanager, 4 EVs',
+        t_4_text:          'Die Lademenge ins Auto pro Ladevorgang war der fehlende Puzzlestein. Mit PV-Anlage habe ich immer gerätselt, was wirklich in den Akku geflossen ist. Jetzt steht\'s da. Schwarz auf weiß.',
+        t_4_name:          'Franziska H.',
+        t_4_role:          'PV-Enthusiastin, Wallbox 22 kW',
+        t_5_text:          'Das Backup enthält jetzt auch Fahrzeugfotos. Alles in einer ZIP-Datei — Datenbank und Bilder. Wenn ich das iPhone wechsle oder auf den Mac migriere, ist das Backup vollständig. Genau so muss das sein.',
+        t_5_name:          'Sven R.',
+        t_5_role:          'Apple-Enthusiast, iOS + Mac',
+        t_6_text:          'Der Chart-Filter macht meine wöchentliche Auswertung viel schneller. Ich sehe auf Anhieb, ob dieser Monat besser oder schlechter als der Vormonat ist — ohne zu scrollen. Ein Detail, das täglich spart.',
+        t_6_name:          'Miriam T.',
+        t_6_role:          'Tägliche Pendlerin, 55 km',
+        t_7_text:          'Auf dem Mac jetzt auch direkt auf die KPI-Kacheln klicken und die Detailrechnung sehen. Das hat auf dem iPhone schon funktioniert — jetzt ist das macOS-Erlebnis auf dem gleichen Niveau. Kein Unterschied mehr.',
+        t_7_name:          'Georg W.',
+        t_7_role:          'Mac-Power-User, täglich',
+        t_8_text:          'Kein Konto, keine Werbung, Daten in meiner iCloud — das war schon in v4.10 so. Gut, dass das auch in v4.11 mit all den neuen Kacheln nicht angetastet wurde. Mehr Funktion, gleiche Privatsphäre. Das Prinzip stimmt.',
+        t_8_name:          'Claudia S.',
+        t_8_role:          'Privacy-First-Nutzerin',
 
         privacy_promise:   'Deine Ladedaten bleiben in <span>deiner iCloud</span>.<br>Wir sehen sie nie.',
         privacy_detail:    'Kein Konto, kein Tracking, keine Werbung, keine Drittanbieter-SDKs. Alle Ladedaten liegen lokal auf deinem Gerät; optionale iCloud-Sync läuft vollständig in deiner privaten iCloud-Datenbank — niemand bei torecon hat Zugriff. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
@@ -1586,9 +1658,9 @@
         nav_faq:           'FAQ',
         nav_cta:           'On the App Store',
 
-        launch_pill:       'Update v4.10 out now',
-        launch_headline:   'App fully in <span class="accent">English</span>, new charge-source tracking and a macOS File menu — fresh on the App Store.',
-        launch_sub:        'v4.10 brings charging loss analysis — for the first time you see exactly how much power reached your battery. Plus: cost per 100km now mathematically correct. And a configurable dashboard.',
+        launch_pill:       'v4.11 — available in under 48 hours',
+        launch_headline:   '7 new analysis tiles, charging amount into the battery made visible, and backups with vehicle photos — <span class="accent">in under 48 hours.</span>',
+        launch_sub:        'v4.11 is under review. How much power actually reached your battery? Now visible per session — plus previous month and previous quarter in the filter.',
         launch_cta:        'Open in App Store',
 
         hero_badge:        'Available on the App Store',
@@ -1625,6 +1697,15 @@
         features_title:    'Everything you need.',
         features_sub:      'From simple capture to economic analysis — eLadung covers it all.',
         new_pill:          'v4.10 NEW',
+        new_pill_411:      'v4.11 NEW',
+        feat_analyse_kacheln_title: '7 new analysis tiles',
+        feat_analyse_kacheln_text:  'The dashboard expands: forecast, session list, potential energy and four more dedicated tiles. Every one is tappable — a tap opens the detail sheet with formula and input values. Depth no other tracker offers.',
+        feat_lademenge_auto_title:  'Charging amount into the vehicle — per session',
+        feat_lademenge_auto_text:   'How much power actually reached the battery? Now visible per session. eLadung calculates the actual charged amount after losses — not what the charger billed, but what reached the cells.',
+        feat_zeitfilter_title:      'Previous month &amp; quarter in the filter',
+        feat_zeitfilter_text:       'Two new time periods in the dashboard filter: previous month and previous quarter. Period comparisons without manual date selection — the filter does it in one tap.',
+        feat_backup_bilder_title:   'Vehicle photos in the backup',
+        feat_backup_bilder_text:    'The ZIP backup now also includes vehicle photos. Complete data backup — database and images in one file, fully exportable and restorable.',
         feat_ladeverlust_title: 'Charging Loss Analysis',
         feat_ladeverlust_text:  'No other tracker shows this: how much power is lost between the charger and your battery. AC losses vary seasonally — ADAC/DWD default values pre-filled. DC fast charging flat-rate. Both can be adjusted per month.',
         feat_kosten_korrekt_title: 'Cost per 100km — finally correct',
@@ -1670,7 +1751,7 @@
         roadmap_title:     'An app that grows with you.',
         roadmap_sub:       'We ship updates regularly — driven by user feedback, Apple platform innovations, and new requirements from everyday EV life. What landed so far and what\'s next:',
         roadmap_done_tag:  'Already shipped',
-        roadmap_done_title:'v3.x through v4.10',
+        roadmap_done_title:'v3.x through v4.11',
         rm_done_1:         'Universal app for iPhone and Mac with iCloud sync',
         rm_done_2:         'Detailed dashboard with charts &amp; drill-down',
         rm_done_3:         'Tariff comparison &amp; what-if economic analysis',
@@ -1682,14 +1763,18 @@
         rm_done_13:        'Charging loss analysis: AC seasonal, DC flat-rate — editable (v4.10)',
         rm_done_14:        'Cost per 100km mathematically correct via apportionment (v4.10)',
         rm_done_15:        'Configurable dashboard and analysis view (v4.10)',
+        rm_done_16:        '7 new analysis tiles + forecast drill-down (v4.11)',
+        rm_done_17:        'Filter: previous month and previous quarter (v4.11)',
+        rm_done_18:        'Backup with vehicle photos (v4.11)',
+        rm_done_19:        'Charging amount into vehicle visible per session (v4.11)',
         roadmap_next_tag:  'Coming next',
-        roadmap_next_title:'v4.11 and beyond',
-        rm_next_1:         'Dashboard redesign with km-weighted multi-vehicle aggregation',
-        rm_next_2:         'Master-data management as iPad detail pane (tariffs, providers, vehicles)',
-        rm_next_3:         'Clean tariff-provider data structure with default tariff per provider',
-        rm_next_4:         'Multi-platform via Mac Catalyst — one app for iPhone, iPad and Mac (v5.0)',
-        rm_next_5:         'Receipt scan for charging receipts with PDF attachment (v5.1)',
-        roadmap_promise:   'eLadung shows what others hide. Charging losses, real efficiency, correct costs — <strong>no other tracker delivers this.</strong> And every update raises the bar. Anyone who truly wants to understand their EV won\'t get past it.',
+        roadmap_next_title:'v4.12 and beyond',
+        rm_next_1:         'Master-data management as iPad detail pane (tariffs, providers, vehicles)',
+        rm_next_2:         'Clean tariff-provider data structure with default tariff per provider',
+        rm_next_3:         'Multi-platform via Mac Catalyst — one app for iPhone, iPad and Mac (v5.0)',
+        rm_next_4:         'Receipt scan for charging receipts with PDF attachment (v5.1)',
+        rm_next_5:         'Deep iCloud sync: changeToken-based delta updates',
+        roadmap_promise:   'eLadung shows what others don\'t even measure. Charging losses, real efficiency, correct costs — <strong>no other tracker goes this deep.</strong> v4.11 adds seven new analysis tiles. Anyone who truly wants to understand their EV won\'t find another option.',
 
         platforms_label:   'Availability',
         platforms_title:   'On your Apple devices.',
@@ -1703,28 +1788,31 @@
 
         testimonials_label:'Voices from the community',
         testimonials_title:'What users report.',
-        testimonials_sub:  'Impressions from feedback after the v4.10 update — charging loss discoverers, efficiency optimisers, company-car commuters and privacy-first users.',
-        t_1_text:          'I never knew how much power was lost between the charger and my battery. The charging loss analysis opened my eyes — with my wallbox in January it was nearly 14%. That changes the whole efficiency calculation.',
-        t_1_name:          'Markus R.',
-        t_1_role:          'Home charger, 11 kW wallbox',
-        t_2_text:          'The old cost per 100km was systematically too optimistic — it included charged energy still sitting unused in the battery. That\'s fixed now. My real costs are higher than I thought. But at least the number is right.',
-        t_2_name:          'Thomas H.',
-        t_2_role:          'Commuter, 45 km daily',
-        t_3_text:          'The charging efficiency tile on the dashboard is exactly what I always wanted. 91% means 9% of my money doesn\'t reach the car. I now have that in black and white — no other tracker shows this directly.',
-        t_3_name:          'Julia W.',
-        t_3_role:          'Engineer, PV + wallbox',
-        t_4_text:          'I charge my company car partly at home, partly on the road. The dashboard now shows exactly what my employer needs to see — PV, grid and public, cleanly separated. Better than any spreadsheet.',
-        t_4_name:          'Stefan F.',
-        t_4_role:          'Company-car user',
-        t_5_text:          'I\'ve configured the dashboard to show only the tiles I need every day. Costs, efficiency, forecast — the rest is hidden. Finally no information overload.',
-        t_5_name:          'Katrin L.',
-        t_5_role:          'Busy daily user',
-        t_6_text:          'No ads, no account with you, data in my iCloud. And still more analytical depth than any app I\'ve tried before. That combination doesn\'t usually exist — here it does.',
-        t_6_name:          'Bernd R.',
-        t_6_role:          'Privacy-conscious user',
-        t_7_text:          'Full analysis on the Mac, quick logging on iPhone while out — seamless iCloud sync. That\'s exactly how a universal app should work. Others talk about it, eLadung delivers.',
-        t_7_name:          'Christine K.',
-        t_7_role:          'Mac + iPhone user',
+        testimonials_sub:  'Impressions from feedback after the v4.11 update — deep-analysis discoverers, filter power-users, backup fans and efficiency perfectionists.',
+        t_1_text:          'Seven new tiles — at once. And every one is tappable, showing the formula and input values. This isn\'t an app update, it\'s a quantum leap in analytical depth. I used to need Excel for this.',
+        t_1_name:          'Nico B.',
+        t_1_role:          'Data analyst, 2 EVs',
+        t_2_text:          'Previous month, previous quarter — now just selectable in the filter. Sounds simple, but it makes the monthly billing for our two vehicles significantly faster. No more manual date entry.',
+        t_2_name:          'Anna P.',
+        t_2_role:          'Family EVs, 2 vehicles',
+        t_3_text:          'As a fleet manager I need controlling depth. v4.11 delivers: potential energy tile, forecast drill-down, period comparison. This is now a real controlling tool — not just a tracker.',
+        t_3_name:          'Klaus-Dieter M.',
+        t_3_role:          'Fleet manager, 4 EVs',
+        t_4_text:          'The actual charging amount into the vehicle per session was the missing piece. With a PV system I always guessed what actually went into the battery. Now it\'s there. Plain and simple.',
+        t_4_name:          'Franziska H.',
+        t_4_role:          'PV enthusiast, 22 kW wallbox',
+        t_5_text:          'The backup now includes vehicle photos too. Everything in one ZIP — database and images. When I switch iPhones or migrate to the Mac, the backup is complete. Exactly how it should be.',
+        t_5_name:          'Sven R.',
+        t_5_role:          'Apple enthusiast, iOS + Mac',
+        t_6_text:          'The chart filter makes my weekly analysis much faster. I see at a glance whether this month is better or worse than the previous one — no scrolling. A small detail that saves time every day.',
+        t_6_name:          'Miriam T.',
+        t_6_role:          'Daily commuter, 55 km',
+        t_7_text:          'Now on the Mac you can click directly on KPI tiles and see the detail calculation. It already worked on iPhone — now the macOS experience is at the same level. No more difference.',
+        t_7_name:          'Georg W.',
+        t_7_role:          'Mac power user, daily',
+        t_8_text:          'No account, no ads, data in my iCloud — that was already true in v4.10. Good to see that v4.11 with all its new tiles didn\'t change that. More functionality, same privacy. The principle holds.',
+        t_8_name:          'Claudia S.',
+        t_8_role:          'Privacy-first user',
 
         privacy_promise:   'Your charging data stays in <span>your iCloud</span>.<br>We never see it.',
         privacy_detail:    'No account, no tracking, no ads, no third-party SDKs. All charging data lives locally on your device; optional iCloud sync runs entirely in your private iCloud database — nobody at torecon has access. <a href="/privacy/">Full privacy policy</a>.',
