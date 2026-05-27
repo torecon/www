@@ -66,6 +66,7 @@
     .modal-card h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:6px}
     .modal-pill{display:inline-block;background:rgba(224,168,76,.15);color:var(--accent-hover);border-radius:999px;padding:3px 12px;font-size:12px;font-weight:700;margin-bottom:10px}
     .modal-card p{font-size:14px;color:var(--text-secondary);line-height:1.55;margin-bottom:20px}
+    .modal-store-btn{display:block;width:100%;padding:13px;background:var(--accent);border:none;border-radius:var(--radius);font-size:15px;font-weight:700;color:var(--bg-dark);cursor:pointer;font-family:inherit;text-decoration:none;text-align:center;margin-bottom:10px;box-sizing:border-box}
     .modal-close-btn{display:block;width:100%;padding:13px;background:var(--bg-alt);border:none;border-radius:var(--radius);font-size:15px;font-weight:600;color:var(--text);cursor:pointer;font-family:inherit}
     /* Cookie Consent */
     #cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(15,39,69,.96);backdrop-filter:blur(20px);padding:14px 24px;transform:translateY(100%);transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
@@ -94,8 +95,8 @@
   <!-- Launch Banner -->
   <div class="launch-banner" id="launch-banner">
     <div class="banner-inner">
-      <span class="banner-pill" data-i18n="banner_pill">Im App Store Review</span>
-      <span class="banner-text" data-i18n="banner_text">Meisterlich ist im App Store Review — bald für dich verfügbar.</span>
+      <span class="banner-pill" data-i18n="banner_pill">Jetzt live</span>
+      <span class="banner-text" data-i18n="banner_text">Meisterlich ist jetzt im App Store — kostenlos für iPhone und iPad.</span>
     </div>
     <button class="banner-close" onclick="closeBanner()" aria-label="Schließen">×</button>
   </div>
@@ -130,8 +131,8 @@
         </h1>
         <p class="hero-sub" data-i18n="hero_sub">Meisterlich AI verbindet Privatkunden direkt mit Handwerkerbetrieben in der Nähe. <strong>Kostenlos für alle.</strong> Keine Lead-Gebühren, keine Provision — nur die direkte Verbindung.</p>
         <div class="hero-cta-row">
-          <a href="#how" class="btn-primary" data-i18n="hero_cta_how">Wie es funktioniert</a>
-          <a href="#for-craftsmen" class="btn-secondary" data-i18n="hero_cta_masters">Für Handwerker</a>
+          <a href="https://apps.apple.com/app/id6762597134" class="btn-primary" data-i18n="hero_cta_download" target="_blank" rel="noopener">Im App Store herunterladen</a>
+          <a href="#how" class="btn-secondary" data-i18n="hero_cta_how">Wie es funktioniert</a>
         </div>
         <div class="hero-pills">
           <span class="hero-pill">📱 <span data-i18n="pill_platform">iPhone · iOS 17+</span></span>
@@ -221,8 +222,8 @@
         <div class="roadmap-item"><span class="rm-emoji">🔔</span><div class="rm-content"><h3 data-i18n="rm_1_title">Push-Benachrichtigungen</h3><p data-i18n="rm_1_desc">Sofortiger Alarm wenn eine Anfrage eingeht oder eine Chatnachricht kommt.</p></div></div>
         <div class="roadmap-item"><span class="rm-emoji">⭐</span><div class="rm-content"><h3 data-i18n="rm_2_title">Bewertungen &amp; Referenzen</h3><p data-i18n="rm_2_desc">Verifizierte Kundenbewertungen direkt auf dem Profil.</p></div></div>
         <div class="roadmap-item"><span class="rm-emoji">📡</span><div class="rm-content"><h3 data-i18n="rm_3_title">Broadcast-Anfragen</h3><p data-i18n="rm_3_desc">Ein Auftrag, mehrere Angebote. Kunden vergleichen Preise nebeneinander.</p></div></div>
-        <div class="roadmap-item"><span class="rm-emoji">🤖</span><div class="rm-content"><h3 data-i18n="rm_4_title">KI-Credits</h3><p data-i18n="rm_4_desc">Mehr KI-gestützte Profiltexte und Antworten — nachkaufbar in der App.</p></div></div>
-        <div class="roadmap-item"><span class="rm-emoji">💎</span><div class="rm-content"><h3 data-i18n="rm_5_title">Gesponsert-Profil</h3><p data-i18n="rm_5_desc">Optionaler Sichtbarkeits-Boost in der Suche — für mehr Reichweite.</p></div></div>
+        <div class="roadmap-item"><span class="rm-emoji">🔍</span><div class="rm-content"><h3 data-i18n="rm_4_title">Erweiterte Suche &amp; Filter</h3><p data-i18n="rm_4_desc">Filtern nach Bewertung, Reaktionszeit und Verfügbarkeit — für Kunden, die schnell den Richtigen finden wollen.</p></div></div>
+        <div class="roadmap-item"><span class="rm-emoji">📅</span><div class="rm-content"><h3 data-i18n="rm_5_title">Angebote &amp; Termine</h3><p data-i18n="rm_5_desc">Handwerker erstellen Angebote direkt in der App — Kunden bestätigen per Tap.</p></div></div>
         <div class="roadmap-item"><span class="rm-emoji">🤝</span><div class="rm-content"><h3 data-i18n="rm_6_title">Zertifikate &amp; Referenzprojekte</h3><p data-i18n="rm_6_desc">Lade Zulassungen, Zertifikate und abgeschlossene Projekte hoch.</p></div></div>
       </div>
     </section>
@@ -239,10 +240,11 @@
     <!-- Final CTA -->
     <section class="final-cta">
       <div class="cta-inner">
-        <div class="cta-badge" data-i18n="cta_badge">Im App Store Review</div>
-        <h2 data-i18n="cta_h2">Starte kostenlos — als einer der Ersten.</h2>
-        <p data-i18n="cta_p">Meisterlich erscheint in Kürze für iPhone und iPad. Handwerker, die ihr Profil jetzt anlegen, sind sichtbar vom ersten Tag an — ohne Provision, ohne Lead-Gebühr.</p>
-        <div class="platform-info"><span data-i18n="cta_platform">📱 iPhone · iOS 17+</span></div>
+        <div class="cta-badge" data-i18n="cta_badge">Jetzt im App Store</div>
+        <h2 data-i18n="cta_h2">Jetzt kostenlos herunterladen.</h2>
+        <p data-i18n="cta_p">Meisterlich ist live — für iPhone und iPad. Handwerker, die ihr Profil anlegen, sind sofort sichtbar — ohne Provision, ohne Lead-Gebühr.</p>
+        <a href="https://apps.apple.com/app/id6762597134" class="btn-primary" data-i18n="cta_download_btn" target="_blank" rel="noopener" style="display:inline-block;margin-bottom:16px">Im App Store herunterladen</a>
+        <div class="platform-info"><span data-i18n="cta_platform">📱 iPhone · iPad · iOS 17+</span></div>
       </div>
     </section>
 
@@ -285,9 +287,10 @@
     <div class="modal-backdrop" onclick="closeModal()"></div>
     <div class="modal-card">
       <img src="/apple-touch-icon.png" alt="Meisterlich AI" class="modal-icon">
-      <div class="modal-pill" data-i18n="modal_pill">Im App Store Review</div>
+      <div class="modal-pill" data-i18n="modal_pill">Jetzt live</div>
       <h3 data-i18n="modal_title">Meisterlich AI</h3>
-      <p data-i18n="modal_sub">Meisterlich erscheint in Kürze im App Store für iPhone und iPad. Leg dein Profil jetzt an — damit du vom ersten Tag sichtbar bist.</p>
+      <p data-i18n="modal_sub">Meisterlich ist jetzt im App Store — kostenlos für iPhone und iPad.</p>
+      <a href="https://apps.apple.com/app/id6762597134" class="modal-store-btn" data-i18n="modal_store_btn" target="_blank" rel="noopener" onclick="closeModal()">Im App Store herunterladen</a>
       <button class="modal-close-btn" onclick="closeModal()" data-i18n="modal_close">Schließen</button>
     </div>
   </div>
@@ -305,18 +308,18 @@
 
   <script>
     const APP_STORE_ID = '6762597134';
-    // App not yet live — activate on launch:
-    // const APP_STORE_URL = `https://apps.apple.com/app/id${APP_STORE_ID}`;
+    const APP_STORE_URL = `https://apps.apple.com/app/id${APP_STORE_ID}`;
 
     const T = {
       de: {
         nav_sub: 'eine Marke von <a href=”https://www.torecon.de/” target=”_blank” rel=”noopener”>torecon</a>',
         nav_imprint: 'Impressum',
-        banner_pill: 'Im App Store Review',
-        banner_text: 'Meisterlich ist im App Store Review — bald für dich verfügbar.',
+        banner_pill: 'Jetzt live',
+        banner_text: 'Meisterlich ist jetzt im App Store — kostenlos für iPhone und iPad.',
         hero_h1_1: 'Handwerker finden.',
         hero_h1_2: 'Direkt. Kein Mittelsmann.',
         hero_sub: 'Kein Portal, das Leads verkauft. Kein Makler zwischen dir und deinem Handwerker. Meisterlich verbindet Kunden direkt mit Betrieben — <strong>kostenlos für alle</strong>.',
+        hero_cta_download: 'Im App Store herunterladen',
         hero_cta_how: 'Wie es funktioniert',
         hero_cta_masters: 'Für Handwerker',
         pill_platform: 'iPhone · iOS 17+',
@@ -385,22 +388,24 @@
         rm_2_desc: 'Verifizierte Kundenbewertungen direkt auf dem Profil — mehr Vertrauen, mehr Aufträge.',
         rm_3_title: 'Broadcast-Anfragen',
         rm_3_desc: 'Ein Auftrag, mehrere Angebote — Kunden vergleichen Preise verschiedener Handwerker transparent nebeneinander.',
-        rm_4_title: 'KI-Credits',
-        rm_4_desc: 'Mehr KI-gestützte Profiltexte, Antwort-Formulierungen und Werbetexte — nachkaufbar direkt in der App.',
-        rm_5_title: 'Gesponsert-Profil',
-        rm_5_desc: 'Optionaler Sichtbarkeits-Boost in der Suche — für Handwerker, die mehr Reichweite wollen.',
+        rm_4_title: 'Erweiterte Suche &amp; Filter',
+        rm_4_desc: 'Filtern nach Bewertung, Reaktionszeit und Verfügbarkeit — für Kunden, die schnell den Richtigen finden wollen.',
+        rm_5_title: 'Angebote &amp; Termine',
+        rm_5_desc: 'Handwerker erstellen Angebote direkt in der App — Kunden bestätigen per Tap.',
         rm_6_title: 'Zertifikate &amp; Referenzprojekte',
         rm_6_desc: 'Lade Zulassungen, Zertifikate und abgeschlossene Projekte hoch — mehr Vertrauen auf einen Blick.',
         price_h2: 'Jetzt einsteigen — kostenlos.',
         price_sub: 'Meisterlich ist in der Aufbauphase vollständig kostenlos für Handwerker. Kein Abo, keine Lead-Gebühr, keine Provision. Wer jetzt einsteigt, baut Sichtbarkeit und erste Bewertungen auf — vor allen anderen.',
         price_note: 'Keine Provision, keine Lead-Gebühren, kein Abo. Du behältst jeden Auftrag vollständig. Wer mehr Sichtbarkeit möchte, kann sein Profil optional als gesponsert hervorheben lassen.',
-        cta_badge: 'Im App Store Review',
-        cta_h2: 'Starte kostenlos — als einer der Ersten.',
-        cta_p: 'Meisterlich erscheint in Kürze für iPhone und iPad. Handwerker, die ihr Profil jetzt anlegen, sind sichtbar vom ersten Tag an — ohne Provision, ohne Lead-Gebühr.',
+        cta_badge: 'Jetzt im App Store',
+        cta_h2: 'Jetzt kostenlos herunterladen.',
+        cta_p: 'Meisterlich ist live — für iPhone und iPad. Handwerker, die ihr Profil anlegen, sind sofort sichtbar — ohne Provision, ohne Lead-Gebühr.',
+        cta_download_btn: 'Im App Store herunterladen',
         cta_platform: '📱 iPhone · iPad · iOS 17+',
-        modal_pill: 'Im App Store Review',
+        modal_pill: 'Jetzt live',
         modal_title: 'Meisterlich AI',
-        modal_sub: 'Meisterlich erscheint in Kürze im App Store für iPhone und iPad. Leg dein Profil jetzt an — damit du vom ersten Tag sichtbar bist.',
+        modal_sub: 'Meisterlich ist jetzt im App Store — kostenlos für iPhone und iPad.',
+        modal_store_btn: 'Im App Store herunterladen',
         modal_close: 'Schließen',
         cookie_text: 'Diese Website verwendet ausschließlich technisch notwendige Cookies.',
         cookie_more: 'Datenschutz',
@@ -428,11 +433,12 @@
       en: {
         nav_sub: 'a brand by <a href=”https://www.torecon.de/” target=”_blank” rel=”noopener”>torecon</a>',
         nav_imprint: 'Legal Notice',
-        banner_pill: 'In App Store Review',
-        banner_text: 'Meisterlich is in App Store Review — coming soon.',
+        banner_pill: 'Now live',
+        banner_text: 'Meisterlich is now on the App Store — free for iPhone and iPad.',
         hero_h1_1: 'Find tradespeople.',
         hero_h1_2: 'Direct. No middleman.',
         hero_sub: 'No portal selling leads. No middleman between you and your tradesperson. Meisterlich connects customers directly with craftsmen — <strong>free for everyone</strong>.',
+        hero_cta_download: 'Download on the App Store',
         hero_cta_how: 'How it works',
         hero_cta_masters: 'For craftsmen',
         pill_platform: 'iPhone · iOS 17+',
@@ -501,22 +507,24 @@
         rm_2_desc: 'Verified customer reviews on your profile — more trust, more jobs.',
         rm_3_title: 'Broadcast requests',
         rm_3_desc: 'One job, multiple offers — customers compare quotes from different craftsmen side by side.',
-        rm_4_title: 'AI credits',
-        rm_4_desc: 'More AI-assisted profile texts, reply drafts and ad copy — purchasable directly in the app.',
-        rm_5_title: 'Sponsored profile',
-        rm_5_desc: 'Optional visibility boost in search results — for craftsmen who want more reach.',
+        rm_4_title: 'Advanced search &amp; filters',
+        rm_4_desc: 'Filter by rating, response time and availability — for customers who want to find the right person fast.',
+        rm_5_title: 'Quotes &amp; appointments',
+        rm_5_desc: 'Craftsmen create quotes directly in the app — customers confirm with a tap.',
         rm_6_title: 'Certificates &amp; references',
         rm_6_desc: 'Upload licences, certificates and completed projects — more trust at a glance.',
         price_h2: 'Get started — free.',
         price_sub: 'Meisterlich is completely free for craftsmen during our launch phase. No subscription, no lead fees, no commission. Those who join now build visibility and early reviews before anyone else.',
         price_note: 'No commission, no lead fees, no subscription. You keep every job fully. Craftsmen who want more visibility can optionally sponsor their profile.',
-        cta_badge: 'In App Store Review',
-        cta_h2: 'Get started — be one of the first.',
-        cta_p: 'Meisterlich is coming soon to the App Store for iPhone and iPad. Craftsmen who set up their profile now are visible from day one.',
+        cta_badge: 'Now on the App Store',
+        cta_h2: 'Download for free now.',
+        cta_p: 'Meisterlich is live — on the App Store for iPhone and iPad. Craftsmen who set up their profile are visible immediately — no commission, no lead fees.',
+        cta_download_btn: 'Download on the App Store',
         cta_platform: '📱 iPhone · iPad · iOS 17+',
-        modal_pill: 'In App Store Review',
+        modal_pill: 'Now live',
         modal_title: 'Meisterlich AI',
-        modal_sub: 'Meisterlich is coming soon to the App Store for iPhone and iPad. Set up your profile now to be visible from day one.',
+        modal_sub: 'Meisterlich is now on the App Store — free for iPhone and iPad.',
+        modal_store_btn: 'Download on the App Store',
         modal_close: 'Close',
         cookie_text: 'This website uses only technically necessary cookies.',
         cookie_more: 'Privacy Policy',
