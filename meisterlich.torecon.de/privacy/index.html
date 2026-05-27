@@ -27,8 +27,8 @@
       </a>
       <div class="nav-right">
         <div class="lang-toggle">
-          <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
-          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-de">DE</button>
+          <button class="lang-btn" id="btn-en">EN</button>
         </div>
         <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
       </div>
@@ -38,7 +38,7 @@
   <main class="page-content">
     <span class="page-label" data-i18n="page_label">Rechtliches</span>
     <h1 data-i18n="page_title">Datenschutzerklärung</h1>
-    <p class="page-meta" data-i18n="page_meta">Stand: April 2026 · Gilt für: Meisterlich AI iOS App</p>
+    <p class="page-meta" data-i18n="page_meta">Stand: Mai 2026 · Gilt für: Meisterlich AI iOS App</p>
 
     <div class="section">
       <h2 data-i18n="s1_title">1. Verantwortlicher</h2>
@@ -100,9 +100,11 @@
       <ul>
         <li data-i18n="s4_li1"><strong>Apple Inc.</strong> — Sign in with Apple, Abrechnung, Push-Notifications (Apple ist hier selbst Verantwortlicher nach eigener Datenschutzrichtlinie).</li>
         <li data-i18n="s4_li2"><strong>Railway Corp.</strong> (Hosting-Dienstleister, Auftragsverarbeiter) — Server in der EU (Region europe-west4, Niederlande). Standardvertragsklauseln und Auftragsverarbeitungsvertrag sind abgeschlossen.</li>
+        <li data-i18n="s4_li_hetzner"><strong>Hetzner Online GmbH</strong> (Speicherdienstleister, Auftragsverarbeiter) — Profilfotos und Mediendateien werden auf dem Hetzner Object Storage (S3-kompatibel) im Rechenzentrum Deutschland (Falkenstein) gespeichert. Auftragsverarbeitungsvertrag ist abgeschlossen.</li>
+        <li data-i18n="s4_li_anthropic"><strong>Anthropic PBC</strong> (KI-Dienstleister, Auftragsverarbeiter) — Wenn du den KI-Assistenten nutzt, wird dein Text über unseren Backend-Proxy an die Anthropic Claude API weitergeleitet. Es werden <strong>keine</strong> Identifikationsdaten (kein Name, keine E-Mail, keine Apple-ID) übermittelt. Anthropic hat Sitz in den USA; die Übermittlung erfolgt auf Grundlage von Standardvertragsklauseln gemäß Art. 46 DSGVO.</li>
         <li data-i18n="s4_li3"><strong>Andere Nutzer der App</strong> — Profildaten, Bewertungen, Chat-Nachrichten sind für deinen Chatpartner bzw. im öffentlichen Meister-Profil sichtbar.</li>
       </ul>
-      <p data-i18n="s4_p">Eine Datenübermittlung in Drittländer außerhalb der EU/EWR findet nur im Rahmen der Apple-Dienste statt und ist durch Apples Standardvertragsklauseln abgesichert.</p>
+      <p data-i18n="s4_p">Datenübermittlungen in Drittländer außerhalb der EU/EWR erfolgen im Rahmen der Dienste von Apple Inc. (USA) und Anthropic PBC (USA) und sind jeweils durch Standardvertragsklauseln gemäß Art. 46 DSGVO abgesichert.</p>
     </div>
 
     <div class="section">
@@ -178,7 +180,7 @@
         nav_back: '← Zurück',
         page_label: 'Rechtliches',
         page_title: 'Datenschutzerklärung',
-        page_meta: 'Stand: April 2026 · Gilt für: Meisterlich AI iOS App',
+        page_meta: 'Stand: Mai 2026 · Gilt für: Meisterlich AI iOS App',
         s1_title: '1. Verantwortlicher',
         s1_email: 'Datenschutzanfragen:',
         s1_p: 'Diese Datenschutzerklärung informiert über die Verarbeitung personenbezogener Daten im Zusammenhang mit der iOS-App <strong>Meisterlich AI</strong> und den dazugehörigen Backend-Services.',
@@ -200,7 +202,7 @@
         s2d_li3: 'Bewertungen und Antworten des Meisters darauf',
         s2d_li4: 'Von dir eingereichte Inhalts-Meldungen',
         s2e_title: '2.5 Abrechnungsdaten',
-        s2e_p: 'Die Handwerker-Abonnements werden über <strong>Apple In-App Purchase</strong> abgewickelt. Wir erhalten <strong>keine</strong> Kartendaten oder Bankverbindungen — nur einen signierten Transaktions-Beleg von Apple, aus dem wir Produkt-ID, Ablaufdatum und Aktiv-Status ablesen.',
+        s2e_p: 'In-App-Käufe (Handwerker-Abonnements und KI-Credits für Privatkunden) werden über <strong>Apple In-App Purchase</strong> abgewickelt. Wir erhalten <strong>keine</strong> Kartendaten oder Bankverbindungen — nur einen signierten Transaktions-Beleg von Apple, aus dem wir Produkt-ID, Ablaufdatum und Aktiv-Status ablesen.',
         s2f_title: '2.6 Technische Daten',
         s2f_p: 'Bei jedem Serveraufruf fallen aus technischen Gründen IP-Adresse, Zeitstempel und User-Agent an. Diese werden in den Server-Logs unseres Hosters maximal 30 Tage vorgehalten und dienen der Abwehr von Missbrauch und Fehleranalyse.',
         s3_title: '3. Zweck und Rechtsgrundlagen',
@@ -211,8 +213,10 @@
         s4_title: '4. Empfänger',
         s4_li1: '<strong>Apple Inc.</strong> — Sign in with Apple, Abrechnung, Push-Notifications (Apple ist hier selbst Verantwortlicher nach eigener Datenschutzrichtlinie).',
         s4_li2: '<strong>Railway Corp.</strong> (Hosting-Dienstleister, Auftragsverarbeiter) — Server in der EU (Region europe-west4, Niederlande). Standardvertragsklauseln und Auftragsverarbeitungsvertrag sind abgeschlossen.',
+        s4_li_hetzner: '<strong>Hetzner Online GmbH</strong> (Speicherdienstleister, Auftragsverarbeiter) — Profilfotos und Mediendateien werden auf dem Hetzner Object Storage (S3-kompatibel) im Rechenzentrum Deutschland (Falkenstein) gespeichert. Auftragsverarbeitungsvertrag ist abgeschlossen.',
+        s4_li_anthropic: '<strong>Anthropic PBC</strong> (KI-Dienstleister, Auftragsverarbeiter) — Wenn du den KI-Assistenten nutzt, wird dein Text über unseren Backend-Proxy an die Anthropic Claude API weitergeleitet. Es werden <strong>keine</strong> Identifikationsdaten (kein Name, keine E-Mail, keine Apple-ID) übermittelt. Anthropic hat Sitz in den USA; die Übermittlung erfolgt auf Grundlage von Standardvertragsklauseln gemäß Art. 46 DSGVO.',
         s4_li3: '<strong>Andere Nutzer der App</strong> — Profildaten, Bewertungen, Chat-Nachrichten sind für deinen Chatpartner bzw. im öffentlichen Meister-Profil sichtbar.',
-        s4_p: 'Eine Datenübermittlung in Drittländer außerhalb der EU/EWR findet nur im Rahmen der Apple-Dienste statt und ist durch Apples Standardvertragsklauseln abgesichert.',
+        s4_p: 'Datenübermittlungen in Drittländer außerhalb der EU/EWR erfolgen im Rahmen der Dienste von Apple Inc. (USA) und Anthropic PBC (USA) und sind jeweils durch Standardvertragsklauseln gemäß Art. 46 DSGVO abgesichert.',
         s5_title: '5. Speicherdauer',
         s5_li1: 'Profildaten: so lange dein Account besteht. Nach Löschung werden deine Daten innerhalb von 30 Tagen gelöscht oder anonymisiert.',
         s5_li2: 'Chatnachrichten: so lange der zugehörige Job existiert; nach Löschung des Jobs innerhalb von 30 Tagen entfernt.',
@@ -249,7 +253,7 @@
         nav_back: '← Back',
         page_label: 'Legal',
         page_title: 'Privacy Policy',
-        page_meta: 'Last updated: April 2026 · Applies to: Meisterlich AI iOS App',
+        page_meta: 'Last updated: May 2026 · Applies to: Meisterlich AI iOS App',
         s1_title: '1. Controller',
         s1_email: 'Privacy enquiries:',
         s1_p: 'This Privacy Policy explains how personal data is processed in connection with the iOS app <strong>Meisterlich AI</strong> and its backend services.',
@@ -271,7 +275,7 @@
         s2d_li3: 'Reviews and the Master\'s replies to them',
         s2d_li4: 'Content reports you submit',
         s2e_title: '2.5 Billing data',
-        s2e_p: 'Master subscriptions are processed through <strong>Apple In-App Purchase</strong>. We receive <strong>no</strong> card data or bank details — only a signed transaction receipt from Apple from which we read product ID, expiry date and active status.',
+        s2e_p: 'In-app purchases (craftsman subscriptions and AI credits for private customers) are processed through <strong>Apple In-App Purchase</strong>. We receive <strong>no</strong> card data or bank details — only a signed transaction receipt from Apple from which we read product ID, expiry date and active status.',
         s2f_title: '2.6 Technical data',
         s2f_p: 'For every server request, IP address, timestamp and user agent are logged for technical reasons. These are kept in our hoster\'s server logs for a maximum of 30 days and serve to defend against abuse and to analyse errors.',
         s3_title: '3. Purpose and legal bases',
@@ -282,8 +286,10 @@
         s4_title: '4. Recipients',
         s4_li1: '<strong>Apple Inc.</strong> — Sign in with Apple, billing, push notifications (Apple acts as its own controller under its own privacy policy here).',
         s4_li2: '<strong>Railway Corp.</strong> (hosting provider, processor) — servers within the EU (region europe-west4, Netherlands). Standard contractual clauses and a data processing agreement are in place.',
+        s4_li_hetzner: '<strong>Hetzner Online GmbH</strong> (storage provider, processor) — profile photos and media files are stored on Hetzner Object Storage (S3-compatible) in a German data centre (Falkenstein). A data processing agreement is in place.',
+        s4_li_anthropic: '<strong>Anthropic PBC</strong> (AI provider, processor) — when you use the AI assistant, your text is forwarded via our backend proxy to the Anthropic Claude API. <strong>No</strong> identifying data (no name, no email, no Apple ID) is transmitted. Anthropic is based in the USA; the transfer is secured by standard contractual clauses pursuant to Art. 46 GDPR.',
         s4_li3: '<strong>Other users of the App</strong> — profile data, reviews and chat messages are visible to your chat partner or in the public Master profile.',
-        s4_p: 'Transfers to third countries outside the EU/EEA only occur within Apple services and are secured by Apple\'s standard contractual clauses.',
+        s4_p: 'Transfers to third countries outside the EU/EEA occur via Apple Inc. (USA) and Anthropic PBC (USA) and are each secured by standard contractual clauses pursuant to Art. 46 GDPR.',
         s5_title: '5. Retention',
         s5_li1: 'Profile data: as long as your account exists. After deletion, your data is removed or anonymised within 30 days.',
         s5_li2: 'Chat messages: as long as the associated job exists; removed within 30 days after the job is deleted.',
@@ -317,8 +323,9 @@
       }
     };
 
+    const ls={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
     let lang = 'de';
-    function setLang(l) { lang = l; localStorage.setItem('ml_lang', l); apply(); }
+    function setLang(l){lang=l;apply();ls.set('ml_lang',l);}
     function apply() {
       const t = T[lang];
       document.documentElement.lang = lang;
@@ -333,12 +340,14 @@
     function detectLang() {
       const param = new URLSearchParams(location.search).get('lang');
       if (param && T[param]) return param;
-      const saved = localStorage.getItem('ml_lang');
+      const saved = ls.get('ml_lang');
       if (saved && T[saved]) return saved;
       return (navigator.language || '').toLowerCase().startsWith('de') ? 'de' : 'en';
     }
     lang = detectLang(); apply();
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+    document.getElementById('btn-de').addEventListener('click',()=>setLang('de'));
+    document.getElementById('btn-en').addEventListener('click',()=>setLang('en'));
   </script>
 </body>
 </html>

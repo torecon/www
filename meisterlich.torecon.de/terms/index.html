@@ -27,8 +27,8 @@
       </a>
       <div class="nav-right">
         <div class="lang-toggle">
-          <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
-          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-de">DE</button>
+          <button class="lang-btn" id="btn-en">EN</button>
         </div>
         <a class="nav-back" href="/" data-i18n="nav_back">← Zurück</a>
       </div>
@@ -66,6 +66,7 @@
       <h2 data-i18n="s3_title">3. Rollen und Kostenmodell</h2>
       <h3 data-i18n="s3_cust_title">3.1 Privatkunde</h3>
       <p data-i18n="s3_cust_p">Die Nutzung als Privatkunde ist <strong>kostenlos</strong>. Es fallen keine Registrierungs-, Such- oder Vermittlungsgebühren an. Es entsteht kein Vertrag mit Meisterlich AI über die Handwerksleistung selbst.</p>
+      <p data-i18n="s3_cust_iap">Privatkunden können optional <strong>KI-Credits</strong> erwerben, um den integrierten KI-Assistenten (zur Verbesserung von Auftragsanfragen) zu nutzen. Nach der ersten Nutzung werden <strong>3 Credits kostenlos</strong> bereitgestellt. Weitere Credits sind als In-App-Kauf über den Apple App Store erhältlich. Die jeweils gültigen Preise sind vor dem Kauf in der App ersichtlich.</p>
 
       <h3 data-i18n="s3_craft_title">3.2 Handwerker</h3>
       <p data-i18n="s3_craft_p">Die Nutzung als Handwerker ist <strong>kostenlos</strong>. Es fallen keine Registrierungs-, Vermittlungs- oder Lead-Gebühren an.</p>
@@ -199,6 +200,7 @@
         s3_title: '3. Rollen und Kostenmodell',
         s3_cust_title: '3.1 Privatkunde',
         s3_cust_p: 'Die Nutzung als Privatkunde ist <strong>kostenlos</strong>. Es fallen keine Registrierungs-, Such- oder Vermittlungsgebühren an. Es entsteht kein Vertrag mit Meisterlich AI über die Handwerksleistung selbst.',
+        s3_cust_iap: 'Privatkunden können optional <strong>KI-Credits</strong> erwerben, um den integrierten KI-Assistenten (zur Verbesserung von Auftragsanfragen) zu nutzen. Nach der ersten Nutzung werden <strong>3 Credits kostenlos</strong> bereitgestellt. Weitere Credits sind als In-App-Kauf über den Apple App Store erhältlich. Die jeweils gültigen Preise sind vor dem Kauf in der App ersichtlich.',
         s3_craft_title: '3.2 Handwerker',
         s3_craft_p: 'Die Nutzung als Handwerker ist <strong>kostenlos</strong>. Es fallen keine Registrierungs-, Vermittlungs- oder Lead-Gebühren an.',
         s3_pricing_note: '<strong>Preisänderungs-Vorbehalt:</strong> Der Anbieter behält sich vor, das Kostenmodell jederzeit zu ändern und ein kostenpflichtiges oder Freemium-Modell einzuführen. Eine gesonderte Zustimmung der Nutzer ist hierfür nicht erforderlich. Der Anbieter wird berechtigte Nutzerinteressen dabei in angemessener Weise berücksichtigen — insbesondere durch Gewährung angemessener Übergangsfristen und/oder die Beibehaltung eines eingeschränkten kostenfreien Funktionsumfangs. Nutzer, die ein geändertes Modell nicht akzeptieren, können ihr Konto jederzeit löschen.',
@@ -269,6 +271,7 @@
         s3_title: '3. Roles and pricing',
         s3_cust_title: '3.1 Private customer',
         s3_cust_p: 'Use as a private customer is <strong>free of charge</strong>. There are no registration, search or matchmaking fees. No contract with Meisterlich AI arises regarding the craftsmanship service itself.',
+        s3_cust_iap: 'Private customers may optionally purchase <strong>AI credits</strong> to use the integrated AI assistant (for improving job requests). After first use, <strong>3 credits are provided free of charge</strong>. Additional credits are available as an in-app purchase through the Apple App Store. Applicable prices are displayed in the App before purchase.',
         s3_craft_title: '3.2 Craftsman',
         s3_craft_p: 'Use as a craftsman is <strong>free of charge</strong>. No registration, matchmaking or lead fees apply.',
         s3_pricing_note: '<strong>Pricing change reservation:</strong> The provider reserves the right to change the pricing model at any time and to introduce a paid or freemium model — without requiring the separate consent of existing users. The provider will take legitimate user interests into reasonable account, in particular by granting adequate transition periods and/or retaining a limited free feature set. Users who do not accept a changed model may delete their account at any time.',
@@ -321,8 +324,9 @@
       }
     };
 
+    const ls={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
     let lang = 'de';
-    function setLang(l) { lang = l; localStorage.setItem('ml_lang', l); apply(); }
+    function setLang(l){lang=l;apply();ls.set('ml_lang',l);}
     function apply() {
       const t = T[lang];
       document.documentElement.lang = lang;
@@ -337,12 +341,14 @@
     function detectLang() {
       const param = new URLSearchParams(location.search).get('lang');
       if (param && T[param]) return param;
-      const saved = localStorage.getItem('ml_lang');
+      const saved = ls.get('ml_lang');
       if (saved && T[saved]) return saved;
       return (navigator.language || '').toLowerCase().startsWith('de') ? 'de' : 'en';
     }
     lang = detectLang(); apply();
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+    document.getElementById('btn-de').addEventListener('click',()=>setLang('de'));
+    document.getElementById('btn-en').addEventListener('click',()=>setLang('en'));
   </script>
 </body>
 </html>

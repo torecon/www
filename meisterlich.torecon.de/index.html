@@ -547,8 +547,10 @@
       }
     };
 
+    const ls={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+    const ss={get:k=>{try{return sessionStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{sessionStorage.setItem(k,v)}catch(e){}}};
     let lang = 'de';
-    function setLang(l){lang=l;localStorage.setItem('ml_lang',l);apply();}
+    function setLang(l){lang=l;apply();ls.set('ml_lang',l);}
     function apply(){
       const t=T[lang];
       document.documentElement.lang=lang;
@@ -563,34 +565,34 @@
     function detectLang(){
       const param=new URLSearchParams(location.search).get('lang');
       if(param&&T[param])return param;
-      const saved=localStorage.getItem('ml_lang');
+      const saved=ls.get('ml_lang');
       if(saved&&T[saved])return saved;
       return(navigator.language||'').toLowerCase().startsWith('de')?'de':'en';
     }
     function closeBanner(){
       const b=document.getElementById('launch-banner');
       if(b)b.style.display='none';
-      sessionStorage.setItem('ml_banner_dismissed','1');
+      ss.set('ml_banner_dismissed','1');
     }
-    if(sessionStorage.getItem('ml_banner_dismissed')==='1'){
+    if(ss.get('ml_banner_dismissed')==='1'){
       const b=document.getElementById('launch-banner');
       if(b)b.style.display='none';
     }
     function closeModal(){
       document.getElementById('iphone-modal').classList.remove('show');
-      sessionStorage.setItem('ml_modal_dismissed','1');
+      ss.set('ml_modal_dismissed','1');
     }
     const isIPhone=/iPhone|iPod/i.test(navigator.userAgent||'');
-    if(isIPhone&&sessionStorage.getItem('ml_modal_dismissed')!=='1'){
+    if(isIPhone&&ss.get('ml_modal_dismissed')!=='1'){
       setTimeout(()=>{const m=document.getElementById('iphone-modal');if(m)m.classList.add('show');},1200);
     }
     function initCookieBanner(){
-      if(localStorage.getItem('ml_cookie_consent'))return;
+      if(ls.get('ml_cookie_consent'))return;
       const b=document.getElementById('cookie-banner');
       if(b)setTimeout(()=>b.classList.add('show'),700);
     }
     function setCookieConsent(val){
-      localStorage.setItem('ml_cookie_consent',val);
+      ls.set('ml_cookie_consent',val);
       const b=document.getElementById('cookie-banner');
       if(b){b.style.transform='translateY(100%)';setTimeout(()=>b.remove(),400);}
     }
