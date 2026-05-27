@@ -95,7 +95,7 @@
   <!-- Launch Banner -->
   <div class="launch-banner" id="launch-banner">
     <div class="banner-inner">
-      <span class="banner-pill" data-i18n="banner_pill">Jetzt live</span>
+      <span class="banner-pill">v1.2</span>
       <span class="banner-text" data-i18n="banner_text">Meisterlich ist jetzt im App Store — kostenlos für iPhone und iPad.</span>
     </div>
     <button class="banner-close" onclick="closeBanner()" aria-label="Schließen">×</button>
@@ -112,8 +112,8 @@
       </a>
       <div class="nav-right">
         <div class="lang-toggle">
-          <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
-          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-de">DE</button>
+          <button class="lang-btn" id="btn-en">EN</button>
         </div>
         <a class="nav-back" href="#impressum" data-i18n="nav_imprint">Impressum</a>
       </div>
@@ -298,7 +298,7 @@
   <!-- Cookie Consent -->
   <div id="cookie-banner">
     <div class="cookie-inner">
-      <p class="cookie-text" data-i18n="cookie_text">Diese Website verwendet ausschließlich technisch notwendige Cookies. <a href="/privacy/" data-i18n="cookie_more">Datenschutz</a></p>
+      <p class="cookie-text" data-i18n="cookie_text">Diese Website verwendet ausschließlich technisch notwendige Cookies. <a href="/privacy/">Datenschutz</a></p>
       <div class="cookie-actions">
         <button class="btn-cookie-decline" onclick="setCookieConsent('necessary')" data-i18n="cookie_necessary">Nur notwendige</button>
         <button class="btn-cookie-accept" onclick="setCookieConsent('all')" data-i18n="cookie_accept">Verstanden</button>
@@ -314,8 +314,7 @@
       de: {
         nav_sub: 'eine Marke von <a href=”https://www.torecon.de/” target=”_blank” rel=”noopener”>torecon</a>',
         nav_imprint: 'Impressum',
-        banner_pill: 'Jetzt live',
-        banner_text: 'Meisterlich ist jetzt im App Store — kostenlos für iPhone und iPad.',
+        banner_text: 'Meisterlich v1.2 ist live — neu: gesponserte Profile, KI-Credits &amp; Rollenwechsel.',
         hero_h1_1: 'Handwerker finden.',
         hero_h1_2: 'Direkt. Kein Mittelsmann.',
         hero_sub: 'Kein Portal, das Leads verkauft. Kein Makler zwischen dir und deinem Handwerker. Meisterlich verbindet Kunden direkt mit Betrieben — <strong>kostenlos für alle</strong>.',
@@ -402,13 +401,12 @@
         cta_p: 'Meisterlich ist live — für iPhone und iPad. Handwerker, die ihr Profil anlegen, sind sofort sichtbar — ohne Provision, ohne Lead-Gebühr.',
         cta_download_btn: 'Im App Store herunterladen',
         cta_platform: '📱 iPhone · iPad · iOS 17+',
-        modal_pill: 'Jetzt live',
+        modal_pill: 'v1.2',
         modal_title: 'Meisterlich AI',
-        modal_sub: 'Meisterlich ist jetzt im App Store — kostenlos für iPhone und iPad.',
+        modal_sub: 'Meisterlich v1.2 ist jetzt im App Store — kostenlos für iPhone und iPad.',
         modal_store_btn: 'Im App Store herunterladen',
         modal_close: 'Schließen',
-        cookie_text: 'Diese Website verwendet ausschließlich technisch notwendige Cookies.',
-        cookie_more: 'Datenschutz',
+        cookie_text: 'Diese Website verwendet ausschließlich technisch notwendige Cookies. <a href="/privacy/">Datenschutz</a>',
         cookie_necessary: 'Nur notwendige',
         cookie_accept: 'Verstanden',
         imp_h2: 'Impressum',
@@ -433,8 +431,7 @@
       en: {
         nav_sub: 'a brand by <a href=”https://www.torecon.de/” target=”_blank” rel=”noopener”>torecon</a>',
         nav_imprint: 'Legal Notice',
-        banner_pill: 'Now live',
-        banner_text: 'Meisterlich is now on the App Store — free for iPhone and iPad.',
+        banner_text: 'Meisterlich v1.2 is live — new: sponsored profiles, AI credits &amp; role switching.',
         hero_h1_1: 'Find tradespeople.',
         hero_h1_2: 'Direct. No middleman.',
         hero_sub: 'No portal selling leads. No middleman between you and your tradesperson. Meisterlich connects customers directly with craftsmen — <strong>free for everyone</strong>.',
@@ -521,13 +518,12 @@
         cta_p: 'Meisterlich is live — on the App Store for iPhone and iPad. Craftsmen who set up their profile are visible immediately — no commission, no lead fees.',
         cta_download_btn: 'Download on the App Store',
         cta_platform: '📱 iPhone · iPad · iOS 17+',
-        modal_pill: 'Now live',
+        modal_pill: 'v1.2',
         modal_title: 'Meisterlich AI',
-        modal_sub: 'Meisterlich is now on the App Store — free for iPhone and iPad.',
+        modal_sub: 'Meisterlich v1.2 is now on the App Store — free for iPhone and iPad.',
         modal_store_btn: 'Download on the App Store',
         modal_close: 'Close',
-        cookie_text: 'This website uses only technically necessary cookies.',
-        cookie_more: 'Privacy Policy',
+        cookie_text: 'This website uses only technically necessary cookies. <a href="/privacy/">Privacy Policy</a>',
         cookie_necessary: 'Necessary only',
         cookie_accept: 'Got it',
         imp_h2: 'Legal Notice',
@@ -598,6 +594,8 @@
       const b=document.getElementById('cookie-banner');
       if(b){b.style.transform='translateY(100%)';setTimeout(()=>b.remove(),400);}
     }
+    document.getElementById('btn-de').addEventListener('click',()=>setLang('de'));
+    document.getElementById('btn-en').addEventListener('click',()=>setLang('en'));
     lang=detectLang();apply();
     document.getElementById('footer-year').textContent=new Date().getFullYear();
     document.addEventListener('DOMContentLoaded',initCookieBanner);
