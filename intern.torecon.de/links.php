@@ -123,7 +123,6 @@ if (isset($_GET['edit'])) {
   <aside class="sidebar">
     <div class="sidebar-logo">tore<span>con</span></div>
     <ul class="sidebar-nav">
-      <li><a href="./linkedin.php">💼 LinkedIn Posts</a></li>
       <li><a href="./links.php" class="active">🔖 Linkfavoriten</a></li>
       <li><a href="./routines.php">🔄 Routinen</a></li>
       <li><a href="./settings.php">⚙️ Einstellungen</a></li>

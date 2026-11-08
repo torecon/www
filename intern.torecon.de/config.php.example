@@ -9,8 +9,6 @@
 define('ADMIN_USER',     'admin');
 define('ADMIN_PASSWORD', 'bitte-sicheres-passwort-setzen');
 
-// Claude API Key (https://console.anthropic.com/)
-define('CLAUDE_API_KEY', 'sk-ant-...');
 
 // Optional: Absoluter Serverpfad zur topics.js der Hauptwebsite
 // Nur nötig, wenn Themen automatisch mit der Homepage synchronisiert werden sollen.

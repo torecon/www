@@ -70,8 +70,7 @@ if ($action === 'credentials_save') {
             . '// Diese Datei direkt in Plesk File Manager bearbeiten, um Zugangsdaten zu ändern.' . "\n"
             . '// Die Datei wird NICHT an den Browser ausgeliefert – nur der Server liest sie.' . "\n\n"
             . "define('ADMIN_USER',     " . var_export($save_user, true) . ");\n"
-            . "define('ADMIN_PASSWORD', " . var_export($save_pass, true) . ");\n"
-            . (defined('CLAUDE_API_KEY') ? "\ndefine('CLAUDE_API_KEY', " . var_export(CLAUDE_API_KEY, true) . ");\n" : '');
+            . "define('ADMIN_PASSWORD', " . var_export($save_pass, true) . ");\n";
 
         if (file_put_contents(__DIR__ . '/config.php', $config_content) !== false) {
             $msg = 'Zugangsdaten erfolgreich gespeichert.';
@@ -125,7 +124,6 @@ $li      = read_li_settings($li_settings_file);
   <aside class="sidebar">
     <div class="sidebar-logo">tore<span>con</span></div>
     <ul class="sidebar-nav">
-      <li><a href="./linkedin.php">💼 LinkedIn Posts</a></li>
       <li><a href="./links.php">🔖 Linkfavoriten</a></li>
       <li><a href="./routines.php">🔄 Routinen</a></li>
       <li><a href="./settings.php" class="active">⚙️ Einstellungen</a></li>
