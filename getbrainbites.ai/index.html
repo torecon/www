@@ -402,13 +402,6 @@
     .category-info p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
     .premium-badge { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600; color: var(--accent); background: rgba(0,113,227,0.1); border-radius: 6px; padding: 2px 8px; }
 
-    /* Reviews */
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .review-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm); }
-    .review-stars { font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
-    .review-text { font-size: 16px; color: var(--text); line-height: 1.65; margin-bottom: 18px; font-style: italic; }
-    .review-author { font-size: 14px; color: var(--text-tertiary); font-weight: 600; }
-
     /* Pricing */
     .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 720px; margin: 0 auto; }
     .pricing-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius-xl); padding: 36px 32px; box-shadow: var(--shadow); }
@@ -916,31 +909,6 @@
     </div>
   </section>
 
-  <!-- Reviews -->
-  <section class="section">
-    <div class="container">
-      <span class="section-label" data-i18n="rev_label">Stimmen aus der Community</span>
-      <h2 class="section-headline" style="text-align:center;" data-i18n="rev_headline">Was Professionals sagen.</h2>
-      <div class="reviews-grid" style="margin-top:48px;">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text" data-i18n="rev_1_text">"Endlich eine App, die mir KI wirklich erklärt — nicht als Werbung, sondern als echte Fähigkeit."</p>
-          <p class="review-author" data-i18n="rev_1_author">Markus T. · Projektleiter</p>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text" data-i18n="rev_2_text">"5 Minuten morgens, und ich gehe informierter in den Tag. BrainBites ist mein tägliches Ritual."</p>
-          <p class="review-author" data-i18n="rev_2_author">Sandra K. · Team Lead</p>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text" data-i18n="rev_3_text">"Ich habe in 2 Wochen mehr über KI gelernt als in 6 Monaten LinkedIn-Posts lesen."</p>
-          <p class="review-author" data-i18n="rev_3_author">David R. · Unternehmensberater</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Pricing -->
   <section class="section section-alt" id="preise">
     <div class="container" style="text-align:center;">
@@ -1314,14 +1282,6 @@
         modal_sub:        'Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.',
         modal_cta:        'Im App Store öffnen',
         modal_dismiss:    'Auf der Webseite weiterlesen',
-        rev_label:        'Stimmen aus der Community',
-        rev_headline:     'Was Professionals sagen.',
-        rev_1_text:       '"Endlich eine App, die mir KI wirklich erklärt — nicht als Werbung, sondern als echte Fähigkeit."',
-        rev_1_author:     'Markus T. · Projektleiter',
-        rev_2_text:       '"5 Minuten morgens, und ich gehe informierter in den Tag. BrainBites ist mein tägliches Ritual."',
-        rev_2_author:     'Sandra K. · Team Lead',
-        rev_3_text:       '"Ich habe in 2 Wochen mehr über KI gelernt als in 6 Monaten LinkedIn-Posts lesen."',
-        rev_3_author:     'David R. · Unternehmensberater',
         price_label:      'Pläne',
         price_headline:   'Kostenlos starten. Mehr lernen mit Premium.',
         price_free_plan:  'Free',
@@ -1483,14 +1443,6 @@
         modal_sub:        'You\'re on iPhone. Tap below and download the app in seconds — free, no signup.',
         modal_cta:        'Open App Store',
         modal_dismiss:    'Continue reading on the website',
-        rev_label:        'Community voices',
-        rev_headline:     'What professionals say.',
-        rev_1_text:       '"Finally an app that truly explains AI to me — not as marketing, but as a real skill."',
-        rev_1_author:     'Markus T. · Project Manager',
-        rev_2_text:       '"5 minutes in the morning, and I go into my day better informed. BrainBites is my daily ritual."',
-        rev_2_author:     'Sandra K. · Team Lead',
-        rev_3_text:       '"I\'ve learned more about AI in 2 weeks than in 6 months of scrolling LinkedIn."',
-        rev_3_author:     'David R. · Management Consultant',
         price_label:      'Plans',
         price_headline:   'Start free. Learn more with Premium.',
         price_free_plan:  'Free',
@@ -1652,14 +1604,6 @@
         modal_sub:        'Você está em um iPhone. Toque abaixo e baixe o app em segundos — grátis, sem cadastro.',
         modal_cta:        'Abrir App Store',
         modal_dismiss:    'Continuar lendo no site',
-        rev_label:        'Vozes da comunidade',
-        rev_headline:     'O que os profissionais dizem.',
-        rev_1_text:       '"Finalmente um app que realmente me explica IA — não como marketing, mas como uma habilidade real."',
-        rev_1_author:     'Markus T. · Gerente de Projetos',
-        rev_2_text:       '"5 minutos de manhã, e entro no dia mais informado. BrainBites é meu ritual diário."',
-        rev_2_author:     'Sandra K. · Team Lead',
-        rev_3_text:       '"Aprendi mais sobre IA em 2 semanas do que em 6 meses rolando o LinkedIn."',
-        rev_3_author:     'David R. · Consultor de Gestão',
         price_label:      'Planos',
         price_headline:   'Comece grátis. Aprenda mais com Premium.',
         price_free_plan:  'Free',
@@ -1821,14 +1765,6 @@
         modal_sub:        'Ти на iPhone. Натисни нижче і завантаж додаток за секунди — безкоштовно, без реєстрації.',
         modal_cta:        'Відкрити App Store',
         modal_dismiss:    'Продовжити читати на сайті',
-        rev_label:        'Голоси спільноти',
-        rev_headline:     'Що кажуть профі.',
-        rev_1_text:       '"Нарешті додаток, який справді пояснює мені ШІ — не як рекламу, а як реальний навик."',
-        rev_1_author:     'Markus T. · Керівник проекту',
-        rev_2_text:       '"5 хвилин вранці — і я йду в день більш поінформованим. BrainBites — мій щоденний ритуал."',
-        rev_2_author:     'Sandra K. · Team Lead',
-        rev_3_text:       '"За 2 тижні я дізнався про ШІ більше, ніж за 6 місяців читання LinkedIn."',
-        rev_3_author:     'David R. · Консультант з управління',
         price_label:      'Плани',
         price_headline:   'Почни безкоштовно. Вчись більше з Premium.',
         price_free_plan:  'Free',
