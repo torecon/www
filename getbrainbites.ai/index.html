@@ -504,7 +504,13 @@
       .hero-actions { flex-direction: column; align-items: center; }
       .section { padding: 64px 0; }
       .nav-cta { display: none; }
+      .nav-link { display: none; }
       .pricing-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 380px) {
+      .nav-inner { padding: 0 16px; }
+      .nav-logo-sub { display: none; }
+      .lang-btn { padding: 4px 7px; }
     }
 
     /* ── iPhone Modal (slide-up sheet, fires after 1.2s on iPhone Safari) ── */
