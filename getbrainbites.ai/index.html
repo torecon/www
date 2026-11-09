@@ -402,6 +402,13 @@
     .category-info p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
     .premium-badge { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600; color: var(--accent); background: rgba(0,113,227,0.1); border-radius: 6px; padding: 2px 8px; }
 
+    /* Privacy Promise */
+    .privacy-inner { text-align: center; max-width: 680px; }
+    .privacy-icon { font-size: 44px; margin-bottom: 12px; }
+    .privacy-promise { font-size: clamp(22px, 3.2vw, 30px); font-weight: 700; line-height: 1.35; letter-spacing: -0.02em; margin: 8px 0 16px; }
+    .privacy-promise .accent { color: var(--accent); }
+    .privacy-detail { font-size: 16px; color: var(--text-secondary); line-height: 1.6; }
+
     /* Pricing */
     .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 720px; margin: 0 auto; }
     .pricing-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius-xl); padding: 36px 32px; box-shadow: var(--shadow); }
@@ -995,6 +1002,16 @@
     </div>
   </section>
 
+  <!-- Privacy Promise -->
+  <section class="section privacy-section" id="datenschutz">
+    <div class="container privacy-inner">
+      <div class="privacy-icon" aria-hidden="true">🔒</div>
+      <span class="section-label" data-i18n="privacy_label">Datenschutz</span>
+      <p class="privacy-promise" data-i18n="privacy_promise">Kein Konto. Kein Name. <span class="accent">Keine E-Mail.</span></p>
+      <p class="privacy-detail" data-i18n="privacy_detail">Dein Lernfortschritt hängt an einer zufälligen Geräte-ID, nicht an deiner Person. Käufe wickelt ausschließlich Apple ab – wir sehen keine Zahlungsdaten. <a href="/privacy/">Volle Datenschutzerklärung</a>.</p>
+    </div>
+  </section>
+
   <!-- Download -->
   <section class="download-section" id="download">
     <h2 data-i18n="dl_headline">Bereit? Starte heute.</h2>
@@ -1292,6 +1309,9 @@
         rm_next_6:        'Zertifikate als PDF für erreichte Skill-Badges',
         rm_next_7:        'Schöne Link-Vorschau beim Teilen auf Facebook und LinkedIn',
         roadmap_promise:  '<strong>BrainBites AI</strong> ist kein abgeschlossenes Produkt, sondern ein wachsendes. Was du heute bekommst, ist der solide Anfang — und jedes Update macht die App ein Stück besser.',
+        privacy_label:    'Datenschutz',
+        privacy_promise:  'Kein Konto. Kein Name. <span class="accent">Keine E-Mail.</span>',
+        privacy_detail:   'Dein Lernfortschritt hängt an einer zufälligen Geräte-ID, nicht an deiner Person. Käufe wickelt ausschließlich Apple ab – wir sehen keine Zahlungsdaten. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
         modal_title:      'BrainBites AI direkt im App Store',
         modal_sub:        'Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.',
         modal_cta:        'Im App Store öffnen',
@@ -1459,6 +1479,9 @@
         rm_next_6:        'PDF certificates for earned skill badges',
         rm_next_7:        'Rich link previews when sharing on Facebook and LinkedIn',
         roadmap_promise:  '<strong>BrainBites AI</strong> isn\'t a finished product, it\'s a growing one. What you get today is the solid start — and every update makes the app a little better.',
+        privacy_label:    'Privacy',
+        privacy_promise:  'No account. No name. <span class="accent">No email.</span>',
+        privacy_detail:   'Your learning progress is tied to a random device ID, not to you. Purchases are handled entirely by Apple – we never see payment details. <a href="/privacy/">Full privacy policy</a>.',
         modal_title:      'BrainBites AI — straight from the App Store',
         modal_sub:        'You\'re on iPhone. Tap below and download the app in seconds — free, no signup.',
         modal_cta:        'Open App Store',
@@ -1626,6 +1649,9 @@
         rm_next_6:        'Certificados em PDF para selos de habilidade conquistados',
         rm_next_7:        'Pré-visualização de link ao compartilhar no Facebook e no LinkedIn',
         roadmap_promise:  '<strong>BrainBites AI</strong> não é um produto pronto, é um produto que cresce. O que você tem hoje é o começo sólido — e cada atualização deixa o app um pouco melhor.',
+        privacy_label:    'Privacidade',
+        privacy_promise:  'Sem conta. Sem nome. <span class="accent">Sem e-mail.</span>',
+        privacy_detail:   'Seu progresso fica ligado a um ID aleatório do aparelho, não a você. As compras são feitas inteiramente pela Apple – nunca vemos dados de pagamento. <a href="/privacy/">Política de privacidade completa</a>.',
         modal_title:      'BrainBites AI direto na App Store',
         modal_sub:        'Você está em um iPhone. Toque abaixo e baixe o app em segundos — grátis, sem cadastro.',
         modal_cta:        'Abrir App Store',
@@ -1793,6 +1819,9 @@
         rm_next_6:        'PDF-сертифікати за здобуті значки навичок',
         rm_next_7:        'Гарний попередній перегляд посилань у Facebook і LinkedIn',
         roadmap_promise:  '<strong>BrainBites AI</strong> — це не завершений продукт, а той, що росте. Те, що ти отримуєш сьогодні — це міцний початок, і кожне оновлення робить додаток трохи кращим.',
+        privacy_label:    'Конфіденційність',
+        privacy_promise:  'Без акаунта. Без імені. <span class="accent">Без e-mail.</span>',
+        privacy_detail:   'Твій прогрес привʼязаний до випадкового ID пристрою, а не до тебе. Покупки повністю обробляє Apple – ми не бачимо платіжних даних. <a href="/privacy/">Повна політика конфіденційності</a>.',
         modal_title:      'BrainBites AI прямо в App Store',
         modal_sub:        'Ти на iPhone. Натисни нижче і завантаж додаток за секунди — безкоштовно, без реєстрації.',
         modal_cta:        'Відкрити App Store',
