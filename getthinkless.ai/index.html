@@ -110,6 +110,19 @@
     .section-waitlist p.dl-plans { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto; }
     .section-waitlist p.dl-plans a { color: rgba(255,255,255,0.85); text-decoration: underline; }
 
+    /* ── Schmale iPhones: kein seitliches Scrollen (Nav) ─────────────────── */
+    @media (max-width: 600px) {
+      .nav-imprint { display: none; } /* Impressum bleibt im Footer verlinkt */
+    }
+    @media (max-width: 380px) {
+      .nav-inner { padding: 0 12px; }
+      .nav-logo { gap: 8px; }
+      .nav-logo-img { height: 28px; }
+      .nav-logo-main { font-size: 16px; }
+      .nav-logo-sub { display: none; }
+      .lang-btn { padding: 4px 7px; }
+    }
+
     /* ── Privacy Promise ─────────────────────────────────────────────────── */
     .section-privacy { padding: 84px 24px; background: var(--bg); text-align: center; }
     .section-privacy-inner { max-width: 680px; margin: 0 auto; }
@@ -254,15 +267,15 @@
   <!-- Navigation -->
   <nav class="site-nav">
     <div class="nav-inner">
-      <a class="nav-logo" href="/">
-        <img src="/logo.png" alt="ThinkLess AI" class="nav-logo-img">
+      <div class="nav-logo">
+        <a href="/" aria-hidden="true" tabindex="-1"><img src="/logo.png" alt="" class="nav-logo-img"></a>
         <div class="nav-logo-text">
-          <span class="nav-logo-main">
+          <a class="nav-logo-main" href="/">
             <span class="nav-logo-think">Think</span><span class="nav-logo-less">Less AI</span>
-          </span>
+          </a>
           <span class="nav-logo-sub" data-i18n="nav_sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
         </div>
-      </a>
+      </div>
       <div class="nav-right">
         <div class="lang-toggle">
           <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
