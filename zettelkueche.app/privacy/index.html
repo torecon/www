@@ -88,96 +88,73 @@
   <main class="page-content">
     <span class="page-label" data-i18n="page_label">Rechtliches</span>
     <h1 data-i18n="page_title">Datenschutzerklärung</h1>
-    <p class="page-meta" data-i18n="page_meta">Stand: April 2026 · Zettelküche AI für iOS und iPadOS</p>
+    <p class="page-meta" data-i18n="page_meta">Stand: November 2026 · Zettelküche AI für iPhone, iPad und Mac</p>
 
     <div class="highlight-box">
-      <p data-i18n="summary"><strong>Kurzfassung:</strong> Deine Rezepte bleiben in deiner privaten iCloud. Wir betreiben kein Konto-System. Für die KI-gestützte Rezept-Extraktion wird der Bildtext (OCR-Ergebnis) anonym an unseren Server geschickt und dort an Anthropic weitergeleitet — ohne Verknüpfung zu deiner Identität. Auf Wunsch deaktivierbar.</p>
+      <p data-i18n="summary"><strong>Kurzfassung:</strong> Kein Konto, keine Werbung, kein Tracking. Deine Rezepte liegen auf deinem Gerät und in deiner privaten iCloud. Nur wenn du eine KI-Funktion nutzt, schickt die App den dafür nötigen Text (nie ein Foto) an unseren Server; der leitet ihn an Anthropic weiter und speichert den Inhalt nicht. Die App sendet dabei eine zufällige Geräte-ID mit. Sie ist ein Pseudonym und nicht mit deinem Namen oder deiner Apple-ID verknüpft.</p>
     </div>
 
     <h2 data-i18n="h_1">1. Verantwortlicher</h2>
-    <p data-i18n="t_1">
-      Verantwortlicher im Sinne der DSGVO ist:<br><br>
-      <strong>Thomas Reinke · torecon</strong><br>
-      Roesgenstr. 22<br>
-      53474 Ahrweiler<br>
-      Deutschland<br>
-      E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a>
-    </p>
+    <p data-i18n="t_1">Verantwortlicher im Sinne der DSGVO ist:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Bad Neuenahr-Ahrweiler<br>Deutschland<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
 
-    <h2 data-i18n="h_2">2. Daten, die wir NICHT erheben</h2>
-    <p data-i18n="t_2_intro">Zettelküche AI erfordert kein Benutzerkonto und keine Registrierung. Folgende Daten werden von uns nicht erhoben:</p>
-    <ul data-i18n="t_2_list">
-      <li>Namen, E-Mail-Adressen oder andere Identitätsmerkmale</li>
-      <li>Standortdaten oder GPS-Informationen</li>
-      <li>Adressbuch- oder Kalender-Zugriff</li>
-      <li>Tracking-Identifier oder Werbe-IDs</li>
-      <li>Zahlungsdaten (werden ausschließlich von Apple verarbeitet)</li>
-    </ul>
+    <h2 data-i18n="h_2">2. Was wir nicht tun</h2>
+    <p data-i18n="t_2_intro">Zettelküche AI braucht kein Benutzerkonto und keine Registrierung. Wir erheben keine:</p>
+    <ul data-i18n="t_2_list"><li>Namen, E-Mail-Adressen oder andere Angaben zu deiner Identität</li><li>Standortdaten</li><li>Kontakte oder Kalendereinträge; bestehende Erinnerungen liest die App nicht aus (siehe Abschnitt 5)</li><li>Werbe-IDs; es gibt kein Tracking, keine Werbung und keine Analyse- oder Werbe-SDKs von Drittanbietern</li><li>Zahlungsdaten (die verarbeitet nur Apple)</li></ul>
 
     <h2 data-i18n="h_3">3. Daten auf deinem Gerät und in deiner privaten iCloud</h2>
-    <p data-i18n="t_3_intro">Zettelküche AI speichert folgende Daten <strong>lokal</strong> auf deinem iPhone/iPad und – wenn iCloud aktiv ist – in deiner <strong>privaten iCloud-Datenbank</strong> (CloudKit Private Database):</p>
-    <ul data-i18n="t_3_list">
-      <li>Rezepte (Titel, Zutaten, Schritte, Tags, Notizen, Kategorie, Bild)</li>
-      <li>Eigene Tags und Kategorien</li>
-      <li>Koch-Historie (welche Rezepte du wann gekocht hast)</li>
-      <li>App-Einstellungen (Sprache, Standard-Rezeptsprache, Display-Modus)</li>
-    </ul>
-    <p data-i18n="t_3_outro">Diese Daten verlassen dein Apple-Konto nicht. Wir (torecon) haben <strong>keinen Zugriff</strong> auf deine iCloud-Daten — Apple stellt uns lediglich anonymisierte technische Container zur Verfügung. Die iCloud-Synchronisation erfolgt ausschließlich zwischen Geräten mit derselben Apple-ID.</p>
+    <p data-i18n="t_3_intro">Zettelküche AI speichert folgende Daten <strong>lokal</strong> auf deinem Gerät und – wenn iCloud aktiv ist – in deiner <strong>privaten iCloud-Datenbank</strong> (CloudKit Private Database):</p>
+    <ul data-i18n="t_3_list"><li>Rezepte (Titel, Zutaten, Schritte, Tags, Notizen, Kategorie, Bilder, Quelle) sowie Thermomix-Fassungen</li><li>Eigene Tags und Kategorien, Allergen-Profil</li><li>Koch-Historie (welche Rezepte du wann gekocht hast)</li><li>Abo-Status und Zähler deines kostenlosen KI-Kontingents</li><li>App-Einstellungen (z. B. Sprache, Mitteilungen)</li></ul>
+    <p data-i18n="t_3_outro">Wir (torecon) haben <strong>keinen Zugriff</strong> auf deine iCloud-Daten. Die Synchronisation läuft über Apple zwischen deinen Geräten mit derselben Apple-ID. Die Texterkennung in Fotos, Scans und PDFs (OCR) erfolgt <strong>vollständig auf deinem Gerät</strong> mit Apples Vision-Framework; Bilder verlassen dein Gerät dafür nicht.</p>
 
-    <h2 data-i18n="h_4">4. KI-gestützte Rezept-Extraktion (optional, anonym)</h2>
-    <p data-i18n="t_4_intro">Wenn du ein Foto, einen Screenshot oder ein Dokument als Rezept erfasst, läuft folgender Prozess ab:</p>
-    <ol data-i18n="t_4_list">
-      <li>Die Texterkennung (OCR) erfolgt <strong>vollständig auf deinem Gerät</strong> mit Apples Vision-Framework. Das Bild verlässt dein Gerät dafür nicht.</li>
-      <li>Der erkannte Text wird über einen verschlüsselten HTTPS-Aufruf an unseren Proxy-Server (Hosting: Railway, EU-Region) geschickt. Übertragen wird nur der Rezepttext und eine zufällig generierte, nicht-personenbezogene Geräte-ID.</li>
-      <li>Der Proxy leitet den Text an <strong>Anthropic</strong> (Claude) zur Strukturierung weiter. Anthropic verarbeitet den Text gemäß seiner <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a> und nutzt ihn nicht zum Modell-Training.</li>
-      <li>Das strukturierte Ergebnis (Titel, Zutaten, Schritte) wird zurückgegeben und ausschließlich auf deinem Gerät / in deiner iCloud gespeichert. Wir speichern den Inhalt deines Rezepts <strong>nicht</strong> dauerhaft.</li>
-    </ol>
-    <p data-i18n="t_4_metrics">Server-seitig protokollieren wir lediglich aggregierte Nutzungs-Metriken (Zähler pro Geräte-ID, für die monatliche Free-Tier-Quote). Ein Rückschluss auf deine Person ist nicht möglich.</p>
-    <p data-i18n="t_4_optout">Du kannst die KI-Extraktion auch komplett vermeiden, indem du Rezepte manuell anlegst.</p>
+    <h2 data-i18n="h_4">4. KI-Funktionen über unseren Server</h2>
+    <p data-i18n="t_4_intro">Nur wenn du eine der folgenden Funktionen auslöst, sendet die App Daten per HTTPS an unseren Proxy-Server. Gesendet wird jeweils nur Text, nie ein Foto:</p>
+    <ul data-i18n="t_4_list"><li><strong>Rezept erfassen</strong> (Foto, Scan, Screenshot, PDF, Datei, eingefügter oder geteilter Text): der auf dem Gerät erkannte Text und die gewünschte Sprache</li><li><strong>Rezept aus einem Link importieren:</strong> die Web-Adresse (URL). Unser Server ruft die Seite selbst ab; der Betreiber der Website sieht dabei die Adresse unseres Servers, nicht deine.</li><li><strong>Zutat ersetzen:</strong> der Name der Zutat und der Rezepttitel</li><li><strong>Nährwerte schätzen:</strong> Rezepttitel, Zutaten mit Mengen und die Portionszahl</li><li><strong>Thermomix-Ablauf erstellen:</strong> Rezepttitel, Zutaten und Schritte</li></ul>
+    <p data-i18n="t_4_flow">Unser Server (betrieben bei Railway in der Region Niederlande/EU) leitet den Text an <strong>Anthropic</strong> (KI-Modell Claude) weiter und gibt das Ergebnis an die App zurück. Gespeichert wird das Ergebnis nur auf deinem Gerät bzw. in deiner iCloud. Wir speichern die Inhalte deiner Rezepte <strong>nicht</strong>. Anthropic verwendet die Daten nach seinen geschäftlichen Bedingungen nicht zum Training von KI-Modellen (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Datenschutzhinweise von Anthropic</a>).</p>
+    <p data-i18n="t_4_device"><strong>Geräte-ID:</strong> Mit jeder Anfrage sendet die App eine zufällig erzeugte Kennung (UUID), die beim ersten Start auf deinem Gerät angelegt wird. Sie enthält keinen Namen und keine Apple-ID, ist aber ein <strong>pseudonymes</strong> Merkmal. Unser Server nutzt sie nur im Arbeitsspeicher, um Missbrauch zu begrenzen (höchstens 30 Anfragen pro Minute je Gerät), und schreibt sie nicht in Protokolle.</p>
+    <p data-i18n="t_4_logs"><strong>Server-Protokolle:</strong> Unser Server protokolliert nur technische Angaben ohne Rezeptinhalte, z. B. aufgerufene Funktion, Sprache, Textlänge, Anzahl der Zutaten und Schritte, Fehlertyp und beim Link-Import nur den Namen der Website (z. B. „beispiel.de“), nicht die vollständige Adresse. Zusätzlich erfasst unser Hoster Railway ein Zugriffsprotokoll (Zeitpunkt, Pfad, Statuscode); dabei wird technisch bedingt deine IP-Adresse verarbeitet.</p>
+    <p data-i18n="t_4_quota"><strong>Kostenloses Kontingent:</strong> Wie viele KI-Erfassungen du ohne Premium schon genutzt hast, zählt nur die App auf deinem Gerät bzw. in deiner iCloud. Unser Server führt keine Zähler und kein Nutzerprofil.</p>
+    <p data-i18n="t_4_optout">Die KI-Funktionen sind freiwillig. Es gibt keinen eigenen Schalter, sie laufen aber nur, wenn du sie auslöst. Wenn du keine Daten an unseren Server senden möchtest, lege Rezepte manuell an und nutze die oben genannten Funktionen nicht.</p>
 
-    <h2 data-i18n="h_5">5. ChatGPT-Adaption (optional)</h2>
-    <p data-i18n="t_5">Die App enthält eine Funktion, mit der du ein bestehendes Rezept an die offizielle ChatGPT-App (oder ChatGPT-Web) übergeben kannst, um es z. B. in eine andere Diät oder Portionsgröße umzuformulieren. Dabei wird der Rezepttext per URL-Scheme an die ChatGPT-App übergeben. <strong>Du nutzt deinen eigenen ChatGPT-Account</strong> — die Verarbeitung erfolgt unter <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAIs Datenschutzbestimmungen</a>, ohne dass wir involviert sind.</p>
+    <h2 data-i18n="h_5">5. Berechtigungen und Systemfunktionen</h2>
+    <p data-i18n="t_5_intro">Die App fragt Berechtigungen erst, wenn du die jeweilige Funktion nutzt. Die Daten bleiben auf deinem Gerät, solange du nicht selbst eine KI-Funktion aus Abschnitt 4 auslöst:</p>
+    <ul data-i18n="t_5_list"><li><strong>Kamera und Dokumentenscanner:</strong> zum Fotografieren oder Scannen von Rezepten</li><li><strong>Fotos:</strong> Du wählst Bilder über die Fotoauswahl von Apple aus; die App erhält nur die ausgewählten Bilder</li><li><strong>Dateien:</strong> Import von PDF-, Text- und RTF-Dateien sowie von Rezeptdateien (.recipebundle), die du auswählst</li><li><strong>Teilen-Erweiterung:</strong> Bilder, PDFs oder Text, die du aus einer anderen App an Zettelküche teilst, legt die Erweiterung in einem geschützten Bereich auf deinem Gerät ab, bis die App sie verarbeitet</li><li><strong>Erinnerungen:</strong> Auf deinen Wunsch legt die App in Apple Erinnerungen eine neue Liste mit den Zutaten eines Rezepts an. iOS verlangt dafür den Zugriff auf Erinnerungen; die App liest deine bestehenden Erinnerungen nicht aus</li><li><strong>Mitteilungen:</strong> Koch-Timer und Wochenrückblick sind lokale Mitteilungen, die dein Gerät selbst plant; es gibt keine Push-Mitteilungen von einem Server</li><li><strong>Zwischenablage:</strong> Die App liest die Zwischenablage nur, wenn du „Einfügen“ tippst</li><li><strong>Update-Hinweis:</strong> Die App fragt bei Apple (iTunes-Lookup) die aktuelle Versionsnummer von Zettelküche ab; dabei werden keine Daten über dich gesendet</li></ul>
 
-    <h2 data-i18n="h_6">6. In-App-Käufe (StoreKit 2)</h2>
-    <p data-i18n="t_6">Zettelküche AI bietet ein optionales Premium-Abonnement über Apple an. Die Abwicklung von Zahlungen, Rechnungen und Rückerstattungen erfolgt ausschließlich durch Apple Inc. (USA) gemäß Apples Datenschutzrichtlinien. Wir erhalten dabei keine Zahlungsdaten oder personenbezogenen Informationen.</p>
+    <h2 data-i18n="h_6">6. Verfeinern mit ChatGPT (optional, Premium)</h2>
+    <p data-i18n="t_6">Mit dieser Funktion kannst du ein Rezept an ChatGPT übergeben, z. B. um es für eine andere Ernährungsweise umzuschreiben. Nach deiner Bestätigung kopiert die App den Rezepttext mit deinem Auftrag in die Zwischenablage und öffnet die ChatGPT-App; ist sie nicht installiert, öffnet sie chat.openai.com im Browser und übergibt den Text in der Web-Adresse. Über unseren Server läuft dabei nichts. <strong>Du nutzt dein eigenes ChatGPT-Konto</strong>; OpenAI verarbeitet die Daten in eigener Verantwortung nach seinen <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">Datenschutzbestimmungen</a>.</p>
 
-    <h2 data-i18n="h_7">7. Website (zettelkueche.app)</h2>
-    <p data-i18n="t_7_intro">Beim Besuch unserer Website werden durch den Webserver folgende Daten in Server-Logfiles gespeichert:</p>
-    <ul data-i18n="t_7_list">
-      <li>IP-Adresse (anonymisiert nach 7 Tagen gelöscht)</li>
-      <li>Datum und Uhrzeit des Zugriffs</li>
-      <li>Aufgerufene URL</li>
-      <li>Browser und Betriebssystem (User-Agent)</li>
-      <li>Referrer-URL (falls vorhanden)</li>
-    </ul>
-    <p data-i18n="t_7_outro">Diese Daten werden ausschließlich zur Sicherstellung des Betriebs verwendet. Es werden keine Tracking-Cookies gesetzt.</p>
+    <h2 data-i18n="h_7">7. In-App-Käufe</h2>
+    <p data-i18n="t_7">Zettelküche AI bietet ein optionales Premium-Abonnement über Apple an. Kauf, Zahlung, Rechnung und Erstattung wickelt ausschließlich Apple ab. Ob Premium aktiv ist, prüft die App mit StoreKit direkt auf deinem Gerät. Wir erhalten keine Zahlungsdaten und keine Angaben zu deiner Person.</p>
 
-    <h2 data-i18n="h_8">8. Drittanbieter-Dienste (Auftragsverarbeiter)</h2>
-    <ul data-i18n="t_8_list">
-      <li><strong>Apple Inc.</strong> — App-Distribution, In-App-Käufe, iCloud-Speicherung. <a href="https://www.apple.com/de/legal/privacy/de-ww/" target="_blank" rel="noopener">Privacy Policy</a></li>
-      <li><strong>Anthropic, PBC</strong> — KI-Strukturierung des OCR-Textes. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
-      <li><strong>Railway Corp.</strong> — Hosting des Proxy-Servers (EU-Region). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
-    </ul>
+    <h2 data-i18n="h_8">8. Website (zettelkueche.app)</h2>
+    <p data-i18n="t_8_intro">Beim Besuch unserer Website verarbeitet der Webserver unseres Hosters (Nethosting24 GmbH, Deutschland) folgende Daten in Server-Protokollen:</p>
+    <ul data-i18n="t_8_list"><li>IP-Adresse</li><li>Datum und Uhrzeit des Zugriffs</li><li>Aufgerufene Seite</li><li>Browser und Betriebssystem (User-Agent)</li><li>Verweisende Seite (falls vorhanden)</li></ul>
+    <p data-i18n="t_8_outro">Diese Daten dienen nur dem sicheren Betrieb der Website und werden nach kurzer Zeit automatisch gelöscht. Die Website setzt keine Tracking-Cookies und lädt keine Inhalte von Drittanbietern. Deine Sprachwahl und deine Auswahl im Hinweis-Banner speichert die Website im lokalen Speicher deines Browsers (localStorage); diese Angaben verlassen deinen Browser nicht.</p>
 
-    <h2 data-i18n="h_9">9. Deine Rechte (DSGVO)</h2>
-    <p data-i18n="t_9_intro">Da Zettelküche AI keine personenbezogenen Daten erhebt, gibt es bei uns keine Daten über dich, die wir abrufen, korrigieren oder löschen könnten. Deine Rezepte liegen vollständig unter deiner Kontrolle in deiner iCloud.</p>
-    <p data-i18n="t_9_rights_intro">Für Anfragen bezüglich Website-Logdaten oder OCR-Proxy-Logs hast du folgende Rechte gemäß DSGVO:</p>
-    <ul data-i18n="t_9_rights_list">
-      <li>Auskunft (Art. 15 DSGVO)</li>
-      <li>Berichtigung (Art. 16 DSGVO)</li>
-      <li>Löschung (Art. 17 DSGVO)</li>
-      <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-      <li>Widerspruch (Art. 21 DSGVO)</li>
-    </ul>
-    <p data-i18n="t_9_contact">Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
-    <p data-i18n="t_9_dsa">EU-DSA-Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
-    <p data-i18n="t_9_supervisory">Du hast außerdem das Recht, eine Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen. Für Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a></p>
+    <h2 data-i18n="h_9">9. Rechtsgrundlagen</h2>
+    <ul data-i18n="t_9_list"><li>KI-Funktionen aus Abschnitt 4, die du auslöst, In-App-Käufe und die Funktionen der App: Erfüllung des Nutzungsvertrags (Art. 6 Abs. 1 lit. b DSGVO)</li><li>Geräte-ID für das Missbrauchs-Limit, technische Server-Protokolle und Server-Protokolle der Website: berechtigtes Interesse an einem sicheren, stabilen Betrieb und am Schutz vor Missbrauch (Art. 6 Abs. 1 lit. f DSGVO)</li><li>Speicherung im Gerät bzw. Browser (Geräte-ID, Einstellungen, Sprachwahl): unbedingt erforderlich für den von dir gewünschten Dienst (§ 25 Abs. 2 Nr. 2 TDDDG)</li></ul>
 
-    <h2 data-i18n="h_10">10. Datensicherheit</h2>
-    <p data-i18n="t_10">Lokale Daten liegen im App-Sandbox-Verzeichnis (geschützt durch iOS-Sandbox). iCloud-Daten werden von Apple verschlüsselt übertragen und gespeichert. Verbindungen zum OCR-Proxy erfolgen ausschließlich über HTTPS/TLS 1.3.</p>
+    <h2 data-i18n="h_10">10. Empfänger und Übermittlung in Drittländer</h2>
+    <p data-i18n="t_10_intro">Wir verkaufen keine Daten. Daten erhalten nur:</p>
+    <ul data-i18n="t_10_list"><li><strong>Railway Corp. (USA)</strong>: Betrieb unseres Proxy-Servers in der Region Niederlande (EU), als Auftragsverarbeiter mit Vertrag zur Auftragsverarbeitung. Weil Railway ein US-Unternehmen ist, ist ein Zugriff aus den USA nicht ausgeschlossen; dafür gelten die Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Datenschutzhinweise</a></li><li><strong>Anthropic, PBC (USA)</strong>: KI-Verarbeitung der Texte aus Abschnitt 4, als Auftragsverarbeiter. Übermittlung in die USA auf Grundlage der Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Datenschutzhinweise</a></li><li><strong>Nethosting24 GmbH (Deutschland)</strong>: Hosting der Website zettelkueche.app, als Auftragsverarbeiter</li><li><strong>Apple Inc. (USA) bzw. Apple Distribution International Ltd. (Irland)</strong>: App Store, Käufe, iCloud und Systemfunktionen, in eigener Verantwortung nach der <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Datenschutzrichtlinie von Apple</a></li><li><strong>OpenAI</strong>: nur wenn du Abschnitt 6 nutzt, über dein eigenes Konto und in eigener Verantwortung von OpenAI</li></ul>
 
-    <h2 data-i18n="h_11">11. Änderungen dieser Datenschutzerklärung</h2>
-    <p data-i18n="t_11">Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren. Die aktuelle Version ist stets unter <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a> abrufbar.</p>
+    <h2 data-i18n="h_11">11. Speicherdauer</h2>
+    <ul data-i18n="t_11_list"><li><strong>Auf deinem Gerät und in deiner iCloud:</strong> bis du die Daten in der App löschst oder die App und ihre iCloud-Daten entfernst</li><li><strong>Unser Server:</strong> Inhalte nur für die Dauer der Anfrage im Arbeitsspeicher; die Geräte-ID für das Missbrauchs-Limit nur im Arbeitsspeicher für das laufende Zeitfenster von 60 Sekunden</li><li><strong>Server-Protokolle bei Railway:</strong> Railway bewahrt Protokolle nur begrenzt auf und löscht sie danach automatisch (je nach Railway-Tarif derzeit höchstens 30 Tage)</li><li><strong>Bei Anthropic:</strong> nach den geschäftlichen Bedingungen von Anthropic derzeit bis zu 30 Tage, danach Löschung (länger nur, wenn gesetzlich vorgeschrieben oder bei Verstößen gegen die Nutzungsrichtlinien)</li><li><strong>Website-Protokolle:</strong> nur für kurze Zeit, danach automatische Löschung durch den Hoster</li></ul>
+
+    <h2 data-i18n="h_12">12. Deine Rechte</h2>
+    <p data-i18n="t_12_intro">Deine Rezepte verwaltest du selbst: In den Einstellungen der App kannst du alle deine Daten als Datei exportieren (Auskunft und Datenübertragbarkeit) und deine Rezepte, Tags und Kategorien löschen. Gegenüber uns hast du nach der DSGVO das Recht auf:</p>
+    <ul data-i18n="t_12_list"><li>Auskunft (Art. 15 DSGVO)</li><li>Berichtigung (Art. 16 DSGVO)</li><li>Löschung (Art. 17 DSGVO)</li><li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li><li>Datenübertragbarkeit (Art. 20 DSGVO)</li><li>Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO)</li></ul>
+    <p data-i18n="t_12_note">Weil wir kein Konto führen und die Geräte-ID nicht in Protokollen speichern, können wir Server-Protokolle in der Regel keiner Person zuordnen (Art. 11 DSGVO). Wenn du uns zusätzliche Angaben gibst, die eine Zuordnung erlauben (z. B. Zeitpunkt einer Anfrage), prüfen wir deine Anfrage gern.</p>
+    <p data-i18n="t_12_contact">Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+    <p data-i18n="t_12_supervisory">Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, z. B. beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a></p>
+
+    <h2 data-i18n="h_13">13. Datensicherheit</h2>
+    <p data-i18n="t_13">Lokale Daten liegen im geschützten App-Bereich von iOS, iPadOS bzw. macOS. iCloud-Daten überträgt und speichert Apple verschlüsselt. Alle Verbindungen zu unserem Server sind per HTTPS verschlüsselt (TLS 1.2 oder neuer). Der Zugangsschlüssel zum KI-Dienst liegt nur auf unserem Server, nicht in der App.</p>
+
+    <h2 data-i18n="h_14">14. Kinder und Jugendliche</h2>
+    <p data-i18n="t_14">Zettelküche AI ist im App Store ab 4 Jahren freigegeben und fragt kein Alter ab. Die App verarbeitet keine Daten auf Grundlage einer Einwilligung. Käufe laufen über Apple; dort gelten die Einstellungen der Familienfreigabe. Wenn du glaubst, dass uns ein Kind Daten geschickt hat, schreib uns an <a href="mailto:info@torecon.de">info@torecon.de</a>.</p>
+
+    <h2 data-i18n="h_15">15. Änderungen dieser Datenschutzerklärung</h2>
+    <p data-i18n="t_15">Wir passen diese Datenschutzerklärung an, wenn sich die App oder die Rechtslage ändert. Die aktuelle Fassung findest du immer unter <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a>.</p>
   </main>
 
   <footer class="site-footer">
@@ -200,55 +177,55 @@
         nav_home: 'Zettelküche AI',
         page_label: 'Rechtliches',
         page_title: 'Datenschutzerklärung',
-        page_meta: 'Stand: April 2026 · Zettelküche AI für iOS und iPadOS',
-        summary: '<strong>Kurzfassung:</strong> Deine Rezepte bleiben in deiner privaten iCloud. Wir betreiben kein Konto-System. Für die KI-gestützte Rezept-Extraktion wird der Bildtext (OCR-Ergebnis) anonym an unseren Server geschickt und dort an Anthropic weitergeleitet — ohne Verknüpfung zu deiner Identität. Auf Wunsch deaktivierbar.',
-
+        page_meta: 'Stand: November 2026 · Zettelküche AI für iPhone, iPad und Mac',
+        summary: '<strong>Kurzfassung:</strong> Kein Konto, keine Werbung, kein Tracking. Deine Rezepte liegen auf deinem Gerät und in deiner privaten iCloud. Nur wenn du eine KI-Funktion nutzt, schickt die App den dafür nötigen Text (nie ein Foto) an unseren Server; der leitet ihn an Anthropic weiter und speichert den Inhalt nicht. Die App sendet dabei eine zufällige Geräte-ID mit. Sie ist ein Pseudonym und nicht mit deinem Namen oder deiner Apple-ID verknüpft.',
         h_1: '1. Verantwortlicher',
-        t_1: 'Verantwortlicher im Sinne der DSGVO ist:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Ahrweiler<br>Deutschland<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-
-        h_2: '2. Daten, die wir NICHT erheben',
-        t_2_intro: 'Zettelküche AI erfordert kein Benutzerkonto und keine Registrierung. Folgende Daten werden von uns nicht erhoben:',
-        t_2_list: '<li>Namen, E-Mail-Adressen oder andere Identitätsmerkmale</li><li>Standortdaten oder GPS-Informationen</li><li>Adressbuch- oder Kalender-Zugriff</li><li>Tracking-Identifier oder Werbe-IDs</li><li>Zahlungsdaten (werden ausschließlich von Apple verarbeitet)</li>',
-
+        t_1: 'Verantwortlicher im Sinne der DSGVO ist:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Bad Neuenahr-Ahrweiler<br>Deutschland<br>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        h_2: '2. Was wir nicht tun',
+        t_2_intro: 'Zettelküche AI braucht kein Benutzerkonto und keine Registrierung. Wir erheben keine:',
+        t_2_list: '<li>Namen, E-Mail-Adressen oder andere Angaben zu deiner Identität</li><li>Standortdaten</li><li>Kontakte oder Kalendereinträge; bestehende Erinnerungen liest die App nicht aus (siehe Abschnitt 5)</li><li>Werbe-IDs; es gibt kein Tracking, keine Werbung und keine Analyse- oder Werbe-SDKs von Drittanbietern</li><li>Zahlungsdaten (die verarbeitet nur Apple)</li>',
         h_3: '3. Daten auf deinem Gerät und in deiner privaten iCloud',
-        t_3_intro: 'Zettelküche AI speichert folgende Daten <strong>lokal</strong> auf deinem iPhone/iPad und – wenn iCloud aktiv ist – in deiner <strong>privaten iCloud-Datenbank</strong> (CloudKit Private Database):',
-        t_3_list: '<li>Rezepte (Titel, Zutaten, Schritte, Tags, Notizen, Kategorie, Bild)</li><li>Eigene Tags und Kategorien</li><li>Koch-Historie (welche Rezepte du wann gekocht hast)</li><li>App-Einstellungen (Sprache, Standard-Rezeptsprache, Display-Modus)</li>',
-        t_3_outro: 'Diese Daten verlassen dein Apple-Konto nicht. Wir (torecon) haben <strong>keinen Zugriff</strong> auf deine iCloud-Daten — Apple stellt uns lediglich anonymisierte technische Container zur Verfügung. Die iCloud-Synchronisation erfolgt ausschließlich zwischen Geräten mit derselben Apple-ID.',
-
-        h_4: '4. KI-gestützte Rezept-Extraktion (optional, anonym)',
-        t_4_intro: 'Wenn du ein Foto, einen Screenshot oder ein Dokument als Rezept erfasst, läuft folgender Prozess ab:',
-        t_4_list: '<li>Die Texterkennung (OCR) erfolgt <strong>vollständig auf deinem Gerät</strong> mit Apples Vision-Framework. Das Bild verlässt dein Gerät dafür nicht.</li><li>Der erkannte Text wird über einen verschlüsselten HTTPS-Aufruf an unseren Proxy-Server (Hosting: Railway, EU-Region) geschickt. Übertragen wird nur der Rezepttext und eine zufällig generierte, nicht-personenbezogene Geräte-ID.</li><li>Der Proxy leitet den Text an <strong>Anthropic</strong> (Claude) zur Strukturierung weiter. Anthropic verarbeitet den Text gemäß seiner <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a> und nutzt ihn nicht zum Modell-Training.</li><li>Das strukturierte Ergebnis (Titel, Zutaten, Schritte) wird zurückgegeben und ausschließlich auf deinem Gerät / in deiner iCloud gespeichert. Wir speichern den Inhalt deines Rezepts <strong>nicht</strong> dauerhaft.</li>',
-        t_4_metrics: 'Server-seitig protokollieren wir lediglich aggregierte Nutzungs-Metriken (Zähler pro Geräte-ID, für die monatliche Free-Tier-Quote). Ein Rückschluss auf deine Person ist nicht möglich.',
-        t_4_optout: 'Du kannst die KI-Extraktion auch komplett vermeiden, indem du Rezepte manuell anlegst.',
-
-        h_5: '5. ChatGPT-Adaption (optional)',
-        t_5: 'Die App enthält eine Funktion, mit der du ein bestehendes Rezept an die offizielle ChatGPT-App (oder ChatGPT-Web) übergeben kannst, um es z. B. in eine andere Diät oder Portionsgröße umzuformulieren. Dabei wird der Rezepttext per URL-Scheme an die ChatGPT-App übergeben. <strong>Du nutzt deinen eigenen ChatGPT-Account</strong> — die Verarbeitung erfolgt unter <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAIs Datenschutzbestimmungen</a>, ohne dass wir involviert sind.',
-
-        h_6: '6. In-App-Käufe (StoreKit 2)',
-        t_6: 'Zettelküche AI bietet ein optionales Premium-Abonnement über Apple an. Die Abwicklung von Zahlungen, Rechnungen und Rückerstattungen erfolgt ausschließlich durch Apple Inc. (USA) gemäß Apples Datenschutzrichtlinien. Wir erhalten dabei keine Zahlungsdaten oder personenbezogenen Informationen.',
-
-        h_7: '7. Website (zettelkueche.app)',
-        t_7_intro: 'Beim Besuch unserer Website werden durch den Webserver folgende Daten in Server-Logfiles gespeichert:',
-        t_7_list: '<li>IP-Adresse (anonymisiert nach 7 Tagen gelöscht)</li><li>Datum und Uhrzeit des Zugriffs</li><li>Aufgerufene URL</li><li>Browser und Betriebssystem (User-Agent)</li><li>Referrer-URL (falls vorhanden)</li>',
-        t_7_outro: 'Diese Daten werden ausschließlich zur Sicherstellung des Betriebs verwendet. Es werden keine Tracking-Cookies gesetzt.',
-
-        h_8: '8. Drittanbieter-Dienste (Auftragsverarbeiter)',
-        t_8_list: '<li><strong>Apple Inc.</strong> — App-Distribution, In-App-Käufe, iCloud-Speicherung. <a href="https://www.apple.com/de/legal/privacy/de-ww/" target="_blank" rel="noopener">Privacy Policy</a></li><li><strong>Anthropic, PBC</strong> — KI-Strukturierung des OCR-Textes. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li><li><strong>Railway Corp.</strong> — Hosting des Proxy-Servers (EU-Region). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>',
-
-        h_9: '9. Deine Rechte (DSGVO)',
-        t_9_intro: 'Da Zettelküche AI keine personenbezogenen Daten erhebt, gibt es bei uns keine Daten über dich, die wir abrufen, korrigieren oder löschen könnten. Deine Rezepte liegen vollständig unter deiner Kontrolle in deiner iCloud.',
-        t_9_rights_intro: 'Für Anfragen bezüglich Website-Logdaten oder OCR-Proxy-Logs hast du folgende Rechte gemäß DSGVO:',
-        t_9_rights_list: '<li>Auskunft (Art. 15 DSGVO)</li><li>Berichtigung (Art. 16 DSGVO)</li><li>Löschung (Art. 17 DSGVO)</li><li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li><li>Widerspruch (Art. 21 DSGVO)</li>',
-        t_9_contact: 'Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-        t_9_dsa: 'EU-DSA-Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-        t_9_supervisory: 'Du hast außerdem das Recht, eine Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen. Für Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>',
-
-        h_10: '10. Datensicherheit',
-        t_10: 'Lokale Daten liegen im App-Sandbox-Verzeichnis (geschützt durch iOS-Sandbox). iCloud-Daten werden von Apple verschlüsselt übertragen und gespeichert. Verbindungen zum OCR-Proxy erfolgen ausschließlich über HTTPS/TLS 1.3.',
-
-        h_11: '11. Änderungen dieser Datenschutzerklärung',
-        t_11: 'Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren. Die aktuelle Version ist stets unter <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a> abrufbar.',
-
+        t_3_intro: 'Zettelküche AI speichert folgende Daten <strong>lokal</strong> auf deinem Gerät und – wenn iCloud aktiv ist – in deiner <strong>privaten iCloud-Datenbank</strong> (CloudKit Private Database):',
+        t_3_list: '<li>Rezepte (Titel, Zutaten, Schritte, Tags, Notizen, Kategorie, Bilder, Quelle) sowie Thermomix-Fassungen</li><li>Eigene Tags und Kategorien, Allergen-Profil</li><li>Koch-Historie (welche Rezepte du wann gekocht hast)</li><li>Abo-Status und Zähler deines kostenlosen KI-Kontingents</li><li>App-Einstellungen (z. B. Sprache, Mitteilungen)</li>',
+        t_3_outro: 'Wir (torecon) haben <strong>keinen Zugriff</strong> auf deine iCloud-Daten. Die Synchronisation läuft über Apple zwischen deinen Geräten mit derselben Apple-ID. Die Texterkennung in Fotos, Scans und PDFs (OCR) erfolgt <strong>vollständig auf deinem Gerät</strong> mit Apples Vision-Framework; Bilder verlassen dein Gerät dafür nicht.',
+        h_4: '4. KI-Funktionen über unseren Server',
+        t_4_intro: 'Nur wenn du eine der folgenden Funktionen auslöst, sendet die App Daten per HTTPS an unseren Proxy-Server. Gesendet wird jeweils nur Text, nie ein Foto:',
+        t_4_list: '<li><strong>Rezept erfassen</strong> (Foto, Scan, Screenshot, PDF, Datei, eingefügter oder geteilter Text): der auf dem Gerät erkannte Text und die gewünschte Sprache</li><li><strong>Rezept aus einem Link importieren:</strong> die Web-Adresse (URL). Unser Server ruft die Seite selbst ab; der Betreiber der Website sieht dabei die Adresse unseres Servers, nicht deine.</li><li><strong>Zutat ersetzen:</strong> der Name der Zutat und der Rezepttitel</li><li><strong>Nährwerte schätzen:</strong> Rezepttitel, Zutaten mit Mengen und die Portionszahl</li><li><strong>Thermomix-Ablauf erstellen:</strong> Rezepttitel, Zutaten und Schritte</li>',
+        t_4_flow: 'Unser Server (betrieben bei Railway in der Region Niederlande/EU) leitet den Text an <strong>Anthropic</strong> (KI-Modell Claude) weiter und gibt das Ergebnis an die App zurück. Gespeichert wird das Ergebnis nur auf deinem Gerät bzw. in deiner iCloud. Wir speichern die Inhalte deiner Rezepte <strong>nicht</strong>. Anthropic verwendet die Daten nach seinen geschäftlichen Bedingungen nicht zum Training von KI-Modellen (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Datenschutzhinweise von Anthropic</a>).',
+        t_4_device: '<strong>Geräte-ID:</strong> Mit jeder Anfrage sendet die App eine zufällig erzeugte Kennung (UUID), die beim ersten Start auf deinem Gerät angelegt wird. Sie enthält keinen Namen und keine Apple-ID, ist aber ein <strong>pseudonymes</strong> Merkmal. Unser Server nutzt sie nur im Arbeitsspeicher, um Missbrauch zu begrenzen (höchstens 30 Anfragen pro Minute je Gerät), und schreibt sie nicht in Protokolle.',
+        t_4_logs: '<strong>Server-Protokolle:</strong> Unser Server protokolliert nur technische Angaben ohne Rezeptinhalte, z. B. aufgerufene Funktion, Sprache, Textlänge, Anzahl der Zutaten und Schritte, Fehlertyp und beim Link-Import nur den Namen der Website (z. B. „beispiel.de“), nicht die vollständige Adresse. Zusätzlich erfasst unser Hoster Railway ein Zugriffsprotokoll (Zeitpunkt, Pfad, Statuscode); dabei wird technisch bedingt deine IP-Adresse verarbeitet.',
+        t_4_quota: '<strong>Kostenloses Kontingent:</strong> Wie viele KI-Erfassungen du ohne Premium schon genutzt hast, zählt nur die App auf deinem Gerät bzw. in deiner iCloud. Unser Server führt keine Zähler und kein Nutzerprofil.',
+        t_4_optout: 'Die KI-Funktionen sind freiwillig. Es gibt keinen eigenen Schalter, sie laufen aber nur, wenn du sie auslöst. Wenn du keine Daten an unseren Server senden möchtest, lege Rezepte manuell an und nutze die oben genannten Funktionen nicht.',
+        h_5: '5. Berechtigungen und Systemfunktionen',
+        t_5_intro: 'Die App fragt Berechtigungen erst, wenn du die jeweilige Funktion nutzt. Die Daten bleiben auf deinem Gerät, solange du nicht selbst eine KI-Funktion aus Abschnitt 4 auslöst:',
+        t_5_list: '<li><strong>Kamera und Dokumentenscanner:</strong> zum Fotografieren oder Scannen von Rezepten</li><li><strong>Fotos:</strong> Du wählst Bilder über die Fotoauswahl von Apple aus; die App erhält nur die ausgewählten Bilder</li><li><strong>Dateien:</strong> Import von PDF-, Text- und RTF-Dateien sowie von Rezeptdateien (.recipebundle), die du auswählst</li><li><strong>Teilen-Erweiterung:</strong> Bilder, PDFs oder Text, die du aus einer anderen App an Zettelküche teilst, legt die Erweiterung in einem geschützten Bereich auf deinem Gerät ab, bis die App sie verarbeitet</li><li><strong>Erinnerungen:</strong> Auf deinen Wunsch legt die App in Apple Erinnerungen eine neue Liste mit den Zutaten eines Rezepts an. iOS verlangt dafür den Zugriff auf Erinnerungen; die App liest deine bestehenden Erinnerungen nicht aus</li><li><strong>Mitteilungen:</strong> Koch-Timer und Wochenrückblick sind lokale Mitteilungen, die dein Gerät selbst plant; es gibt keine Push-Mitteilungen von einem Server</li><li><strong>Zwischenablage:</strong> Die App liest die Zwischenablage nur, wenn du „Einfügen“ tippst</li><li><strong>Update-Hinweis:</strong> Die App fragt bei Apple (iTunes-Lookup) die aktuelle Versionsnummer von Zettelküche ab; dabei werden keine Daten über dich gesendet</li>',
+        h_6: '6. Verfeinern mit ChatGPT (optional, Premium)',
+        t_6: 'Mit dieser Funktion kannst du ein Rezept an ChatGPT übergeben, z. B. um es für eine andere Ernährungsweise umzuschreiben. Nach deiner Bestätigung kopiert die App den Rezepttext mit deinem Auftrag in die Zwischenablage und öffnet die ChatGPT-App; ist sie nicht installiert, öffnet sie chat.openai.com im Browser und übergibt den Text in der Web-Adresse. Über unseren Server läuft dabei nichts. <strong>Du nutzt dein eigenes ChatGPT-Konto</strong>; OpenAI verarbeitet die Daten in eigener Verantwortung nach seinen <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">Datenschutzbestimmungen</a>.',
+        h_7: '7. In-App-Käufe',
+        t_7: 'Zettelküche AI bietet ein optionales Premium-Abonnement über Apple an. Kauf, Zahlung, Rechnung und Erstattung wickelt ausschließlich Apple ab. Ob Premium aktiv ist, prüft die App mit StoreKit direkt auf deinem Gerät. Wir erhalten keine Zahlungsdaten und keine Angaben zu deiner Person.',
+        h_8: '8. Website (zettelkueche.app)',
+        t_8_intro: 'Beim Besuch unserer Website verarbeitet der Webserver unseres Hosters (Nethosting24 GmbH, Deutschland) folgende Daten in Server-Protokollen:',
+        t_8_list: '<li>IP-Adresse</li><li>Datum und Uhrzeit des Zugriffs</li><li>Aufgerufene Seite</li><li>Browser und Betriebssystem (User-Agent)</li><li>Verweisende Seite (falls vorhanden)</li>',
+        t_8_outro: 'Diese Daten dienen nur dem sicheren Betrieb der Website und werden nach kurzer Zeit automatisch gelöscht. Die Website setzt keine Tracking-Cookies und lädt keine Inhalte von Drittanbietern. Deine Sprachwahl und deine Auswahl im Hinweis-Banner speichert die Website im lokalen Speicher deines Browsers (localStorage); diese Angaben verlassen deinen Browser nicht.',
+        h_9: '9. Rechtsgrundlagen',
+        t_9_list: '<li>KI-Funktionen aus Abschnitt 4, die du auslöst, In-App-Käufe und die Funktionen der App: Erfüllung des Nutzungsvertrags (Art. 6 Abs. 1 lit. b DSGVO)</li><li>Geräte-ID für das Missbrauchs-Limit, technische Server-Protokolle und Server-Protokolle der Website: berechtigtes Interesse an einem sicheren, stabilen Betrieb und am Schutz vor Missbrauch (Art. 6 Abs. 1 lit. f DSGVO)</li><li>Speicherung im Gerät bzw. Browser (Geräte-ID, Einstellungen, Sprachwahl): unbedingt erforderlich für den von dir gewünschten Dienst (§ 25 Abs. 2 Nr. 2 TDDDG)</li>',
+        h_10: '10. Empfänger und Übermittlung in Drittländer',
+        t_10_intro: 'Wir verkaufen keine Daten. Daten erhalten nur:',
+        t_10_list: '<li><strong>Railway Corp. (USA)</strong>: Betrieb unseres Proxy-Servers in der Region Niederlande (EU), als Auftragsverarbeiter mit Vertrag zur Auftragsverarbeitung. Weil Railway ein US-Unternehmen ist, ist ein Zugriff aus den USA nicht ausgeschlossen; dafür gelten die Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Datenschutzhinweise</a></li><li><strong>Anthropic, PBC (USA)</strong>: KI-Verarbeitung der Texte aus Abschnitt 4, als Auftragsverarbeiter. Übermittlung in die USA auf Grundlage der Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Datenschutzhinweise</a></li><li><strong>Nethosting24 GmbH (Deutschland)</strong>: Hosting der Website zettelkueche.app, als Auftragsverarbeiter</li><li><strong>Apple Inc. (USA) bzw. Apple Distribution International Ltd. (Irland)</strong>: App Store, Käufe, iCloud und Systemfunktionen, in eigener Verantwortung nach der <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Datenschutzrichtlinie von Apple</a></li><li><strong>OpenAI</strong>: nur wenn du Abschnitt 6 nutzt, über dein eigenes Konto und in eigener Verantwortung von OpenAI</li>',
+        h_11: '11. Speicherdauer',
+        t_11_list: '<li><strong>Auf deinem Gerät und in deiner iCloud:</strong> bis du die Daten in der App löschst oder die App und ihre iCloud-Daten entfernst</li><li><strong>Unser Server:</strong> Inhalte nur für die Dauer der Anfrage im Arbeitsspeicher; die Geräte-ID für das Missbrauchs-Limit nur im Arbeitsspeicher für das laufende Zeitfenster von 60 Sekunden</li><li><strong>Server-Protokolle bei Railway:</strong> Railway bewahrt Protokolle nur begrenzt auf und löscht sie danach automatisch (je nach Railway-Tarif derzeit höchstens 30 Tage)</li><li><strong>Bei Anthropic:</strong> nach den geschäftlichen Bedingungen von Anthropic derzeit bis zu 30 Tage, danach Löschung (länger nur, wenn gesetzlich vorgeschrieben oder bei Verstößen gegen die Nutzungsrichtlinien)</li><li><strong>Website-Protokolle:</strong> nur für kurze Zeit, danach automatische Löschung durch den Hoster</li>',
+        h_12: '12. Deine Rechte',
+        t_12_intro: 'Deine Rezepte verwaltest du selbst: In den Einstellungen der App kannst du alle deine Daten als Datei exportieren (Auskunft und Datenübertragbarkeit) und deine Rezepte, Tags und Kategorien löschen. Gegenüber uns hast du nach der DSGVO das Recht auf:',
+        t_12_list: '<li>Auskunft (Art. 15 DSGVO)</li><li>Berichtigung (Art. 16 DSGVO)</li><li>Löschung (Art. 17 DSGVO)</li><li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li><li>Datenübertragbarkeit (Art. 20 DSGVO)</li><li>Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO)</li>',
+        t_12_note: 'Weil wir kein Konto führen und die Geräte-ID nicht in Protokollen speichern, können wir Server-Protokolle in der Regel keiner Person zuordnen (Art. 11 DSGVO). Wenn du uns zusätzliche Angaben gibst, die eine Zuordnung erlauben (z. B. Zeitpunkt einer Anfrage), prüfen wir deine Anfrage gern.',
+        t_12_contact: 'Kontakt: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        t_12_supervisory: 'Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, z. B. beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>',
+        h_13: '13. Datensicherheit',
+        t_13: 'Lokale Daten liegen im geschützten App-Bereich von iOS, iPadOS bzw. macOS. iCloud-Daten überträgt und speichert Apple verschlüsselt. Alle Verbindungen zu unserem Server sind per HTTPS verschlüsselt (TLS 1.2 oder neuer). Der Zugangsschlüssel zum KI-Dienst liegt nur auf unserem Server, nicht in der App.',
+        h_14: '14. Kinder und Jugendliche',
+        t_14: 'Zettelküche AI ist im App Store ab 4 Jahren freigegeben und fragt kein Alter ab. Die App verarbeitet keine Daten auf Grundlage einer Einwilligung. Käufe laufen über Apple; dort gelten die Einstellungen der Familienfreigabe. Wenn du glaubst, dass uns ein Kind Daten geschickt hat, schreib uns an <a href="mailto:info@torecon.de">info@torecon.de</a>.',
+        h_15: '15. Änderungen dieser Datenschutzerklärung',
+        t_15: 'Wir passen diese Datenschutzerklärung an, wenn sich die App oder die Rechtslage ändert. Die aktuelle Fassung findest du immer unter <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a>.',
         footer_privacy: 'Datenschutz',
         footer_terms: 'AGB',
         footer_support: 'Support',
@@ -260,55 +237,55 @@
         nav_home: 'Zettelküche AI',
         page_label: 'Legal',
         page_title: 'Privacy Policy',
-        page_meta: 'Last updated: April 2026 · Zettelküche AI for iOS and iPadOS',
-        summary: '<strong>Summary:</strong> Your recipes stay in your private iCloud. We do not run an account system. For AI-powered recipe extraction the OCR-text is sent anonymously to our server and forwarded to Anthropic — never linked to your identity. You can opt out at any time.',
-
-        h_1: '1. Data controller',
-        t_1: 'The controller under GDPR is:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Ahrweiler<br>Germany<br>Email: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-
-        h_2: '2. Data we do NOT collect',
-        t_2_intro: 'Zettelküche AI requires no user account and no registration. We do not collect any of:',
-        t_2_list: '<li>Names, email addresses, or any identifying information</li><li>Location or GPS data</li><li>Address book or calendar access</li><li>Tracking identifiers or advertising IDs</li><li>Payment data (handled exclusively by Apple)</li>',
-
+        page_meta: 'Last updated: November 2026 · Zettelküche AI for iPhone, iPad and Mac',
+        summary: '<strong>In short:</strong> No account, no ads, no tracking. Your recipes stay on your device and in your private iCloud. Only when you use an AI feature does the app send the text needed for it (never a photo) to our server, which forwards it to Anthropic and does not store the content. The app also sends a random device ID. It is a pseudonym and is not linked to your name or your Apple ID.',
+        h_1: '1. Controller',
+        t_1: 'The controller within the meaning of the GDPR is:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Bad Neuenahr-Ahrweiler<br>Germany<br>Email: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        h_2: '2. What we don’t do',
+        t_2_intro: 'Zettelküche AI requires no user account and no registration. We do not collect:',
+        t_2_list: '<li>Names, email addresses or other details about your identity</li><li>Location data</li><li>Contacts or calendar entries; the app does not read your existing reminders (see section 5)</li><li>Advertising IDs; there is no tracking, no advertising and no third-party analytics or advertising SDKs</li><li>Payment data (processed by Apple only)</li>',
         h_3: '3. Data on your device and in your private iCloud',
-        t_3_intro: 'Zettelküche AI stores the following data <strong>locally</strong> on your iPhone/iPad and — when iCloud is enabled — in your <strong>private iCloud database</strong> (CloudKit Private Database):',
-        t_3_list: '<li>Recipes (title, ingredients, steps, tags, notes, category, image)</li><li>Custom tags and categories</li><li>Cooking history (which recipes you cooked when)</li><li>App settings (language, default recipe language, display mode)</li>',
-        t_3_outro: 'This data never leaves your Apple account. We (torecon) have <strong>no access</strong> to your iCloud data — Apple only provides us with anonymized technical containers. iCloud sync only happens between devices signed in to the same Apple ID.',
-
-        h_4: '4. AI-powered recipe extraction (optional, anonymous)',
-        t_4_intro: 'When you capture a photo, screenshot or document as a recipe, the following process runs:',
-        t_4_list: '<li>Text recognition (OCR) runs <strong>entirely on your device</strong> using Apple\'s Vision framework. The image never leaves your device.</li><li>The recognized text is sent over an encrypted HTTPS request to our proxy server (hosting: Railway, EU region). Only the recipe text and a randomly generated, non-personal device ID are transmitted.</li><li>The proxy forwards the text to <strong>Anthropic</strong> (Claude) for structuring. Anthropic processes the text under its <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a> and does not use it for model training.</li><li>The structured result (title, ingredients, steps) is returned and stored only on your device / in your iCloud. We do <strong>not</strong> persist your recipe content.</li>',
-        t_4_metrics: 'Server-side we only log aggregated usage metrics (counter per device ID, for the monthly free-tier quota). No personal identification is possible.',
-        t_4_optout: 'You can avoid the AI extraction entirely by adding recipes manually.',
-
-        h_5: '5. ChatGPT adaptation (optional)',
-        t_5: 'The app includes a feature that lets you hand off an existing recipe to the official ChatGPT app (or ChatGPT web), e.g. to reformulate it for a different diet or portion size. The recipe text is passed to ChatGPT via URL scheme. <strong>You use your own ChatGPT account</strong> — processing happens under <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI\'s privacy terms</a>, with no involvement on our side.',
-
-        h_6: '6. In-app purchases (StoreKit 2)',
-        t_6: 'Zettelküche AI offers an optional Premium subscription via Apple. Payments, billing and refunds are handled exclusively by Apple Inc. (USA) under Apple\'s privacy terms. We receive no payment data or personal information.',
-
-        h_7: '7. Website (zettelkueche.app)',
-        t_7_intro: 'When you visit our website, the web server stores the following data in log files:',
-        t_7_list: '<li>IP address (anonymized after 7 days, then deleted)</li><li>Date and time of access</li><li>Requested URL</li><li>Browser and operating system (user agent)</li><li>Referrer URL (if present)</li>',
-        t_7_outro: 'This data is used solely to ensure operation. No tracking cookies are set.',
-
-        h_8: '8. Third-party services (data processors)',
-        t_8_list: '<li><strong>Apple Inc.</strong> — App distribution, in-app purchases, iCloud storage. <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener">Privacy Policy</a></li><li><strong>Anthropic, PBC</strong> — AI structuring of OCR text. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li><li><strong>Railway Corp.</strong> — proxy server hosting (EU region). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>',
-
-        h_9: '9. Your rights (GDPR)',
-        t_9_intro: 'Because Zettelküche AI does not collect personal data, we have no data about you we could retrieve, correct or delete. Your recipes are entirely under your control in your iCloud.',
-        t_9_rights_intro: 'For requests regarding website logs or OCR proxy logs you have these rights under GDPR:',
-        t_9_rights_list: '<li>Access (Art. 15 GDPR)</li><li>Rectification (Art. 16 GDPR)</li><li>Erasure (Art. 17 GDPR)</li><li>Restriction of processing (Art. 18 GDPR)</li><li>Objection (Art. 21 GDPR)</li>',
-        t_9_contact: 'Contact: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-        t_9_dsa: 'EU DSA contact: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-        t_9_supervisory: 'You also have the right to file a complaint with the competent data protection supervisory authority. For Rhineland-Palatinate: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>',
-
-        h_10: '10. Data security',
-        t_10: 'Local data lives in the app sandbox directory (protected by the iOS sandbox). iCloud data is transmitted and stored encrypted by Apple. Connections to the OCR proxy happen exclusively over HTTPS/TLS 1.3.',
-
-        h_11: '11. Changes to this privacy policy',
-        t_11: 'We reserve the right to update this privacy policy as needed. The current version is always available at <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a>.',
-
+        t_3_intro: 'Zettelküche AI stores the following data <strong>locally</strong> on your device and – if iCloud is enabled – in your <strong>private iCloud database</strong> (CloudKit Private Database):',
+        t_3_list: '<li>Recipes (title, ingredients, steps, tags, notes, category, images, source) and Thermomix versions</li><li>Your own tags and categories, allergen profile</li><li>Cooking history (which recipes you cooked and when)</li><li>Subscription status and the counter of your free AI allowance</li><li>App settings (e.g. language, notifications)</li>',
+        t_3_outro: 'We (torecon) have <strong>no access</strong> to your iCloud data. Syncing runs through Apple between your devices signed in with the same Apple ID. Text recognition in photos, scans and PDFs (OCR) happens <strong>entirely on your device</strong> using Apple’s Vision framework; images do not leave your device for this.',
+        h_4: '4. AI features via our server',
+        t_4_intro: 'Only when you trigger one of the following features does the app send data via HTTPS to our proxy server. Only text is sent, never a photo:',
+        t_4_list: '<li><strong>Capture a recipe</strong> (photo, scan, screenshot, PDF, file, pasted or shared text): the text recognized on your device and the desired language</li><li><strong>Import a recipe from a link:</strong> the web address (URL). Our server fetches the page itself; the website operator sees our server’s address, not yours.</li><li><strong>Substitute an ingredient:</strong> the ingredient name and the recipe title</li><li><strong>Estimate nutrition:</strong> recipe title, ingredients with quantities and the number of servings</li><li><strong>Create a Thermomix workflow:</strong> recipe title, ingredients and steps</li>',
+        t_4_flow: 'Our server (run on Railway in the Netherlands/EU region) forwards the text to <strong>Anthropic</strong> (AI model Claude) and returns the result to the app. The result is stored only on your device or in your iCloud. We do <strong>not</strong> store the contents of your recipes. Under its commercial terms, Anthropic does not use the data to train AI models (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic privacy policy</a>).',
+        t_4_device: '<strong>Device ID:</strong> With every request the app sends a randomly generated identifier (UUID) that is created on your device at first launch. It contains no name and no Apple ID, but it is a <strong>pseudonymous</strong> identifier. Our server uses it only in memory to limit abuse (at most 30 requests per minute per device) and does not write it to logs.',
+        t_4_logs: '<strong>Server logs:</strong> Our server logs only technical details without recipe contents, e.g. the feature called, language, text length, number of ingredients and steps, error type and, for link imports, only the name of the website (e.g. “example.com”), not the full address. In addition, our host Railway records an access log (time, path, status code); for technical reasons your IP address is processed in the process.',
+        t_4_quota: '<strong>Free allowance:</strong> How many AI captures you have used without Premium is counted only by the app on your device or in your iCloud. Our server keeps no counters and no user profile.',
+        t_4_optout: 'The AI features are optional. There is no separate switch, but they only run when you trigger them. If you do not want to send any data to our server, create recipes manually and do not use the features listed above.',
+        h_5: '5. Permissions and system features',
+        t_5_intro: 'The app asks for permissions only when you use the respective feature. The data stays on your device unless you trigger an AI feature from section 4 yourself:',
+        t_5_list: '<li><strong>Camera and document scanner:</strong> to photograph or scan recipes</li><li><strong>Photos:</strong> you choose images via Apple’s photo picker; the app only receives the selected images</li><li><strong>Files:</strong> import of PDF, text and RTF files as well as recipe files (.recipebundle) that you choose</li><li><strong>Share extension:</strong> images, PDFs or text that you share to Zettelküche from another app are placed by the extension in a protected area on your device until the app processes them</li><li><strong>Reminders:</strong> on your request, the app creates a new list in Apple Reminders with the ingredients of a recipe. iOS requires access to Reminders for this; the app does not read your existing reminders</li><li><strong>Notifications:</strong> cooking timers and the weekly recap are local notifications scheduled by your device; there are no push notifications from a server</li><li><strong>Clipboard:</strong> the app only reads the clipboard when you tap “Paste”</li><li><strong>Update notice:</strong> the app asks Apple (iTunes Lookup) for the current version number of Zettelküche; no data about you is sent</li>',
+        h_6: '6. Refine with ChatGPT (optional, Premium)',
+        t_6: 'With this feature you can hand a recipe over to ChatGPT, e.g. to rewrite it for a different diet. After you confirm, the app copies the recipe text with your request to the clipboard and opens the ChatGPT app; if it is not installed, it opens chat.openai.com in your browser and passes the text in the web address. Nothing goes through our server. <strong>You use your own ChatGPT account</strong>; OpenAI processes the data under its own responsibility according to its <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.',
+        h_7: '7. In-app purchases',
+        t_7: 'Zettelküche AI offers an optional Premium subscription through Apple. Purchase, payment, invoicing and refunds are handled exclusively by Apple. The app checks whether Premium is active using StoreKit directly on your device. We receive no payment data and no personal details.',
+        h_8: '8. Website (zettelkueche.app)',
+        t_8_intro: 'When you visit our website, the web server of our host (Nethosting24 GmbH, Germany) processes the following data in server logs:',
+        t_8_list: '<li>IP address</li><li>Date and time of access</li><li>Page requested</li><li>Browser and operating system (user agent)</li><li>Referring page (if any)</li>',
+        t_8_outro: 'This data is used only to operate the website securely and is deleted automatically after a short time. The website sets no tracking cookies and loads no third-party content. Your language choice and your selection in the notice banner are stored by the website in your browser’s local storage (localStorage); this information does not leave your browser.',
+        h_9: '9. Legal bases',
+        t_9_list: '<li>AI features from section 4 that you trigger, in-app purchases and the app’s features: performance of the user agreement (Art. 6(1)(b) GDPR)</li><li>Device ID for the abuse limit, technical server logs and website server logs: legitimate interest in secure, stable operation and protection against abuse (Art. 6(1)(f) GDPR)</li><li>Storage on the device or in the browser (device ID, settings, language choice): strictly necessary for the service you requested (Section 25(2) no. 2 German TDDDG)</li>',
+        h_10: '10. Recipients and transfers to third countries',
+        t_10_intro: 'We do not sell any data. Data is received only by:',
+        t_10_list: '<li><strong>Railway Corp. (USA)</strong>: operation of our proxy server in the Netherlands region (EU), as a processor under a data processing agreement. Because Railway is a US company, access from the USA cannot be ruled out; the European Commission’s Standard Contractual Clauses apply to this (Art. 46(2)(c) GDPR). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Privacy policy</a></li><li><strong>Anthropic, PBC (USA)</strong>: AI processing of the texts from section 4, as a processor. Transfer to the USA on the basis of the Standard Contractual Clauses (Art. 46(2)(c) GDPR). <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy policy</a></li><li><strong>Nethosting24 GmbH (Germany)</strong>: hosting of the website zettelkueche.app, as a processor</li><li><strong>Apple Inc. (USA) or Apple Distribution International Ltd. (Ireland)</strong>: App Store, purchases, iCloud and system features, under Apple’s own responsibility according to the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a></li><li><strong>OpenAI</strong>: only if you use section 6, via your own account and under OpenAI’s own responsibility</li>',
+        h_11: '11. Retention period',
+        t_11_list: '<li><strong>On your device and in your iCloud:</strong> until you delete the data in the app or remove the app and its iCloud data</li><li><strong>Our server:</strong> contents only in memory for the duration of the request; the device ID for the abuse limit only in memory for the current 60-second window</li><li><strong>Server logs at Railway:</strong> Railway keeps logs only for a limited time and then deletes them automatically (depending on the Railway plan, currently at most 30 days)</li><li><strong>At Anthropic:</strong> under Anthropic’s commercial terms currently up to 30 days, then deletion (longer only if required by law or in case of usage policy violations)</li><li><strong>Website logs:</strong> only for a short time, then deleted automatically by the host</li>',
+        h_12: '12. Your rights',
+        t_12_intro: 'You manage your recipes yourself: in the app’s settings you can export all your data as a file (access and data portability) and delete your recipes, tags and categories. Towards us, under the GDPR you have the right to:',
+        t_12_list: '<li>Access (Art. 15 GDPR)</li><li>Rectification (Art. 16 GDPR)</li><li>Erasure (Art. 17 GDPR)</li><li>Restriction of processing (Art. 18 GDPR)</li><li>Data portability (Art. 20 GDPR)</li><li>Objection to processing based on legitimate interests (Art. 21 GDPR)</li>',
+        t_12_note: 'Because we keep no account and do not store the device ID in logs, we generally cannot link server logs to a person (Art. 11 GDPR). If you give us additional information that allows such a link (e.g. the time of a request), we will be happy to look into your request.',
+        t_12_contact: 'Contact: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        t_12_supervisory: 'You also have the right to lodge a complaint with a data protection supervisory authority, e.g. the State Commissioner for Data Protection and Freedom of Information of Rhineland-Palatinate: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>',
+        h_13: '13. Data security',
+        t_13: 'Local data is stored in the protected app area of iOS, iPadOS or macOS. Apple transmits and stores iCloud data in encrypted form. All connections to our server are encrypted via HTTPS (TLS 1.2 or newer). The access key for the AI service is stored only on our server, not in the app.',
+        h_14: '14. Children and young people',
+        t_14: 'Zettelküche AI is rated 4+ in the App Store and does not ask for your age. The app does not process any data on the basis of consent. Purchases go through Apple, where Family Sharing settings apply. If you believe a child has sent us data, write to us at <a href="mailto:info@torecon.de">info@torecon.de</a>.',
+        h_15: '15. Changes to this privacy policy',
+        t_15: 'We update this privacy policy when the app or the legal situation changes. You can always find the current version at <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a>.',
         footer_privacy: 'Privacy',
         footer_terms: 'Terms',
         footer_support: 'Support',
@@ -320,55 +297,55 @@
         nav_home: 'Zettelküche AI',
         page_label: 'Юридична інформація',
         page_title: 'Політика конфіденційності',
-        page_meta: 'Останнє оновлення: квітень 2026 · Zettelküche AI для iOS та iPadOS',
-        summary: '<strong>Стисло:</strong> Ваші рецепти залишаються у вашій приватній iCloud. Ми не ведемо систему облікових записів. Для AI-структурування рецептів OCR-текст надсилається анонімно на наш сервер і передається до Anthropic — ніколи не пов\'язаний з вашою особою. У будь-який момент можна відмовитися.',
-
-        h_1: '1. Контролер даних',
-        t_1: 'Контролером даних згідно GDPR є:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Ahrweiler<br>Німеччина<br>Електронна пошта: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-
-        h_2: '2. Дані, які ми НЕ збираємо',
-        t_2_intro: 'Zettelküche AI не вимагає облікового запису та реєстрації. Ми не збираємо нічого з наступного:',
-        t_2_list: '<li>Імена, електронні адреси чи інша інформація, що ідентифікує особу</li><li>Дані про місцезнаходження або GPS</li><li>Доступ до адресної книги чи календаря</li><li>Ідентифікатори трекінгу або рекламні ID</li><li>Платіжні дані (обробляються виключно Apple)</li>',
-
-        h_3: '3. Дані на вашому пристрої та у вашій приватній iCloud',
-        t_3_intro: 'Zettelküche AI зберігає такі дані <strong>локально</strong> на вашому iPhone/iPad та — якщо iCloud увімкнено — у вашій <strong>приватній базі iCloud</strong> (CloudKit Private Database):',
-        t_3_list: '<li>Рецепти (назва, інгредієнти, кроки, теги, нотатки, категорія, зображення)</li><li>Власні теги та категорії</li><li>Історія приготування (які рецепти й коли ви готували)</li><li>Налаштування застосунку (мова, мова рецептів за замовчуванням, режим відображення)</li>',
-        t_3_outro: 'Ці дані ніколи не залишають ваш Apple-обліковий запис. Ми (torecon) <strong>не маємо доступу</strong> до ваших iCloud-даних — Apple надає нам лише анонімізовані технічні контейнери. Синхронізація iCloud відбувається лише між пристроями з однаковим Apple ID.',
-
-        h_4: '4. AI-структурування рецептів (опційно, анонімно)',
-        t_4_intro: 'Коли ви знімаєте фото, скріншот чи документ як рецепт, відбувається такий процес:',
-        t_4_list: '<li>Розпізнавання тексту (OCR) виконується <strong>повністю на вашому пристрої</strong> за допомогою Vision-фреймворку Apple. Зображення не залишає ваш пристрій.</li><li>Розпізнаний текст надсилається через зашифрований HTTPS-запит на наш проксі-сервер (хостинг: Railway, регіон ЄС). Передається лише текст рецепта і випадково згенерований неперсональний ID пристрою.</li><li>Проксі передає текст до <strong>Anthropic</strong> (Claude) для структурування. Anthropic обробляє текст відповідно до своєї <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Політики конфіденційності</a> і не використовує його для тренування моделей.</li><li>Структурований результат (назва, інгредієнти, кроки) повертається і зберігається лише на вашому пристрої / у вашій iCloud. Ми <strong>не</strong> зберігаємо вміст вашого рецепта тривало.</li>',
-        t_4_metrics: 'На стороні сервера ми реєструємо лише агреговані метрики використання (лічильник на ID пристрою для місячної квоти безкоштовного тарифу). Ідентифікація особи неможлива.',
-        t_4_optout: 'Ви можете повністю уникнути AI-вилучення, додаючи рецепти вручну.',
-
-        h_5: '5. Адаптація через ChatGPT (опційно)',
-        t_5: 'У застосунку є функція передачі існуючого рецепта до офіційного застосунку ChatGPT (або ChatGPT-веб), напр., щоб переформулювати його під іншу дієту чи кількість порцій. Текст рецепта передається ChatGPT через URL-схему. <strong>Ви використовуєте власний обліковий запис ChatGPT</strong> — обробка відбувається відповідно до <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">умов конфіденційності OpenAI</a>, без нашої участі.',
-
-        h_6: '6. Покупки в застосунку (StoreKit 2)',
-        t_6: 'Zettelküche AI пропонує опційну Premium-підписку через Apple. Платежі, рахунки та повернення коштів обробляються виключно Apple Inc. (США) відповідно до умов конфіденційності Apple. Ми не отримуємо платіжних або персональних даних.',
-
-        h_7: '7. Веб-сайт (zettelkueche.app)',
-        t_7_intro: 'Під час відвідування нашого сайту веб-сервер зберігає такі дані у журнальних файлах:',
-        t_7_list: '<li>IP-адреса (анонімізується через 7 днів і потім видаляється)</li><li>Дата та час доступу</li><li>Запитувана URL</li><li>Браузер та операційна система (user agent)</li><li>Referrer-URL (за наявності)</li>',
-        t_7_outro: 'Ці дані використовуються виключно для забезпечення роботи. Жодних трекінг-cookies не встановлюється.',
-
-        h_8: '8. Сторонні сервіси (обробники даних)',
-        t_8_list: '<li><strong>Apple Inc.</strong> — дистрибуція застосунку, покупки в застосунку, зберігання в iCloud. <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener">Privacy Policy</a></li><li><strong>Anthropic, PBC</strong> — AI-структурування OCR-тексту. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li><li><strong>Railway Corp.</strong> — хостинг проксі-сервера (регіон ЄС). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>',
-
-        h_9: '9. Ваші права (GDPR)',
-        t_9_intro: 'Оскільки Zettelküche AI не збирає персональних даних, у нас немає даних про вас, які ми могли б отримати, виправити чи видалити. Ваші рецепти повністю під вашим контролем у вашій iCloud.',
-        t_9_rights_intro: 'Щодо запитів стосовно журналів сайту або проксі-журналів OCR ви маєте такі права згідно GDPR:',
-        t_9_rights_list: '<li>Доступ (ст. 15 GDPR)</li><li>Виправлення (ст. 16 GDPR)</li><li>Стирання (ст. 17 GDPR)</li><li>Обмеження обробки (ст. 18 GDPR)</li><li>Заперечення (ст. 21 GDPR)</li>',
-        t_9_contact: 'Контакт: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-        t_9_dsa: 'Контакт EU DSA: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-        t_9_supervisory: 'Ви також маєте право подати скаргу до компетентного наглядового органу із захисту даних. Для Рейнланд-Пфальц: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>',
-
-        h_10: '10. Безпека даних',
-        t_10: 'Локальні дані зберігаються в каталозі sandbox застосунку (захищеному iOS-sandbox). Дані iCloud передаються та зберігаються Apple у зашифрованому вигляді. З\'єднання з OCR-проксі відбуваються виключно через HTTPS/TLS 1.3.',
-
-        h_11: '11. Зміни цієї політики конфіденційності',
-        t_11: 'Ми залишаємо за собою право оновлювати цю політику конфіденційності за потреби. Поточна версія завжди доступна за адресою <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a>.',
-
+        page_meta: 'Станом на: листопад 2026 · Zettelküche AI для iPhone, iPad і Mac',
+        summary: '<strong>Коротко:</strong> Без облікового запису, без реклами, без відстеження. Твої рецепти зберігаються на твоєму пристрої та у твоєму приватному iCloud. Лише коли ти користуєшся функцією ШІ, застосунок надсилає потрібний для неї текст (ніколи не фото) на наш сервер; той пересилає його Anthropic і не зберігає вміст. Разом із цим застосунок надсилає випадковий ідентифікатор пристрою. Це псевдонім, і він не пов’язаний із твоїм іменем чи Apple ID.',
+        h_1: '1. Відповідальна особа',
+        t_1: 'Відповідальною особою у розумінні GDPR є:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Bad Neuenahr-Ahrweiler<br>Німеччина<br>Електронна пошта: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        h_2: '2. Чого ми не робимо',
+        t_2_intro: 'Zettelküche AI не потребує облікового запису чи реєстрації. Ми не збираємо:',
+        t_2_list: '<li>Імена, адреси електронної пошти чи інші дані про твою особу</li><li>Дані про місцезнаходження</li><li>Контакти чи записи календаря; наявні нагадування застосунок не зчитує (див. розділ 5)</li><li>Рекламні ідентифікатори; немає відстеження, реклами та сторонніх SDK для аналітики чи реклами</li><li>Платіжні дані (їх обробляє лише Apple)</li>',
+        h_3: '3. Дані на твоєму пристрої та у твоєму приватному iCloud',
+        t_3_intro: 'Zettelküche AI зберігає такі дані <strong>локально</strong> на твоєму пристрої та – якщо iCloud увімкнено – у твоїй <strong>приватній базі даних iCloud</strong> (CloudKit Private Database):',
+        t_3_list: '<li>Рецепти (назва, інгредієнти, кроки, теги, нотатки, категорія, зображення, джерело) та версії для Thermomix</li><li>Власні теги та категорії, профіль алергенів</li><li>Історія приготування (які рецепти ти готував(-ла) і коли)</li><li>Статус підписки та лічильник безкоштовного ліміту ШІ</li><li>Налаштування застосунку (напр. мова, сповіщення)</li>',
+        t_3_outro: 'Ми (torecon) <strong>не маємо доступу</strong> до твоїх даних в iCloud. Синхронізація відбувається через Apple між твоїми пристроями з тим самим Apple ID. Розпізнавання тексту на фото, сканах і в PDF (OCR) відбувається <strong>повністю на твоєму пристрої</strong> за допомогою фреймворку Vision від Apple; зображення для цього не залишають пристрій.',
+        h_4: '4. Функції ШІ через наш сервер',
+        t_4_intro: 'Лише коли ти запускаєш одну з наведених функцій, застосунок надсилає дані через HTTPS на наш проксі-сервер. Надсилається лише текст, ніколи не фото:',
+        t_4_list: '<li><strong>Додати рецепт</strong> (фото, скан, знімок екрана, PDF, файл, вставлений або надісланий текст): текст, розпізнаний на пристрої, і бажана мова</li><li><strong>Імпорт рецепта за посиланням:</strong> вебадреса (URL). Наш сервер сам завантажує сторінку; власник сайту бачить адресу нашого сервера, а не твою.</li><li><strong>Замінити інгредієнт:</strong> назва інгредієнта та назва рецепта</li><li><strong>Оцінити поживну цінність:</strong> назва рецепта, інгредієнти з кількістю та кількість порцій</li><li><strong>Створити сценарій для Thermomix:</strong> назва рецепта, інгредієнти та кроки</li>',
+        t_4_flow: 'Наш сервер (працює на Railway у регіоні Нідерланди/ЄС) пересилає текст <strong>Anthropic</strong> (модель ШІ Claude) і повертає результат у застосунок. Результат зберігається лише на твоєму пристрої або в твоєму iCloud. Ми <strong>не</strong> зберігаємо вміст твоїх рецептів. Згідно зі своїми комерційними умовами Anthropic не використовує ці дані для навчання моделей ШІ (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">політика конфіденційності Anthropic</a>).',
+        t_4_device: '<strong>Ідентифікатор пристрою:</strong> З кожним запитом застосунок надсилає випадково згенерований ідентифікатор (UUID), створений на твоєму пристрої під час першого запуску. Він не містить імені чи Apple ID, але є <strong>псевдонімною</strong> ознакою. Наш сервер використовує його лише в оперативній пам’яті, щоб обмежувати зловживання (не більше 30 запитів на хвилину з одного пристрою), і не записує його в журнали.',
+        t_4_logs: '<strong>Журнали сервера:</strong> Наш сервер записує лише технічні дані без вмісту рецептів, напр. викликану функцію, мову, довжину тексту, кількість інгредієнтів і кроків, тип помилки, а під час імпорту за посиланням – лише назву сайту (напр. «example.com»), а не повну адресу. Крім того, наш хостинг-провайдер Railway веде журнал доступу (час, шлях, код стану); з технічних причин при цьому обробляється твоя IP-адреса.',
+        t_4_quota: '<strong>Безкоштовний ліміт:</strong> Скільки розпізнавань ШІ ти вже використав(-ла) без Premium, рахує лише застосунок на твоєму пристрої або в iCloud. Наш сервер не веде лічильників і не створює профілю користувача.',
+        t_4_optout: 'Функції ШІ є добровільними. Окремого перемикача немає, але вони працюють лише тоді, коли ти їх запускаєш. Якщо не хочеш надсилати дані на наш сервер, створюй рецепти вручну й не користуйся наведеними вище функціями.',
+        h_5: '5. Дозволи та системні функції',
+        t_5_intro: 'Застосунок запитує дозволи лише тоді, коли ти користуєшся відповідною функцією. Дані залишаються на твоєму пристрої, доки ти сам(-а) не запустиш функцію ШІ з розділу 4:',
+        t_5_list: '<li><strong>Камера та сканер документів:</strong> щоб фотографувати або сканувати рецепти</li><li><strong>Фото:</strong> ти вибираєш зображення через засіб вибору фото від Apple; застосунок отримує лише вибрані зображення</li><li><strong>Файли:</strong> імпорт PDF-, текстових і RTF-файлів, а також файлів рецептів (.recipebundle), які ти вибираєш</li><li><strong>Розширення «Поширити»:</strong> зображення, PDF або текст, якими ти ділишся із Zettelküche з іншого застосунку, розширення зберігає в захищеній області на твоєму пристрої, доки застосунок їх не обробить</li><li><strong>Нагадування:</strong> на твоє прохання застосунок створює в Apple «Нагадуваннях» новий список з інгредієнтами рецепта. Для цього iOS вимагає доступу до «Нагадувань»; наявні нагадування застосунок не зчитує</li><li><strong>Сповіщення:</strong> таймери приготування та щотижневий підсумок – це локальні сповіщення, які планує сам пристрій; push-сповіщень із сервера немає</li><li><strong>Буфер обміну:</strong> застосунок читає буфер обміну лише тоді, коли ти натискаєш «Вставити»</li><li><strong>Повідомлення про оновлення:</strong> застосунок запитує в Apple (iTunes Lookup) актуальний номер версії Zettelküche; дані про тебе при цьому не надсилаються</li>',
+        h_6: '6. Доопрацювання з ChatGPT (необов’язково, Premium)',
+        t_6: 'За допомогою цієї функції ти можеш передати рецепт у ChatGPT, напр. щоб переписати його для іншого типу харчування. Після твого підтвердження застосунок копіює текст рецепта з твоїм запитом у буфер обміну й відкриває застосунок ChatGPT; якщо його не встановлено, відкривається chat.openai.com у браузері, а текст передається у вебадресі. Через наш сервер нічого не проходить. <strong>Ти користуєшся власним обліковим записом ChatGPT</strong>; OpenAI обробляє дані на власну відповідальність згідно зі своєю <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">політикою конфіденційності</a>.',
+        h_7: '7. Покупки в застосунку',
+        t_7: 'Zettelküche AI пропонує необов’язкову підписку Premium через Apple. Купівлю, оплату, рахунки та повернення коштів здійснює виключно Apple. Чи активний Premium, застосунок перевіряє за допомогою StoreKit безпосередньо на твоєму пристрої. Ми не отримуємо платіжних даних чи відомостей про тебе.',
+        h_8: '8. Вебсайт (zettelkueche.app)',
+        t_8_intro: 'Під час відвідування нашого вебсайту вебсервер нашого хостинг-провайдера (Nethosting24 GmbH, Німеччина) обробляє в журналах сервера такі дані:',
+        t_8_list: '<li>IP-адреса</li><li>Дата й час звернення</li><li>Відкрита сторінка</li><li>Браузер і операційна система (User-Agent)</li><li>Сторінка, з якої виконано перехід (якщо є)</li>',
+        t_8_outro: 'Ці дані слугують лише для безпечної роботи вебсайту й автоматично видаляються через короткий час. Вебсайт не встановлює cookie-файлів для відстеження і не завантажує вміст третіх сторін. Вибрану мову та твій вибір у банері з повідомленням вебсайт зберігає в локальному сховищі браузера (localStorage); ці дані не залишають твій браузер.',
+        h_9: '9. Правові підстави',
+        t_9_list: '<li>Функції ШІ з розділу 4, які ти запускаєш, покупки в застосунку та функції застосунку: виконання договору користування (ст. 6(1)(b) GDPR)</li><li>Ідентифікатор пристрою для обмеження зловживань, технічні журнали сервера та журнали сервера вебсайту: законний інтерес у безпечній, стабільній роботі та захисті від зловживань (ст. 6(1)(f) GDPR)</li><li>Зберігання на пристрої або в браузері (ідентифікатор пристрою, налаштування, вибір мови): суворо необхідне для запитаної тобою послуги (§ 25 абз. 2 п. 2 німецького закону TDDDG)</li>',
+        h_10: '10. Одержувачі та передавання до третіх країн',
+        t_10_intro: 'Ми не продаємо дані. Дані отримують лише:',
+        t_10_list: '<li><strong>Railway Corp. (США)</strong>: робота нашого проксі-сервера в регіоні Нідерланди (ЄС), як обробник за договором про обробку даних. Оскільки Railway – американська компанія, доступ зі США не виключено; для цього діють стандартні договірні положення Європейської комісії (ст. 46(2)(c) GDPR). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Політика конфіденційності</a></li><li><strong>Anthropic, PBC (США)</strong>: обробка текстів із розділу 4 за допомогою ШІ, як обробник. Передавання до США на підставі стандартних договірних положень (ст. 46(2)(c) GDPR). <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Політика конфіденційності</a></li><li><strong>Nethosting24 GmbH (Німеччина)</strong>: хостинг вебсайту zettelkueche.app, як обробник</li><li><strong>Apple Inc. (США) або Apple Distribution International Ltd. (Ірландія)</strong>: App Store, покупки, iCloud і системні функції, на власну відповідальність Apple згідно з <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Політикою конфіденційності Apple</a></li><li><strong>OpenAI</strong>: лише якщо ти користуєшся розділом 6, через власний обліковий запис і на власну відповідальність OpenAI</li>',
+        h_11: '11. Строк зберігання',
+        t_11_list: '<li><strong>На твоєму пристрої та в iCloud:</strong> доки ти не видалиш дані в застосунку або не видалиш застосунок і його дані в iCloud</li><li><strong>Наш сервер:</strong> вміст – лише в оперативній пам’яті на час запиту; ідентифікатор пристрою для обмеження зловживань – лише в оперативній пам’яті на поточне 60-секундне вікно</li><li><strong>Журнали сервера в Railway:</strong> Railway зберігає журнали лише обмежений час, після чого автоматично їх видаляє (залежно від тарифу Railway наразі не довше 30 днів)</li><li><strong>В Anthropic:</strong> згідно з комерційними умовами Anthropic наразі до 30 днів, потім видалення (довше – лише якщо цього вимагає закон або в разі порушення правил використання)</li><li><strong>Журнали вебсайту:</strong> лише короткий час, потім автоматичне видалення хостинг-провайдером</li>',
+        h_12: '12. Твої права',
+        t_12_intro: 'Своїми рецептами ти керуєш сам(-а): у налаштуваннях застосунку можна експортувати всі свої дані у файл (доступ і перенесення даних) та видалити рецепти, теги й категорії. Щодо нас згідно з GDPR ти маєш право на:',
+        t_12_list: '<li>Доступ (ст. 15 GDPR)</li><li>Виправлення (ст. 16 GDPR)</li><li>Видалення (ст. 17 GDPR)</li><li>Обмеження обробки (ст. 18 GDPR)</li><li>Перенесення даних (ст. 20 GDPR)</li><li>Заперечення проти обробки на підставі законних інтересів (ст. 21 GDPR)</li>',
+        t_12_note: 'Оскільки ми не ведемо облікових записів і не зберігаємо ідентифікатор пристрою в журналах, зазвичай ми не можемо пов’язати журнали сервера з конкретною особою (ст. 11 GDPR). Якщо ти надаси додаткові відомості, що дозволяють це зробити (напр. час запиту), ми охоче розглянемо твій запит.',
+        t_12_contact: 'Контакт: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        t_12_supervisory: 'Ти також маєш право подати скаргу до наглядового органу із захисту даних, напр. до Уповноваженого із захисту даних і свободи інформації землі Рейнланд-Пфальц: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>',
+        h_13: '13. Безпека даних',
+        t_13: 'Локальні дані зберігаються в захищеній області застосунку iOS, iPadOS або macOS. Дані iCloud Apple передає та зберігає в зашифрованому вигляді. Усі з’єднання з нашим сервером зашифровано через HTTPS (TLS 1.2 або новіше). Ключ доступу до сервісу ШІ зберігається лише на нашому сервері, а не в застосунку.',
+        h_14: '14. Діти та підлітки',
+        t_14: 'Zettelküche AI має в App Store віковий рейтинг 4+ і не запитує вік. Застосунок не обробляє дані на підставі згоди. Покупки здійснюються через Apple; там діють налаштування «Сімейного доступу». Якщо вважаєш, що дитина надіслала нам дані, напиши нам на <a href="mailto:info@torecon.de">info@torecon.de</a>.',
+        h_15: '15. Зміни цієї політики конфіденційності',
+        t_15: 'Ми оновлюємо цю політику конфіденційності, коли змінюється застосунок або правова ситуація. Актуальна версія завжди доступна за адресою <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a>.',
         footer_privacy: 'Конфіденційність',
         footer_terms: 'Умови',
         footer_support: 'Підтримка',
@@ -380,55 +357,55 @@
         nav_home: 'Zettelküche AI',
         page_label: 'Jurídico',
         page_title: 'Política de Privacidade',
-        page_meta: 'Última atualização: abril de 2026 · Zettelküche AI para iOS e iPadOS',
-        summary: '<strong>Resumo:</strong> Suas receitas ficam no seu iCloud privado. Não temos sistema de contas. Para a extração de receitas por IA, o texto OCR é enviado anonimamente ao nosso servidor e encaminhado à Anthropic — nunca vinculado à sua identidade. Você pode desativar a qualquer momento.',
-
-        h_1: '1. Controlador de dados',
-        t_1: 'O controlador conforme o GDPR é:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Ahrweiler<br>Alemanha<br>E-mail: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-
-        h_2: '2. Dados que NÃO coletamos',
-        t_2_intro: 'O Zettelküche AI não exige conta de usuário nem registro. Não coletamos nada do seguinte:',
-        t_2_list: '<li>Nomes, e-mails ou qualquer informação identificadora</li><li>Dados de localização ou GPS</li><li>Acesso à agenda ou ao calendário</li><li>Identificadores de rastreamento ou IDs de publicidade</li><li>Dados de pagamento (tratados exclusivamente pela Apple)</li>',
-
-        h_3: '3. Dados no seu aparelho e no seu iCloud privado',
-        t_3_intro: 'O Zettelküche AI armazena os seguintes dados <strong>localmente</strong> no seu iPhone/iPad e — quando o iCloud está ativo — no seu <strong>banco de dados privado do iCloud</strong> (CloudKit Private Database):',
-        t_3_list: '<li>Receitas (título, ingredientes, passos, tags, notas, categoria, imagem)</li><li>Tags e categorias personalizadas</li><li>Histórico de cozimento (quais receitas você cozinhou e quando)</li><li>Configurações do app (idioma, idioma padrão das receitas, modo de exibição)</li>',
-        t_3_outro: 'Esses dados nunca saem da sua conta Apple. Nós (torecon) <strong>não temos acesso</strong> aos seus dados no iCloud — a Apple só nos fornece contêineres técnicos anonimizados. A sincronização do iCloud só ocorre entre aparelhos conectados ao mesmo Apple ID.',
-
-        h_4: '4. Extração de receitas por IA (opcional, anônima)',
-        t_4_intro: 'Quando você captura uma foto, captura de tela ou documento como receita, o seguinte processo ocorre:',
-        t_4_list: '<li>O reconhecimento de texto (OCR) acontece <strong>totalmente no seu aparelho</strong> usando o framework Vision da Apple. A imagem nunca sai do seu aparelho.</li><li>O texto reconhecido é enviado por uma requisição HTTPS criptografada ao nosso servidor proxy (hospedagem: Railway, região da UE). Apenas o texto da receita e um ID de aparelho gerado aleatoriamente, não-pessoal, são transmitidos.</li><li>O proxy encaminha o texto à <strong>Anthropic</strong> (Claude) para estruturação. A Anthropic processa o texto sob sua <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Política de Privacidade</a> e não o usa para treinar modelos.</li><li>O resultado estruturado (título, ingredientes, passos) é devolvido e armazenado apenas no seu aparelho / no seu iCloud. <strong>Não</strong> persistimos o conteúdo da sua receita.</li>',
-        t_4_metrics: 'No lado do servidor registramos apenas métricas agregadas de uso (contador por ID de aparelho, para a cota mensal do tier gratuito). Nenhuma identificação pessoal é possível.',
-        t_4_optout: 'Você pode evitar a extração por IA totalmente, adicionando receitas manualmente.',
-
-        h_5: '5. Adaptação via ChatGPT (opcional)',
-        t_5: 'O app inclui um recurso que permite passar uma receita existente ao app oficial do ChatGPT (ou ao ChatGPT na web), por ex., para reformular para outra dieta ou outro tamanho de porção. O texto da receita é entregue ao ChatGPT via URL scheme. <strong>Você usa sua própria conta do ChatGPT</strong> — o processamento acontece sob os <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">termos de privacidade da OpenAI</a>, sem qualquer envolvimento nosso.',
-
-        h_6: '6. Compras no app (StoreKit 2)',
-        t_6: 'O Zettelküche AI oferece uma assinatura Premium opcional via Apple. Pagamentos, faturamento e reembolsos são tratados exclusivamente pela Apple Inc. (EUA) sob os termos de privacidade da Apple. Não recebemos dados de pagamento nem informações pessoais.',
-
-        h_7: '7. Site (zettelkueche.app)',
-        t_7_intro: 'Quando você visita nosso site, o servidor web armazena os seguintes dados em arquivos de log:',
-        t_7_list: '<li>Endereço IP (anonimizado após 7 dias, depois excluído)</li><li>Data e hora do acesso</li><li>URL solicitada</li><li>Navegador e sistema operacional (user agent)</li><li>URL de referência (se houver)</li>',
-        t_7_outro: 'Esses dados são usados exclusivamente para garantir a operação. Nenhum cookie de rastreamento é definido.',
-
-        h_8: '8. Serviços de terceiros (operadores de dados)',
-        t_8_list: '<li><strong>Apple Inc.</strong> — distribuição do app, compras no app, armazenamento no iCloud. <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener">Privacy Policy</a></li><li><strong>Anthropic, PBC</strong> — estruturação por IA do texto OCR. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li><li><strong>Railway Corp.</strong> — hospedagem do servidor proxy (região da UE). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>',
-
-        h_9: '9. Seus direitos (GDPR/LGPD)',
-        t_9_intro: 'Como o Zettelküche AI não coleta dados pessoais, não temos dados sobre você que pudéssemos recuperar, corrigir ou excluir. Suas receitas estão totalmente sob seu controle no seu iCloud.',
-        t_9_rights_intro: 'Para solicitações relativas a logs do site ou logs do proxy OCR você tem estes direitos sob o GDPR:',
-        t_9_rights_list: '<li>Acesso (Art. 15 GDPR)</li><li>Retificação (Art. 16 GDPR)</li><li>Exclusão (Art. 17 GDPR)</li><li>Restrição do tratamento (Art. 18 GDPR)</li><li>Oposição (Art. 21 GDPR)</li>',
-        t_9_contact: 'Contato: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-        t_9_dsa: 'Contato EU DSA: <a href="mailto:info@torecon.de">info@torecon.de</a>',
-        t_9_supervisory: 'Você também tem o direito de apresentar uma reclamação à autoridade competente de proteção de dados. Para Renânia-Palatinado: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>',
-
-        h_10: '10. Segurança dos dados',
-        t_10: 'Os dados locais ficam no diretório sandbox do app (protegido pelo sandbox do iOS). Os dados do iCloud são transmitidos e armazenados de forma criptografada pela Apple. As conexões com o proxy OCR ocorrem exclusivamente via HTTPS/TLS 1.3.',
-
-        h_11: '11. Alterações nesta política de privacidade',
-        t_11: 'Reservamo-nos o direito de atualizar esta política de privacidade conforme necessário. A versão atual está sempre disponível em <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a>.',
-
+        page_meta: 'Atualizado em: novembro de 2026 · Zettelküche AI para iPhone, iPad e Mac',
+        summary: '<strong>Em resumo:</strong> Sem conta, sem anúncios, sem rastreamento. Suas receitas ficam no seu dispositivo e no seu iCloud privado. Somente quando você usa uma função de IA o app envia o texto necessário (nunca uma foto) ao nosso servidor, que o encaminha à Anthropic e não armazena o conteúdo. O app também envia um ID aleatório do dispositivo. Ele é um pseudônimo e não está vinculado ao seu nome nem ao seu Apple ID.',
+        h_1: '1. Controlador',
+        t_1: 'O controlador nos termos do RGPD (GDPR) é:<br><br><strong>Thomas Reinke · torecon</strong><br>Roesgenstr. 22<br>53474 Bad Neuenahr-Ahrweiler<br>Alemanha<br>E-mail: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        h_2: '2. O que não fazemos',
+        t_2_intro: 'O Zettelküche AI não exige conta nem cadastro. Não coletamos:',
+        t_2_list: '<li>Nomes, endereços de e-mail ou outros dados sobre sua identidade</li><li>Dados de localização</li><li>Contatos ou eventos de calendário; o app não lê seus lembretes existentes (veja a seção 5)</li><li>IDs de publicidade; não há rastreamento, anúncios nem SDKs de análise ou publicidade de terceiros</li><li>Dados de pagamento (processados apenas pela Apple)</li>',
+        h_3: '3. Dados no seu dispositivo e no seu iCloud privado',
+        t_3_intro: 'O Zettelküche AI armazena os seguintes dados <strong>localmente</strong> no seu dispositivo e – se o iCloud estiver ativo – no seu <strong>banco de dados privado do iCloud</strong> (CloudKit Private Database):',
+        t_3_list: '<li>Receitas (título, ingredientes, passos, tags, notas, categoria, imagens, origem) e versões para Thermomix</li><li>Suas próprias tags e categorias, perfil de alérgenos</li><li>Histórico de preparo (quais receitas você preparou e quando)</li><li>Status da assinatura e contador da sua cota gratuita de IA</li><li>Configurações do app (por exemplo, idioma, notificações)</li>',
+        t_3_outro: 'Nós (torecon) <strong>não temos acesso</strong> aos seus dados do iCloud. A sincronização é feita pela Apple entre os seus dispositivos com o mesmo Apple ID. O reconhecimento de texto em fotos, digitalizações e PDFs (OCR) acontece <strong>totalmente no seu dispositivo</strong> com o framework Vision da Apple; as imagens não saem do seu dispositivo para isso.',
+        h_4: '4. Funções de IA pelo nosso servidor',
+        t_4_intro: 'Somente quando você aciona uma das funções abaixo o app envia dados via HTTPS ao nosso servidor proxy. É enviado apenas texto, nunca uma foto:',
+        t_4_list: '<li><strong>Capturar uma receita</strong> (foto, digitalização, captura de tela, PDF, arquivo, texto colado ou compartilhado): o texto reconhecido no dispositivo e o idioma desejado</li><li><strong>Importar uma receita por link:</strong> o endereço web (URL). Nosso servidor acessa a página por conta própria; o operador do site vê o endereço do nosso servidor, não o seu.</li><li><strong>Substituir um ingrediente:</strong> o nome do ingrediente e o título da receita</li><li><strong>Estimar valores nutricionais:</strong> título da receita, ingredientes com quantidades e número de porções</li><li><strong>Criar um roteiro para Thermomix:</strong> título da receita, ingredientes e passos</li>',
+        t_4_flow: 'Nosso servidor (operado na Railway, na região Países Baixos/UE) encaminha o texto à <strong>Anthropic</strong> (modelo de IA Claude) e devolve o resultado ao app. O resultado é armazenado apenas no seu dispositivo ou no seu iCloud. <strong>Não</strong> armazenamos o conteúdo das suas receitas. Pelos seus termos comerciais, a Anthropic não usa os dados para treinar modelos de IA (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">política de privacidade da Anthropic</a>).',
+        t_4_device: '<strong>ID do dispositivo:</strong> A cada solicitação, o app envia um identificador gerado aleatoriamente (UUID), criado no seu dispositivo na primeira abertura. Ele não contém nome nem Apple ID, mas é um identificador <strong>pseudônimo</strong>. Nosso servidor o usa apenas na memória para limitar abusos (no máximo 30 solicitações por minuto por dispositivo) e não o grava em registros.',
+        t_4_logs: '<strong>Registros do servidor:</strong> Nosso servidor registra apenas dados técnicos, sem conteúdo das receitas, por exemplo: função acessada, idioma, tamanho do texto, número de ingredientes e passos, tipo de erro e, na importação por link, apenas o nome do site (por exemplo, “exemplo.com.br”), não o endereço completo. Além disso, nosso provedor Railway mantém um registro de acesso (horário, caminho, código de status); por motivos técnicos, o seu endereço IP é processado nesse momento.',
+        t_4_quota: '<strong>Cota gratuita:</strong> Quantas capturas com IA você já usou sem Premium é contado apenas pelo app no seu dispositivo ou no seu iCloud. Nosso servidor não mantém contadores nem perfil de usuário.',
+        t_4_optout: 'As funções de IA são opcionais. Não há um botão específico para desativá-las, mas elas só funcionam quando você as aciona. Se não quiser enviar dados ao nosso servidor, crie receitas manualmente e não use as funções listadas acima.',
+        h_5: '5. Permissões e recursos do sistema',
+        t_5_intro: 'O app só pede permissões quando você usa a função correspondente. Os dados ficam no seu dispositivo, a menos que você mesmo acione uma função de IA da seção 4:',
+        t_5_list: '<li><strong>Câmera e digitalizador de documentos:</strong> para fotografar ou digitalizar receitas</li><li><strong>Fotos:</strong> você escolhe imagens pelo seletor de fotos da Apple; o app recebe apenas as imagens selecionadas</li><li><strong>Arquivos:</strong> importação de arquivos PDF, de texto e RTF, além de arquivos de receita (.recipebundle) que você escolher</li><li><strong>Extensão de compartilhamento:</strong> imagens, PDFs ou textos que você compartilha com o Zettelküche a partir de outro app são guardados pela extensão em uma área protegida do seu dispositivo até o app processá-los</li><li><strong>Lembretes:</strong> a seu pedido, o app cria uma nova lista no app Lembretes da Apple com os ingredientes de uma receita. O iOS exige acesso aos Lembretes para isso; o app não lê seus lembretes existentes</li><li><strong>Notificações:</strong> temporizadores de preparo e o resumo semanal são notificações locais agendadas pelo próprio dispositivo; não há notificações push de um servidor</li><li><strong>Área de transferência:</strong> o app só lê a área de transferência quando você toca em “Colar”</li><li><strong>Aviso de atualização:</strong> o app consulta a Apple (iTunes Lookup) sobre o número da versão atual do Zettelküche; nenhum dado sobre você é enviado</li>',
+        h_6: '6. Refinar com o ChatGPT (opcional, Premium)',
+        t_6: 'Com esta função você pode enviar uma receita ao ChatGPT, por exemplo, para adaptá-la a outra dieta. Depois da sua confirmação, o app copia o texto da receita com o seu pedido para a área de transferência e abre o app do ChatGPT; se ele não estiver instalado, abre chat.openai.com no navegador e passa o texto no endereço web. Nada passa pelo nosso servidor. <strong>Você usa sua própria conta do ChatGPT</strong>; a OpenAI processa os dados sob sua própria responsabilidade, conforme sua <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">política de privacidade</a>.',
+        h_7: '7. Compras no app',
+        t_7: 'O Zettelküche AI oferece uma assinatura Premium opcional pela Apple. Compra, pagamento, cobrança e reembolso são feitos exclusivamente pela Apple. O app verifica se o Premium está ativo com o StoreKit diretamente no seu dispositivo. Não recebemos dados de pagamento nem informações pessoais.',
+        h_8: '8. Site (zettelkueche.app)',
+        t_8_intro: 'Ao visitar nosso site, o servidor web do nosso provedor de hospedagem (Nethosting24 GmbH, Alemanha) processa os seguintes dados em registros do servidor:',
+        t_8_list: '<li>Endereço IP</li><li>Data e hora do acesso</li><li>Página acessada</li><li>Navegador e sistema operacional (user agent)</li><li>Página de origem (se houver)</li>',
+        t_8_outro: 'Esses dados servem apenas para a operação segura do site e são excluídos automaticamente após pouco tempo. O site não define cookies de rastreamento e não carrega conteúdo de terceiros. Sua escolha de idioma e sua seleção no banner de aviso são guardadas pelo site no armazenamento local do seu navegador (localStorage); essas informações não saem do seu navegador.',
+        h_9: '9. Bases legais',
+        t_9_list: '<li>Funções de IA da seção 4 acionadas por você, compras no app e as funções do app: execução do contrato de uso (art. 6.º, n.º 1, alínea b do RGPD)</li><li>ID do dispositivo para o limite contra abusos, registros técnicos do servidor e registros do servidor do site: interesse legítimo em uma operação segura e estável e na proteção contra abusos (art. 6.º, n.º 1, alínea f do RGPD)</li><li>Armazenamento no dispositivo ou no navegador (ID do dispositivo, configurações, idioma): estritamente necessário para o serviço solicitado por você (§ 25, n.º 2, item 2 da lei alemã TDDDG)</li>',
+        h_10: '10. Destinatários e transferências para países terceiros',
+        t_10_intro: 'Não vendemos dados. Recebem dados apenas:',
+        t_10_list: '<li><strong>Railway Corp. (EUA)</strong>: operação do nosso servidor proxy na região Países Baixos (UE), como operador, com contrato de tratamento de dados. Como a Railway é uma empresa dos EUA, não se pode excluir acesso a partir dos EUA; para isso aplicam-se as Cláusulas Contratuais-Padrão da Comissão Europeia (art. 46.º, n.º 2, alínea c do RGPD). <a href="https://railway.com/legal/privacy" target="_blank" rel="noopener">Política de privacidade</a></li><li><strong>Anthropic, PBC (EUA)</strong>: processamento por IA dos textos da seção 4, como operador. Transferência para os EUA com base nas Cláusulas Contratuais-Padrão (art. 46.º, n.º 2, alínea c do RGPD). <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Política de privacidade</a></li><li><strong>Nethosting24 GmbH (Alemanha)</strong>: hospedagem do site zettelkueche.app, como operador</li><li><strong>Apple Inc. (EUA) ou Apple Distribution International Ltd. (Irlanda)</strong>: App Store, compras, iCloud e recursos do sistema, sob responsabilidade própria da Apple, conforme a <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Política de Privacidade da Apple</a></li><li><strong>OpenAI</strong>: somente se você usar a seção 6, pela sua própria conta e sob responsabilidade própria da OpenAI</li>',
+        h_11: '11. Prazo de armazenamento',
+        t_11_list: '<li><strong>No seu dispositivo e no seu iCloud:</strong> até você excluir os dados no app ou remover o app e seus dados do iCloud</li><li><strong>Nosso servidor:</strong> conteúdos apenas na memória durante a solicitação; o ID do dispositivo para o limite contra abusos apenas na memória durante a janela atual de 60 segundos</li><li><strong>Registros do servidor na Railway:</strong> a Railway guarda registros apenas por tempo limitado e depois os exclui automaticamente (conforme o plano da Railway, atualmente no máximo 30 dias)</li><li><strong>Na Anthropic:</strong> pelos termos comerciais da Anthropic, atualmente até 30 dias, depois exclusão (por mais tempo apenas se exigido por lei ou em caso de violação das políticas de uso)</li><li><strong>Registros do site:</strong> apenas por pouco tempo, depois exclusão automática pelo provedor</li>',
+        h_12: '12. Seus direitos',
+        t_12_intro: 'Você mesmo gerencia suas receitas: nas configurações do app, você pode exportar todos os seus dados em um arquivo (acesso e portabilidade) e excluir suas receitas, tags e categorias. Perante nós, pelo RGPD, você tem direito a:',
+        t_12_list: '<li>Acesso (art. 15.º do RGPD)</li><li>Retificação (art. 16.º do RGPD)</li><li>Apagamento (art. 17.º do RGPD)</li><li>Limitação do tratamento (art. 18.º do RGPD)</li><li>Portabilidade dos dados (art. 20.º do RGPD)</li><li>Oposição ao tratamento com base em interesses legítimos (art. 21.º do RGPD)</li>',
+        t_12_note: 'Como não mantemos contas e não guardamos o ID do dispositivo em registros, em geral não conseguimos associar registros do servidor a uma pessoa (art. 11.º do RGPD). Se você nos fornecer informações adicionais que permitam essa associação (por exemplo, o horário de uma solicitação), analisaremos seu pedido com prazer.',
+        t_12_contact: 'Contato: <a href="mailto:info@torecon.de">info@torecon.de</a>',
+        t_12_supervisory: 'Você também tem o direito de apresentar reclamação a uma autoridade de proteção de dados, por exemplo, ao Comissário Estadual de Proteção de Dados e Liberdade de Informação da Renânia-Palatinado: <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>',
+        h_13: '13. Segurança dos dados',
+        t_13: 'Os dados locais ficam na área protegida do app no iOS, iPadOS ou macOS. A Apple transmite e armazena os dados do iCloud de forma criptografada. Todas as conexões com nosso servidor são criptografadas via HTTPS (TLS 1.2 ou mais recente). A chave de acesso ao serviço de IA fica apenas no nosso servidor, não no app.',
+        h_14: '14. Crianças e adolescentes',
+        t_14: 'O Zettelküche AI tem classificação 4+ na App Store e não pergunta a idade. O app não processa dados com base em consentimento. As compras são feitas pela Apple, onde valem as configurações do Compartilhamento Familiar. Se você acredita que uma criança nos enviou dados, escreva para <a href="mailto:info@torecon.de">info@torecon.de</a>.',
+        h_15: '15. Alterações nesta política de privacidade',
+        t_15: 'Atualizamos esta política de privacidade quando o app ou a situação legal mudam. A versão atual está sempre disponível em <a href="https://zettelkueche.app/privacy/">zettelkueche.app/privacy/</a>.',
         footer_privacy: 'Privacidade',
         footer_terms: 'Termos',
         footer_support: 'Suporte',
