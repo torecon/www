@@ -110,6 +110,15 @@
     .section-waitlist p.dl-plans { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto; }
     .section-waitlist p.dl-plans a { color: rgba(255,255,255,0.85); text-decoration: underline; }
 
+    /* ── Privacy Promise ─────────────────────────────────────────────────── */
+    .section-privacy { padding: 84px 24px; background: var(--bg); text-align: center; }
+    .section-privacy-inner { max-width: 680px; margin: 0 auto; }
+    .privacy-icon { font-size: 44px; margin-bottom: 12px; }
+    .privacy-promise { font-size: clamp(22px, 3.2vw, 30px); font-weight: 700; line-height: 1.35; letter-spacing: -0.02em; margin: 8px 0 16px; overflow-wrap: anywhere; }
+    .privacy-promise .accent { color: #5B8AF0; }
+    .privacy-detail { font-size: 16px; color: var(--text-secondary); line-height: 1.6; }
+    .privacy-detail a { text-decoration: underline; }
+
     /* ── Roadmap-Section ─────────────────────────────────────────────────── */
     .section-roadmap {
       padding: 84px 24px;
@@ -481,6 +490,16 @@
       </div>
     </section>
 
+    <!-- ── Privacy Promise ────────────────────────────────────────────────── -->
+    <section class="section-privacy" id="datenschutz">
+      <div class="section-privacy-inner">
+        <div class="privacy-icon" aria-hidden="true">🔒</div>
+        <p class="section-label" data-i18n="privacy_label">Datenschutz</p>
+        <p class="privacy-promise" data-i18n="privacy_promise">Kein Konto. Kein Name. <span class="accent">Keine E-Mail.</span></p>
+        <p class="privacy-detail" data-i18n="privacy_detail">Dein Entscheidungsverlauf bleibt auf deinem Gerät. Für eine KI-Analyse geht deine Frage über unseren Server an unseren KI-Anbieter Anthropic — unser Server speichert sie nicht, seine Protokolle enthalten keine Inhalte. Eine zufällige App-Kennung begrenzt die Anfragen und ist nicht mit dir verknüpft. Käufe wickelt ausschließlich Apple ab. <a href="/privacy/">Volle Datenschutzerklärung</a>.</p>
+      </div>
+    </section>
+
     <!-- ── Download ──────────────────────────────────────────────────────────── -->
     <section class="section-waitlist" id="download">
       <div class="section-waitlist-inner">
@@ -753,6 +772,9 @@
         dl_sub:            'Kostenlos herunterladen — deine nächste Entscheidung wartet schon.',
         dl_note:           'Verfügbar für iPhone · iOS 17+',
         dl_plans:          'Gratis: 3 Entscheidungen pro Tag im Fast Mode. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Guided Mode, Begründung, Schlüsselfaktoren und nächster Schritt. Preise im App Store in deiner Landeswährung.',
+        privacy_label:     'Datenschutz',
+        privacy_promise:   'Kein Konto. Kein Name. <span class="accent">Keine E-Mail.</span>',
+        privacy_detail:    'Dein Entscheidungsverlauf bleibt auf deinem Gerät. Für eine KI-Analyse geht deine Frage über unseren Server an unseren KI-Anbieter Anthropic — unser Server speichert sie nicht, seine Protokolle enthalten keine Inhalte. Eine zufällige App-Kennung begrenzt die Anfragen und ist nicht mit dir verknüpft. Käufe wickelt ausschließlich Apple ab. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
         about_p:           'ThinkLess AI ist eine Marke von <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — dem Entwickler hinter <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag und Beruf wirklich helfen.',
         notice_label:      'Wichtiger Hinweis',
         notice_h2:         'Bitte lies das kurz.',
@@ -881,6 +903,9 @@
         dl_sub:            'Download for free — your next decision is already waiting.',
         dl_note:           'Available for iPhone · iOS 17+',
         dl_plans:          'Free: 3 decisions per day in Fast Mode. Premium: unlimited (<a href="/terms/">fair use</a>), Guided Mode, reasoning, key factors, and next step. Prices on the App Store in your local currency.',
+        privacy_label:     'Privacy',
+        privacy_promise:   'No account. No name. <span class="accent">No email.</span>',
+        privacy_detail:    'Your decision history stays on your device. For an AI analysis, your question goes through our server to our AI provider Anthropic — our server does not store it, and its logs contain no content. A random app identifier limits requests and is not linked to you. Purchases are handled by Apple only. <a href="/privacy/">Full privacy policy</a>.',
         about_p:           'ThinkLess AI is a brand by <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — the developer behind <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>We build AI products that deliver real value. Not toys — tools that genuinely help people in their daily and professional lives.',
         notice_label:      'Important Notice',
         notice_h2:         'Please take a moment.',
@@ -1009,6 +1034,9 @@
         dl_sub:            'Baixe grátis — sua próxima decisão já está esperando.',
         dl_note:           'Disponível para iPhone · iOS 17+',
         dl_plans:          'Grátis: 3 decisões por dia no Modo Rápido. Premium: ilimitado (<a href="/terms/">uso justo</a>), Modo Guiado, justificativa, fatores-chave e próximo passo. Preços na App Store na sua moeda local.',
+        privacy_label:     'Privacidade',
+        privacy_promise:   'Sem conta. Sem nome. <span class="accent">Sem e-mail.</span>',
+        privacy_detail:    'Seu histórico de decisões fica no seu dispositivo. Para uma análise de IA, sua pergunta passa pelo nosso servidor até nosso provedor de IA, a Anthropic — nosso servidor não a armazena, e os registros não contêm conteúdo. Um identificador aleatório do app limita as solicitações e não está vinculado a você. As compras são processadas exclusivamente pela Apple. <a href="/privacy/">Política de privacidade completa</a>.',
         about_p:           'ThinkLess AI é uma marca da <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — o desenvolvedor por trás do <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Criamos produtos de IA que entregam valor real. Não brinquedos — ferramentas que realmente ajudam pessoas no dia a dia e na vida profissional.',
         notice_label:      'Aviso importante',
         notice_h2:         'Leia isto com atenção.',
@@ -1137,6 +1165,9 @@
         dl_sub:            'Безкоштовне завантаження — твоє наступне рішення вже чекає.',
         dl_note:           'Доступно для iPhone · iOS 17+',
         dl_plans:          'Безкоштовно: 3 рішення на день у Швидкому режимі. Premium: необмежено (<a href="/terms/">чесне використання</a>), Керований режим, обґрунтування, ключові фактори й наступний крок. Ціни — в App Store у твоїй місцевій валюті.',
+        privacy_label:     'Конфіденційність',
+        privacy_promise:   'Без акаунта. Без імені. <span class="accent">Без e-mail.</span>',
+        privacy_detail:    'Твоя історія рішень залишається на твоєму пристрої. Для ШІ-аналізу твоє запитання проходить через наш сервер до нашого ШІ-постачальника Anthropic — наш сервер його не зберігає, а журнали не містять змісту. Випадковий ідентифікатор застосунку обмежує кількість запитів і не пов’язаний із тобою. Покупки обробляє виключно Apple. <a href="/privacy/">Повна політика конфіденційності</a>.',
         about_p:           'ThinkLess AI — бренд від <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — розробника <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Ми створюємо ШІ-продукти, що приносять реальну цінність. Не іграшки — інструменти, які справді допомагають людям у повсякденному й професійному житті.',
         notice_label:      'Важливе повідомлення',
         notice_h2:         'Прочитай, будь ласка.',
