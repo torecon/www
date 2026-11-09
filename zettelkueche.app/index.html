@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zettelküche AI — Rezepte fotografieren, übersetzen, strukturieren</title>
-  <meta name="description" content="Foto rein, strukturiertes Rezept raus — in deiner Sprache. Privat in deiner iCloud. iPhone, iPad und Mac. Jetzt mit 4-Achsen-Filter, Smart Collections, mehrseitigen Originalen und Verständnis für HelloFresh-Karten.">
+  <meta name="description" content="Foto rein, strukturiertes Rezept raus — in deiner Sprache. Privat in deiner iCloud, auf iPhone und iPad. Thermomix-Ablauf, Allergen-Warnungen, Rezepte teilen.">
 
   <link rel="icon" type="image/png" href="/logo.png">
   <link rel="apple-touch-icon" href="/logo.png">
@@ -164,6 +164,18 @@
     @media (max-width: 720px) {
       .nav-link { display: none; }
     }
+    /* ── Schmale iPhones: kein seitliches Scrollen (Nav) ─────────────────── */
+    @media (max-width: 600px) {
+      .nav-cta { display: none; } /* Launch-Banner, Hero und iPhone-Modal führen in den App Store */
+    }
+    @media (max-width: 380px) {
+      .nav-inner { padding: 0 12px; gap: 8px; }
+      .nav-logo { gap: 8px; }
+      .nav-logo-img { width: 28px; height: 28px; }
+      .nav-logo-main { font-size: 16px; }
+      .nav-logo-sub { display: none; }
+      .lang-btn { padding: 4px 7px; }
+    }
 
     /* ── Hero ──────────────────────────────────────────────────────────────── */
     .hero { background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%); padding: 88px 24px 72px; text-align: center; }
@@ -172,6 +184,7 @@
     .hero-badge-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
     .hero h1 { font-size: clamp(38px, 6.5vw, 64px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.06; margin-bottom: 22px; }
     .hero h1 .accent { color: var(--accent); }
+    @media (max-width: 360px) { .hero h1 { font-size: 34px; overflow-wrap: break-word; hyphens: auto; } }
     .hero-sub { font-size: clamp(17px, 2vw, 21px); color: var(--text-secondary); max-width: 660px; margin: 0 auto 36px; line-height: 1.55; }
     .hero-sub strong { color: var(--text); font-weight: 600; }
     .hero-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
@@ -204,6 +217,7 @@
     .feature-card { background: var(--bg-alt); border-radius: var(--radius); padding: 28px; transition: var(--transition); position: relative; }
     .feature-card.new { background: linear-gradient(135deg, rgba(217,119,87,0.08) 0%, rgba(217,119,87,0.03) 100%); border: 1px solid rgba(217,119,87,0.2); }
     .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .feature-card.new, .feature-card.versioned { padding-right: 80px; }
     .feature-card .new-pill { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
     .feature-card .version-pill { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.06); color: var(--text-soft); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 999px; }
     .feature-icon { width: 44px; height: 44px; background: var(--accent-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
@@ -413,10 +427,10 @@
       <div class="launch-content">
         <span class="launch-pill">
           <span class="launch-pill-dot"></span>
-          <span data-i18n="launch_pill">v2.4 jetzt verfügbar</span>
+          <span data-i18n="launch_pill">v2.5 — in weniger als 48 Stunden verfügbar</span>
         </span>
-        <h2 class="launch-headline" data-i18n="launch_headline">Thermomix-Ablauf per KI. <span class="accent">Allergen-Profil. Skalieren. Nährwerte.</span></h2>
-        <p class="launch-sub" data-i18n="launch_sub">v2.4 bringt KI direkt an den Herd. Thermomix-tauglicher Ablauf auf Knopfdruck (Premium), Allergen-Warnungen in der Zutatenliste, Portionen skalieren, Nährwerte schätzen — plus native iPad-Seitenleiste für das große Bildschirm-Erlebnis.</p>
+        <h2 class="launch-headline" data-i18n="launch_headline">KI im Hintergrund. <span class="accent">Teilen für alle. Backtemperatur im Blick.</span></h2>
+        <p class="launch-sub" data-i18n="launch_sub">v2.5 kommt in weniger als 48 Stunden für dich: Die KI erfasst Rezepte im Hintergrund, mit sichtbarem Fortschritt — du stöberst weiter, statt zu warten. Rezepte teilen ist mit v2.5 für alle kostenlos, und Backtemperatur samt Heizart steht direkt bei Personen und Zeiten.</p>
       </div>
       <div class="launch-cta-wrap">
         <a class="launch-btn appstore-link" href="https://apps.apple.com/app/zettelkueche-ai/id6763764154">
@@ -432,13 +446,13 @@
   <!-- ── Navigation ──────────────────────────────────────────────────────── -->
   <nav class="site-nav">
     <div class="nav-inner">
-      <a class="nav-logo" href="/">
-        <img src="/logo.png" alt="Zettelküche AI" class="nav-logo-img">
+      <div class="nav-logo">
+        <a href="/" aria-hidden="true" tabindex="-1"><img src="/logo.png" alt="" class="nav-logo-img"></a>
         <div class="nav-logo-text">
-          <span class="nav-logo-main">Zettel<span class="accent">küche</span> AI</span>
+          <a class="nav-logo-main" href="/" data-i18n="brand_logo">Zettel<span class="accent">küche</span> AI</a>
           <span class="nav-logo-sub" data-i18n="nav_sub">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
         </div>
-      </a>
+      </div>
       <div class="nav-right">
         <a class="nav-link" href="#features" data-i18n="nav_features">Features</a>
         <a class="nav-link" href="#how-it-works" data-i18n="nav_how">So funktioniert's</a>
@@ -510,6 +524,27 @@
         <p class="section-sub" data-i18n="features_sub">Capture, organisieren, kochen — vom ersten Foto bis zum fertigen Gericht.</p>
 
         <div class="features-grid">
+          <!-- v2.5 NEU: KI im Hintergrund -->
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v2.5 NEU</span>
+            <div class="feature-icon">⏳</div>
+            <h3 data-i18n="feat_bg_title">KI-Erfassung im Hintergrund</h3>
+            <p data-i18n="feat_bg_text">Foto, PDF oder Link abschicken und weitermachen: Eine Platzhalter-Karte in der Bibliothek zeigt den Fortschritt, bis das Rezept fertig ist. Abbrechen jederzeit, VoiceOver sagt den Stand an. Auch der Thermomix-Ablauf zeigt, woran die KI gerade arbeitet.</p>
+          </div>
+          <!-- v2.5 NEU: Teilen für alle -->
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v2.5 NEU</span>
+            <div class="feature-icon">📨</div>
+            <h3 data-i18n="feat_share_title">Teilen für alle</h3>
+            <p data-i18n="feat_share_text">Rezept als Datei über das Teilen-Menü verschicken — kostenlos, ohne Premium. Beim Empfänger öffnet die Datei Zettelküche AI mit einer Vorschau, ein Tipp übernimmt das Rezept. Wer die App noch nicht hat, bekommt im Begleittext den direkten Link in den App Store.</p>
+          </div>
+          <!-- v2.5 NEU: Backtemperatur -->
+          <div class="feature-card new">
+            <span class="new-pill" data-i18n="new_pill">v2.5 NEU</span>
+            <div class="feature-icon">🔥</div>
+            <h3 data-i18n="feat_oven_title">Backtemperatur in den Eckdaten</h3>
+            <p data-i18n="feat_oven_text">Temperatur und Heizart (Ober-/Unterhitze, Umluft, Grill) stehen in derselben Zeile wie Personen und Zeiten, in °C oder °F passend zu deiner Region. Die KI übernimmt sie aus dem Rezept, beim Bearbeiten und bei neuen Rezepten trägst du sie selbst ein.</p>
+          </div>
           <!-- 1 — Core -->
           <div class="feature-card">
             <div class="feature-icon">📸</div>
@@ -547,22 +582,22 @@
             <p data-i18n="feat_multipage_text">Apples Document-Scanner mit automatischer Kantenerkennung. Beliebig viele Seiten in einem einzigen Durchgang — die KI sieht alles auf einmal und versteht das gesamte Rezept.</p>
           </div>
           <!-- 7 — v2.4 NEU: Thermomix -->
-          <div class="feature-card new">
-            <span class="new-pill" data-i18n="new_pill">v2.4 NEU</span>
+          <div class="feature-card versioned">
+            <span class="version-pill" data-i18n="v24_pill">v2.4</span>
             <div class="feature-icon">🌀</div>
             <h3 data-i18n="feat_thermomix_title">Thermomix-Ablauf per KI (Premium)</h3>
             <p data-i18n="feat_thermomix_text">Rezept in der Bibliothek öffnen → Tab „Thermomix" → „Ablauf erstellen": die KI liefert die komplette Schritt-für-Schritt-Anleitung mit TM-Parametern, Temperaturen und Stufen. Kein externes Tool, keine Tipp-Arbeit.</p>
           </div>
           <!-- 8 — v2.4 NEU: KI-Assistent -->
-          <div class="feature-card new">
-            <span class="new-pill" data-i18n="new_pill">v2.4 NEU</span>
+          <div class="feature-card versioned">
+            <span class="version-pill" data-i18n="v24_pill">v2.4</span>
             <div class="feature-icon">🧑‍🍳</div>
             <h3 data-i18n="feat_aiassist_title">KI-Assistent beim Kochen</h3>
-            <p data-i18n="feat_aiassist_text">Langer Druck auf eine Zutat — sofort 3–5 Ersatz-Vorschläge. „Rezept skalieren" rechnet alle Mengen für jede Portionszahl. „Nährwerte schätzen" gibt Kalorien und Makros pro Portion.</p>
+            <p data-i18n="feat_aiassist_text">Langer Druck auf eine Zutat — sofort 3–5 Ersatz-Vorschläge. „Rezept skalieren" rechnet alle Mengen für jede Portionszahl, immer gratis. „Nährwerte schätzen" gibt Kalorien und Makros pro Portion. Ersetzen und Nährwerte zählen ohne Premium als KI-Aktion.</p>
           </div>
           <!-- 9 — v2.4 NEU: Allergen -->
-          <div class="feature-card new">
-            <span class="new-pill" data-i18n="new_pill">v2.4 NEU</span>
+          <div class="feature-card versioned">
+            <span class="version-pill" data-i18n="v24_pill">v2.4</span>
             <div class="feature-icon">🚨</div>
             <h3 data-i18n="feat_allergen_title">Allergen-Profil mit Warnungen</h3>
             <p data-i18n="feat_allergen_text">Einmal hinterlegen welche Stoffe du meidest — Zettelküche AI warnt automatisch unter der Zutatenliste. 14 EU-Hauptallergene, lokal auf dem Gerät geprüft, keine Daten an Server.</p>
@@ -588,8 +623,8 @@
           <!-- 13 — iPad/Mac -->
           <div class="feature-card">
             <div class="feature-icon">📱</div>
-            <h3 data-i18n="feat_ipad_title">Natives iPad- und Mac-Layout</h3>
-            <p data-i18n="feat_ipad_text">Persistente Seitenleiste mit Bibliothek, Hinzufügen und Einstellungen auf iPad und Mac. Auf iPhone bewährt sich die Tab-Bar — jede Plattform kriegt ihr eigenes Erlebnis.</p>
+            <h3 data-i18n="feat_ipad_title">Natives iPad-Layout</h3>
+            <p data-i18n="feat_ipad_text">Persistente Seitenleiste mit Bibliothek, Hinzufügen und Einstellungen auf dem iPad. Auf dem iPhone bewährt sich die Tab-Bar — jedes Gerät kriegt sein eigenes Erlebnis.</p>
           </div>
           <!-- 14 — Step Timer -->
           <div class="feature-card">
@@ -655,18 +690,19 @@
               <li data-i18n="rm_done_7">DSGVO-Datenauskunft Free-zugänglich (JSON-Export), Premium-Backup mit Bildern bleibt parallel</li>
               <li data-i18n="rm_done_8">Timer pro Kochschritt, Zutaten an Apple-Erinnerungen, Massen-Bearbeitung der Bibliothek im Photos/Notes-Pattern</li>
               <li data-i18n="rm_done_9">4-Achsen-Filter, Smart Collections, Vollbild-Lese-Modus, Multi-Region, Tags lokalisiert, vier App-Sprachen mit Live-Switch ohne Neustart</li>
-              <li data-i18n="rm_done_10">Native iPad/Mac-Seitenleiste, Thermomix-kompatibler Ablauf per KI (Premium), KI-Assistent: Zutat ersetzen, skalieren, Nährwerte schätzen, Allergen-Profil mit Warnungen</li>
+              <li data-i18n="rm_done_10">Native iPad-Seitenleiste, Thermomix-kompatibler Ablauf per KI (Premium), KI-Assistent: Zutat ersetzen, skalieren, Nährwerte schätzen, Allergen-Profil mit Warnungen</li>
             </ul>
           </div>
           <div class="roadmap-card coming">
             <span class="roadmap-tag" data-i18n="roadmap_next_tag">Als nächstes</span>
-            <h3 data-i18n="roadmap_next_title">v2.5 und weiter</h3>
+            <h3 data-i18n="roadmap_next_title">v2.6 und weiter</h3>
             <ul>
-              <li data-i18n="rm_next_1">Recipe-Pack-Export (Premium): mehrere Rezepte als ein Bundle — Familienkochbuch, Reise-Sammlung</li>
-              <li data-i18n="rm_next_2">Voice-Note-Capture: Rezept diktieren → Apple Speech on-device → KI-Strukturierung</li>
-              <li data-i18n="rm_next_3">Notes-pro-Schritt, Recipe-Versionierung, Sektion-Reihenfolge frei konfigurierbar (iCloud-synchronisiert)</li>
-              <li data-i18n="rm_next_4">Win-Back- und Streak-Push-Notifications, eigener Server-Cron statt aufdringlicher Trigger</li>
-              <li data-i18n="rm_next_5">Event-Planung für Anlässe (Weihnachten, Dinner-Party), Mahlzeitenplaner mit Wochenplan, Apple Watch, CarPlay</li>
+              <li data-i18n="rm_next_1">Recipe-Pack: mehrere Rezepte als ein Paket teilen — Familienkochbuch, Reise-Sammlung</li>
+              <li data-i18n="rm_next_2">Rezept diktieren: Sprachaufnahme, Spracherkennung auf dem Gerät, danach KI-Strukturierung</li>
+              <li data-i18n="rm_next_3">iCloud-Sync-Status sichtbar in der App — du siehst, ob alles synchron ist</li>
+              <li data-i18n="rm_next_4">Widget für den Home-Bildschirm: zuletzt geöffnetes Rezept und Koch-Streak</li>
+              <li data-i18n="rm_next_5">Siri und Kurzbefehle: „nächster Schritt" freihändig beim Kochen, Rezept per Kurzbefehl hinzufügen</li>
+              <li data-i18n="rm_next_6">Eigene Notizen pro Schritt und „meine Variante" neben dem Original</li>
             </ul>
           </div>
         </div>
@@ -682,7 +718,7 @@
       <div class="section-inner">
         <p class="section-label" data-i18n="pricing_label">Pläne</p>
         <h2 class="section-title" data-i18n="pricing_title">Free starten. Premium, wenn du mehr willst.</h2>
-        <p class="section-sub" data-i18n="pricing_sub">Manuelle Rezept-Anlage, iCloud-Sync und Bibliothek immer kostenlos.</p>
+        <p class="section-sub" data-i18n="pricing_sub">Manuelle Rezepte, Bibliothek, iCloud-Sync und Teilen immer kostenlos.</p>
 
         <div class="pricing-grid">
           <div class="price-card">
@@ -692,8 +728,10 @@
               <li data-i18n="price_free_1">Unbegrenzte manuelle Rezepte</li>
               <li data-i18n="price_free_2">Volle Bibliothek mit Suche und Filtern</li>
               <li data-i18n="price_free_3">iCloud-Sync zwischen deinen Geräten</li>
-              <li data-i18n="price_free_4">20 KI-gestützte Extraktionen zum Testen</li>
+              <li data-i18n="price_free_4">20 KI-Aktionen gratis, einmalig pro Apple-ID (iCloud) — es zählen: Rezept erfassen, Nährwerte schätzen, Zutaten ersetzen</li>
               <li data-i18n="price_free_5">Bis zu 3 eigene Kategorien</li>
+              <li data-i18n="price_free_6">Skalieren und Allergen-Warnungen ohne Limit</li>
+              <li data-i18n="price_free_7">Rezepte als Datei teilen</li>
             </ul>
           </div>
           <div class="price-card premium">
@@ -701,10 +739,11 @@
             <h3 data-i18n="price_prem_h">Für Vielsammler &amp; Foodies</h3>
             <ul>
               <li data-i18n="price_prem_1">Alles aus Free</li>
-              <li data-i18n="price_prem_2">Unbegrenzte KI-Extraktionen</li>
-              <li data-i18n="price_prem_3">Backup &amp; Wiederherstellen</li>
-              <li data-i18n="price_prem_4">Sharing als .recipebundle</li>
-              <li data-i18n="price_prem_6">Unbegrenzt eigene Tags und Smart Collections</li>
+              <li data-i18n="price_prem_2">Unbegrenzte KI-Aktionen</li>
+              <li data-i18n="price_prem_3">Thermomix-Ablauf per KI</li>
+              <li data-i18n="price_prem_4">KI-Verfeinerung mit ChatGPT</li>
+              <li data-i18n="price_prem_5">Backup deiner Sammlung</li>
+              <li data-i18n="price_prem_6">Unbegrenzte eigene Kategorien</li>
             </ul>
             <span class="price-trial" data-i18n="price_trial">7 Tage gratis testen beim Jahresabo</span>
           </div>
@@ -754,7 +793,7 @@
     <div class="ios-modal-card">
       <div class="ios-modal-handle"></div>
       <div class="ios-modal-icon-row">
-        <img src="/logo.png" alt="Zettelküche AI" class="ios-modal-app-icon">
+        <img src="/logo.png" alt="Zettelküche AI" class="ios-modal-app-icon" data-i18n-alt="brand_name">
       </div>
       <h3 id="iosModalTitle" data-i18n="modal_title">Zettelküche AI direkt im App Store</h3>
       <p data-i18n="modal_sub">Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.</p>
@@ -769,8 +808,8 @@
   <footer class="site-footer" id="impressum">
     <div class="footer-inner">
       <div class="footer-logo">
-        <img src="/logo.png" alt="Zettelküche AI" class="footer-logo-img">
-        <span class="footer-logo-main">Zettel<span class="accent">küche</span> AI</span>
+        <img src="/logo.png" alt="Zettelküche AI" class="footer-logo-img" data-i18n-alt="brand_name">
+        <span class="footer-logo-main" data-i18n="brand_logo">Zettel<span class="accent">küche</span> AI</span>
       </div>
       <div class="footer-brand-line" data-i18n="footer_brand">eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></div>
 
@@ -831,9 +870,9 @@
         nav_pricing:       'Pläne',
         nav_cta:           'App laden',
 
-        launch_pill:       'v2.4 jetzt verfügbar',
-        launch_headline:   'Thermomix-Ablauf per KI. <span class="accent">Allergen-Profil. Skalieren. Nährwerte.</span>',
-        launch_sub:        'v2.4 bringt KI direkt an den Herd. Thermomix-tauglicher Ablauf auf Knopfdruck (Premium), Allergen-Warnungen in der Zutatenliste, Portionen skalieren, Nährwerte schätzen — plus native iPad-Seitenleiste für das große Bildschirm-Erlebnis.',
+        launch_pill:       'v2.5 — in weniger als 48 Stunden verfügbar',
+        launch_headline:   'KI im Hintergrund. <span class="accent">Teilen für alle. Backtemperatur im Blick.</span>',
+        launch_sub:        'v2.5 kommt in weniger als 48 Stunden für dich: Die KI erfasst Rezepte im Hintergrund, mit sichtbarem Fortschritt — du stöberst weiter, statt zu warten. Rezepte teilen ist mit v2.5 für alle kostenlos, und Backtemperatur samt Heizart steht direkt bei Personen und Zeiten.',
         cookie_text:       'Wir verwenden technisch notwendige Cookies sowie optionale Analyse-Cookies zur Verbesserung dieser Seite. <a href="/privacy/">Datenschutz</a>',
         cookie_necessary:  'Nur notwendige',
         cookie_accept:     'Alle akzeptieren',
@@ -855,7 +894,7 @@
         features_label:    'Features',
         features_title:    'Alles, was du zum Sammeln brauchst.',
         features_sub:      'Capture, organisieren, kochen — vom ersten Foto bis zum fertigen Gericht.',
-        new_pill:          'v2.4 NEU',
+        new_pill:          'v2.5 NEU',
         v22_pill:          'v2.2',
         feat_duration_title:   'Schritt-Dauer wie in Apples Timer',
         feat_duration_text:    'Schluss mit 270 mal auf + tippen für 4 h 30 min. Tap auf die Dauer-Pille eines Schritts öffnet ein Bottom-Sheet: oben Voreinstellungen für 3 / 5 / 10 / 15 / 30 min und 1 / 2 / 4 h — meistens ein einziger Tap. Darunter zwei Wheels mit Wisch-Inertia für alle Zwischenwerte. Gleiches Pattern auch bei Zubereitungs- und Garzeit.',
@@ -894,7 +933,7 @@
         feat_2_title:      'KI-Strukturierung',
         feat_2_text:       'Zutaten mit Mengen, nummerierte Schritte, Portionen, Garzeit, Schwierigkeit — automatisch erkannt und sauber ausgezeichnet.',
         feat_ipad_title:   'Natives iPad-Layout',
-        feat_ipad_text:    'Zwei-Spalten-Sidebar mit Tags, Region und Smart Collections, große Detail-Ansicht mit Hero-Bild und Tabs — der perfekte Begleiter neben dem Herd.',
+        feat_ipad_text:    'Persistente Seitenleiste mit Bibliothek, Hinzufügen und Einstellungen auf dem iPad. Auf dem iPhone bewährt sich die Tab-Bar — jedes Gerät kriegt sein eigenes Erlebnis.',
         feat_backup_title: 'Backup &amp; Wiederherstellen',
         feat_backup_text:  'Premium: Sicherung deiner Bibliothek inklusive Bilder als Datei — speichere sie in iCloud Drive, Dropbox oder lokal. Restore auf einem neuen Gerät mit einem Tap.',
         feat_axes_title:   '4-Achsen-Filter',
@@ -910,11 +949,11 @@
         feat_thermomix_title:  'Thermomix-Ablauf per KI (Premium)',
         feat_thermomix_text:   'Rezept öffnen → Tab „Thermomix" → „Ablauf erstellen": die KI liefert die komplette Schritt-für-Schritt-Anleitung mit TM-Parametern, Temperaturen und Stufen. Kein externes Tool, keine Tipp-Arbeit.',
         feat_aiassist_title:   'KI-Assistent beim Kochen',
-        feat_aiassist_text:    'Langer Druck auf eine Zutat — sofort 3–5 Ersatz-Vorschläge. „Rezept skalieren" rechnet alle Mengen für jede Portionszahl. „Nährwerte schätzen" gibt Kalorien und Makros pro Portion.',
+        feat_aiassist_text:    'Langer Druck auf eine Zutat — sofort 3–5 Ersatz-Vorschläge. „Rezept skalieren" rechnet alle Mengen für jede Portionszahl, immer gratis. „Nährwerte schätzen" gibt Kalorien und Makros pro Portion. Ersetzen und Nährwerte zählen ohne Premium als KI-Aktion.',
         feat_allergen_title:   'Allergen-Profil mit Warnungen',
         feat_allergen_text:    'Einmal hinterlegen welche Stoffe du meidest — Zettelküche AI warnt automatisch unter der Zutatenliste. 14 EU-Hauptallergene, lokal geprüft, keine Daten an Server.',
-        feat_ipad_title:       'Natives iPad- und Mac-Layout',
-        feat_ipad_text:        'Persistente Seitenleiste mit Bibliothek, Hinzufügen und Einstellungen auf iPad und Mac. Auf iPhone bewährt sich die Tab-Bar — jede Plattform kriegt ihr eigenes Erlebnis.',
+        feat_ipad_title:       'Natives iPad-Layout',
+        feat_ipad_text:        'Persistente Seitenleiste mit Bibliothek, Hinzufügen und Einstellungen auf dem iPad. Auf dem iPhone bewährt sich die Tab-Bar — jedes Gerät kriegt sein eigenes Erlebnis.',
         feat_3_title:      'Private iCloud-Sync',
         feat_3_text:       'Alle Rezepte synchron auf iPhone und iPad — in deiner privaten iCloud-Datenbank, ohne Konto, ohne Server.',
         feat_4_title:      'Suche &amp; Filter',
@@ -946,31 +985,31 @@
         rm_done_7:         'DSGVO-Datenauskunft Free-zugänglich (JSON-Export), Premium-Backup mit Bildern bleibt parallel',
         rm_done_8:         'Timer pro Kochschritt, Zutaten an Apple-Erinnerungen, Massen-Bearbeitung der Bibliothek im Photos/Notes-Pattern',
         rm_done_9:         '4-Achsen-Filter, Smart Collections, Vollbild-Lese-Modus, Multi-Region, Tags lokalisiert, vier App-Sprachen mit Live-Switch ohne Neustart',
-        rm_done_10:        'Native iPad/Mac-Seitenleiste, Thermomix-kompatibler Ablauf per KI (Premium), KI-Assistent: Zutat ersetzen, skalieren, Nährwerte schätzen, Allergen-Profil mit Warnungen',
+        rm_done_10:        'Native iPad-Seitenleiste, Thermomix-kompatibler Ablauf per KI (Premium), KI-Assistent: Zutat ersetzen, skalieren, Nährwerte schätzen, Allergen-Profil mit Warnungen',
         roadmap_next_tag:  'Als nächstes',
-        roadmap_next_title:'v2.5 und weiter',
-        rm_next_1:         'Recipe-Pack-Export (Premium): mehrere Rezepte als ein Bundle — Familienkochbuch, Reise-Sammlung',
-        rm_next_2:         'Voice-Note-Capture: Rezept diktieren → Apple Speech on-device → KI-Strukturierung',
-        rm_next_3:         'Notes-pro-Schritt, Recipe-Versionierung, Sektion-Reihenfolge frei konfigurierbar (iCloud-synchronisiert)',
-        rm_next_4:         'Win-Back- und Streak-Push-Notifications, eigener Server-Cron statt aufdringlicher Trigger',
-        rm_next_5:         'Event-Planung für Anlässe (Weihnachten, Dinner-Party), Mahlzeitenplaner mit Wochenplan, Apple Watch, CarPlay',
+        roadmap_next_title:'v2.6 und weiter',
+        rm_next_1:         'Recipe-Pack: mehrere Rezepte als ein Paket teilen — Familienkochbuch, Reise-Sammlung',
+        rm_next_2:         'Rezept diktieren: Sprachaufnahme, Spracherkennung auf dem Gerät, danach KI-Strukturierung',
+        rm_next_3:         'iCloud-Sync-Status sichtbar in der App — du siehst, ob alles synchron ist',
+        rm_next_4:         'Widget für den Home-Bildschirm: zuletzt geöffnetes Rezept und Koch-Streak',
+        rm_next_5:         'Siri und Kurzbefehle: „nächster Schritt" freihändig beim Kochen, Rezept per Kurzbefehl hinzufügen',
         roadmap_promise:   'Zettelküche AI ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser. Daran kommt keine Rezept-App vorbei, die mit der Zeit gehen will.',
 
         pricing_label:     'Pläne',
         pricing_title:     'Free starten. Premium, wenn du mehr willst.',
-        pricing_sub:       'Manuelle Rezept-Anlage, iCloud-Sync und Bibliothek immer kostenlos.',
+        pricing_sub:       'Manuelle Rezepte, Bibliothek, iCloud-Sync und Teilen immer kostenlos.',
         price_free_h:      'Für Gelegenheits-Sammler',
         price_free_1:      'Unbegrenzte manuelle Rezepte',
         price_free_2:      'Volle Bibliothek mit Suche und Filtern',
         price_free_3:      'iCloud-Sync zwischen deinen Geräten',
-        price_free_4:      '20 KI-gestützte Extraktionen zum Testen',
+        price_free_4:      '20 KI-Aktionen gratis, einmalig pro Apple-ID (iCloud) — es zählen: Rezept erfassen, Nährwerte schätzen, Zutaten ersetzen',
         price_free_5:      'Bis zu 3 eigene Kategorien',
         price_prem_h:      'Für Vielsammler &amp; Foodies',
         price_prem_1:      'Alles aus Free',
-        price_prem_2:      'Unbegrenzte KI-Extraktionen',
-        price_prem_3:      'Backup &amp; Wiederherstellen',
-        price_prem_4:      'Sharing als .recipebundle',
-        price_prem_6:      'Unbegrenzt eigene Tags und Smart Collections',
+        price_prem_2:      'Unbegrenzte KI-Aktionen',
+        price_prem_3:      'Thermomix-Ablauf per KI',
+        price_prem_4:      'KI-Verfeinerung mit ChatGPT',
+        price_prem_6:      'Unbegrenzte eigene Kategorien',
         price_trial:       '7 Tage gratis testen beim Jahresabo',
         pricing_cta_text:  'Jetzt kostenlos laden',
 
@@ -996,7 +1035,22 @@
         imprint_country:   'Deutschland',
         imprint_email_label: 'E-Mail',
         imprint_form_label: 'Kontaktformular',
-        imprint_dsa_label: 'EU-DSA-Kontakt'
+        imprint_dsa_label: 'EU-DSA-Kontakt',
+        meta_title: 'Zettelküche AI — Rezepte fotografieren, übersetzen, strukturieren',
+        meta_desc: 'Foto rein, strukturiertes Rezept raus — in deiner Sprache. Privat in deiner iCloud, auf iPhone und iPad. Thermomix-Ablauf, Allergen-Warnungen, Rezepte teilen.',
+        brand_name: 'Zettelküche AI',
+        brand_logo: 'Zettel<span class="accent">küche</span> AI',
+        v24_pill: 'v2.4',
+        feat_bg_title: 'KI-Erfassung im Hintergrund',
+        feat_bg_text: 'Foto, PDF oder Link abschicken und weitermachen: Eine Platzhalter-Karte in der Bibliothek zeigt den Fortschritt, bis das Rezept fertig ist. Abbrechen jederzeit, VoiceOver sagt den Stand an. Auch der Thermomix-Ablauf zeigt, woran die KI gerade arbeitet.',
+        feat_share_title: 'Teilen für alle',
+        feat_share_text: 'Rezept als Datei über das Teilen-Menü verschicken — kostenlos, ohne Premium. Beim Empfänger öffnet die Datei Zettelküche AI mit einer Vorschau, ein Tipp übernimmt das Rezept. Wer die App noch nicht hat, bekommt im Begleittext den direkten Link in den App Store.',
+        feat_oven_title: 'Backtemperatur in den Eckdaten',
+        feat_oven_text: 'Temperatur und Heizart (Ober-/Unterhitze, Umluft, Grill) stehen in derselben Zeile wie Personen und Zeiten, in °C oder °F passend zu deiner Region. Die KI übernimmt sie aus dem Rezept, beim Bearbeiten und bei neuen Rezepten trägst du sie selbst ein.',
+        rm_next_6: 'Eigene Notizen pro Schritt und „meine Variante" neben dem Original',
+        price_free_6: 'Skalieren und Allergen-Warnungen ohne Limit',
+        price_free_7: 'Rezepte als Datei teilen',
+        price_prem_5: 'Backup deiner Sammlung'
       },
       en: {
         nav_sub:           'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
@@ -1006,9 +1060,9 @@
         nav_pricing:       'Plans',
         nav_cta:           'Get the app',
 
-        launch_pill:       'v2.4 out now',
-        launch_headline:   'Thermomix workflow by AI. <span class="accent">Allergen profile. Scale. Nutrients.</span>',
-        launch_sub:        'v2.4 brings AI to the kitchen. Thermomix-ready workflow on demand (Premium), allergen warnings in the ingredient list, scale servings, estimate nutrients — plus native iPad sidebar for the full large-screen experience.',
+        launch_pill:       'v2.5 — available in under 48 hours',
+        launch_headline:   'AI in the background. <span class="accent">Sharing for everyone. Oven settings at a glance.</span>',
+        launch_sub:        'v2.5 arrives in under 48 hours: the AI captures recipes in the background with visible progress — keep browsing instead of waiting. With v2.5, sharing recipes is free for everyone, and oven temperature and heating mode sit right next to servings and times.',
         cookie_text:       'We use technically necessary cookies and optional analytics cookies to improve this site. <a href="/privacy/">Privacy policy</a>',
         cookie_necessary:  'Necessary only',
         cookie_accept:     'Accept all',
@@ -1017,7 +1071,7 @@
         hero_badge:        'Available now on the App Store',
         hero_h1_a:         'From a photo to a',
         hero_h1_b:         'structured recipe.',
-        hero_sub:          'Zettelküche AI turns a photo, screenshot or document into a searchable recipe in <strong>seconds</strong> — <strong>in your language</strong>, even if the source is in another. Private in your iCloud, native on iPhone and iPad.',
+        hero_sub:          'PaperPantry AI turns a photo, screenshot or document into a searchable recipe in <strong>seconds</strong> — <strong>in your language</strong>, even if the source is in another. Private in your iCloud, native on iPhone and iPad.',
         hero_cta_how:      'How it works',
         hero_meta:         'iPhone and iPad · iOS 18+ · privately synced via your iCloud',
         appstore_pre:      'Download on the',
@@ -1030,7 +1084,7 @@
         features_label:    'Features',
         features_title:    'Everything you need to collect.',
         features_sub:      'Capture, organize, cook — from the first photo to the finished dish.',
-        new_pill:          'v2.4 NEW',
+        new_pill:          'v2.5 NEW',
         v22_pill:          'v2.2',
         feat_duration_title:    'Step duration like Apple\'s Timer',
         feat_duration_text:     'No more tapping + 270 times for 4 h 30 min. Tap the duration pill on a step and a bottom sheet opens: presets for 3 / 5 / 10 / 15 / 30 min and 1 / 2 / 4 h on top — usually a single tap. Two wheels below with swipe inertia for everything in between. Same pattern for prep and cook time as well.',
@@ -1059,7 +1113,7 @@
         feat_taglocalized_title:'Tags in your language',
         feat_taglocalized_text: 'Switch the app language from German to English and filters like „Frühstück" become "Breakfast", „italienisch" becomes "Italian", without your recipes being renamed. Live language switch without restart.',
         feat_paste_title:       'Cover photo from the clipboard',
-        feat_paste_text:        'Found an image on the web, copied it, pasted it in Zettelküche AI — done. Plus: every cover-photo change shows the new image in a large preview first and asks "save or cancel". No more accidental taps.',
+        feat_paste_text:        'Found an image on the web, copied it, pasted it in PaperPantry AI — done. Plus: every cover-photo change shows the new image in a large preview first and asks "save or cancel". No more accidental taps.',
         feat_sidebar_title:     'All filters in the sidebar',
         feat_sidebar_text:      'Quick selection, meal, Smart Collections, tags, region, diet, occasion — all seven filter sections now live in the sidebar and can be reordered freely. Apple-HIG multi-select with clear Done / Cancel.',
         feat_1_title:      'Capture from any source',
@@ -1069,7 +1123,7 @@
         feat_2_title:      'AI structuring',
         feat_2_text:       'Ingredients with quantities, numbered steps, servings, cook time, difficulty — recognized automatically and cleanly labeled.',
         feat_ipad_title:   'Native iPad layout',
-        feat_ipad_text:    'Two-column sidebar with tags, region and Smart Collections, larger detail view with hero image and tabs — the perfect companion next to the stove.',
+        feat_ipad_text:    'A persistent sidebar with library, add and settings on iPad. On iPhone, the proven tab bar — each device gets its own experience.',
         feat_backup_title: 'Backup &amp; restore',
         feat_backup_text:  'Premium: save your library including images as a file — store it on iCloud Drive, Dropbox, or locally. Restore on a new device with a single tap.',
         feat_axes_title:   'Four-axis filter',
@@ -1085,11 +1139,11 @@
         feat_thermomix_title:  'Thermomix workflow by AI (Premium)',
         feat_thermomix_text:   'Open a recipe → Thermomix tab → "Create workflow": the AI delivers a complete step-by-step guide with TM parameters, temperatures, and speeds. No external tool needed.',
         feat_aiassist_title:   'AI cooking assistant',
-        feat_aiassist_text:    'Long-press any ingredient — instantly get 3–5 substitutes. "Scale recipe" recalculates all quantities for any serving size. "Estimate nutrients" gives calories and macros per serving.',
+        feat_aiassist_text:    'Long-press any ingredient — instantly get 3–5 substitutes. "Scale recipe" recalculates all quantities for any serving size, always free. "Estimate nutrients" gives calories and macros per serving. Without Premium, substitutes and nutrition count as AI actions.',
         feat_allergen_title:   'Allergen profile with warnings',
-        feat_allergen_text:    'Set which allergens you avoid once — Zettelküche AI warns automatically under the ingredient list. 14 EU allergens, checked locally on device, no data sent to servers.',
-        feat_ipad_title:       'Native iPad and Mac layout',
-        feat_ipad_text:        'Persistent sidebar with Library, Add, and Settings on iPad and Mac. On iPhone the tab bar does its job — every platform gets its own experience.',
+        feat_allergen_text:    'Set which allergens you avoid once — PaperPantry AI warns automatically under the ingredient list. 14 EU allergens, checked locally on device, no data sent to servers.',
+        feat_ipad_title:       'Native iPad layout',
+        feat_ipad_text:        'A persistent sidebar with library, add and settings on iPad. On iPhone, the proven tab bar — each device gets its own experience.',
         feat_3_title:      'Private iCloud sync',
         feat_3_text:       'All recipes synced across iPhone and iPad — in your private iCloud database, no account, no server.',
         feat_4_title:      'Search &amp; filter',
@@ -1121,31 +1175,31 @@
         rm_done_7:         'GDPR data report on the free tier (JSON export), premium backup with images remains in parallel',
         rm_done_8:         'Timer per cooking step, ingredients to Apple Reminders, bulk-edit in the library in Photos/Notes pattern',
         rm_done_9:         'Four-axis filter, Smart Collections, full-screen reading mode, multi-region, localized tags, four app languages with live switch without restart',
-        rm_done_10:        'Native iPad/Mac sidebar, Thermomix-compatible workflow by AI (Premium), AI assistant: substitute ingredients, scale, estimate nutrients, allergen profile with warnings',
+        rm_done_10:        'Native iPad sidebar, Thermomix-compatible workflow by AI (Premium), AI assistant: substitute ingredients, scale, estimate nutrients, allergen profile with warnings',
         roadmap_next_tag:  'Coming next',
-        roadmap_next_title:'v2.5 and beyond',
-        rm_next_1:         'Recipe-pack export (Premium): multiple recipes as one bundle — family cookbook, travel collection',
-        rm_next_2:         'Voice-note capture: dictate a recipe → Apple Speech on-device → AI structuring',
-        rm_next_3:         'Per-step notes, recipe versioning, freely configurable section order (iCloud-synced)',
-        rm_next_4:         'Win-back and streak push notifications, server cron instead of intrusive triggers',
-        rm_next_5:         'Event planning for occasions (Christmas, dinner party), meal planner with weekly plan, Apple Watch, CarPlay',
-        roadmap_promise:   'Zettelküche AI is <strong>not a finished product</strong> — it\'s an evolving one. What you get today is <strong>a solid start</strong>, and every update makes the app better. No recipe app that wants to keep up will get past it.',
+        roadmap_next_title:'v2.6 and beyond',
+        rm_next_1:         'Recipe packs: share several recipes as one package — family cookbook, travel collection',
+        rm_next_2:         'Dictate a recipe: voice recording, on-device speech recognition, then AI structuring',
+        rm_next_3:         'iCloud sync status visible in the app — see at a glance whether everything is in sync',
+        rm_next_4:         'Home Screen widget: last opened recipe and cooking streak',
+        rm_next_5:         'Siri and Shortcuts: hands-free "next step" while cooking, add a recipe via Shortcut',
+        roadmap_promise:   'PaperPantry AI is <strong>not a finished product</strong> — it\'s an evolving one. What you get today is <strong>a solid start</strong>, and every update makes the app better. No recipe app that wants to keep up will get past it.',
 
         pricing_label:     'Plans',
         pricing_title:     'Start with Free. Go Premium when you want more.',
-        pricing_sub:       'Manual recipe entry, iCloud sync and library always free.',
+        pricing_sub:       'Manual recipes, library, iCloud sync and sharing are always free.',
         price_free_h:      'For occasional collectors',
         price_free_1:      'Unlimited manual recipes',
         price_free_2:      'Full library with search and filters',
         price_free_3:      'iCloud sync between your devices',
-        price_free_4:      '20 AI-powered extractions to try out',
+        price_free_4:      '20 free AI actions, once per Apple Account (iCloud) — counted: capturing a recipe, estimating nutrition, substituting ingredients',
         price_free_5:      'Up to 3 custom categories',
         price_prem_h:      'For power collectors &amp; foodies',
         price_prem_1:      'Everything in Free',
-        price_prem_2:      'Unlimited AI extractions',
-        price_prem_3:      'Backup &amp; restore',
-        price_prem_4:      'Sharing as .recipebundle files',
-        price_prem_6:      'Unlimited custom tags and Smart Collections',
+        price_prem_2:      'Unlimited AI actions',
+        price_prem_3:      'Thermomix steps by AI',
+        price_prem_4:      'AI refinement with ChatGPT',
+        price_prem_6:      'Unlimited custom categories',
         price_trial:       'Try the annual plan free for 7 days',
         pricing_cta_text:  'Get it free now',
 
@@ -1155,7 +1209,7 @@
         cta_title:         'Ready to sort out your recipe collection?',
         cta_sub:           'Available now on the App Store for iPhone and iPad.',
 
-        modal_title:       'Zettelküche AI on the App Store',
+        modal_title:       'PaperPantry AI on the App Store',
         modal_sub:         'You\'re on iPhone. Tap below and download the app in seconds — free, no signup.',
         modal_cta:         'Open in App Store',
         modal_dismiss:     'Continue on the website',
@@ -1171,7 +1225,22 @@
         imprint_country:   'Germany',
         imprint_email_label: 'Email',
         imprint_form_label: 'Contact form',
-        imprint_dsa_label: 'EU DSA contact'
+        imprint_dsa_label: 'EU DSA contact',
+        meta_title: 'PaperPantry AI — Snap, translate and structure recipes',
+        meta_desc: 'Photo in, structured recipe out — in your language. Private in your iCloud, on iPhone and iPad. Thermomix steps, allergen warnings, recipe sharing.',
+        brand_name: 'PaperPantry AI',
+        brand_logo: 'Paper<span class="accent">Pantry</span> AI',
+        v24_pill: 'v2.4',
+        feat_bg_title: 'AI capture in the background',
+        feat_bg_text: 'Send a photo, PDF or link and keep going: a placeholder card in your library shows the progress until the recipe is ready. Cancel anytime, VoiceOver announces the status. The Thermomix workflow shows what the AI is working on, too.',
+        feat_share_title: 'Sharing for everyone',
+        feat_share_text: 'Send a recipe as a file from the share menu — free, no Premium needed. On the recipient’s device the file opens PaperPantry AI with a preview, one tap saves the recipe. No app yet? The accompanying message includes a direct App Store link.',
+        feat_oven_title: 'Oven settings at a glance',
+        feat_oven_text: 'Temperature and heating mode (top and bottom heat, fan, grill) sit in the same row as servings and times, in °C or °F to match your region. The AI picks them up from the recipe, and you can enter them yourself when editing or adding a recipe.',
+        rm_next_6: 'Your own notes per step and "my version" next to the original',
+        price_free_6: 'Scaling and allergen warnings without limits',
+        price_free_7: 'Share recipes as a file',
+        price_prem_5: 'Backup of your collection'
       },
       'uk': {
         nav_sub:           'торгова марка від <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
@@ -1181,9 +1250,9 @@
         nav_pricing:       'Плани',
         nav_cta:           'Завантажити',
 
-        launch_pill:       'v2.4 вже доступне',
-        launch_headline:   'Інструкція Thermomix через ШІ. <span class="accent">Алергени. Масштабування. Поживність.</span>',
-        launch_sub:        'v2.4 виводить ШІ прямо на кухню. Thermomix-сумісна інструкція на один дотик (Premium), попередження про алергени в списку інгредієнтів, масштабування порцій, оцінка поживності — плюс нативна бічна панель iPad.',
+        launch_pill:       'v2.5 — менш ніж за 48 годин',
+        launch_headline:   'ШІ працює у фоні. <span class="accent">Поширення для всіх. Температура духовки на виду.</span>',
+        launch_sub:        'v2.5 з’явиться менш ніж за 48 годин: ШІ розпізнає рецепти у фоні з видимим прогресом — ви переглядаєте далі замість чекати. З v2.5 поширювати рецепти можуть усі безкоштовно, а температура й режим нагріву стоять поруч із порціями та часом.',
         cookie_text:       'Ми використовуємо технічно необхідні файли cookie та додаткові аналітичні cookie для покращення цього сайту. <a href="/privacy/">Конфіденційність</a>',
         cookie_necessary:  'Лише необхідні',
         cookie_accept:     'Прийняти всі',
@@ -1192,7 +1261,7 @@
         hero_badge:        'Уже доступно в App Store',
         hero_h1_a:         'З фото до',
         hero_h1_b:         'структурованого рецепта.',
-        hero_sub:          'Zettelküche AI перетворює фото, знімок екрана або документ на рецепт із пошуком за <strong>секунди</strong> — <strong>вашою мовою</strong>, навіть якщо джерело іншою. Приватно у вашій iCloud, рідно на iPhone та iPad.',
+        hero_sub:          'PaperPantry AI перетворює фото, знімок екрана або документ на рецепт із пошуком за <strong>секунди</strong> — <strong>вашою мовою</strong>, навіть якщо джерело іншою. Приватно у вашій iCloud, рідно на iPhone та iPad.',
         hero_cta_how:      'Як це працює',
         hero_meta:         'iPhone та iPad · iOS 18+ · приватна синхронізація через вашу iCloud',
         appstore_pre:      'Завантажити в',
@@ -1205,7 +1274,7 @@
         features_label:    'Можливості',
         features_title:    'Усе необхідне, щоб збирати.',
         features_sub:      'Зніміть, упорядкуйте, приготуйте — від першого фото до готової страви.',
-        new_pill:          'v2.4 НОВЕ',
+        new_pill:          'v2.5 НОВЕ',
         v22_pill:          'v2.2',
         feat_duration_title:    'Тривалість кроку як у Таймері Apple',
         feat_duration_text:     'Більше ніяких 270 натискань на + для 4 год 30 хв. Дотик до пігулки тривалості на кроці відкриває нижній лист: зверху пресети 3 / 5 / 10 / 15 / 30 хв і 1 / 2 / 4 год — зазвичай один тап. Нижче два колеса зі свайп-інерцією для всього між ними. Той самий шаблон і для часу підготовки та готування.',
@@ -1234,7 +1303,7 @@
         feat_taglocalized_title:'Теги вашою мовою',
         feat_taglocalized_text: 'Перемикаєте мову застосунку з німецької на англійську — фільтри на кшталт „Frühstück" стають „Breakfast", „italienisch" — „Italian", без перейменування ваших рецептів. Наживо, без перезапуску.',
         feat_paste_title:       'Фото обкладинки з буфера обміну',
-        feat_paste_text:        'Знайшли зображення в Інтернеті, скопіювали, вставили в Zettelküche AI — готово. Плюс: будь-яка зміна фото обкладинки спершу показує велике зображення й запитує «зберегти чи скасувати». Без випадкових натискань.',
+        feat_paste_text:        'Знайшли зображення в Інтернеті, скопіювали, вставили в PaperPantry AI — готово. Плюс: будь-яка зміна фото обкладинки спершу показує велике зображення й запитує «зберегти чи скасувати». Без випадкових натискань.',
         feat_sidebar_title:     'Усі фільтри в бічній панелі',
         feat_sidebar_text:      'Швидкий вибір, страва, Розумні колекції, теги, регіон, дієта, нагода — усі сім секцій фільтрів тепер у бічній панелі, з вільним порядком. Apple-HIG-мульти-вибір з чітким «Готово» / «Скасувати».',
         feat_1_title:      'Знімайте з будь-якого джерела',
@@ -1243,8 +1312,8 @@
         feat_translate_text:  'Італійська кулінарна книга, рецепт вашою мовою. Виберіть цільову мову в налаштуваннях — AI читає джерело й перекладає одразу мовою застосунку.',
         feat_2_title:      'AI-структурування',
         feat_2_text:       'Інгредієнти з кількостями, пронумеровані кроки, порції, час готування, складність — розпізнаються автоматично й чітко позначаються.',
-        feat_ipad_title:   'Рідний макет для iPad',
-        feat_ipad_text:    'Двоколонкова бічна панель з тегами, регіоном і Розумними колекціями, ширший детальний перегляд із головним зображенням і вкладками — ідеальний помічник біля плити.',
+        feat_ipad_title:   'Нативний макет для iPad',
+        feat_ipad_text:    'Постійна бічна панель із бібліотекою, додаванням і налаштуваннями на iPad. На iPhone — перевірена панель вкладок: кожен пристрій має власний досвід.',
         feat_backup_title: 'Резервна копія та відновлення',
         feat_backup_text:  'Premium: збережіть бібліотеку разом із зображеннями як файл — тримайте її в iCloud Drive, Dropbox чи локально. Відновіть на новому пристрої одним дотиком.',
         feat_axes_title:   'Чотиривісний фільтр',
@@ -1260,11 +1329,11 @@
         feat_thermomix_title:  'Процес Thermomix через ШІ (Premium)',
         feat_thermomix_text:   'Відкрийте рецепт → вкладка «Thermomix» → «Створити процес»: ШІ видає повну покрокову інструкцію з TM-параметрами, температурами та швидкостями.',
         feat_aiassist_title:   'ШІ-помічник на кухні',
-        feat_aiassist_text:    'Утримайте інгредієнт — одразу 3–5 замін. «Масштабувати рецепт» перераховує всі кількості. «Оцінити поживність» дає калорії та макроси на порцію.',
+        feat_aiassist_text:    'Утримайте інгредієнт — одразу 3–5 замін. «Масштабувати рецепт» перераховує всі кількості, завжди безкоштовно. «Оцінити поживність» дає калорії та макроси на порцію. Без Premium заміна й поживність зараховуються як дії ШІ.',
         feat_allergen_title:   'Профіль алергенів із попередженнями',
-        feat_allergen_text:    'Вкажіть один раз, яких речовин ви уникаєте — Zettelküche AI автоматично попереджає під списком інгредієнтів. 14 головних алергенів ЄС, перевірка на пристрої.',
-        feat_ipad_title:       'Нативний макет iPad і Mac',
-        feat_ipad_text:        'Постійна бічна панель з Бібліотекою, Додаванням і Налаштуваннями на iPad і Mac. На iPhone — класична панель вкладок. Кожна платформа отримує власний досвід.',
+        feat_allergen_text:    'Вкажіть один раз, яких речовин ви уникаєте — PaperPantry AI автоматично попереджає під списком інгредієнтів. 14 головних алергенів ЄС, перевірка на пристрої.',
+        feat_ipad_title:       'Нативний макет для iPad',
+        feat_ipad_text:        'Постійна бічна панель із бібліотекою, додаванням і налаштуваннями на iPad. На iPhone — перевірена панель вкладок: кожен пристрій має власний досвід.',
         feat_3_title:      'Приватна синхронізація через iCloud',
         feat_3_text:       'Усі рецепти синхронізуються між iPhone та iPad — у вашій приватній базі iCloud, без облікового запису й сервера.',
         feat_4_title:      'Пошук і фільтр',
@@ -1296,31 +1365,31 @@
         rm_done_7:         'GDPR-витяг даних безкоштовно (JSON-експорт), Premium-резервна копія із зображеннями залишається паралельно',
         rm_done_8:         'Таймер на кожен крок, інгредієнти в Apple Нагадування, масове редагування бібліотеки в шаблоні Photos/Notes',
         rm_done_9:         '4-осьовий фільтр, Розумні колекції, повноекранний режим читання, кілька регіонів, локалізовані теги, чотири мови з наживо-перемиканням без перезапуску',
-        rm_done_10:        'Нативна бічна панель iPad/Mac, Thermomix-сумісна інструкція через ШІ (Premium), ШІ-помічник: заміна інгредієнтів, масштабування, поживність, профіль алергенів',
+        rm_done_10:        'Нативна бічна панель iPad, Thermomix-сумісна інструкція через ШІ (Premium), ШІ-помічник: заміна інгредієнтів, масштабування, поживність, профіль алергенів',
         roadmap_next_tag:  'Скоро',
-        roadmap_next_title:'v2.5 і далі',
-        rm_next_1:         'Експорт пакету рецептів (Premium): кілька рецептів як один пакет — сімейна кулінарна книга, дорожня колекція',
-        rm_next_2:         'Голосове захоплення: продиктуйте рецепт → Apple Speech на пристрої → ШІ-структурування',
-        rm_next_3:         'Нотатки на кожен крок, версіонування рецептів, вільно налаштовуваний порядок секцій (iCloud-синхронізація)',
-        rm_next_4:         'Push-сповіщення повернення й стрик-захист, серверний cron замість нав\'язливих тригерів',
-        rm_next_5:         'Планування подій (Різдво, званий вечеря), планувальник харчування з тижневим планом, Apple Watch, CarPlay',
-        roadmap_promise:   'Zettelküche AI — це <strong>не завершений продукт</strong>, а такий, що розвивається. Сьогодні ви отримуєте <strong>міцний старт</strong>, і кожне оновлення робить застосунок кращим. Жоден застосунок для рецептів, який хоче встигати, повз нього не пройде.',
+        roadmap_next_title:'v2.6 і далі',
+        rm_next_1:         'Набори рецептів: кілька рецептів одним пакетом — сімейна кулінарна книга, колекція з подорожі',
+        rm_next_2:         'Диктування рецепта: голосовий запис, розпізнавання мовлення на пристрої, потім структурування ШІ',
+        rm_next_3:         'Стан синхронізації iCloud видно в застосунку — одразу ясно, чи все синхронізовано',
+        rm_next_4:         'Віджет на початковому екрані: останній відкритий рецепт і серія приготувань',
+        rm_next_5:         'Siri та Швидкі команди: «наступний крок» без рук під час готування, додавання рецепта командою',
+        roadmap_promise:   'PaperPantry AI — це <strong>не завершений продукт</strong>, а такий, що розвивається. Сьогодні ви отримуєте <strong>міцний старт</strong>, і кожне оновлення робить застосунок кращим. Жоден застосунок для рецептів, який хоче встигати, повз нього не пройде.',
 
         pricing_label:     'Плани',
         pricing_title:     'Почніть із Free. Перейдіть на Premium, коли захочете більше.',
-        pricing_sub:       'Ручне додавання рецептів, синхронізація через iCloud та бібліотека — завжди безкоштовно.',
+        pricing_sub:       'Ручні рецепти, бібліотека, синхронізація iCloud і поширення — завжди безкоштовно.',
         price_free_h:      'Для епізодичних колекціонерів',
         price_free_1:      'Без обмежень рецептів вручну',
         price_free_2:      'Повна бібліотека з пошуком і фільтрами',
         price_free_3:      'Синхронізація через iCloud між пристроями',
-        price_free_4:      '20 AI-вилучень для тесту',
+        price_free_4:      '20 дій ШІ безкоштовно, один раз на обліковий запис Apple (iCloud) — зараховуються: розпізнавання рецепта, оцінка поживності, заміна інгредієнтів',
         price_free_5:      'До 3 власних категорій',
         price_prem_h:      'Для активних колекціонерів і фуді',
         price_prem_1:      'Усе з Free',
-        price_prem_2:      'Безлімітні AI-вилучення',
-        price_prem_3:      'Резервна копія та відновлення',
-        price_prem_4:      'Поширення як файли .recipebundle',
-        price_prem_6:      'Необмежені власні теги та Розумні колекції',
+        price_prem_2:      'Необмежені дії ШІ',
+        price_prem_3:      'Кроки для Thermomix від ШІ',
+        price_prem_4:      'Покращення рецептів з ChatGPT',
+        price_prem_6:      'Безлімітні власні категорії',
         price_trial:       '7 днів безкоштовно з річною підпискою',
         pricing_cta_text:  'Завантажити безкоштовно',
 
@@ -1330,7 +1399,7 @@
         cta_title:         'Готові навести лад у колекції рецептів?',
         cta_sub:           'Уже доступно в App Store для iPhone та iPad.',
 
-        modal_title:       'Zettelküche AI в App Store',
+        modal_title:       'PaperPantry AI в App Store',
         modal_sub:         'Ви на iPhone. Натисніть нижче й завантажте застосунок за секунди — безкоштовно, без реєстрації.',
         modal_cta:         'Відкрити в App Store',
         modal_dismiss:     'Продовжити на сайті',
@@ -1346,7 +1415,22 @@
         imprint_country:   'Німеччина',
         imprint_email_label: 'Електронна пошта',
         imprint_form_label: 'Контактна форма',
-        imprint_dsa_label: 'Контакт EU DSA'
+        imprint_dsa_label: 'Контакт EU DSA',
+        meta_title: 'PaperPantry AI — фотографуйте, перекладайте й структуруйте рецепти',
+        meta_desc: 'Фото — і готовий структурований рецепт вашою мовою. Приватно у вашому iCloud, на iPhone та iPad. Кроки для Thermomix, попередження про алергени, поширення рецептів.',
+        brand_name: 'PaperPantry AI',
+        brand_logo: 'Paper<span class="accent">Pantry</span> AI',
+        v24_pill: 'v2.4',
+        feat_bg_title: 'Розпізнавання ШІ у фоні',
+        feat_bg_text: 'Надішліть фото, PDF або посилання й працюйте далі: картка-заповнювач у бібліотеці показує прогрес, доки рецепт не буде готовий. Скасувати можна будь-коли, VoiceOver озвучує стан. Процес для Thermomix теж показує, над чим зараз працює ШІ.',
+        feat_share_title: 'Поширення для всіх',
+        feat_share_text: 'Надсилайте рецепт файлом через меню «Поширити» — безкоштовно, без Premium. На пристрої отримувача файл відкриває PaperPantry AI з попереднім переглядом, один дотик зберігає рецепт. Застосунку ще немає? У супровідному тексті є пряме посилання на App Store.',
+        feat_oven_title: 'Температура духовки в основних даних',
+        feat_oven_text: 'Температура й режим нагріву (верхній і нижній нагрів, конвекція, гриль) стоять в одному рядку з порціями та часом, у °C або °F залежно від регіону. ШІ бере їх із рецепта, а під час редагування чи створення рецепта ви можете вписати їх самі.',
+        rm_next_6: 'Власні нотатки до кожного кроку та «мій варіант» поруч з оригіналом',
+        price_free_6: 'Масштабування та попередження про алергени без обмежень',
+        price_free_7: 'Поширення рецептів файлом',
+        price_prem_5: 'Резервна копія твоєї колекції'
       },
       'pt-BR': {
         nav_sub:           'uma marca da <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
@@ -1356,9 +1440,9 @@
         nav_pricing:       'Planos',
         nav_cta:           'Baixar o app',
 
-        launch_pill:       'v2.4 disponível',
-        launch_headline:   'Fluxo Thermomix por IA. <span class="accent">Perfil de alergênicos. Escalonar. Nutrientes.</span>',
-        launch_sub:        'A v2.4 leva a IA para a cozinha. Fluxo Thermomix sob demanda (Premium), alertas de alergênicos na lista de ingredientes, escalonar porções, estimar nutrientes — mais barra lateral nativa no iPad para a experiência de tela grande.',
+        launch_pill:       'v2.5 — disponível em menos de 48 horas',
+        launch_headline:   'IA em segundo plano. <span class="accent">Compartilhar para todos. Forno sempre à vista.</span>',
+        launch_sub:        'A v2.5 chega em menos de 48 horas: a IA captura receitas em segundo plano, com progresso visível — você continua navegando em vez de esperar. Com a v2.5, compartilhar receitas fica grátis para todos, e a temperatura do forno com o modo de aquecimento aparece junto das porções e dos tempos.',
         cookie_text:       'Usamos cookies tecnicamente necessários e cookies analíticos opcionais para melhorar este site. <a href="/privacy/">Política de privacidade</a>',
         cookie_necessary:  'Apenas necessários',
         cookie_accept:     'Aceitar todos',
@@ -1367,7 +1451,7 @@
         hero_badge:        'Disponível agora na App Store',
         hero_h1_a:         'Da foto à',
         hero_h1_b:         'receita estruturada.',
-        hero_sub:          'O Zettelküche AI transforma uma foto, captura de tela ou documento em uma receita pesquisável em <strong>poucos segundos</strong> — <strong>no seu idioma</strong>, mesmo que a fonte esteja em outro. Privado no seu iCloud, nativo no iPhone e iPad.',
+        hero_sub:          'O PaperPantry AI transforma uma foto, captura de tela ou documento em uma receita pesquisável em <strong>poucos segundos</strong> — <strong>no seu idioma</strong>, mesmo que a fonte esteja em outro. Privado no seu iCloud, nativo no iPhone e iPad.',
         hero_cta_how:      'Como funciona',
         hero_meta:         'iPhone e iPad · iOS 18+ · sincronizado com privacidade pelo seu iCloud',
         appstore_pre:      'Baixar na',
@@ -1380,7 +1464,7 @@
         features_label:    'Recursos',
         features_title:    'Tudo o que você precisa para colecionar.',
         features_sub:      'Capturar, organizar, cozinhar — da primeira foto ao prato pronto.',
-        new_pill:          'v2.4 NOVO',
+        new_pill:          'v2.5 NOVO',
         v22_pill:          'v2.2',
         feat_duration_title:    'Duração do passo como no Timer da Apple',
         feat_duration_text:     'Acabou de tocar + 270 vezes para 4 h 30 min. Toque na pílula de duração de um passo e um bottom-sheet abre: predefinições para 3 / 5 / 10 / 15 / 30 min e 1 / 2 / 4 h em cima — geralmente um único toque. Duas rodinhas embaixo com inércia para qualquer valor entre. Mesmo padrão para tempo de preparo e cozimento.',
@@ -1409,7 +1493,7 @@
         feat_taglocalized_title:'Tags no seu idioma',
         feat_taglocalized_text: 'Troque o idioma do app de alemão para inglês e filtros como „Frühstück" viram "Breakfast", „italienisch" vira "Italian", sem suas receitas serem renomeadas. Troca de idioma ao vivo, sem reiniciar.',
         feat_paste_title:       'Foto de capa da área de transferência',
-        feat_paste_text:        'Achou uma imagem na web, copiou, colou no Zettelküche AI — pronto. Mais: toda troca de foto de capa mostra antes a imagem em uma prévia grande e pergunta „salvar ou cancelar". Sem cliques sem querer.',
+        feat_paste_text:        'Achou uma imagem na web, copiou, colou no PaperPantry AI — pronto. Mais: toda troca de foto de capa mostra antes a imagem em uma prévia grande e pergunta „salvar ou cancelar". Sem cliques sem querer.',
         feat_sidebar_title:     'Todos os filtros na barra lateral',
         feat_sidebar_text:      'Seleção rápida, refeição, Smart Collections, tags, região, dieta, ocasião — todas as sete seções de filtro ficam agora na barra lateral, com ordem livre. Apple-HIG multi-select com Concluir / Cancelar claros.',
         feat_1_title:      'Captura de qualquer fonte',
@@ -1419,7 +1503,7 @@
         feat_2_title:      'Estruturação por IA',
         feat_2_text:       'Ingredientes com quantidades, passos numerados, porções, tempo de cozimento, dificuldade — reconhecidos automaticamente e organizados com clareza.',
         feat_ipad_title:   'Layout nativo para iPad',
-        feat_ipad_text:    'Barra lateral em duas colunas com tags, região e Smart Collections, visualização de detalhes ampla com imagem em destaque e abas — o companheiro perfeito ao lado do fogão.',
+        feat_ipad_text:    'Barra lateral fixa com biblioteca, adicionar e ajustes no iPad. No iPhone, a já conhecida barra de abas — cada aparelho com sua própria experiência.',
         feat_backup_title: 'Backup &amp; restauração',
         feat_backup_text:  'Premium: salve sua biblioteca incluindo as imagens como arquivo — guarde no iCloud Drive, Dropbox ou localmente. Restaure em um novo aparelho com um toque.',
         feat_axes_title:   'Filtro de 4 eixos',
@@ -1435,11 +1519,11 @@
         feat_thermomix_title:  'Fluxo Thermomix por IA (Premium)',
         feat_thermomix_text:   'Abra uma receita → aba "Thermomix" → "Criar fluxo": a IA entrega um guia passo a passo completo com parâmetros TM, temperaturas e velocidades.',
         feat_aiassist_title:   'Assistente de IA na cozinha',
-        feat_aiassist_text:    'Toque longo em um ingrediente — 3 a 5 substitutos na hora. "Redimensionar receita" recalcula todas as quantidades. "Estimar nutrientes" dá calorias e macros por porção.',
+        feat_aiassist_text:    'Toque longo em um ingrediente — 3 a 5 substitutos na hora. "Redimensionar receita" recalcula todas as quantidades, sempre grátis. "Estimar nutrientes" dá calorias e macros por porção. Sem Premium, substituições e nutrientes contam como ações de IA.',
         feat_allergen_title:   'Perfil de alergênicos com avisos',
-        feat_allergen_text:    'Defina quais substâncias você evita uma vez — Zettelküche AI avisa automaticamente sob a lista de ingredientes. 14 alergênicos principais da UE, verificados localmente.',
-        feat_ipad_title:       'Layout nativo para iPad e Mac',
-        feat_ipad_text:        'Barra lateral persistente com Biblioteca, Adicionar e Configurações no iPad e Mac. No iPhone a barra de abas faz seu trabalho — cada plataforma tem sua experiência.',
+        feat_allergen_text:    'Defina quais substâncias você evita uma vez — PaperPantry AI avisa automaticamente sob a lista de ingredientes. 14 alergênicos principais da UE, verificados localmente.',
+        feat_ipad_title:       'Layout nativo para iPad',
+        feat_ipad_text:        'Barra lateral fixa com biblioteca, adicionar e ajustes no iPad. No iPhone, a já conhecida barra de abas — cada aparelho com sua própria experiência.',
         feat_3_title:      'Sincronização privada via iCloud',
         feat_3_text:       'Todas as receitas sincronizadas entre iPhone e iPad — no seu banco de dados privado no iCloud, sem conta, sem servidor.',
         feat_4_title:      'Busca &amp; filtros',
@@ -1471,31 +1555,31 @@
         rm_done_7:         'Relatório LGPD/GDPR no plano Free (exportação JSON), backup Premium com imagens segue em paralelo',
         rm_done_8:         'Timer por passo, ingredientes para os Lembretes da Apple, edição em massa da biblioteca no padrão Photos/Notes',
         rm_done_9:         'Filtro de 4 eixos, Smart Collections, modo de leitura em tela cheia, multi-região, tags localizadas, quatro idiomas com troca ao vivo sem reiniciar',
-        rm_done_10:        'Barra lateral nativa iPad/Mac, fluxo Thermomix por IA (Premium), assistente IA: substituir ingredientes, escalonar, estimar nutrientes, perfil de alergênicos com avisos',
+        rm_done_10:        'Barra lateral nativa iPad, fluxo Thermomix por IA (Premium), assistente IA: substituir ingredientes, escalonar, estimar nutrientes, perfil de alergênicos com avisos',
         roadmap_next_tag:  'Em seguida',
-        roadmap_next_title:'v2.5 e além',
-        rm_next_1:         'Exportação de pacote de receitas (Premium): várias receitas como um pacote — livro de família, coleção de viagem',
-        rm_next_2:         'Captura por voz: dite uma receita → Apple Speech no dispositivo → estruturação por IA',
-        rm_next_3:         'Notas por passo, versionamento de receitas, ordem de seções livremente configurável (sincronizada via iCloud)',
-        rm_next_4:         'Notificações push de retorno e proteção de sequência, cron no servidor em vez de gatilhos invasivos',
-        rm_next_5:         'Planejamento de eventos (Natal, jantar), planejador de refeições com plano semanal, Apple Watch, CarPlay',
-        roadmap_promise:   'O Zettelküche AI <strong>não é um produto finalizado</strong>, é um produto em crescimento. O que você recebe hoje é <strong>um começo sólido</strong> — e cada atualização deixa o app um pouco melhor. Nenhum app de receitas que queira acompanhar o tempo passa por aí sem isso.',
+        roadmap_next_title:'v2.6 e além',
+        rm_next_1:         'Pacotes de receitas: várias receitas em um só pacote — livro de receitas da família, coleção de viagem',
+        rm_next_2:         'Ditar uma receita: gravação de voz, reconhecimento de fala no aparelho e depois estruturação por IA',
+        rm_next_3:         'Status da sincronização do iCloud visível no app — veja na hora se tudo está sincronizado',
+        rm_next_4:         'Widget na Tela de Início: última receita aberta e sequência de dias cozinhando',
+        rm_next_5:         'Siri e Atalhos: "próximo passo" sem as mãos enquanto cozinha, adicionar receita por atalho',
+        roadmap_promise:   'O PaperPantry AI <strong>não é um produto finalizado</strong>, é um produto em crescimento. O que você recebe hoje é <strong>um começo sólido</strong> — e cada atualização deixa o app um pouco melhor. Nenhum app de receitas que queira acompanhar o tempo passa por aí sem isso.',
 
         pricing_label:     'Planos',
         pricing_title:     'Comece no Free. Vá para o Premium quando quiser mais.',
-        pricing_sub:       'Cadastro manual de receitas, sincronização via iCloud e biblioteca sempre gratuitos.',
+        pricing_sub:       'Receitas manuais, biblioteca, sincronização via iCloud e compartilhamento sempre grátis.',
         price_free_h:      'Para colecionadores ocasionais',
         price_free_1:      'Receitas manuais ilimitadas',
         price_free_2:      'Biblioteca completa com busca e filtros',
         price_free_3:      'Sincronização via iCloud entre seus aparelhos',
-        price_free_4:      '20 extrações com IA para experimentar',
+        price_free_4:      '20 ações de IA grátis, uma única vez por Conta Apple (iCloud) — contam: capturar receita, estimar valores nutricionais, substituir ingredientes',
         price_free_5:      'Até 3 categorias personalizadas',
         price_prem_h:      'Para colecionadores assíduos &amp; foodies',
         price_prem_1:      'Tudo do Free',
-        price_prem_2:      'Extrações com IA ilimitadas',
-        price_prem_3:      'Backup &amp; restauração',
-        price_prem_4:      'Compartilhamento como .recipebundle',
-        price_prem_6:      'Tags personalizadas e Coleções Inteligentes ilimitadas',
+        price_prem_2:      'Ações de IA ilimitadas',
+        price_prem_3:      'Passo a passo Thermomix com IA',
+        price_prem_4:      'Refinamento com IA via ChatGPT',
+        price_prem_6:      'Categorias personalizadas ilimitadas',
         price_trial:       'Teste grátis por 7 dias no plano anual',
         pricing_cta_text:  'Baixar grátis agora',
 
@@ -1505,7 +1589,7 @@
         cta_title:         'Pronto para organizar sua coleção de receitas?',
         cta_sub:           'Disponível agora na App Store para iPhone e iPad.',
 
-        modal_title:       'Zettelküche AI direto na App Store',
+        modal_title:       'PaperPantry AI direto na App Store',
         modal_sub:         'Você está no iPhone. Toque abaixo e baixe o app em segundos — grátis, sem cadastro.',
         modal_cta:         'Abrir na App Store',
         modal_dismiss:     'Continuar no site',
@@ -1521,7 +1605,22 @@
         imprint_country:   'Alemanha',
         imprint_email_label: 'E-mail',
         imprint_form_label: 'Formulário de contato',
-        imprint_dsa_label: 'Contato EU DSA'
+        imprint_dsa_label: 'Contato EU DSA',
+        meta_title: 'PaperPantry AI — fotografe, traduza e organize receitas',
+        meta_desc: 'Foto entra, receita estruturada sai — no seu idioma. Privado no seu iCloud, no iPhone e iPad. Passo a passo Thermomix, alertas de alérgenos, compartilhamento de receitas.',
+        brand_name: 'PaperPantry AI',
+        brand_logo: 'Paper<span class="accent">Pantry</span> AI',
+        v24_pill: 'v2.4',
+        feat_bg_title: 'Captura com IA em segundo plano',
+        feat_bg_text: 'Envie uma foto, PDF ou link e continue: um cartão provisório na biblioteca mostra o progresso até a receita ficar pronta. Cancele quando quiser, o VoiceOver anuncia o status. O passo a passo Thermomix também mostra em que a IA está trabalhando.',
+        feat_share_title: 'Compartilhar para todos',
+        feat_share_text: 'Envie uma receita como arquivo pelo menu de compartilhamento — grátis, sem Premium. No aparelho de quem recebe, o arquivo abre o PaperPantry AI com uma prévia, e um toque salva a receita. Ainda não tem o app? A mensagem que acompanha o arquivo traz o link direto para a App Store.',
+        feat_oven_title: 'Temperatura do forno nos dados principais',
+        feat_oven_text: 'Temperatura e modo de aquecimento (calor superior e inferior, ventilado, grill) aparecem na mesma linha das porções e dos tempos, em °C ou °F conforme a sua região. A IA lê esses dados da receita, e você pode preenchê-los ao editar ou criar uma receita.',
+        rm_next_6: 'Notas próprias em cada passo e "minha versão" ao lado do original',
+        price_free_6: 'Ajuste de porções e alertas de alérgenos sem limite',
+        price_free_7: 'Compartilhar receitas como arquivo',
+        price_prem_5: 'Backup da sua coleção'
       }
     };
 
@@ -1533,6 +1632,13 @@
         const key = el.dataset.i18n;
         if (dict[key] !== undefined) el.innerHTML = dict[key];
       }
+      for (const el of document.querySelectorAll('[data-i18n-alt]')) {
+        const key = el.dataset.i18nAlt;
+        if (dict[key] !== undefined) el.setAttribute('alt', dict[key]);
+      }
+      if (dict.meta_title) document.title = dict.meta_title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && dict.meta_desc) metaDesc.setAttribute('content', dict.meta_desc);
       // SVG / attribute targets
       for (const el of document.querySelectorAll('[data-i18n-attr]')) {
         const key = el.dataset.i18nAttr;
@@ -1548,8 +1654,12 @@
       const stored = localStorage.getItem('lang');
       if (stored && translations[stored]) initial = stored;
       else {
-        const browserLang = (navigator.language || 'de').split('-')[0];
-        if (translations[browserLang]) initial = browserLang;
+        const full = navigator.language || 'en';
+        const short = full.split('-')[0];
+        if (translations[full]) initial = full;                 // e.g. 'pt-BR'
+        else if (short === 'pt') initial = 'pt-BR';             // pt-PT etc. -> pt-BR
+        else if (translations[short]) initial = short;          // 'de', 'en', 'uk'
+        else initial = 'en';                                    // EN-Fallback
       }
     } catch (_) {}
     setLang(initial);
@@ -1584,7 +1694,7 @@
     //   Mac → UA "Macintosh"/"Mac OS X" UND kein Touch-Support
     // Modal erscheint NUR auf iPhone. iPad sieht die Sidebar-Splitview-Promo
     // schon prominent in den Features. Mac hat die App ohnehin nicht
-    // (Zettelküche ist iPhone+iPad-only).
+    // (Zettelküche AI / PaperPantry AI ist iPhone+iPad-only).
     (function () {
       const ua = navigator.userAgent || '';
       const platform = navigator.platform || '';
