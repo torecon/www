@@ -81,6 +81,7 @@ for ($i = 1; $i <= 6; $i++): ?>
       </li>
 <?php endfor; ?>
     </ol>
+    <p class="more"><a class="link-arrow" href="<?= e(url('beispiel/')) ?>"><?= e(t('how_example')) ?></a></p>
   </div>
 </section>
 

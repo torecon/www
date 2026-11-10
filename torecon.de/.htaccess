@@ -24,8 +24,8 @@ RewriteRule ^index\.html$       /           [R=301,L]
 # Englische Fassung unter /en/
 RewriteRule ^en$ /en/ [R=301,L]
 RewriteRule ^en/$ index.php?lang=en [QSA,L]
-RewriteRule ^en/(apps|angebot|kontakt|impressum|datenschutz)$ /en/$1/ [R=301,L]
-RewriteRule ^en/(apps|angebot|kontakt|impressum|datenschutz)/$ $1/index.php?lang=en [QSA,L]
+RewriteRule ^en/(apps|angebot|beispiel|kontakt|impressum|datenschutz)$ /en/$1/ [R=301,L]
+RewriteRule ^en/(apps|angebot|beispiel|kontakt|impressum|datenschutz)/$ $1/index.php?lang=en [QSA,L]
 
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"

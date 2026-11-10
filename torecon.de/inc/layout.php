@@ -18,6 +18,7 @@ function page_head(string $title, string $desc, string $path, string $active = '
         ['apps',    url('apps/'),        t('nav_apps')],
         ['work',    url('#leistungen'),  t('nav_work')],
         ['offer',   url('angebot/'),     t('nav_offer')],
+        ['example', url('beispiel/'),    t('nav_example')],
         ['about',   url('#ueber-mich'),  t('nav_about')],
     ];
     ?>
@@ -108,6 +109,7 @@ function page_foot(): void
       <ul>
         <li><a href="<?= e(url('apps/')) ?>"><?= e(t('nav_apps')) ?></a></li>
         <li><a href="<?= e(url('angebot/')) ?>"><?= e(t('nav_offer')) ?></a></li>
+        <li><a href="<?= e(url('beispiel/')) ?>"><?= e(t('bsp_kicker')) ?></a></li>
         <li><a href="<?= e(url('angebot/#vertragsentwuerfe')) ?>"><?= e(t('footer_downloads')) ?></a></li>
         <li><a href="<?= e(url('kontakt/')) ?>"><?= e(t('nav_contact')) ?></a></li>
       </ul>

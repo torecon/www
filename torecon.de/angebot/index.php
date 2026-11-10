@@ -81,7 +81,10 @@ page_head(t('offer_page_title'), t('offer_page_desc'), 'angebot/', 'offer', [$ld
       <p class="section-lead"><?= e(t('dev_lead')) ?></p>
       <h3><?= e(t('dev_terms')) ?></h3>
       <p><?= e(t('dev_terms_d')) ?></p>
-      <a class="btn" href="<?= e(url('kontakt/?anliegen=entwicklung')) ?>"><?= e(t('dev_cta')) ?></a>
+      <div class="actions">
+        <a class="btn" href="<?= e(url('kontakt/?anliegen=entwicklung')) ?>"><?= e(t('dev_cta')) ?></a>
+        <a class="btn btn-ghost" href="<?= e(url('beispiel/')) ?>"><?= e(t('how_example')) ?></a>
+      </div>
     </div>
     <div class="card">
       <h3><?= e(t('dev_scope')) ?></h3>

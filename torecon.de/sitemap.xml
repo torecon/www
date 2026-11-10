@@ -37,6 +37,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.torecon.de/en/angebot/"/>
   </url>
   <url>
+    <loc>https://www.torecon.de/beispiel/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.torecon.de/beispiel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.torecon.de/en/beispiel/"/>
+  </url>
+  <url>
+    <loc>https://www.torecon.de/en/beispiel/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.torecon.de/beispiel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.torecon.de/en/beispiel/"/>
+  </url>
+  <url>
     <loc>https://www.torecon.de/kontakt/</loc>
     <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.torecon.de/kontakt/"/>
