@@ -18,7 +18,8 @@
   <!-- Open Graph -->
   <meta property="og:title" content="evChargeScope — Smart EV charging cost tracker">
   <meta property="og:description" content="Your smart EV charging cost tracker. Charging loss analysis, correct cost per 100km, configurable dashboard. On the App Store.">
-  <meta property="og:url" content="https://chargescope.ai">
+  <link rel="canonical" href="https://chargescope.ai/">
+  <meta property="og:url" content="https://chargescope.ai/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://chargescope.ai/icon-512.png">
 
@@ -1162,7 +1163,7 @@
         <span style="font-size:12px; font-weight:400; opacity:0.8;">macOS 14+</span>
       </a>
     </div>
-    <p style="font-size:14px; color:var(--text-tertiary); margin-top:24px;"><span data-i18n="download_questions">Fragen?</span> <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+    <p style="font-size:14px; color:var(--text-tertiary); margin-top:24px;"><span data-i18n="download_questions">Fragen?</span> <a href="mailto:support@chargescope.ai">support@chargescope.ai</a></p>
   </section>
 
   <!-- FAQ -->
@@ -1213,7 +1214,7 @@
 
       <div class="imprint-block">
         <h3 data-i18n="imprint_contact">Kontakt</h3>
-        <p>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a><br>
+        <p>E-Mail: <a href="mailto:legal@chargescope.ai">legal@chargescope.ai</a><br>
         Website: <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a></p>
       </div>
 
@@ -1763,7 +1764,7 @@
       if (stored && translations[stored]) initial = stored;
       else {
         const browserLang = (navigator.language || 'de').split('-')[0];
-        if (translations[browserLang]) initial = browserLang;
+        initial = translations[browserLang] ? browserLang : 'en';
       }
     } catch (_) {}
     setLang(initial);
