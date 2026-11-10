@@ -1,13 +1,43 @@
-Options -Indexes
+Options -Indexes -MultiViews
+DirectoryIndex index.php
+ErrorDocument 404 /404.php
+AddDefaultCharset UTF-8
 
-# Force www (HTTPS-Redirect wird von Plesk übernommen)
 RewriteEngine On
+
+# Immer www (HTTPS-Redirect übernimmt Plesk)
 RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Security headers
+# Interne Ordner nicht ausliefern
+RewriteRule ^(inc|lang|data)(/|$) - [F,L]
+
+# Alte Seiten (bis 11/2026) dauerhaft umleiten
+RewriteRule ^contact\.html$     /kontakt/   [R=301,L]
+RewriteRule ^imprint\.html$     /impressum/ [R=301,L]
+RewriteRule ^services\.html$    /angebot/   [R=301,L]
+RewriteRule ^references\.html$  /apps/      [R=301,L]
+RewriteRule ^(agb|avv|vertrag)\.html$ /angebot/#vertragsentwuerfe [R=301,NE,L]
+RewriteRule ^(news|newsletter)\.html$ / [R=301,L]
+RewriteRule ^index\.html$       /           [R=301,L]
+
+# Englische Fassung unter /en/
+RewriteRule ^en$ /en/ [R=301,L]
+RewriteRule ^en/$ index.php?lang=en [QSA,L]
+RewriteRule ^en/(apps|angebot|beispiel|kontakt|impressum|datenschutz)$ /en/$1/ [R=301,L]
+RewriteRule ^en/(apps|angebot|beispiel|kontakt|impressum|datenschutz)/$ $1/index.php?lang=en [QSA,L]
+
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
-  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Frame-Options "DENY"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  <FilesMatch "\.(css|js|png|jpg|svg|ico|webp)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.pdf$">
+    Header set Cache-Control "public, max-age=86400"
+    Header set X-Robots-Tag "noindex"
+  </FilesMatch>
 </IfModule>
