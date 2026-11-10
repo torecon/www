@@ -81,7 +81,23 @@ for ($i = 1; $i <= 6; $i++): ?>
       </li>
 <?php endfor; ?>
     </ol>
-    <p class="more"><a class="link-arrow" href="<?= e(url('beispiel/')) ?>"><?= e(t('how_example')) ?></a></p>
+  </div>
+</section>
+
+<section class="section example-band">
+  <div class="wrap example-inner">
+    <div>
+      <p class="kicker"><?= e(t('ex_band_kicker')) ?></p>
+      <h2><?= e(t('ex_band_title')) ?></h2>
+      <p class="section-lead"><?= e(t('ex_band_lead')) ?></p>
+      <a class="btn" href="<?= e(url('beispiel/')) ?>"><?= e(t('ex_band_cta')) ?></a>
+    </div>
+    <ul class="example-facts">
+      <li><?= e(t('ex_band_f1')) ?></li>
+      <li><?= e(t('ex_band_f2')) ?></li>
+      <li><?= e(t('ex_band_f3')) ?></li>
+      <li><?= e(t('ex_band_f4')) ?></li>
+    </ul>
   </div>
 </section>
 
@@ -117,6 +133,7 @@ for ($i = 1; $i <= 6; $i++): ?>
         <p><?= e(t('offer2_d')) ?></p>
         <p class="price"><?= e(t('offer2_price')) ?></p>
         <a class="btn" href="<?= e(url('angebot/#entwicklung')) ?>"><?= e(t('offer2_cta')) ?></a>
+        <a class="link-arrow" href="<?= e(url('beispiel/')) ?>"><?= e(t('offer2_example')) ?></a>
       </div>
     </div>
     <p class="note"><?= e(t('b2b_note')) ?></p>

@@ -407,3 +407,14 @@ input[type="checkbox"][aria-invalid="true"] { outline: 2px solid var(--error); o
 .cost-table td { text-align: right; padding-left: 16px; white-space: normal; }
 .cost-table th { font-weight: 600; }
 .cost-table tfoot th, .cost-table tfoot td { border-bottom: 0; font-weight: 700; font-size: 1.05rem; padding-top: 14px; }
+
+/* Beispiel-Hinweis auf der Startseite */
+.example-band { background: linear-gradient(135deg, var(--accent-soft), var(--bg) 70%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.example-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+.example-facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.example-facts li { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-s); padding: 14px 18px; font-weight: 600; }
+.example-facts li::before { content: "✓ "; color: var(--kicker); }
+@media (max-width: 860px) { .example-inner { grid-template-columns: 1fr; gap: 24px; } }
+.card-offer .link-arrow { margin-top: 10px; }
+.access-card { margin-bottom: 20px; border-color: var(--accent); }
+.android-note { margin-top: 20px; }

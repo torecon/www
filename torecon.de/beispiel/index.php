@@ -159,6 +159,10 @@ page_head(t('bsp_title'), t('bsp_desc'), 'beispiel/', 'example', [json_ld_base()
         <p class="muted small"><?= e(t('bsp_cost_run_note')) ?></p>
       </div>
     </div>
+    <div class="card android-note">
+      <h3><?= e(t('bsp_android_h')) ?></h3>
+      <p><?= e($B['android'][$lang]) ?></p>
+    </div>
   </div>
 </section>
 

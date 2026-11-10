@@ -23,10 +23,12 @@ $requirements = [
     // [Name, Zweck, Wann, Kosten]
     [t('req_apple'),     t('req_apple_d'),     t('req_always'), t('req_apple_c')],
     [t('req_google'),    t('req_google_d'),    t('req_android'), t('req_google_c')],
+    [t('req_icloud'),    t('req_icloud_d'),    t('req_sync'),   t('req_icloud_c')],
     [t('req_github'),    t('req_github_d'),    t('req_always'), t('req_github_c')],
     [t('req_railway'),   t('req_railway_d'),   t('req_server'), t('req_usage')],
     [t('req_anthropic'), t('req_anthropic_d'), t('req_ai'),     t('req_usage')],
     [t('req_hetzner'),   t('req_hetzner_d'),   t('req_files'),  t('req_usage')],
+    [t('req_firebase'),  t('req_firebase_d'),  t('req_android_push'), t('req_free')],
     [t('req_web'),       t('req_web_d'),       t('req_always'), t('req_web_c')],
 ];
 
@@ -113,7 +115,12 @@ page_head(t('offer_page_title'), t('offer_page_desc'), 'angebot/', 'offer', [$ld
         </tbody>
       </table>
     </div>
+    <div class="card access-card">
+      <h3><?= e(t('req_access_h')) ?></h3>
+      <p><?= e(t('req_access_p')) ?></p>
+    </div>
     <p><?= e(t('req_more')) ?></p>
+    <p><a class="link-arrow" href="<?= e(url('beispiel/')) ?>"><?= e(t('req_example_link')) ?></a></p>
     <p class="muted small"><?= e(t('req_note')) ?></p>
   </div>
 </section>

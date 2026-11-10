@@ -49,8 +49,8 @@ return [
             'start' => 6, 'end' => 8, 'days' => 7,
             'title' => ['de' => 'Bauabschnitt: Server, Fotos & KI', 'en' => 'Milestone: server, photos & AI'],
             'items' => [
-                'de' => ['Server auf Railway für Termine und Status', 'Schadensfotos sicher bei Hetzner (Deutschland)', 'KI fasst Schadensfoto als Text zusammen', 'Push-Nachricht bei „Rad ist fertig“'],
-                'en' => ['Server on Railway for appointments and status', 'Damage photos stored securely at Hetzner (Germany)', 'AI summarises damage photos as text', 'Push notification when the bike is ready'],
+                'de' => ['Server auf Railway für Termine und Status', 'Schadensfotos sicher bei Hetzner (Deutschland)', 'KI fasst Schadensfoto als Text zusammen', 'Fahrrad-Profil per iCloud auf allen Apple-Geräten des Kunden', 'Push-Nachricht bei „Rad ist fertig“'],
+                'en' => ['Server on Railway for appointments and status', 'Damage photos stored securely at Hetzner (Germany)', 'AI summarises damage photos as text', 'Bike profile via iCloud on all of the customer’s Apple devices', 'Push notification when the bike is ready'],
             ],
             'result' => ['de' => 'Live-Demo · Abnahme 3', 'en' => 'Live demo · Acceptance 3'],
         ],
@@ -85,6 +85,8 @@ return [
     'running' => [
         ['de' => ['Apple Developer Program', 'App Store, TestFlight, Push', '99 € im Jahr (≈ 8 € im Monat)'],
          'en' => ['Apple Developer Program', 'App Store, TestFlight, push', '€99 per year (≈ €8 per month)']],
+        ['de' => ['Apple iCloud (CloudKit)', 'Fahrrad-Profil auf allen Apple-Geräten', 'im Apple Developer Program enthalten'],
+         'en' => ['Apple iCloud (CloudKit)', 'Bike profile on all Apple devices', 'included in the Apple Developer Program']],
         ['de' => ['Railway', 'Server für Termine, Status, KI-Anbindung', 'ab ca. 5 $ im Monat, je nach Last bis ca. 20 $'],
          'en' => ['Railway', 'Server for appointments, status, AI access', 'from approx. $5 per month, up to approx. $20 depending on load']],
         ['de' => ['Hetzner Object Storage', 'Schadensfotos, Speicher in Deutschland', 'ab ca. 5–7 € im Monat (inkl. 1 TB)'],
@@ -93,6 +95,10 @@ return [
          'en' => ['Anthropic (Claude API)', 'AI summary of the photos', 'approx. 1 cent per photo · 1,000 photos ≈ $10 per month']],
         ['de' => ['Domain & Webhosting', 'Website, Datenschutz, Support-Seite', 'je nach Anbieter, ca. 5–10 € im Monat'],
          'en' => ['Domain & web hosting', 'Website, privacy policy, support page', 'depends on provider, approx. €5–10 per month']],
+    ],
+    'android' => [
+        'de' => 'Android-Version: ein eigener Bauabschnitt mit eigenem Festpreis. Weil es auf Android kein iCloud gibt, gleicht dort der Railway-Server die Daten ab; Push-Nachrichten laufen über ein kostenloses Firebase-Projekt von Google. Google Play kostet einmalig 25 US-$.',
+        'en' => 'Android version: a separate milestone at its own fixed price. Since Android has no iCloud, the Railway server syncs the data there; push notifications use a free Google Firebase project. Google Play costs a one-time US$25.',
     ],
     'running_total' => ['de' => 'zusammen etwa 30–60 € im Monat', 'en' => 'together roughly €30–60 per month'],
 ];
