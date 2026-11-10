@@ -389,38 +389,10 @@
     .footer-impressum a { color: rgba(255,255,255,0.7); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 12px; }
 
-    /* ── Cookie-Consent-Banner ─────────────────────────────────────────────── */
-    #cookieBanner {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000;
-      background: rgba(26,20,16,0.97); backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(217,119,87,0.25);
-      padding: 16px 24px; display: none;
-      animation: slideUpModal 0.3s ease both;
-    }
-    #cookieBanner.show { display: block; }
-    .cookie-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .cookie-text { flex: 1; font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; min-width: 220px; }
-    .cookie-text a { color: var(--accent); }
-    .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
-    .cookie-btn-necessary { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.65); padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font); transition: var(--transition); }
-    .cookie-btn-necessary:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
-    .cookie-btn-accept { background: var(--accent); border: none; color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font); transition: var(--transition); }
-    .cookie-btn-accept:hover { background: var(--accent-strong); }
-    @media (max-width: 560px) { .cookie-btns { width: 100%; justify-content: flex-end; } }
   </style>
 </head>
 <body>
 
-  <!-- ── Cookie-Consent-Banner ───────────────────────────────────────────── -->
-  <div id="cookieBanner">
-    <div class="cookie-inner">
-      <p class="cookie-text" data-i18n="cookie_text">Wir verwenden technisch notwendige Cookies sowie optionale Analyse-Cookies zur Verbesserung dieser Seite. <a href="/privacy/">Datenschutz</a></p>
-      <div class="cookie-btns">
-        <button class="cookie-btn-necessary" id="cookieNecessary" data-i18n="cookie_necessary">Nur notwendige</button>
-        <button class="cookie-btn-accept" id="cookieAccept" data-i18n="cookie_accept">Alle akzeptieren</button>
-      </div>
-    </div>
-  </div>
 
   <!-- ── Launch-Banner (oben, gradient) ──────────────────────────────────── -->
   <div class="launch-banner">
@@ -917,9 +889,6 @@
         launch_pill:       'v2.6 — in weniger als 48 Stunden verfügbar',
         launch_headline:   'Sync im Blick. <span class="accent">Backup automatisch. Rezepte per Siri.</span>',
         launch_sub:        'v2.6 kommt in weniger als 48 Stunden für dich: Du siehst, ob deine Rezepte mit iCloud abgeglichen sind. Wird eine Erfassung unterbrochen, macht die App beim nächsten Öffnen weiter. Premium sichert deine Sammlung jede Woche automatisch, und mit Siri legst du ein neues Rezept auf Zuruf an.',
-        cookie_text:       'Wir verwenden technisch notwendige Cookies sowie optionale Analyse-Cookies zur Verbesserung dieser Seite. <a href="/privacy/">Datenschutz</a>',
-        cookie_necessary:  'Nur notwendige',
-        cookie_accept:     'Alle akzeptieren',
         launch_cta:        'Im App Store laden',
 
         hero_badge:        'Jetzt verfügbar im App Store',
@@ -1121,9 +1090,6 @@
         launch_pill:       'v2.6 — available in under 48 hours',
         launch_headline:   'Sync at a glance. <span class="accent">Automatic backups. Recipes via Siri.</span>',
         launch_sub:        'v2.6 arrives in under 48 hours: you can see whether your recipes are synced with iCloud. If a capture is interrupted, the app picks it up the next time you open it. Premium backs up your collection automatically every week, and Siri adds a new recipe when you ask.',
-        cookie_text:       'We use technically necessary cookies and optional analytics cookies to improve this site. <a href="/privacy/">Privacy policy</a>',
-        cookie_necessary:  'Necessary only',
-        cookie_accept:     'Accept all',
         launch_cta:        'Open in App Store',
 
         hero_badge:        'Available now on the App Store',
@@ -1325,9 +1291,6 @@
         launch_pill:       'v2.6 — менш ніж за 48 годин',
         launch_headline:   'Синхронізація на виду. <span class="accent">Автоматичні резервні копії. Рецепти через Siri.</span>',
         launch_sub:        'v2.6 з’явиться менш ніж за 48 годин: ви бачите, чи синхронізовано ваші рецепти з iCloud. Якщо розпізнавання перервалося, застосунок продовжить його під час наступного відкриття. Premium щотижня автоматично створює резервну копію вашої колекції, а Siri на ваше прохання додає новий рецепт.',
-        cookie_text:       'Ми використовуємо технічно необхідні файли cookie та додаткові аналітичні cookie для покращення цього сайту. <a href="/privacy/">Конфіденційність</a>',
-        cookie_necessary:  'Лише необхідні',
-        cookie_accept:     'Прийняти всі',
         launch_cta:        'Відкрити в App Store',
 
         hero_badge:        'Уже доступно в App Store',
@@ -1529,9 +1492,6 @@
         launch_pill:       'v2.6 — disponível em menos de 48 horas',
         launch_headline:   'Sincronização à vista. <span class="accent">Backup automático. Receitas pela Siri.</span>',
         launch_sub:        'A v2.6 chega em menos de 48 horas: você vê se suas receitas estão sincronizadas com o iCloud. Se uma captura for interrompida, o app continua na próxima vez que você o abrir. O Premium faz backup automático da sua coleção toda semana, e a Siri adiciona uma nova receita quando você pede.',
-        cookie_text:       'Usamos cookies tecnicamente necessários e cookies analíticos opcionais para melhorar este site. <a href="/privacy/">Política de privacidade</a>',
-        cookie_necessary:  'Apenas necessários',
-        cookie_accept:     'Aceitar todos',
         launch_cta:        'Abrir na App Store',
 
         hero_badge:        'Disponível agora na App Store',
@@ -1769,22 +1729,6 @@
       a.setAttribute('href', APP_STORE_URL);
     });
 
-    // ── Cookie-Consent-Banner ────────────────────────────────────────────
-    (function () {
-      const KEY = 'zettelkueche_cookie_consent';
-      try { if (localStorage.getItem(KEY)) return; } catch (_) {}
-      const banner = document.getElementById('cookieBanner');
-      if (!banner) return;
-      banner.classList.add('show');
-      document.getElementById('cookieAccept').addEventListener('click', function () {
-        try { localStorage.setItem(KEY, 'all'); } catch (_) {}
-        banner.classList.remove('show');
-      });
-      document.getElementById('cookieNecessary').addEventListener('click', function () {
-        try { localStorage.setItem(KEY, 'necessary'); } catch (_) {}
-        banner.classList.remove('show');
-      });
-    })();
 
     // ── iPhone-Modal: nach 1.2s einblenden, einmal pro Session ───────────
     // Hardware-Detection (robust gegen UA-Spoofing):
