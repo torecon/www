@@ -56,7 +56,7 @@ return [
     ],
     'eladung' => [
         'name'      => 'eLadung GO',
-        'domain'    => 'eladung.torecon.de',
+        'domain'    => 'chargescope.ai',
         'appstore'  => '6761632018',
         'macstore'  => '6760964990',
         'status'    => 'live',
