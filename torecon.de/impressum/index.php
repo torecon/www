@@ -22,9 +22,8 @@ page_head(t('imprint_title'), 'Impressum von torecon, Thomas Reinke, App-Entwick
     <p>E-Mail: <a href="mailto:<?= CONTACT_EMAIL ?>"><?= CONTACT_EMAIL ?></a><br>
     Kontaktformular: <a href="<?= e(url('kontakt/')) ?>">torecon.de/kontakt</a></p>
 
-    <h2>Rechtsform und Umsatzsteuer</h2>
-    <p>Einzelunternehmer, keine Eintragung im Handelsregister.<br>
-    Kleinunternehmer nach § 19 UStG – es wird keine Umsatzsteuer ausgewiesen.</p>
+    <h2>Rechtsform</h2>
+    <p>Einzelunternehmer, keine Eintragung im Handelsregister.</p>
 
     <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
     <p>Thomas Reinke, Anschrift wie oben</p>

@@ -117,7 +117,7 @@ page_head(t('bsp_title'), t('bsp_desc'), 'beispiel/', 'example', [json_ld_base()
 <?php endforeach; ?>
         </ul>
         <p class="phase-result"><?= e($p['result'][$lang]) ?></p>
-        <p class="price"><?= e(t('bsp_fixed')) ?> <?= e($fmt($p['days'] > 0 ? $p['days'] * BEISPIEL_TAGESSATZ : (int) $p['fixed'])) ?></p>
+        <p class="price"><?= e(t('bsp_fixed')) ?> <?= e($fmt($p['days'] > 0 ? $p['days'] * BEISPIEL_TAGESSATZ : (int) $p['fixed'])) ?> <span class="muted small"><?= e(t('vat_suffix')) ?></span></p>
       </li>
 <?php endforeach; ?>
     </ol>
@@ -153,7 +153,7 @@ page_head(t('bsp_title'), t('bsp_desc'), 'beispiel/', 'example', [json_ld_base()
 <?php endforeach; ?>
           </tbody>
           <tfoot>
-            <tr><th scope="row"><?= e(t('bsp_cost_sum')) ?></th><td><?= e($B['running_total'][$lang]) ?></td></tr>
+            <tr><th scope="row"><?= e(t('bsp_cost_sum_run')) ?></th><td><?= e($B['running_total'][$lang]) ?></td></tr>
           </tfoot>
         </table>
         <p class="muted small"><?= e(t('bsp_cost_run_note')) ?></p>

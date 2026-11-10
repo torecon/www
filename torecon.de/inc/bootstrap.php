@@ -9,7 +9,7 @@ declare(strict_types=1);
 const SITE_URL      = 'https://www.torecon.de';
 const CONTACT_EMAIL = 'info@torecon.de';
 
-// Festpreis der App-Idee-Bewertung in Euro (Kleinunternehmer, keine USt).
+// Festpreis der App-Idee-Bewertung in Euro, netto (zzgl. 19 % USt.).
 // null = Preis wird noch nicht angezeigt („Preis auf Anfrage“).
 const BEWERTUNG_PREIS = 490;
 
