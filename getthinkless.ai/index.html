@@ -98,6 +98,7 @@
       background: linear-gradient(135deg, rgba(91,138,240,0.10) 0%, rgba(91,138,240,0.03) 100%);
       border: 1px solid rgba(91,138,240,0.28);
       position: relative;
+      padding-right: 80px; /* .new-pill überdeckt h3/Text nie (≤ 360 px geprüft) */
     }
     .feature-card .new-pill {
       position: absolute; top: 12px; right: 12px;
@@ -242,16 +243,16 @@
 </head>
 <body>
 
-  <!-- ── Launch-Banner (oben, v1.4 Highlights + v1.4.1 live) ──────────────────────────── -->
+  <!-- ── Launch-Banner (oben, v1.5 eingereicht — zukunftsgerichtet formuliert) ─────────── -->
   <div class="launch-banner">
     <div class="launch-banner-inner">
       <div class="launch-content">
         <span class="launch-pill">
           <span class="launch-pill-dot"></span>
-          <span data-i18n="launch_pill">v1.4.1 ist da</span>
+          <span data-i18n="launch_pill">v1.5 — in weniger als 48 Stunden verfügbar</span>
         </span>
-        <h2 class="launch-headline" data-i18n="launch_headline">Streaks, <span class="accent">Mastery-Level</span> &amp; smarte Erinnerungen — jetzt noch zuverlässiger.</h2>
-        <p class="launch-sub" data-i18n="launch_sub">v1.4 bringt Streak-Badges, vier Mastery-Stufen und Reflexions-Erinnerungen sieben Tage nach jeder Entscheidung. Neu in v1.4.1: Premium-Preise in deiner Landeswährung, sofort erkannte Käufe und Server-Protokolle ohne Inhalte deiner Fragen.</p>
+        <h2 class="launch-headline" data-i18n="launch_headline">Gebaut fürs iPad. <span class="accent">Lesbar in jeder Schriftgröße.</span></h2>
+        <p class="launch-sub" data-i18n="launch_sub">v1.5 kommt in weniger als 48 Stunden: eigenes iPad-Layout mit Seitenleiste und Tastaturkurzbefehlen, Schrift bis zur größten Barrierefreiheitsgröße, Kontraste nach WCAG AA — und die komplette App auf Deutsch, Englisch, Portugiesisch und Ukrainisch, umschaltbar ohne Neustart.</p>
       </div>
       <div class="launch-cta-wrap">
         <a class="launch-btn appstore-link" href="https://apps.apple.com/app/thinkless-ai/id6762284671">
@@ -304,7 +305,7 @@
         </h1>
 
         <p class="hero-sub fade-up delay-2">
-          <span data-i18n="hero_sub">ThinkLess AI strukturiert deine Entscheidungen und liefert dir in <strong>unter 60 Sekunden</strong> eine klare Empfehlung mit Vertrauensniveau — mit Premium auch Begründung und nächsten Schritt.</span>
+          <span data-i18n="hero_sub">ThinkLess AI strukturiert deine Entscheidungen und liefert dir in <strong>unter 60 Sekunden</strong> eine klare Empfehlung mit Sicherheitsstufe — mit Premium auch Begründung und nächsten Schritt.</span>
         </p>
 
         <div class="hero-cta-row fade-up delay-3">
@@ -322,7 +323,7 @@
         </div>
 
         <div class="hero-pills fade-up delay-4">
-          <span class="hero-pill">📱 <span data-i18n="pill_platform">iPhone · iOS 17+</span></span>
+          <span class="hero-pill">📱 <span data-i18n="pill_platform">iPhone &amp; iPad · iOS 17+</span></span>
           <span class="hero-pill">🆓 <span data-i18n="pill_free">Kostenlos starten</span></span>
           <span class="hero-pill">⚡ <span data-i18n="pill_time">Unter 60 Sekunden</span></span>
           <span class="hero-pill">🌍 <span data-i18n="pill_lang">4 Sprachen</span></span>
@@ -348,8 +349,8 @@
           <div class="step-card">
             <div class="step-number">2</div>
             <div class="step-icon">⚡️</div>
-            <h3 data-i18n="step2_h3">Fast Mode oder Guided</h3>
-            <p data-i18n="step2_p">Für schnelle Entscheidungen: direkt Ergebnis. Für wichtige: Optionen und Kriterien definieren (Guided, Premium).</p>
+            <h3 data-i18n="step2_h3">Schnell oder Geführt</h3>
+            <p data-i18n="step2_p">Für schnelle Entscheidungen: direkt Ergebnis. Für wichtige: Optionen und Kriterien festlegen (Geführter Modus, Premium).</p>
           </div>
           <div class="step-card">
             <div class="step-number">3</div>
@@ -361,7 +362,7 @@
             <div class="step-number">4</div>
             <div class="step-icon">🎯</div>
             <h3 data-i18n="step4_h3">Klare Empfehlung</h3>
-            <p data-i18n="step4_p">Du bekommst: die empfohlene Option und ein Vertrauensniveau. Mit Premium zusätzlich Begründung, Schlüsselfaktoren und deinen nächsten konkreten Schritt.</p>
+            <p data-i18n="step4_p">Du bekommst: die empfohlene Option und ihre Sicherheitsstufe. Mit Premium zusätzlich Begründung, Schlüsselfaktoren und deinen nächsten konkreten Schritt.</p>
           </div>
         </div>
       </div>
@@ -377,19 +378,19 @@
         <div class="features-grid">
           <div class="feature-card featured">
             <span class="feature-emoji">⚡️</span>
-            <h3 data-i18n="f1_h3">Fast Mode</h3>
+            <h3 data-i18n="f1_h3">Schnell-Modus</h3>
             <p data-i18n="f1_p">Kostenlos: 3 Entscheidungen pro Tag. Einen Satz eingeben – sofort Ergebnis. Für Alltagsentscheidungen, die keine lange Analyse brauchen.</p>
             <span class="feature-tag" data-i18n="f1_tag">~20 Sekunden</span>
           </div>
           <div class="feature-card">
             <span class="feature-emoji">🎛</span>
-            <h3 data-i18n="f2_h3">Guided Mode</h3>
-            <p data-i18n="f2_p">Optionen und Kriterien definieren. Die KI gewichtet und berechnet die objektiv beste Wahl. (Premium)</p>
+            <h3 data-i18n="f2_h3">Geführter Modus</h3>
+            <p data-i18n="f2_p">Optionen und Kriterien festlegen. Die KI gewichtet sie und zeigt dir die beste Wahl nach deinen Kriterien. (Premium)</p>
             <span class="feature-tag" data-i18n="f2_tag">~60 Sekunden</span>
           </div>
           <div class="feature-card">
             <span class="feature-emoji">📊</span>
-            <h3 data-i18n="f3_h3">Confidence Meter</h3>
+            <h3 data-i18n="f3_h3">Sicherheitsstufe</h3>
             <p data-i18n="f3_p">Sieh auf einen Blick, wie sicher die Empfehlung ist. Keine Zweideutigkeiten, keine Halbsätze.</p>
             <span class="feature-tag" data-i18n="f3_tag">Transparent</span>
           </div>
@@ -402,28 +403,35 @@
           <div class="feature-card">
             <span class="feature-emoji">📋</span>
             <h3 data-i18n="f5_h3">Entscheidungsverlauf</h3>
-            <p data-i18n="f5_p">Dein Verlauf bleibt auf deinem Gerät. Gratis siehst du deine letzten 10 Entscheidungen, mit Premium bis zu 200.</p>
+            <p data-i18n="f5_p">Dein Verlauf bleibt auf deinem Gerät, nach Kalendertagen gruppiert. Löschen nur mit Bestätigung. Gratis siehst du deine letzten 10 Entscheidungen, mit Premium bis zu 200.</p>
             <span class="feature-tag" data-i18n="f5_tag">Reflektierbar</span>
           </div>
           <div class="feature-card">
+            <span class="feature-emoji">🎖</span>
+            <h3 data-i18n="f7_h3">Fortschritt &amp; Reflexion</h3>
+            <p data-i18n="f7_p">Vier Mastery-Stufen, Serien-Abzeichen für 7, 30 und 100 Tage und Spezialgebiete je Kategorie. Sieben Tage nach einer Entscheidung fragt die App nach, ob sie sich bewährt hat — ein Tipp auf die Mitteilung öffnet sie direkt.</p>
+            <span class="feature-tag" data-i18n="f7_tag">Lokal &amp; privat</span>
+          </div>
+          <div class="feature-card is-new">
+            <span class="new-pill" data-i18n="new_pill">v1.5 NEU</span>
             <span class="feature-emoji">🌍</span>
-            <h3 data-i18n="f6_h3">4 Sprachen</h3>
-            <p data-i18n="f6_p">Deutsch, Englisch, Portugiesisch (Brasilien) und Ukrainisch — die App startet automatisch in deiner Systemsprache.</p>
+            <h3 data-i18n="f6_h3">Komplett in 4 Sprachen</h3>
+            <p data-i18n="f6_p">Die ganze App auf Deutsch, Englisch, Portugiesisch (Brasilien) und Ukrainisch — auch der Offline-Grundmodus. Sprache in den Einstellungen wechseln, ohne Neustart.</p>
             <span class="feature-tag">DE / EN / PT / UA</span>
           </div>
           <div class="feature-card is-new">
-            <span class="new-pill" data-i18n="new_pill">v1.4 NEU</span>
-            <span class="feature-emoji">🎖</span>
-            <h3 data-i18n="f7_h3">Streaks &amp; Mastery</h3>
-            <p data-i18n="f7_p">Vier Mastery-Stufen vom Anfänger bis zum Master, Streak-Badges für 7, 30 und 100 Tage in Folge, Spezialgebiete pro Kategorie. Sichtbare Belohnung für jede Entscheidung.</p>
-            <span class="feature-tag" data-i18n="f7_tag">Gamification</span>
+            <span class="new-pill" data-i18n="new_pill">v1.5 NEU</span>
+            <span class="feature-emoji">🖥</span>
+            <h3 data-i18n="f9_h3">Gebaut fürs iPad</h3>
+            <p data-i18n="f9_p">Tab-Leiste mit Umschaltung zur Seitenleiste (ab iPadOS 18), angenehme Lesebreite und eigener Zustand je Fenster. Mit Tastatur: ⌘N für eine neue Entscheidung, ⌘1–4 für die Bereiche. Dazu Kontextmenüs und Zeigereffekte.</p>
+            <span class="feature-tag" data-i18n="f9_tag">iPad-nativ</span>
           </div>
           <div class="feature-card is-new">
-            <span class="new-pill" data-i18n="new_pill">v1.4 NEU</span>
-            <span class="feature-emoji">🔔</span>
-            <h3 data-i18n="f8_h3">Reflexions-Erinnerung</h3>
-            <p data-i18n="f8_p">Sieben Tage nach jeder Entscheidung fragt die App nach: hat sie sich bewährt? Bewerte mit einem Tap — und sieh in deinem Fortschritt, wie gut du wirklich entscheidest.</p>
-            <span class="feature-tag" data-i18n="f8_tag">Lokal &amp; privat</span>
+            <span class="new-pill" data-i18n="new_pill">v1.5 NEU</span>
+            <span class="feature-emoji">🔠</span>
+            <h3 data-i18n="f10_h3">Lesbar für alle</h3>
+            <p data-i18n="f10_p">Die Schrift wächst bis zur größten Barrierefreiheitsgröße mit, das Layout bricht sauber um. Kontraste nach WCAG AA, kräftiger bei „Kontrast erhöhen“. VoiceOver in allen vier Sprachen, Tippflächen ab 44 pt, „Bewegung reduzieren“ wird respektiert.</p>
+            <span class="feature-tag" data-i18n="f10_tag">Barrierefrei</span>
           </div>
         </div>
       </div>
@@ -509,7 +517,7 @@
         <div class="privacy-icon" aria-hidden="true">🔒</div>
         <p class="section-label" data-i18n="privacy_label">Datenschutz</p>
         <p class="privacy-promise" data-i18n="privacy_promise">Kein Konto. Kein Name. <span class="accent">Keine E-Mail.</span></p>
-        <p class="privacy-detail" data-i18n="privacy_detail">Dein Entscheidungsverlauf bleibt auf deinem Gerät. Für eine KI-Analyse geht deine Frage über unseren Server an unseren KI-Anbieter Anthropic — unser Server speichert sie nicht, seine Protokolle enthalten keine Inhalte. Eine zufällige App-Kennung begrenzt die Anfragen und ist nicht mit dir verknüpft. Käufe wickelt ausschließlich Apple ab. <a href="/privacy/">Volle Datenschutzerklärung</a>.</p>
+        <p class="privacy-detail" data-i18n="privacy_detail">Dein Entscheidungsverlauf bleibt auf deinem Gerät. Für eine KI-Analyse geht deine Frage über unseren Server an unseren KI-Anbieter Anthropic, nur um die Antwort zu erzeugen — unser Server speichert sie nicht, seine Protokolle enthalten keine Inhalte. Eine zufällige App-Kennung begrenzt die Anfragen und ist nicht mit dir verknüpft. Ohne Internet liefert der Offline-Grundmodus ein Ergebnis direkt auf dem Gerät. Käufe wickelt ausschließlich Apple ab. <a href="/privacy/">Volle Datenschutzerklärung</a>.</p>
       </div>
     </section>
 
@@ -530,8 +538,8 @@
             </svg>
           </a>
         </div>
-        <p class="waitlist-hint" data-i18n="dl_note">Verfügbar für iPhone · iOS 17+</p>
-        <p class="waitlist-hint dl-plans" data-i18n="dl_plans">Gratis: 3 Entscheidungen pro Tag im Fast Mode. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Guided Mode, Begründung, Schlüsselfaktoren und nächster Schritt. Preise im App Store in deiner Landeswährung.</p>
+        <p class="waitlist-hint" data-i18n="dl_note">Verfügbar für iPhone und iPad · iOS 17+</p>
+        <p class="waitlist-hint dl-plans" data-i18n="dl_plans">Gratis: 3 Entscheidungen pro Tag im Schnell-Modus, Sicherheitsstufe, Verlauf der letzten 10 und Offline-Grundmodus. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Geführter Modus, Begründung, Schlüsselfaktoren und nächster Schritt. Preise im App Store.</p>
       </div>
     </section>
 
@@ -688,17 +696,20 @@
       de: {
         nav_sub:           'eine Marke von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint:       'Impressum',
-        launch_pill:       'v1.4.1 ist da',
-        launch_headline:   'Streaks, <span class="accent">Mastery-Level</span> &amp; smarte Erinnerungen — jetzt noch zuverlässiger.',
-        launch_sub:        'v1.4 bringt Streak-Badges, vier Mastery-Stufen und Reflexions-Erinnerungen sieben Tage nach jeder Entscheidung. Neu in v1.4.1: Premium-Preise in deiner Landeswährung, sofort erkannte Käufe und Server-Protokolle ohne Inhalte deiner Fragen.',
+        launch_pill:       'v1.5 — in weniger als 48 Stunden verfügbar',
+        launch_headline:   'Gebaut fürs iPad. <span class="accent">Lesbar in jeder Schriftgröße.</span>',
+        launch_sub:        'v1.5 kommt in weniger als 48 Stunden: eigenes iPad-Layout mit Seitenleiste und Tastaturkurzbefehlen, Schrift bis zur größten Barrierefreiheitsgröße, Kontraste nach WCAG AA — und die komplette App auf Deutsch, Englisch, Portugiesisch und Ukrainisch, umschaltbar ohne Neustart.',
         launch_cta:        'Im App Store laden',
-        new_pill:          'v1.4 NEU',
-        f7_h3:             'Streaks &amp; Mastery',
-        f7_p:              'Vier Mastery-Stufen vom Anfänger bis zum Master, Streak-Badges für 7, 30 und 100 Tage in Folge, Spezialgebiete pro Kategorie. Sichtbare Belohnung für jede Entscheidung.',
-        f7_tag:            'Gamification',
-        f8_h3:             'Reflexions-Erinnerung',
-        f8_p:              'Sieben Tage nach jeder Entscheidung fragt die App nach: hat sie sich bewährt? Bewerte mit einem Tap — und sieh in deinem Fortschritt, wie gut du wirklich entscheidest.',
-        f8_tag:            'Lokal &amp; privat',
+        new_pill:          'v1.5 NEU',
+        f7_h3:             'Fortschritt &amp; Reflexion',
+        f7_p:              'Vier Mastery-Stufen, Serien-Abzeichen für 7, 30 und 100 Tage und Spezialgebiete je Kategorie. Sieben Tage nach einer Entscheidung fragt die App nach, ob sie sich bewährt hat — ein Tipp auf die Mitteilung öffnet sie direkt.',
+        f7_tag:            'Lokal &amp; privat',
+        f9_h3:             'Gebaut fürs iPad',
+        f9_p:              'Tab-Leiste mit Umschaltung zur Seitenleiste (ab iPadOS 18), angenehme Lesebreite und eigener Zustand je Fenster. Mit Tastatur: ⌘N für eine neue Entscheidung, ⌘1–4 für die Bereiche. Dazu Kontextmenüs und Zeigereffekte.',
+        f9_tag:            'iPad-nativ',
+        f10_h3:            'Lesbar für alle',
+        f10_p:             'Die Schrift wächst bis zur größten Barrierefreiheitsgröße mit, das Layout bricht sauber um. Kontraste nach WCAG AA, kräftiger bei „Kontrast erhöhen“. VoiceOver in allen vier Sprachen, Tippflächen ab 44 pt, „Bewegung reduzieren“ wird respektiert.',
+        f10_tag:           'Barrierefrei',
         roadmap_label:     'Permanent weiterentwickelt',
         roadmap_h2:        'Eine App, die mit dir wächst.',
         roadmap_sub:       'Wir veröffentlichen regelmäßig Updates — getrieben von User-Feedback, Apple-Plattform-Innovationen und neuen KI-Fähigkeiten. Was bisher kam und was als nächstes ansteht:',
@@ -729,10 +740,10 @@
         hero_badge:        'Jetzt verfügbar im App Store',
         hero_h1_1:         'Bessere Entscheidungen.',
         hero_h1_2:         'Schneller.',
-        hero_sub:          'ThinkLess AI strukturiert deine Entscheidungen und liefert dir in <strong>unter 60 Sekunden</strong> eine klare Empfehlung mit Vertrauensniveau — mit Premium auch Begründung und nächsten Schritt.',
+        hero_sub:          'ThinkLess AI strukturiert deine Entscheidungen und liefert dir in <strong>unter 60 Sekunden</strong> eine klare Empfehlung mit Sicherheitsstufe — mit Premium auch Begründung und nächsten Schritt.',
         hero_cta_how:      'So funktioniert\'s',
         appstore_download_on: 'Download on the',
-        pill_platform:     'iPhone · iOS 17+',
+        pill_platform:     'iPhone &amp; iPad · iOS 17+',
         pill_free:         'Kostenlos starten',
         pill_time:         'Unter 60 Sekunden',
         pill_lang:         '4 Sprachen',
@@ -741,32 +752,32 @@
         how_sub:           'Kein Chatten, kein Suchen, kein Denken. Nur eine klare Antwort.',
         step1_h3:          'Entscheidung eingeben',
         step1_p:           'Beschreibe deine Entscheidung in einem Satz. Fertig.',
-        step2_h3:          'Fast Mode oder Guided',
-        step2_p:           'Für schnelle Entscheidungen: direkt Ergebnis. Für wichtige: Optionen und Kriterien definieren (Guided, Premium).',
+        step2_h3:          'Schnell oder Geführt',
+        step2_p:           'Für schnelle Entscheidungen: direkt Ergebnis. Für wichtige: Optionen und Kriterien festlegen (Geführter Modus, Premium).',
         step3_h3:          'KI strukturiert & bewertet',
         step3_p:           'Die KI analysiert deine Eingabe, gewichtet die Faktoren und berechnet die beste Option.',
         step4_h3:          'Klare Empfehlung',
-        step4_p:           'Du bekommst: die empfohlene Option und ein Vertrauensniveau. Mit Premium zusätzlich Begründung, Schlüsselfaktoren und deinen nächsten konkreten Schritt.',
+        step4_p:           'Du bekommst: die empfohlene Option und ihre Sicherheitsstufe. Mit Premium zusätzlich Begründung, Schlüsselfaktoren und deinen nächsten konkreten Schritt.',
         feat_label:        'Was dich erwartet',
         feat_h2:           'Designed für Klarheit.',
         feat_sub:          'Keine Informationsflut. Keine langen Texte. Nur das, was du brauchst um zu entscheiden.',
-        f1_h3:             'Fast Mode',
+        f1_h3:             'Schnell-Modus',
         f1_p:              'Kostenlos: 3 Entscheidungen pro Tag. Einen Satz eingeben – sofort Ergebnis. Für Alltagsentscheidungen, die keine lange Analyse brauchen.',
         f1_tag:            '~20 Sekunden',
-        f2_h3:             'Guided Mode',
-        f2_p:              'Optionen und Kriterien definieren. Die KI gewichtet und berechnet die objektiv beste Wahl. (Premium)',
+        f2_h3:             'Geführter Modus',
+        f2_p:              'Optionen und Kriterien festlegen. Die KI gewichtet sie und zeigt dir die beste Wahl nach deinen Kriterien. (Premium)',
         f2_tag:            '~60 Sekunden',
-        f3_h3:             'Confidence Meter',
+        f3_h3:             'Sicherheitsstufe',
         f3_p:              'Sieh auf einen Blick, wie sicher die Empfehlung ist. Keine Zweideutigkeiten, keine Halbsätze.',
         f3_tag:            'Transparent',
         f4_h3:             'Nächster Schritt',
         f4_p:              'Mit Premium endet jedes Ergebnis mit einer konkreten Handlung. Nicht denken – einfach tun.',
         f4_tag:            'Actionable',
         f5_h3:             'Entscheidungsverlauf',
-        f5_p:              'Dein Verlauf bleibt auf deinem Gerät. Gratis siehst du deine letzten 10 Entscheidungen, mit Premium bis zu 200.',
+        f5_p:              'Dein Verlauf bleibt auf deinem Gerät, nach Kalendertagen gruppiert. Löschen nur mit Bestätigung. Gratis siehst du deine letzten 10 Entscheidungen, mit Premium bis zu 200.',
         f5_tag:            'Reflektierbar',
-        f6_h3:             '4 Sprachen',
-        f6_p:              'Deutsch, Englisch, Portugiesisch (Brasilien) und Ukrainisch — die App startet automatisch in deiner Systemsprache.',
+        f6_h3:             'Komplett in 4 Sprachen',
+        f6_p:              'Die ganze App auf Deutsch, Englisch, Portugiesisch (Brasilien) und Ukrainisch — auch der Offline-Grundmodus. Sprache in den Einstellungen wechseln, ohne Neustart.',
         vs_h2:             'Weniger grübeln. Klarer entscheiden.',
         vs_sub:            'Statt eines langen Chat-Verlaufs: ein geführter Ablauf, eine klare Empfehlung mit Sicherheitsstufe und ein nächster Schritt — ohne Konto, dein Verlauf bleibt auf deinem Gerät.',
         vs_pain_label:     'Das Problem',
@@ -785,11 +796,11 @@
         dl_label:          'Bereit?',
         dl_h2:             'Lade ThinkLess AI jetzt.',
         dl_sub:            'Kostenlos herunterladen — deine nächste Entscheidung wartet schon.',
-        dl_note:           'Verfügbar für iPhone · iOS 17+',
-        dl_plans:          'Gratis: 3 Entscheidungen pro Tag im Fast Mode. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Guided Mode, Begründung, Schlüsselfaktoren und nächster Schritt. Preise im App Store in deiner Landeswährung.',
+        dl_note:           'Verfügbar für iPhone und iPad · iOS 17+',
+        dl_plans:          'Gratis: 3 Entscheidungen pro Tag im Schnell-Modus, Sicherheitsstufe, Verlauf der letzten 10 und Offline-Grundmodus. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Geführter Modus, Begründung, Schlüsselfaktoren und nächster Schritt. Preise im App Store.',
         privacy_label:     'Datenschutz',
         privacy_promise:   'Kein Konto. Kein Name. <span class="accent">Keine E-Mail.</span>',
-        privacy_detail:    'Dein Entscheidungsverlauf bleibt auf deinem Gerät. Für eine KI-Analyse geht deine Frage über unseren Server an unseren KI-Anbieter Anthropic — unser Server speichert sie nicht, seine Protokolle enthalten keine Inhalte. Eine zufällige App-Kennung begrenzt die Anfragen und ist nicht mit dir verknüpft. Käufe wickelt ausschließlich Apple ab. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
+        privacy_detail:    'Dein Entscheidungsverlauf bleibt auf deinem Gerät. Für eine KI-Analyse geht deine Frage über unseren Server an unseren KI-Anbieter Anthropic, nur um die Antwort zu erzeugen — unser Server speichert sie nicht, seine Protokolle enthalten keine Inhalte. Eine zufällige App-Kennung begrenzt die Anfragen und ist nicht mit dir verknüpft. Ohne Internet liefert der Offline-Grundmodus ein Ergebnis direkt auf dem Gerät. Käufe wickelt ausschließlich Apple ab. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
         about_p:           'ThinkLess AI ist eine Marke von <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — dem Entwickler hinter <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag und Beruf wirklich helfen.',
         notice_label:      'Wichtiger Hinweis',
         notice_h2:         'Bitte lies das kurz.',
@@ -821,17 +832,20 @@
       en: {
         nav_sub:           'a brand by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint:       'Legal',
-        launch_pill:       'v1.4.1 is here',
-        launch_headline:   'Streaks, <span class="accent">mastery levels</span> &amp; smart reminders — now even more reliable.',
-        launch_sub:        'v1.4 brings streak badges, four mastery tiers, and reflection reminders seven days after each decision. New in v1.4.1: Premium prices in your local currency, purchases recognized instantly, and server logs without the content of your questions.',
+        launch_pill:       'v1.5 — available in under 48 hours',
+        launch_headline:   'Built for iPad. <span class="accent">Readable at any text size.</span>',
+        launch_sub:        'v1.5 arrives in under 48 hours: a dedicated iPad layout with sidebar and keyboard shortcuts, text up to the largest accessibility size, WCAG AA contrast — and the complete app in English, German, Portuguese, and Ukrainian, switchable without a restart.',
         launch_cta:        'Open in App Store',
-        new_pill:          'v1.4 NEW',
-        f7_h3:             'Streaks &amp; Mastery',
-        f7_p:              'Four mastery tiers from Beginner to Master, streak badges for 7, 30, and 100 days in a row, specialties per category. Visible reward for every decision.',
-        f7_tag:            'Gamification',
-        f8_h3:             'Reflection reminder',
-        f8_p:              'Seven days after each decision the app asks: did it work out? Rate with a tap — and see in your Progress how well you actually decide.',
-        f8_tag:            'Local &amp; private',
+        new_pill:          'v1.5 NEW',
+        f7_h3:             'Progress &amp; reflection',
+        f7_p:              'Four mastery levels, streak badges for 7, 30, and 100 days, and specialties per category. Seven days after a decision, the app asks whether it paid off — tapping the notification opens it directly.',
+        f7_tag:            'Local &amp; private',
+        f9_h3:             'Built for iPad',
+        f9_p:              'A tab bar that switches to a sidebar (iPadOS 18 and later), a comfortable reading width, and its own state in every window. With a keyboard: ⌘N for a new decision, ⌘1–4 for each section. Plus context menus and pointer effects.',
+        f9_tag:            'iPad-native',
+        f10_h3:            'Readable for everyone',
+        f10_p:             'Text scales up to the largest accessibility size and the layout wraps cleanly. WCAG AA contrast, even stronger with Increase Contrast. VoiceOver in all four languages, tap targets of at least 44 pt, and Reduce Motion is respected.',
+        f10_tag:           'Accessible',
         roadmap_label:     'Permanently evolving',
         roadmap_h2:        'An app that grows with you.',
         roadmap_sub:       'We ship updates regularly — driven by user feedback, by Apple platform innovations, and by new AI capabilities. What landed so far and what\'s next:',
@@ -865,7 +879,7 @@
         hero_sub:          'ThinkLess AI structures your decisions and delivers a clear recommendation with a confidence level in <strong>under 60 seconds</strong> — with Premium, also the reasoning and your next step.',
         hero_cta_how:      'How it works',
         appstore_download_on: 'Download on the',
-        pill_platform:     'iPhone · iOS 17+',
+        pill_platform:     'iPhone &amp; iPad · iOS 17+',
         pill_free:         'Free to start',
         pill_time:         'Under 60 seconds',
         pill_lang:         '4 languages',
@@ -874,8 +888,8 @@
         how_sub:           'No chatting, no searching, no thinking. Just a clear answer.',
         step1_h3:          'Enter your decision',
         step1_p:           'Describe your decision in one sentence. That\'s it.',
-        step2_h3:          'Fast Mode or Guided',
-        step2_p:           'For quick decisions: get the result instantly. For important ones: define options and criteria (Guided, Premium).',
+        step2_h3:          'Fast or Guided Mode',
+        step2_p:           'For quick decisions: get the result instantly. For important ones: define options and criteria (Guided Mode, Premium).',
         step3_h3:          'AI structures & scores',
         step3_p:           'The AI analyzes your input, weighs the factors, and calculates the best option.',
         step4_h3:          'Clear Recommendation',
@@ -887,19 +901,19 @@
         f1_p:              'Free: 3 decisions per day. Enter one sentence – instant result. For everyday decisions that don\'t need long analysis.',
         f1_tag:            '~20 seconds',
         f2_h3:             'Guided Mode',
-        f2_p:              'Define options and criteria. The AI weighs and calculates the objectively best choice. (Premium)',
+        f2_p:              'Define options and criteria. The AI weighs them and shows you the best choice by your own criteria. (Premium)',
         f2_tag:            '~60 seconds',
-        f3_h3:             'Confidence Meter',
+        f3_h3:             'Confidence level',
         f3_p:              'See at a glance how confident the recommendation is. No ambiguity, no hedging.',
         f3_tag:            'Transparent',
         f4_h3:             'Next Step',
-        f4_p:              'With Premium, every result ends with a concrete action. Don\'t think – just do.',
+        f4_p:              'With Premium, every result ends with a concrete action. Don\'t overthink – just do it.',
         f4_tag:            'Actionable',
         f5_h3:             'Decision History',
-        f5_p:              'Your history stays on your device. Free shows your last 10 decisions, Premium up to 200.',
+        f5_p:              'Your history stays on your device, grouped by calendar day. Deleting always asks first. Free shows your last 10 decisions, Premium up to 200.',
         f5_tag:            'Reflectable',
-        f6_h3:             '4 Languages',
-        f6_p:              'German, English, Portuguese (Brazil), and Ukrainian — the app starts in your system language automatically.',
+        f6_h3:             'Fully in 4 languages',
+        f6_p:              'The whole app in English, German, Portuguese (Brazil), and Ukrainian — including the basic offline mode. Switch the language in Settings, no restart needed.',
         vs_h2:             'Less overthinking. Clearer decisions.',
         vs_sub:            'Instead of a long chat thread: a guided flow, one clear recommendation with a confidence level, and a next step — no account, your history stays on your device.',
         vs_pain_label:     'The problem',
@@ -918,11 +932,11 @@
         dl_label:          'Ready?',
         dl_h2:             'Get ThinkLess AI now.',
         dl_sub:            'Download for free — your next decision is already waiting.',
-        dl_note:           'Available for iPhone · iOS 17+',
-        dl_plans:          'Free: 3 decisions per day in Fast Mode. Premium: unlimited (<a href="/terms/">fair use</a>), Guided Mode, reasoning, key factors, and next step. Prices on the App Store in your local currency.',
+        dl_note:           'Available for iPhone and iPad · iOS 17+',
+        dl_plans:          'Free: 3 decisions per day in Fast Mode, confidence level, history of your last 10, and the basic offline mode. Premium: unlimited (<a href="/terms/">fair use</a>), Guided Mode, reasoning, key factors, and next step. Prices on the App Store.',
         privacy_label:     'Privacy',
         privacy_promise:   'No account. No name. <span class="accent">No email.</span>',
-        privacy_detail:    'Your decision history stays on your device. For an AI analysis, your question goes through our server to our AI provider Anthropic — our server does not store it, and its logs contain no content. A random app identifier limits requests and is not linked to you. Purchases are handled by Apple only. <a href="/privacy/">Full privacy policy</a>.',
+        privacy_detail:    'Your decision history stays on your device. For an AI analysis, your question goes through our server to our AI provider Anthropic, only to generate the answer — our server does not store it, and its logs contain no content. A random app ID limits requests and is not linked to you. Without internet, the basic offline mode gives you a result right on your device. Purchases are handled exclusively by Apple. <a href="/privacy/">Full privacy policy</a>.',
         about_p:           'ThinkLess AI is a brand by <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — the developer behind <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>We build AI products that deliver real value. Not toys — tools that genuinely help people in their daily and professional lives.',
         notice_label:      'Important Notice',
         notice_h2:         'Please take a moment.',
@@ -954,17 +968,20 @@
       pt: {
         nav_sub:           'uma marca da <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint:       'Legal',
-        launch_pill:       'A v1.4.1 chegou',
-        launch_headline:   'Sequências, <span class="accent">níveis de maestria</span> e lembretes inteligentes — agora com ainda mais confiabilidade.',
-        launch_sub:        'A v1.4 traz badges de sequência, quatro níveis de maestria e lembretes de reflexão sete dias após cada decisão. Novo na v1.4.1: preços do Premium na sua moeda local, compras reconhecidas na hora e registros do servidor sem o conteúdo das suas perguntas.',
+        launch_pill:       'v1.5 — disponível em menos de 48 horas',
+        launch_headline:   'Feito para o iPad. <span class="accent">Legível em qualquer tamanho de texto.</span>',
+        launch_sub:        'A v1.5 chega em menos de 48 horas: layout próprio para iPad com barra lateral e atalhos de teclado, texto até o maior tamanho de acessibilidade, contraste conforme WCAG AA — e o app completo em português, inglês, alemão e ucraniano, com troca de idioma sem reiniciar.',
         launch_cta:        'Abrir na App Store',
-        new_pill:          'v1.4 NOVO',
-        f7_h3:             'Sequências &amp; Maestria',
-        f7_p:              'Quatro níveis de maestria de Iniciante a Mestre, badges de sequência por 7, 30 e 100 dias seguidos, especialidades por categoria. Recompensa visível a cada decisão.',
-        f7_tag:            'Gamificação',
-        f8_h3:             'Lembrete de reflexão',
-        f8_p:              'Sete dias após cada decisão o app pergunta: deu certo? Avalie com um toque — e veja no seu Progresso o quão bem você realmente decide.',
-        f8_tag:            'Local &amp; privado',
+        new_pill:          'v1.5 NOVO',
+        f7_h3:             'Progresso e reflexão',
+        f7_p:              'Quatro níveis de maestria, selos de sequência de 7, 30 e 100 dias e especialidades por categoria. Sete dias depois de uma decisão, o app pergunta se ela valeu a pena — tocar na notificação abre a decisão direto.',
+        f7_tag:            'Local e privado',
+        f9_h3:             'Feito para o iPad',
+        f9_p:              'Barra de abas que vira barra lateral (a partir do iPadOS 18), largura de leitura confortável e estado próprio em cada janela. Com teclado: ⌘N para uma nova decisão, ⌘1–4 para as seções. Além de menus de contexto e efeitos de ponteiro.',
+        f9_tag:            'Nativo no iPad',
+        f10_h3:            'Legível para todos',
+        f10_p:             'O texto cresce até o maior tamanho de acessibilidade e o layout se ajusta sem cortes. Contraste conforme WCAG AA, ainda mais forte com “Aumentar contraste”. VoiceOver nos quatro idiomas, áreas de toque de pelo menos 44 pt e “Reduzir movimento” respeitado.',
+        f10_tag:           'Acessível',
         roadmap_label:     'Em evolução permanente',
         roadmap_h2:        'Um app que cresce com você.',
         roadmap_sub:       'Lançamos atualizações regularmente — guiados por feedback de usuários, inovações da Apple e novas capacidades de IA. O que já chegou e o que vem a seguir:',
@@ -998,7 +1015,7 @@
         hero_sub:          'ThinkLess AI estrutura suas decisões e entrega uma recomendação clara com nível de confiança em <strong>menos de 60 segundos</strong> — com o Premium, também a justificativa e o próximo passo.',
         hero_cta_how:      'Como funciona',
         appstore_download_on: 'Baixar na',
-        pill_platform:     'iPhone · iOS 17+',
+        pill_platform:     'iPhone e iPad · iOS 17+',
         pill_free:         'Comece grátis',
         pill_time:         'Em menos de 60s',
         pill_lang:         '4 idiomas',
@@ -1008,7 +1025,7 @@
         step1_h3:          'Inserir decisão',
         step1_p:           'Descreva sua decisão em uma frase. Pronto.',
         step2_h3:          'Modo Rápido ou Guiado',
-        step2_p:           'Para decisões rápidas: resultado imediato. Para as importantes: defina opções e critérios (Guiado, Premium).',
+        step2_p:           'Para decisões rápidas: resultado imediato. Para as importantes: defina opções e critérios (Modo Guiado, Premium).',
         step3_h3:          'IA estrutura e avalia',
         step3_p:           'A IA analisa sua entrada, pondera os fatores e calcula a melhor opção.',
         step4_h3:          'Recomendação Clara',
@@ -1020,19 +1037,19 @@
         f1_p:              'Grátis: 3 decisões por dia. Insira uma frase – resultado imediato. Para decisões do dia a dia que não precisam de longa análise.',
         f1_tag:            '~20 segundos',
         f2_h3:             'Modo Guiado',
-        f2_p:              'Defina opções e critérios. A IA pondera e calcula a melhor escolha objetivamente. (Premium)',
+        f2_p:              'Defina opções e critérios. A IA os pondera e mostra a melhor escolha segundo os seus critérios. (Premium)',
         f2_tag:            '~60 segundos',
-        f3_h3:             'Indicador de Confiança',
+        f3_h3:             'Nível de confiança',
         f3_p:              'Veja de relance o quão confiante é a recomendação. Sem ambiguidade, sem meias palavras.',
         f3_tag:            'Transparente',
         f4_h3:             'Próximo Passo',
-        f4_p:              'Com o Premium, cada resultado termina com uma ação concreta. Não pense — apenas faça.',
+        f4_p:              'Com o Premium, cada resultado termina com uma ação concreta. Não pense demais – apenas faça.',
         f4_tag:            'Acionável',
         f5_h3:             'Histórico de Decisões',
-        f5_p:              'Seu histórico fica no seu dispositivo. No plano grátis você vê suas últimas 10 decisões, com o Premium até 200.',
+        f5_p:              'Seu histórico fica no seu dispositivo, agrupado por dia. Excluir sempre pede confirmação. No plano grátis você vê suas últimas 10 decisões, com o Premium até 200.',
         f5_tag:            'Reflexivo',
-        f6_h3:             '4 Idiomas',
-        f6_p:              'Alemão, inglês, português (Brasil) e ucraniano — o app abre automaticamente no idioma do seu sistema.',
+        f6_h3:             'Completo em 4 idiomas',
+        f6_p:              'O app inteiro em português (Brasil), inglês, alemão e ucraniano — inclusive o modo offline básico. Troque o idioma nos Ajustes, sem reiniciar.',
         vs_h2:             'Menos ruminação. Decisões mais claras.',
         vs_sub:            'Em vez de um longo histórico de chat: um fluxo guiado, uma recomendação clara com nível de confiança e um próximo passo — sem conta, seu histórico fica no seu dispositivo.',
         vs_pain_label:     'O problema',
@@ -1051,11 +1068,11 @@
         dl_label:          'Pronto?',
         dl_h2:             'Baixe o ThinkLess AI agora.',
         dl_sub:            'Baixe grátis — sua próxima decisão já está esperando.',
-        dl_note:           'Disponível para iPhone · iOS 17+',
-        dl_plans:          'Grátis: 3 decisões por dia no Modo Rápido. Premium: ilimitado (<a href="/terms/">uso justo</a>), Modo Guiado, justificativa, fatores-chave e próximo passo. Preços na App Store na sua moeda local.',
+        dl_note:           'Disponível para iPhone e iPad · iOS 17+',
+        dl_plans:          'Grátis: 3 decisões por dia no Modo Rápido, nível de confiança, histórico das últimas 10 e modo offline básico. Premium: ilimitado (<a href="/terms/">uso justo</a>), Modo Guiado, justificativa, fatores-chave e próximo passo. Preços na App Store.',
         privacy_label:     'Privacidade',
         privacy_promise:   'Sem conta. Sem nome. <span class="accent">Sem e-mail.</span>',
-        privacy_detail:    'Seu histórico de decisões fica no seu dispositivo. Para uma análise de IA, sua pergunta passa pelo nosso servidor até nosso provedor de IA, a Anthropic — nosso servidor não a armazena, e os registros não contêm conteúdo. Um identificador aleatório do app limita as solicitações e não está vinculado a você. As compras são processadas exclusivamente pela Apple. <a href="/privacy/">Política de privacidade completa</a>.',
+        privacy_detail:    'Seu histórico de decisões fica no seu dispositivo. Para uma análise com IA, sua pergunta passa pelo nosso servidor até nosso provedor de IA, a Anthropic, apenas para gerar a resposta — nosso servidor não a armazena e os registros não contêm conteúdo. Um identificador aleatório do app limita as solicitações e não está vinculado a você. Sem internet, o modo offline básico entrega um resultado direto no dispositivo. As compras são processadas exclusivamente pela Apple. <a href="/privacy/">Política de privacidade completa</a>.',
         about_p:           'ThinkLess AI é uma marca da <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — o desenvolvedor por trás do <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Criamos produtos de IA que entregam valor real. Não brinquedos — ferramentas que realmente ajudam pessoas no dia a dia e na vida profissional.',
         notice_label:      'Aviso importante',
         notice_h2:         'Leia isto com atenção.',
@@ -1087,17 +1104,20 @@
       uk: {
         nav_sub:           'бренд від <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
         nav_imprint:       'Про нас',
-        launch_pill:       'v1.4.1 вже тут',
-        launch_headline:   'Серії, <span class="accent">рівні майстерності</span> та розумні нагадування — тепер ще надійніше.',
-        launch_sub:        'v1.4 приносить бейджі серій, чотири рівні майстерності й нагадування про рефлексію через сім днів після кожного рішення. Нове у v1.4.1: ціни Premium у твоїй місцевій валюті, миттєве розпізнавання покупок і журнали сервера без змісту твоїх запитань.',
+        launch_pill:       'v1.5 — менш ніж за 48 годин',
+        launch_headline:   'Створено для iPad. <span class="accent">Читається за будь-якого розміру шрифту.</span>',
+        launch_sub:        'v1.5 з’явиться менш ніж за 48 годин: власний макет для iPad з бічною панеллю та клавіатурними скороченнями, шрифт до найбільшого розміру універсального доступу, контраст за WCAG AA — і весь застосунок українською, англійською, німецькою та португальською, з перемиканням мови без перезапуску.',
         launch_cta:        'Відкрити в App Store',
-        new_pill:          'v1.4 НОВЕ',
-        f7_h3:             'Серії &amp; Майстерність',
-        f7_p:              'Чотири рівні майстерності від Початківця до Майстра, бейджі за серії 7, 30 і 100 днів поспіль, спеціалізації за категоріями. Видима винагорода за кожне рішення.',
-        f7_tag:            'Гейміфікація',
-        f8_h3:             'Нагадування про рефлексію',
-        f8_p:              'Через сім днів після кожного рішення додаток запитує: чи спрацювало? Оціни одним дотиком — і побач у Прогресі, наскільки добре ти насправді вирішуєш.',
-        f8_tag:            'Локально &amp; приватно',
+        new_pill:          'v1.5 НОВЕ',
+        f7_h3:             'Прогрес і рефлексія',
+        f7_p:              'Чотири рівні майстерності, значки серій за 7, 30 і 100 днів та спеціалізації за категоріями. Через сім днів після рішення застосунок запитає, чи воно себе виправдало — дотик до сповіщення відкриває його одразу.',
+        f7_tag:            'Локально й приватно',
+        f9_h3:             'Створено для iPad',
+        f9_p:              'Панель вкладок, що перемикається на бічну панель (з iPadOS 18), зручна ширина для читання й окремий стан у кожному вікні. З клавіатурою: ⌘N — нове рішення, ⌘1–4 — розділи. А ще контекстні меню й ефекти вказівника.',
+        f9_tag:            'Нативно на iPad',
+        f10_h3:            'Зручно для всіх',
+        f10_p:             'Шрифт збільшується до найбільшого розміру універсального доступу, макет акуратно переноситься. Контраст за WCAG AA, ще сильніший із «Збільшити контраст». VoiceOver усіма чотирма мовами, зони дотику від 44 pt, «Зменшення руху» враховується.',
+        f10_tag:           'Доступно',
         roadmap_label:     'Постійний розвиток',
         roadmap_h2:        'Додаток, що росте з тобою.',
         roadmap_sub:       'Ми регулярно випускаємо оновлення — на основі відгуків користувачів, інновацій платформи Apple та нових можливостей ШІ. Що вже є і що далі:',
@@ -1128,10 +1148,10 @@
         hero_badge:        'Вже доступно в App Store',
         hero_h1_1:         'Кращі рішення.',
         hero_h1_2:         'Швидше.',
-        hero_sub:          'ThinkLess AI структурує твої рішення й дає чітку рекомендацію з рівнем впевненості менш ніж за <strong>60 секунд</strong> — з Premium також обґрунтування й наступний крок.',
+        hero_sub:          'ThinkLess AI структурує твої рішення й дає чітку рекомендацію з рівнем впевненості менш ніж за <strong>60 секунд</strong> — з Преміум також обґрунтування й наступний крок.',
         hero_cta_how:      'Як це працює',
         appstore_download_on: 'Завантажити в',
-        pill_platform:     'iPhone · iOS 17+',
+        pill_platform:     'iPhone та iPad · iOS 17+',
         pill_free:         'Безкоштовний старт',
         pill_time:         'Менше 60 секунд',
         pill_lang:         '4 мови',
@@ -1141,11 +1161,11 @@
         step1_h3:          'Введи рішення',
         step1_p:           'Опиши своє рішення в одному реченні. Готово.',
         step2_h3:          'Швидкий або Керований режим',
-        step2_p:           'Для швидких рішень: відразу результат. Для важливих: визнач варіанти й критерії (Керований, Premium).',
+        step2_p:           'Для швидких рішень: відразу результат. Для важливих: визнач варіанти й критерії (Керований режим, Преміум).',
         step3_h3:          'ШІ структурує й оцінює',
         step3_p:           'ШІ аналізує твій запит, зважує фактори й розраховує найкращий варіант.',
         step4_h3:          'Чітка рекомендація',
-        step4_p:           'Ти отримуєш: рекомендований варіант і рівень впевненості. З Premium — ще й обґрунтування, ключові фактори та конкретний наступний крок.',
+        step4_p:           'Ти отримуєш: рекомендований варіант і рівень впевненості. З Преміум — ще й обґрунтування, ключові фактори та конкретний наступний крок.',
         feat_label:        'Що на тебе чекає',
         feat_h2:           'Створено для ясності.',
         feat_sub:          'Без інформаційного перевантаження. Без довгих текстів. Тільки те, що потрібно для рішення.',
@@ -1153,19 +1173,19 @@
         f1_p:              'Безкоштовно: 3 рішення на день. Введи одне речення — миттєвий результат. Для повсякденних рішень, які не потребують тривалого аналізу.',
         f1_tag:            '~20 секунд',
         f2_h3:             'Керований режим',
-        f2_p:              'Визнач варіанти й критерії. ШІ зважує й розраховує об\'єктивно найкращий вибір. (Premium)',
+        f2_p:              'Визнач варіанти й критерії. ШІ зважує їх і показує найкращий вибір за твоїми критеріями. (Преміум)',
         f2_tag:            '~60 секунд',
-        f3_h3:             'Індикатор впевненості',
+        f3_h3:             'Рівень впевненості',
         f3_p:              'Побач одним поглядом, наскільки впевнена рекомендація. Без двозначності й невизначеності.',
         f3_tag:            'Прозоро',
         f4_h3:             'Наступний крок',
-        f4_p:              'З Premium кожен результат завершується конкретною дією. Не думай — просто роби.',
+        f4_p:              'З Преміум кожен результат завершується конкретною дією. Не думай — просто дій.',
         f4_tag:            'Дієво',
         f5_h3:             'Історія рішень',
-        f5_p:              'Твоя історія залишається на твоєму пристрої. Безкоштовно видно останні 10 рішень, з Premium — до 200.',
+        f5_p:              'Твоя історія залишається на твоєму пристрої, згрупована за днями. Видалення — лише з підтвердженням. Безкоштовно видно останні 10 рішень, з Преміум — до 200.',
         f5_tag:            'Для рефлексії',
-        f6_h3:             '4 мови',
-        f6_p:              'Німецька, англійська, португальська (Бразилія) та українська — застосунок автоматично запускається мовою твоєї системи.',
+        f6_h3:             'Повністю 4 мовами',
+        f6_p:              'Увесь застосунок українською, англійською, німецькою та португальською (Бразилія) — включно з базовим офлайн-режимом. Змінюй мову в налаштуваннях без перезапуску.',
         vs_h2:             'Менше вагань. Чіткіші рішення.',
         vs_sub:            'Замість довгого чату: керований процес, одна чітка рекомендація з рівнем впевненості й наступний крок — без акаунта, твоя історія залишається на твоєму пристрої.',
         vs_pain_label:     'Проблема',
@@ -1184,11 +1204,11 @@
         dl_label:          'Готовий?',
         dl_h2:             'Завантаж ThinkLess AI зараз.',
         dl_sub:            'Безкоштовне завантаження — твоє наступне рішення вже чекає.',
-        dl_note:           'Доступно для iPhone · iOS 17+',
-        dl_plans:          'Безкоштовно: 3 рішення на день у Швидкому режимі. Premium: необмежено (<a href="/terms/">чесне використання</a>), Керований режим, обґрунтування, ключові фактори й наступний крок. Ціни — в App Store у твоїй місцевій валюті.',
+        dl_note:           'Доступно для iPhone та iPad · iOS 17+',
+        dl_plans:          'Безкоштовно: 3 рішення на день у Швидкому режимі, рівень впевненості, історія останніх 10 і базовий офлайн-режим. Преміум: необмежено (<a href="/terms/">чесне використання</a>), Керований режим, обґрунтування, ключові фактори й наступний крок. Ціни — в App Store.',
         privacy_label:     'Конфіденційність',
         privacy_promise:   'Без акаунта. Без імені. <span class="accent">Без e-mail.</span>',
-        privacy_detail:    'Твоя історія рішень залишається на твоєму пристрої. Для ШІ-аналізу твоє запитання проходить через наш сервер до нашого ШІ-постачальника Anthropic — наш сервер його не зберігає, а журнали не містять змісту. Випадковий ідентифікатор застосунку обмежує кількість запитів і не пов’язаний із тобою. Покупки обробляє виключно Apple. <a href="/privacy/">Повна політика конфіденційності</a>.',
+        privacy_detail:    'Твоя історія рішень залишається на твоєму пристрої. Для ШІ-аналізу твоє запитання проходить через наш сервер до нашого ШІ-постачальника Anthropic лише для того, щоб створити відповідь — наш сервер його не зберігає, а журнали не містять змісту. Випадковий ідентифікатор застосунку обмежує кількість запитів і не пов’язаний із тобою. Без інтернету базовий офлайн-режим дає результат прямо на пристрої. Покупки обробляє виключно Apple. <a href="/privacy/">Повна політика конфіденційності</a>.',
         about_p:           'ThinkLess AI — бренд від <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — розробника <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Ми створюємо ШІ-продукти, що приносять реальну цінність. Не іграшки — інструменти, які справді допомагають людям у повсякденному й професійному житті.',
         notice_label:      'Важливе повідомлення',
         notice_h2:         'Прочитай, будь ласка.',
