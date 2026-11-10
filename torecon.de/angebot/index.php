@@ -55,6 +55,7 @@ page_head(t('offer_page_title'), t('offer_page_desc'), 'angebot/', 'offer', [$ld
       <h2><?= e(t('eval_h2')) ?></h2>
       <p class="section-lead"><?= e(t('eval_lead')) ?></p>
       <p><?= e(t('eval_format')) ?></p>
+      <p><strong><?= e(t('eval_time')) ?></strong></p>
       <div class="price-box">
         <p class="price"><?= e($price ? t('eval_price', ['price' => $price]) : t('eval_price_na')) ?></p>
         <p class="muted"><?= e(t('eval_vat')) ?></p>
@@ -104,7 +105,7 @@ page_head(t('offer_page_title'), t('offer_page_desc'), 'angebot/', 'offer', [$ld
         </thead>
         <tbody>
 <?php foreach ($requirements as [$what, $why, $when, $cost]): ?>
-          <tr><th scope="row"><?= e($what) ?></th><td><?= e($why) ?></td><td><?= e($when) ?></td><td><?= e($cost) ?></td></tr>
+          <tr><th scope="row"><?= e($what) ?></th><td><?= e($why) ?></td><td data-label="<?= e(t('req_th_when')) ?>"><?= e($when) ?></td><td data-label="<?= e(t('req_th_cost')) ?>"><?= e($cost) ?></td></tr>
 <?php endforeach; ?>
         </tbody>
       </table>

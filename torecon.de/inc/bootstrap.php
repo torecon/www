@@ -11,7 +11,11 @@ const CONTACT_EMAIL = 'info@torecon.de';
 
 // Festpreis der App-Idee-Bewertung in Euro (Kleinunternehmer, keine USt).
 // null = Preis wird noch nicht angezeigt („Preis auf Anfrage“).
-const BEWERTUNG_PREIS = null;
+const BEWERTUNG_PREIS = 490;
+
+// Buchungsseite für ein Erstgespräch (Google Kalender Terminplanung).
+// null = Terminlink wird nicht angezeigt.
+const BOOKING_URL = null;
 
 const LANGS = ['de', 'en'];
 

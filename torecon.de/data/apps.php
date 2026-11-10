@@ -4,6 +4,7 @@ declare(strict_types=1);
 /*
  * Einzige Quelle für die App-Kacheln auf torecon.de.
  * status: 'live' | 'review' | 'soon'
+ * releases: veröffentlichte App-Store-Versionen (iOS + macOS), Stand 2026-11-10 laut App Store Connect
  * Neue App = ein Eintrag hier + Icon unter assets/img/apps/<key>.png (256×256).
  */
 
@@ -16,6 +17,7 @@ return [
         'status'    => 'live',
         'platforms' => ['iPhone'],
         'langs'     => 4,
+        'releases'  => 10,
         'claim'     => [
             'de' => 'KI verstehen und anwenden – in fünf Minuten am Tag.',
             'en' => 'Understand and use AI – in five minutes a day.',
@@ -30,6 +32,7 @@ return [
         'status'    => 'live',
         'platforms' => ['iPhone'],
         'langs'     => 4,
+        'releases'  => 7,
         'claim'     => [
             'de' => 'Bessere Entscheidungen in unter 60 Sekunden.',
             'en' => 'Better decisions in under 60 seconds.',
@@ -44,6 +47,7 @@ return [
         'status'    => 'live',
         'platforms' => ['iPhone', 'iPad'],
         'langs'     => 4,
+        'releases'  => 12,
         'claim'     => [
             'de' => 'Rezept fotografieren – strukturiert und übersetzt zurück.',
             'en' => 'Snap a recipe – get it back structured and translated.',
@@ -58,6 +62,7 @@ return [
         'status'    => 'live',
         'platforms' => ['iPhone', 'iPad', 'Mac'],
         'langs'     => 2,
+        'releases'  => 30,
         'claim'     => [
             'de' => 'Ladekosten fürs E-Auto im Griff – zu Hause und unterwegs.',
             'en' => 'Keep your EV charging costs under control – at home and on the road.',
@@ -72,6 +77,7 @@ return [
         'status'    => 'live',
         'platforms' => ['iPhone'],
         'langs'     => 2,
+        'releases'  => 2,
         'claim'     => [
             'de' => 'Handwerker direkt finden – ohne Portal und ohne Lead-Gebühr.',
             'en' => 'Find tradespeople directly – no portal, no lead fees.',
@@ -86,6 +92,7 @@ return [
         'status'    => 'review',
         'platforms' => ['iPhone'],
         'langs'     => 3,
+        'releases'  => 0,
         'claim'     => [
             'de' => 'Jeden Tag eine kleine, gute Gesundheitsentscheidung.',
             'en' => 'One small, good health decision every day.',

@@ -29,10 +29,14 @@ page_head(t('privacy_title'), 'Datenschutzerklärung von torecon.de – keine Co
     <p>Hoster: nethosting24 (Webhosting mit Plesk). Mit dem Hoster besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>
 
     <h2>4. Kontaktformular und E-Mail</h2>
-    <p>Wenn Sie mir über das Formular oder per E-Mail schreiben, verarbeite ich Ihre Angaben (Name, E-Mail-Adresse, optional Unternehmen, Anliegen, gewählte Plattformen und Ihre Nachricht), um Ihre Anfrage zu beantworten und gegebenenfalls ein Angebot zu erstellen (Art. 6 Abs. 1 lit. b DSGVO – vorvertragliche Maßnahmen, sowie lit. a DSGVO – Ihre Einwilligung). Die Formulardaten werden per E-Mail an mich übermittelt und nicht in einer Datenbank auf dem Webserver gespeichert.</p>
+    <p>Wenn Sie mir über das Formular oder per E-Mail schreiben, verarbeite ich Ihre Angaben (Name, E-Mail-Adresse, optional Unternehmen, Anliegen, gewählte Plattformen und Ihre Nachricht), um Ihre Anfrage zu beantworten und gegebenenfalls ein Angebot zu erstellen (Art. 6 Abs. 1 lit. b DSGVO – vorvertragliche Maßnahmen). Die Formulardaten werden per E-Mail an mich übermittelt und nicht in einer Datenbank auf dem Webserver gespeichert.</p>
     <p>Zum Schutz vor massenhaften Spam-Anfragen wird beim Absenden ein Einweg-Hashwert Ihrer IP-Adresse höchstens eine Stunde lang im temporären Speicher des Servers abgelegt und danach verworfen (Art. 6 Abs. 1 lit. f DSGVO).</p>
     <p>Ich lösche Anfragen, wenn sie erledigt sind und keine gesetzlichen Aufbewahrungspflichten bestehen. Wird aus der Anfrage ein Auftrag, gelten die handels- und steuerrechtlichen Aufbewahrungsfristen.</p>
 
+<?php if (BOOKING_URL): ?>
+    <h2>Terminbuchung</h2>
+    <p>Für die Buchung eines Erstgesprächs verlinke ich auf die Terminplanung von Google Kalender (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Erst wenn Sie den Link anklicken, werden Sie zu Google weitergeleitet; dort gelten die Datenschutzhinweise von Google. Ihre Angaben bei der Buchung (Name, E-Mail, gewählter Termin) verarbeite ich zur Durchführung des Gesprächs (Art. 6 Abs. 1 lit. b DSGVO). Eine Übermittlung in die USA durch Google kann nicht ausgeschlossen werden; Google ist nach dem EU-US Data Privacy Framework zertifiziert.</p>
+<?php endif; ?>
     <h2>5. Downloads</h2>
     <p>Die Vertragsentwürfe zum Download sind PDF-Dateien ohne eingebettete Tracker. Beim Herunterladen fallen nur die unter 3. genannten Server-Protokolle an.</p>
 
@@ -40,7 +44,7 @@ page_head(t('privacy_title'), 'Datenschutzerklärung von torecon.de – keine Co
     <p>Links zu meinen App-Websites und zum App Store werden erst beim Anklicken aufgerufen. Dann gelten die Datenschutzhinweise der jeweiligen Seite bzw. von Apple.</p>
 
     <h2>7. Ihre Rechte</h2>
-    <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21). Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Eine E-Mail an <a href="mailto:<?= CONTACT_EMAIL ?>"><?= CONTACT_EMAIL ?></a> genügt.</p>
+    <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21). Eine E-Mail an <a href="mailto:<?= CONTACT_EMAIL ?>"><?= CONTACT_EMAIL ?></a> genügt.</p>
     <p>Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz.</p>
 
     <h2>8. Verschlüsselung</h2>

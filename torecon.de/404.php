@@ -4,7 +4,7 @@ declare(strict_types=1);
 require __DIR__ . '/inc/layout.php';
 
 http_response_code(404);
-page_head(t('nf_title'), t('nf_lead'), '');
+page_head(t('nf_title'), t('nf_lead'), '', '', [], true);
 ?>
 <section class="page-hero">
   <div class="wrap narrow">

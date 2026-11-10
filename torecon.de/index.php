@@ -5,6 +5,7 @@ require __DIR__ . '/inc/layout.php';
 
 $count = count($APPS);
 $live  = count(array_filter($APPS, fn($a) => $a['status'] === 'live'));
+$releases = array_sum(array_column($APPS, 'releases'));
 $price = bewertung_preis();
 
 page_head(t('home_title'), t('home_desc'), '', '', [json_ld_base()]);
@@ -14,7 +15,7 @@ page_head(t('home_title'), t('home_desc'), '', '', [json_ld_base()]);
     <div class="hero-text">
       <p class="eyebrow"><?= e(t('hero_eyebrow')) ?></p>
       <h1><?= t('hero_title') ?></h1>
-      <p class="lead"><?= e(t('hero_lead', ['count' => $count])) ?></p>
+      <p class="lead"><?= e(t('hero_lead', ['count' => $count, 'live' => $live])) ?></p>
       <div class="actions">
         <a class="btn" href="<?= e(url('angebot/#bewertung')) ?>"><?= e(t('hero_cta1')) ?></a>
         <a class="btn btn-ghost" href="#apps"><?= e(t('hero_cta2')) ?></a>
@@ -30,7 +31,7 @@ page_head(t('home_title'), t('home_desc'), '', '', [json_ld_base()]);
     <ul class="facts">
       <li><strong><?= e(t('fact1_n', ['count' => $count])) ?></strong><span><?= e(t('fact1_t')) ?></span></li>
       <li><strong><?= e(t('fact2_n', ['live' => $live])) ?></strong><span><?= e(t('fact2_t')) ?></span></li>
-      <li><strong><?= e(t('fact3_n')) ?></strong><span><?= e(t('fact3_t')) ?></span></li>
+      <li><strong><?= e(t('fact3_n', ['releases' => $releases])) ?></strong><span><?= e(t('fact3_t')) ?></span></li>
       <li><strong><?= e(t('fact4_n')) ?></strong><span><?= e(t('fact4_t')) ?></span></li>
     </ul>
   </div>
@@ -40,7 +41,7 @@ page_head(t('home_title'), t('home_desc'), '', '', [json_ld_base()]);
   <div class="wrap">
     <p class="kicker"><?= e(t('results_kicker')) ?></p>
     <h2><?= e(t('results_title')) ?></h2>
-    <p class="section-lead"><?= e(t('results_lead')) ?></p>
+    <p class="section-lead"><?= e(t('results_lead', ['live' => $live])) ?></p>
     <div class="app-grid">
 <?php foreach ($APPS as $key => $app) { app_card($key, $app); } ?>
     </div>
@@ -123,7 +124,6 @@ for ($i = 1; $i <= 6; $i++): ?>
 
 <section id="ueber-mich" class="section section-alt">
   <div class="wrap about">
-    <img class="portrait" src="/assets/img/thomas-reinke.jpg" alt="Thomas Reinke" width="240" height="240" loading="lazy">
     <div>
       <p class="kicker"><?= e(t('about_kicker')) ?></p>
       <h2><?= e(t('about_title')) ?></h2>
@@ -138,7 +138,12 @@ for ($i = 1; $i <= 6; $i++): ?>
   <div class="wrap cta-inner">
     <h2><?= e(t('cta_title')) ?></h2>
     <p><?= e(t('cta_lead')) ?></p>
-    <a class="btn btn-light" href="<?= e(url('kontakt/')) ?>"><?= e(t('cta_btn')) ?></a>
+    <div class="actions actions-center">
+      <a class="btn btn-light" href="<?= e(url('kontakt/')) ?>"><?= e(t('cta_btn')) ?></a>
+<?php if (BOOKING_URL): ?>
+      <a class="btn btn-outline-light" href="<?= e(BOOKING_URL) ?>" rel="noopener"><?= e(t('book_btn')) ?></a>
+<?php endif; ?>
+    </div>
   </div>
 </section>
 <?php page_foot();

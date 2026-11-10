@@ -8,7 +8,7 @@ require_once __DIR__ . '/bootstrap.php';
  * $path: Seitenpfad ohne Sprachpräfix, z. B. '' (Start), 'apps/', 'angebot/'.
  * $active: Menüpunkt, der markiert wird.
  */
-function page_head(string $title, string $desc, string $path, string $active = '', array $jsonld = []): void
+function page_head(string $title, string $desc, string $path, string $active = '', array $jsonld = [], bool $noindex = false): void
 {
     global $lang;
     $other = $lang === 'de' ? 'en' : 'de';
@@ -19,7 +19,6 @@ function page_head(string $title, string $desc, string $path, string $active = '
         ['work',    url('#leistungen'),  t('nav_work')],
         ['offer',   url('angebot/'),     t('nav_offer')],
         ['about',   url('#ueber-mich'),  t('nav_about')],
-        ['contact', url('kontakt/'),     t('nav_contact')],
     ];
     ?>
 <!doctype html>
@@ -29,7 +28,11 @@ function page_head(string $title, string $desc, string $path, string $active = '
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title><?= e($title) ?></title>
 <meta name="description" content="<?= e($desc) ?>">
+<?php if ($noindex): ?>
+<meta name="robots" content="noindex">
+<?php else: ?>
 <link rel="canonical" href="<?= e(abs_url($path)) ?>">
+<?php endif; ?>
 <link rel="alternate" hreflang="de" href="<?= e(abs_url($path, 'de')) ?>">
 <link rel="alternate" hreflang="en" href="<?= e(abs_url($path, 'en')) ?>">
 <link rel="alternate" hreflang="x-default" href="<?= e(abs_url($path, 'de')) ?>">
@@ -58,7 +61,7 @@ function page_head(string $title, string $desc, string $path, string $active = '
 <a class="skip" href="#main"><?= t('skip') ?></a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="<?= e(url('')) ?>" aria-label="torecon – <?= e(t('nav_apps')) ?>">
+    <a class="brand" href="<?= e(url('')) ?>" aria-label="<?= e(t('home_link')) ?>">
       <img src="/assets/img/logo-rounded-128.png" alt="" width="32" height="32">
       <span>torecon</span>
     </a>
@@ -72,7 +75,7 @@ function page_head(string $title, string $desc, string $path, string $active = '
 <?php endforeach; ?>
       </ul>
       <a class="lang-switch" href="<?= e(url($path, $other)) ?>" hreflang="<?= $other ?>" lang="<?= $other ?>" aria-label="<?= e(t('lang_switch_aria')) ?>"><?= e(t('lang_switch_code')) ?></a>
-      <a class="btn btn-small" href="<?= e(url('kontakt/')) ?>"><?= e(t('nav_cta')) ?></a>
+      <a class="btn btn-small" href="<?= e(url('kontakt/')) ?>"<?= $active === 'contact' ? ' aria-current="page"' : '' ?>><?= e(t('nav_cta')) ?></a>
     </nav>
   </div>
 </header>
@@ -145,15 +148,18 @@ function app_card(string $key, array $app, bool $detail = false): void
 <?php if ($detail): ?>
   <dl class="app-meta">
     <div><dt><?= e(t('apps_platforms')) ?></dt><dd><?= e(implode(' · ', $app['platforms'])) ?> · <?= e(t('app_langs', ['n' => $app['langs']])) ?></dd></div>
+<?php if ($app['releases'] > 0): ?>
+    <div><dt>App Store</dt><dd><?= e(t('app_releases', ['n' => $app['releases']])) ?></dd></div>
+<?php endif; ?>
     <div><dt><?= e(t('apps_tech')) ?></dt><dd><?= e(implode(' · ', $app['tech'])) ?></dd></div>
   </dl>
 <?php endif; ?>
   <div class="app-links">
-    <a class="link-arrow" href="https://<?= e($app['domain']) ?>/" rel="noopener"><?= e(t('app_site')) ?></a>
+    <a class="link-arrow" href="https://<?= e($app['domain']) ?>/" rel="noopener"><?= e(t('app_site')) ?><span class="sr-only"> <?= e($app['name']) ?></span></a>
 <?php if ($app['status'] === 'live'): ?>
-    <a class="link-arrow" href="<?= e($store) ?>" rel="noopener"><?= e(t('app_store')) ?></a>
+    <a class="link-arrow" href="<?= e($store) ?>" rel="noopener"><?= e(t('app_store')) ?><span class="sr-only"> <?= e($app['name']) ?></span></a>
 <?php if ($app['macstore']): ?>
-    <a class="link-arrow" href="https://apps.apple.com/<?= $lang === 'en' ? 'us' : 'de' ?>/app/id<?= e($app['macstore']) ?>" rel="noopener"><?= e(t('app_macstore')) ?></a>
+    <a class="link-arrow" href="https://apps.apple.com/<?= $lang === 'en' ? 'us' : 'de' ?>/app/id<?= e($app['macstore']) ?>" rel="noopener"><?= e(t('app_macstore')) ?><span class="sr-only"> <?= e($app['name']) ?></span></a>
 <?php endif; ?>
 <?php endif; ?>
   </div>
@@ -172,7 +178,6 @@ function json_ld_base(): array
                 'name'     => 'Thomas Reinke',
                 'jobTitle' => 'App Developer',
                 'url'      => SITE_URL . '/',
-                'image'    => SITE_URL . '/assets/img/thomas-reinke.jpg',
                 'worksFor' => ['@id' => SITE_URL . '/#org'],
                 'knowsAbout' => ['iOS', 'iPadOS', 'macOS', 'Android', 'SwiftUI', 'App Store', 'Google Play', 'AI'],
             ],

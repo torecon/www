@@ -16,14 +16,20 @@ $values = [
     'name'     => '',
     'company'  => '',
     'email'    => '',
-    'interest' => isset($_GET['anliegen'], $interests[$_GET['anliegen']]) ? (string) $_GET['anliegen'] : 'entwicklung',
+    'interest' => isset($interests[str_param($_GET, 'anliegen')]) ? str_param($_GET, 'anliegen') : 'entwicklung',
     'platform' => [],
     'message'  => '',
-    'consent'  => false,
 ];
 $errors = [];
 $state  = isset($_GET['gesendet']) ? 'sent' : 'form';
 $alert  = '';
+
+/** Liest einen Request-Wert nur, wenn er ein String ist (schützt vor name[]=…). */
+function str_param(array $src, string $key): string
+{
+    $v = $src[$key] ?? '';
+    return is_string($v) ? $v : '';
+}
 
 function clean_line(string $s, int $max): string
 {
@@ -33,9 +39,27 @@ function clean_line(string $s, int $max): string
 
 function rate_limited(): bool
 {
-    $ip   = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-    $file = sys_get_temp_dir() . '/torecon-contact-' . hash('sha256', 'torecon' . $ip) . '.json';
+    $dir  = sys_get_temp_dir();
     $now  = time();
+    // Abgelaufene Einträge (älter als 1 Stunde) entfernen.
+    foreach (glob($dir . '/torecon-contact-*.json') ?: [] as $old) {
+        if (@filemtime($old) < $now - 3600) {
+            @unlink($old);
+        }
+    }
+    // Zufälliges Salz, täglich neu, damit der IP-Hash nicht zurückgerechnet werden kann.
+    $saltFile = $dir . '/torecon-contact-salt-' . date('Ymd');
+    if (!is_file($saltFile)) {
+        @file_put_contents($saltFile, bin2hex(random_bytes(32)), LOCK_EX);
+        foreach (glob($dir . '/torecon-contact-salt-*') ?: [] as $oldSalt) {
+            if ($oldSalt !== $saltFile) {
+                @unlink($oldSalt);
+            }
+        }
+    }
+    $salt = (string) @file_get_contents($saltFile);
+    $ip   = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $file = $dir . '/torecon-contact-' . hash('sha256', $salt . $ip) . '.json';
     $hits = [];
     if (is_file($file)) {
         $hits = json_decode((string) file_get_contents($file), true) ?: [];
@@ -50,16 +74,16 @@ function rate_limited(): bool
 }
 
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
-    $values['name']     = clean_line((string) ($_POST['name'] ?? ''), 120);
-    $values['company']  = clean_line((string) ($_POST['company'] ?? ''), 160);
-    $values['email']    = clean_line((string) ($_POST['email'] ?? ''), 200);
-    $values['interest'] = isset($interests[$_POST['interest'] ?? '']) ? (string) $_POST['interest'] : 'sonstiges';
-    $values['platform'] = array_values(array_intersect(array_keys($platforms), (array) ($_POST['platform'] ?? [])));
-    $values['message']  = mb_substr(trim((string) ($_POST['message'] ?? '')), 0, 5000);
-    $values['consent']  = isset($_POST['consent']);
+    $values['name']     = clean_line(str_param($_POST, 'name'), 120);
+    $values['company']  = clean_line(str_param($_POST, 'company'), 160);
+    $values['email']    = clean_line(str_param($_POST, 'email'), 200);
+    $values['interest'] = isset($interests[str_param($_POST, 'interest')]) ? str_param($_POST, 'interest') : 'sonstiges';
+    $rawPlatforms       = is_array($_POST['platform'] ?? null) ? array_filter($_POST['platform'], 'is_string') : [];
+    $values['platform'] = array_values(array_intersect(array_keys($platforms), $rawPlatforms));
+    $values['message']  = mb_substr(trim(str_param($_POST, 'message')), 0, 5000);
 
-    $honeypot = trim((string) ($_POST['website'] ?? ''));
-    $started  = (int) ($_POST['ts'] ?? 0);
+    $honeypot = trim(str_param($_POST, 'website'));
+    $started  = (int) str_param($_POST, 'ts');
     $tooFast  = $started <= 0 || (time() - $started) < 3;
     $tooMany  = preg_match_all('~https?://~i', $values['message']) > 3;
 
@@ -71,9 +95,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     }
     if (mb_strlen($values['message']) < 10) {
         $errors['message'] = true;
-    }
-    if (!$values['consent']) {
-        $errors['consent'] = true;
     }
 
     if ($honeypot !== '' || $tooFast || $tooMany) {
@@ -111,7 +132,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
 page_head(t('contact_title'), t('contact_desc'), 'kontakt/', 'contact', [json_ld_base()]);
 
-$err = fn(string $f) => isset($errors[$f]) ? ' aria-invalid="true"' : '';
+$firstError = array_key_first($errors);
+$err = fn(string $f) => isset($errors[$f])
+    ? ' aria-invalid="true" aria-describedby="' . $f . '-error"' . ($firstError === $f ? ' autofocus' : '')
+    : '';
+$msg = fn(string $f) => isset($errors[$f])
+    ? '<p class="field-error" id="' . $f . '-error">' . e(t('f_e_' . $f)) . '</p>'
+    : '';
 ?>
 <section class="page-hero">
   <div class="wrap narrow">
@@ -140,6 +167,7 @@ $err = fn(string $f) => isset($errors[$f]) ? ' aria-invalid="true"' : '';
       <div class="field">
         <label for="name"><?= e(t('f_name')) ?> <span class="req" aria-hidden="true">*</span></label>
         <input id="name" name="name" type="text" required autocomplete="name" maxlength="120" value="<?= e($values['name']) ?>"<?= $err('name') ?>>
+        <?= $msg('name') ?>
       </div>
       <div class="field">
         <label for="company"><?= e(t('f_company')) ?></label>
@@ -148,6 +176,7 @@ $err = fn(string $f) => isset($errors[$f]) ? ' aria-invalid="true"' : '';
       <div class="field">
         <label for="email"><?= e(t('f_email')) ?> <span class="req" aria-hidden="true">*</span></label>
         <input id="email" name="email" type="email" required autocomplete="email" maxlength="200" value="<?= e($values['email']) ?>"<?= $err('email') ?>>
+        <?= $msg('email') ?>
       </div>
 
       <fieldset class="field">
@@ -171,15 +200,27 @@ $err = fn(string $f) => isset($errors[$f]) ? ' aria-invalid="true"' : '';
       <div class="field">
         <label for="message"><?= e(t('f_message')) ?> <span class="req" aria-hidden="true">*</span></label>
         <textarea id="message" name="message" rows="7" required maxlength="5000"<?= $err('message') ?>><?= e($values['message']) ?></textarea>
+        <?= $msg('message') ?>
       </div>
 
-      <div class="field">
-        <label class="choice consent"><input type="checkbox" name="consent" value="1" required<?= $values['consent'] ? ' checked' : '' ?><?= $err('consent') ?>> <span><?= t('f_consent', ['privacy' => e(url('datenschutz/'))]) ?></span></label>
-      </div>
+      <p class="muted small"><?= t('f_privacy_note', ['privacy' => e(url('datenschutz/'))]) ?></p>
 
       <button class="btn" type="submit"><?= e(t('f_send')) ?></button>
-      <p class="muted small"><span aria-hidden="true">*</span> <?= e(t('f_req')) ?> · <?= e(t('f_email_alt')) ?> <a href="mailto:<?= CONTACT_EMAIL ?>"><?= CONTACT_EMAIL ?></a></p>
+      <p class="muted small"><span aria-hidden="true">*</span> <?= e(t('f_req')) ?></p>
     </form>
+    <div class="contact-alt">
+      <div class="card">
+        <h2 class="h3"><?= e(t('f_email_alt')) ?></h2>
+        <p><a href="mailto:<?= CONTACT_EMAIL ?>"><?= CONTACT_EMAIL ?></a></p>
+      </div>
+<?php if (BOOKING_URL): ?>
+      <div class="card">
+        <h2 class="h3"><?= e(t('book_t')) ?></h2>
+        <p><?= e(t('book_d')) ?></p>
+        <a class="btn btn-ghost" href="<?= e(BOOKING_URL) ?>" rel="noopener"><?= e(t('book_btn')) ?></a>
+      </div>
+<?php endif; ?>
+    </div>
 <?php endif; ?>
   </div>
 </section>
