@@ -1274,7 +1274,7 @@
 
     function apply() {
       const t = T[lang];
-      document.documentElement.lang = lang;
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
 
       ['de','en','pt','uk'].forEach(l => {
         document.getElementById('btn-' + l).classList.toggle('active', lang === l);
