@@ -18,7 +18,8 @@
   <!-- Open Graph -->
   <meta property="og:title" content="evChargeScope — Smart EV charging cost tracker">
   <meta property="og:description" content="Your smart EV charging cost tracker. Charging loss analysis, correct cost per 100km, configurable dashboard. On the App Store.">
-  <meta property="og:url" content="https://chargescope.ai">
+  <link rel="canonical" href="https://chargescope.ai/">
+  <meta property="og:url" content="https://chargescope.ai/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://chargescope.ai/icon-512.png">
 
@@ -1211,7 +1212,7 @@
         <span style="font-size:12px; font-weight:400; opacity:0.8;">macOS 14+</span>
       </a>
     </div>
-    <p style="font-size:14px; color:var(--text-tertiary); margin-top:24px;"><span data-i18n="download_questions">Fragen?</span> <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+    <p style="font-size:14px; color:var(--text-tertiary); margin-top:24px;"><span data-i18n="download_questions">Fragen?</span> <a href="mailto:support@chargescope.ai">support@chargescope.ai</a></p>
   </section>
 
   <!-- FAQ -->
@@ -1262,7 +1263,7 @@
 
       <div class="imprint-block">
         <h3 data-i18n="imprint_contact">Kontakt</h3>
-        <p>E-Mail: <a href="mailto:info@torecon.de">info@torecon.de</a><br>
+        <p>E-Mail: <a href="mailto:legal@chargescope.ai">legal@chargescope.ai</a><br>
         Website: <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a></p>
       </div>
 
@@ -1330,7 +1331,7 @@
         <div class="footer-logo-icon"><img src="/icon-512.png" alt="eLadung" width="32" height="32" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
         <span class="footer-logo-main">e<span>Ladung</span></span>
       </div>
-      <span class="footer-brand-line" data-i18n="footer_brand">eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — Thomas Reinke</span>
+      <span class="footer-brand-line" data-i18n="footer_brand"><a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">eine App von torecon</a> — Thomas Reinke</span>
       <div class="footer-links">
         <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
         <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
@@ -1588,7 +1589,7 @@
         imprint_disclaimer_text: 'Die Inhalte dieser App und Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.',
         imprint_notice:    'Dieses Impressum gilt für die Website <strong>chargescope.ai</strong> sowie die macOS- und iOS-App <strong>evChargeScope</strong> (EN) bzw. <strong>eLadung GO</strong> (DE) von torecon — Thomas Reinke.',
 
-        footer_brand:      'eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — Thomas Reinke',
+        footer_brand:      '<a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">eine App von torecon</a> — Thomas Reinke',
         footer_privacy:    'Datenschutz',
         footer_terms:      'Nutzungsbedingungen',
         footer_imprint:    'Impressum',
@@ -1816,7 +1817,7 @@
         imprint_disclaimer_text: 'The contents of this app and website were created with the greatest possible care. We make no warranty for accuracy, completeness or timeliness. As a service provider, we are responsible for our own content on these pages under § 7 (1) TMG and the general laws.',
         imprint_notice:    'This imprint applies to the website <strong>chargescope.ai</strong> as well as the macOS and iOS app <strong>evChargeScope</strong> by torecon — Thomas Reinke.',
 
-        footer_brand:      'an app by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — Thomas Reinke',
+        footer_brand:      '<a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">an app by torecon</a> — Thomas Reinke',
         footer_privacy:    'Privacy',
         footer_terms:      'Terms',
         footer_imprint:    'Imprint',
@@ -1844,7 +1845,7 @@
       if (stored && translations[stored]) initial = stored;
       else {
         const browserLang = (navigator.language || 'de').split('-')[0];
-        if (translations[browserLang]) initial = browserLang;
+        initial = translations[browserLang] ? browserLang : 'en';
       }
     } catch (_) {}
     setLang(initial);

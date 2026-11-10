@@ -11,7 +11,6 @@ Optional env vars (override defaults):
   FTP_PORT             – FTP port (default: 21)
   REMOTE_MAIN          – Remote path for torecon.de      (default: /html)
   REMOTE_INTERN        – Remote path for intern.torecon.de
-  REMOTE_ANALYTICS     – Remote path for analytics.torecon.de
   REMOTE_DOWNLOADS     – Remote path for downloads.torecon.de
   REMOTE_GETBRAINBITES – Remote path for getbrainbites.ai
   REMOTE_GETTHINKLESS  – Remote path for getthinkless.ai
@@ -44,10 +43,6 @@ SITES = {
     "intern": {
         "local":  BASE / "intern.torecon.de",
         "remote": os.environ.get("REMOTE_INTERN", "/subdomains/intern/html"),
-    },
-    "analytics": {
-        "local":  BASE / "analytics.torecon.de",
-        "remote": os.environ.get("REMOTE_ANALYTICS", "/subdomains/analytics/html"),
     },
     "downloads": {
         "local":  BASE / "downloads.torecon.de",

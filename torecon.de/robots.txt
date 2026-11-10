@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /inc/
+Disallow: /lang/
+Disallow: /data/
 
 Sitemap: https://www.torecon.de/sitemap.xml
