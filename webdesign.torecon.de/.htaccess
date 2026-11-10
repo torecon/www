@@ -1,3 +1,0 @@
-# webdesign.torecon.de ist eingestellt (2026-11-10) – dauerhaft auf torecon.de umleiten.
-RewriteEngine On
-RewriteRule ^ https://www.torecon.de/ [R=301,L]
