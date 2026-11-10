@@ -101,6 +101,7 @@ a:hover { opacity: 0.8; }
 .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
 .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
+.footer-app-pill img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; display: block; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
 
 /* ── Page Content (legal pages) ─────────────────────────────────────────── */
