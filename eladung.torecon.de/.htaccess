@@ -1,0 +1,4 @@
+# eladung.torecon.de ist seit 2026-11-10 dauerhaft umgezogen nach https://chargescope.ai (einzige Website, Entscheidung Thomas).
+# 301 mit Pfaderhalt: /privacy/, /terms/ usw. bleiben für ASC und alte Links gültig.
+RewriteEngine On
+RewriteRule ^(.*)$ https://chargescope.ai/$1 [R=301,L]
