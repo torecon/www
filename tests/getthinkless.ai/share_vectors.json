@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "note": "TEST key only. Link: https://getthinkless.ai/d/#<fragment>; fragment = 1.<b64url(deflate-raw(payload))>[.<b64url(raw r||s)>]; signature over the UTF-8 payload bytes (ES256).",
+  "public_keys": [
+    {
+      "kid": "test-1",
+      "x963_b64url": "BGZzaxJ1i49FE3Qk8Vz2KbixPmWtfa8k7G1IFvWDAM_Xrj64g9ujsLGFr-bRlwFGWnFnlnxPbv6APoVi2hSjP-c",
+      "spki_der_b64url": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZnNrEnWLj0UTdCTxXPYpuLE-Za19ryTsbUgW9YMAz9euPriD26OwsYWv5tGXAUZacWeWfE9u_oA-hWLaFKM_5w",
+      "jwk": {
+        "kty": "EC",
+        "crv": "P-256",
+        "x": "ZnNrEnWLj0UTdCTxXPYpuLE-Za19ryTsbUgW9YMAz9c",
+        "y": "rj64g9ujsLGFr-bRlwFGWnFnlnxPbv6APoVi2hSjP-c"
+      }
+    }
+  ],
+  "vectors": [
+    {
+      "name": "fast_en_basic",
+      "payload": "{\"ai\":true,\"cat\":\"beruf\",\"conf\":\"high\",\"d\":\"2026-11-11\",\"kid\":\"test-1\",\"lang\":\"en\",\"mode\":\"fast\",\"q\":\"Should I take the new job offer?\",\"rec\":\"Take the job\",\"t\":\"decision\",\"v\":1}",
+      "sig": "tPO9uPK88nqulhfc8f-P_j-EiBOmHwzqj-btFJPdwQ-9CEdwXs8zVb-p4Rj6ddFp5DIBzpAuY-RLdrdaSTdeKQ",
+      "fragment": "1.NY4xDgIhEEWvQqZ2E9nCgsbaWi_AwrDgrhBh0MJ4dz-FyRTv_T-ZzIdsIiO184GcFTK0cO2BYCUHaExrhHngfJxPk9YYBFsakXCTaehu8wrnDH4Uz-Bgm8CewGssfffqosRurCSyyvxW97KoEgLXM9YqOyze_j06hOMfzy61VMbhFxn9_QE.tPO9uPK88nqulhfc8f-P_j-EiBOmHwzqj-btFJPdwQ-9CEdwXs8zVb-p4Rj6ddFp5DIBzpAuY-RLdrdaSTdeKQ",
+      "expect": "confirmed"
+    },
+    {
+      "name": "fast_en_full",
+      "payload": "{\"ai\":true,\"cat\":\"beruf\",\"conf\":\"high\",\"d\":\"2026-11-11\",\"fac\":[{\"i\":\"positive\",\"l\":\"Salary\"}],\"kid\":\"test-1\",\"lang\":\"en\",\"mode\":\"fast\",\"next\":\"Reply to the recruiter today.\",\"q\":\"Should I take the new job offer?\",\"rec\":\"Take the job\",\"t\":\"decision\",\"v\":1,\"why\":\"Higher pay and growth outweigh the move.\"}",
+      "sig": "p8ezsybczMA3jAqhk-l3y0RWj_HPceRxcJP9MDr94phUios_wmHfBl0WRqcK_ProZqhaha16xo81jzCE7MaWCQ",
+      "fragment": "1.NU-7bsMwDPwVgbMT1Bk6eOnarm22ogNjUZEaR3Rl2q4R5N97ClBAw93xHtCNOFFnZZaGejbq6CRlDgSmOYDGdI5gHvDwdHjetS0ehMA9dZ83QppGnZKlRSAPoB88cNno_tXQJdWgyWS7Gho4n8ElA1_VC3DgycCy_NbxdxmHzZk6i-KK9GVOJgWC520P20-tjzoP3r0544s8jFlW960npyFIeYENSRiP_3fcINZ-L32aktb9hbq2oTVukF_xScyMvDnO3p2LrhadzrYKLo-Oqy6yp_sf.p8ezsybczMA3jAqhk-l3y0RWj_HPceRxcJP9MDr94phUios_wmHfBl0WRqcK_ProZqhaha16xo81jzCE7MaWCQ",
+      "expect": "confirmed"
+    },
+    {
+      "name": "guided_de_basic",
+      "payload": "{\"ai\":true,\"cat\":\"privat\",\"conf\":\"medium\",\"d\":\"2026-11-11\",\"kid\":\"test-1\",\"lang\":\"de\",\"mode\":\"guided\",\"opts\":[\"Berlin\",\"Lissabon\"],\"q\":\"Welche Stadt passt besser zu mir?\",\"rec\":\"Lissabon\",\"t\":\"decision\",\"v\":1}",
+      "sig": "EbbuhNzfYnfZV9Xyqr9uwd4D4N5DxPQ6YWY3qlpqFRDIPqmizGfKYO2821Pj8StFFiMvPNCkgggV9QhfabTEfA",
+      "fragment": "1.Pc0xDsIwDAXQq0SeW4l2YMiCxMzGwIAY0sQUiyYpsdMBxN1xOyBZst-XLX_AEVgpFRvwTsDCXGjRQZnTXR0xUI3qoOh3_b7tOi0NnrRGgiztysmlUR1Q55i1WRgrBQzqPAuDvcIRy0RJgxMxuyEnuDXw0s0LTv6B5iwuiJkds5gBmbGYdzWRykFvCnrd_F82INs7T0wbF7Dd9wc.EbbuhNzfYnfZV9Xyqr9uwd4D4N5DxPQ6YWY3qlpqFRDIPqmizGfKYO2821Pj8StFFiMvPNCkgggV9QhfabTEfA",
+      "expect": "confirmed"
+    },
+    {
+      "name": "guided_de_full",
+      "payload": "{\"ai\":true,\"alt\":\"Berlin liegt knapp dahinter.\",\"cat\":\"privat\",\"conf\":\"medium\",\"crit\":[{\"n\":\"Kosten\",\"w\":0.6},{\"n\":\"Wetter\",\"w\":0.4}],\"d\":\"2026-11-11\",\"fac\":[{\"i\":\"positive\",\"l\":\"Mieten\"},{\"i\":\"negative\",\"l\":\"Sprache\"}],\"kid\":\"test-1\",\"lang\":\"de\",\"mode\":\"guided\",\"next\":\"Schau dir heute drei Wohnungsangebote an.\",\"opts\":[\"Berlin\",\"Lissabon\"],\"q\":\"Welche Stadt passt besser zu mir?\",\"rec\":\"Lissabon\",\"t\":\"decision\",\"v\":1,\"why\":\"Lissabon gewinnt bei deinen Kosten und beim Wetter.\"}",
+      "sig": "kcznJG25PHVhn4GzuopbMz-R9_5Vgw5tkxY8Gz7UQ9bV_ecrnX3K28u76wn5_FUqy5HXNEnf2vQu8W-5OmtRDA",
+      "fragment": "1.TVDBbsIwDP0Vy-eCAE0cepm067ZTDxymHUJjWovW6RIHtiH-fU7ZNKRIyXvPfrHfBR1jrTFThW5QrPGJ4sACA1OncBQ3TeBdz6IUl1hh60rRFPlkD4NBDoZH8pzHgiOb_nZBMfY5JCUx9oz1arm9Vjd6R2pmf_TD9b1Cb_Rmtdku1ms7Jh1cO9tw-SwkVj6R0YPBV6biWtyKKtS5O7WZomt7wuJ65OKrlHRRPAcnnWFfSsdgV41dZk_esNBn2atpe5fBc4SeshL4SAy70EuWLlk77YOxTkoSYdJkM_4GZsQLp-T2QdC-_pj3HGwSaNR5hcmlpLCnlCjCd4aR46P1RLI9_zsr1HnClhPP8IT12oLqv-6qoKMzixQ3Bk8sJHCLGrL4wo5wy3iJ1x8.kcznJG25PHVhn4GzuopbMz-R9_5Vgw5tkxY8Gz7UQ9bV_ecrnX3K28u76wn5_FUqy5HXNEnf2vQu8W-5OmtRDA",
+      "expect": "confirmed"
+    },
+    {
+      "name": "fast_uk_basic",
+      "payload": "{\"ai\":false,\"cat\":\"allgemein\",\"conf\":\"low\",\"d\":\"2026-11-11\",\"kid\":\"test-1\",\"lang\":\"uk\",\"mode\":\"fast\",\"q\":\"Чи варто мені купити велосипед?\",\"rec\":\"Купи велосипед\",\"t\":\"decision\",\"v\":1}",
+      "sig": "aURTk-xZNC7EJPnro5YptHqO5H1_Xj8D39v-tMzgVeUXbB2YwYu9UcdmQtgLi7DCUC5TaJaTFEKcfNo8hHiY3A",
+      "fragment": "1.bY5NCsIwEIWvUrK2YLtw0Y1nCe20hKYNmqgLEfy5gwsv4FbEQvGnXuHlRk50K8ziex9vhlkLqURWSm1pJHLpRCak1hU1pFrBxrQlK21WHAqmdJxO4iThYVGroBxZF4eoZVtxXtTMjSmIuZTWcZox4ow-whUXv_V7DBGe6PDyxwh3f8AbPdtvocMDg9-hZ9nhNuX9OeXhwulX_FPiTni9oFxZZcLnS5Elmw8.aURTk-xZNC7EJPnro5YptHqO5H1_Xj8D39v-tMzgVeUXbB2YwYu9UcdmQtgLi7DCUC5TaJaTFEKcfNo8hHiY3A",
+      "expect": "confirmed"
+    },
+    {
+      "name": "fast_uk_full",
+      "payload": "{\"ai\":false,\"cat\":\"allgemein\",\"conf\":\"low\",\"d\":\"2026-11-11\",\"kid\":\"test-1\",\"lang\":\"uk\",\"mode\":\"fast\",\"next\":\"Сходи сьогодні в магазин.\",\"q\":\"Чи варто мені купити велосипед?\",\"rec\":\"Купи велосипед\",\"t\":\"decision\",\"v\":1,\"why\":\"Ти економиш на транспорті.\"}",
+      "sig": "YP7W-bY8io-8mvcgJBXYq8uN1QBGC96yJixNuHzkngnE6dlsODumYELt7IVNqe_Q91PsxePrK4NZteNDpAHZQA",
+      "fragment": "1.bU-9bsIwGHwVyzMgwtAhS5_FShywMIlK0gKqKvGjSh06M3Rrl64RJWpESfIK3_dGvQ9WJFu6O92dz8_aOB0mxue2pyNT6FAb78d2Zl2qoWRpAslnC5AYaDQc3fWDAAfC1IlU2LzoC_UmHYM_ToFnWWyBE5MXYKldSjN98iu1dKRa8YbfAX8utOG9ooOiM5VQSvqlmpoBcg8S-oadDlTymrfUiqu6Jk68o45qqBdDRX_U8gbZDvh4j_zcRtLwcTXeMMEjw2Ibudxl8uMnHQY9vZisJPgloYpOWNngnvHYmwIsFW95jaUNqjoUYhrvB_rlHw.YP7W-bY8io-8mvcgJBXYq8uN1QBGC96yJixNuHzkngnE6dlsODumYELt7IVNqe_Q91PsxePrK4NZteNDpAHZQA",
+      "expect": "confirmed"
+    },
+    {
+      "name": "tampered",
+      "payload": "{\"ai\":true,\"cat\":\"beruf\",\"conf\":\"high\",\"d\":\"2026-11-11\",\"kid\":\"test-1\",\"lang\":\"en\",\"mode\":\"fast\",\"q\":\"Should I take the new job offer?\",\"rec\":\"Quit the job\",\"t\":\"decision\",\"v\":1}",
+      "sig": "tPO9uPK88nqulhfc8f-P_j-EiBOmHwzqj-btFJPdwQ-9CEdwXs8zVb-p4Rj6ddFp5DIBzpAuY-RLdrdaSTdeKQ",
+      "fragment": "1.HY4xDgIhEEWvQqZ2E9nCgsba0ngCFoYFd4UIgxbGu_sxmeK9_yeT-ZBNZKR2PpCzQoYWrj0QrOQAjWmNMA-cj_Np0hqDYEsjEm4yDd1tXuGcwY_iGRxsE9gTeIul715dlNiNlURWmd_qXhZVQuB6xlplh8VrT_Lv0SEc_3h2qaUyDr_I6O8P.tPO9uPK88nqulhfc8f-P_j-EiBOmHwzqj-btFJPdwQ-9CEdwXs8zVb-p4Rj6ddFp5DIBzpAuY-RLdrdaSTdeKQ",
+      "expect": "invalid"
+    },
+    {
+      "name": "unsigned",
+      "payload": "{\"ai\":true,\"cat\":\"beruf\",\"conf\":\"high\",\"d\":\"2026-11-11\",\"kid\":\"test-1\",\"lang\":\"en\",\"mode\":\"fast\",\"q\":\"Should I take the new job offer?\",\"rec\":\"Take the job\",\"t\":\"decision\",\"v\":1}",
+      "sig": null,
+      "fragment": "1.NY4xDgIhEEWvQqZ2E9nCgsbaWi_AwrDgrhBh0MJ4dz-FyRTv_T-ZzIdsIiO184GcFTK0cO2BYCUHaExrhHngfJxPk9YYBFsakXCTaehu8wrnDH4Uz-Bgm8CewGssfffqosRurCSyyvxW97KoEgLXM9YqOyze_j06hOMfzy61VMbhFxn9_QE",
+      "expect": "unconfirmed"
+    },
+    {
+      "name": "unknown_kid",
+      "payload": "{\"ai\":true,\"cat\":\"beruf\",\"conf\":\"high\",\"d\":\"2026-11-11\",\"kid\":\"test-unknown\",\"lang\":\"en\",\"mode\":\"fast\",\"q\":\"Should I take the new job offer?\",\"rec\":\"Take the job\",\"t\":\"decision\",\"v\":1}",
+      "sig": "05bzE3RZyziGf9q9NYB1y_Xh1Fc38qrPLRfFP4FXFtU0LdUa5GyPntbgaWDwX8wdSRAJ2YoAx8TUzmfcDxZm4Q",
+      "fragment": "1.NY4xDsIwDEWvEnmmEu3A0IWZGS6QJk4TWmKROu2AuDs_A5KH99-3LH_IJhq1VD6Rs0ojTVxqICTJATGmOSJ54HAeLl3fYyCW1JTypl3NS5YjQ642z7Dc-CWewcFuivQG3qPU1ZubUbuw0cgm82GeMhkJgcsVa4UdFh__Hh1k-8qzS1uSdninsf_-AA.05bzE3RZyziGf9q9NYB1y_Xh1Fc38qrPLRfFP4FXFtU0LdUa5GyPntbgaWDwX8wdSRAJ2YoAx8TUzmfcDxZm4Q",
+      "expect": "unconfirmed"
+    }
+  ]
+}
