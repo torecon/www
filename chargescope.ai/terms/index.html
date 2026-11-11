@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Use – evChargeScope</title>
   <meta name="description" content="Terms of use for the evChargeScope app by torecon.">
+  <link rel="canonical" href="https://chargescope.ai/terms/">
+  <script>
+    // Sprachwahl vor dem Rendern: gespeicherte Wahl (localStorage 'lang', geteilt mit der Startseite) > Browsersprache > Englisch
+    (function () {
+      var lang = 'en';
+      try {
+        var stored = localStorage.getItem('lang');
+        if (stored === 'de' || stored === 'en') lang = stored;
+        else if ((navigator.language || '').toLowerCase().split('-')[0] === 'de') lang = 'de';
+      } catch (_) {
+        if ((navigator.language || '').toLowerCase().split('-')[0] === 'de') lang = 'de';
+      }
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+    })();
+  </script>
   <style>
     :root {
       --bg:             #FFFFFF;
@@ -53,10 +69,110 @@
     .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
     .footer-links a:hover { color: #fff; opacity: 1; }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+    .lang-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
+    .lang-btn { border: 0; background: transparent; color: var(--text-tertiary); padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: var(--transition); font-family: var(--font); }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active { background: var(--accent); color: #fff; }
+    /* Sprachblöcke: ohne JS sind beide sichtbar; mit JS nur die gewählte Sprache */
+    html[data-lang="de"] [data-l="en"], html[data-lang="en"] [data-l="de"] { display: none; }
   </style>
 </head>
 <body>
 
+  <div data-l="de" lang="de">
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <div class="nav-logo-icon">⚡</div>
+        <span class="nav-logo-main">e<span>Ladung</span></span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
+        <a class="nav-back" href="/">← Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <span class="page-label">Rechtliches</span>
+    <h1>Nutzungsbedingungen</h1>
+    <p class="page-meta">Stand: April 2026 · eLadung für macOS und iOS</p>
+
+    <h2>1. Anbieter und Kontakt</h2>
+    <p>
+      <strong>Thomas Reinke · torecon</strong><br>
+      Roesgenstr. 22, 53474 Ahrweiler<br>
+      E-Mail: <a href="mailto:legal@chargescope.ai">legal@chargescope.ai</a>
+    </p>
+
+    <h2>2. Leistungsbeschreibung</h2>
+    <p>eLadung ist eine Anwendung für macOS und iOS zum Erfassen und Analysieren von Ladekosten für Elektrofahrzeuge. Die App umfasst:</p>
+    <ul>
+      <li>Erfassung von Ladevorgängen (Datum, Kilometerstand, Anbieter, Preis, Lademenge)</li>
+      <li>Dashboard mit KPI-Kacheln, Monats-Charts und Anbietervergleich</li>
+      <li>Verwaltung von Fahrzeug-Profilen und Tarifmodellen</li>
+      <li>Wirtschaftlichkeitsanalyse und Tarifvergleich</li>
+      <li>PDF-Export der Statistiken</li>
+      <li>Lokale Datenspeicherung mit optionaler iCloud-Synchronisation zwischen eigenen Geräten</li>
+    </ul>
+    <p>Die App wird als Einzelplatz-Lizenz für den persönlichen Gebrauch auf Apple-Geräten bereitgestellt.</p>
+
+    <h2>3. Nutzungslizenz</h2>
+    <p>Mit dem Download von eLadung erhältst du eine nicht-ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der App für private, nicht-kommerzielle Zwecke auf Apple-Geräten, die deinem Apple-Konto zugeordnet sind.</p>
+    <p>Folgendes ist nicht gestattet:</p>
+    <ul>
+      <li>Kopieren, Modifizieren oder Erstellen abgeleiteter Werke der App</li>
+      <li>Dekompilieren, Disassemblieren oder Reverse Engineering</li>
+      <li>Gewerbliche Nutzung oder Weiterveräußerung</li>
+      <li>Automatisierte Abfragen oder Skripte gegen App-Infrastruktur</li>
+    </ul>
+
+    <h2>4. Kostenlose Testphase (Introductory Offer)</h2>
+    <p>Für das monatliche und das jährliche Abonnement gewährt Apple im App Store eine Introductory Offer über jeweils einen Monat kostenlose Nutzung. Die Testphase wird beim Abo-Abschluss im Kauf-Dialog des App Store angezeigt und ist eine Leistung von Apple — nicht von uns (torecon). Während der Testphase ist die App vollständig nutzbar. Wird das Abo nicht rechtzeitig vor Ablauf gekündigt, verlängert es sich automatisch zum regulären Preis. Ohne aktives Abo bzw. Einmalkauf können keine neuen Ladevorgänge erfasst werden; bestehende Daten bleiben stets zugänglich.</p>
+
+    <h2>5. In-App-Käufe und Abonnements</h2>
+    <p>eLadung bietet kostenpflichtige Optionen über den Apple App Store an: ein monatliches Abonnement, ein jährliches Abonnement sowie einen Einmalkauf (Lifetime). Die jeweils gültigen Preise werden dir vor dem Kauf direkt in der App und im App Store angezeigt. Preise können je nach Region und Zeitpunkt abweichen.</p>
+    <p>Abonnements verlängern sich automatisch, sofern sie nicht mindestens 24 Stunden vor Ablauf des laufenden Zeitraums gekündigt werden. Kündigung über: Systemeinstellungen → Apple-ID → Abonnements.</p>
+    <p>Alle Zahlungen, Rechnungen und Rückerstattungen werden ausschließlich über Apple abgewickelt. Wir haben keinen Einblick in Zahlungsdaten.</p>
+
+    <h2>6. Daten und Datensicherheit</h2>
+    <p>Alle in eLadung erfassten Daten werden lokal auf deinem Gerät gespeichert und optional über Apple iCloud zwischen deinen eigenen Geräten (gleiche Apple-ID) synchronisiert. Wir (torecon) haben keinen Zugriff auf deine Daten. Die iCloud-Nutzung unterliegt Apples Nutzungsbedingungen.</p>
+    <p>Für die Sicherung deiner Daten bist du selbst verantwortlich (z. B. über macOS Time Machine, iCloud Drive oder manuellen Datenbankexport aus der App). Wir haften nicht für Datenverlust durch Geräteschäden, Betriebssystemupdates oder versehentliches Löschen.</p>
+
+    <h2>7. Verfügbarkeit und Updates</h2>
+    <p>Wir sind bestrebt, eLadung kontinuierlich zu verbessern und für aktuelle Apple-Betriebssysteme aktuell zu halten. Wir garantieren jedoch keine bestimmte Verfügbarkeit oder Funktion. Wir behalten uns vor, Features zu ändern, hinzuzufügen oder zu entfernen.</p>
+
+    <h2>8. Haftungsausschluss</h2>
+    <p>eLadung ist ein Hilfsmittel zur persönlichen Kostenverfolgung. Die dargestellten Statistiken und Analysen erheben keinen Anspruch auf steuerrechtliche oder buchhalterische Korrektheit. Für offizielle Abrechnungen gegenüber Arbeitgebern oder Behörden empfehlen wir die Prüfung durch einen Steuerberater.</p>
+    <p>Unsere Haftung ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Bei einfacher Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten, und in diesem Fall begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Die Haftung für Körper- und Gesundheitsschäden bleibt davon unberührt.</p>
+
+    <h2>9. Änderungen der Nutzungsbedingungen</h2>
+    <p>Wir können diese Nutzungsbedingungen jederzeit anpassen. Die jeweils aktuelle Version ist stets unter <a href="https://chargescope.ai/terms/">chargescope.ai/terms/</a> abrufbar. Die weitere Nutzung der App nach einer Änderung gilt als Zustimmung zur neuen Version.</p>
+
+    <h2>10. Anwendbares Recht und Gerichtsstand</h2>
+    <p>Es gilt deutsches Recht. Gerichtsstand ist Ahrweiler, soweit gesetzlich zulässig.</p>
+    <p>Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+    <h2>11. Kontakt</h2>
+    <p>Bei Fragen zu diesen Nutzungsbedingungen wende dich an:<br>
+    <a href="mailto:legal@chargescope.ai">legal@chargescope.ai</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">eLadung</a>
+      <a href="/privacy/">Datenschutz</a>
+      <a href="/terms/">Nutzungsbedingungen</a>
+      <a href="/#impressum">Impressum</a>
+    </div>
+    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
+  </footer>
+  </div>
+
+  <div data-l="en" lang="en">
   <nav class="site-nav">
     <div class="nav-inner">
       <a class="nav-logo" href="/">
@@ -64,6 +180,10 @@
         <span class="nav-logo-main">ev<span>ChargeScope</span></span>
       </a>
       <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
         <a class="nav-back" href="/">← Back</a>
       </div>
     </div>
@@ -78,7 +198,7 @@
     <p>
       <strong>Thomas Reinke · torecon</strong><br>
       Roesgenstr. 22, 53474 Ahrweiler, Germany<br>
-      E-mail: <a href="mailto:info@torecon.de">info@torecon.de</a>
+      E-mail: <a href="mailto:legal@chargescope.ai">legal@chargescope.ai</a>
     </p>
 
     <h2>2. Description of services</h2>
@@ -104,7 +224,7 @@
     </ul>
 
     <h2>4. Free trial (introductory offer)</h2>
-    <p>For the monthly subscription, Apple offers an introductory offer of 14 days free of charge on the App Store; for the yearly subscription, one month free. The introductory offer is available through 2026-12-31. The trial is shown in the App Store purchase dialog upon subscription and is a service provided by Apple — not by us (torecon). The app is fully usable during the trial. If the subscription is not cancelled in time before the trial ends, it auto-renews at the regular price. Without an active subscription or one-time purchase, new charging sessions cannot be recorded; existing data remains accessible at all times.</p>
+    <p>For both the monthly and the yearly subscription, Apple offers an introductory offer of one month free of charge on the App Store. The trial is shown in the App Store purchase dialog upon subscription and is a service provided by Apple — not by us (torecon). The app is fully usable during the trial. If the subscription is not cancelled in time before the trial ends, it auto-renews at the regular price. Without an active subscription or one-time purchase, new charging sessions cannot be recorded; existing data remains accessible at all times.</p>
 
     <h2>5. In-app purchases and subscriptions</h2>
     <p>evChargeScope offers paid options through the Apple App Store: a monthly subscription, a yearly subscription, and a one-time purchase (Lifetime). The applicable prices are shown to you directly in the app and on the App Store before purchase. Prices may vary by region and time.</p>
@@ -131,7 +251,7 @@
 
     <h2>11. Contact</h2>
     <p>For questions about these Terms of Use, contact:<br>
-    <a href="mailto:info@torecon.de">info@torecon.de</a></p>
+    <a href="mailto:legal@chargescope.ai">legal@chargescope.ai</a></p>
   </main>
 
   <footer class="site-footer">
@@ -143,6 +263,28 @@
     </div>
     <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. All rights reserved.</span>
   </footer>
+  </div>
+
+  <script>
+    const PAGE_TITLES = { de: 'Nutzungsbedingungen – eLadung', en: 'Terms of Use – evChargeScope' };
+    function setLang(code) {
+      if (!PAGE_TITLES[code]) code = 'en';
+      document.documentElement.setAttribute('data-lang', code);
+      document.documentElement.lang = code;
+      document.title = PAGE_TITLES[code];
+      try { localStorage.setItem('lang', code); } catch (_) {}
+      for (const btn of document.querySelectorAll('.lang-btn')) {
+        btn.classList.toggle('active', btn.dataset.lang === code);
+      }
+    }
+    (function () {
+      const code = document.documentElement.getAttribute('data-lang') || 'en';
+      document.title = PAGE_TITLES[code] || PAGE_TITLES.en;
+      for (const btn of document.querySelectorAll('.lang-btn')) {
+        btn.classList.toggle('active', btn.dataset.lang === code);
+      }
+    })();
+  </script>
 
 </body>
 </html>
