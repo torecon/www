@@ -256,7 +256,7 @@ return [
     // Beispielprojekt
     'nav_example'      => 'Beispiel',
     'bsp_title'        => 'Beispielprojekt: so läuft eine App-Entwicklung ab | torecon',
-    'bsp_desc'         => 'Fiktives Beispiel: Service-App für eine Fahrradwerkstatt – User Stories, Fahrplan mit Bauabschnitten, Festpreisen und laufenden Kosten.',
+    'bsp_desc'         => 'Fiktives Beispiel: Service-App für eine Fahrradwerkstatt – User Stories, Fahrplan mit Bauabschnitten, Aufwand in Personentagen und laufenden Kosten.',
     'bsp_kicker'       => 'Beispielprojekt',
     'bsp_h1'           => 'So läuft Ihre App-Entwicklung ab – an einem Beispiel.',
     'bsp_lead'         => 'Eine Fahrradwerkstatt möchte eine Service-App: Termine buchen, Reparaturstatus sehen, Fotos vom Schaden schicken. So würde das Projekt in meinem Angebot aussehen – vereinfacht und schematisch.',
@@ -321,7 +321,7 @@ return [
     'req_example_link' => 'Wie das in der Praxis aussieht: Beispielprojekt mit Fahrplan und Kosten',
     'ex_band_kicker'   => 'Transparent von Anfang an',
     'ex_band_title'    => 'So sieht ein Angebot von mir aus',
-    'ex_band_lead'     => 'An einer erfundenen Werkstatt-App zeige ich Ihnen alles, was Sie vor dem Start wissen sollten: User Stories, Fahrplan mit Bauabschnitten, Festpreise und laufende Kosten.',
+    'ex_band_lead'     => 'An einer erfundenen Werkstatt-App zeige ich Ihnen alles, was Sie vor dem Start wissen sollten: User Stories, Fahrplan mit Bauabschnitten, Aufwand in Personentagen und laufende Kosten.',
     'ex_band_f1'       => '10 Wochen bis zur Einreichung',
     'ex_band_f2'       => '4 Bauabschnitte mit Festpreis',
     'ex_band_f3'       => 'jede Woche eine Test-Version',

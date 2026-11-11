@@ -256,7 +256,7 @@ return [
     // Example project
     'nav_example'      => 'Example',
     'bsp_title'        => 'Example project: how app development works | torecon',
-    'bsp_desc'         => 'Fictional example: a service app for a bike workshop – user stories, roadmap with milestones, fixed prices and running costs.',
+    'bsp_desc'         => 'Fictional example: a service app for a bike workshop – user stories, roadmap with milestones, effort in person-days and running costs.',
     'bsp_kicker'       => 'Example project',
     'bsp_h1'           => 'How your app gets built – shown with an example.',
     'bsp_lead'         => 'A bike workshop wants a service app: book appointments, check repair status, send photos of the damage. This is how the project would look in my proposal – simplified and schematic.',
@@ -321,7 +321,7 @@ return [
     'req_example_link' => 'What this looks like in practice: example project with roadmap and costs',
     'ex_band_kicker'   => 'Transparent from the start',
     'ex_band_title'    => 'This is what my proposal looks like',
-    'ex_band_lead'     => 'Using a fictional workshop app, I show you everything you should know before starting: user stories, a roadmap with milestones, fixed prices and running costs.',
+    'ex_band_lead'     => 'Using a fictional workshop app, I show you everything you should know before starting: user stories, a roadmap with milestones, effort in person-days and running costs.',
     'ex_band_f1'       => '10 weeks to submission',
     'ex_band_f2'       => '4 milestones at a fixed price',
     'ex_band_f3'       => 'a test version every week',
