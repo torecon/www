@@ -274,16 +274,16 @@
   const T = {
     de: {
       page_title: 'Geteilte Entscheidung – ThinkLess AI',
-      kicker: 'Mit dir geteilt',
+      kicker: 'Geteilt mit dir',
       loading: 'Entscheidung wird geladen …',
       q_label: 'Frage',
       opts_label: 'Optionen',
       rec_label: 'Empfehlung',
       conf_label: 'Sicherheit',
-      conf_high: 'hoch', conf_medium: 'mittel', conf_low: 'niedrig',
+      conf_high: 'Hohe Sicherheit', conf_medium: 'Ausgewogen', conf_low: 'Zum Überlegen',
       why_label: 'Begründung',
       next_label: 'Nächster Schritt',
-      fac_label: 'Faktoren',
+      fac_label: 'Wichtige Faktoren',
       alt_label: 'Alternative',
       crit_label: 'Kriterien',
       imp_positive: 'spricht dafür', imp_negative: 'spricht dagegen', imp_neutral: 'neutral',
@@ -309,7 +309,7 @@
       btn_store: 'ThinkLess im App Store',
       cta_t: 'Selbst klarer entscheiden',
       cta_p: 'ThinkLess AI hilft dir, in unter einer Minute zu einer Entscheidung zu kommen.',
-      footer_brand: 'eine App von',
+      footer_brand: 'eine App von', footer_home: 'Startseite', footer_also: 'Weitere Apps von torecon', footer_rights: 'Alle Rechte vorbehalten.',
       footer_privacy: 'Datenschutz', footer_terms: 'Nutzungsbedingungen', footer_imprint: 'Impressum',
       lang_label: 'Sprache'
     },
@@ -321,14 +321,14 @@
       opts_label: 'Options',
       rec_label: 'Recommendation',
       conf_label: 'Confidence',
-      conf_high: 'high', conf_medium: 'medium', conf_low: 'low',
+      conf_high: 'High Confidence', conf_medium: 'Balanced', conf_low: 'Needs Reflection',
       why_label: 'Reasoning',
       next_label: 'Next step',
-      fac_label: 'Factors',
+      fac_label: 'Key factors',
       alt_label: 'Alternative',
       crit_label: 'Criteria',
-      imp_positive: 'in favour', imp_negative: 'against', imp_neutral: 'neutral',
-      day: 'Analysed on {d}',
+      imp_positive: 'in favor', imp_negative: 'against', imp_neutral: 'neutral',
+      day: 'Analyzed on {d}',
       ai_off: 'Calculated without AI',
       st_confirmed_t: 'Confirmed by ThinkLess',
       st_confirmed_p: 'This result comes from ThinkLess unchanged.',
@@ -350,22 +350,22 @@
       btn_store: 'ThinkLess on the App Store',
       cta_t: 'Decide more clearly yourself',
       cta_p: 'ThinkLess AI helps you reach a decision in under a minute.',
-      footer_brand: 'an app by',
+      footer_brand: 'an app by', footer_home: 'Home', footer_also: 'More apps by torecon', footer_rights: 'All rights reserved.',
       footer_privacy: 'Privacy', footer_terms: 'Terms of Use', footer_imprint: 'Imprint',
       lang_label: 'Language'
     },
     pt: {
       page_title: 'Decisão compartilhada – ThinkLess AI',
-      kicker: 'Compartilhada com você',
+      kicker: 'Compartilhadas com você',
       loading: 'Carregando a decisão …',
       q_label: 'Pergunta',
       opts_label: 'Opções',
       rec_label: 'Recomendação',
       conf_label: 'Confiança',
-      conf_high: 'alta', conf_medium: 'média', conf_low: 'baixa',
+      conf_high: 'Alta confiança', conf_medium: 'Equilibrado', conf_low: 'Precisa refletir',
       why_label: 'Justificativa',
       next_label: 'Próximo passo',
-      fac_label: 'Fatores',
+      fac_label: 'Fatores-chave',
       alt_label: 'Alternativa',
       crit_label: 'Critérios',
       imp_positive: 'a favor', imp_negative: 'contra', imp_neutral: 'neutro',
@@ -391,22 +391,22 @@
       btn_store: 'ThinkLess na App Store',
       cta_t: 'Decida com mais clareza você também',
       cta_p: 'O ThinkLess AI ajuda você a chegar a uma decisão em menos de um minuto.',
-      footer_brand: 'um app da',
+      footer_brand: 'um app da', footer_home: 'Início', footer_also: 'Mais apps da torecon', footer_rights: 'Todos os direitos reservados.',
       footer_privacy: 'Privacidade', footer_terms: 'Termos de uso', footer_imprint: 'Informações legais',
       lang_label: 'Idioma'
     },
     uk: {
       page_title: 'Поширене рішення – ThinkLess AI',
-      kicker: 'Поширено для тебе',
+      kicker: 'Поширені з тобою',
       loading: 'Завантаження рішення …',
       q_label: 'Питання',
       opts_label: 'Варіанти',
       rec_label: 'Рекомендація',
       conf_label: 'Впевненість',
-      conf_high: 'висока', conf_medium: 'середня', conf_low: 'низька',
+      conf_high: 'Висока впевненість', conf_medium: 'Збалансовано', conf_low: 'Варто обдумати',
       why_label: 'Обґрунтування',
       next_label: 'Наступний крок',
-      fac_label: 'Чинники',
+      fac_label: 'Ключові фактори',
       alt_label: 'Альтернатива',
       crit_label: 'Критерії',
       imp_positive: 'за', imp_negative: 'проти', imp_neutral: 'нейтрально',
@@ -432,7 +432,7 @@
       btn_store: 'ThinkLess в App Store',
       cta_t: 'Ухвалюй рішення чіткіше й сам',
       cta_p: 'ThinkLess AI допомагає дійти до рішення менш ніж за хвилину.',
-      footer_brand: 'застосунок від',
+      footer_brand: 'застосунок від', footer_home: 'Головна', footer_also: 'Інші застосунки від torecon', footer_rights: 'Усі права захищені.',
       footer_privacy: 'Конфіденційність', footer_terms: 'Умови використання', footer_imprint: 'Вихідні дані',
       lang_label: 'Мова'
     }
@@ -559,6 +559,8 @@
       btn.classList.toggle('active', active);
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+    const year = doc.getElementById('footer-year');
+    if (year) year.textContent = String(new Date().getFullYear());
     const toggle = doc.getElementById('d-lang');
     if (toggle) toggle.setAttribute('aria-label', t.lang_label);
 
