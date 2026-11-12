@@ -239,20 +239,29 @@
       flex-shrink: 0;
       display: block;
     }
+    /* ── Aktion Freunde einladen ── */
+    .section-invite { padding: 72px 24px; background: var(--bg-alt); border-top: 1px solid var(--border); text-align: center; }
+    .section-invite-inner { max-width: 620px; margin: 0 auto; }
+    .section-invite h2 { margin-bottom: 12px; }
+    .invite-text { color: var(--text-secondary); }
+    .invite-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 24px; }
+    .invite-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 20px; font-weight: 700; letter-spacing: 0.08em; padding: 12px 20px; border-radius: 12px; border: 1px dashed var(--border-strong); background: var(--bg); user-select: all; -webkit-user-select: all; }
+    .invite-terms { margin-top: 18px; font-size: 13px; color: var(--text-tertiary); }
+    @media (max-width: 480px) { .invite-row > * { width: 100%; justify-content: center; } }
   </style>
 </head>
 <body>
 
-  <!-- ── Launch-Banner (oben, v1.5 live seit 2026-11-11) ─────────── -->
+  <!-- ── Launch-Banner (oben, v1.6 eingereicht 2026-11 — zukunftsgerichtet bis Apple-Freigabe) ── -->
   <div class="launch-banner">
     <div class="launch-banner-inner">
       <div class="launch-content">
         <span class="launch-pill">
           <span class="launch-pill-dot"></span>
-          <span data-i18n="launch_pill">v1.5 — jetzt verfügbar</span>
+          <span data-i18n="launch_pill">v1.6 — in weniger als 48 Stunden verfügbar</span>
         </span>
-        <h2 class="launch-headline" data-i18n="launch_headline">Gebaut fürs iPad. <span class="accent">Lesbar in jeder Schriftgröße.</span></h2>
-        <p class="launch-sub" data-i18n="launch_sub">Neu in v1.5: eigenes iPad-Layout mit Seitenleiste und Tastaturkurzbefehlen, Schrift bis zur größten Barrierefreiheitsgröße, Kontraste nach WCAG AA — und die komplette App auf Deutsch, Englisch, Portugiesisch und Ukrainisch, umschaltbar ohne Neustart.</p>
+        <h2 class="launch-headline" data-i18n="launch_headline">Entscheide besser. <span class="accent">In Minuten, nicht Tagen.</span></h2>
+        <p class="launch-sub" data-i18n="launch_sub">v1.6 macht aus deiner Entscheidung etwas, das du weitergeben kannst: jede Entscheidung als Karte für Story oder Chat, Links öffnen direkt in der App, Serie teilen, Freunde einladen — und das Jahresabo startet für Neukunden mit einem Monat Testphase.</p>
       </div>
       <div class="launch-cta-wrap">
         <a class="launch-btn appstore-link" href="https://apps.apple.com/app/thinkless-ai/id6762284671">
@@ -274,7 +283,7 @@
           <a class="nav-logo-main" href="/">
             <span class="nav-logo-think">Think</span><span class="nav-logo-less">Less AI</span>
           </a>
-          <span class="nav-logo-sub" data-i18n="nav_sub">eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a></span>
+          <span class="nav-logo-sub" data-i18n="nav_sub">eine App von torecon</span>
         </div>
       </div>
       <div class="nav-right">
@@ -376,6 +385,27 @@
         <p class="section-features-sub" data-i18n="feat_sub">Keine Informationsflut. Keine langen Texte. Nur das, was du brauchst um zu entscheiden.</p>
 
         <div class="features-grid">
+          <div class="feature-card is-new">
+            <span class="new-pill" data-i18n="new_pill">v1.6 NEU</span>
+            <span class="feature-emoji">📤</span>
+            <h3 data-i18n="f11_h3">Die Teilen-Karte</h3>
+            <p data-i18n="f11_p">Jede Entscheidung wird zur Karte: Frage, Empfehlung und Sicherheit — im Hochformat für Storys oder quadratisch für den Chat. Auch deine Serie wird zur Grafik. Die Frage blendest du auf Wunsch aus.</p>
+            <span class="feature-tag" data-i18n="f11_tag">Ein Tipp genügt</span>
+          </div>
+          <div class="feature-card is-new">
+            <span class="new-pill" data-i18n="new_pill">v1.6 NEU</span>
+            <span class="feature-emoji">🔗</span>
+            <h3 data-i18n="f12_h3">Links öffnen in der App</h3>
+            <p data-i18n="f12_p">Wer deinen Link antippt, sieht die Entscheidung direkt in ThinkLess AI, ohne App als Vorschau im Browser. Gespeichert landet sie unter „Geteilt mit dir“ und zählt nicht zu den täglichen Entscheidungen. „Von ThinkLess bestätigt“ zeigt: Der Inhalt ist unverändert.</p>
+            <span class="feature-tag" data-i18n="f12_tag">Nichts auf dem Server</span>
+          </div>
+          <div class="feature-card is-new">
+            <span class="new-pill" data-i18n="new_pill">v1.6 NEU</span>
+            <span class="feature-emoji">🎁</span>
+            <h3 data-i18n="f13_h3">Freunde einladen</h3>
+            <p data-i18n="f13_p">Lade Freunde direkt aus den Einstellungen oder dem Ergebnis ein: Sie testen Premium 3 Monate kostenlos (nur für Neukunden). ThinkLess zählt und speichert nicht, wen du einlädst.</p>
+            <span class="feature-tag" data-i18n="f13_tag">3 Monate Premium</span>
+          </div>
           <div class="feature-card featured">
             <span class="feature-emoji">⚡️</span>
             <h3 data-i18n="f1_h3">Schnell-Modus</h3>
@@ -403,7 +433,7 @@
           <div class="feature-card">
             <span class="feature-emoji">📋</span>
             <h3 data-i18n="f5_h3">Entscheidungsverlauf</h3>
-            <p data-i18n="f5_p">Dein Verlauf bleibt auf deinem Gerät, nach Kalendertagen gruppiert. Löschen nur mit Bestätigung. Gratis siehst du deine letzten 10 Entscheidungen, mit Premium bis zu 200.</p>
+            <p data-i18n="f5_p">Dein Verlauf bleibt bei dir — auf deinen Geräten und in deiner privaten iCloud, nach Kalendertagen gruppiert. Löschen nur mit Bestätigung. Gratis siehst du deine letzten 10 Entscheidungen, mit Premium bis zu 200.</p>
             <span class="feature-tag" data-i18n="f5_tag">Reflektierbar</span>
           </div>
           <div class="feature-card">
@@ -412,22 +442,19 @@
             <p data-i18n="f7_p">Vier Mastery-Stufen, Serien-Abzeichen für 7, 30 und 100 Tage und Spezialgebiete je Kategorie. Sieben Tage nach einer Entscheidung fragt die App nach, ob sie sich bewährt hat — ein Tipp auf die Mitteilung öffnet sie direkt.</p>
             <span class="feature-tag" data-i18n="f7_tag">Lokal &amp; privat</span>
           </div>
-          <div class="feature-card is-new">
-            <span class="new-pill" data-i18n="new_pill">v1.5 NEU</span>
+          <div class="feature-card">
             <span class="feature-emoji">🌍</span>
             <h3 data-i18n="f6_h3">Komplett in 4 Sprachen</h3>
             <p data-i18n="f6_p">Die ganze App auf Deutsch, Englisch, Portugiesisch (Brasilien) und Ukrainisch — auch der Offline-Grundmodus. Sprache in den Einstellungen wechseln, ohne Neustart.</p>
             <span class="feature-tag">DE / EN / PT / UA</span>
           </div>
-          <div class="feature-card is-new">
-            <span class="new-pill" data-i18n="new_pill">v1.5 NEU</span>
+          <div class="feature-card">
             <span class="feature-emoji">🖥</span>
             <h3 data-i18n="f9_h3">Gebaut fürs iPad</h3>
             <p data-i18n="f9_p">Tab-Leiste mit Umschaltung zur Seitenleiste (ab iPadOS 18), angenehme Lesebreite und eigener Zustand je Fenster. Mit Tastatur: ⌘N für eine neue Entscheidung, ⌘1–4 für die Bereiche. Dazu Kontextmenüs und Zeigereffekte.</p>
             <span class="feature-tag" data-i18n="f9_tag">iPad-nativ</span>
           </div>
-          <div class="feature-card is-new">
-            <span class="new-pill" data-i18n="new_pill">v1.5 NEU</span>
+          <div class="feature-card">
             <span class="feature-emoji">🔠</span>
             <h3 data-i18n="f10_h3">Lesbar für alle</h3>
             <p data-i18n="f10_p">Die Schrift wächst bis zur größten Barrierefreiheitsgröße mit, das Layout bricht sauber um. Kontraste nach WCAG AA, kräftiger bei „Kontrast erhöhen“. VoiceOver in allen vier Sprachen, Tippflächen ab 44 pt, „Bewegung reduzieren“ wird respektiert.</p>
@@ -442,7 +469,7 @@
       <div class="section-vs-inner">
         <p class="section-label" style="text-align:center;" data-i18n="vs_label">Der Unterschied</p>
         <h2 data-i18n="vs_h2">Weniger grübeln. Klarer entscheiden.</h2>
-        <p class="section-vs-sub" data-i18n="vs_sub">Statt eines langen Chat-Verlaufs: ein geführter Ablauf, eine klare Empfehlung mit Sicherheitsstufe und ein nächster Schritt — ohne Konto, dein Verlauf bleibt auf deinem Gerät.</p>
+        <p class="section-vs-sub" data-i18n="vs_sub">Statt eines langen Chat-Verlaufs: ein geführter Ablauf, eine klare Empfehlung mit Sicherheitsstufe und ein nächster Schritt — ohne Konto, dein Verlauf bleibt auf deinen Geräten.</p>
 
         <div class="vs-grid">
           <div>
@@ -462,7 +489,7 @@
             <div class="vs-item win"><span class="icon" aria-hidden="true">✓</span> <span data-i18n="vs_tl2">Eine klare Empfehlung in 20 bis 60 Sekunden</span></div>
             <div class="vs-item win"><span class="icon" aria-hidden="true">✓</span> <span data-i18n="vs_tl3">Die Sicherheitsstufe zeigt, wie eindeutig die Empfehlung ist</span></div>
             <div class="vs-item win"><span class="icon" aria-hidden="true">✓</span> <span data-i18n="vs_tl4">Ein konkreter nächster Schritt (Premium)</span></div>
-            <div class="vs-item win"><span class="icon" aria-hidden="true">✓</span> <span data-i18n="vs_tl5">Kein Konto — dein Verlauf bleibt auf deinem Gerät</span></div>
+            <div class="vs-item win"><span class="icon" aria-hidden="true">✓</span> <span data-i18n="vs_tl5">Kein Konto — dein Verlauf bleibt auf deinen Geräten und in deiner iCloud</span></div>
           </div>
         </div>
       </div>
@@ -488,18 +515,20 @@
               <li data-i18n="rm_done_6">Dynamic Type bis zur größten Schrift, Kontraste nach WCAG AA, VoiceOver in 4 Sprachen (v1.5)</li>
               <li data-i18n="rm_done_7">Komplette App in vier Sprachen, Wechsel in den Einstellungen ohne Neustart (v1.5)</li>
               <li data-i18n="rm_done_8">Löschen mit Bestätigung, keine verlorenen Entwürfe, Verlauf nach Tagen (v1.5)</li>
+              <li data-i18n="rm_done_9">Verlauf per iCloud auf all deinen Geräten (v1.5)</li>
             </ul>
           </div>
           <div class="roadmap-card coming">
             <span class="roadmap-tag" data-i18n="rm_next_tag">Als nächstes</span>
-            <h3 data-i18n="rm_next_title">v1.6 und v1.7</h3>
+            <h3 data-i18n="rm_next_title">v1.6, v1.7 und v2.0</h3>
             <ul>
-              <li data-i18n="rm_next_1">Mitteilungen per Push vom Server (APNs) (v1.6)</li>
-              <li data-i18n="rm_next_2">Entscheidungen teilen — auch direkt aus dem Verlauf (v1.6)</li>
-              <li data-i18n="rm_next_3">Share-Cards für Social Media und Serien teilen (v1.6)</li>
-              <li data-i18n="rm_next_4">Apple-Watch-App: Schnell-Modus am Handgelenk (v1.7)</li>
-              <li data-i18n="rm_next_5">Komplikation mit deiner aktuellen Serie auf dem Zifferblatt (v1.7)</li>
-              <li data-i18n="rm_next_6">Spürbares Feedback: Haptik je Sicherheitsstufe (v1.7)</li>
+              <li data-i18n="rm_next_1">Teilen-Karte, Links öffnen in der App, Serie teilen, Freunde einladen (v1.6, bei Apple eingereicht)</li>
+              <li data-i18n="rm_next_2">Jahresabo mit einem Monat Testphase für Neukunden (v1.6)</li>
+              <li data-i18n="rm_next_3">Apple-Watch-App: Schnell-Modus am Handgelenk (v1.7)</li>
+              <li data-i18n="rm_next_4">Komplikation mit deiner aktuellen Serie auf dem Zifferblatt (v1.7)</li>
+              <li data-i18n="rm_next_5">Spürbares Feedback: Haptik je Sicherheitsstufe (v1.7)</li>
+              <li data-i18n="rm_next_6">Entscheidungs-Gedächtnis: auf Wunsch berücksichtigt ThinkLess frühere Entscheidungen (v2.0)</li>
+              <li data-i18n="rm_next_7">Mitteilungen per Push vom Server (v2.0)</li>
             </ul>
           </div>
         </div>
@@ -517,6 +546,21 @@
         <p class="section-label" data-i18n="privacy_label">Datenschutz</p>
         <p class="privacy-promise" data-i18n="privacy_promise">Kein Konto. Kein Name. <span class="accent">Keine E-Mail.</span></p>
         <p class="privacy-detail" data-i18n="privacy_detail">Dein Entscheidungsverlauf bleibt auf deinem Gerät. Für eine KI-Analyse geht deine Frage über unseren Server an unseren KI-Anbieter Anthropic, nur um die Antwort zu erzeugen — unser Server speichert sie nicht, seine Protokolle enthalten keine Inhalte. Eine zufällige App-Kennung begrenzt die Anfragen und ist nicht mit dir verknüpft. Ohne Internet liefert der Offline-Grundmodus ein Ergebnis direkt auf dem Gerät. Käufe wickelt ausschließlich Apple ab. <a href="/privacy/">Volle Datenschutzerklärung</a>.</p>
+      </div>
+    </section>
+
+    <!-- ── Aktion: Freunde einladen (Code aus offer-code-steward public-codes.json, Ende maschinenlesbar) ── -->
+    <section class="section-invite" id="einladen" data-aktion="thinkless3" data-aktion-ende="2027-05-10">
+      <div class="section-invite-inner">
+        <p class="section-label" data-i18n="inv_label">Freunde einladen</p>
+        <h2 data-i18n="inv_h2">3 Monate Premium kostenlos.</h2>
+        <p class="invite-text" data-i18n="inv_p">Mit dem Code <strong>THINKLESS3</strong> testen neue Abonnenten ThinkLess AI Premium 3 Monate kostenlos. Gib ihn an Freunde weiter — oder löse ihn selbst ein, wenn du noch kein Abo hattest.</p>
+        <div class="invite-row">
+          <code class="invite-code" id="inviteCode">THINKLESS3</code>
+          <button type="button" class="btn-secondary invite-copy" id="inviteCopy" data-i18n="inv_copy">Code kopieren</button>
+          <a class="btn-primary invite-redeem" href="https://apps.apple.com/redeem?ctx=offercodes&amp;id=6762284671&amp;code=THINKLESS3" target="_blank" rel="noopener" data-i18n="inv_redeem">Im App Store einlösen</a>
+        </div>
+        <p class="invite-terms" data-i18n="inv_terms">Nur für neue Abonnenten, einmal je Apple Account, gültig bis 10.05.2027 bzw. solange verfügbar. Danach verlängert sich das Monatsabo automatisch, wenn du nicht kündigst. Details in den <a href="/terms/">Nutzungsbedingungen</a>.</p>
       </div>
     </section>
 
@@ -538,7 +582,7 @@
           </a>
         </div>
         <p class="waitlist-hint" data-i18n="dl_note">Verfügbar für iPhone und iPad · iOS 17+</p>
-        <p class="waitlist-hint dl-plans" data-i18n="dl_plans">Gratis: 3 Entscheidungen pro Tag im Schnell-Modus, Sicherheitsstufe, Verlauf der letzten 10 und Offline-Grundmodus. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Geführter Modus, Begründung, Schlüsselfaktoren und nächster Schritt. Preise im App Store.</p>
+        <p class="waitlist-hint dl-plans" data-i18n="dl_plans">Gratis: 3 Entscheidungen pro Tag im Schnell-Modus, Sicherheitsstufe, Verlauf der letzten 10 und Offline-Grundmodus. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Geführter Modus, Begründung, Schlüsselfaktoren und nächster Schritt. Das Jahresabo startet für berechtigte Neukunden mit einem Monat Testphase. Preise im App Store.</p>
       </div>
     </section>
 
@@ -570,7 +614,7 @@
         <div class="section-about-logo">
           <span style="color:var(--tl-think)">Think</span><span style="color:var(--tl-less)">Less AI</span>
         </div>
-        <p data-i18n="about_p">ThinkLess AI ist eine Marke von <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — dem Entwickler hinter <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag und Beruf wirklich helfen.</p>
+        <p data-i18n="about_p">ThinkLess AI ist eine Marke von torecon — dem Entwickler hinter <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag und Beruf wirklich helfen.</p>
       </div>
     </section>
   </main>
@@ -621,7 +665,7 @@
 
       <div class="imprint-notice">
         ThinkLess AI <span data-i18n="imp_brand">ist eine Marke von</span>
-        torecon &mdash; <a href="https://www.torecon.de/" target="_blank" rel="noopener">www.torecon.de</a>
+        torecon.
       </div>
     </div>
   </section>
@@ -639,7 +683,6 @@
         <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
         <a href="/terms/" data-i18n="footer_terms">Nutzungsbedingungen</a>
         <a href="#impressum" data-i18n="footer_imprint">Impressum</a>
-        <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon.de</a>
       </div>
       <div class="footer-apps">
         <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
@@ -655,10 +698,6 @@
           <a class="footer-app-pill" href="https://chargescope.ai" target="_blank" rel="noopener">
             <img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22">
             <span>eLadung GO</span>
-          </a>
-          <a class="footer-app-pill" href="https://meisterlich.torecon.de" target="_blank" rel="noopener">
-            <img src="/cross-promo/meisterlich.png" alt="" loading="lazy" width="22" height="22">
-            <span>Meisterlich</span>
           </a>
         </div>
       </div>
@@ -696,13 +735,29 @@
     // ── Translation Data ─────────────────────────────────────────────────────
     const T = {
       de: {
-        nav_sub:           'eine App von <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_sub:           'eine App von torecon',
         nav_imprint:       'Impressum',
-        launch_pill:       'v1.5 — jetzt verfügbar',
-        launch_headline:   'Gebaut fürs iPad. <span class="accent">Lesbar in jeder Schriftgröße.</span>',
-        launch_sub:        'Neu in v1.5: eigenes iPad-Layout mit Seitenleiste und Tastaturkurzbefehlen, Schrift bis zur größten Barrierefreiheitsgröße, Kontraste nach WCAG AA — und die komplette App auf Deutsch, Englisch, Portugiesisch und Ukrainisch, umschaltbar ohne Neustart.',
+        launch_pill:       'v1.6 — in weniger als 48 Stunden verfügbar',
+        launch_headline:   'Entscheide besser. <span class="accent">In Minuten, nicht Tagen.</span>',
+        launch_sub:        'v1.6 macht aus deiner Entscheidung etwas, das du weitergeben kannst: jede Entscheidung als Karte für Story oder Chat, Links öffnen direkt in der App, Serie teilen, Freunde einladen — und das Jahresabo startet für Neukunden mit einem Monat Testphase.',
         launch_cta:        'Im App Store laden',
-        new_pill:          'v1.5 NEU',
+        f11_h3:            'Die Teilen-Karte',
+        f11_p:             'Jede Entscheidung wird zur Karte: Frage, Empfehlung und Sicherheit — im Hochformat für Storys oder quadratisch für den Chat. Auch deine Serie wird zur Grafik. Die Frage blendest du auf Wunsch aus.',
+        f11_tag:           'Ein Tipp genügt',
+        f12_h3:            'Links öffnen in der App',
+        f12_p:             'Wer deinen Link antippt, sieht die Entscheidung direkt in ThinkLess AI, ohne App als Vorschau im Browser. Gespeichert landet sie unter „Geteilt mit dir“ und zählt nicht zu den täglichen Entscheidungen. „Von ThinkLess bestätigt“ zeigt: Der Inhalt ist unverändert.',
+        f12_tag:           'Nichts auf dem Server',
+        f13_h3:            'Freunde einladen',
+        f13_p:             'Lade Freunde direkt aus den Einstellungen oder dem Ergebnis ein: Sie testen Premium 3 Monate kostenlos (nur für Neukunden). ThinkLess zählt und speichert nicht, wen du einlädst.',
+        f13_tag:           '3 Monate Premium',
+        inv_label:         'Freunde einladen',
+        inv_h2:            '3 Monate Premium kostenlos.',
+        inv_p:             'Mit dem Code <strong>THINKLESS3</strong> testen neue Abonnenten ThinkLess AI Premium 3 Monate kostenlos. Gib ihn an Freunde weiter — oder löse ihn selbst ein, wenn du noch kein Abo hattest.',
+        inv_copy:          'Code kopieren',
+        inv_copied:        'Kopiert',
+        inv_redeem:        'Im App Store einlösen',
+        inv_terms:         'Nur für neue Abonnenten, einmal je Apple Account, gültig bis 10.05.2027 bzw. solange verfügbar. Danach verlängert sich das Monatsabo automatisch, wenn du nicht kündigst. Details in den <a href="/terms/">Nutzungsbedingungen</a>.',
+        new_pill:          'v1.6 NEU',
         f7_h3:             'Fortschritt &amp; Reflexion',
         f7_p:              'Vier Mastery-Stufen, Serien-Abzeichen für 7, 30 und 100 Tage und Spezialgebiete je Kategorie. Sieben Tage nach einer Entscheidung fragt die App nach, ob sie sich bewährt hat — ein Tipp auf die Mitteilung öffnet sie direkt.',
         f7_tag:            'Lokal &amp; privat',
@@ -725,14 +780,16 @@
         rm_done_6:         'Dynamic Type bis zur größten Schrift, Kontraste nach WCAG AA, VoiceOver in 4 Sprachen (v1.5)',
         rm_done_7:         'Komplette App in vier Sprachen, Wechsel in den Einstellungen ohne Neustart (v1.5)',
         rm_done_8:         'Löschen mit Bestätigung, keine verlorenen Entwürfe, Verlauf nach Tagen (v1.5)',
+        rm_done_9:         'Verlauf per iCloud auf all deinen Geräten (v1.5)',
         rm_next_tag:       'Als nächstes',
-        rm_next_title:     'v1.6 und v1.7',
-        rm_next_1:         'Mitteilungen per Push vom Server (APNs) (v1.6)',
-        rm_next_2:         'Entscheidungen teilen — auch direkt aus dem Verlauf (v1.6)',
-        rm_next_3:         'Share-Cards für Social Media und Serien teilen (v1.6)',
-        rm_next_4:         'Apple-Watch-App: Schnell-Modus am Handgelenk (v1.7)',
-        rm_next_5:         'Komplikation mit deiner aktuellen Serie auf dem Zifferblatt (v1.7)',
-        rm_next_6:         'Spürbares Feedback: Haptik je Sicherheitsstufe (v1.7)',
+        rm_next_title:     'v1.6, v1.7 und v2.0',
+        rm_next_1:         'Teilen-Karte, Links öffnen in der App, Serie teilen, Freunde einladen (v1.6, bei Apple eingereicht)',
+        rm_next_2:         'Jahresabo mit einem Monat Testphase für Neukunden (v1.6)',
+        rm_next_3:         'Apple-Watch-App: Schnell-Modus am Handgelenk (v1.7)',
+        rm_next_4:         'Komplikation mit deiner aktuellen Serie auf dem Zifferblatt (v1.7)',
+        rm_next_5:         'Spürbares Feedback: Haptik je Sicherheitsstufe (v1.7)',
+        rm_next_6:         'Entscheidungs-Gedächtnis: auf Wunsch berücksichtigt ThinkLess frühere Entscheidungen (v2.0)',
+        rm_next_7:         'Mitteilungen per Push vom Server (v2.0)',
         roadmap_promise:   'ThinkLess AI ist <strong>kein abgeschlossenes Produkt</strong>, sondern ein wachsendes. Was du heute bekommst, ist <strong>der solide Anfang</strong> — und jedes Update macht die App ein Stück besser.',
         modal_title:       'ThinkLess AI direkt im App Store',
         modal_sub:         'Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — kostenlos, keine Anmeldung.',
@@ -775,12 +832,12 @@
         f4_p:              'Mit Premium endet jedes Ergebnis mit einer konkreten Handlung. Nicht denken – einfach tun.',
         f4_tag:            'Actionable',
         f5_h3:             'Entscheidungsverlauf',
-        f5_p:              'Dein Verlauf bleibt auf deinem Gerät, nach Kalendertagen gruppiert. Löschen nur mit Bestätigung. Gratis siehst du deine letzten 10 Entscheidungen, mit Premium bis zu 200.',
+        f5_p:              'Dein Verlauf bleibt bei dir — auf deinen Geräten und in deiner privaten iCloud, nach Kalendertagen gruppiert. Löschen nur mit Bestätigung. Gratis siehst du deine letzten 10 Entscheidungen, mit Premium bis zu 200.',
         f5_tag:            'Reflektierbar',
         f6_h3:             'Komplett in 4 Sprachen',
         f6_p:              'Die ganze App auf Deutsch, Englisch, Portugiesisch (Brasilien) und Ukrainisch — auch der Offline-Grundmodus. Sprache in den Einstellungen wechseln, ohne Neustart.',
         vs_h2:             'Weniger grübeln. Klarer entscheiden.',
-        vs_sub:            'Statt eines langen Chat-Verlaufs: ein geführter Ablauf, eine klare Empfehlung mit Sicherheitsstufe und ein nächster Schritt — ohne Konto, dein Verlauf bleibt auf deinem Gerät.',
+        vs_sub:            'Statt eines langen Chat-Verlaufs: ein geführter Ablauf, eine klare Empfehlung mit Sicherheitsstufe und ein nächster Schritt — ohne Konto, dein Verlauf bleibt auf deinen Geräten.',
         vs_pain_label:     'Das Problem',
         vs_pain1:          'Du wägst ab und drehst dich im Kreis — ohne Ergebnis',
         vs_pain2:          'Ein leeres Textfeld: erst einmal herausfinden, wie man richtig fragt',
@@ -792,17 +849,17 @@
         vs_tl2:            'Eine klare Empfehlung in 20 bis 60 Sekunden',
         vs_tl3:            'Die Sicherheitsstufe zeigt, wie eindeutig die Empfehlung ist',
         vs_tl4:            'Ein konkreter nächster Schritt (Premium)',
-        vs_tl5:            'Kein Konto — dein Verlauf bleibt auf deinem Gerät',
+        vs_tl5:            'Kein Konto — dein Verlauf bleibt auf deinen Geräten und in deiner iCloud',
         vs_tl_label:       'Mit ThinkLess AI',
         dl_label:          'Bereit?',
         dl_h2:             'Lade ThinkLess AI jetzt.',
         dl_sub:            'Kostenlos herunterladen — deine nächste Entscheidung wartet schon.',
         dl_note:           'Verfügbar für iPhone und iPad · iOS 17+',
-        dl_plans:          'Gratis: 3 Entscheidungen pro Tag im Schnell-Modus, Sicherheitsstufe, Verlauf der letzten 10 und Offline-Grundmodus. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Geführter Modus, Begründung, Schlüsselfaktoren und nächster Schritt. Preise im App Store.',
+        dl_plans:          'Gratis: 3 Entscheidungen pro Tag im Schnell-Modus, Sicherheitsstufe, Verlauf der letzten 10 und Offline-Grundmodus. Premium: unbegrenzt (<a href="/terms/">Fair Use</a>), Geführter Modus, Begründung, Schlüsselfaktoren und nächster Schritt. Das Jahresabo startet für berechtigte Neukunden mit einem Monat Testphase. Preise im App Store.',
         privacy_label:     'Datenschutz',
         privacy_promise:   'Kein Konto. Kein Name. <span class="accent">Keine E-Mail.</span>',
         privacy_detail:    'Dein Entscheidungsverlauf bleibt auf deinem Gerät. Für eine KI-Analyse geht deine Frage über unseren Server an unseren KI-Anbieter Anthropic, nur um die Antwort zu erzeugen — unser Server speichert sie nicht, seine Protokolle enthalten keine Inhalte. Eine zufällige App-Kennung begrenzt die Anfragen und ist nicht mit dir verknüpft. Ohne Internet liefert der Offline-Grundmodus ein Ergebnis direkt auf dem Gerät. Käufe wickelt ausschließlich Apple ab. <a href="/privacy/">Volle Datenschutzerklärung</a>.',
-        about_p:           'ThinkLess AI ist eine Marke von <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — dem Entwickler hinter <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag und Beruf wirklich helfen.',
+        about_p:           'ThinkLess AI ist eine Marke von torecon — dem Entwickler hinter <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Wir bauen KI-Produkte, die echten Mehrwert liefern. Keine Spielzeuge — Tools, die Menschen in ihrem Alltag und Beruf wirklich helfen.',
         notice_label:      'Wichtiger Hinweis',
         notice_h2:         'Bitte lies das kurz.',
         notice_main:       '<strong>ThinkLess AI ist ein Entscheidungsunterstützungs-Tool — keine medizinische, rechtliche, finanzielle oder sonstige Fachberatung.</strong> Die Ergebnisse dienen ausschließlich zu Informations- und Denkzwecken und ersetzen kein Fachgespräch.',
@@ -831,13 +888,29 @@
         footer_also:       'Weitere Apps von torecon',
       },
       en: {
-        nav_sub:           'an app by <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_sub:           'an app by torecon',
         nav_imprint:       'Legal',
-        launch_pill:       'v1.5 — available now',
-        launch_headline:   'Built for iPad. <span class="accent">Readable at any text size.</span>',
-        launch_sub:        'New in v1.5: a dedicated iPad layout with sidebar and keyboard shortcuts, text up to the largest accessibility size, WCAG AA contrast — and the complete app in English, German, Portuguese, and Ukrainian, switchable without a restart.',
+        launch_pill:       'v1.6 — available in under 48 hours',
+        launch_headline:   'Decide better. <span class="accent">In minutes, not days.</span>',
+        launch_sub:        'v1.6 turns your decision into something you can pass on: every decision as a card for stories or chats, links that open right in the app, streak sharing, invite friends — and the yearly plan starts with a 1-month free trial for new subscribers.',
         launch_cta:        'Open in App Store',
-        new_pill:          'v1.5 NEW',
+        f11_h3:            'The share card',
+        f11_p:             'Every decision becomes a card: question, recommendation and confidence level — in portrait for stories or square for chats. Your streak becomes a graphic too. Hide the question if you like.',
+        f11_tag:           'One tap',
+        f12_h3:            'Links open in the app',
+        f12_p:             'Whoever taps your link sees the decision right inside ThinkLess AI, or as a preview in the browser without the app. Saved, it lands under "Shared with you" and doesn\'t count toward the daily decisions. "Confirmed by ThinkLess" shows the content is unchanged.',
+        f12_tag:           'Nothing on a server',
+        f13_h3:            'Invite friends',
+        f13_p:             'Invite friends right from Settings or the result: they try Premium free for 3 months (new customers only). ThinkLess does not count or store whom you invite.',
+        f13_tag:           '3 months Premium',
+        inv_label:         'Invite friends',
+        inv_h2:            '3 months of Premium, free.',
+        inv_p:             'With the code <strong>THINKLESS3</strong>, new subscribers try ThinkLess AI Premium free for 3 months. Pass it on to friends — or redeem it yourself if you haven\'t subscribed before.',
+        inv_copy:          'Copy code',
+        inv_copied:        'Copied',
+        inv_redeem:        'Redeem on the App Store',
+        inv_terms:         'New subscribers only, once per Apple Account, valid until May 10, 2027 or while supplies last. After that, the monthly plan renews automatically unless you cancel. Details in the <a href="/terms/">Terms of Use</a>.',
+        new_pill:          'v1.6 NEW',
         f7_h3:             'Progress &amp; reflection',
         f7_p:              'Four mastery levels, streak badges for 7, 30, and 100 days, and specialties per category. Seven days after a decision, the app asks whether it paid off — tapping the notification opens it directly.',
         f7_tag:            'Local &amp; private',
@@ -860,14 +933,16 @@
         rm_done_6:         'Dynamic Type up to the largest size, WCAG AA contrast, VoiceOver in 4 languages (v1.5)',
         rm_done_7:         'The complete app in four languages, switchable in Settings without a restart (v1.5)',
         rm_done_8:         'Delete with confirmation, no lost drafts, history grouped by day (v1.5)',
+        rm_done_9:         'History via iCloud on all your devices (v1.5)',
         rm_next_tag:       'Coming next',
-        rm_next_title:     'v1.6 and v1.7',
-        rm_next_1:         'Notifications via server push (APNs) (v1.6)',
-        rm_next_2:         'Share decisions — also straight from your history (v1.6)',
-        rm_next_3:         'Share cards for social media and streak sharing (v1.6)',
-        rm_next_4:         'Apple Watch app: Fast Mode on your wrist (v1.7)',
-        rm_next_5:         'A complication with your current streak on the watch face (v1.7)',
-        rm_next_6:         'Feel it: haptics for each confidence level (v1.7)',
+        rm_next_title:     'v1.6, v1.7 and v2.0',
+        rm_next_1:         'Share card, links that open in the app, streak sharing, invite friends (v1.6, submitted to Apple)',
+        rm_next_2:         'Yearly plan with a 1-month free trial for new subscribers (v1.6)',
+        rm_next_3:         'Apple Watch app: Fast Mode on your wrist (v1.7)',
+        rm_next_4:         'A complication with your current streak on the watch face (v1.7)',
+        rm_next_5:         'Feel it: haptics for each confidence level (v1.7)',
+        rm_next_6:         'Decision memory: if you want, ThinkLess takes your earlier decisions into account (v2.0)',
+        rm_next_7:         'Notifications via server push (v2.0)',
         roadmap_promise:   'ThinkLess AI is <strong>not a finished product</strong> — it\'s an evolving one. What you get today is <strong>a solid start</strong>, and every update makes the app a bit better.',
         modal_title:       'ThinkLess AI on the App Store',
         modal_sub:         'You\'re on iPhone. Tap below and download the app in seconds — free, no signup.',
@@ -910,12 +985,12 @@
         f4_p:              'With Premium, every result ends with a concrete action. Don\'t overthink – just do it.',
         f4_tag:            'Actionable',
         f5_h3:             'Decision History',
-        f5_p:              'Your history stays on your device, grouped by calendar day. Deleting always asks first. Free shows your last 10 decisions, Premium up to 200.',
+        f5_p:              'Your history stays with you — on your devices and in your private iCloud, grouped by calendar day. Deleting always asks first. Free shows your last 10 decisions, Premium up to 200.',
         f5_tag:            'Reflectable',
         f6_h3:             'Fully in 4 languages',
         f6_p:              'The whole app in English, German, Portuguese (Brazil), and Ukrainian — including the basic offline mode. Switch the language in Settings, no restart needed.',
         vs_h2:             'Less overthinking. Clearer decisions.',
-        vs_sub:            'Instead of a long chat thread: a guided flow, one clear recommendation with a confidence level, and a next step — no account, your history stays on your device.',
+        vs_sub:            'Instead of a long chat thread: a guided flow, one clear recommendation with a confidence level, and a next step — no account, your history stays on your devices.',
         vs_pain_label:     'The problem',
         vs_pain1:          'You weigh it up and go round in circles — with no result',
         vs_pain2:          'A blank text box: first you have to work out how to ask',
@@ -927,17 +1002,17 @@
         vs_tl2:            'One clear recommendation in 20 to 60 seconds',
         vs_tl3:            'The confidence level shows how clear-cut the recommendation is',
         vs_tl4:            'A concrete next step (Premium)',
-        vs_tl5:            'No account — your history stays on your device',
+        vs_tl5:            'No account — your history stays on your devices and in your iCloud',
         vs_tl_label:       'With ThinkLess AI',
         dl_label:          'Ready?',
         dl_h2:             'Get ThinkLess AI now.',
         dl_sub:            'Download for free — your next decision is already waiting.',
         dl_note:           'Available for iPhone and iPad · iOS 17+',
-        dl_plans:          'Free: 3 decisions per day in Fast Mode, confidence level, history of your last 10, and the basic offline mode. Premium: unlimited (<a href="/terms/">fair use</a>), Guided Mode, reasoning, key factors, and next step. Prices on the App Store.',
+        dl_plans:          'Free: 3 decisions per day in Fast Mode, confidence level, history of your last 10, and the basic offline mode. Premium: unlimited (<a href="/terms/">fair use</a>), Guided Mode, reasoning, key factors, and next step. The yearly plan starts with a 1-month free trial for eligible new subscribers. Prices on the App Store.',
         privacy_label:     'Privacy',
         privacy_promise:   'No account. No name. <span class="accent">No email.</span>',
         privacy_detail:    'Your decision history stays on your device. For an AI analysis, your question goes through our server to our AI provider Anthropic, only to generate the answer — our server does not store it, and its logs contain no content. A random app ID limits requests and is not linked to you. Without internet, the basic offline mode gives you a result right on your device. Purchases are handled exclusively by Apple. <a href="/privacy/">Full privacy policy</a>.',
-        about_p:           'ThinkLess AI is a brand by <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — the developer behind <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>We build AI products that deliver real value. Not toys — tools that genuinely help people in their daily and professional lives.',
+        about_p:           'ThinkLess AI is a brand by torecon — the developer behind <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>We build AI products that deliver real value. Not toys — tools that genuinely help people in their daily and professional lives.',
         notice_label:      'Important Notice',
         notice_h2:         'Please take a moment.',
         notice_main:       '<strong>ThinkLess AI is a decision support tool — not medical, legal, financial, or other professional advice.</strong> The results are provided for informational and decision-support purposes only and are not a substitute for consulting a qualified professional.',
@@ -966,13 +1041,29 @@
         footer_also:       'More apps by torecon',
       },
       pt: {
-        nav_sub:           'um app da <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_sub:           'um app da torecon',
         nav_imprint:       'Legal',
-        launch_pill:       'v1.5 — já disponível',
-        launch_headline:   'Feito para o iPad. <span class="accent">Legível em qualquer tamanho de texto.</span>',
-        launch_sub:        'Novo na v1.5: layout próprio para iPad com barra lateral e atalhos de teclado, texto até o maior tamanho de acessibilidade, contraste conforme WCAG AA — e o app completo em português, inglês, alemão e ucraniano, com troca de idioma sem reiniciar.',
+        launch_pill:       'v1.6 — disponível em menos de 48 horas',
+        launch_headline:   'Decida melhor. <span class="accent">Em minutos, não em dias.</span>',
+        launch_sub:        'A v1.6 transforma a sua decisão em algo que você pode passar adiante: cada decisão como cartão para stories ou chat, links que abrem direto no app, compartilhar sua sequência, convidar amigos — e o plano anual começa com 1 mês de teste grátis para novos assinantes.',
         launch_cta:        'Abrir na App Store',
-        new_pill:          'v1.5 NOVO',
+        f11_h3:            'O cartão para compartilhar',
+        f11_p:             'Cada decisão vira um cartão: pergunta, recomendação e nível de confiança — em formato retrato para stories ou quadrado para o chat. Sua sequência também vira imagem. Se quiser, oculte a pergunta.',
+        f11_tag:           'Basta um toque',
+        f12_h3:            'Links abrem no app',
+        f12_p:             'Quem toca no seu link vê a decisão direto no ThinkLess AI, ou como prévia no navegador sem o app. Salva, ela fica em "Compartilhadas com você" e não conta para as decisões diárias. "Confirmada pelo ThinkLess" mostra que o conteúdo não foi alterado.',
+        f12_tag:           'Nada no servidor',
+        f13_h3:            'Convidar amigos',
+        f13_p:             'Convide amigos direto nas Configurações ou no resultado: eles testam o Premium grátis por 3 meses (só para novos clientes). O ThinkLess não conta nem guarda quem você convida.',
+        f13_tag:           '3 meses de Premium',
+        inv_label:         'Convidar amigos',
+        inv_h2:            '3 meses de Premium grátis.',
+        inv_p:             'Com o código <strong>THINKLESS3</strong>, novos assinantes testam o ThinkLess AI Premium grátis por 3 meses. Passe para os amigos — ou resgate você mesmo se ainda não teve assinatura.',
+        inv_copy:          'Copiar código',
+        inv_copied:        'Copiado',
+        inv_redeem:        'Resgatar na App Store',
+        inv_terms:         'Só para novos assinantes, uma vez por Conta Apple, válido até 10/05/2027 ou enquanto houver disponibilidade. Depois, o plano mensal é renovado automaticamente, a menos que você cancele. Detalhes nos <a href="/terms/">Termos de Uso</a>.',
+        new_pill:          'v1.6 NOVO',
         f7_h3:             'Progresso e reflexão',
         f7_p:              'Quatro níveis de maestria, selos de sequência de 7, 30 e 100 dias e especialidades por categoria. Sete dias depois de uma decisão, o app pergunta se ela valeu a pena — tocar na notificação abre a decisão direto.',
         f7_tag:            'Local e privado',
@@ -995,14 +1086,16 @@
         rm_done_6:         'Dynamic Type até o maior tamanho, contraste WCAG AA, VoiceOver em 4 idiomas (v1.5)',
         rm_done_7:         'O app completo em quatro idiomas, com troca nos Ajustes sem reiniciar (v1.5)',
         rm_done_8:         'Excluir com confirmação, sem rascunhos perdidos, histórico por dia (v1.5)',
+        rm_done_9:         'Histórico via iCloud em todos os seus dispositivos (v1.5)',
         rm_next_tag:       'A seguir',
-        rm_next_title:     'v1.6 e v1.7',
-        rm_next_1:         'Notificações por push do servidor (APNs) (v1.6)',
-        rm_next_2:         'Compartilhar decisões — também direto do histórico (v1.6)',
-        rm_next_3:         'Cards para redes sociais e compartilhamento de sequências (v1.6)',
-        rm_next_4:         'App para Apple Watch: Modo Rápido no pulso (v1.7)',
-        rm_next_5:         'Complicação com sua sequência atual no mostrador (v1.7)',
-        rm_next_6:         'Sinta o resultado: vibração para cada nível de confiança (v1.7)',
+        rm_next_title:     'v1.6, v1.7 e v2.0',
+        rm_next_1:         'Cartão para compartilhar, links que abrem no app, compartilhar sequência, convidar amigos (v1.6, enviada à Apple)',
+        rm_next_2:         'Plano anual com 1 mês de teste grátis para novos assinantes (v1.6)',
+        rm_next_3:         'App para Apple Watch: Modo Rápido no pulso (v1.7)',
+        rm_next_4:         'Complicação com sua sequência atual no mostrador (v1.7)',
+        rm_next_5:         'Sinta o resultado: vibração para cada nível de confiança (v1.7)',
+        rm_next_6:         'Memória de decisões: se você quiser, o ThinkLess considera suas decisões anteriores (v2.0)',
+        rm_next_7:         'Notificações por push do servidor (v2.0)',
         roadmap_promise:   'ThinkLess AI <strong>não é um produto finalizado</strong>, é um produto em evolução. O que você recebe hoje é <strong>um começo sólido</strong> — e cada atualização melhora o app um pouco mais.',
         modal_title:       'ThinkLess AI na App Store',
         modal_sub:         'Você está no iPhone. Toque abaixo e baixe o app em segundos — grátis, sem cadastro.',
@@ -1045,12 +1138,12 @@
         f4_p:              'Com o Premium, cada resultado termina com uma ação concreta. Não pense demais – apenas faça.',
         f4_tag:            'Acionável',
         f5_h3:             'Histórico de Decisões',
-        f5_p:              'Seu histórico fica no seu dispositivo, agrupado por dia. Excluir sempre pede confirmação. No plano grátis você vê suas últimas 10 decisões, com o Premium até 200.',
+        f5_p:              'Seu histórico fica com você — nos seus dispositivos e no seu iCloud privado, agrupado por dia. Excluir sempre pede confirmação. No plano grátis você vê suas últimas 10 decisões, com o Premium até 200.',
         f5_tag:            'Reflexivo',
         f6_h3:             'Completo em 4 idiomas',
         f6_p:              'O app inteiro em português (Brasil), inglês, alemão e ucraniano — inclusive o modo offline básico. Troque o idioma nos Ajustes, sem reiniciar.',
         vs_h2:             'Menos ruminação. Decisões mais claras.',
-        vs_sub:            'Em vez de um longo histórico de chat: um fluxo guiado, uma recomendação clara com nível de confiança e um próximo passo — sem conta, seu histórico fica no seu dispositivo.',
+        vs_sub:            'Em vez de um longo histórico de chat: um fluxo guiado, uma recomendação clara com nível de confiança e um próximo passo — sem conta, seu histórico fica nos seus dispositivos.',
         vs_pain_label:     'O problema',
         vs_pain1:          'Você pesa os prós e contras e anda em círculos — sem resultado',
         vs_pain2:          'Uma caixa de texto vazia: primeiro é preciso descobrir como perguntar',
@@ -1062,17 +1155,17 @@
         vs_tl2:            'Uma recomendação clara em 20 a 60 segundos',
         vs_tl3:            'O nível de confiança mostra o quão clara é a recomendação',
         vs_tl4:            'Um próximo passo concreto (Premium)',
-        vs_tl5:            'Sem conta — seu histórico fica no seu dispositivo',
+        vs_tl5:            'Sem conta — seu histórico fica nos seus dispositivos e no seu iCloud',
         vs_tl_label:       'Com o ThinkLess AI',
         dl_label:          'Pronto?',
         dl_h2:             'Baixe o ThinkLess AI agora.',
         dl_sub:            'Baixe grátis — sua próxima decisão já está esperando.',
         dl_note:           'Disponível para iPhone e iPad · iOS 17+',
-        dl_plans:          'Grátis: 3 decisões por dia no Modo Rápido, nível de confiança, histórico das últimas 10 e modo offline básico. Premium: ilimitado (<a href="/terms/">uso justo</a>), Modo Guiado, justificativa, fatores-chave e próximo passo. Preços na App Store.',
+        dl_plans:          'Grátis: 3 decisões por dia no Modo Rápido, nível de confiança, histórico das últimas 10 e modo offline básico. Premium: ilimitado (<a href="/terms/">uso justo</a>), Modo Guiado, justificativa, fatores-chave e próximo passo. O plano anual começa com 1 mês de teste grátis para novos assinantes elegíveis. Preços na App Store.',
         privacy_label:     'Privacidade',
         privacy_promise:   'Sem conta. Sem nome. <span class="accent">Sem e-mail.</span>',
         privacy_detail:    'Seu histórico de decisões fica no seu dispositivo. Para uma análise com IA, sua pergunta passa pelo nosso servidor até nosso provedor de IA, a Anthropic, apenas para gerar a resposta — nosso servidor não a armazena e os registros não contêm conteúdo. Um identificador aleatório do app limita as solicitações e não está vinculado a você. Sem internet, o modo offline básico entrega um resultado direto no dispositivo. As compras são processadas exclusivamente pela Apple. <a href="/privacy/">Política de privacidade completa</a>.',
-        about_p:           'ThinkLess AI é uma marca da <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — o desenvolvedor por trás do <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Criamos produtos de IA que entregam valor real. Não brinquedos — ferramentas que realmente ajudam pessoas no dia a dia e na vida profissional.',
+        about_p:           'ThinkLess AI é uma marca da torecon — o desenvolvedor por trás do <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Criamos produtos de IA que entregam valor real. Não brinquedos — ferramentas que realmente ajudam pessoas no dia a dia e na vida profissional.',
         notice_label:      'Aviso importante',
         notice_h2:         'Leia isto com atenção.',
         notice_main:       '<strong>ThinkLess AI é uma ferramenta de apoio à decisão — não é aconselhamento médico, jurídico, financeiro ou de qualquer outra natureza profissional.</strong> Os resultados são fornecidos apenas para fins informativos e de apoio à decisão e não substituem a consulta a um profissional qualificado.',
@@ -1101,13 +1194,29 @@
         footer_also:       'Mais apps da torecon',
       },
       uk: {
-        nav_sub:           'застосунок від <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a>',
+        nav_sub:           'застосунок від torecon',
         nav_imprint:       'Про нас',
-        launch_pill:       'v1.5 — вже доступно',
-        launch_headline:   'Створено для iPad. <span class="accent">Читається за будь-якого розміру шрифту.</span>',
-        launch_sub:        'Нове у v1.5: власний макет для iPad з бічною панеллю та клавіатурними скороченнями, шрифт до найбільшого розміру універсального доступу, контраст за WCAG AA — і весь застосунок українською, англійською, німецькою та португальською, з перемиканням мови без перезапуску.',
+        launch_pill:       'v1.6 — буде доступно менш ніж за 48 годин',
+        launch_headline:   'Вирішуй краще. <span class="accent">За хвилини, а не за дні.</span>',
+        launch_sub:        'v1.6 перетворює твоє рішення на те, чим можна поділитися: кожне рішення як картка для сторіз чи чату, посилання відкриваються прямо в застосунку, поширення серії, запрошення друзів — а річна підписка для нових клієнтів починається з місяця безкоштовного пробного періоду.',
         launch_cta:        'Відкрити в App Store',
-        new_pill:          'v1.5 НОВЕ',
+        f11_h3:            'Картка для поширення',
+        f11_p:             'Кожне рішення стає карткою: питання, рекомендація та рівень впевненості — вертикально для сторіз або квадратом для чату. Твоя серія теж стає графікою. За бажання приховай питання.',
+        f11_tag:           'Один дотик',
+        f12_h3:            'Посилання відкриваються в застосунку',
+        f12_p:             'Хто торкнеться твого посилання, побачить рішення прямо в ThinkLess AI, а без застосунку — як попередній перегляд у браузері. Збережене, воно потрапляє до «Поширені з тобою» і не зараховується до щоденних рішень. «Підтверджено ThinkLess» показує, що вміст не змінено.',
+        f12_tag:           'Нічого на сервері',
+        f13_h3:            'Запросити друзів',
+        f13_p:             'Запрошуй друзів прямо з Налаштувань або з результату: вони тестують Преміум 3 місяці безкоштовно (лише для нових клієнтів). ThinkLess не рахує й не зберігає, кого ти запрошуєш.',
+        f13_tag:           '3 місяці Преміум',
+        inv_label:         'Запросити друзів',
+        inv_h2:            '3 місяці Преміум безкоштовно.',
+        inv_p:             'З кодом <strong>THINKLESS3</strong> нові передплатники тестують ThinkLess AI Преміум 3 місяці безкоштовно. Передай його друзям — або активуй сам, якщо ще не мав підписки.',
+        inv_copy:          'Скопіювати код',
+        inv_copied:        'Скопійовано',
+        inv_redeem:        'Активувати в App Store',
+        inv_terms:         'Лише для нових передплатників, один раз на Apple Account, діє до 10.05.2027 або поки є в наявності. Потім місячна підписка автоматично продовжується, якщо ти її не скасуєш. Подробиці в <a href="/terms/">Умовах використання</a>.',
+        new_pill:          'v1.6 НОВЕ',
         f7_h3:             'Прогрес і рефлексія',
         f7_p:              'Чотири рівні майстерності, значки серій за 7, 30 і 100 днів та спеціалізації за категоріями. Через сім днів після рішення застосунок запитає, чи воно себе виправдало — дотик до сповіщення відкриває його одразу.',
         f7_tag:            'Локально й приватно',
@@ -1130,14 +1239,16 @@
         rm_done_6:         'Dynamic Type до найбільшого розміру, контраст за WCAG AA, VoiceOver 4 мовами (v1.5)',
         rm_done_7:         'Увесь застосунок чотирма мовами, зміна в налаштуваннях без перезапуску (v1.5)',
         rm_done_8:         'Видалення з підтвердженням, без втрачених чернеток, історія за днями (v1.5)',
+        rm_done_9:         'Історія через iCloud на всіх твоїх пристроях (v1.5)',
         rm_next_tag:       'Далі',
-        rm_next_title:     'v1.6 і v1.7',
-        rm_next_1:         'Сповіщення через серверний push (APNs) (v1.6)',
-        rm_next_2:         'Ділитися рішеннями — також просто з історії (v1.6)',
-        rm_next_3:         'Картки для соцмереж і поширення серій (v1.6)',
-        rm_next_4:         'Застосунок для Apple Watch: Швидкий режим на зап’ясті (v1.7)',
-        rm_next_5:         'Ускладнення з твоєю поточною серією на циферблаті (v1.7)',
-        rm_next_6:         'Відчутний відгук: вібрація для кожного рівня впевненості (v1.7)',
+        rm_next_title:     'v1.6, v1.7 і v2.0',
+        rm_next_1:         'Картка для поширення, посилання відкриваються в застосунку, поширення серії, запрошення друзів (v1.6, подано до Apple)',
+        rm_next_2:         'Річна підписка з місяцем безкоштовного пробного періоду для нових клієнтів (v1.6)',
+        rm_next_3:         'Застосунок для Apple Watch: Швидкий режим на зап’ясті (v1.7)',
+        rm_next_4:         'Ускладнення з твоєю поточною серією на циферблаті (v1.7)',
+        rm_next_5:         'Відчутний відгук: вібрація для кожного рівня впевненості (v1.7)',
+        rm_next_6:         'Пам’ять рішень: за бажання ThinkLess враховує твої попередні рішення (v2.0)',
+        rm_next_7:         'Сповіщення через серверний push (v2.0)',
         roadmap_promise:   'ThinkLess AI — <strong>це не завершений продукт</strong>, а продукт, що розвивається. Те, що ти отримуєш сьогодні, — <strong>міцний початок</strong>, і кожне оновлення робить додаток кращим.',
         modal_title:       'ThinkLess AI в App Store',
         modal_sub:         'Ти на iPhone. Натисни нижче і завантаж додаток за секунди — безкоштовно, без реєстрації.',
@@ -1180,12 +1291,12 @@
         f4_p:              'З Преміум кожен результат завершується конкретною дією. Не думай — просто дій.',
         f4_tag:            'Дієво',
         f5_h3:             'Історія рішень',
-        f5_p:              'Твоя історія залишається на твоєму пристрої, згрупована за днями. Видалення — лише з підтвердженням. Безкоштовно видно останні 10 рішень, з Преміум — до 200.',
+        f5_p:              'Твоя історія залишається з тобою — на твоїх пристроях і в твоєму приватному iCloud, згрупована за днями. Видалення — лише з підтвердженням. Безкоштовно видно останні 10 рішень, з Преміум — до 200.',
         f5_tag:            'Для рефлексії',
         f6_h3:             'Повністю 4 мовами',
         f6_p:              'Увесь застосунок українською, англійською, німецькою та португальською (Бразилія) — включно з базовим офлайн-режимом. Змінюй мову в налаштуваннях без перезапуску.',
         vs_h2:             'Менше вагань. Чіткіші рішення.',
-        vs_sub:            'Замість довгого чату: керований процес, одна чітка рекомендація з рівнем впевненості й наступний крок — без акаунта, твоя історія залишається на твоєму пристрої.',
+        vs_sub:            'Замість довгого чату: керований процес, одна чітка рекомендація з рівнем впевненості й наступний крок — без акаунта, твоя історія залишається на твоїх пристроях.',
         vs_pain_label:     'Проблема',
         vs_pain1:          'Ти зважуєш і ходиш по колу — без результату',
         vs_pain2:          'Порожнє текстове поле: спершу треба зрозуміти, як правильно запитати',
@@ -1197,17 +1308,17 @@
         vs_tl2:            'Одна чітка рекомендація за 20–60 секунд',
         vs_tl3:            'Рівень впевненості показує, наскільки однозначна рекомендація',
         vs_tl4:            'Конкретний наступний крок (Преміум)',
-        vs_tl5:            'Без акаунта — твоя історія залишається на твоєму пристрої',
+        vs_tl5:            'Без акаунта — твоя історія залишається на твоїх пристроях і в твоєму iCloud',
         vs_tl_label:       'З ThinkLess AI',
         dl_label:          'Готовий?',
         dl_h2:             'Завантаж ThinkLess AI зараз.',
         dl_sub:            'Безкоштовне завантаження — твоє наступне рішення вже чекає.',
         dl_note:           'Доступно для iPhone та iPad · iOS 17+',
-        dl_plans:          'Безкоштовно: 3 рішення на день у Швидкому режимі, рівень впевненості, історія останніх 10 і базовий офлайн-режим. Преміум: необмежено (<a href="/terms/">чесне використання</a>), Керований режим, обґрунтування, ключові фактори й наступний крок. Ціни — в App Store.',
+        dl_plans:          'Безкоштовно: 3 рішення на день у Швидкому режимі, рівень впевненості, історія останніх 10 і базовий офлайн-режим. Преміум: необмежено (<a href="/terms/">чесне використання</a>), Керований режим, обґрунтування, ключові фактори й наступний крок. Річна підписка для нових клієнтів починається з місяця безкоштовного пробного періоду. Ціни — в App Store.',
         privacy_label:     'Конфіденційність',
         privacy_promise:   'Без акаунта. Без імені. <span class="accent">Без e-mail.</span>',
         privacy_detail:    'Твоя історія рішень залишається на твоєму пристрої. Для ШІ-аналізу твоє запитання проходить через наш сервер до нашого ШІ-постачальника Anthropic лише для того, щоб створити відповідь — наш сервер його не зберігає, а журнали не містять змісту. Випадковий ідентифікатор застосунку обмежує кількість запитів і не пов’язаний із тобою. Без інтернету базовий офлайн-режим дає результат прямо на пристрої. Покупки обробляє виключно Apple. <a href="/privacy/">Повна політика конфіденційності</a>.',
-        about_p:           'ThinkLess AI — бренд від <a class="section-about-link" href="https://www.torecon.de/" target="_blank" rel="noopener">torecon</a> — розробника <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Ми створюємо ШІ-продукти, що приносять реальну цінність. Не іграшки — інструменти, які справді допомагають людям у повсякденному й професійному житті.',
+        about_p:           'ThinkLess AI — бренд від torecon — розробника <a class="section-about-link" href="https://getbrainbites.ai" target="_blank" rel="noopener">BrainBites AI</a>.<br><br>Ми створюємо ШІ-продукти, що приносять реальну цінність. Не іграшки — інструменти, які справді допомагають людям у повсякденному й професійному житті.',
         notice_label:      'Важливе повідомлення',
         notice_h2:         'Прочитай, будь ласка.',
         notice_main:       '<strong>ThinkLess AI — це інструмент підтримки прийняття рішень, а не медична, юридична, фінансова чи інша фахова порада.</strong> Результати надаються виключно в інформаційних цілях і не замінюють консультацію кваліфікованого фахівця.',
@@ -1311,6 +1422,27 @@
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
     });
+
+    // ── Aktion: Code kopieren ────────────────────────────────────────────────
+    (function () {
+      const btn = document.getElementById('inviteCopy');
+      const code = document.getElementById('inviteCode');
+      if (!btn || !code) return;
+      btn.addEventListener('click', async () => {
+        const text = code.textContent.trim();
+        let ok = false;
+        try { await navigator.clipboard.writeText(text); ok = true; } catch (_) {
+          try {
+            const r = document.createRange(); r.selectNodeContents(code);
+            const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+            ok = document.execCommand('copy');
+          } catch (_) {}
+        }
+        if (!ok) return;
+        btn.textContent = T[lang].inv_copied;
+        setTimeout(() => { btn.textContent = T[lang].inv_copy; }, 2000);
+      });
+    })();
 
     // ── iPhone-Modal: nach 1.2 s einblenden, einmal pro Session ─────────────
     (function () {
