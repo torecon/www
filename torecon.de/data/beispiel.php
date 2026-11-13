@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 /*
  * Fiktives Beispielprojekt für /beispiel/.
- * Grundlage: Tagessatz 850 € (Thomas 2026-11-10) – auf der Seite erscheinen nur Festpreise je Bauabschnitt.
+ * Auf der Seite erscheint der Aufwand nur in Personentagen (Thomas 2026-11-11), keine Entwicklungspreise.
+ * Interne Kalkulationsbasis: Tagessatz 850 € (Thomas 2026-11-10), wird nicht angezeigt.
  * Preise der Anbieter: laut Anbieter, Stand 11/2026, gerundet (Quellen im Vault: 01_Private/_homepage/2026-11-10-relaunch-plan.md).
  */
 
@@ -97,8 +98,8 @@ return [
          'en' => ['Domain & web hosting', 'Website, privacy policy, support page', 'depends on provider, approx. €5–10 per month']],
     ],
     'android' => [
-        'de' => 'Android-Version: ein eigener Bauabschnitt mit eigenem Festpreis. Weil es auf Android kein iCloud gibt, gleicht dort der Railway-Server die Daten ab; Push-Nachrichten laufen über ein kostenloses Firebase-Projekt von Google. Google Play kostet einmalig 25 US-$.',
-        'en' => 'Android version: a separate milestone at its own fixed price. Since Android has no iCloud, the Railway server syncs the data there; push notifications use a free Google Firebase project. Google Play costs a one-time US$25.',
+        'de' => 'Android-Version: ein eigener Bauabschnitt mit eigenem Aufwand in Personentagen. Weil es auf Android kein iCloud gibt, gleicht dort der Railway-Server die Daten ab; Push-Nachrichten laufen über ein kostenloses Firebase-Projekt von Google. Google Play kostet einmalig 25 US-$.',
+        'en' => 'Android version: a separate milestone with its own effort in person-days. Since Android has no iCloud, the Railway server syncs the data there; push notifications use a free Google Firebase project. Google Play costs a one-time US$25.',
     ],
     'running_total' => ['de' => 'zusammen etwa 30–60 € im Monat', 'en' => 'together roughly €30–60 per month'],
 ];

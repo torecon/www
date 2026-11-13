@@ -5,12 +5,9 @@ require __DIR__ . '/../inc/layout.php';
 
 $B = require __DIR__ . '/../data/beispiel.php';
 
-$fmt = function (int $eur) use ($lang): string {
-    return $lang === 'en' ? '€' . number_format($eur) : number_format($eur, 0, ',', '.') . ' €';
-};
-
 $devPhases = array_filter($B['phases'], fn($p) => $p['days'] > 0);
-$devTotal  = array_sum(array_map(fn($p) => $p['days'] * BEISPIEL_TAGESSATZ, $devPhases));
+$devDays   = array_sum(array_map(fn($p) => $p['days'], $devPhases));
+$pt = fn(int $d): string => t($d === 1 ? 'bsp_pt_one' : 'bsp_pt', ['n' => $d]);
 $weeks     = $B['weeks'];
 $prioLabel = ['must' => t('bsp_must'), 'should' => t('bsp_should'), 'could' => t('bsp_could')];
 
@@ -25,7 +22,7 @@ page_head(t('bsp_title'), t('bsp_desc'), 'beispiel/', 'example', [json_ld_base()
     <ul class="facts facts-3">
       <li><strong><?= $weeks ?></strong><span><?= e(t('bsp_fact_weeks')) ?></span></li>
       <li><strong><?= count($devPhases) ?></strong><span><?= e(t('bsp_fact_phases')) ?></span></li>
-      <li><strong><?= e($fmt($devTotal)) ?></strong><span><?= e(t('bsp_fact_total')) ?></span></li>
+      <li><strong><?= $devDays ?></strong><span><?= e(t('bsp_fact_total')) ?></span></li>
     </ul>
   </div>
 </section>
@@ -117,7 +114,7 @@ page_head(t('bsp_title'), t('bsp_desc'), 'beispiel/', 'example', [json_ld_base()
 <?php endforeach; ?>
         </ul>
         <p class="phase-result"><?= e($p['result'][$lang]) ?></p>
-        <p class="price"><?= e(t('bsp_fixed')) ?> <?= e($fmt($p['days'] > 0 ? $p['days'] * BEISPIEL_TAGESSATZ : (int) $p['fixed'])) ?> <span class="muted small"><?= e(t('vat_suffix')) ?></span></p>
+        <p class="price"><?= $p['days'] > 0 ? e(t('bsp_effort') . ' ' . $pt($p['days'])) : e(t('bsp_flat')) ?></p>
       </li>
 <?php endforeach; ?>
     </ol>
@@ -135,11 +132,11 @@ page_head(t('bsp_title'), t('bsp_desc'), 'beispiel/', 'example', [json_ld_base()
         <table class="cost-table">
           <tbody>
 <?php foreach ($devPhases as $p): ?>
-            <tr><th scope="row"><?= e($p['title'][$lang]) ?></th><td><?= e($fmt($p['days'] * BEISPIEL_TAGESSATZ)) ?></td></tr>
+            <tr><th scope="row"><?= e($p['title'][$lang]) ?></th><td><?= e($pt($p['days'])) ?></td></tr>
 <?php endforeach; ?>
           </tbody>
           <tfoot>
-            <tr><th scope="row"><?= e(t('bsp_cost_sum')) ?></th><td><?= e($fmt($devTotal)) ?></td></tr>
+            <tr><th scope="row"><?= e(t('bsp_cost_sum')) ?></th><td><?= e($pt($devDays)) ?></td></tr>
           </tfoot>
         </table>
         <p class="muted small"><?= e(t('bsp_cost_dev_note')) ?></p>

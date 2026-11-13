@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["54AWG8Y4U6.de.torecon.ThinkLess-AI"],
+        "components": [
+          { "/": "/d/*", "comment": "Geteilte Entscheidung (Link-Format v1, Inhalt im Fragment)" }
+        ]
+      }
+    ]
+  }
+}
