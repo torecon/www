@@ -81,6 +81,7 @@
     .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
     .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .footer-app-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+    .footer-app-pill img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; display: block; }
     .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
   </style>
@@ -246,7 +247,22 @@
       <div class="footer-apps">
         <span class="footer-apps-label" data-i18n="footer_also">Weitere Apps von torecon</span>
         <div class="footer-apps-pills">
-          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">🤔 ThinkLess AI</a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22">
+            <span>ThinkLess AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener">
+            <img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22">
+            <span>Zettelküche AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://chargescope.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22">
+            <span>eLadung GO</span>
+          </a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/meisterlich/id6762597134" target="_blank" rel="noopener">
+            <img src="/cross-promo/meisterlich.png" alt="" loading="lazy" width="22" height="22">
+            <span>Meisterlich</span>
+          </a>
         </div>
       </div>
       <div class="footer-copy">&copy; <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
