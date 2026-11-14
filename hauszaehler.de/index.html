@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HausZähler – Zähler ablesen per Foto. Bald im App Store.</title>
-  <meta name="description" content="HausZähler: Zählerstände per Foto für Strom, Einspeisung, Gas, Wasser und Wärme. Verträge im Blick, Abrechnung nachgerechnet. Bald im App Store.">
+  <title>HausZähler – Strom, Gas, Wasser ablesen. Bald im App Store.</title>
+  <meta name="description" content="HausZähler: Zählerstände für Strom, Gas, Wasser und Wärme in Sekunden erfasst. Kosten, Hochrechnung, Abschlag-Check, Verträge. Bald im App Store.">
 
-  <!-- Smart App Banner (apple-itunes-app) folgt, sobald die App-Store-ID feststeht. Vorher kein Store-Link. -->
+  <!-- Smart App Banner (apple-itunes-app, iOS-ID 6834782128) folgt mit der Live-Schaltung (landingpage-update Station 8). Vorher kein Store-Link. -->
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -14,8 +14,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <link rel="canonical" href="https://hauszaehler.de/">
-  <meta property="og:title" content="HausZähler – Zähler ablesen per Foto">
-  <meta property="og:description" content="Foto, bestätigen, fertig. Strom, Einspeisung, Gas, Wasser und Wärme. Bald im App Store.">
+  <meta property="og:title" content="HausZähler – Strom, Gas, Wasser ablesen">
+  <meta property="og:description" content="Mehr aus deinen Zählern. Bequemer. Schneller. Strom, Einspeisung, Gas, Wasser und Wärme. Bald im App Store.">
   <meta property="og:url" content="https://hauszaehler.de/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://hauszaehler.de/icon-512.png">
@@ -78,6 +78,10 @@
     .lang-btn.active { background: var(--ink); color: #fff; }
     @media (max-width: 760px) { .nav-link { display: none; } }
 
+    /* Launch-Banner (zukunftsgerichtet, vor der Freigabe) */
+    .launch-banner { background: var(--ink); color: #fff; font-size: 15px; text-align: center; padding: 10px 16px; }
+    .launch-banner strong { color: #fff; }
+
     /* Hero */
     .hero { padding: 72px 0 80px; background: linear-gradient(180deg, #F4F8FB 0%, #FFFFFF 70%); }
     .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
@@ -101,7 +105,7 @@
     .phone.second { margin-top: 56px; }
     .scr-title { font-size: 13px; font-weight: 750; color: var(--ink); padding: 4px 16px 10px; }
     .viewfinder { margin: 0 14px; border-radius: 18px; background: linear-gradient(160deg, #2A3C50, #121D29); padding: 22px 12px 18px; position: relative; }
-    .viewfinder::before, .viewfinder::after { content: ""; position: absolute; width: 22px; height: 22px; border: 3px solid rgba(255,255,255,0.85); }
+    .viewfinder::before, .viewfinder::after { content: none; }
     .viewfinder::before { top: 10px; left: 10px; border-right: 0; border-bottom: 0; border-radius: 6px 0 0 0; }
     .viewfinder::after { bottom: 10px; right: 10px; border-left: 0; border-top: 0; border-radius: 0 0 6px 0; }
     .rolls { display: flex; justify-content: center; gap: 4px; background: #F4F6F8; border-radius: 10px; padding: 7px; }
@@ -262,13 +266,16 @@
   </nav>
 
   <main id="main">
+  <!-- 1 Launch-Banner -->
+  <div class="launch-banner" role="note" data-i18n="lb_text"><strong>Version 1.0 kommt bald:</strong> Ablesen in Sekunden, Übersicht mit Abschlag-Check, Verträge mit Erinnerung vor dem Vertragsende.</div>
+
   <!-- 2 Hero -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="hero-badge"><span class="hero-badge-dot"></span><span data-i18n="hero_badge">In Entwicklung · bald im App Store</span></div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span><span data-i18n="hero_badge">Version 1.0 · bald im App Store</span></div>
         <h1><span data-i18n="hero_h1_a">Mehr aus deinen Zählern.</span><br><span class="accent" data-i18n="hero_h1_b">Bequemer. Schneller.</span></h1>
-        <p class="hero-sub" data-i18n="hero_sub">Foto, bestätigen, fertig: HausZähler liest Strom, Einspeisung, Gas, Wasser und Wärme in Sekunden ab, behält deine Verträge im Blick und rechnet deine Jahresabrechnung nach. Gemacht für jedermann.</p>
+        <p class="hero-sub" data-i18n="hero_sub">Stand eintippen, fertig: HausZähler erfasst Strom, Einspeisung, Gas, Wasser und Wärme in Sekunden, rechnet Verbrauch, Kosten und Hochrechnung und behält deine Verträge im Blick. Gemacht für jedermann.</p>
         <div class="values" aria-label="Unsere Werte" data-i18n-attr="aria-label:values_aria">
           <span class="value"><i style="background:var(--strom)"></i><span data-i18n="val_simple">simpel</span></span>
           <span class="value"><i style="background:var(--wasser)"></i><span data-i18n="val_exact">exakt</span></span>
@@ -282,20 +289,20 @@
       </div>
 
       <div>
-        <div class="mock-wrap" role="img" aria-label="Illustration: Ablesung per Foto und Übersicht in der App" data-i18n-attr="aria-label:mock_aria">
+        <div class="mock-wrap" role="img" aria-label="Illustration: Ablesung eingeben und Übersicht in der App" data-i18n-attr="aria-label:mock_aria">
           <div class="phone" aria-hidden="true">
             <div class="phone-screen">
               <div class="phone-bar"><div class="phone-notch"></div></div>
               <div class="scr-title" data-i18n="m1_title">Zähler ablesen</div>
               <div class="viewfinder">
                 <div class="rolls"><div class="roll">0</div><div class="roll">4</div><div class="roll">2</div><div class="roll">7</div><div class="roll">1</div><div class="roll dec">6</div></div>
-                <div class="vf-label" data-i18n="m1_vf">Zählerstand erkannt</div>
+                <div class="vf-label" data-i18n="m1_vf">Zählwerk wie am Zähler</div>
               </div>
               <div class="result">
                 <div class="result-row"><span data-i18n="m1_meter">Zähler</span><b data-i18n="m1_meter_v">Strom · Bezug</b></div>
                 <div class="result-row"><span data-i18n="m1_value">Stand</span><b>04271,6 kWh</b></div>
                 <div class="result-row"><span data-i18n="m1_date">Datum</span><b data-i18n="m1_date_v">heute, 08:14</b></div>
-                <div class="result-row"><span data-i18n="m1_proof">Nachweis</span><b data-i18n="m1_proof_v">Foto gespeichert</b></div>
+                <div class="result-row"><span data-i18n="m1_proof">Herkunft</span><b data-i18n="m1_proof_v">von Hand</b></div>
               </div>
               <div class="confirm" data-i18n="m1_btn">Bestätigen</div>
             </div>
@@ -318,7 +325,7 @@
             </div>
           </div>
         </div>
-        <p class="mock-caption" data-i18n="mock_caption">Illustration mit Beispielwerten. Die App ist in Entwicklung.</p>
+        <p class="mock-caption" data-i18n="mock_caption">Illustration mit Beispielwerten.</p>
       </div>
     </div>
   </section>
@@ -328,13 +335,13 @@
     <div class="container">
       <span class="section-label" data-i18n="ps_label">Warum HausZähler?</span>
       <h2 class="section-headline" data-i18n="ps_title">Zählerstände auf Zetteln? Damit ist Schluss.</h2>
-      <p class="section-sub" data-i18n="ps_sub">Ablesen, aufschreiben, suchen, nachrechnen: Das kostet Zeit und Nerven. HausZähler macht daraus ein Foto.</p>
+      <p class="section-sub" data-i18n="ps_sub">Ablesen, aufschreiben, suchen, nachrechnen: Das kostet Zeit und Nerven. HausZähler erledigt das in Sekunden.</p>
       <div class="ps-grid">
         <div class="ps-card">
           <h3 data-i18n="pain_title">Bisher</h3>
           <ul>
             <li data-i18n="pain_1">Zählerstände auf Zetteln, in Notizen oder gar nicht notiert.</li>
-            <li data-i18n="pain_2">Die Jahresabrechnung kommt, und du kannst sie nicht prüfen.</li>
+            <li data-i18n="pain_2">Die Jahresabrechnung kommt, und du weißt erst dann, ob dein Abschlag gereicht hat.</li>
             <li data-i18n="pain_3">Die Kündigungsfrist beim Versorger ist schon vorbei.</li>
             <li data-i18n="pain_4">Beim Auszug fehlt der Nachweis, welcher Stand am Zähler war.</li>
           </ul>
@@ -342,9 +349,9 @@
         <div class="ps-card solution">
           <h3 data-i18n="sol_title">Mit HausZähler</h3>
           <ul>
-            <li data-i18n="sol_1">Foto, bestätigen, fertig. Jede Ablesung mit Datum und Foto.</li>
-            <li data-i18n="sol_2">Die App rechnet deine Abrechnung mit deinen eigenen Ablesungen nach.</li>
-            <li data-i18n="sol_3">Erinnerung 6 Wochen vor deiner Kündigungsfrist.</li>
+            <li data-i18n="sol_1">Stand eintippen, fertig. Die App prüft jeden Wert sofort auf Plausibilität.</li>
+            <li data-i18n="sol_2">Kosten, Hochrechnung und Abschlag-Check zeigen früh, ob eine Nachzahlung droht.</li>
+            <li data-i18n="sol_3">Dein letzter Kündigungstag immer im Blick, mit Erinnerung rechtzeitig davor.</li>
             <li data-i18n="sol_4">Ablesenachweis als PDF, zum Beispiel für Vermieter oder Versorger.</li>
           </ul>
           <p class="ps-end" data-i18n="sol_end">Alles an einem Ort. Alles auf deinem Gerät.</p>
@@ -358,12 +365,12 @@
     <div class="container">
       <span class="section-label" data-i18n="f_label">Funktionen</span>
       <h2 class="section-headline" data-i18n="f_title">Mehr als nur Zählerstände.</h2>
-      <p class="section-sub" data-i18n="f_sub">Das ist für Version 1.0 geplant. Wir bauen gerade daran.</p>
+      <p class="section-sub" data-i18n="f_sub">Das steckt in Version 1.0.</p>
       <div class="feature-grid">
         <div class="feature">
           <div class="f-icon bg-ink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
-          <h3 data-i18n="f1_t">Foto, bestätigen, fertig</h3>
-          <p data-i18n="f1_d">Kamera auf den Zähler, Stand prüfen, bestätigen. Die App ordnet den Stand über die Zählernummer zu und warnt bei ungewöhnlichen Sprüngen.</p>
+          <h3 data-i18n="f1_t">Ablesen in Sekunden</h3>
+          <p data-i18n="f1_d">Stand eintippen wie am Zählwerk, fertig. Rückläufige Stände blockiert die App, ungewöhnliche Sprünge meldet sie. Ein Zählerwechsel ist ein eigener, geführter Schritt.</p>
         </div>
         <div class="feature">
           <div class="f-icon bg-strom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L5 14h6l-1 8 8-12h-6z"/></svg></div>
@@ -373,27 +380,27 @@
         <div class="feature">
           <div class="f-icon bg-gas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/></svg></div>
           <h3 data-i18n="f3_t">Verträge im Blick</h3>
-          <p data-i18n="f3_d">Vertrag fotografieren, Daten werden übernommen: Versorger, Zählernummer, Preise, gültig ab. Erinnerung 6 Wochen vor der Kündigungsfrist.</p>
+          <p data-i18n="f3_d">Versorger, Preise, Grundpreis, Abschlag und Laufzeit hinterlegen. Die App zeigt deinen letzten Kündigungstag und erinnert dich mit Premium rechtzeitig davor.</p>
         </div>
         <div class="feature">
           <div class="f-icon bg-wasser"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 7-7"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div>
-          <h3 data-i18n="f4_t">Abrechnung nachgerechnet</h3>
-          <p data-i18n="f4_d">Jahresabrechnung scannen, die App vergleicht sie mit deinen Ablesungen, für jeden Abrechnungszeitraum. Ergebnis: bestätigt oder die Differenz je Position.</p>
+          <h3 data-i18n="f4_t">Reicht dein Abschlag?</h3>
+          <p data-i18n="f4_d">Die App rechnet deine Kosten aus Arbeitspreis und Grundpreis tageweise und zeigt früh, ob eine Nachzahlung oder ein Guthaben zu erwarten ist.</p>
         </div>
         <div class="feature">
           <div class="f-icon bg-waerme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
           <h3 data-i18n="f5_t">Übersicht mit Hochrechnung</h3>
-          <p data-i18n="f5_d">Verbrauch und Kosten, Hochrechnung aufs Jahr, Abschlag-Check, PV-Bilanz, Werte je Person und m². Auffälligkeiten fallen sofort auf.</p>
+          <p data-i18n="f5_d">Verbrauch, Ø pro Tag, Kosten, Hochrechnung aufs Jahr, Einspeisung mit Vergütung, Werte je Person und m². Gas in kWh, so wie der Versorger abrechnet.</p>
         </div>
         <div class="feature">
           <div class="f-icon bg-ink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 14l2 2 4-4"/></svg></div>
           <h3 data-i18n="f6_t">Nachweis als PDF</h3>
-          <p data-i18n="f6_d">Jede Ablesung mit Foto, Zeitpunkt und Herkunft. Änderungen werden protokolliert, nicht überschrieben. Ablesenachweis und Jahresbericht als PDF.</p>
+          <p data-i18n="f6_d">Jede Ablesung mit Zeitpunkt und Herkunft. Korrekturen werden protokolliert, nicht überschrieben. Ablesenachweis und Jahresbericht als PDF, etwa für Vermieter oder Versorger.</p>
         </div>
         <div class="feature">
           <div class="f-icon bg-strom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v3h16v-3"/></svg></div>
-          <h3 data-i18n="f7_t">Schneller Start mit Import</h3>
-          <p data-i18n="f7_d">Übernimm kostenlos Exporte anderer Zähler-Apps (CSV, XML) oder fotografiere deine letzte Jahresabrechnung. So hast du gleich einen Verlauf.</p>
+          <h3 data-i18n="f7_t">Umzug ohne Abtippen</h3>
+          <p data-i18n="f7_d">Übernimm kostenlos deinen Verlauf aus einer anderen Zähler-App (Archiv- oder CSV-Export), mit Vorschau vor dem Speichern und Rückgängig.</p>
         </div>
         <div class="feature">
           <div class="f-icon bg-gas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
@@ -403,7 +410,7 @@
         <div class="feature">
           <div class="f-icon bg-wasser"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
           <h3 data-i18n="f9_t">Erinnerung zum Ablesen</h3>
-          <p data-i18n="f9_d">Eine Erinnerung zum Monatsende, ein Widget auf dem Home-Bildschirm und ein Kurzbefehl, der direkt die Kamera öffnet.</p>
+          <p data-i18n="f9_d">Eine Erinnerung zum Monatsende, ein Widget mit Hochrechnung und letzter Ablesung und ein Kurzbefehl „Zähler ablesen“.</p>
         </div>
       </div>
     </div>
@@ -416,14 +423,14 @@
       <h2 class="section-headline" data-i18n="h_title">Drei Schritte. Ein paar Sekunden.</h2>
       <p class="section-sub" data-i18n="h_sub">Ohne Anmeldung, ohne Konto.</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><h3 data-i18n="s1_t">Foto</h3><p data-i18n="s1_d">Halte die Kamera auf den Zähler. Die App erkennt Zählerstand und Zählernummer.</p></div>
-        <div class="step"><div class="step-num">2</div><h3 data-i18n="s2_t">Bestätigen</h3><p data-i18n="s2_d">Du siehst den erkannten Stand und bestätigst ihn mit einem Tipp. Falls nötig, korrigierst du ihn.</p></div>
-        <div class="step"><div class="step-num">3</div><h3 data-i18n="s3_t">Fertig</h3><p data-i18n="s3_d">Die Ablesung ist gespeichert, mit Datum und auf Wunsch mit Foto als Nachweis. Die Übersicht ist sofort aktuell.</p></div>
+        <div class="step"><div class="step-num">1</div><h3 data-i18n="s1_t">Zähler wählen</h3><p data-i18n="s1_d">Öffne die Ablesung in der App, über das Widget oder den Kurzbefehl und wähle den Zähler.</p></div>
+        <div class="step"><div class="step-num">2</div><h3 data-i18n="s2_t">Stand eintippen</h3><p data-i18n="s2_d">Gib den Stand so ein, wie er am Zählwerk steht. Die App prüft ihn sofort und warnt bei Auffälligkeiten.</p></div>
+        <div class="step"><div class="step-num">3</div><h3 data-i18n="s3_t">Fertig</h3><p data-i18n="s3_d">Die Ablesung ist gespeichert, mit Datum und Herkunft. Die Übersicht ist sofort aktuell.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 6 Roadmap (vor dem Start: Version 1.0 + später) -->
+  <!-- 6 Roadmap (vor dem Start: Version 1.0 + als nächstes) -->
   <section class="section" id="entwicklung">
     <div class="container">
       <span class="section-label" data-i18n="rm_label">Entwicklung</span>
@@ -431,25 +438,27 @@
       <div class="rm-grid">
         <div class="rm-card">
           <h3 data-i18n="rm_now_t">Version 1.0</h3>
-          <p class="rm-note" data-i18n="rm_now_n">In Arbeit</p>
+          <p class="rm-note" data-i18n="rm_now_n">Kommt bald</p>
           <ul>
-            <li data-i18n="rm_now_1">Ablesung per Foto für Strom, Einspeisung, Gas, Wasser und Wärme</li>
-            <li data-i18n="rm_now_2">Verträge per Foto mit Erinnerung vor der Kündigungsfrist</li>
-            <li data-i18n="rm_now_3">Prüfung der Jahresabrechnung</li>
-            <li data-i18n="rm_now_4">Übersicht mit Hochrechnung und Abschlag-Check</li>
-            <li data-i18n="rm_now_5">Ablesenachweis und Jahresbericht als PDF</li>
-            <li data-i18n="rm_now_6">Import von CSV und XML anderer Zähler-Apps</li>
+            <li data-i18n="rm_now_1">Ablesen von Hand für Strom, Einspeisung, Gas, Wasser und Wärme, mit Plausibilitätsprüfung</li>
+            <li data-i18n="rm_now_2">Verträge mit Kündigungstag und Erinnerung vor dem Vertragsende</li>
+            <li data-i18n="rm_now_3">Übersicht mit Kosten, Hochrechnung und Abschlag-Check</li>
+            <li data-i18n="rm_now_4">Ablesenachweis und Jahresbericht als PDF</li>
+            <li data-i18n="rm_now_5">Umzug aus einer anderen Zähler-App, kostenlos</li>
+            <li data-i18n="rm_now_6">Ablese-Erinnerung, Widget und Kurzbefehl</li>
             <li data-i18n="rm_now_7">iPhone, iPad und Mac, abgeglichen über deine private iCloud</li>
           </ul>
         </div>
         <div class="rm-card later">
-          <h3 data-i18n="rm_later_t">Später</h3>
-          <p class="rm-note" data-i18n="rm_later_n">Geplant, noch ohne Termin</p>
+          <h3 data-i18n="rm_later_t">Als nächstes</h3>
+          <p class="rm-note" data-i18n="rm_later_n">Geplant, ohne festen Termin</p>
           <ul>
-            <li data-i18n="rm_later_1">Anbindung an PV-Anlagen und Home Assistant</li>
-            <li data-i18n="rm_later_2">Gemeinsam ablesen im Haushalt</li>
-            <li data-i18n="rm_later_3">Witterungsbereinigte Abrechnungsprüfung</li>
-            <li data-i18n="rm_later_4">Apple Watch</li>
+            <li data-i18n="rm_later_1">Ablesen per Foto, erkannt auf deinem Gerät</li>
+            <li data-i18n="rm_later_2">Prüfung der Jahresabrechnung</li>
+            <li data-i18n="rm_later_3">Datenexport als CSV, Sicherung und Wiederherstellung</li>
+            <li data-i18n="rm_later_4">Gemeinsam ablesen im Haushalt</li>
+            <li data-i18n="rm_later_5">Anbindung an PV-Anlagen und Home Assistant</li>
+            <li data-i18n="rm_later_6">Apple Watch</li>
           </ul>
         </div>
       </div>
@@ -462,9 +471,9 @@
     <div class="container">
       <div class="lock"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
       <h2 data-i18n="pp_title">Deine Daten bleiben bei dir.</h2>
-      <p data-i18n="pp_text">Die Erkennung von Zählerfotos, Verträgen und Abrechnungen läuft auf deinem Gerät. Gespeichert wird auf deinem Gerät und in deiner privaten iCloud. Du brauchst kein Konto bei uns, und wir betreiben keinen eigenen Server für deine Daten.</p>
+      <p data-i18n="pp_text">Gespeichert wird auf deinem Gerät und in deiner privaten iCloud. Du brauchst kein Konto bei uns, die App erfasst keine Daten für uns, und wir betreiben keinen eigenen Server für deine Daten.</p>
       <div class="priv-points">
-        <span data-i18n="pp_1">Erkennung auf dem Gerät</span>
+        <span data-i18n="pp_1">Kein Tracking</span>
         <span data-i18n="pp_2">Private iCloud</span>
         <span data-i18n="pp_3">Kein Konto</span>
         <span data-i18n="pp_4">Kein eigener Server</span>
@@ -479,23 +488,24 @@
       <span class="section-label" data-i18n="faq_label">Häufige Fragen</span>
       <h2 class="section-headline" data-i18n="faq_title">Gut zu wissen.</h2>
       <div class="faq-list">
-        <details class="faq-item"><summary data-i18n="q1">Wann erscheint HausZähler?</summary><p data-i18n="a1">Wir arbeiten an Version 1.0. Einen Termin nennen wir, sobald die App bei Apple eingereicht ist. Bis dahin gibt es keinen Download.</p></details>
+        <details class="faq-item"><summary data-i18n="q1">Wann erscheint HausZähler?</summary><p data-i18n="a1">Version 1.0 ist fast fertig. Sobald Apple die App freigibt, findest du sie hier und im App Store.</p></details>
         <details class="faq-item"><summary data-i18n="q2">Welche Zähler kann ich erfassen?</summary><p data-i18n="a2">Strom (Bezug und Einspeisung, auch HT/NT und Zweirichtungszähler), Gas, Wasser und Wärme. Gas rechnet die App von m³ in kWh um.</p></details>
         <details class="faq-item"><summary data-i18n="q3">Brauche ich ein Konto?</summary><p data-i18n="a3">Nein. HausZähler kommt ohne Anmeldung und ohne Konto bei uns aus.</p></details>
-        <details class="faq-item"><summary data-i18n="q4">Wo liegen meine Daten und Fotos?</summary><p data-i18n="a4">Auf deinem Gerät und in deiner privaten iCloud. So sind deine Daten auf iPhone, iPad und Mac gleich. Ob Fotos als Nachweis gespeichert werden, entscheidest du in den Einstellungen.</p></details>
+        <details class="faq-item"><summary data-i18n="q4">Wo liegen meine Daten?</summary><p data-i18n="a4">Auf deinem Gerät und in deiner privaten iCloud. So sind deine Daten auf iPhone, iPad und Mac gleich. Wir haben keinen Zugriff darauf.</p></details>
         <details class="faq-item"><summary data-i18n="q5">Auf welchen Geräten läuft die App?</summary><p data-i18n="a5">Auf iPhone, iPad und Mac. Eine Version für die Apple Watch ist für später geplant.</p></details>
-        <details class="faq-item"><summary data-i18n="q6">Kann ich Daten aus einer anderen Zähler-App übernehmen?</summary><p data-i18n="a6">Ja, kostenlos. HausZähler liest Exporte anderer Apps im CSV- oder XML-Format ein. Du kannst auch deine letzte Jahresabrechnung fotografieren.</p></details>
-        <details class="faq-item"><summary data-i18n="q7">Ersetzt die Abrechnungsprüfung eine Rechtsberatung?</summary><p data-i18n="a7">Nein. Die App vergleicht die Abrechnung mit deinen eigenen Ablesungen und zeigt, ob sie übereinstimmen oder wo es Unterschiede gibt. Fehlen Ablesungen genau an den Grenzen des Abrechnungszeitraums, schätzt die App die Werte und weist darauf hin.</p></details>
-        <details class="faq-item"><summary data-i18n="q8">Vergleicht HausZähler Tarife oder wechselt den Anbieter für mich?</summary><p data-i18n="a8">Nein. HausZähler erinnert dich rechtzeitig vor der Kündigungsfrist. Den Wechsel entscheidest und machst du selbst.</p></details>
-        <details class="faq-item"><summary data-i18n="q9">Was kostet HausZähler?</summary><p data-i18n="a9">Du kannst HausZähler kostenlos nutzen. Weitere Funktionen gibt es mit einem Premium-Abo. Die Preise siehst du zum Start im App Store.</p></details>
-        <details class="faq-item"><summary data-i18n="q11">Kann ich meine Daten exportieren?</summary><p data-i18n="a11">Ja. Deine Daten exportierst du jederzeit, zum Beispiel als CSV-Datei, auch ohne Abo. PDF-Berichte und der Ablesenachweis als PDF gehören zu Premium.</p></details>
+        <details class="faq-item"><summary data-i18n="q6">Kann ich Daten aus einer anderen Zähler-App übernehmen?</summary><p data-i18n="a6">Ja, kostenlos. HausZähler übernimmt den Verlauf aus einer anderen Zähler-App über deren Archiv- oder CSV-Export. Du siehst vorher eine Vorschau und kannst den Import rückgängig machen.</p></details>
+        <details class="faq-item"><summary data-i18n="q7">Ist der berechnete Kündigungstag verbindlich?</summary><p data-i18n="a7">Nein, das ist keine Rechtsberatung. Die App berechnet den letzten Kündigungstag aus den Angaben, die du hinterlegst. Bitte prüfe ihn in deinem Vertrag.</p></details>
+        <details class="faq-item"><summary data-i18n="q8">Vergleicht HausZähler Tarife oder wechselt den Anbieter für mich?</summary><p data-i18n="a8">Nein. HausZähler zeigt dir den letzten Kündigungstag und erinnert dich mit Premium rechtzeitig davor. Den Wechsel entscheidest und machst du selbst.</p></details>
+        <details class="faq-item"><summary data-i18n="q9">Was kostet HausZähler?</summary><p data-i18n="a9">HausZähler ist kostenlos nutzbar, mit einer Ablesung pro Zähler und Monat. Premium als Monats- oder Jahresabo bringt unbegrenzte Ablesungen, PDF-Berichte zum Teilen und die Erinnerung vor dem Vertragsende. Das Jahresabo startet mit 3 Monaten gratis. Die Preise siehst du im App Store.</p></details>
+        <details class="faq-item"><summary data-i18n="q11">Kann ich meine Daten exportieren?</summary><p data-i18n="a11">PDF-Berichte (Ablesenachweis, Jahresbericht) siehst du in der App kostenlos an. Teilen und Sichern gehört zu Premium, dein erster Ablesenachweis ist gratis. Ein kostenloser Datenexport als CSV folgt mit einem der nächsten Updates.</p></details>
+        <details class="faq-item"><summary data-i18n="q12">Kann ich Zähler per Foto ablesen?</summary><p data-i18n="a12">Noch nicht. Die Fotoerkennung ist für eine der nächsten Versionen geplant und läuft dann auf deinem Gerät. In Version 1.0 tippst du den Stand ein, das dauert nur wenige Sekunden.</p></details>
         <details class="faq-item"><summary data-i18n="q10">Gibt es eine Anbindung an PV-Anlage oder Home Assistant?</summary><p data-i18n="a10">Noch nicht. Das ist für später geplant.</p></details>
       </div>
     </div>
   </section>
 
   <!-- 10 Final CTA -->
-  <section class="final">
+  <section class="final" id="support">
     <div class="container">
       <h2 data-i18n="final_title">Ablesen war noch nie so einfach.</h2>
       <p data-i18n="final_text">HausZähler kommt bald für iPhone, iPad und Mac. Simpel, exakt und nachweisbar.</p>
@@ -523,8 +533,8 @@
       <h3 data-i18n="imp_resp">Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)</h3>
       <p>Thomas Reinke, Roesgenstr. 22, 53474 Ahrweiler</p>
       <h3 data-i18n="imp_disc">Haftung für Inhalte</h3>
-      <p data-i18n="imp_disc_t">Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr. Die App ist in Entwicklung; beschriebene Funktionen können sich bis zum Start ändern.</p>
-      <p class="imprint-notice" data-i18n="imp_notice">Dieses Impressum gilt für die Website <strong>hauszaehler.de</strong> sowie für die geplante App <strong>HausZähler</strong> (DE) bzw. <strong>MeterRoll</strong> (EN) von torecon – Thomas Reinke.</p>
+      <p data-i18n="imp_disc_t">Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr. Geplante Funktionen sind als solche gekennzeichnet und können sich ändern.</p>
+      <p class="imprint-notice" data-i18n="imp_notice">Dieses Impressum gilt für die Website <strong>hauszaehler.de</strong> sowie für die App <strong>HausZähler</strong> (DE) bzw. <strong>MeterRoll</strong> (EN) von torecon – Thomas Reinke.</p>
     </div>
   </section>
 
@@ -554,84 +564,84 @@
   </footer>
 
   <script>
-    // Kein App-Store-Link vor dem Start. Sobald die App-ID feststeht: APP_STORE_URL setzen,
+    // Kein App-Store-Link vor der Freigabe. Live-Schaltung (Station 8): APP_STORE_URL = 'https://apps.apple.com/app/meterroll/id6834782128',
     // Smart App Banner + iPhone-Modal nach landingpage-update ergänzen.
     const APP_STORE_URL = null;
 
     const translations = {
       de: {
-        doc_title: "HausZähler – Zähler ablesen per Foto. Bald im App Store.",
-        doc_desc: "HausZähler: Zählerstände per Foto für Strom, Einspeisung, Gas, Wasser und Wärme. Verträge im Blick, Abrechnung nachgerechnet. Bald im App Store.",
+        doc_title: "HausZähler – Strom, Gas, Wasser ablesen. Bald im App Store.",
+        doc_desc: "HausZähler: Zählerstände für Strom, Gas, Wasser und Wärme in Sekunden erfasst. Kosten, Hochrechnung, Abschlag-Check, Verträge. Bald im App Store.",
         skip: "Zum Inhalt springen", nav_aria: "Hauptnavigation",
         brand: "HausZähler", nav_sub: "eine App von torecon",
         nav_features: "Funktionen", nav_privacy: "Datenschutz", nav_faq: "Fragen",
-        hero_badge: "In Entwicklung · bald im App Store",
+        hero_badge: "Version 1.0 · bald im App Store",
         hero_h1_a: "Mehr aus deinen Zählern.", hero_h1_b: "Bequemer. Schneller.",
-        hero_sub: "Foto, bestätigen, fertig: HausZähler liest Strom, Einspeisung, Gas, Wasser und Wärme in Sekunden ab, behält deine Verträge im Blick und rechnet deine Jahresabrechnung nach. Gemacht für jedermann.",
+        hero_sub: "Stand eintippen, fertig: HausZähler erfasst Strom, Einspeisung, Gas, Wasser und Wärme in Sekunden, rechnet Verbrauch, Kosten und Hochrechnung und behält deine Verträge im Blick. Gemacht für jedermann.",
         values_aria: "Unsere Werte", val_simple: "simpel", val_exact: "exakt", val_proof: "nachweisbar",
         soon: "Bald im App Store", hero_meta: "Für iPhone, iPad und Mac · Deutsch und Englisch",
-        mock_aria: "Illustration: Ablesung per Foto und Übersicht in der App",
-        m1_title: "Zähler ablesen", m1_vf: "Zählerstand erkannt", m1_meter: "Zähler", m1_meter_v: "Strom · Bezug",
-        m1_value: "Stand", m1_date: "Datum", m1_date_v: "heute, 08:14", m1_proof: "Nachweis", m1_proof_v: "Foto gespeichert", m1_btn: "Bestätigen",
+        mock_aria: "Illustration: Ablesung eingeben und Übersicht in der App",
+        m1_title: "Zähler ablesen", m1_vf: "Zählwerk wie am Zähler", m1_meter: "Zähler", m1_meter_v: "Strom · Bezug",
+        m1_value: "Stand", m1_date: "Datum", m1_date_v: "heute, 08:14", m1_proof: "Herkunft", m1_proof_v: "von Hand", m1_btn: "Bestätigen",
         m2_title: "Übersicht · Wohnung", m2_strom: "Strom", m2_feed: "Einspeisung", m2_gas: "Gas", m2_water: "Wasser", m2_check: "Abschlag reicht voraussichtlich",
-        mock_caption: "Illustration mit Beispielwerten. Die App ist in Entwicklung.",
+        mock_caption: "Illustration mit Beispielwerten.",
         ps_label: "Warum HausZähler?", ps_title: "Zählerstände auf Zetteln? Damit ist Schluss.",
-        ps_sub: "Ablesen, aufschreiben, suchen, nachrechnen: Das kostet Zeit und Nerven. HausZähler macht daraus ein Foto.",
+        ps_sub: "Ablesen, aufschreiben, suchen, nachrechnen: Das kostet Zeit und Nerven. HausZähler erledigt das in Sekunden.",
         pain_title: "Bisher",
         pain_1: "Zählerstände auf Zetteln, in Notizen oder gar nicht notiert.",
-        pain_2: "Die Jahresabrechnung kommt, und du kannst sie nicht prüfen.",
+        pain_2: "Die Jahresabrechnung kommt, und du weißt erst dann, ob dein Abschlag gereicht hat.",
         pain_3: "Die Kündigungsfrist beim Versorger ist schon vorbei.",
         pain_4: "Beim Auszug fehlt der Nachweis, welcher Stand am Zähler war.",
         sol_title: "Mit HausZähler",
-        sol_1: "Foto, bestätigen, fertig. Jede Ablesung mit Datum und Foto.",
-        sol_2: "Die App rechnet deine Abrechnung mit deinen eigenen Ablesungen nach.",
-        sol_3: "Erinnerung 6 Wochen vor deiner Kündigungsfrist.",
+        sol_1: "Stand eintippen, fertig. Die App prüft jeden Wert sofort auf Plausibilität.",
+        sol_2: "Kosten, Hochrechnung und Abschlag-Check zeigen früh, ob eine Nachzahlung droht.",
+        sol_3: "Dein letzter Kündigungstag immer im Blick, mit Erinnerung rechtzeitig davor.",
         sol_4: "Ablesenachweis als PDF, zum Beispiel für Vermieter oder Versorger.",
         sol_end: "Alles an einem Ort. Alles auf deinem Gerät.",
-        f_label: "Funktionen", f_title: "Mehr als nur Zählerstände.", f_sub: "Das ist für Version 1.0 geplant. Wir bauen gerade daran.",
-        f1_t: "Foto, bestätigen, fertig", f1_d: "Kamera auf den Zähler, Stand prüfen, bestätigen. Die App ordnet den Stand über die Zählernummer zu und warnt bei ungewöhnlichen Sprüngen.",
+        f_label: "Funktionen", f_title: "Mehr als nur Zählerstände.", f_sub: "Das steckt in Version 1.0.",
+        f1_t: "Ablesen in Sekunden", f1_d: "Stand eintippen wie am Zählwerk, fertig. Rückläufige Stände blockiert die App, ungewöhnliche Sprünge meldet sie. Ein Zählerwechsel ist ein eigener, geführter Schritt.",
         f2_t: "Alle Zähler im Haus", f2_d: "Strom mit Einspeisung, auch HT/NT und Zweirichtungszähler. Dazu Gas, Wasser und Wärme. Gas rechnet die App von m³ in kWh um.",
-        f3_t: "Verträge im Blick", f3_d: "Vertrag fotografieren, Daten werden übernommen: Versorger, Zählernummer, Preise, gültig ab. Erinnerung 6 Wochen vor der Kündigungsfrist.",
-        f4_t: "Abrechnung nachgerechnet", f4_d: "Jahresabrechnung scannen, die App vergleicht sie mit deinen Ablesungen, für jeden Abrechnungszeitraum. Ergebnis: bestätigt oder die Differenz je Position.",
-        f5_t: "Übersicht mit Hochrechnung", f5_d: "Verbrauch und Kosten, Hochrechnung aufs Jahr, Abschlag-Check, PV-Bilanz, Werte je Person und m². Auffälligkeiten fallen sofort auf.",
-        f6_t: "Nachweis als PDF", f6_d: "Jede Ablesung mit Foto, Zeitpunkt und Herkunft. Änderungen werden protokolliert, nicht überschrieben. Ablesenachweis und Jahresbericht als PDF.",
-        f7_t: "Schneller Start mit Import", f7_d: "Übernimm kostenlos Exporte anderer Zähler-Apps (CSV, XML) oder fotografiere deine letzte Jahresabrechnung. So hast du gleich einen Verlauf.",
+        f3_t: "Verträge im Blick", f3_d: "Versorger, Preise, Grundpreis, Abschlag und Laufzeit hinterlegen. Die App zeigt deinen letzten Kündigungstag und erinnert dich mit Premium rechtzeitig davor.",
+        f4_t: "Reicht dein Abschlag?", f4_d: "Die App rechnet deine Kosten aus Arbeitspreis und Grundpreis tageweise und zeigt früh, ob eine Nachzahlung oder ein Guthaben zu erwarten ist.",
+        f5_t: "Übersicht mit Hochrechnung", f5_d: "Verbrauch, Ø pro Tag, Kosten, Hochrechnung aufs Jahr, Einspeisung mit Vergütung, Werte je Person und m². Gas in kWh, so wie der Versorger abrechnet.",
+        f6_t: "Nachweis als PDF", f6_d: "Jede Ablesung mit Zeitpunkt und Herkunft. Korrekturen werden protokolliert, nicht überschrieben. Ablesenachweis und Jahresbericht als PDF, etwa für Vermieter oder Versorger.",
+        f7_t: "Umzug ohne Abtippen", f7_d: "Übernimm kostenlos deinen Verlauf aus einer anderen Zähler-App (Archiv- oder CSV-Export), mit Vorschau vor dem Speichern und Rückgängig.",
         f8_t: "Mehrere Wohnungen", f8_d: "Haus, Wohnung oder Garage: Lege mehrere Verbrauchsstellen an. Beim Zählerwechsel läuft der Verlauf nahtlos weiter.",
-        f9_t: "Erinnerung zum Ablesen", f9_d: "Eine Erinnerung zum Monatsende, ein Widget auf dem Home-Bildschirm und ein Kurzbefehl, der direkt die Kamera öffnet.",
+        f9_t: "Erinnerung zum Ablesen", f9_d: "Eine Erinnerung zum Monatsende, ein Widget mit Hochrechnung und letzter Ablesung und ein Kurzbefehl „Zähler ablesen“.",
         h_label: "So einfach geht es", h_title: "Drei Schritte. Ein paar Sekunden.", h_sub: "Ohne Anmeldung, ohne Konto.",
-        s1_t: "Foto", s1_d: "Halte die Kamera auf den Zähler. Die App erkennt Zählerstand und Zählernummer.",
-        s2_t: "Bestätigen", s2_d: "Du siehst den erkannten Stand und bestätigst ihn mit einem Tipp. Falls nötig, korrigierst du ihn.",
-        s3_t: "Fertig", s3_d: "Die Ablesung ist gespeichert, mit Datum und auf Wunsch mit Foto als Nachweis. Die Übersicht ist sofort aktuell.",
+        s1_t: "Zähler wählen", s1_d: "Öffne die Ablesung in der App, über das Widget oder den Kurzbefehl und wähle den Zähler.",
+        s2_t: "Stand eintippen", s2_d: "Gib den Stand so ein, wie er am Zählwerk steht. Die App prüft ihn sofort und warnt bei Auffälligkeiten.",
+        s3_t: "Fertig", s3_d: "Die Ablesung ist gespeichert, mit Datum und Herkunft. Die Übersicht ist sofort aktuell.",
         rm_label: "Entwicklung", rm_title: "Was kommt.",
-        rm_now_t: "Version 1.0", rm_now_n: "In Arbeit",
-        rm_now_1: "Ablesung per Foto für Strom, Einspeisung, Gas, Wasser und Wärme",
-        rm_now_2: "Verträge per Foto mit Erinnerung vor der Kündigungsfrist",
-        rm_now_3: "Prüfung der Jahresabrechnung",
-        rm_now_4: "Übersicht mit Hochrechnung und Abschlag-Check",
-        rm_now_5: "Ablesenachweis und Jahresbericht als PDF",
-        rm_now_6: "Import von CSV und XML anderer Zähler-Apps",
+        rm_now_t: "Version 1.0", rm_now_n: "Kommt bald",
+        rm_now_1: "Ablesen von Hand für Strom, Einspeisung, Gas, Wasser und Wärme, mit Plausibilitätsprüfung",
+        rm_now_2: "Verträge mit Kündigungstag und Erinnerung vor dem Vertragsende",
+        rm_now_3: "Übersicht mit Kosten, Hochrechnung und Abschlag-Check",
+        rm_now_4: "Ablesenachweis und Jahresbericht als PDF",
+        rm_now_5: "Umzug aus einer anderen Zähler-App, kostenlos",
+        rm_now_6: "Ablese-Erinnerung, Widget und Kurzbefehl",
         rm_now_7: "iPhone, iPad und Mac, abgeglichen über deine private iCloud",
-        rm_later_t: "Später", rm_later_n: "Geplant, noch ohne Termin",
-        rm_later_1: "Anbindung an PV-Anlagen und Home Assistant",
-        rm_later_2: "Gemeinsam ablesen im Haushalt",
-        rm_later_3: "Witterungsbereinigte Abrechnungsprüfung",
-        rm_later_4: "Apple Watch",
+        rm_later_t: "Als nächstes", rm_later_n: "Geplant, ohne festen Termin",
+        rm_later_1: "Ablesen per Foto, erkannt auf deinem Gerät",
+        rm_later_2: "Prüfung der Jahresabrechnung",
+        rm_later_3: "Datenexport als CSV, Sicherung und Wiederherstellung",
+        rm_later_4: "Gemeinsam ablesen im Haushalt",
         rm_promise: "<strong>Unser Anspruch:</strong> mehr Nutzen, bequemer, schneller. Simpel, exakt und nachweisbar.",
         pp_title: "Deine Daten bleiben bei dir.",
-        pp_text: "Die Erkennung von Zählerfotos, Verträgen und Abrechnungen läuft auf deinem Gerät. Gespeichert wird auf deinem Gerät und in deiner privaten iCloud. Du brauchst kein Konto bei uns, und wir betreiben keinen eigenen Server für deine Daten.",
-        pp_1: "Erkennung auf dem Gerät", pp_2: "Private iCloud", pp_3: "Kein Konto", pp_4: "Kein eigener Server",
+        pp_text: "Gespeichert wird auf deinem Gerät und in deiner privaten iCloud. Du brauchst kein Konto bei uns, die App erfasst keine Daten für uns, und wir betreiben keinen eigenen Server für deine Daten.",
+        pp_1: "Kein Tracking", pp_2: "Private iCloud", pp_3: "Kein Konto", pp_4: "Kein eigener Server",
         pp_link: "Mehr dazu in der <a href=\"/privacy/\">Datenschutzerklärung</a>. Diese Website setzt keine Cookies und nutzt kein Tracking.",
         faq_label: "Häufige Fragen", faq_title: "Gut zu wissen.",
-        q1: "Wann erscheint HausZähler?", a1: "Wir arbeiten an Version 1.0. Einen Termin nennen wir, sobald die App bei Apple eingereicht ist. Bis dahin gibt es keinen Download.",
+        q1: "Wann erscheint HausZähler?", a1: "Version 1.0 ist fast fertig. Sobald Apple die App freigibt, findest du sie hier und im App Store.",
         q2: "Welche Zähler kann ich erfassen?", a2: "Strom (Bezug und Einspeisung, auch HT/NT und Zweirichtungszähler), Gas, Wasser und Wärme. Gas rechnet die App von m³ in kWh um.",
         q3: "Brauche ich ein Konto?", a3: "Nein. HausZähler kommt ohne Anmeldung und ohne Konto bei uns aus.",
-        q4: "Wo liegen meine Daten und Fotos?", a4: "Auf deinem Gerät und in deiner privaten iCloud. So sind deine Daten auf iPhone, iPad und Mac gleich. Ob Fotos als Nachweis gespeichert werden, entscheidest du in den Einstellungen.",
+        q4: "Wo liegen meine Daten?", a4: "Auf deinem Gerät und in deiner privaten iCloud. So sind deine Daten auf iPhone, iPad und Mac gleich. Wir haben keinen Zugriff darauf.",
         q5: "Auf welchen Geräten läuft die App?", a5: "Auf iPhone, iPad und Mac. Eine Version für die Apple Watch ist für später geplant.",
-        q6: "Kann ich Daten aus einer anderen Zähler-App übernehmen?", a6: "Ja, kostenlos. HausZähler liest Exporte anderer Apps im CSV- oder XML-Format ein. Du kannst auch deine letzte Jahresabrechnung fotografieren.",
-        q7: "Ersetzt die Abrechnungsprüfung eine Rechtsberatung?", a7: "Nein. Die App vergleicht die Abrechnung mit deinen eigenen Ablesungen und zeigt, ob sie übereinstimmen oder wo es Unterschiede gibt. Fehlen Ablesungen genau an den Grenzen des Abrechnungszeitraums, schätzt die App die Werte und weist darauf hin.",
-        q8: "Vergleicht HausZähler Tarife oder wechselt den Anbieter für mich?", a8: "Nein. HausZähler erinnert dich rechtzeitig vor der Kündigungsfrist. Den Wechsel entscheidest und machst du selbst.",
-        q9: "Was kostet HausZähler?", a9: "Du kannst HausZähler kostenlos nutzen. Weitere Funktionen gibt es mit einem Premium-Abo. Die Preise siehst du zum Start im App Store.",
-        q11: "Kann ich meine Daten exportieren?", a11: "Ja. Deine Daten exportierst du jederzeit, zum Beispiel als CSV-Datei, auch ohne Abo. PDF-Berichte und der Ablesenachweis als PDF gehören zu Premium.",
+        q6: "Kann ich Daten aus einer anderen Zähler-App übernehmen?", a6: "Ja, kostenlos. HausZähler übernimmt den Verlauf aus einer anderen Zähler-App über deren Archiv- oder CSV-Export. Du siehst vorher eine Vorschau und kannst den Import rückgängig machen.",
+        q7: "Ist der berechnete Kündigungstag verbindlich?", a7: "Nein, das ist keine Rechtsberatung. Die App berechnet den letzten Kündigungstag aus den Angaben, die du hinterlegst. Bitte prüfe ihn in deinem Vertrag.",
+        q8: "Vergleicht HausZähler Tarife oder wechselt den Anbieter für mich?", a8: "Nein. HausZähler zeigt dir den letzten Kündigungstag und erinnert dich mit Premium rechtzeitig davor. Den Wechsel entscheidest und machst du selbst.",
+        q9: "Was kostet HausZähler?", a9: "HausZähler ist kostenlos nutzbar, mit einer Ablesung pro Zähler und Monat. Premium als Monats- oder Jahresabo bringt unbegrenzte Ablesungen, PDF-Berichte zum Teilen und die Erinnerung vor dem Vertragsende. Das Jahresabo startet mit 3 Monaten gratis. Die Preise siehst du im App Store.",
+        q11: "Kann ich meine Daten exportieren?", a11: "PDF-Berichte (Ablesenachweis, Jahresbericht) siehst du in der App kostenlos an. Teilen und Sichern gehört zu Premium, dein erster Ablesenachweis ist gratis. Ein kostenloser Datenexport als CSV folgt mit einem der nächsten Updates.",
         q10: "Gibt es eine Anbindung an PV-Anlage oder Home Assistant?", a10: "Noch nicht. Das ist für später geplant.",
         final_title: "Ablesen war noch nie so einfach.",
         final_text: "HausZähler kommt bald für iPhone, iPad und Mac. Simpel, exakt und nachweisbar.",
@@ -640,84 +650,89 @@
         imp_register: "Handelsregister", imp_register_t: "Keine Eintragung im Handelsregister.",
         imp_vat: "Umsatzsteuer-ID", imp_vat_t: "Die Umsatzsteuer-Identifikationsnummer ist beantragt und wird nach Erteilung hier ergänzt.",
         imp_resp: "Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)",
-        imp_disc: "Haftung für Inhalte", imp_disc_t: "Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr. Die App ist in Entwicklung; beschriebene Funktionen können sich bis zum Start ändern.",
-        imp_notice: "Dieses Impressum gilt für die Website <strong>hauszaehler.de</strong> sowie für die geplante App <strong>HausZähler</strong> (DE) bzw. <strong>MeterRoll</strong> (EN) von torecon – Thomas Reinke.",
+        imp_disc: "Haftung für Inhalte", imp_disc_t: "Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr. Geplante Funktionen sind als solche gekennzeichnet und können sich ändern.",
+        imp_notice: "Dieses Impressum gilt für die Website <strong>hauszaehler.de</strong> sowie für die App <strong>HausZähler</strong> (DE) bzw. <strong>MeterRoll</strong> (EN) von torecon – Thomas Reinke.",
+        lb_text: "<strong>Version 1.0 kommt bald:</strong> Ablesen in Sekunden, Übersicht mit Abschlag-Check, Verträge mit Erinnerung vor dem Vertragsende.",
+        rm_later_5: "Anbindung an PV-Anlagen und Home Assistant",
+        rm_later_6: "Apple Watch",
+        q12: "Kann ich Zähler per Foto ablesen?",
+        a12: "Noch nicht. Die Fotoerkennung ist für eine der nächsten Versionen geplant und läuft dann auf deinem Gerät. In Version 1.0 tippst du den Stand ein, das dauert nur wenige Sekunden.",
         footer_brand: "eine App von torecon", footer_privacy: "Datenschutz", footer_terms: "Nutzungsbedingungen", footer_imprint: "Impressum",
         footer_apps: "Weitere Apps von torecon", footer_rights: "Alle Rechte vorbehalten."
       },
       en: {
-        doc_title: "MeterRoll – Read your meters with a photo. Coming soon to the App Store.",
-        doc_desc: "MeterRoll: meter readings by photo for electricity, solar feed-in, gas, water and heat. Contracts in view, annual bill double-checked. Coming soon to the App Store.",
+        doc_title: "MeterRoll – Electric, gas and water meters. Coming soon to the App Store.",
+        doc_desc: "MeterRoll: meter readings for electricity, gas, water and heat in seconds. Costs, forecast, instalment check, contracts. Coming soon to the App Store.",
         skip: "Skip to content", nav_aria: "Main navigation",
         brand: "MeterRoll", nav_sub: "an app by torecon",
         nav_features: "Features", nav_privacy: "Privacy", nav_faq: "FAQ",
-        hero_badge: "In development · coming soon to the App Store",
+        hero_badge: "Version 1.0 · coming soon to the App Store",
         hero_h1_a: "More from your meters.", hero_h1_b: "Easier. Faster.",
-        hero_sub: "Snap, confirm, done: MeterRoll reads electricity, solar feed-in, gas, water and heat in seconds, keeps your contracts in view and double-checks your annual bill. Made for everyone.",
+        hero_sub: "Type in the reading, done: MeterRoll tracks electricity, solar feed-in, gas, water and heat in seconds, works out consumption, costs and a full-year forecast and keeps your contracts in view. Made for everyone.",
         values_aria: "Our values", val_simple: "simple", val_exact: "exact", val_proof: "verifiable",
         soon: "Coming soon to the App Store", hero_meta: "For iPhone, iPad and Mac · English and German",
-        mock_aria: "Illustration: reading a meter with a photo and the overview in the app",
-        m1_title: "Read meter", m1_vf: "Reading recognized", m1_meter: "Meter", m1_meter_v: "Electricity · import",
-        m1_value: "Reading", m1_date: "Date", m1_date_v: "today, 8:14 AM", m1_proof: "Proof", m1_proof_v: "Photo saved", m1_btn: "Confirm",
+        mock_aria: "Illustration: entering a reading and the overview in the app",
+        m1_title: "Read meter", m1_vf: "Digits just like on your meter", m1_meter: "Meter", m1_meter_v: "Electricity · import",
+        m1_value: "Reading", m1_date: "Date", m1_date_v: "today, 8:14 AM", m1_proof: "Source", m1_proof_v: "Manual", m1_btn: "Confirm",
         m2_title: "Overview · Apartment", m2_strom: "Electricity", m2_feed: "Feed-in", m2_gas: "Gas", m2_water: "Water", m2_check: "Instalments likely sufficient",
-        mock_caption: "Illustration with sample values. The app is in development.",
+        mock_caption: "Illustration with sample values.",
         ps_label: "Why MeterRoll?", ps_title: "Meter readings on scraps of paper? Not anymore.",
-        ps_sub: "Reading, writing down, searching, recalculating: it costs time and nerves. MeterRoll turns it into a photo.",
+        ps_sub: "Reading, writing down, searching, recalculating: it costs time and nerves. MeterRoll does it in seconds.",
         pain_title: "Until now",
         pain_1: "Meter readings on scraps of paper, in notes or not written down at all.",
-        pain_2: "The annual bill arrives and you have no way to check it.",
+        pain_2: "The annual bill arrives, and only then do you find out whether your instalments were enough.",
         pain_3: "The notice period with your supplier has already passed.",
         pain_4: "When you move out, there is no proof of the meter reading.",
         sol_title: "With MeterRoll",
-        sol_1: "Snap, confirm, done. Every reading with date and photo.",
-        sol_2: "The app checks your bill against your own readings.",
-        sol_3: "A reminder 6 weeks before your notice period ends.",
+        sol_1: "Type in the reading, done. The app checks every value for plausibility right away.",
+        sol_2: "Costs, forecast and instalment check show early whether a back payment is coming.",
+        sol_3: "Your last day to cancel always in view, with a reminder in good time.",
         sol_4: "Reading proof as a PDF, for example for your landlord or supplier.",
         sol_end: "Everything in one place. Everything on your device.",
-        f_label: "Features", f_title: "More than meter readings.", f_sub: "This is planned for version 1.0. We are building it right now.",
-        f1_t: "Snap, confirm, done", f1_d: "Point the camera at the meter, check the reading, confirm. The app matches the reading by meter number and warns you about unusual jumps.",
+        f_label: "Features", f_title: "More than meter readings.", f_sub: "This is what version 1.0 does.",
+        f1_t: "Readings in seconds", f1_d: "Type in the reading just as the meter shows it, done. The app blocks readings that go backwards and flags unusual jumps. Replacing a meter is its own guided step.",
         f2_t: "Every meter in your home", f2_d: "Electricity with solar feed-in, including dual-rate and bidirectional meters. Plus gas, water and heat. The app converts gas from m³ to kWh.",
-        f3_t: "Contracts in view", f3_d: "Take a photo of your contract and the details are filled in: supplier, meter number, prices, start date. A reminder 6 weeks before the notice period ends.",
-        f4_t: "Your bill, double-checked", f4_d: "Scan your annual bill and the app compares it with your readings, for any billing period. Result: confirmed, or the difference for each item.",
-        f5_t: "Overview with forecast", f5_d: "Consumption and costs, full-year forecast, instalment check, solar balance, values per person and per m². Anything unusual stands out right away.",
-        f6_t: "Proof as a PDF", f6_d: "Every reading with photo, time and source. Changes are logged, not overwritten. Reading proof and annual report as PDF.",
-        f7_t: "Quick start with import", f7_d: "Bring in exports from other meter apps (CSV, XML) for free, or take a photo of your last annual bill. You get a history right away.",
+        f3_t: "Contracts in view", f3_d: "Store supplier, prices, standing charge, instalments and term. The app shows your last day to cancel and, with Premium, reminds you in good time.",
+        f4_t: "Are your instalments enough?", f4_d: "The app works out your costs from unit price and standing charge, day by day, and shows early whether to expect a back payment or a credit.",
+        f5_t: "Overview with forecast", f5_d: "Consumption, daily average, costs, full-year forecast, feed-in with earnings, values per person and per m². Gas in kWh, the way your supplier bills it.",
+        f6_t: "Proof as a PDF", f6_d: "Every reading with time and source. Corrections are logged, not overwritten. Reading proof and annual report as PDF, for example for your landlord or supplier.",
+        f7_t: "Move over without retyping", f7_d: "Bring your history over from another meter app for free (archive or CSV export), with a preview before saving and undo.",
         f8_t: "Several homes", f8_d: "House, apartment or garage: add several locations. When a meter is replaced, your history simply continues.",
-        f9_t: "Reading reminder", f9_d: "A reminder at the end of the month, a Home Screen widget and a shortcut that opens the camera directly.",
+        f9_t: "Reading reminder", f9_d: "A reminder at the end of the month, a widget with forecast and last reading, and a “Read meter” shortcut.",
         h_label: "How it works", h_title: "Three steps. A few seconds.", h_sub: "No sign-up, no account.",
-        s1_t: "Snap", s1_d: "Point the camera at the meter. The app recognizes the reading and the meter number.",
-        s2_t: "Confirm", s2_d: "You see the recognized reading and confirm it with one tap. Correct it if needed.",
-        s3_t: "Done", s3_d: "The reading is saved with the date and, if you like, a photo as proof. Your overview is up to date immediately.",
+        s1_t: "Pick the meter", s1_d: "Start a reading in the app, from the widget or with the shortcut, and pick the meter.",
+        s2_t: "Type the reading", s2_d: "Enter the reading exactly as the meter shows it. The app checks it right away and warns you if something looks off.",
+        s3_t: "Done", s3_d: "The reading is saved with date and source. Your overview is up to date immediately.",
         rm_label: "Development", rm_title: "What is coming.",
-        rm_now_t: "Version 1.0", rm_now_n: "In progress",
-        rm_now_1: "Photo readings for electricity, solar feed-in, gas, water and heat",
-        rm_now_2: "Contracts by photo with a reminder before the notice period",
-        rm_now_3: "Annual bill check",
-        rm_now_4: "Overview with forecast and instalment check",
-        rm_now_5: "Reading proof and annual report as PDF",
-        rm_now_6: "Import of CSV and XML from other meter apps",
+        rm_now_t: "Version 1.0", rm_now_n: "Coming soon",
+        rm_now_1: "Manual readings for electricity, solar feed-in, gas, water and heat, with plausibility check",
+        rm_now_2: "Contracts with last day to cancel and a reminder before they end",
+        rm_now_3: "Overview with costs, forecast and instalment check",
+        rm_now_4: "Reading proof and annual report as PDF",
+        rm_now_5: "Move over from another meter app, free of charge",
+        rm_now_6: "Reading reminder, widget and shortcut",
         rm_now_7: "iPhone, iPad and Mac, kept in sync via your private iCloud",
-        rm_later_t: "Later", rm_later_n: "Planned, no date yet",
-        rm_later_1: "Connection to solar systems and Home Assistant",
-        rm_later_2: "Reading meters together as a household",
-        rm_later_3: "Weather-adjusted bill check",
-        rm_later_4: "Apple Watch",
+        rm_later_t: "Up next", rm_later_n: "Planned, no fixed date",
+        rm_later_1: "Readings by photo, recognized on your device",
+        rm_later_2: "Annual bill check",
+        rm_later_3: "Data export as CSV, backup and restore",
+        rm_later_4: "Reading meters together as a household",
         rm_promise: "<strong>Our aim:</strong> more value, easier, faster. Simple, exact and verifiable.",
         pp_title: "Your data stays yours.",
-        pp_text: "Recognition of meter photos, contracts and bills runs on your device. Data is stored on your device and in your private iCloud. You do not need an account with us, and we run no server of our own for your data.",
-        pp_1: "Recognition on device", pp_2: "Private iCloud", pp_3: "No account", pp_4: "No server of our own",
+        pp_text: "Data is stored on your device and in your private iCloud. You do not need an account with us, the app collects no data for us, and we run no server of our own for your data.",
+        pp_1: "No tracking", pp_2: "Private iCloud", pp_3: "No account", pp_4: "No server of our own",
         pp_link: "More in our <a href=\"/privacy/\">privacy policy</a>. This website sets no cookies and uses no tracking.",
         faq_label: "Frequently asked questions", faq_title: "Good to know.",
-        q1: "When will MeterRoll be available?", a1: "We are working on version 1.0. We will name a date once the app has been submitted to Apple. Until then, there is no download.",
+        q1: "When will MeterRoll be available?", a1: "Version 1.0 is almost ready. As soon as Apple approves the app, you will find it here and on the App Store.",
         q2: "Which meters can I track?", a2: "Electricity (import and solar feed-in, including dual-rate and bidirectional meters), gas, water and heat. The app converts gas from m³ to kWh.",
         q3: "Do I need an account?", a3: "No. MeterRoll works without sign-up and without an account with us.",
-        q4: "Where are my data and photos stored?", a4: "On your device and in your private iCloud, so your data is the same on iPhone, iPad and Mac. You decide in the settings whether photos are kept as proof.",
+        q4: "Where is my data stored?", a4: "On your device and in your private iCloud, so your data is the same on iPhone, iPad and Mac. We have no access to it.",
         q5: "Which devices does the app run on?", a5: "On iPhone, iPad and Mac. A version for Apple Watch is planned for later.",
-        q6: "Can I bring data over from another meter app?", a6: "Yes, free of charge. MeterRoll reads exports from other apps in CSV or XML format. You can also take a photo of your last annual bill.",
-        q7: "Does the bill check replace legal advice?", a7: "No. The app compares the bill with your own readings and shows whether they match or where they differ. If readings are missing exactly at the start or end of the billing period, the app estimates the values and tells you so. The bill check is designed for German-style annual bills.",
-        q8: "Does MeterRoll compare tariffs or switch suppliers for me?", a8: "No. MeterRoll reminds you in good time before your notice period ends. Whether and how you switch is up to you.",
-        q9: "How much does MeterRoll cost?", a9: "You can use MeterRoll for free. More features come with a Premium subscription. You will see the prices on the App Store at launch.",
-        q11: "Can I export my data?", a11: "Yes. You can export your data at any time, for example as a CSV file, even without a subscription. PDF reports and the reading proof as a PDF are part of Premium.",
+        q6: "Can I bring data over from another meter app?", a6: "Yes, free of charge. MeterRoll takes over your history from another meter app via its archive or CSV export. You see a preview first and can undo the import.",
+        q7: "Is the calculated last day to cancel binding?", a7: "No, this is not legal advice. The app calculates the last day to cancel from the details you enter. Please check it against your contract.",
+        q8: "Does MeterRoll compare tariffs or switch suppliers for me?", a8: "No. MeterRoll shows your last day to cancel and, with Premium, reminds you in good time. Whether and how you switch is up to you.",
+        q9: "How much does MeterRoll cost?", a9: "MeterRoll is free to use, with one reading per meter per month. Premium, as a monthly or yearly subscription, adds unlimited readings, PDF reports to share and the reminder before your contract ends. The yearly subscription starts with 3 months free. You will see the prices on the App Store.",
+        q11: "Can I export my data?", a11: "You can view PDF reports (reading proof, annual report) in the app for free. Sharing and saving is part of Premium, and your first reading proof is free. A free data export as CSV will follow in one of the next updates.",
         q10: "Is there a connection to solar systems or Home Assistant?", a10: "Not yet. This is planned for later.",
         final_title: "Reading meters has never been this easy.",
         final_text: "MeterRoll is coming soon for iPhone, iPad and Mac. Simple, exact and verifiable.",
@@ -726,8 +741,13 @@
         imp_register: "Commercial register", imp_register_t: "Not entered in the commercial register.",
         imp_vat: "VAT ID", imp_vat_t: "The VAT identification number has been applied for and will be added here once issued.",
         imp_resp: "Responsible for content (§ 18 (2) MStV)",
-        imp_disc: "Liability for content", imp_disc_t: "The content of this website has been prepared with the greatest care. We do not guarantee that it is correct, complete or up to date. The app is in development; the features described may change before launch.",
-        imp_notice: "This legal notice applies to the website <strong>hauszaehler.de</strong> and to the planned app <strong>HausZähler</strong> (German) / <strong>MeterRoll</strong> (English) by torecon – Thomas Reinke.",
+        imp_disc: "Liability for content", imp_disc_t: "The content of this website has been prepared with the greatest care. We do not guarantee that it is correct, complete or up to date. Planned features are marked as such and may change.",
+        imp_notice: "This legal notice applies to the website <strong>hauszaehler.de</strong> and to the app <strong>HausZähler</strong> (German) / <strong>MeterRoll</strong> (English) by torecon – Thomas Reinke.",
+        lb_text: "<strong>Version 1.0 is coming soon:</strong> readings in seconds, an overview with instalment check, contracts with a reminder before they end.",
+        rm_later_5: "Connection to solar systems and Home Assistant",
+        rm_later_6: "Apple Watch",
+        q12: "Can I read meters with a photo?",
+        a12: "Not yet. Photo recognition is planned for one of the next versions and will run on your device. In version 1.0 you type in the reading, which takes just a few seconds.",
         footer_brand: "an app by torecon", footer_privacy: "Privacy", footer_terms: "Terms of Use", footer_imprint: "Legal notice",
         footer_apps: "More apps by torecon", footer_rights: "All rights reserved."
       }
