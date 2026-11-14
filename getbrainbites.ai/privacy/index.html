@@ -111,7 +111,7 @@
   <main class="page-content">
     <span class="page-label" data-i18n="page_label">Rechtliches</span>
     <h1 data-i18n="page_title">Datenschutzerklärung</h1>
-    <p class="page-meta" data-i18n="page_meta">Stand: März 2026 · Gilt für: BrainBites AI iOS App &amp; Website getbrainbites.ai</p>
+    <p class="page-meta" data-i18n="page_meta">Stand: November 2026 · Gilt für: BrainBites AI iOS App &amp; Website getbrainbites.ai</p>
 
     <div class="section">
       <h2 data-i18n="s1_title">1. Verantwortlicher</h2>
@@ -123,7 +123,7 @@
 
     <div class="section">
       <h2 data-i18n="s2_title">2. Überblick: Was wir sammeln (und was nicht)</h2>
-      <p data-i18n="s2_p1">BrainBites AI ist so konzipiert, dass wir <strong>so wenig Daten wie möglich</strong> erheben. Wir erheben keine personenbezogenen Daten wie Name, E-Mail-Adresse, Telefonnummer oder Standort.</p>
+      <p data-i18n="s2_p1">BrainBites AI ist so konzipiert, dass wir <strong>so wenig Daten wie möglich</strong> erheben. Du brauchst kein Konto und keinen Login. Die Daten, die wir verarbeiten, sind <strong>pseudonym</strong>: Sie hängen an zufällig erzeugten Kennungen, nicht an deinem Namen. Anonym sind sie nicht, denn über diese Kennungen lassen sie sich deinem Gerät zuordnen.</p>
       <p data-i18n="s2_p2">Wir erheben <strong>keine</strong>:</p>
       <ul>
         <li data-i18n="s2_li1">Namen, E-Mail-Adressen oder Kontodaten</li>
@@ -131,33 +131,44 @@
         <li data-i18n="s2_li3">Kamera-, Mikrofon- oder Kontaktzugriff</li>
         <li data-i18n="s2_li4">Daten aus sozialen Netzwerken</li>
         <li data-i18n="s2_li5">Zahlungsdaten (diese verarbeitet ausschließlich Apple)</li>
+        <li data-i18n="s2_li6">Deine Apple-ID, deine E-Mail-Adresse bei Apple oder Inhalte deiner iCloud</li>
+        <li data-i18n="s2_li7">Daten für Werbung oder für Tracking über Apps und Websites anderer Anbieter (keine Werbe-ID, keine Werbenetzwerke)</li>
       </ul>
     </div>
 
     <div class="section">
       <h2 data-i18n="s3_title">3. Welche Daten wir verarbeiten</h2>
 
-      <h3 data-i18n="s3_1_title">3.1 Geräte-ID (anonyme Nutzerkennung)</h3>
-      <p data-i18n="s3_1_p1">Beim ersten Start der App wird eine zufällige Geräte-ID generiert und sicher im Keychain deines iPhones gespeichert. Diese ID ist nicht mit deiner Person verknüpft und dient ausschließlich dazu, deinen Lernfortschritt zu erhalten, ohne dass du ein Konto erstellen musst.</p>
+      <h3 data-i18n="s3_1_title">3.1 Installations-ID und Profil-ID (pseudonyme Kennungen)</h3>
+      <p data-i18n="s3_1_p1">Beim ersten Start erzeugt die App eine zufällige Installations-ID. Dein Lernfortschritt liegt auf unserem Server unter einer Profil-ID (auf deinem ersten Gerät ist das dieselbe Kennung). Beide speichert die App im Schlüsselbund (Keychain) deines Geräts, nur auf diesem Gerät und ohne Abgleich über den iCloud-Schlüsselbund. So findet die App nach einer Neuinstallation in der Regel dein Profil wieder. Die Kennungen enthalten keine Angaben zu deiner Person. Den Anfang der Profil-ID siehst du in der App unter Einstellungen → Über die App → Geräte-ID.</p>
       <p data-i18n="s3_1_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</p>
-      <p data-i18n="s3_1_p3"><strong>Speicherdauer:</strong> Bis zur Löschung auf Anfrage oder nach 2 Jahren Inaktivität.</p>
+      <p data-i18n="s3_1_p3"><strong>Speicherdauer:</strong> Bis zur Löschung auf Anfrage, spätestens nach 2 Jahren ohne Aktivität. Dann löschen wir das Profil automatisch mit allen zugehörigen Daten (Abschnitte 3.2 bis 3.6).</p>
 
-      <h3 data-i18n="s3_2_title">3.2 Lernfortschritt</h3>
-      <p data-i18n="s3_2_p1">Deine abgeschlossenen Lektionen, Streak, Lernziele und Kategorie-Präferenzen werden mit der Geräte-ID verknüpft auf unseren Servern gespeichert.</p>
+      <h3 data-i18n="s3_ic_title">3.2 Fortschritt auf mehreren Geräten (iCloud)</h3>
+      <p data-i18n="s3_ic_p1">Bist du auf deinem Gerät bei iCloud angemeldet, liest die App die iCloud-Benutzerkennung, die Apple eigens für BrainBites vergibt. Sie enthält weder deine Apple-ID noch deine E-Mail-Adresse; Daten in deiner iCloud lesen oder speichern wir nicht. Die App leitet aus der Kennung auf dem Gerät einen Schlüssel ab und sendet ihn verschlüsselt an unseren Server. Der Server speichert davon nur einen kryptografischen Hashwert (HMAC), nicht den Schlüssel selbst. Meldet sich ein weiteres Gerät mit derselben Apple-ID, führt der Server dessen Fortschritt mit deinem Profil zusammen. Die bisherige Kennung dieses Geräts bleibt als Verweis auf dein Profil gespeichert. Ohne iCloud-Anmeldung bleibt der Fortschritt auf dem jeweiligen Gerät.</p>
+      <p data-i18n="s3_ic_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (dein Fortschritt auf allen deinen Geräten). <strong>Speicherdauer:</strong> wie 3.1.</p>
+
+      <h3 data-i18n="s3_2_title">3.3 Lernfortschritt</h3>
+      <p data-i18n="s3_2_p1">Deine abgeschlossenen und übersprungenen Lektionen, Quiz-Punkte (XP), Serie, Lernziele und Kategorie-Präferenzen werden mit deiner Profil-ID verknüpft auf unseren Servern gespeichert.</p>
       <p data-i18n="s3_2_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO</p>
 
-      <h3 data-i18n="s3_3_title">3.3 Nutzungsstatistiken (Analytics)</h3>
-      <p data-i18n="s3_3_p1">Wir speichern anonymisierte Ereignisse wie „Lektion abgeschlossen", „App geöffnet" oder „Streak erreicht". Diese Daten werden nach <strong>90 Tagen automatisch gelöscht</strong>.</p>
+      <h3 data-i18n="s3_3_title">3.4 Nutzungsstatistiken (Analytics)</h3>
+      <p data-i18n="s3_3_p1">Wir speichern Nutzungsereignisse wie „Lektion abgeschlossen“, „App geöffnet“ oder „Abo-Seite angezeigt“ zusammen mit der Installations-ID deines Geräts. Diese Daten sind pseudonym, nicht anonym. Wir nutzen sie nur, um die App zu verbessern, nicht für Werbung. Sie werden nach <strong>90 Tagen automatisch gelöscht</strong>.</p>
       <p data-i18n="s3_3_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</p>
 
-      <h3 data-i18n="s3_4_title">3.4 Push-Benachrichtigungen</h3>
-      <p data-i18n="s3_4_p1">Wenn du Push-Benachrichtigungen aktivierst, wird ein von Apple ausgestelltes Token an unsere Server übermittelt. Du kannst dies jederzeit in den iPhone-Einstellungen deaktivieren.</p>
+      <h3 data-i18n="s3_4_title">3.5 Push-Benachrichtigungen</h3>
+      <p data-i18n="s3_4_p1">Wenn du Push-Benachrichtigungen erlaubst, übermittelt die App das von Apple ausgestellte Token zusammen mit Installations-ID, Profil-ID und App-Sprache an unsere Server. Wir nutzen es für Lern-Erinnerungen, zum Beispiel wenn deine Serie abzureißen droht. Du kannst Mitteilungen jederzeit in den Einstellungen deines Geräts abschalten. Das Token wird mit deinem Profil gelöscht.</p>
       <p data-i18n="s3_4_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</p>
 
-      <h3 data-i18n="s3_5_title">3.5 In-App-Käufe</h3>
-      <p data-i18n="s3_5_p">Käufe werden vollständig über den Apple App Store abgewickelt. Wir erhalten von Apple ausschließlich die Information, ob ein aktives Abonnement vorliegt. Die Datenschutzbestimmungen von Apple gelten für alle Kaufvorgänge: <a href="https://www.apple.com/de/legal/privacy/" target="_blank" rel="noopener">apple.com/de/legal/privacy</a></p>
+      <h3 data-i18n="s3_5_title">3.6 In-App-Käufe</h3>
+      <p data-i18n="s3_5_p">Käufe wickelt ausschließlich Apple ab; Zahlungsdaten erhalten wir nicht. Beim Kauf übergibt die App deine Profil-ID als Kontokennung (appAccountToken) an Apple. Um dein Abo zu prüfen und deinem Profil zuzuordnen, erhalten und speichern wir von Apple signierte Transaktionsdaten: Transaktionsnummer, Produkt, Ablaufdatum und diese Kontokennung. So verhindern wir auch, dass ein Kauf beliebig viele Profile freischaltet. Für Kaufvorgänge gelten die Datenschutzbestimmungen von Apple: <a href="https://www.apple.com/de/legal/privacy/" target="_blank" rel="noopener">apple.com/de/legal/privacy</a></p>
+      <p data-i18n="s3_5_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung des Abos) und lit. f DSGVO (Schutz vor Missbrauch). <strong>Speicherdauer:</strong> wie 3.1.</p>
 
-      <h3 data-i18n="s3_6_title">3.6 Website (getbrainbites.ai)</h3>
+      <h3 data-i18n="s3_ip_title">3.7 Schutz vor Missbrauch (IP-Adresse)</h3>
+      <p data-i18n="s3_ip_p1">Damit der Dienst nicht überlastet oder missbraucht wird, begrenzen wir die Zahl der Anfragen je IP-Adresse. Die IP-Adresse wird dafür nur kurzzeitig im Arbeitsspeicher des Servers gezählt (höchstens eine Stunde) und nicht in unserer Datenbank gespeichert. Technische Server-Protokolle unseres Hosting-Anbieters können sie kurzzeitig enthalten.</p>
+      <p data-i18n="s3_ip_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (Sicherheit und Stabilität des Dienstes)</p>
+
+      <h3 data-i18n="s3_6_title">3.8 Website (getbrainbites.ai)</h3>
       <p data-i18n="s3_6_p">Beim Besuch der Website werden durch den Hosting-Anbieter technisch notwendige Daten wie IP-Adresse in Server-Logs gespeichert. Diese werden nach 7 Tagen gelöscht. Es werden keine Tracking-Cookies eingesetzt.</p>
       <p data-i18n="s3_6_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO</p>
     </div>
@@ -181,7 +192,7 @@
           </tr>
           <tr>
             <td><strong>Apple Inc.</strong></td>
-            <td data-i18n="tbl_apple">App Store, Push Notifications, In-App Purchases</td>
+            <td data-i18n="tbl_apple">App Store, In-App-Käufe, Push-Benachrichtigungen, iCloud-Benutzerkennung</td>
             <td data-i18n="tbl_apple_loc">USA – Standardvertragsklauseln (SCCs) gem. Art. 46 DSGVO</td>
           </tr>
         </tbody>
@@ -195,19 +206,19 @@
       <ul>
         <li data-i18n="s5_li1"><strong>Auskunft (Art. 15 DSGVO):</strong> Welche Daten wir über dich gespeichert haben</li>
         <li data-i18n="s5_li2"><strong>Berichtigung (Art. 16 DSGVO):</strong> Korrektur unrichtiger Daten</li>
-        <li data-i18n="s5_li3"><strong>Löschung (Art. 17 DSGVO):</strong> Löschung aller mit deiner Geräte-ID verknüpften Daten</li>
+        <li data-i18n="s5_li3"><strong>Löschung (Art. 17 DSGVO):</strong> Löschung deines Profils mit allen verknüpften Daten: Lernfortschritt, Kennungen aller zusammengeführten Geräte, iCloud-Verknüpfung, Push-Tokens, Kauf-Zuordnung und Nutzungsereignisse</li>
         <li data-i18n="s5_li4"><strong>Einschränkung (Art. 18 DSGVO):</strong> Einschränkung der Verarbeitung</li>
         <li data-i18n="s5_li5"><strong>Widerspruch (Art. 21 DSGVO):</strong> Widerspruch gegen Verarbeitung auf Basis berechtigter Interessen</li>
         <li data-i18n="s5_li6"><strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Erhalt deiner Daten in einem gängigen Format</li>
         <li data-i18n="s5_li7"><strong>Widerruf (Art. 7 Abs. 3 DSGVO):</strong> Widerruf erteilter Einwilligungen (z. B. Push-Benachrichtigungen)</li>
       </ul>
-      <p data-i18n="s5_contact">Zur Ausübung deiner Rechte: <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a></p>
+      <p data-i18n="s5_contact">Zur Ausübung deiner Rechte schreib an <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a> und nenne die Geräte-ID aus Einstellungen → Über die App, damit wir dein Profil finden. Das Löschen der App entfernt die Daten auf unserem Server nicht.</p>
       <p data-i18n="s5_authority">Du hast außerdem das Recht, dich bei der zuständigen Datenschutz-Aufsichtsbehörde zu beschweren. Für Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de/" target="_blank" rel="noopener">datenschutz.rlp.de</a></p>
     </div>
 
     <div class="section">
       <h2 data-i18n="s6_title">6. Datensicherheit</h2>
-      <p data-i18n="s6_p">Alle Verbindungen zwischen der App und unseren Servern sind durch HTTPS/TLS verschlüsselt. Die Geräte-ID wird im iOS Keychain gespeichert und durch die Sicherheitsmechanismen des Betriebssystems geschützt. Wir verwenden keine Passwörter oder persönliche Anmeldedaten.</p>
+      <p data-i18n="s6_p">Alle Verbindungen zwischen der App und unseren Servern sind durch HTTPS/TLS verschlüsselt. Installations-ID und Profil-ID liegen im Schlüsselbund (Keychain) deines Geräts und sind durch die Sicherheitsmechanismen des Betriebssystems geschützt. Den aus iCloud abgeleiteten Schlüssel speichert der Server nur als HMAC-Hashwert mit einem geheimen Schlüssel. Wir verwenden keine Passwörter oder persönlichen Anmeldedaten.</p>
     </div>
 
     <div class="section">
@@ -276,34 +287,43 @@
         nav_back:       '← Zurück',
         page_label:     'Rechtliches',
         page_title:     'Datenschutzerklärung',
-        page_meta:      'Stand: März 2026 · Gilt für: BrainBites AI iOS App &amp; Website getbrainbites.ai',
+        page_meta:      'Stand: November 2026 · Gilt für: BrainBites AI iOS App &amp; Website getbrainbites.ai',
         s1_title:       '1. Verantwortlicher',
         s1_intro:       'Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:',
         s2_title:       '2. Überblick: Was wir sammeln (und was nicht)',
-        s2_p1:          'BrainBites AI ist so konzipiert, dass wir <strong>so wenig Daten wie möglich</strong> erheben. Wir erheben keine personenbezogenen Daten wie Name, E-Mail-Adresse, Telefonnummer oder Standort.',
+        s2_p1:          'BrainBites AI ist so konzipiert, dass wir <strong>so wenig Daten wie möglich</strong> erheben. Du brauchst kein Konto und keinen Login. Die Daten, die wir verarbeiten, sind <strong>pseudonym</strong>: Sie hängen an zufällig erzeugten Kennungen, nicht an deinem Namen. Anonym sind sie nicht, denn über diese Kennungen lassen sie sich deinem Gerät zuordnen.',
         s2_p2:          'Wir erheben <strong>keine</strong>:',
         s2_li1:         'Namen, E-Mail-Adressen oder Kontodaten',
         s2_li2:         'Standortdaten',
         s2_li3:         'Kamera-, Mikrofon- oder Kontaktzugriff',
         s2_li4:         'Daten aus sozialen Netzwerken',
         s2_li5:         'Zahlungsdaten (diese verarbeitet ausschließlich Apple)',
+        s2_li6:         'Deine Apple-ID, deine E-Mail-Adresse bei Apple oder Inhalte deiner iCloud',
+        s2_li7:         'Daten für Werbung oder für Tracking über Apps und Websites anderer Anbieter (keine Werbe-ID, keine Werbenetzwerke)',
         s3_title:       '3. Welche Daten wir verarbeiten',
-        s3_1_title:     '3.1 Geräte-ID (anonyme Nutzerkennung)',
-        s3_1_p1:        'Beim ersten Start der App wird eine zufällige Geräte-ID generiert und sicher im Keychain deines iPhones gespeichert. Diese ID ist nicht mit deiner Person verknüpft.',
+        s3_1_title:     '3.1 Installations-ID und Profil-ID (pseudonyme Kennungen)',
+        s3_1_p1:        'Beim ersten Start erzeugt die App eine zufällige Installations-ID. Dein Lernfortschritt liegt auf unserem Server unter einer Profil-ID (auf deinem ersten Gerät ist das dieselbe Kennung). Beide speichert die App im Schlüsselbund (Keychain) deines Geräts, nur auf diesem Gerät und ohne Abgleich über den iCloud-Schlüsselbund. So findet die App nach einer Neuinstallation in der Regel dein Profil wieder. Die Kennungen enthalten keine Angaben zu deiner Person. Den Anfang der Profil-ID siehst du in der App unter Einstellungen → Über die App → Geräte-ID.',
         s3_1_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)',
-        s3_1_p3:        '<strong>Speicherdauer:</strong> Bis zur Löschung auf Anfrage oder nach 2 Jahren Inaktivität.',
-        s3_2_title:     '3.2 Lernfortschritt',
-        s3_2_p1:        'Deine abgeschlossenen Lektionen, Streak, Lernziele und Kategorie-Präferenzen werden mit der Geräte-ID verknüpft auf unseren Servern gespeichert.',
+        s3_1_p3:        '<strong>Speicherdauer:</strong> Bis zur Löschung auf Anfrage, spätestens nach 2 Jahren ohne Aktivität. Dann löschen wir das Profil automatisch mit allen zugehörigen Daten (Abschnitte 3.2 bis 3.6).',
+        s3_ic_title:    '3.2 Fortschritt auf mehreren Geräten (iCloud)',
+        s3_ic_p1:       'Bist du auf deinem Gerät bei iCloud angemeldet, liest die App die iCloud-Benutzerkennung, die Apple eigens für BrainBites vergibt. Sie enthält weder deine Apple-ID noch deine E-Mail-Adresse; Daten in deiner iCloud lesen oder speichern wir nicht. Die App leitet aus der Kennung auf dem Gerät einen Schlüssel ab und sendet ihn verschlüsselt an unseren Server. Der Server speichert davon nur einen kryptografischen Hashwert (HMAC), nicht den Schlüssel selbst. Meldet sich ein weiteres Gerät mit derselben Apple-ID, führt der Server dessen Fortschritt mit deinem Profil zusammen. Die bisherige Kennung dieses Geräts bleibt als Verweis auf dein Profil gespeichert. Ohne iCloud-Anmeldung bleibt der Fortschritt auf dem jeweiligen Gerät.',
+        s3_ic_p2:       '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (dein Fortschritt auf allen deinen Geräten). <strong>Speicherdauer:</strong> wie 3.1.',
+        s3_2_title:     '3.3 Lernfortschritt',
+        s3_2_p1:        'Deine abgeschlossenen und übersprungenen Lektionen, Quiz-Punkte (XP), Serie, Lernziele und Kategorie-Präferenzen werden mit deiner Profil-ID verknüpft auf unseren Servern gespeichert.',
         s3_2_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO',
-        s3_3_title:     '3.3 Nutzungsstatistiken (Analytics)',
-        s3_3_p1:        'Wir speichern anonymisierte Ereignisse wie „Lektion abgeschlossen", „App geöffnet" oder „Streak erreicht". Diese Daten werden nach <strong>90 Tagen automatisch gelöscht</strong>.',
+        s3_3_title:     '3.4 Nutzungsstatistiken (Analytics)',
+        s3_3_p1:        'Wir speichern Nutzungsereignisse wie „Lektion abgeschlossen“, „App geöffnet“ oder „Abo-Seite angezeigt“ zusammen mit der Installations-ID deines Geräts. Diese Daten sind pseudonym, nicht anonym. Wir nutzen sie nur, um die App zu verbessern, nicht für Werbung. Sie werden nach <strong>90 Tagen automatisch gelöscht</strong>.',
         s3_3_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)',
-        s3_4_title:     '3.4 Push-Benachrichtigungen',
-        s3_4_p1:        'Wenn du Push-Benachrichtigungen aktivierst, wird ein von Apple ausgestelltes Token an unsere Server übermittelt. Du kannst dies jederzeit in den iPhone-Einstellungen deaktivieren.',
+        s3_4_title:     '3.5 Push-Benachrichtigungen',
+        s3_4_p1:        'Wenn du Push-Benachrichtigungen erlaubst, übermittelt die App das von Apple ausgestellte Token zusammen mit Installations-ID, Profil-ID und App-Sprache an unsere Server. Wir nutzen es für Lern-Erinnerungen, zum Beispiel wenn deine Serie abzureißen droht. Du kannst Mitteilungen jederzeit in den Einstellungen deines Geräts abschalten. Das Token wird mit deinem Profil gelöscht.',
         s3_4_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)',
-        s3_5_title:     '3.5 In-App-Käufe',
-        s3_5_p:         'Käufe werden vollständig über den Apple App Store abgewickelt. Wir erhalten von Apple ausschließlich die Information, ob ein aktives Abonnement vorliegt. Die Datenschutzbestimmungen von Apple gelten für alle Kaufvorgänge: <a href="https://www.apple.com/de/legal/privacy/" target="_blank" rel="noopener">apple.com/de/legal/privacy</a>',
-        s3_6_title:     '3.6 Website (getbrainbites.ai)',
+        s3_5_title:     '3.6 In-App-Käufe',
+        s3_5_p:         'Käufe wickelt ausschließlich Apple ab; Zahlungsdaten erhalten wir nicht. Beim Kauf übergibt die App deine Profil-ID als Kontokennung (appAccountToken) an Apple. Um dein Abo zu prüfen und deinem Profil zuzuordnen, erhalten und speichern wir von Apple signierte Transaktionsdaten: Transaktionsnummer, Produkt, Ablaufdatum und diese Kontokennung. So verhindern wir auch, dass ein Kauf beliebig viele Profile freischaltet. Für Kaufvorgänge gelten die Datenschutzbestimmungen von Apple: <a href="https://www.apple.com/de/legal/privacy/" target="_blank" rel="noopener">apple.com/de/legal/privacy</a>',
+        s3_5_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung des Abos) und lit. f DSGVO (Schutz vor Missbrauch). <strong>Speicherdauer:</strong> wie 3.1.',
+        s3_ip_title:    '3.7 Schutz vor Missbrauch (IP-Adresse)',
+        s3_ip_p1:       'Damit der Dienst nicht überlastet oder missbraucht wird, begrenzen wir die Zahl der Anfragen je IP-Adresse. Die IP-Adresse wird dafür nur kurzzeitig im Arbeitsspeicher des Servers gezählt (höchstens eine Stunde) und nicht in unserer Datenbank gespeichert. Technische Server-Protokolle unseres Hosting-Anbieters können sie kurzzeitig enthalten.',
+        s3_ip_p2:       '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (Sicherheit und Stabilität des Dienstes)',
+        s3_6_title:     '3.8 Website (getbrainbites.ai)',
         s3_6_p:         'Beim Besuch der Website werden durch den Hosting-Anbieter technisch notwendige Daten wie IP-Adresse in Server-Logs gespeichert. Diese werden nach 7 Tagen gelöscht. Es werden keine Tracking-Cookies eingesetzt.',
         s3_6_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO',
         s4_title:       '4. Empfänger und Auftragsverarbeiter',
@@ -313,22 +333,22 @@
         tbl_location:   'Sitz / Safeguards',
         tbl_railway:    'App-Backend-Hosting, Datenbankbetrieb',
         tbl_railway_loc:'USA – Standardvertragsklauseln (SCCs) gem. Art. 46 DSGVO',
-        tbl_apple:      'App Store, Push Notifications, In-App Purchases',
+        tbl_apple:      'App Store, In-App-Käufe, Push-Benachrichtigungen, iCloud-Benutzerkennung',
         tbl_apple_loc:  'USA – Standardvertragsklauseln (SCCs) gem. Art. 46 DSGVO',
         s4_transfer:    'Da Railway und Apple in den USA ansässig sind, kann eine Datenübermittlung in ein Drittland stattfinden. Die Übermittlung erfolgt auf Grundlage von Standardvertragsklauseln gemäß Art. 46 DSGVO.',
         s5_title:       '5. Deine Rechte',
         s5_intro:       'Du hast jederzeit folgende Rechte gegenüber uns:',
         s5_li1:         '<strong>Auskunft (Art. 15 DSGVO):</strong> Welche Daten wir über dich gespeichert haben',
         s5_li2:         '<strong>Berichtigung (Art. 16 DSGVO):</strong> Korrektur unrichtiger Daten',
-        s5_li3:         '<strong>Löschung (Art. 17 DSGVO):</strong> Löschung aller mit deiner Geräte-ID verknüpften Daten',
+        s5_li3:         '<strong>Löschung (Art. 17 DSGVO):</strong> Löschung deines Profils mit allen verknüpften Daten: Lernfortschritt, Kennungen aller zusammengeführten Geräte, iCloud-Verknüpfung, Push-Tokens, Kauf-Zuordnung und Nutzungsereignisse',
         s5_li4:         '<strong>Einschränkung (Art. 18 DSGVO):</strong> Einschränkung der Verarbeitung',
         s5_li5:         '<strong>Widerspruch (Art. 21 DSGVO):</strong> Widerspruch gegen Verarbeitung auf Basis berechtigter Interessen',
         s5_li6:         '<strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Erhalt deiner Daten in einem gängigen Format',
         s5_li7:         '<strong>Widerruf (Art. 7 Abs. 3 DSGVO):</strong> Widerruf erteilter Einwilligungen (z. B. Push-Benachrichtigungen)',
-        s5_contact:     'Zur Ausübung deiner Rechte: <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>',
+        s5_contact:     'Zur Ausübung deiner Rechte schreib an <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a> und nenne die Geräte-ID aus Einstellungen → Über die App, damit wir dein Profil finden. Das Löschen der App entfernt die Daten auf unserem Server nicht.',
         s5_authority:   'Du hast außerdem das Recht, dich bei der zuständigen Datenschutz-Aufsichtsbehörde zu beschweren. Für Rheinland-Pfalz: <a href="https://www.datenschutz.rlp.de/" target="_blank" rel="noopener">datenschutz.rlp.de</a>',
         s6_title:       '6. Datensicherheit',
-        s6_p:           'Alle Verbindungen zwischen der App und unseren Servern sind durch HTTPS/TLS verschlüsselt. Die Geräte-ID wird im iOS Keychain gespeichert und durch die Sicherheitsmechanismen des Betriebssystems geschützt.',
+        s6_p:           'Alle Verbindungen zwischen der App und unseren Servern sind durch HTTPS/TLS verschlüsselt. Installations-ID und Profil-ID liegen im Schlüsselbund (Keychain) deines Geräts und sind durch die Sicherheitsmechanismen des Betriebssystems geschützt. Den aus iCloud abgeleiteten Schlüssel speichert der Server nur als HMAC-Hashwert mit einem geheimen Schlüssel. Wir verwenden keine Passwörter oder persönlichen Anmeldedaten.',
         s7_title:       '7. Kinder',
         s7_p:           'BrainBites AI richtet sich an Erwachsene. Wir erheben wissentlich keine Daten von Kindern unter 16 Jahren. Bei entsprechenden Hinweisen wende dich an <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>.',
         s8_title:       '8. Änderungen dieser Datenschutzerklärung',
@@ -348,34 +368,43 @@
         nav_back:       '← Back',
         page_label:     'Legal',
         page_title:     'Privacy Policy',
-        page_meta:      'Last updated: March 2026 · Applies to: BrainBites AI iOS App &amp; Website getbrainbites.ai',
+        page_meta:      'Last updated: November 2026 · Applies to: BrainBites AI iOS App &amp; Website getbrainbites.ai',
         s1_title:       '1. Data Controller',
         s1_intro:       'The data controller within the meaning of the General Data Protection Regulation (GDPR) is:',
         s2_title:       '2. Overview: What we collect (and what we don\'t)',
-        s2_p1:          'BrainBites AI is designed to collect <strong>as little data as possible</strong>. We do not collect personal data such as names, email addresses, phone numbers or location data.',
+        s2_p1:          'BrainBites AI is designed to collect <strong>as little data as possible</strong>. You don’t need an account or a login. The data we process is <strong>pseudonymous</strong>: it is tied to randomly generated identifiers, not to your name. It is not anonymous, because these identifiers allow it to be linked to your device.',
         s2_p2:          'We do <strong>not</strong> collect:',
         s2_li1:         'Names, email addresses or account data',
         s2_li2:         'Location data',
         s2_li3:         'Camera, microphone or contacts access',
         s2_li4:         'Social network data',
         s2_li5:         'Payment data (processed exclusively by Apple)',
+        s2_li6:         'Your Apple ID, your Apple email address or the contents of your iCloud',
+        s2_li7:         'Data for advertising or for tracking across other companies’ apps and websites (no advertising ID, no ad networks)',
         s3_title:       '3. Data we process',
-        s3_1_title:     '3.1 Device ID (anonymous user identifier)',
-        s3_1_p1:        'On first launch, a random Device ID is generated and securely stored in your iPhone\'s Keychain. This ID is not linked to your identity and solely serves to maintain your learning progress without requiring account creation.',
+        s3_1_title:     '3.1 Installation ID and profile ID (pseudonymous identifiers)',
+        s3_1_p1:        'On first launch, the app generates a random installation ID. Your learning progress is stored on our server under a profile ID (on your first device, this is the same identifier). The app stores both in your device’s Keychain, on this device only and without syncing via iCloud Keychain. This usually lets the app find your profile again after reinstalling. The identifiers contain no information about you. You can see the beginning of the profile ID in the app under Settings → About → Device ID.',
         s3_1_p2:        '<strong>Legal basis:</strong> Art. 6(1)(b) GDPR (performance of contract)',
-        s3_1_p3:        '<strong>Retention:</strong> Until deletion on request or after 2 years of inactivity.',
-        s3_2_title:     '3.2 Learning progress',
-        s3_2_p1:        'Your completed lessons, streak, learning goals, and category preferences are stored on our servers linked to your Device ID.',
+        s3_1_p3:        '<strong>Retention:</strong> Until deletion on request, at the latest after 2 years of inactivity. The profile is then deleted automatically together with all related data (sections 3.2 to 3.6).',
+        s3_ic_title:    '3.2 Progress on multiple devices (iCloud)',
+        s3_ic_p1:       'If you are signed in to iCloud on your device, the app reads the iCloud user identifier that Apple issues specifically for BrainBites. It contains neither your Apple ID nor your email address; we do not read or store any data in your iCloud. On the device, the app derives a key from this identifier and sends it to our server over an encrypted connection. The server stores only a cryptographic hash (HMAC) of it, never the key itself. When another device with the same Apple ID connects, the server merges its progress into your profile. That device’s previous identifier is kept as a reference to your profile. Without iCloud sign-in, progress stays on the respective device.',
+        s3_ic_p2:       '<strong>Legal basis:</strong> Art. 6(1)(b) GDPR (your progress on all your devices). <strong>Retention:</strong> as in 3.1.',
+        s3_2_title:     '3.3 Learning progress',
+        s3_2_p1:        'Your completed and skipped lessons, quiz points (XP), streak, learning goals and category preferences are stored on our servers linked to your profile ID.',
         s3_2_p2:        '<strong>Legal basis:</strong> Art. 6(1)(b) GDPR',
-        s3_3_title:     '3.3 Usage analytics',
-        s3_3_p1:        'We store anonymized events like "lesson completed", "app opened" or "streak reached". These are <strong>automatically deleted after 90 days</strong>.',
+        s3_3_title:     '3.4 Usage analytics',
+        s3_3_p1:        'We store usage events such as “lesson completed”, “app opened” or “subscription page viewed” together with your device’s installation ID. This data is pseudonymous, not anonymous. We use it only to improve the app, never for advertising. It is <strong>automatically deleted after 90 days</strong>.',
         s3_3_p2:        '<strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interests)',
-        s3_4_title:     '3.4 Push notifications',
-        s3_4_p1:        'If you enable push notifications, an Apple-issued notification token is transmitted to our servers. You can disable this at any time in iPhone Settings.',
+        s3_4_title:     '3.5 Push notifications',
+        s3_4_p1:        'If you allow push notifications, the app sends the Apple-issued token together with the installation ID, profile ID and app language to our servers. We use it for learning reminders, for example when your streak is about to break. You can turn notifications off at any time in your device settings. The token is deleted together with your profile.',
         s3_4_p2:        '<strong>Legal basis:</strong> Art. 6(1)(a) GDPR (consent)',
-        s3_5_title:     '3.5 In-app purchases',
-        s3_5_p:         'All purchases are processed entirely through the Apple App Store. We only receive confirmation of whether an active subscription exists — no payment data, no billing addresses. Apple\'s privacy policy applies to all transactions: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
-        s3_6_title:     '3.6 Website (getbrainbites.ai)',
+        s3_5_title:     '3.6 In-app purchases',
+        s3_5_p:         'Purchases are handled exclusively by Apple; we receive no payment data. When you buy, the app passes your profile ID to Apple as an account identifier (appAccountToken). To verify your subscription and assign it to your profile, we receive and store transaction data signed by Apple: transaction number, product, expiry date and this account identifier. This also prevents a single purchase from unlocking an unlimited number of profiles. Apple’s privacy policy applies to all transactions: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
+        s3_5_p2:        '<strong>Legal basis:</strong> Art. 6(1)(b) GDPR (providing the subscription) and Art. 6(1)(f) GDPR (preventing abuse). <strong>Retention:</strong> as in 3.1.',
+        s3_ip_title:    '3.7 Abuse protection (IP address)',
+        s3_ip_p1:       'To keep the service from being overloaded or abused, we limit the number of requests per IP address. For this, the IP address is only counted briefly in the server’s memory (for at most one hour) and is not stored in our database. Technical server logs of our hosting provider may contain it for a short time.',
+        s3_ip_p2:       '<strong>Legal basis:</strong> Art. 6(1)(f) GDPR (security and stability of the service)',
+        s3_6_title:     '3.8 Website (getbrainbites.ai)',
         s3_6_p:         'When visiting our website, the hosting provider automatically stores technically necessary data such as IP address in server logs. These logs are deleted after 7 days. No tracking cookies or analytics tools are used.',
         s3_6_p2:        '<strong>Legal basis:</strong> Art. 6(1)(f) GDPR',
         s4_title:       '4. Recipients and processors',
@@ -385,22 +414,22 @@
         tbl_location:   'Location / Safeguards',
         tbl_railway:    'App backend hosting, database',
         tbl_railway_loc:'USA – Standard Contractual Clauses (SCCs) per Art. 46 GDPR',
-        tbl_apple:      'App Store, push notifications, in-app purchases',
+        tbl_apple:      'App Store, in-app purchases, push notifications, iCloud user identifier',
         tbl_apple_loc:  'USA – Standard Contractual Clauses (SCCs) per Art. 46 GDPR',
         s4_transfer:    'Since Railway and Apple are based in the USA, data may be transferred to a third country. The transfer is based on appropriate safeguards (Standard Contractual Clauses) pursuant to Art. 46 GDPR.',
         s5_title:       '5. Your rights',
         s5_intro:       'You have the following rights at any time:',
         s5_li1:         '<strong>Access (Art. 15 GDPR):</strong> What data we hold about you',
         s5_li2:         '<strong>Rectification (Art. 16 GDPR):</strong> Correction of inaccurate data',
-        s5_li3:         '<strong>Erasure (Art. 17 GDPR):</strong> Deletion of all data linked to your Device ID',
+        s5_li3:         '<strong>Erasure (Art. 17 GDPR):</strong> Deletion of your profile with all linked data: learning progress, identifiers of all merged devices, iCloud link, push tokens, purchase assignment and usage events',
         s5_li4:         '<strong>Restriction (Art. 18 GDPR):</strong> Restriction of processing',
         s5_li5:         '<strong>Objection (Art. 21 GDPR):</strong> Object to processing based on legitimate interests',
         s5_li6:         '<strong>Portability (Art. 20 GDPR):</strong> Receive your data in a common format',
         s5_li7:         '<strong>Withdrawal (Art. 7(3) GDPR):</strong> Withdraw consent (e.g. push notifications) at any time',
-        s5_contact:     'To exercise your rights: <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>',
+        s5_contact:     'To exercise your rights, write to <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a> and include the Device ID from Settings → About so we can find your profile. Deleting the app does not remove the data on our server.',
         s5_authority:   'You also have the right to lodge a complaint with your local data protection authority.',
         s6_title:       '6. Data security',
-        s6_p:           'All connections between the app and our servers are encrypted via HTTPS/TLS. The Device ID is stored in the iOS Keychain and protected by the operating system\'s security mechanisms.',
+        s6_p:           'All connections between the app and our servers are encrypted via HTTPS/TLS. The installation ID and profile ID are stored in your device’s Keychain and protected by the operating system’s security mechanisms. The server stores the key derived from iCloud only as an HMAC hash with a secret key. We do not use passwords or personal login credentials.',
         s7_title:       '7. Children',
         s7_p:           'BrainBites AI is intended for adults. We do not knowingly collect data from children under 16. If you become aware of such a case, please contact <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>.',
         s8_title:       '8. Changes to this Privacy Policy',
@@ -420,34 +449,43 @@
         nav_back:       '← Voltar',
         page_label:     'Legal',
         page_title:     'Política de Privacidade',
-        page_meta:      'Atualizado: março de 2026 · Aplica-se ao: App iOS BrainBites AI &amp; Website getbrainbites.ai',
+        page_meta:      'Atualizado: novembro de 2026 · Aplica-se ao: App iOS BrainBites AI &amp; Website getbrainbites.ai',
         s1_title:       '1. Controlador de Dados',
         s1_intro:       'O controlador de dados nos termos do Regulamento Geral de Proteção de Dados (RGPD) é:',
         s2_title:       '2. Visão Geral: O que coletamos (e o que não coletamos)',
-        s2_p1:          'BrainBites AI é projetado para coletar <strong>o mínimo de dados possível</strong>. Não coletamos dados pessoais como nome, endereço de e-mail, número de telefone ou localização.',
+        s2_p1:          'BrainBites AI é projetado para coletar <strong>o mínimo de dados possível</strong>. Você não precisa de conta nem de login. Os dados que processamos são <strong>pseudônimos</strong>: estão ligados a identificadores gerados aleatoriamente, não ao seu nome. Não são anônimos, pois esses identificadores permitem associá-los ao seu dispositivo.',
         s2_p2:          'Não coletamos:',
         s2_li1:         'Nomes, endereços de e-mail ou dados de conta',
         s2_li2:         'Dados de localização',
         s2_li3:         'Acesso à câmera, microfone ou contatos',
         s2_li4:         'Dados de redes sociais',
         s2_li5:         'Dados de pagamento (processados exclusivamente pela Apple)',
+        s2_li6:         'Seu ID Apple, seu e-mail da Apple ou o conteúdo do seu iCloud',
+        s2_li7:         'Dados para publicidade ou para rastreamento em apps e sites de outras empresas (sem ID de publicidade, sem redes de anúncios)',
         s3_title:       '3. Dados que processamos',
-        s3_1_title:     '3.1 ID do Dispositivo (identificador anônimo)',
-        s3_1_p1:        'No primeiro uso, um ID de Dispositivo aleatório é gerado e armazenado com segurança no Keychain do seu iPhone. Este ID não está vinculado à sua identidade.',
+        s3_1_title:     '3.1 ID de instalação e ID de perfil (identificadores pseudônimos)',
+        s3_1_p1:        'No primeiro uso, o app gera um ID de instalação aleatório. Seu progresso de aprendizagem fica em nosso servidor sob um ID de perfil (no seu primeiro dispositivo, é o mesmo identificador). O app guarda ambos no Keychain do seu dispositivo, somente neste dispositivo e sem sincronização pelo Keychain do iCloud. Assim, após reinstalar, o app normalmente encontra seu perfil de novo. Os identificadores não contêm informações sobre você. O início do ID de perfil aparece no app em Ajustes → Sobre → ID do Dispositivo.',
         s3_1_p2:        '<strong>Base legal:</strong> Art. 6(1)(b) RGPD (execução de contrato)',
-        s3_1_p3:        '<strong>Retenção:</strong> Até exclusão sob solicitação ou após 2 anos de inatividade.',
-        s3_2_title:     '3.2 Progresso de aprendizagem',
-        s3_2_p1:        'Suas lições concluídas, sequência, objetivos de aprendizagem e preferências de categoria são armazenados em nossos servidores vinculados ao seu ID de Dispositivo.',
+        s3_1_p3:        '<strong>Retenção:</strong> Até a exclusão sob solicitação, no máximo após 2 anos de inatividade. Então o perfil é excluído automaticamente com todos os dados relacionados (seções 3.2 a 3.6).',
+        s3_ic_title:    '3.2 Progresso em vários dispositivos (iCloud)',
+        s3_ic_p1:       'Se você estiver conectado ao iCloud no dispositivo, o app lê o identificador de usuário do iCloud que a Apple emite especificamente para o BrainBites. Ele não contém seu ID Apple nem seu e-mail; não lemos nem armazenamos dados do seu iCloud. No dispositivo, o app deriva uma chave desse identificador e a envia ao nosso servidor por conexão criptografada. O servidor armazena apenas um hash criptográfico (HMAC), nunca a própria chave. Quando outro dispositivo com o mesmo ID Apple se conecta, o servidor une o progresso dele ao seu perfil. O identificador anterior desse dispositivo fica guardado como referência ao seu perfil. Sem iCloud, o progresso permanece em cada dispositivo.',
+        s3_ic_p2:       '<strong>Base legal:</strong> Art. 6(1)(b) RGPD (seu progresso em todos os seus dispositivos). <strong>Retenção:</strong> como em 3.1.',
+        s3_2_title:     '3.3 Progresso de aprendizagem',
+        s3_2_p1:        'Suas lições concluídas e puladas, pontos de quiz (XP), sequência, objetivos de aprendizagem e preferências de categoria são armazenados em nossos servidores vinculados ao seu ID de perfil.',
         s3_2_p2:        '<strong>Base legal:</strong> Art. 6(1)(b) RGPD',
-        s3_3_title:     '3.3 Análise de uso',
-        s3_3_p1:        'Armazenamos eventos anônimos como "lição concluída", "app aberto" ou "sequência atingida". São <strong>excluídos automaticamente após 90 dias</strong>.',
+        s3_3_title:     '3.4 Análise de uso',
+        s3_3_p1:        'Armazenamos eventos de uso como "lição concluída", "app aberto" ou "página de assinatura exibida" junto com o ID de instalação do seu dispositivo. Esses dados são pseudônimos, não anônimos. Usamos apenas para melhorar o app, nunca para publicidade. São <strong>excluídos automaticamente após 90 dias</strong>.',
         s3_3_p2:        '<strong>Base legal:</strong> Art. 6(1)(f) RGPD (interesses legítimos)',
-        s3_4_title:     '3.4 Notificações push',
-        s3_4_p1:        'Se você ativar notificações push, um token emitido pela Apple é transmitido aos nossos servidores. Você pode desativar isso a qualquer momento nas Configurações do iPhone.',
+        s3_4_title:     '3.5 Notificações push',
+        s3_4_p1:        'Se você permitir notificações push, o app envia o token emitido pela Apple junto com o ID de instalação, o ID de perfil e o idioma do app aos nossos servidores. Usamos isso para lembretes de aprendizagem, por exemplo quando sua sequência está prestes a ser interrompida. Você pode desativar as notificações a qualquer momento nos ajustes do dispositivo. O token é excluído junto com seu perfil.',
         s3_4_p2:        '<strong>Base legal:</strong> Art. 6(1)(a) RGPD (consentimento)',
-        s3_5_title:     '3.5 Compras no app',
-        s3_5_p:         'Todas as compras são processadas pela Apple App Store. Recebemos apenas confirmação de assinatura ativa. A política de privacidade da Apple se aplica: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
-        s3_6_title:     '3.6 Website (getbrainbites.ai)',
+        s3_5_title:     '3.6 Compras no app',
+        s3_5_p:         'As compras são processadas exclusivamente pela Apple; não recebemos dados de pagamento. Na compra, o app repassa seu ID de perfil à Apple como identificador de conta (appAccountToken). Para verificar sua assinatura e associá-la ao seu perfil, recebemos e armazenamos dados de transação assinados pela Apple: número da transação, produto, data de expiração e esse identificador de conta. Isso também impede que uma única compra libere um número ilimitado de perfis. A política de privacidade da Apple se aplica: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
+        s3_5_p2:        '<strong>Base legal:</strong> Art. 6(1)(b) RGPD (fornecimento da assinatura) e Art. 6(1)(f) RGPD (prevenção de abuso). <strong>Retenção:</strong> como em 3.1.',
+        s3_ip_title:    '3.7 Proteção contra abuso (endereço IP)',
+        s3_ip_p1:       'Para evitar sobrecarga ou abuso do serviço, limitamos o número de solicitações por endereço IP. Para isso, o endereço IP é contado apenas brevemente na memória do servidor (no máximo uma hora) e não é armazenado em nosso banco de dados. Registros técnicos do servidor do nosso provedor de hospedagem podem contê-lo por pouco tempo.',
+        s3_ip_p2:       '<strong>Base legal:</strong> Art. 6(1)(f) RGPD (segurança e estabilidade do serviço)',
+        s3_6_title:     '3.8 Website (getbrainbites.ai)',
         s3_6_p:         'Ao visitar nosso site, o provedor de hospedagem armazena automaticamente dados tecnicamente necessários, como endereço IP, nos logs do servidor. Esses logs são excluídos após 7 dias. Nenhum cookie de rastreamento é utilizado.',
         s3_6_p2:        '<strong>Base legal:</strong> Art. 6(1)(f) RGPD',
         s4_title:       '4. Destinatários e processadores',
@@ -457,22 +495,22 @@
         tbl_location:   'Localização / Salvaguardas',
         tbl_railway:    'Hospedagem do backend, banco de dados',
         tbl_railway_loc:'EUA – Cláusulas Contratuais Padrão (SCCs) conforme Art. 46 RGPD',
-        tbl_apple:      'App Store, notificações push, compras no app',
+        tbl_apple:      'App Store, compras no app, notificações push, identificador de usuário do iCloud',
         tbl_apple_loc:  'EUA – Cláusulas Contratuais Padrão (SCCs) conforme Art. 46 RGPD',
         s4_transfer:    'Como Railway e Apple estão nos EUA, dados podem ser transferidos para um país terceiro. A transferência é baseada em salvaguardas adequadas (SCCs) nos termos do Art. 46 RGPD.',
         s5_title:       '5. Seus direitos',
         s5_intro:       'Você tem os seguintes direitos a qualquer momento:',
         s5_li1:         '<strong>Acesso (Art. 15 RGPD):</strong> Quais dados temos sobre você',
         s5_li2:         '<strong>Retificação (Art. 16 RGPD):</strong> Correção de dados imprecisos',
-        s5_li3:         '<strong>Exclusão (Art. 17 RGPD):</strong> Exclusão de todos os dados vinculados ao seu ID de Dispositivo',
+        s5_li3:         '<strong>Exclusão (Art. 17 RGPD):</strong> Exclusão do seu perfil com todos os dados vinculados: progresso, identificadores de todos os dispositivos unidos, vínculo com o iCloud, tokens push, associação de compras e eventos de uso',
         s5_li4:         '<strong>Restrição (Art. 18 RGPD):</strong> Restrição do processamento',
         s5_li5:         '<strong>Objeção (Art. 21 RGPD):</strong> Objeção ao processamento baseado em interesses legítimos',
         s5_li6:         '<strong>Portabilidade (Art. 20 RGPD):</strong> Receber seus dados em formato comum',
         s5_li7:         '<strong>Retirada (Art. 7(3) RGPD):</strong> Retirar consentimento (ex.: notificações push) a qualquer momento',
-        s5_contact:     'Para exercer seus direitos: <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>',
+        s5_contact:     'Para exercer seus direitos, escreva para <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a> e informe o ID do Dispositivo em Ajustes → Sobre, para que possamos encontrar seu perfil. Apagar o app não remove os dados do nosso servidor.',
         s5_authority:   'Você também tem o direito de registrar uma reclamação junto à autoridade local de proteção de dados.',
         s6_title:       '6. Segurança dos dados',
-        s6_p:           'Todas as conexões entre o app e nossos servidores são criptografadas via HTTPS/TLS. O ID do Dispositivo é armazenado no iOS Keychain e protegido pelos mecanismos de segurança do sistema operacional.',
+        s6_p:           'Todas as conexões entre o app e nossos servidores são criptografadas via HTTPS/TLS. O ID de instalação e o ID de perfil ficam no Keychain do seu dispositivo e são protegidos pelos mecanismos de segurança do sistema operacional. O servidor armazena a chave derivada do iCloud apenas como hash HMAC com uma chave secreta. Não usamos senhas nem credenciais pessoais de login.',
         s7_title:       '7. Crianças',
         s7_p:           'BrainBites AI é destinado a adultos. Não coletamos dados de crianças menores de 16 anos. Se você tiver ciência de tal caso, entre em contato com <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>.',
         s8_title:       '8. Alterações nesta Política de Privacidade',
@@ -492,34 +530,43 @@
         nav_back:       '← Назад',
         page_label:     'Правова інформація',
         page_title:     'Політика конфіденційності',
-        page_meta:      'Станом на: березень 2026 · Застосовується до: iOS App BrainBites AI &amp; Сайт getbrainbites.ai',
+        page_meta:      'Станом на: листопад 2026 · Застосовується до: iOS App BrainBites AI &amp; Сайт getbrainbites.ai',
         s1_title:       '1. Контролер даних',
         s1_intro:       'Контролер даних у розумінні Загального регламенту про захист даних (GDPR):',
         s2_title:       '2. Огляд: що ми збираємо (і що не збираємо)',
-        s2_p1:          'BrainBites AI розроблений так, щоб збирати <strong>якнайменше даних</strong>. Ми не збираємо персональні дані, такі як ім\'я, адреса електронної пошти, номер телефону або місцезнаходження.',
+        s2_p1:          'BrainBites AI розроблений так, щоб збирати <strong>якнайменше даних</strong>. Вам не потрібні обліковий запис чи вхід. Дані, які ми обробляємо, є <strong>псевдонімними</strong>: вони прив’язані до випадково згенерованих ідентифікаторів, а не до вашого імені. Анонімними вони не є, бо через ці ідентифікатори їх можна пов’язати з вашим пристроєм.',
         s2_p2:          'Ми не збираємо:',
         s2_li1:         'Імена, адреси електронної пошти або дані облікових записів',
         s2_li2:         'Дані про місцезнаходження',
         s2_li3:         'Доступ до камери, мікрофона або контактів',
         s2_li4:         'Дані з соціальних мереж',
         s2_li5:         'Платіжні дані (обробляються виключно Apple)',
+        s2_li6:         'Ваш Apple ID, вашу адресу електронної пошти Apple або вміст вашого iCloud',
+        s2_li7:         'Дані для реклами чи відстеження в застосунках і на сайтах інших компаній (без рекламного ID, без рекламних мереж)',
         s3_title:       '3. Дані, які ми обробляємо',
-        s3_1_title:     '3.1 ID пристрою (анонімний ідентифікатор)',
-        s3_1_p1:        'При першому запуску генерується випадковий ID пристрою, який надійно зберігається у Keychain iPhone. Цей ID не пов\'язаний з вашою особою.',
+        s3_1_title:     '3.1 ID встановлення та ID профілю (псевдонімні ідентифікатори)',
+        s3_1_p1:        'Під час першого запуску додаток створює випадковий ID встановлення. Ваш навчальний прогрес зберігається на нашому сервері під ID профілю (на першому пристрої це той самий ідентифікатор). Обидва додаток зберігає у Keychain вашого пристрою — лише на цьому пристрої, без синхронізації через Зв’язку ключів iCloud. Тому після перевстановлення додаток зазвичай знову знаходить ваш профіль. Ідентифікатори не містять відомостей про вас. Початок ID профілю видно в додатку: Налаштування → Про програму → ID пристрою.',
         s3_1_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(b) GDPR (виконання договору)',
-        s3_1_p3:        '<strong>Термін зберігання:</strong> До видалення за запитом або після 2 років бездіяльності.',
-        s3_2_title:     '3.2 Навчальний прогрес',
-        s3_2_p1:        'Завершені уроки, серія, навчальні цілі та налаштування категорій зберігаються на наших серверах, пов\'язані з ID пристрою.',
+        s3_1_p3:        '<strong>Термін зберігання:</strong> До видалення за запитом, не довше 2 років бездіяльності. Після цього профіль автоматично видаляється разом з усіма пов’язаними даними (розділи 3.2–3.6).',
+        s3_ic_title:    '3.2 Прогрес на кількох пристроях (iCloud)',
+        s3_ic_p1:       'Якщо на пристрої виконано вхід в iCloud, додаток зчитує ідентифікатор користувача iCloud, який Apple видає саме для BrainBites. Він не містить ні вашого Apple ID, ні адреси електронної пошти; ми не читаємо й не зберігаємо даних у вашому iCloud. На пристрої додаток виводить із цього ідентифікатора ключ і надсилає його на наш сервер зашифрованим з’єднанням. Сервер зберігає лише криптографічний хеш (HMAC), а не сам ключ. Коли підключається інший пристрій з тим самим Apple ID, сервер об’єднує його прогрес з вашим профілем. Попередній ідентифікатор цього пристрою зберігається як посилання на ваш профіль. Без входу в iCloud прогрес лишається на відповідному пристрої.',
+        s3_ic_p2:       '<strong>Правова підстава:</strong> Ст. 6(1)(b) GDPR (ваш прогрес на всіх ваших пристроях). <strong>Термін зберігання:</strong> як у 3.1.',
+        s3_2_title:     '3.3 Навчальний прогрес',
+        s3_2_p1:        'Завершені та пропущені уроки, бали за вікторини (XP), серія, навчальні цілі та налаштування категорій зберігаються на наших серверах, пов’язані з ID вашого профілю.',
         s3_2_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(b) GDPR',
-        s3_3_title:     '3.3 Аналітика використання',
-        s3_3_p1:        'Ми зберігаємо анонімізовані події, як-от «урок завершено», «додаток відкрито» або «серія досягнута». Вони <strong>автоматично видаляються через 90 днів</strong>.',
+        s3_3_title:     '3.4 Аналітика використання',
+        s3_3_p1:        'Ми зберігаємо події використання, як-от «урок завершено», «додаток відкрито» або «сторінку підписки показано», разом з ID встановлення вашого пристрою. Ці дані псевдонімні, не анонімні. Ми використовуємо їх лише для покращення додатка, ніколи для реклами. Вони <strong>автоматично видаляються через 90 днів</strong>.',
         s3_3_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(f) GDPR (законний інтерес)',
-        s3_4_title:     '3.4 Push-сповіщення',
-        s3_4_p1:        'Якщо ви активуєте push-сповіщення, токен, виданий Apple, передається на наші сервери. Ви можете відключити це будь-коли в налаштуваннях iPhone.',
+        s3_4_title:     '3.5 Push-сповіщення',
+        s3_4_p1:        'Якщо ви дозволите push-сповіщення, додаток надсилає на наші сервери токен, виданий Apple, разом з ID встановлення, ID профілю та мовою додатка. Ми використовуємо його для нагадувань про навчання, наприклад коли ваша серія ось-ось перерветься. Сповіщення можна будь-коли вимкнути в налаштуваннях пристрою. Токен видаляється разом з вашим профілем.',
         s3_4_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(a) GDPR (згода)',
-        s3_5_title:     '3.5 Покупки в додатку',
-        s3_5_p:         'Усі покупки обробляються виключно через Apple App Store. Ми отримуємо лише підтвердження активної підписки. Політика конфіденційності Apple застосовується: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
-        s3_6_title:     '3.6 Вебсайт (getbrainbites.ai)',
+        s3_5_title:     '3.6 Покупки в додатку',
+        s3_5_p:         'Покупки обробляє виключно Apple; платіжних даних ми не отримуємо. Під час покупки додаток передає Apple ваш ID профілю як ідентифікатор облікового запису (appAccountToken). Щоб перевірити підписку й прив’язати її до профілю, ми отримуємо та зберігаємо підписані Apple дані транзакції: номер транзакції, продукт, дату закінчення та цей ідентифікатор. Так одна покупка не може відкрити необмежену кількість профілів. Політика конфіденційності Apple застосовується: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>',
+        s3_5_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(b) GDPR (надання підписки) і Ст. 6(1)(f) GDPR (захист від зловживань). <strong>Термін зберігання:</strong> як у 3.1.',
+        s3_ip_title:    '3.7 Захист від зловживань (IP-адреса)',
+        s3_ip_p1:       'Щоб сервіс не перевантажували й не зловживали ним, ми обмежуємо кількість запитів з однієї IP-адреси. Для цього IP-адреса лише короткочасно рахується в оперативній пам’яті сервера (не довше години) і не зберігається в нашій базі даних. Технічні журнали сервера нашого хостинг-провайдера можуть короткочасно її містити.',
+        s3_ip_p2:       '<strong>Правова підстава:</strong> Ст. 6(1)(f) GDPR (безпека та стабільність сервісу)',
+        s3_6_title:     '3.8 Вебсайт (getbrainbites.ai)',
         s3_6_p:         'При відвіданні сайту хостинг-провайдер автоматично зберігає технічно необхідні дані, такі як IP-адреса, у серверних журналах. Вони видаляються через 7 днів. Файли cookie для відстеження не використовуються.',
         s3_6_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(f) GDPR',
         s4_title:       '4. Одержувачі та обробники',
@@ -529,22 +576,22 @@
         tbl_location:   'Розташування / Гарантії',
         tbl_railway:    'Хостинг бекенду, база даних',
         tbl_railway_loc:'США – Стандартні договірні положення (SCC) згідно зі ст. 46 GDPR',
-        tbl_apple:      'App Store, push-сповіщення, покупки в додатку',
+        tbl_apple:      'App Store, покупки в додатку, push-сповіщення, ідентифікатор користувача iCloud',
         tbl_apple_loc:  'США – Стандартні договірні положення (SCC) згідно зі ст. 46 GDPR',
         s4_transfer:    'Оскільки Railway та Apple знаходяться в США, дані можуть передаватися до третьої країни. Передача здійснюється на основі відповідних гарантій (SCC) відповідно до ст. 46 GDPR.',
         s5_title:       '5. Ваші права',
         s5_intro:       'Ви маєте такі права в будь-який час:',
         s5_li1:         '<strong>Доступ (Ст. 15 GDPR):</strong> Які дані ми зберігаємо про вас',
         s5_li2:         '<strong>Виправлення (Ст. 16 GDPR):</strong> Виправлення неточних даних',
-        s5_li3:         '<strong>Видалення (Ст. 17 GDPR):</strong> Видалення всіх даних, пов\'язаних з ID вашого пристрою',
+        s5_li3:         '<strong>Видалення (Ст. 17 GDPR):</strong> Видалення вашого профілю з усіма пов’язаними даними: прогрес, ідентифікатори всіх об’єднаних пристроїв, зв’язок з iCloud, push-токени, прив’язка покупок і події використання',
         s5_li4:         '<strong>Обмеження (Ст. 18 GDPR):</strong> Обмеження обробки',
         s5_li5:         '<strong>Заперечення (Ст. 21 GDPR):</strong> Заперечення проти обробки на основі законного інтересу',
         s5_li6:         '<strong>Портативність (Ст. 20 GDPR):</strong> Отримати ваші дані у поширеному форматі',
         s5_li7:         '<strong>Відкликання (Ст. 7(3) GDPR):</strong> Відкликати згоду (наприклад, push-сповіщення) будь-коли',
-        s5_contact:     'Для реалізації прав: <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>',
+        s5_contact:     'Для реалізації прав напишіть на <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a> і вкажіть ID пристрою з Налаштування → Про програму, щоб ми знайшли ваш профіль. Видалення додатка не видаляє дані на нашому сервері.',
         s5_authority:   'Ви також маєте право подати скаргу до відповідного органу захисту даних.',
         s6_title:       '6. Безпека даних',
-        s6_p:           'Усі з\'єднання між додатком і нашими серверами зашифровані через HTTPS/TLS. ID пристрою зберігається в iOS Keychain і захищений механізмами безпеки операційної системи.',
+        s6_p:           'Усі з’єднання між додатком і нашими серверами зашифровані через HTTPS/TLS. ID встановлення та ID профілю зберігаються в Keychain вашого пристрою й захищені механізмами безпеки операційної системи. Ключ, отриманий з iCloud, сервер зберігає лише як хеш HMAC із секретним ключем. Ми не використовуємо паролі чи персональні облікові дані.',
         s7_title:       '7. Діти',
         s7_p:           'BrainBites AI призначений для дорослих. Ми свідомо не збираємо дані дітей до 16 років. Якщо вам стало відомо про такий випадок, зверніться до <a href="mailto:privacy@getbrainbites.ai">privacy@getbrainbites.ai</a>.',
         s8_title:       '8. Зміни в цій Політиці конфіденційності',
