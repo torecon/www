@@ -153,8 +153,8 @@
       <p data-i18n="s3_2_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO</p>
 
       <h3 data-i18n="s3_3_title">3.4 Nutzungsstatistiken (Analytics)</h3>
-      <p data-i18n="s3_3_p1">Wir speichern Nutzungsereignisse wie „Lektion abgeschlossen“, „App geöffnet“ oder „Abo-Seite angezeigt“ zusammen mit der Installations-ID deines Geräts. Diese Daten sind pseudonym, nicht anonym. Wir nutzen sie nur, um die App zu verbessern, nicht für Werbung. Sie werden nach <strong>90 Tagen automatisch gelöscht</strong>.</p>
-      <p data-i18n="s3_3_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</p>
+      <p data-i18n="s3_3_p1">Die App sendet Nutzungsereignisse wie „Lektion abgeschlossen“, „App geöffnet“ oder „Abo-Seite angezeigt“ <strong>ohne jede Kennung</strong>: ohne Installations-ID, Profil-ID, Geräte-ID und Push-Token. Mitgesendet werden nur der Tag, die App-Sprache und die App-Version. Unser Server speichert daraus nur Tageszahlen (zum Beispiel: an einem Tag 120-mal „Lektion abgeschlossen“, Sprache Deutsch, Version 1.8), keine einzelnen Ereignisse. Diese Zahlen lassen sich keiner Person und keinem Gerät zuordnen. Wir nutzen sie nur, um die App zu verbessern, nie für Werbung. Für die Nutzungsstatistik speichert die App keine Kennung auf deinem Gerät und liest keine aus. Die IP-Adresse der Anfrage wird nur wie in Abschnitt 3.7 beschrieben kurzzeitig zum Schutz vor Missbrauch gezählt. Ältere App-Versionen senden noch eine Kennung mit; unser Server verwirft sie seit dem 14. November 2026 sofort. Nutzungsereignisse mit Kennung, die vorher gespeichert wurden, löschen wir <strong>spätestens 90 Tage nach ihrem Eingang automatisch</strong>.</p>
+      <p data-i18n="s3_3_p2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Verbesserung der App), soweit beim Empfang überhaupt personenbezogene Daten verarbeitet werden</p>
 
       <h3 data-i18n="s3_4_title">3.5 Push-Benachrichtigungen</h3>
       <p data-i18n="s3_4_p1">Wenn du Push-Benachrichtigungen erlaubst, übermittelt die App das von Apple ausgestellte Token zusammen mit Installations-ID, Profil-ID und App-Sprache an unsere Server. Wir nutzen es für Lern-Erinnerungen, zum Beispiel wenn deine Serie abzureißen droht. Du kannst Mitteilungen jederzeit in den Einstellungen deines Geräts abschalten. Das Token wird mit deinem Profil gelöscht.</p>
@@ -206,7 +206,7 @@
       <ul>
         <li data-i18n="s5_li1"><strong>Auskunft (Art. 15 DSGVO):</strong> Welche Daten wir über dich gespeichert haben</li>
         <li data-i18n="s5_li2"><strong>Berichtigung (Art. 16 DSGVO):</strong> Korrektur unrichtiger Daten</li>
-        <li data-i18n="s5_li3"><strong>Löschung (Art. 17 DSGVO):</strong> Löschung deines Profils mit allen verknüpften Daten: Lernfortschritt, Kennungen aller zusammengeführten Geräte, iCloud-Verknüpfung, Push-Tokens, Kauf-Zuordnung und Nutzungsereignisse</li>
+        <li data-i18n="s5_li3"><strong>Löschung (Art. 17 DSGVO):</strong> Löschung deines Profils mit allen verknüpften Daten: Lernfortschritt, Kennungen aller zusammengeführten Geräte, iCloud-Verknüpfung, Push-Tokens, Kauf-Zuordnung und noch vorhandene Nutzungsereignisse mit Kennung aus älteren App-Versionen (die Tageszahlen enthalten keine Kennung)</li>
         <li data-i18n="s5_li4"><strong>Einschränkung (Art. 18 DSGVO):</strong> Einschränkung der Verarbeitung</li>
         <li data-i18n="s5_li5"><strong>Widerspruch (Art. 21 DSGVO):</strong> Widerspruch gegen Verarbeitung auf Basis berechtigter Interessen</li>
         <li data-i18n="s5_li6"><strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Erhalt deiner Daten in einem gängigen Format</li>
@@ -312,8 +312,8 @@
         s3_2_p1:        'Deine abgeschlossenen und übersprungenen Lektionen, Quiz-Punkte (XP), Serie, Lernziele und Kategorie-Präferenzen werden mit deiner Profil-ID verknüpft auf unseren Servern gespeichert.',
         s3_2_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO',
         s3_3_title:     '3.4 Nutzungsstatistiken (Analytics)',
-        s3_3_p1:        'Wir speichern Nutzungsereignisse wie „Lektion abgeschlossen“, „App geöffnet“ oder „Abo-Seite angezeigt“ zusammen mit der Installations-ID deines Geräts. Diese Daten sind pseudonym, nicht anonym. Wir nutzen sie nur, um die App zu verbessern, nicht für Werbung. Sie werden nach <strong>90 Tagen automatisch gelöscht</strong>.',
-        s3_3_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)',
+        s3_3_p1:        'Die App sendet Nutzungsereignisse wie „Lektion abgeschlossen“, „App geöffnet“ oder „Abo-Seite angezeigt“ <strong>ohne jede Kennung</strong>: ohne Installations-ID, Profil-ID, Geräte-ID und Push-Token. Mitgesendet werden nur der Tag, die App-Sprache und die App-Version. Unser Server speichert daraus nur Tageszahlen (zum Beispiel: an einem Tag 120-mal „Lektion abgeschlossen“, Sprache Deutsch, Version 1.8), keine einzelnen Ereignisse. Diese Zahlen lassen sich keiner Person und keinem Gerät zuordnen. Wir nutzen sie nur, um die App zu verbessern, nie für Werbung. Für die Nutzungsstatistik speichert die App keine Kennung auf deinem Gerät und liest keine aus. Die IP-Adresse der Anfrage wird nur wie in Abschnitt 3.7 beschrieben kurzzeitig zum Schutz vor Missbrauch gezählt. Ältere App-Versionen senden noch eine Kennung mit; unser Server verwirft sie seit dem 14. November 2026 sofort. Nutzungsereignisse mit Kennung, die vorher gespeichert wurden, löschen wir <strong>spätestens 90 Tage nach ihrem Eingang automatisch</strong>.',
+        s3_3_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Verbesserung der App), soweit beim Empfang überhaupt personenbezogene Daten verarbeitet werden',
         s3_4_title:     '3.5 Push-Benachrichtigungen',
         s3_4_p1:        'Wenn du Push-Benachrichtigungen erlaubst, übermittelt die App das von Apple ausgestellte Token zusammen mit Installations-ID, Profil-ID und App-Sprache an unsere Server. Wir nutzen es für Lern-Erinnerungen, zum Beispiel wenn deine Serie abzureißen droht. Du kannst Mitteilungen jederzeit in den Einstellungen deines Geräts abschalten. Das Token wird mit deinem Profil gelöscht.',
         s3_4_p2:        '<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)',
@@ -340,7 +340,7 @@
         s5_intro:       'Du hast jederzeit folgende Rechte gegenüber uns:',
         s5_li1:         '<strong>Auskunft (Art. 15 DSGVO):</strong> Welche Daten wir über dich gespeichert haben',
         s5_li2:         '<strong>Berichtigung (Art. 16 DSGVO):</strong> Korrektur unrichtiger Daten',
-        s5_li3:         '<strong>Löschung (Art. 17 DSGVO):</strong> Löschung deines Profils mit allen verknüpften Daten: Lernfortschritt, Kennungen aller zusammengeführten Geräte, iCloud-Verknüpfung, Push-Tokens, Kauf-Zuordnung und Nutzungsereignisse',
+        s5_li3:         '<strong>Löschung (Art. 17 DSGVO):</strong> Löschung deines Profils mit allen verknüpften Daten: Lernfortschritt, Kennungen aller zusammengeführten Geräte, iCloud-Verknüpfung, Push-Tokens, Kauf-Zuordnung und noch vorhandene Nutzungsereignisse mit Kennung aus älteren App-Versionen (die Tageszahlen enthalten keine Kennung)',
         s5_li4:         '<strong>Einschränkung (Art. 18 DSGVO):</strong> Einschränkung der Verarbeitung',
         s5_li5:         '<strong>Widerspruch (Art. 21 DSGVO):</strong> Widerspruch gegen Verarbeitung auf Basis berechtigter Interessen',
         s5_li6:         '<strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Erhalt deiner Daten in einem gängigen Format',
@@ -393,8 +393,8 @@
         s3_2_p1:        'Your completed and skipped lessons, quiz points (XP), streak, learning goals and category preferences are stored on our servers linked to your profile ID.',
         s3_2_p2:        '<strong>Legal basis:</strong> Art. 6(1)(b) GDPR',
         s3_3_title:     '3.4 Usage analytics',
-        s3_3_p1:        'We store usage events such as “lesson completed”, “app opened” or “subscription page viewed” together with your device’s installation ID. This data is pseudonymous, not anonymous. We use it only to improve the app, never for advertising. It is <strong>automatically deleted after 90 days</strong>.',
-        s3_3_p2:        '<strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interests)',
+        s3_3_p1:        'The app sends usage events such as “lesson completed”, “app opened” or “subscription page viewed” <strong>without any identifier</strong>: no installation ID, profile ID, device ID or push token. Only the day, the app language and the app version are sent along. From this, our server stores daily counts only (for example: “lesson completed” 120 times on one day, language German, version 1.8), not individual events. These counts cannot be linked to any person or device. We use them only to improve the app, never for advertising. For usage analytics, the app neither stores nor reads any identifier on your device. The IP address of the request is only counted briefly to prevent abuse, as described in section 3.7. Older app versions still send an identifier; since 14 November 2026 our server discards it immediately. Usage events with an identifier stored before that date are <strong>automatically deleted no later than 90 days after receipt</strong>.',
+        s3_3_p2:        '<strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interest in improving the app), insofar as any personal data is processed on receipt at all',
         s3_4_title:     '3.5 Push notifications',
         s3_4_p1:        'If you allow push notifications, the app sends the Apple-issued token together with the installation ID, profile ID and app language to our servers. We use it for learning reminders, for example when your streak is about to break. You can turn notifications off at any time in your device settings. The token is deleted together with your profile.',
         s3_4_p2:        '<strong>Legal basis:</strong> Art. 6(1)(a) GDPR (consent)',
@@ -421,7 +421,7 @@
         s5_intro:       'You have the following rights at any time:',
         s5_li1:         '<strong>Access (Art. 15 GDPR):</strong> What data we hold about you',
         s5_li2:         '<strong>Rectification (Art. 16 GDPR):</strong> Correction of inaccurate data',
-        s5_li3:         '<strong>Erasure (Art. 17 GDPR):</strong> Deletion of your profile with all linked data: learning progress, identifiers of all merged devices, iCloud link, push tokens, purchase assignment and usage events',
+        s5_li3:         '<strong>Erasure (Art. 17 GDPR):</strong> Deletion of your profile with all linked data: learning progress, identifiers of all merged devices, iCloud link, push tokens, purchase assignment and any remaining usage events with an identifier from older app versions (the daily counts contain no identifier)',
         s5_li4:         '<strong>Restriction (Art. 18 GDPR):</strong> Restriction of processing',
         s5_li5:         '<strong>Objection (Art. 21 GDPR):</strong> Object to processing based on legitimate interests',
         s5_li6:         '<strong>Portability (Art. 20 GDPR):</strong> Receive your data in a common format',
@@ -474,8 +474,8 @@
         s3_2_p1:        'Suas lições concluídas e puladas, pontos de quiz (XP), sequência, objetivos de aprendizagem e preferências de categoria são armazenados em nossos servidores vinculados ao seu ID de perfil.',
         s3_2_p2:        '<strong>Base legal:</strong> Art. 6(1)(b) RGPD',
         s3_3_title:     '3.4 Análise de uso',
-        s3_3_p1:        'Armazenamos eventos de uso como "lição concluída", "app aberto" ou "página de assinatura exibida" junto com o ID de instalação do seu dispositivo. Esses dados são pseudônimos, não anônimos. Usamos apenas para melhorar o app, nunca para publicidade. São <strong>excluídos automaticamente após 90 dias</strong>.',
-        s3_3_p2:        '<strong>Base legal:</strong> Art. 6(1)(f) RGPD (interesses legítimos)',
+        s3_3_p1:        'O app envia eventos de uso como "lição concluída", "app aberto" ou "página de assinatura exibida" <strong>sem nenhum identificador</strong>: sem ID de instalação, ID de perfil, ID do dispositivo ou token push. São enviados apenas o dia, o idioma do app e a versão do app. A partir disso, nosso servidor armazena apenas totais diários (por exemplo: 120 vezes "lição concluída" em um dia, idioma alemão, versão 1.8), não eventos individuais. Esses totais não podem ser associados a nenhuma pessoa nem a nenhum dispositivo. Usamos apenas para melhorar o app, nunca para publicidade. Para a análise de uso, o app não armazena nem lê nenhum identificador no seu dispositivo. O endereço IP da solicitação é contado apenas brevemente para evitar abusos, como descrito na seção 3.7. Versões mais antigas do app ainda enviam um identificador; desde 14 de novembro de 2026 nosso servidor o descarta imediatamente. Eventos de uso com identificador armazenados antes dessa data são <strong>excluídos automaticamente no máximo 90 dias após o recebimento</strong>.',
+        s3_3_p2:        '<strong>Base legal:</strong> Art. 6(1)(f) RGPD (interesse legítimo em melhorar o app), na medida em que dados pessoais sejam tratados no recebimento',
         s3_4_title:     '3.5 Notificações push',
         s3_4_p1:        'Se você permitir notificações push, o app envia o token emitido pela Apple junto com o ID de instalação, o ID de perfil e o idioma do app aos nossos servidores. Usamos isso para lembretes de aprendizagem, por exemplo quando sua sequência está prestes a ser interrompida. Você pode desativar as notificações a qualquer momento nos ajustes do dispositivo. O token é excluído junto com seu perfil.',
         s3_4_p2:        '<strong>Base legal:</strong> Art. 6(1)(a) RGPD (consentimento)',
@@ -502,7 +502,7 @@
         s5_intro:       'Você tem os seguintes direitos a qualquer momento:',
         s5_li1:         '<strong>Acesso (Art. 15 RGPD):</strong> Quais dados temos sobre você',
         s5_li2:         '<strong>Retificação (Art. 16 RGPD):</strong> Correção de dados imprecisos',
-        s5_li3:         '<strong>Exclusão (Art. 17 RGPD):</strong> Exclusão do seu perfil com todos os dados vinculados: progresso, identificadores de todos os dispositivos unidos, vínculo com o iCloud, tokens push, associação de compras e eventos de uso',
+        s5_li3:         '<strong>Exclusão (Art. 17 RGPD):</strong> Exclusão do seu perfil com todos os dados vinculados: progresso, identificadores de todos os dispositivos unidos, vínculo com o iCloud, tokens push, associação de compras e eventos de uso com identificador ainda existentes de versões antigas do app (os totais diários não contêm identificador)',
         s5_li4:         '<strong>Restrição (Art. 18 RGPD):</strong> Restrição do processamento',
         s5_li5:         '<strong>Objeção (Art. 21 RGPD):</strong> Objeção ao processamento baseado em interesses legítimos',
         s5_li6:         '<strong>Portabilidade (Art. 20 RGPD):</strong> Receber seus dados em formato comum',
@@ -555,8 +555,8 @@
         s3_2_p1:        'Завершені та пропущені уроки, бали за вікторини (XP), серія, навчальні цілі та налаштування категорій зберігаються на наших серверах, пов’язані з ID вашого профілю.',
         s3_2_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(b) GDPR',
         s3_3_title:     '3.4 Аналітика використання',
-        s3_3_p1:        'Ми зберігаємо події використання, як-от «урок завершено», «додаток відкрито» або «сторінку підписки показано», разом з ID встановлення вашого пристрою. Ці дані псевдонімні, не анонімні. Ми використовуємо їх лише для покращення додатка, ніколи для реклами. Вони <strong>автоматично видаляються через 90 днів</strong>.',
-        s3_3_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(f) GDPR (законний інтерес)',
+        s3_3_p1:        'Додаток надсилає події використання, як-от «урок завершено», «додаток відкрито» або «сторінку підписки показано», <strong>без жодного ідентифікатора</strong>: без ID встановлення, ID профілю, ID пристрою та push-токена. Надсилаються лише день, мова додатка та версія додатка. З цього наш сервер зберігає лише щоденні підсумки (наприклад: за день 120 разів «урок завершено», мова німецька, версія 1.8), а не окремі події. Ці підсумки неможливо пов’язати з жодною особою чи пристроєм. Ми використовуємо їх лише для покращення додатка, ніколи для реклами. Для аналітики використання додаток не зберігає і не зчитує жодного ідентифікатора на вашому пристрої. IP-адреса запиту лише короткочасно враховується для захисту від зловживань, як описано в розділі 3.7. Старіші версії додатка ще надсилають ідентифікатор; з 14 листопада 2026 року наш сервер одразу його відкидає. Події використання з ідентифікатором, збережені до цієї дати, <strong>автоматично видаляються не пізніше ніж через 90 днів після отримання</strong>.',
+        s3_3_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(f) GDPR (законний інтерес у покращенні додатка), якщо під час отримання взагалі обробляються персональні дані',
         s3_4_title:     '3.5 Push-сповіщення',
         s3_4_p1:        'Якщо ви дозволите push-сповіщення, додаток надсилає на наші сервери токен, виданий Apple, разом з ID встановлення, ID профілю та мовою додатка. Ми використовуємо його для нагадувань про навчання, наприклад коли ваша серія ось-ось перерветься. Сповіщення можна будь-коли вимкнути в налаштуваннях пристрою. Токен видаляється разом з вашим профілем.',
         s3_4_p2:        '<strong>Правова підстава:</strong> Ст. 6(1)(a) GDPR (згода)',
@@ -583,7 +583,7 @@
         s5_intro:       'Ви маєте такі права в будь-який час:',
         s5_li1:         '<strong>Доступ (Ст. 15 GDPR):</strong> Які дані ми зберігаємо про вас',
         s5_li2:         '<strong>Виправлення (Ст. 16 GDPR):</strong> Виправлення неточних даних',
-        s5_li3:         '<strong>Видалення (Ст. 17 GDPR):</strong> Видалення вашого профілю з усіма пов’язаними даними: прогрес, ідентифікатори всіх об’єднаних пристроїв, зв’язок з iCloud, push-токени, прив’язка покупок і події використання',
+        s5_li3:         '<strong>Видалення (Ст. 17 GDPR):</strong> Видалення вашого профілю з усіма пов’язаними даними: прогрес, ідентифікатори всіх об’єднаних пристроїв, зв’язок з iCloud, push-токени, прив’язка покупок і ще наявні події використання з ідентифікатором зі старіших версій додатка (щоденні підсумки не містять ідентифікатора)',
         s5_li4:         '<strong>Обмеження (Ст. 18 GDPR):</strong> Обмеження обробки',
         s5_li5:         '<strong>Заперечення (Ст. 21 GDPR):</strong> Заперечення проти обробки на основі законного інтересу',
         s5_li6:         '<strong>Портативність (Ст. 20 GDPR):</strong> Отримати ваші дані у поширеному форматі',
