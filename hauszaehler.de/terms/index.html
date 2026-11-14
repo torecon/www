@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de" data-title-de="Nutzungsbedingungen – HausZähler" data-title-en="Terms of Use – MeterRoll">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutzungsbedingungen – HausZähler</title>
+  <meta name="description" content="Nutzungsbedingungen für hauszaehler.de.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script>
+    // Sprachwahl vor dem Rendern: ?lang= > gespeicherte Wahl (localStorage 'lang', geteilt mit der Startseite) > Browsersprache
+    (function () {
+      var lang = null, p = new URLSearchParams(location.search).get('lang');
+      if (p === 'de' || p === 'en') lang = p;
+      if (!lang) { try { var s = localStorage.getItem('lang'); if (s === 'de' || s === 'en') lang = s; } catch (_) {} }
+      if (!lang) lang = ((navigator.language || 'de').toLowerCase().split('-')[0] === 'de') ? 'de' : 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+    })();
+  </script>
+  <style>
+    :root { --bg:#FFFFFF; --bg-alt:#F4F6F8; --ink:#1B2A3A; --ink-deep:#0B131C; --text:#1D1D1F; --text-2:#545B66; --accent:#0B6E99; --border:rgba(0,0,0,0.09); --font:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; overflow-x: hidden; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.9); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1040px; margin: 0 auto; padding: 0 16px; height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; font-size: 17px; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 9px; display: block; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-back { font-size: 14px; color: var(--text-2); text-decoration: none; padding: 8px 10px; border-radius: 8px; }
+    .nav-back:hover { background: var(--bg-alt); color: var(--ink); }
+    .lang-toggle { display: inline-flex; gap: 2px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
+    .lang-btn { border: 0; background: transparent; color: var(--text-2); padding: 6px 11px; min-height: 32px; border-radius: 999px; font: 700 12px/1 var(--font); cursor: pointer; }
+    .lang-btn.active { background: var(--ink); color: #fff; }
+    .page { max-width: 740px; margin: 0 auto; padding: 56px 16px 88px; }
+    .page-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .page h1 { font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.02em; line-height: 1.12; color: var(--ink); margin-bottom: 10px; }
+    .page-meta { font-size: 14px; color: var(--text-2); margin-bottom: 36px; }
+    .page h2 { font-size: 21px; color: var(--ink); margin: 36px 0 12px; letter-spacing: -0.01em; }
+    .page p, .page li { font-size: 16px; color: var(--text-2); line-height: 1.75; }
+    .page p { margin-bottom: 14px; }
+    .page ul { padding-left: 22px; margin-bottom: 14px; }
+    .page strong { color: var(--text); }
+    .box { background: rgba(11,110,153,0.07); border: 1px solid rgba(11,110,153,0.22); border-radius: 14px; padding: 18px 22px; margin: 22px 0; }
+    .box p { margin: 0; color: var(--text); }
+    html[data-lang="de"] [data-l="en"], html[data-lang="en"] [data-l="de"] { display: none; }
+    .site-footer { background: var(--ink-deep); color: rgba(255,255,255,0.72); padding: 44px 24px 36px; text-align: center; }
+    .footer-inner { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; font-size: 18px; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-brand-line a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer-brand-line img { border-radius: 5px; vertical-align: middle; margin-right: 6px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
+    .footer-links a { color: rgba(255,255,255,0.78); font-size: 14px; text-decoration: none; padding: 6px 2px; }
+    .footer-links a:hover { color: #fff; }
+    .footer-apps-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); }
+    .footer-apps-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(255,255,255,0.08); color: #fff; text-decoration: none; font-size: 13px; }
+    .footer-app-pill img { border-radius: 6px; display: block; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/"><img src="/icon-512.png" alt="" width="34" height="34"><span data-l="de">HausZähler</span><span data-l="en">MeterRoll</span></a>
+      <div class="nav-right">
+        <a class="nav-back" href="/"><span data-l="de">← Zurück</span><span data-l="en">← Back</span></a>
+        <div class="lang-toggle" role="group" aria-label="Sprache / Language">
+          <button class="lang-btn" id="btn-de" type="button" lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" id="btn-en" type="button" lang="en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="page">
+    <div data-l="de" lang="de">
+      <span class="page-label">Rechtliches</span>
+      <h1>Nutzungsbedingungen</h1>
+      <p class="page-meta">Stand: November 2026 · Website hauszaehler.de</p>
+      <div class="box"><p>Die App HausZähler ist in Entwicklung und noch nicht erhältlich. Die Nutzungsbedingungen für die App veröffentlichen wir hier vor dem Start.</p></div>
+
+      <h2>1. Anbieter und Kontakt</h2>
+      <p>Thomas Reinke · torecon<br>Roesgenstr. 22, 53474 Ahrweiler, Deutschland<br>E-Mail: <a href="mailto:legal@hauszaehler.de">legal@hauszaehler.de</a></p>
+
+      <h2>2. Geltungsbereich</h2>
+      <p>Diese Bedingungen gelten für die Nutzung der Website hauszaehler.de. Die Website informiert über die geplante App HausZähler (Deutsch) bzw. MeterRoll (Englisch). Die Nutzung der Website ist kostenlos und ohne Anmeldung möglich.</p>
+
+      <h2>3. Inhalte der Website</h2>
+      <p>Die Website beschreibt eine App in Entwicklung. Beschriebene Funktionen, Abbildungen und Beispielwerte sind eine Vorschau. Sie können sich bis zum Start ändern und sind keine Zusage eines bestimmten Funktionsumfangs oder Termins. Verbindlich ist die Beschreibung im App Store zum Zeitpunkt des Downloads.</p>
+
+      <h2>4. Kostenpflichtige Funktionen</h2>
+      <p>Die App soll kostenlos nutzbar sein und zusätzliche Funktionen per Abonnement anbieten. Käufe laufen ausschließlich über den App Store von Apple. Die jeweils gültigen Preise siehst du vor dem Kauf in der App und im App Store.</p>
+
+      <h2>5. Links zu anderen Websites</h2>
+      <p>Die Website enthält Links zu anderen Angeboten, zum Beispiel zu weiteren Apps von torecon und zum App Store. Für deren Inhalte sind die jeweiligen Anbieter verantwortlich.</p>
+
+      <h2>6. Urheberrecht</h2>
+      <p>Texte, Grafiken und das Logo dieser Website sind urheberrechtlich geschützt. Eine Verwendung außerhalb der privaten Nutzung braucht unsere vorherige Zustimmung.</p>
+
+      <h2>7. Haftung</h2>
+      <p>Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder Gesundheit. Bei einfacher Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Pflichten und begrenzt auf den vorhersehbaren, typischen Schaden.</p>
+
+      <h2>8. Anwendbares Recht</h2>
+      <p>Es gilt deutsches Recht. Zwingende Verbraucherschutzvorschriften deines Wohnsitzlandes bleiben unberührt. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </div>
+
+    <div data-l="en" lang="en">
+      <span class="page-label">Legal</span>
+      <h1>Terms of Use</h1>
+      <p class="page-meta">Updated: November 2026 · Website hauszaehler.de</p>
+      <div class="box"><p>The MeterRoll app is in development and not yet available. We will publish the terms of use for the app here before launch.</p></div>
+
+      <h2>1. Provider and contact</h2>
+      <p>Thomas Reinke · torecon<br>Roesgenstr. 22, 53474 Ahrweiler, Germany<br>Email: <a href="mailto:legal@hauszaehler.de">legal@hauszaehler.de</a></p>
+
+      <h2>2. Scope</h2>
+      <p>These terms apply to the use of the website hauszaehler.de. The website provides information about the planned app HausZähler (German) / MeterRoll (English). Using the website is free and requires no sign-up.</p>
+
+      <h2>3. Website content</h2>
+      <p>The website describes an app in development. Features, images and sample values shown are a preview. They may change before launch and do not promise any particular feature set or date. The App Store description at the time of download is binding.</p>
+
+      <h2>4. Paid features</h2>
+      <p>The app is planned to be free to use, with additional features available by subscription. Purchases are handled exclusively by Apple's App Store. You will see the applicable prices in the app and on the App Store before you buy.</p>
+
+      <h2>5. Links to other websites</h2>
+      <p>The website contains links to other services, for example to other torecon apps and to the App Store. Their providers are responsible for their content.</p>
+
+      <h2>6. Copyright</h2>
+      <p>Texts, graphics and the logo on this website are protected by copyright. Any use beyond private use requires our prior consent.</p>
+
+      <h2>7. Liability</h2>
+      <p>We are liable without limitation for intent and gross negligence and for injury to life, body or health. For simple negligence, we are liable only for breach of essential obligations and limited to the foreseeable, typical damage.</p>
+
+      <h2>8. Applicable law</h2>
+      <p>German law applies. Mandatory consumer protection rules of your country of residence remain unaffected. We are neither obliged nor willing to take part in dispute resolution proceedings before a consumer arbitration board.</p>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="/icon-512.png" alt="" width="32" height="32" loading="lazy"><span data-l="de">HausZähler</span><span data-l="en">MeterRoll</span></div>
+      <span class="footer-brand-line"><a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy"><span data-l="de">eine App von torecon</span><span data-l="en">an app by torecon</span></a></span>
+      <div class="footer-links">
+        <a href="/privacy/"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a>
+        <a href="/terms/"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms of Use</span></a>
+        <a href="/#impressum"><span data-l="de">Impressum</span><span data-l="en">Legal notice</span></a>
+        <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon.de</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label"><span data-l="de">Weitere Apps von torecon</span><span data-l="en">More apps by torecon</span></span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener"><img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22"><span>BrainBites AI</span></a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener"><img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22"><span>ThinkLess AI</span></a>
+          <a class="footer-app-pill" href="https://chargescope.ai" target="_blank" rel="noopener"><img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22"><span>eLadung GO</span></a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener"><img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22"><span>Zettelküche AI</span></a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/meisterlich/id6762597134" target="_blank" rel="noopener"><img src="/cross-promo/meisterlich.png" alt="" loading="lazy" width="22" height="22"><span>Meisterlich</span></a>
+        </div>
+      </div>
+      <span class="footer-copy">&copy; <span class="footer-year">2026</span> torecon &ndash; Thomas Reinke. <span data-l="de">Alle Rechte vorbehalten.</span><span data-l="en">All rights reserved.</span></span>
+    </div>
+  </footer>
+  <script>
+    function setLang(code) {
+      if (code !== 'de' && code !== 'en') code = 'de';
+      document.documentElement.setAttribute('data-lang', code);
+      document.documentElement.lang = code;
+      try { localStorage.setItem('lang', code); } catch (_) {}
+      ['de', 'en'].forEach(function (c) { var b = document.getElementById('btn-' + c); b.classList.toggle('active', c === code); b.setAttribute('aria-pressed', c === code ? 'true' : 'false'); });
+      document.title = document.documentElement.getAttribute('data-title-' + code) || document.title;
+    }
+    setLang(document.documentElement.getAttribute('data-lang'));
+    document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+  </script>
+</body>
+</html>
