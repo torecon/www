@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="de" data-title-de="Hilfe und häufige Fragen – HausZähler" data-title-en="Help and FAQ – MeterRoll" data-desc-de="Hilfe zu HausZähler: Ablesen, Zählerwechsel, Übersicht, Abrechnung prüfen, Import, Demo, iCloud, Premium und Datenschutz." data-desc-en="Help for MeterRoll: readings, meter replacement, overview, bill check, import, demo, iCloud, Premium and privacy.">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hilfe und häufige Fragen – HausZähler</title>
+  <meta name="description" content="Hilfe zu HausZähler: Ablesen, Zählerwechsel, Übersicht, Abrechnung prüfen, Import, Demo, iCloud, Premium und Datenschutz.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hauszaehler.de/hilfe/">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <!-- Erzeugt aus dem Vault: _projects/hauszaehler/help/faq.de.md + faq.en.md (help-center). Inhalte dort ändern, nicht hier. Anker sind stabil (die App verlinkt sie). -->
+  <script>
+    // Sprachwahl vor dem Rendern: ?lang= > gespeicherte Wahl (localStorage 'lang', geteilt mit der Startseite) > Browsersprache
+    (function () {
+      var lang = null, p = new URLSearchParams(location.search).get('lang');
+      if (p === 'de' || p === 'en') lang = p;
+      if (!lang) { try { var s = localStorage.getItem('lang'); if (s === 'de' || s === 'en') lang = s; } catch (_) {} }
+      if (!lang) lang = ((navigator.language || 'de').toLowerCase().split('-')[0] === 'de') ? 'de' : 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+    })();
+  </script>
+  <style>
+    :root { --bg:#FFFFFF; --bg-alt:#F4F6F8; --ink:#1B2A3A; --ink-deep:#0B131C; --text:#1D1D1F; --text-2:#545B66; --accent:#0B6E99; --accent-soft:rgba(11,110,153,0.07); --border:rgba(0,0,0,0.09); --font:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; overflow-x: hidden; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.9); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1040px; margin: 0 auto; padding: 0 16px; height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; font-size: 17px; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 9px; display: block; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-back { font-size: 14px; color: var(--text-2); text-decoration: none; padding: 8px 10px; border-radius: 8px; }
+    .nav-back:hover { background: var(--bg-alt); color: var(--ink); }
+    .lang-toggle { display: inline-flex; gap: 2px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
+    .lang-btn { border: 0; background: transparent; color: var(--text-2); padding: 6px 11px; min-height: 32px; border-radius: 999px; font: 700 12px/1 var(--font); cursor: pointer; }
+    .lang-btn.active { background: var(--ink); color: #fff; }
+    .page { max-width: 780px; margin: 0 auto; padding: 56px 16px 88px; }
+    .page-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .page h1 { font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.02em; line-height: 1.12; color: var(--ink); margin-bottom: 10px; }
+    .page-meta { font-size: 14px; color: var(--text-2); margin-bottom: 28px; }
+    .intro { font-size: 17px; color: var(--text-2); margin-bottom: 28px; }
+    .toc { background: var(--bg-alt); border-radius: 16px; padding: 22px 22px 14px; margin-bottom: 44px; }
+    .toc h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 12px; }
+    .toc > ol { list-style: none; columns: 2 300px; column-gap: 28px; }
+    .toc > ol > li { break-inside: avoid; margin-bottom: 14px; }
+    .toc-topic { font-weight: 700; color: var(--ink); text-decoration: none; font-size: 15px; }
+    .toc ul { list-style: none; margin-top: 4px; }
+    .toc ul li { font-size: 14px; line-height: 1.45; padding: 3px 0; }
+    .toc ul a { color: var(--text-2); text-decoration: none; }
+    .toc a:hover { color: var(--accent); text-decoration: underline; }
+    .topic { margin-bottom: 40px; scroll-margin-top: 76px; }
+    .topic h2 { font-size: 24px; color: var(--ink); letter-spacing: -0.01em; padding-bottom: 10px; border-bottom: 2px solid var(--border); margin-bottom: 6px; }
+    .qa { padding: 18px 0 6px; border-bottom: 1px solid var(--border); scroll-margin-top: 76px; }
+    .qa:target { background: var(--accent-soft); border-radius: 12px; padding-left: 14px; padding-right: 14px; margin: 0 -14px; }
+    .qa h3 { font-size: 18px; color: var(--ink); line-height: 1.35; margin-bottom: 8px; }
+    .permalink { margin-left: 8px; color: var(--text-2); text-decoration: none; font-weight: 400; opacity: 0.55; }
+    .permalink:hover, .permalink:focus-visible { opacity: 1; color: var(--accent); }
+    .qa p { font-size: 16px; color: var(--text-2); line-height: 1.75; margin-bottom: 12px; overflow-wrap: anywhere; }
+    .to-top { margin-top: 14px; font-size: 14px; }
+    .to-top a { color: var(--text-2); text-decoration: none; }
+    .box { background: var(--accent-soft); border: 1px solid rgba(11,110,153,0.22); border-radius: 14px; padding: 18px 22px; margin: 22px 0; }
+    .box p { margin: 0; color: var(--text); }
+    html[data-lang="de"] [data-l="en"], html[data-lang="en"] [data-l="de"] { display: none; }
+    .site-footer { background: var(--ink-deep); color: rgba(255,255,255,0.72); padding: 44px 24px 36px; text-align: center; }
+    .footer-inner { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; font-size: 18px; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-brand-line a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer-brand-line img { border-radius: 5px; vertical-align: middle; margin-right: 6px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
+    .footer-links a { color: rgba(255,255,255,0.78); font-size: 14px; text-decoration: none; padding: 6px 2px; }
+    .footer-links a:hover { color: #fff; }
+    .footer-apps-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); }
+    .footer-apps-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(255,255,255,0.08); color: #fff; text-decoration: none; font-size: 13px; }
+    .footer-app-pill img { border-radius: 6px; display: block; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/"><img src="/icon-512.png" alt="" width="34" height="34"><span data-l="de">HausZähler</span><span data-l="en">MeterRoll</span></a>
+      <div class="nav-right">
+        <a class="nav-back" href="/"><span data-l="de">← Startseite</span><span data-l="en">← Home</span></a>
+        <div class="lang-toggle" role="group" aria-label="Sprache / Language">
+          <button class="lang-btn" id="btn-de" type="button" lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" id="btn-en" type="button" lang="en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="page">
+    <span class="page-label"><span data-l="de">Hilfe</span><span data-l="en">Help</span></span>
+    <h1><span data-l="de">Hilfe und häufige Fragen</span><span data-l="en">Help and frequently asked questions</span></h1>
+    <p class="page-meta"><span data-l="de">Stand: November 2026 · Version 1.0 · 31 Fragen</span><span data-l="en">Updated: November 2026 · version 1.0 · 31 questions</span></p>
+    <p class="intro"><span data-l="de">Hier findest du Antworten auf die häufigsten Fragen zu HausZähler. Die Seite wächst mit euren Fragen. Wie eine eigene CSV-Datei aussehen muss, steht auf der Seite <a href="/hilfe/csv/">CSV-Format</a>.</span><span data-l="en">Answers to the most common questions about MeterRoll. This page grows with your questions. What your own CSV file must look like is on the <a href="/hilfe/csv/?lang=en">CSV format</a> page.</span></p>
+
+    <nav class="toc" id="inhalt" aria-label="Inhalt / Contents">
+      <h2><span data-l="de">Inhalt</span><span data-l="en">Contents</span></h2>
+      <ol>
+      <li><a class="toc-topic" href="#thema-start"><span data-l="de">Erste Schritte</span><span data-l="en">Getting started</span></a>
+        <ul>
+          <li><a href="#erste-schritte"><span data-l="de">Was macht HausZähler, und wie lege ich los?</span><span data-l="en">What does MeterRoll do, and how do I get started?</span></a></li>
+          <li><a href="#zaehlerarten"><span data-l="de">Welche Zähler kann ich erfassen?</span><span data-l="en">Which meters can I track?</span></a></li>
+          <li><a href="#navigation"><span data-l="de">Wo finde ich was in der App?</span><span data-l="en">Where do I find what in the app?</span></a></li>
+          <li><a href="#sprachen"><span data-l="de">In welchen Sprachen gibt es HausZähler?</span><span data-l="en">Which languages is MeterRoll available in?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-ablesen"><span data-l="de">Ablesen</span><span data-l="en">Readings</span></a>
+        <ul>
+          <li><a href="#ablesen"><span data-l="de">Wie lese ich einen Zähler ab?</span><span data-l="en">How do I read a meter?</span></a></li>
+          <li><a href="#korrigieren"><span data-l="de">Ich habe mich vertippt. Wie korrigiere ich eine Ablesung?</span><span data-l="en">I made a typo. How do I correct a reading?</span></a></li>
+          <li><a href="#erinnerung"><span data-l="de">Erinnert mich die App ans Ablesen? Gibt es ein Widget und einen Kurzbefehl?</span><span data-l="en">Does the app remind me to read my meters? Is there a widget and a shortcut?</span></a></li>
+          <li><a href="#foto"><span data-l="de">Kann HausZähler den Zählerstand per Foto ablesen?</span><span data-l="en">Can MeterRoll read the meter from a photo?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-zaehlerwechsel"><span data-l="de">Zählerwechsel</span><span data-l="en">Meter replacement</span></a>
+        <ul>
+          <li><a href="#zaehlerwechsel"><span data-l="de">Mein Zähler wurde getauscht. Wie trage ich den Wechsel ein?</span><span data-l="en">My meter was replaced. How do I record the change?</span></a></li>
+          <li><a href="#zaehlernummer"><span data-l="de">Wie trage ich die Zählernummern nach, auch die des alten Zählers?</span><span data-l="en">How do I add meter numbers, including the old meter's?</span></a></li>
+          <li><a href="#wechsel-aendern"><span data-l="de">Ich habe den Wechsel falsch eingetragen. Wie ändere ich Datum oder Stände?</span><span data-l="en">I recorded the replacement wrongly. How do I change the date or readings?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-uebersicht"><span data-l="de">Übersicht und berechnete Werte</span><span data-l="en">Overview and calculated values</span></a>
+        <ul>
+          <li><a href="#uebersicht"><span data-l="de">Was zeigt mir die Übersicht?</span><span data-l="en">What does the overview show me?</span></a></li>
+          <li><a href="#berechnete-werte"><span data-l="de">Was bedeuten die Werte mit „≈“ bzw. „berechnet“?</span><span data-l="en">What do values with “≈” or “calculated” mean?</span></a></li>
+          <li><a href="#gas-kwh"><span data-l="de">Warum steht bei Gas „geschätzt mit üblichem Wert“?</span><span data-l="en">Why does gas say “estimated with the usual value”?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-abrechnung"><span data-l="de">Abrechnung prüfen</span><span data-l="en">Check your bill</span></a>
+        <ul>
+          <li><a href="#abrechnung-pruefen"><span data-l="de">Wie prüfe ich meine Jahresabrechnung?</span><span data-l="en">How do I check my annual bill?</span></a></li>
+          <li><a href="#kuendigungstag"><span data-l="de">Wie funktioniert der letzte Kündigungstag und die Erinnerung daran?</span><span data-l="en">How does the last day to cancel work, and the reminder for it?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-import"><span data-l="de">Import</span><span data-l="en">Import</span></a>
+        <ul>
+          <li><a href="#import-umstieg"><span data-l="de">Wie übernehme ich meine Daten aus einer anderen Zähler-App?</span><span data-l="en">How do I bring my data over from another meter app?</span></a></li>
+          <li><a href="#import-csv"><span data-l="de">Kann ich meine eigene Tabelle (Excel, Numbers) importieren?</span><span data-l="en">Can I import my own spreadsheet (Excel, Numbers)?</span></a></li>
+          <li><a href="#import-rueckgaengig"><span data-l="de">Kann ich einen Import rückgängig machen?</span><span data-l="en">Can I undo an import?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-verbrauchsstellen"><span data-l="de">Mehrere Verbrauchsstellen und Angehörige</span><span data-l="en">Several places and family members</span></a>
+        <ul>
+          <li><a href="#verbrauchsstellen"><span data-l="de">Kann ich mehrere Wohnungen oder ein Ferienhaus verwalten?</span><span data-l="en">Can I manage several homes or a holiday home?</span></a></li>
+          <li><a href="#angehoerige"><span data-l="de">Kann ich meine Eltern oder andere Angehörige beim Ablesen unterstützen?</span><span data-l="en">Can I help my parents or other family members with their meter readings?</span></a></li>
+          <li><a href="#pdf"><span data-l="de">Kann ich einen Ablesenachweis oder Jahresbericht als PDF bekommen?</span><span data-l="en">Can I get a reading record or annual report as a PDF?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-demo"><span data-l="de">Demo ansehen</span><span data-l="en">View the demo</span></a>
+        <ul>
+          <li><a href="#demo"><span data-l="de">Kann ich HausZähler ausprobieren, ohne eigene Daten einzugeben?</span><span data-l="en">Can I try MeterRoll without entering my own data?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-icloud"><span data-l="de">iCloud und Geräte</span><span data-l="en">iCloud and devices</span></a>
+        <ul>
+          <li><a href="#icloud"><span data-l="de">Sind meine Daten auf iPhone, iPad und Mac gleich?</span><span data-l="en">Is my data the same on iPhone, iPad and Mac?</span></a></li>
+          <li><a href="#geraete"><span data-l="de">Auf welchen Geräten läuft HausZähler?</span><span data-l="en">Which devices does MeterRoll run on?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-premium"><span data-l="de">Premium und Abo</span><span data-l="en">Premium and subscription</span></a>
+        <ul>
+          <li><a href="#premium"><span data-l="de">Was ist gratis, und was bringt Premium?</span><span data-l="en">What is free, and what does Premium add?</span></a></li>
+          <li><a href="#testphase"><span data-l="de">Was kostet Premium, und gibt es eine Testphase?</span><span data-l="en">How much does Premium cost, and is there a free trial?</span></a></li>
+          <li><a href="#abo-verwalten"><span data-l="de">Wie kündige ich das Abo oder stelle einen Kauf wieder her?</span><span data-l="en">How do I cancel my subscription or restore a purchase?</span></a></li>
+        </ul>
+      </li>
+      <li><a class="toc-topic" href="#thema-datenschutz"><span data-l="de">Datenschutz und Daten</span><span data-l="en">Privacy and data</span></a>
+        <ul>
+          <li><a href="#datenschutz"><span data-l="de">Brauche ich ein Konto, und wer sieht meine Daten?</span><span data-l="en">Do I need an account, and who can see my data?</span></a></li>
+          <li><a href="#export"><span data-l="de">Kann ich meine Daten exportieren oder sichern?</span><span data-l="en">Can I export or back up my data?</span></a></li>
+          <li><a href="#kontakt"><span data-l="de">Wie erreiche ich euch?</span><span data-l="en">How can I reach you?</span></a></li>
+        </ul>
+      </li>
+      </ol>
+    </nav>
+
+    <section class="topic" id="thema-start">
+      <h2><span data-l="de">Erste Schritte</span><span data-l="en">Getting started</span></h2>
+      <article class="qa" id="erste-schritte">
+        <h3><span data-l="de">Was macht HausZähler, und wie lege ich los?</span><span data-l="en">What does MeterRoll do, and how do I get started?</span><a class="permalink" href="#erste-schritte" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>HausZähler hält deine Zählerstände für Strom, Gas, Wasser und Wärme fest und rechnet daraus Verbrauch, Kosten, Hochrechnung und erwartete Abrechnung. Du brauchst kein Konto. Beim ersten Start bietet dir die Übersicht drei Wege: „Ablesen“ (den ersten Zähler ablesen, den Rest legt HausZähler für dich an), „Daten importieren“ (Umstieg aus einer anderen Zähler-App oder eigene Tabelle) oder „Demo ansehen“ (alles mit Beispieldaten ausprobieren).</p></div>
+        <div data-l="en" lang="en"><p>MeterRoll records your electricity, gas, water and heat meter readings and works out usage, costs, a forecast and your expected bill. You don't need an account. On first launch the overview offers three ways in: “Read meter” (read your first meter, MeterRoll sets up everything else for you), “Import data” (switch from another meter app or bring your own spreadsheet) or “View Demo” (try everything with sample data).</p></div>
+      </article>
+      <article class="qa" id="zaehlerarten">
+        <h3><span data-l="de">Welche Zähler kann ich erfassen?</span><span data-l="en">Which meters can I track?</span><a class="permalink" href="#zaehlerarten" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Strom (auch mit Tag- und Nachttarif), Einspeisung zum Beispiel einer Solaranlage, Gas, Wasser und Wärme bzw. Fernwärme. Die Einspeisung ist ein eigener Zähler mit eigener Ablesung. Gas rechnet HausZähler in Kilowattstunden um, so wie dein Versorger abrechnet.</p></div>
+        <div data-l="en" lang="en"><p>Electricity (including day and night rates), feed-in, for example from a solar system, gas, water and heat or district heating. Feed-in is a meter of its own with its own readings. MeterRoll converts gas to kilowatt hours, the way your supplier bills it.</p></div>
+      </article>
+      <article class="qa" id="navigation">
+        <h3><span data-l="de">Wo finde ich was in der App?</span><span data-l="en">Where do I find what in the app?</span><a class="permalink" href="#navigation" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Auf dem iPhone gibt es vier Bereiche: „Übersicht“ (Karte je Zähler, Tipp öffnet die Analyse), „Ablesungen“ (alle Ablesungen, filterbar je Zähler), „Einstellungen“ und „Suchen“. Auf iPad und Mac steht dasselbe in der Seitenleiste, dazu jeder Zähler einzeln. Eingerichtet wird an einer Stelle: „Einstellungen › Verbrauchsstellen und Zähler“ (am Mac im Fenster „Einstellungen …“, ⌘,). Dort findest du Verbrauchsstellen, Zähler und Tarife.</p></div>
+        <div data-l="en" lang="en"><p>On iPhone there are four areas: “Overview” (one card per meter, tap to open the analysis), “Readings” (all readings, filter by meter), “Settings” and “Search”. On iPad and Mac the same appears in the sidebar, plus each meter on its own. Setup lives in one place: “Settings › Places and meters” (on Mac in the “Settings…” window, ⌘,). There you find your places, meters and rate plans.</p></div>
+      </article>
+      <article class="qa" id="sprachen">
+        <h3><span data-l="de">In welchen Sprachen gibt es HausZähler?</span><span data-l="en">Which languages is MeterRoll available in?</span><a class="permalink" href="#sprachen" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Auf Deutsch und Englisch (englischer Name: MeterRoll). Die Sprache stellst du unter „Einstellungen › Sprache › App-Sprache“ um.</p></div>
+        <div data-l="en" lang="en"><p>English and German (German name: HausZähler). You switch the language under “Settings › Language › App Language”.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-ablesen">
+      <h2><span data-l="de">Ablesen</span><span data-l="en">Readings</span></h2>
+      <article class="qa" id="ablesen">
+        <h3><span data-l="de">Wie lese ich einen Zähler ab?</span><span data-l="en">How do I read a meter?</span><a class="permalink" href="#ablesen" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Tippe in der Übersicht oder bei den Ablesungen auf „Ablesen“ (am Mac: Ablage › „Neue Ablesung“, ⌘N). Der passende Zähler ist schon gewählt; du tippst den Stand ein, das Datum steht auf jetzt und lässt sich ändern. Danach „Sichern“. HausZähler prüft jeden Wert sofort: Ist der Stand kleiner als der letzte, wird er nicht gespeichert, und du kannst „Zähler wurde gewechselt“ oder „Zähler ist übergelaufen“ wählen. Bei einem ungewöhnlichen Sprung fragt die App nach: „Prüfen“ oder „Trotzdem sichern“.</p></div>
+        <div data-l="en" lang="en"><p>Tap “Read Meter” in the overview or in your readings (on Mac: File › “New Reading”, ⌘N). The right meter is already selected; type in the reading, the date is set to now and can be changed. Then save. MeterRoll checks every value right away: if the reading is lower than the last one, it isn't saved, and you can choose “Meter Was Changed” or “Meter Started Again at 0”. For an unusual jump the app asks: “Check” or “Save Anyway”.</p></div>
+      </article>
+      <article class="qa" id="korrigieren">
+        <h3><span data-l="de">Ich habe mich vertippt. Wie korrigiere ich eine Ablesung?</span><span data-l="en">I made a typo. How do I correct a reading?</span><a class="permalink" href="#korrigieren" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Öffne die Ablesung und tippe auf „Korrigieren“. Die App bestätigt „Korrigiert: neu statt alt“; der bisherige Wert bleibt als frühere Fassung erhalten, damit alles nachvollziehbar ist. Eine Ablesung, die gar nicht hätte sein sollen, kannst du „Ungültig markieren“ und später mit „Wieder gültig machen“ zurückholen. Korrekturen zählen nicht als neue Ablesung.</p></div>
+        <div data-l="en" lang="en"><p>Open the reading and tap “Correct”. The app confirms “Corrected: new instead of old”; the previous value is kept as an earlier version, so everything stays traceable. A reading that shouldn't be there at all can be marked with “Mark as Invalid” and brought back later with “Make Valid Again”. Corrections don't count as a new reading.</p></div>
+      </article>
+      <article class="qa" id="erinnerung">
+        <h3><span data-l="de">Erinnert mich die App ans Ablesen? Gibt es ein Widget und einen Kurzbefehl?</span><span data-l="en">Does the app remind me to read my meters? Is there a widget and a shortcut?</span><a class="permalink" href="#erinnerung" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Ja. Unter „Einstellungen › Benachrichtigungen › Erinnerungen und Mitteilungen“ schaltest du „Auf diesem Gerät erinnern“ ein (je Gerät, anfangs aus). Dann kommt am letzten Tag des Monats um 18 Uhr eine Erinnerung, aber nur für Zähler, die du in dem Monat noch nicht abgelesen hast. Schalte sie nur auf dem Gerät ein, mit dem du abliest, dann kommt sie nicht doppelt. Das Widget zeigt die Hochrechnung und die letzte Ablesung, der Kurzbefehl „Zähler ablesen“ öffnet direkt eine neue Ablesung.</p></div>
+        <div data-l="en" lang="en"><p>Yes. Under “Settings › Notifications › Reminders and Notifications” turn on “Remind me on this device” (per device, off at first). You then get a reminder at 6 pm on the last day of the month, only for meters you haven't read that month. Turn it on only on the device you read meters with, so it doesn't arrive twice. The widget shows the forecast and your last reading; the shortcut “Read meter” opens a new reading directly.</p></div>
+      </article>
+      <article class="qa" id="foto">
+        <h3><span data-l="de">Kann HausZähler den Zählerstand per Foto ablesen?</span><span data-l="en">Can MeterRoll read the meter from a photo?</span><a class="permalink" href="#foto" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Noch nicht. Du gibst den Zählerstand von Hand ein. Das Ablesen per Foto steht auf unserer Liste, einen Termin nennen wir nicht.</p></div>
+        <div data-l="en" lang="en"><p>Not yet. You enter the reading by hand. Reading meters from a photo is on our list; we don't give a date.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-zaehlerwechsel">
+      <h2><span data-l="de">Zählerwechsel</span><span data-l="en">Meter replacement</span></h2>
+      <article class="qa" id="zaehlerwechsel">
+        <h3><span data-l="de">Mein Zähler wurde getauscht. Wie trage ich den Wechsel ein?</span><span data-l="en">My meter was replaced. How do I record the change?</span><a class="permalink" href="#zaehlerwechsel" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>So kommst du hin: Öffne „Einstellungen › Verbrauchsstellen und Zähler › Zähler“, wähle den Zähler und tippe im Abschnitt „Zählerwechsel“ auf „Zähler gewechselt …“. Oder lies einfach den neuen Zähler ab: Ist sein Stand kleiner als der letzte, bietet die App „Zähler wurde gewechselt“ an. Dann geht es in zwei Schritten weiter. Schritt 1 „Alter Zähler“: Datum des Wechsels und Endstand, vorbelegt mit deiner letzten Ablesung (kennst du ihn nicht, wähle „Endstand weiß ich nicht“). Schritt 2 „Neuer Zähler“: Nummer des neuen Zählers (freiwillig) und Anfangsstand, vorbelegt mit 0. Mit „Wechsel sichern“ rechnet HausZähler den Verbrauch über den Wechsel hinweg richtig weiter. Wurde bei Strom die Einspeisung mitgetauscht, lass „Einspeisung wurde mitgewechselt“ an. Ein Zählerwechsel zählt nicht als Ablesung.</p></div>
+        <div data-l="en" lang="en"><p>How to get there: open “Settings › Places and meters › Meters”, choose the meter and, in the “Meter replacement” section, tap “Meter replaced …”. Or simply read the new meter: if its reading is lower than the last one, the app offers “Meter Was Changed”. Two steps follow. Step 1 “Old meter”: date of the change and final reading, prefilled with your last reading (if you don't know it, choose “I don't know the final reading”). Step 2 “New meter”: number of the new meter (optional) and starting reading, prefilled with 0. With “Save Change” MeterRoll keeps calculating your usage correctly across the change. If your electricity feed-in meter was replaced as well, leave “Feed-in meter was replaced too” on. A meter replacement doesn't count as a reading.</p></div>
+      </article>
+      <article class="qa" id="zaehlernummer">
+        <h3><span data-l="de">Wie trage ich die Zählernummern nach, auch die des alten Zählers?</span><span data-l="en">How do I add meter numbers, including the old meter's?</span><a class="permalink" href="#zaehlernummer" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Die Nummer des Zählers, der jetzt eingebaut ist, steht in „Einstellungen › Verbrauchsstellen und Zähler › Zähler“ beim jeweiligen Zähler unter „Zählernummer“. Die Nummern von altem und neuem Zähler eines früheren Wechsels trägst du am Wechsel selbst ein: im Abschnitt „Zählerwechsel“ beim Wechsel auf „Wechsel ändern…“ tippen.</p></div>
+        <div data-l="en" lang="en"><p>The number of the meter installed now is under “Settings › Places and meters › Meters”, on that meter, as “Meter number”. The numbers of the old and new meter of an earlier replacement go on the replacement itself: in the “Meter replacement” section, tap “Edit Replacement…” on that replacement.</p></div>
+      </article>
+      <article class="qa" id="wechsel-aendern">
+        <h3><span data-l="de">Ich habe den Wechsel falsch eingetragen. Wie ändere ich Datum oder Stände?</span><span data-l="en">I recorded the replacement wrongly. How do I change the date or readings?</span><a class="permalink" href="#wechsel-aendern" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Öffne den Zähler unter „Einstellungen › Verbrauchsstellen und Zähler › Zähler“ und tippe im Abschnitt „Zählerwechsel“ beim betreffenden Wechsel auf „Wechsel ändern…“. Dort änderst du das Datum (Schnellwahl: „Am Tag der letzten Ablesung des alten Zählers“), den Endstand des alten und den Anfangsstand des neuen Zählers sowie die Zählernummern. Geänderte Stände speichert HausZähler als Ablesung „Zähler gewechselt“, die bisherigen Werte bleiben als frühere Fassung erhalten. Wichtig: „Zähler gewechselt …“ legt einen weiteren, neuen Wechsel an – für einen bestehenden Wechsel immer „Wechsel ändern…“ nehmen.</p></div>
+        <div data-l="en" lang="en"><p>Open the meter under “Settings › Places and meters › Meters” and, in the “Meter replacement” section, tap “Edit Replacement…” on that replacement. There you change the date (quick choice: “On the day of the old meter's last reading”), the old meter's final reading, the new meter's starting reading and the meter numbers. MeterRoll saves changed readings as “meter replaced” readings; the previous values are kept as earlier versions. Important: “Meter replaced …” adds another, new replacement. For an existing one, always use “Edit Replacement…”.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-uebersicht">
+      <h2><span data-l="de">Übersicht und berechnete Werte</span><span data-l="en">Overview and calculated values</span></h2>
+      <article class="qa" id="uebersicht">
+        <h3><span data-l="de">Was zeigt mir die Übersicht?</span><span data-l="en">What does the overview show me?</span><a class="permalink" href="#uebersicht" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Je Zähler eine Karte mit dem Verbrauch bisher, dem Vergleich zum Vorjahreszeitraum und, wenn Tarif und Abschlag hinterlegt sind, der erwarteten Abrechnung („rund … Nachzahlung“ oder „rund … Guthaben“). Fehlt dafür etwas, zeigt die Karte einen Knopf wie „Tarif hinzufügen“ oder „Abschlag hinzufügen“. Ein Tipp auf die Karte öffnet die Analyse mit Diagramm, Tabelle je Monat oder je Jahr und dem Rechenweg „Erwartete Abrechnung – so rechnen wir“. Die Hochrechnung ist eine Schätzung aus deinen Ablesungen und ersetzt nicht die Abrechnung deines Versorgers. Mit mehreren Verbrauchsstellen wählst du oben im Filter, welche du sehen willst.</p></div>
+        <div data-l="en" lang="en"><p>One card per meter with the usage so far, the comparison with the same period last year and, once a rate plan and your monthly payment are entered, the expected bill (“about … to pay” or “about … back”). If something is still needed, the card shows a button such as “Add rate plan” or “Add payment”. Tapping the card opens the analysis with a chart, a table by month or by year and the breakdown “Expected bill – how we work it out”. The forecast is an estimate from your readings and doesn't replace your supplier's bill. With several places, choose which one to see in the filter at the top.</p></div>
+      </article>
+      <article class="qa" id="berechnete-werte">
+        <h3><span data-l="de">Was bedeuten die Werte mit „≈“ bzw. „berechnet“?</span><span data-l="en">What do values with “≈” or “calculated” mean?</span><a class="permalink" href="#berechnete-werte" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Für Monats- und Jahreswerte braucht HausZähler den Stand an Stichtagen, zum Beispiel am Monatsbeginn, am Beginn des Abrechnungsjahres oder bei einer Preisänderung. Hast du an dem Tag nicht abgelesen, berechnet die App den Stand aus deinen Ablesungen davor und danach und verteilt den Verbrauch gleichmäßig auf die Tage. Solche Werte stehen mit „≈“ und „berechnet“ in der Liste. Tippst du darauf, siehst du, woraus der Wert stammt; mit „Bestätigen“ oder „Ändern“ machst du ihn zu deinem Wert, „Wieder berechnen lassen“ macht das rückgängig. Bei den Ablesungen eines Zählers blendest du sie über „Optionen › Berechnete Werte ausblenden“ aus. Berechnete Werte zählen nicht als Ablesung. Beim Zählerwechsel trägt HausZähler fehlende Stände ebenso ein und kennzeichnet sie („von HausZähler eingetragen“).</p></div>
+        <div data-l="en" lang="en"><p>For monthly and yearly figures MeterRoll needs the reading on key dates, for example at the start of a month, at the start of the billing year or when a price changes. If you didn't read the meter that day, the app calculates the reading from your readings before and after and spreads the usage evenly across the days. These values appear with “≈” and “calculated” in the list. Tap one to see where it comes from; “Confirm” or “Change” makes it your value, and “Let MeterRoll recalculate” undoes that. In a meter's readings you can hide them via “Options › Hide calculated values”. Calculated values don't count as readings. At a meter replacement MeterRoll fills in missing readings the same way and marks them (“filled in by MeterRoll”).</p></div>
+      </article>
+      <article class="qa" id="gas-kwh">
+        <h3><span data-l="de">Warum steht bei Gas „geschätzt mit üblichem Wert“?</span><span data-l="en">Why does gas say “estimated with the usual value”?</span><a class="permalink" href="#gas-kwh" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Dein Gaszähler zählt Kubikmeter, abgerechnet wird in Kilowattstunden. Ohne deine Werte rechnet HausZähler mit dem üblichen Wert von 10,64 kWh je Kubikmeter. Genau wird es mit Zustandszahl und Brennwert von deiner Gasabrechnung: beim Gaszähler unter „Umrechnung in kWh“ eintragen, oder in der Übersicht auf „Werte eintragen“ tippen.</p></div>
+        <div data-l="en" lang="en"><p>Your gas meter counts cubic meters, but billing is in kilowatt hours. Without your values MeterRoll uses the usual value of 10.64 kWh per cubic meter. It becomes exact with the correction factor and calorific value from your gas bill: enter them on the gas meter under “Conversion to kWh”, or tap “Enter values” in the overview.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-abrechnung">
+      <h2><span data-l="de">Abrechnung prüfen</span><span data-l="en">Check your bill</span></h2>
+      <article class="qa" id="abrechnung-pruefen">
+        <h3><span data-l="de">Wie prüfe ich meine Jahresabrechnung?</span><span data-l="en">How do I check my annual bill?</span><a class="permalink" href="#abrechnung-pruefen" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Für Strom und Gas: Öffne die Analyse des Zählers und tippe im Abschnitt „Abrechnungen“ auf „Abrechnung prüfen“ (ist ein Abrechnungsjahr beendet, steht der Knopf auch in der Übersicht; am Mac Ablage › „Abrechnung prüfen …“). Du tippst die Abrechnung in vier Schritten ab: Abrechnung, Zählerstände, Preise, Beträge. Vieles ist aus deinen Ablesungen und deinem Tarif schon vorausgefüllt. HausZähler rechnet nach und zeigt „Rechnerisch bestätigt“, eine „Abweichung“ mit Ursache und Rechenweg oder „Noch nicht prüfbar“ mit dem, was noch gebraucht wird. Bei einer Abweichung hilft die „Vorlage für deinen Versorger“, die du selbst verschickst. Die erste Prüfung ist gratis, weitere gehören zu Premium. Das Ergebnis ist eine Nachrechnung mit deinen Angaben, keine Rechtsberatung.</p></div>
+        <div data-l="en" lang="en"><p>For electricity and gas: open the meter's analysis and, in the “Bills” section, tap “Check Bill” (once a billing year has ended, the button also appears in the overview; on Mac: File › “Check Bill …”). You type in the bill in four steps: bill, meter readings, prices, amounts. Much of it is already filled in from your readings and rate plan. MeterRoll recalculates and shows “Confirmed by calculation”, a “Difference” with its cause and the calculation, or “Can't check yet” with what is still needed. If there is a difference, the “Template for Your Supplier” helps; you send it yourself. Your first check is free, further checks are part of Premium. The result is a recalculation from your details, not legal advice. Rules are based on German energy contracts, and amounts in the app are calculated in euros.</p></div>
+      </article>
+      <article class="qa" id="kuendigungstag">
+        <h3><span data-l="de">Wie funktioniert der letzte Kündigungstag und die Erinnerung daran?</span><span data-l="en">How does the last day to cancel work, and the reminder for it?</span><a class="permalink" href="#kuendigungstag" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Trag im Tarif unter „Laufzeit und Kündigung“ Beginn, Mindestlaufzeit, Kündigungsfrist und Verlängerung ein (Tarife findest du unter „Einstellungen › Verbrauchsstellen und Zähler › Tarife“). HausZähler berechnet daraus den letzten Kündigungstag, also den Tag, an dem deine Kündigung beim Versorger angekommen sein muss. Das Datum siehst du immer, auch ohne Premium; die Übersicht weist rechtzeitig darauf hin. Mit Premium erinnert dich die App 6 Wochen und 14 Tage vorher und am Tag selbst, jeweils um 9 Uhr. Die Regeln richten sich nach deutschen Energieverträgen; die Berechnung ist eine Hilfe aus deinen Angaben und keine Rechtsberatung. Bitte prüfe die Daten immer mit deinem Vertrag.</p></div>
+        <div data-l="en" lang="en"><p>In the rate plan, under “Term and cancellation”, enter the start, minimum term, notice period and renewal (rate plans are under “Settings › Places and meters › Rate plans”). MeterRoll works out the last day to cancel, the day your cancellation must have reached your supplier. You always see the date, even without Premium; the overview points it out in time. With Premium the app reminds you 6 weeks and 14 days before and on the day itself, each at 9 am. The rules are based on German energy contracts; the calculation is a help based on your details and not legal advice. Always check the dates against your contract.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-import">
+      <h2><span data-l="de">Import</span><span data-l="en">Import</span></h2>
+      <article class="qa" id="import-umstieg">
+        <h3><span data-l="de">Wie übernehme ich meine Daten aus einer anderen Zähler-App?</span><span data-l="en">How do I bring my data over from another meter app?</span><a class="permalink" href="#import-umstieg" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Öffne „Einstellungen › Daten › Daten aus anderer App übernehmen“ (auch: Übersicht › „+“ › „Daten importieren“, auf iPad und Mac das Menü „Importieren …“, oder die Datei aus Mail oder „Dateien“ mit HausZähler öffnen). HausZähler liest die Datensicherung (.pgw-Datei) oder den CSV-Export einer verbreiteten Zähler-App; am besten die Sicherung, sie enthält alle Nachkommastellen und deine Zählerwechsel. Welche Dateien gehen, steht im Import selbst. Vor dem Speichern siehst du eine Vorschau; vorhandene Daten werden nur ergänzt, nichts wird überschrieben. Übernehmen ist gratis und zählt nicht als Ablesung.</p></div>
+        <div data-l="en" lang="en"><p>Open “Settings › Data › Import Data from Another App” (also: Overview › “+” › “Import data”, the “Import…” menu on iPad and Mac, or open the file from Mail or Files with MeterRoll). MeterRoll reads the backup (.pgw file) or the CSV export of a widely used meter app; the backup is best, as it keeps every decimal place and your meter changes. The import screen says which files work. You see a preview before anything is saved; existing data is only added to, nothing is overwritten. Importing is free and does not count as a reading.</p></div>
+      </article>
+      <article class="qa" id="import-csv">
+        <h3><span data-l="de">Kann ich meine eigene Tabelle (Excel, Numbers) importieren?</span><span data-l="en">Can I import my own spreadsheet (Excel, Numbers)?</span><a class="permalink" href="#import-csv" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Ja, als CSV-Datei im HausZähler-Format: eine Datei je Zähler, erste Zeile mit den Feldnamen, mindestens „Datum“ und „Stand“. Die genaue Beschreibung mit allen Feldern, Beispiel und häufigen Fehlern steht auf der Seite <a href="/hilfe/csv/">CSV-Format</a> und in der App im Import unter „So muss eine CSV-Datei aussehen“ bzw. unter „Einstellungen › Daten › Importe › CSV-Format für eigene Dateien“. Dort kannst du auch eine Vorlage teilen oder sichern und in deinem Tabellenprogramm ausfüllen. Den Import startest du wie beim Umstieg; zu welchem Zähler die Datei gehört, wählst du in der Vorschau.</p></div>
+        <div data-l="en" lang="en"><p>Yes, as a CSV file in the MeterRoll format: one file per meter, first line with the field names, at least “date” and “reading”. The full description with all fields, an example and common mistakes is on the <a href="/hilfe/csv/?lang=en">CSV format</a> page and in the app, in the import under “How a CSV file must look” or under “Settings › Data › Imports › CSV format for your own files”. There you can also share or save a template and fill it in with your spreadsheet app. Start the import as when switching apps; you choose which meter the file belongs to in the preview.</p></div>
+      </article>
+      <article class="qa" id="import-rueckgaengig">
+        <h3><span data-l="de">Kann ich einen Import rückgängig machen?</span><span data-l="en">Can I undo an import?</span><a class="permalink" href="#import-rueckgaengig" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Ja, jederzeit unter „Einstellungen › Daten › Importe“: den Import wählen und „Import rückgängig“ tippen. Das entfernt nur die Ablesungen dieses Imports; deine eigenen Ablesungen bleiben.</p></div>
+        <div data-l="en" lang="en"><p>Yes, at any time in “Settings › Data › Imports”: choose the import and tap “Undo Import”. This removes only the readings of that import; your own readings stay.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-verbrauchsstellen">
+      <h2><span data-l="de">Mehrere Verbrauchsstellen und Angehörige</span><span data-l="en">Several places and family members</span></h2>
+      <article class="qa" id="verbrauchsstellen">
+        <h3><span data-l="de">Kann ich mehrere Wohnungen oder ein Ferienhaus verwalten?</span><span data-l="en">Can I manage several homes or a holiday home?</span><a class="permalink" href="#verbrauchsstellen" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Ja. Lege unter „Einstellungen › Verbrauchsstellen und Zähler › Verbrauchsstellen“ mit „+“ eine weitere Verbrauchsstelle an, etwa die Zweitwohnung oder das Ferienhaus, und füge ihr mit „Zähler hinzufügen“ die Zähler hinzu. Jede Verbrauchsstelle hat eigene Zähler, Tarife und Angaben zu „Personen und Wohnfläche“. In der Übersicht wählst du oben im Filter eine Verbrauchsstelle oder „Alle Verbrauchsstellen“. Die Gratis-Grenze gilt je Zähler.</p></div>
+        <div data-l="en" lang="en"><p>Yes. Under “Settings › Places and meters › Places”, tap “+” to add another place, such as a second home or a holiday home, and add its meters with “Add meter”. Each place has its own meters, rate plans and “People and living space”. In the overview, choose a place or “All Places” in the filter at the top. The free limit applies per meter.</p></div>
+      </article>
+      <article class="qa" id="angehoerige">
+        <h3><span data-l="de">Kann ich meine Eltern oder andere Angehörige beim Ablesen unterstützen?</span><span data-l="en">Can I help my parents or other family members with their meter readings?</span><a class="permalink" href="#angehoerige" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Ja. Lege für ihre Wohnung in deiner App eine eigene Verbrauchsstelle an (siehe oben) und trag die Stände ein, die du abliest oder die sie dir durchgeben. So behältst du auch ihre Kosten, den Abschlag und den Kündigungstag im Blick und kannst ihre Abrechnung prüfen. Einen Ablesenachweis als PDF kannst du ihnen oder dem Versorger schicken (dein erster ist gratis, danach gehört Teilen zu Premium). Ein gemeinsames Bearbeiten mit einer anderen Apple-ID gibt es noch nicht; es steht auf unserer Liste, einen Termin nennen wir nicht.</p></div>
+        <div data-l="en" lang="en"><p>Yes. Add a place for their home in your app (see above) and enter the readings you take or that they pass on to you. That way you also keep an eye on their costs, monthly payment and last day to cancel, and you can check their bill. You can send them or their supplier a reading record as a PDF (your first one is free; after that, sharing is part of Premium). Editing together with another Apple ID isn't available yet; it's on our list, and we don't give a date.</p></div>
+      </article>
+      <article class="qa" id="pdf">
+        <h3><span data-l="de">Kann ich einen Ablesenachweis oder Jahresbericht als PDF bekommen?</span><span data-l="en">Can I get a reading record or annual report as a PDF?</span><a class="permalink" href="#pdf" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Ja. Den „Ablesenachweis (PDF)“ findest du bei den Ablesungen eines Zählers unter „Optionen“, den „Jahresbericht“ in der Übersicht unter „+“. Beide nennen Datum und Herkunft jeder Ablesung, zum Beispiel für Vermieter, Versorger oder den Umzug. Ansehen ist gratis. Teilen und Sichern als PDF gehört zu Premium; dein erster Ablesenachweis zum Teilen ist gratis.</p></div>
+        <div data-l="en" lang="en"><p>Yes. The “Reading record (PDF)” is in a meter's readings under “Options”, the “Annual report” in the overview under “+”. Both show the date and source of every reading, for example for your landlord, supplier or a move. Viewing is free. Sharing and saving as PDF is part of Premium; your first reading proof to share is free.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-demo">
+      <h2><span data-l="de">Demo ansehen</span><span data-l="en">View the demo</span></h2>
+      <article class="qa" id="demo">
+        <h3><span data-l="de">Kann ich HausZähler ausprobieren, ohne eigene Daten einzugeben?</span><span data-l="en">Can I try MeterRoll without entering my own data?</span><a class="permalink" href="#demo" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Ja, mit „Demo ansehen“: in der leeren Übersicht oder bei den Ablesungen, jederzeit unter „Einstellungen › Demo“ und auf iPad und Mac im Menü „Hilfe“. Die Demo zeigt ein Einfamilienhaus mit Strom, Solar-Einspeisung, Gas und Wasser (mit Zählerwechsel) und eine Ferienwohnung, mit Tarifen, Kündigungsfrist und geprüften Abrechnungen. Ein Band oben zeigt „Demo – Beispieldaten, nichts wird gespeichert“. Deine eigenen Daten bleiben unverändert. In der Demo kannst du nichts importieren und nichts kaufen; PDFs sind als „DEMO“ gekennzeichnet. Mit „Demo beenden“ oder einem Neustart der App sind die Beispieldaten wieder weg.</p></div>
+        <div data-l="en" lang="en"><p>Yes, with “View Demo”: in the empty overview or readings, at any time under “Settings › Demo” and on iPad and Mac in the “Help” menu. The demo shows a family home with electricity, solar feed-in, gas and water (with a meter replacement) and a holiday flat, with rate plans, a notice deadline and checked bills. A banner at the top says “Demo – sample data, nothing is saved”. Your own data stays unchanged. In the demo you can't import or buy anything; PDFs are marked “DEMO”. “End Demo” or restarting the app removes the sample data.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-icloud">
+      <h2><span data-l="de">iCloud und Geräte</span><span data-l="en">iCloud and devices</span></h2>
+      <article class="qa" id="icloud">
+        <h3><span data-l="de">Sind meine Daten auf iPhone, iPad und Mac gleich?</span><span data-l="en">Is my data the same on iPhone, iPad and Mac?</span><a class="permalink" href="#icloud" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Ja, wenn du auf allen Geräten mit derselben Apple-ID bei iCloud angemeldet bist. HausZähler gleicht deine Daten über deine private iCloud ab. Ohne iCloud bleiben die Daten nur auf dem jeweiligen Gerät. Den Zustand siehst du unter „Einstellungen › Daten › iCloud-Abgleich“ („Erneut prüfen“ fragt neu ab).</p></div>
+        <div data-l="en" lang="en"><p>Yes, if all your devices are signed in to iCloud with the same Apple ID. MeterRoll syncs your data through your private iCloud. Without iCloud, data stays only on that device. You see the status under “Settings › Data › iCloud sync” (“Check Again” asks again).</p></div>
+      </article>
+      <article class="qa" id="geraete">
+        <h3><span data-l="de">Auf welchen Geräten läuft HausZähler?</span><span data-l="en">Which devices does MeterRoll run on?</span><a class="permalink" href="#geraete" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Auf iPhone, iPad und Mac. Auf iPad und Mac mit großer Übersicht und Seitenleiste, am Mac mit Menüs und Tastenkürzeln.</p></div>
+        <div data-l="en" lang="en"><p>On iPhone, iPad and Mac. On iPad and Mac with a large overview and sidebar, on Mac with menus and keyboard shortcuts.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-premium">
+      <h2><span data-l="de">Premium und Abo</span><span data-l="en">Premium and subscription</span></h2>
+      <article class="qa" id="premium">
+        <h3><span data-l="de">Was ist gratis, und was bringt Premium?</span><span data-l="en">What is free, and what does Premium add?</span><a class="permalink" href="#premium" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Gratis: alle Zähler, eine Ablesung pro Zähler und Kalendermonat (Korrekturen, Zählerwechsel und Importe zählen nicht mit), Übersicht und Analyse, Tarife mit letztem Kündigungstag, Ablese-Erinnerung, Umstieg aus einer anderen Zähler-App und Import eigener CSV-Dateien, PDF-Berichte ansehen, dein erster Ablesenachweis zum Teilen und deine erste Abrechnungsprüfung. Premium: so oft ablesen, wie du willst, PDF-Berichte teilen und sichern, weitere Abrechnungsprüfungen und die Erinnerung vor dem letzten Kündigungstag.</p></div>
+        <div data-l="en" lang="en"><p>Free: all meters, one reading per meter per calendar month (corrections, meter replacements and imports don't count), overview and analysis, rate plans with the last day to cancel, the reading reminder, switching from another meter app and importing your own CSV files, viewing PDF reports, your first reading record to share and your first bill check. Premium: read as often as you like, share and save PDF reports, further bill checks and the reminder before the last day to cancel.</p></div>
+      </article>
+      <article class="qa" id="testphase">
+        <h3><span data-l="de">Was kostet Premium, und gibt es eine Testphase?</span><span data-l="en">How much does Premium cost, and is there a free trial?</span><a class="permalink" href="#testphase" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Es gibt ein Monats- und ein Jahresabo. Der aktuelle Preis wird im App Store bzw. auf der Abo-Seite der App in deiner Landeswährung angezeigt. Beim Jahresabo sind die ersten 3 Monate gratis; das Monatsabo hat keine Testphase. Die Abo-Seite öffnest du unter „Einstellungen › Abo › Premium freischalten“.</p></div>
+        <div data-l="en" lang="en"><p>There is a monthly and a yearly subscription. The current price is shown on the App Store and on the app's subscription page in your local currency. The yearly subscription starts with 3 months free; the monthly subscription has no trial. You open the subscription page under “Settings › Subscription › Unlock Premium”.</p></div>
+      </article>
+      <article class="qa" id="abo-verwalten">
+        <h3><span data-l="de">Wie kündige ich das Abo oder stelle einen Kauf wieder her?</span><span data-l="en">How do I cancel my subscription or restore a purchase?</span><a class="permalink" href="#abo-verwalten" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Abos laufen über Apple. Kündigen kannst du jederzeit in den Einstellungen deines Geräts unter deinem Namen › Abonnements oder in der App über „Abo verwalten“, spätestens 24 Stunden vor Ende der Laufzeit, sonst verlängert es sich. Nach einem Gerätewechsel tippst du auf der Abo-Seite auf „Käufe wiederherstellen“. Einen Code löst du unter „Einstellungen › Code einlösen“ ein. Erstattungen wickelt Apple ab (reportaproblem.apple.com).</p></div>
+        <div data-l="en" lang="en"><p>Subscriptions run through Apple. You can cancel at any time in your device's Settings under your name › Subscriptions, or in the app via “Manage subscription”, at least 24 hours before the end of the current period, otherwise it renews. After switching devices, tap “Restore purchases” on the subscription page. You redeem a code under “Settings › Offer Code”. Refunds are handled by Apple (reportaproblem.apple.com).</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+    <section class="topic" id="thema-datenschutz">
+      <h2><span data-l="de">Datenschutz und Daten</span><span data-l="en">Privacy and data</span></h2>
+      <article class="qa" id="datenschutz">
+        <h3><span data-l="de">Brauche ich ein Konto, und wer sieht meine Daten?</span><span data-l="en">Do I need an account, and who can see my data?</span><a class="permalink" href="#datenschutz" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Du brauchst kein Konto und keine Anmeldung. Deine Daten liegen auf deinem Gerät und in deiner privaten iCloud; wir betreiben keinen Server für deine Daten und sehen sie nicht. Die App nutzt kein Tracking und zeigt keine Werbung von Dritten. Mehr dazu in der <a href="https://hauszaehler.de/privacy/">Datenschutzerklärung</a>.</p></div>
+        <div data-l="en" lang="en"><p>You don't need an account or sign-up. Your data is stored on your device and in your private iCloud; we run no server for your data and can't see it. The app uses no tracking and shows no third-party ads. More in the <a href="https://hauszaehler.de/privacy/?lang=en">privacy policy</a>.</p></div>
+      </article>
+      <article class="qa" id="export">
+        <h3><span data-l="de">Kann ich meine Daten exportieren oder sichern?</span><span data-l="en">Can I export or back up my data?</span><a class="permalink" href="#export" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Deine Daten liegen in deiner privaten iCloud und auf deinen Geräten. Einzelne Zähler kannst du als Ablesenachweis-PDF ausgeben (siehe oben). Ein Daten-Export als Datei und eine eigene Sicherung mit Wiederherstellung stehen auf unserer Liste, einen Termin nennen wir nicht.</p></div>
+        <div data-l="en" lang="en"><p>Your data lives in your private iCloud and on your devices. You can output individual meters as a reading record PDF (see above). A data export as a file and a backup of your own with restore are on our list; we don't give a date.</p></div>
+      </article>
+      <article class="qa" id="kontakt">
+        <h3><span data-l="de">Wie erreiche ich euch?</span><span data-l="en">How can I reach you?</span><a class="permalink" href="#kontakt" aria-label="Link"><span aria-hidden="true">#</span></a></h3>
+        <div data-l="de" lang="de"><p>Schreib uns an <a href="mailto:support@hauszaehler.de">support@hauszaehler.de</a>. Wir antworten persönlich. Deine Frage fehlt hier? Dann schreib uns, häufige Fragen nehmen wir auf dieser Seite auf.</p></div>
+        <div data-l="en" lang="en"><p>Write to us at <a href="mailto:support@hauszaehler.de">support@hauszaehler.de</a>. We reply personally. Your question isn't here? Write to us; we add frequent questions to this page.</p></div>
+      </article>
+      <p class="to-top"><a href="#inhalt"><span data-l="de">↑ Zum Inhaltsverzeichnis</span><span data-l="en">↑ Back to contents</span></a></p>
+    </section>
+
+    <div class="box"><p><span data-l="de">Deine Frage ist nicht dabei? Schreib uns an <a href="mailto:support@hauszaehler.de">support@hauszaehler.de</a>. Wir antworten persönlich.</span><span data-l="en">Your question isn't here? Write to us at <a href="mailto:support@hauszaehler.de">support@hauszaehler.de</a>. We reply personally.</span></p></div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="/icon-512.png" alt="" width="32" height="32" loading="lazy"><span data-l="de">HausZähler</span><span data-l="en">MeterRoll</span></div>
+      <span class="footer-brand-line"><a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy"><span data-l="de">eine App von torecon</span><span data-l="en">an app by torecon</span></a></span>
+      <div class="footer-links">
+        <a href="/hilfe/"><span data-l="de">Hilfe</span><span data-l="en">Help</span></a>
+        <a href="/privacy/"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a>
+        <a href="/terms/"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms of Use</span></a>
+        <a href="/#impressum"><span data-l="de">Impressum</span><span data-l="en">Legal notice</span></a>
+        <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon.de</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label"><span data-l="de">Weitere Apps von torecon</span><span data-l="en">More apps by torecon</span></span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener"><img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22"><span>BrainBites AI</span></a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener"><img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22"><span>ThinkLess AI</span></a>
+          <a class="footer-app-pill" href="https://chargescope.ai" target="_blank" rel="noopener"><img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22"><span>eLadung GO</span></a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener"><img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22"><span>Zettelküche AI</span></a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/meisterlich/id6762597134" target="_blank" rel="noopener"><img src="/cross-promo/meisterlich.png" alt="" loading="lazy" width="22" height="22"><span>Meisterlich</span></a>
+        </div>
+      </div>
+      <span class="footer-copy">&copy; <span class="footer-year">2026</span> torecon &ndash; Thomas Reinke. <span data-l="de">Alle Rechte vorbehalten.</span><span data-l="en">All rights reserved.</span></span>
+    </div>
+  </footer>
+  <script>
+    function setLang(code) {
+      if (code !== 'de' && code !== 'en') code = 'de';
+      var root = document.documentElement;
+      root.setAttribute('data-lang', code);
+      root.lang = code;
+      try { localStorage.setItem('lang', code); } catch (_) {}
+      ['de', 'en'].forEach(function (c) { var b = document.getElementById('btn-' + c); b.classList.toggle('active', c === code); b.setAttribute('aria-pressed', c === code ? 'true' : 'false'); });
+      document.title = root.getAttribute('data-title-' + code) || document.title;
+      var md = document.querySelector('meta[name="description"]');
+      if (md) md.setAttribute('content', root.getAttribute('data-desc-' + code) || md.getAttribute('content'));
+    }
+    setLang(document.documentElement.getAttribute('data-lang'));
+    // Ältere Verweise per FAQ-ID (#hz-19) auf den stabilen Anker umleiten
+    (function () {
+      var alias = { 'hz-01': 'erste-schritte', 'hz-02': 'zaehlerarten', 'hz-03': 'import-umstieg', 'hz-04': 'kuendigungstag', 'hz-05': 'erinnerung', 'hz-06': 'pdf', 'hz-07': 'foto', 'hz-08': 'premium', 'hz-09': 'testphase', 'hz-10': 'abo-verwalten', 'hz-11': 'icloud', 'hz-12': 'sprachen', 'hz-13': 'export', 'hz-14': 'datenschutz', 'hz-15': 'kontakt', 'hz-16': 'navigation', 'hz-17': 'ablesen', 'hz-18': 'korrigieren', 'hz-19': 'zaehlerwechsel', 'hz-20': 'zaehlernummer', 'hz-21': 'wechsel-aendern', 'hz-22': 'uebersicht', 'hz-23': 'berechnete-werte', 'hz-24': 'gas-kwh', 'hz-25': 'abrechnung-pruefen', 'hz-26': 'import-csv', 'hz-27': 'import-rueckgaengig', 'hz-28': 'verbrauchsstellen', 'hz-29': 'angehoerige', 'hz-30': 'demo', 'hz-31': 'geraete' };
+      var h = decodeURIComponent(location.hash.slice(1));
+      if (alias[h]) { history.replaceState(null, '', location.pathname + location.search + '#' + alias[h]); var el = document.getElementById(alias[h]); if (el) el.scrollIntoView(); }
+    })();
+    document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+  </script>
+</body>
+</html>

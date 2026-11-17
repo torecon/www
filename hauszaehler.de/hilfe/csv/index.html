@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de" data-title-de="CSV-Format – Hilfe – HausZähler" data-title-en="CSV format – Help – MeterRoll" data-desc-de="So muss eine CSV-Datei für den Import in HausZähler aussehen: Felder, Formate, Beispiel, Zählerwechsel, häufige Fehler." data-desc-en="What a CSV file for importing into MeterRoll must look like: fields, formats, example, meter change, common mistakes.">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV-Format – Hilfe – HausZähler</title>
+  <meta name="description" content="So muss eine CSV-Datei für den Import in HausZähler aussehen: Felder, Formate, Beispiel, Zählerwechsel, häufige Fehler.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hauszaehler.de/hilfe/csv/">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <!-- Inhalt aus dem Vault: _projects/hauszaehler/help/csv-format.de.md + .en.md. Anker stabil: #wichtigste #felder #beispiel #zaehlerwechsel #tabellenprogramme #fehler -->
+  <script>
+    // Sprachwahl vor dem Rendern: ?lang= > gespeicherte Wahl (localStorage 'lang', geteilt mit der Startseite) > Browsersprache
+    (function () {
+      var lang = null, p = new URLSearchParams(location.search).get('lang');
+      if (p === 'de' || p === 'en') lang = p;
+      if (!lang) { try { var s = localStorage.getItem('lang'); if (s === 'de' || s === 'en') lang = s; } catch (_) {} }
+      if (!lang) lang = ((navigator.language || 'de').toLowerCase().split('-')[0] === 'de') ? 'de' : 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+    })();
+  </script>
+  <style>
+    :root { --bg:#FFFFFF; --bg-alt:#F4F6F8; --ink:#1B2A3A; --ink-deep:#0B131C; --text:#1D1D1F; --text-2:#545B66; --accent:#0B6E99; --accent-soft:rgba(11,110,153,0.07); --border:rgba(0,0,0,0.09); --font:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; font-size: 17px; overflow-x: hidden; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.9); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1040px; margin: 0 auto; padding: 0 16px; height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; font-size: 17px; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 9px; display: block; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-back { font-size: 14px; color: var(--text-2); text-decoration: none; padding: 8px 10px; border-radius: 8px; }
+    .nav-back:hover { background: var(--bg-alt); color: var(--ink); }
+    .lang-toggle { display: inline-flex; gap: 2px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
+    .lang-btn { border: 0; background: transparent; color: var(--text-2); padding: 6px 11px; min-height: 32px; border-radius: 999px; font: 700 12px/1 var(--font); cursor: pointer; }
+    .lang-btn.active { background: var(--ink); color: #fff; }
+    .page { max-width: 780px; margin: 0 auto; padding: 56px 16px 88px; }
+    .page-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .page h1 { font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.02em; line-height: 1.12; color: var(--ink); margin-bottom: 10px; }
+    .page-meta { font-size: 14px; color: var(--text-2); margin-bottom: 28px; }
+    .intro { font-size: 17px; color: var(--text-2); margin-bottom: 28px; }
+    .toc { background: var(--bg-alt); border-radius: 16px; padding: 22px 22px 14px; margin-bottom: 44px; }
+    .toc h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 12px; }
+    .toc > ol { list-style: none; columns: 2 300px; column-gap: 28px; }
+    .toc > ol > li { break-inside: avoid; margin-bottom: 14px; }
+    .toc-topic { font-weight: 700; color: var(--ink); text-decoration: none; font-size: 15px; }
+    .toc ul { list-style: none; margin-top: 4px; }
+    .toc ul li { font-size: 14px; line-height: 1.45; padding: 3px 0; }
+    .toc ul a { color: var(--text-2); text-decoration: none; }
+    .toc a:hover { color: var(--accent); text-decoration: underline; }
+    .topic { margin-bottom: 40px; scroll-margin-top: 76px; }
+    .topic h2 { font-size: 24px; color: var(--ink); letter-spacing: -0.01em; padding-bottom: 10px; border-bottom: 2px solid var(--border); margin-bottom: 6px; }
+    .qa { padding: 18px 0 6px; border-bottom: 1px solid var(--border); scroll-margin-top: 76px; }
+    .qa:target { background: var(--accent-soft); border-radius: 12px; padding-left: 14px; padding-right: 14px; margin: 0 -14px; }
+    .qa h3 { font-size: 18px; color: var(--ink); line-height: 1.35; margin-bottom: 8px; }
+    .permalink { margin-left: 8px; color: var(--text-2); text-decoration: none; font-weight: 400; opacity: 0.55; }
+    .permalink:hover, .permalink:focus-visible { opacity: 1; color: var(--accent); }
+    .qa p { font-size: 16px; color: var(--text-2); line-height: 1.75; margin-bottom: 12px; overflow-wrap: anywhere; }
+    .to-top { margin-top: 14px; font-size: 14px; }
+    .to-top a { color: var(--text-2); text-decoration: none; }
+    .page ul { padding-left: 22px; margin-bottom: 14px; }
+    .page li { font-size: 16px; color: var(--text-2); line-height: 1.7; margin-bottom: 4px; }
+    .page strong { color: var(--text); }
+    .topic > p { font-size: 16px; color: var(--text-2); line-height: 1.75; margin: 14px 0; }
+    .toc .toc-flat { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .toc .toc-flat li { font-size: 15px; margin: 0; }
+    code { font: 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--bg-alt); padding: 1px 5px; border-radius: 5px; color: var(--ink); overflow-wrap: anywhere; }
+    pre { background: var(--ink-deep); color: #E8EEF3; border-radius: 12px; padding: 16px 18px; margin: 16px 0; overflow-x: auto; max-width: 100%; }
+    pre code { background: none; color: inherit; padding: 0; font-size: 13.5px; overflow-wrap: normal; white-space: pre; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px 0; border: 1px solid var(--border); border-radius: 12px; }
+    table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14.5px; }
+    th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-2); line-height: 1.5; }
+    th { background: var(--bg-alt); color: var(--ink); font-weight: 700; }
+    tr:last-child td { border-bottom: 0; }
+    .box { background: var(--accent-soft); border: 1px solid rgba(11,110,153,0.22); border-radius: 14px; padding: 18px 22px; margin: 22px 0; }
+    .box p { margin: 0; color: var(--text); }
+    html[data-lang="de"] [data-l="en"], html[data-lang="en"] [data-l="de"] { display: none; }
+    .site-footer { background: var(--ink-deep); color: rgba(255,255,255,0.72); padding: 44px 24px 36px; text-align: center; }
+    .footer-inner { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; font-size: 18px; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-brand-line a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer-brand-line img { border-radius: 5px; vertical-align: middle; margin-right: 6px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
+    .footer-links a { color: rgba(255,255,255,0.78); font-size: 14px; text-decoration: none; padding: 6px 2px; }
+    .footer-links a:hover { color: #fff; }
+    .footer-apps-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); }
+    .footer-apps-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(255,255,255,0.08); color: #fff; text-decoration: none; font-size: 13px; }
+    .footer-app-pill img { border-radius: 6px; display: block; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/"><img src="/icon-512.png" alt="" width="34" height="34"><span data-l="de">HausZähler</span><span data-l="en">MeterRoll</span></a>
+      <div class="nav-right">
+        <a class="nav-back" href="/hilfe/"><span data-l="de">← Hilfe</span><span data-l="en">← Help</span></a>
+        <div class="lang-toggle" role="group" aria-label="Sprache / Language">
+          <button class="lang-btn" id="btn-de" type="button" lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" id="btn-en" type="button" lang="en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="page">
+    <!-- Inhalt aus dem Vault: _projects/hauszaehler/help/csv-format.de.md + csv-format.en.md (Regeln: Leser HausZaehlerCSV). Dort ändern, hier nachziehen. -->
+    <span class="page-label"><span data-l="de">Hilfe · Import</span><span data-l="en">Help · Import</span></span>
+    <h1><span data-l="de">CSV-Format: so muss die Datei aussehen</span><span data-l="en">CSV format: what the file must look like</span></h1>
+    <p class="page-meta"><span data-l="de">Stand: November 2026 · Version 1.0</span><span data-l="en">Updated: November 2026 · version 1.0</span></p>
+
+    <div data-l="de" lang="de">
+      <p class="intro">Du hast deine Zählerstände schon in einer Tabelle, zum Beispiel in Excel, Numbers oder Google Tabellen? Lege je Zähler eine CSV-Datei in diesem Format an. HausZähler liest sie und zeigt dir vor dem Übernehmen eine Vorschau. Dieselbe Beschreibung findest du in der App unter <strong>Einstellungen › Daten › Importe › CSV-Format für eigene Dateien</strong> und im Import unter <strong>„So muss eine CSV-Datei aussehen“</strong>. Zurück zur <a href="/hilfe/#import-csv">Hilfe</a>.</p>
+      <nav class="toc" aria-label="Inhalt"><h2>Inhalt</h2><ul class="toc-flat">
+        <li><a href="#wichtigste">Das Wichtigste</a></li><li><a href="#felder">Felder</a></li><li><a href="#beispiel">Beispiel und Vorlage</a></li><li><a href="#zaehlerwechsel">Zählerwechsel</a></li><li><a href="#tabellenprogramme">Excel, Numbers, Google Tabellen</a></li><li><a href="#fehler">Häufige Fehler</a></li>
+      </ul></nav>
+    </div>
+    <div data-l="en" lang="en">
+      <p class="intro">You already keep your meter readings in a spreadsheet, for example in Excel, Numbers or Google Sheets? Create one CSV file per meter in this format. MeterRoll reads it and shows you a preview before importing. The same description is in the app under <strong>Settings › Data › Imports › CSV format for your own files</strong> and in the import via <strong>“How a CSV file must look”</strong>. Back to <a href="/hilfe/?lang=en#import-csv">Help</a>.</p>
+      <nav class="toc" aria-label="Contents"><h2>Contents</h2><ul class="toc-flat">
+        <li><a href="#wichtigste">The essentials</a></li><li><a href="#felder">Fields</a></li><li><a href="#beispiel">Example and template</a></li><li><a href="#zaehlerwechsel">Meter change</a></li><li><a href="#tabellenprogramme">Excel, Numbers, Google Sheets</a></li><li><a href="#fehler">Common mistakes</a></li>
+      </ul></nav>
+    </div>
+
+    <section class="topic" id="wichtigste">
+      <h2><span data-l="de">Das Wichtigste</span><span data-l="en">The essentials</span></h2>
+      <ul data-l="de" lang="de">
+        <li><strong>Eine Datei je Zähler.</strong> Zu welchem Zähler sie gehört (Strom, Gas, Wasser, Wärme; Einheit; vorhandener Zähler), wählst du in der Vorschau.</li>
+        <li><strong>Erste Zeile = Kopfzeile</strong> mit den Feldnamen unten, deutsch oder englisch, Groß- und Kleinschreibung egal. Die Spalten werden über den Namen gefunden; die Reihenfolge unten ist empfohlen, nicht Pflicht. Unbekannte Spalten werden ignoriert, die Vorschau nennt sie.</li>
+        <li><strong>Trennzeichen</strong> Semikolon <code>;</code> oder Komma <code>,</code>, auch Tabulator, erkannt an der Kopfzeile.</li>
+        <li><strong>Zeichensatz</strong> UTF-8, mit oder ohne BOM. Zeilenende egal (Windows oder Mac).</li>
+        <li><strong>Eine Zeile je Ablesung</strong>, Reihenfolge der Zeilen egal. Leere Zeilen (auch <code>;;;;</code>) werden übersprungen.</li>
+      </ul>
+      <ul data-l="en" lang="en">
+        <li><strong>One file per meter.</strong> You choose which meter it belongs to (electricity, gas, water, heat; unit; existing meter) in the preview.</li>
+        <li><strong>First line = header</strong> with the field names below, English or German, upper or lower case. Columns are found by name; the order below is recommended, not required. Unknown columns are ignored, the preview lists them.</li>
+        <li><strong>Separator</strong> comma <code>,</code> or semicolon <code>;</code>, tab also works, detected from the header.</li>
+        <li><strong>Encoding</strong> UTF-8, with or without BOM. Any line ending (Windows or Mac).</li>
+        <li><strong>One line per reading</strong>, in any order. Empty lines (also <code>,,,,</code>) are skipped.</li>
+      </ul>
+    </section>
+
+    <section class="topic" id="felder">
+      <h2><span data-l="de">Felder</span><span data-l="en">Fields</span></h2>
+      <div class="table-wrap" data-l="de" lang="de">
+        <table>
+          <thead><tr><th>Spalte</th><th>Feldname (de · en)</th><th>Datentyp</th><th>Format und Länge</th><th>Pflicht</th><th>Beispiel</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><code>Datum</code> · <code>date</code></td><td>Datum</td><td><code>TT.MM.JJJJ</code> oder <code>JJJJ-MM-TT</code>, 10 Zeichen (Tag und Monat bei <code>TT.MM.JJJJ</code> auch einstellig). <strong>Kein US-Datum</strong> (<code>06/15/2025</code>). Jahr vierstellig, gültiger Kalendertag.</td><td>ja</td><td><code>15.06.2025</code></td></tr>
+            <tr><td>2</td><td><code>Uhrzeit</code> · <code>time</code></td><td>Uhrzeit</td><td><code>HH:MM</code> oder <code>HH:MM:SS</code>, 24 Stunden. Leer = 00:00 Uhr.</td><td>nein</td><td><code>10:05</code></td></tr>
+            <tr><td>3</td><td><code>Stand</code> · <code>reading</code></td><td>Dezimalzahl</td><td>Komma <strong>oder</strong> Punkt als Dezimalzeichen, <strong>ohne Tausendertrenner</strong>, nicht negativ, höchstens 15 Ziffern. Gespeichert wird genau dieser Wert, ohne Rundung.</td><td>ja</td><td><code>13105,8</code></td></tr>
+            <tr><td>4</td><td><code>Zählerwechsel</code> · <code>meter_change</code></td><td>Ja/Nein</td><td><code>ja</code> oder <code>nein</code>, auch <code>1</code>/<code>0</code> (<code>yes</code>/<code>no</code>). Leer = nein. <code>ja</code> steht beim <strong>ersten Stand des neuen Zählers</strong>.</td><td>nein</td><td><code>ja</code></td></tr>
+            <tr><td>5</td><td><code>Notiz</code> · <code>note</code></td><td>Text</td><td>beliebig, höchstens <strong>500 Zeichen</strong>, ohne Zeilenumbruch; enthält sie das Trennzeichen, in Anführungszeichen <code>"…"</code> setzen (<code>""</code> für ein Anführungszeichen).</td><td>nein</td><td><code>Neuer Zähler eingebaut</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap" data-l="en" lang="en">
+        <table>
+          <thead><tr><th>Column</th><th>Field name (en · de)</th><th>Data type</th><th>Format and length</th><th>Required</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><code>date</code> · <code>Datum</code></td><td>Date</td><td><code>YYYY-MM-DD</code> or <code>DD.MM.YYYY</code>, 10 characters (day and month may have one digit in <code>DD.MM.YYYY</code>). <strong>No US dates</strong> (<code>06/15/2025</code>). Four-digit year, valid calendar day.</td><td>yes</td><td><code>2025-06-15</code></td></tr>
+            <tr><td>2</td><td><code>time</code> · <code>Uhrzeit</code></td><td>Time</td><td><code>HH:MM</code> or <code>HH:MM:SS</code>, 24-hour clock. Empty = 00:00.</td><td>no</td><td><code>10:05</code></td></tr>
+            <tr><td>3</td><td><code>reading</code> · <code>Stand</code></td><td>Decimal number</td><td>Point <strong>or</strong> comma as decimal separator, <strong>no thousands separator</strong>, not negative, at most 15 digits. Exactly this value is saved, without rounding.</td><td>yes</td><td><code>13105.8</code></td></tr>
+            <tr><td>4</td><td><code>meter_change</code> · <code>Zählerwechsel</code></td><td>Yes/No</td><td><code>yes</code> or <code>no</code>, also <code>1</code>/<code>0</code> (<code>ja</code>/<code>nein</code>). Empty = no. <code>yes</code> marks the <strong>first reading of the new meter</strong>.</td><td>no</td><td><code>yes</code></td></tr>
+            <tr><td>5</td><td><code>note</code> · <code>Notiz</code></td><td>Text</td><td>any, at most <strong>500 characters</strong>, no line breaks; if it contains the separator, put it in quotation marks <code>"…"</code> (<code>""</code> for a quotation mark).</td><td>no</td><td><code>New meter installed</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="topic" id="beispiel">
+      <h2><span data-l="de">Beispiel und Vorlage</span><span data-l="en">Example and template</span></h2>
+      <div data-l="de" lang="de">
+<pre><code>Datum;Uhrzeit;Stand;Zählerwechsel;Notiz
+01.01.2025;08:30;12345,6;nein;Jahresbeginn
+01.04.2025;;12890,25;nein;
+15.06.2025;10:00;13105,8;nein;Endstand alter Zähler
+15.06.2025;10:05;0,4;ja;Neuer Zähler eingebaut</code></pre>
+        <p>In der App gibt <strong>„Vorlage teilen oder sichern“</strong> diese Vorlage als Datei weiter (UTF-8 mit BOM, damit Excel die Umlaute richtig öffnet). Öffne sie in deinem Tabellenprogramm, ersetze die Beispielzeilen durch deine Ablesungen und exportiere wieder als CSV.</p>
+      </div>
+      <div data-l="en" lang="en">
+<pre><code>date,time,reading,meter_change,note
+2025-01-01,08:30,12345.6,no,Start of year
+2025-04-01,,12890.25,no,
+2025-06-15,10:00,13105.8,no,Final reading old meter
+2025-06-15,10:05,0.4,yes,New meter installed</code></pre>
+        <p>In the app, <strong>“Share or save template”</strong> passes this template on as a file (UTF-8 with BOM so Excel opens it correctly). Open it in your spreadsheet app, replace the sample lines with your readings and export as CSV again.</p>
+      </div>
+    </section>
+
+    <section class="topic" id="zaehlerwechsel">
+      <h2><span data-l="de">Zählerwechsel</span><span data-l="en">Meter change</span></h2>
+      <p data-l="de" lang="de">Am Tag des Wechsels schreibst du zwei Zeilen: den <strong>Endstand des alten Zählers</strong> mit <code>nein</code> und den <strong>Anfangsstand des neuen Zählers</strong> mit <code>ja</code>. Ohne Uhrzeit gehört die Zeile mit <code>ja</code> zum neuen Zähler, die andere zum alten. Fehlt der Endstand, rechnet HausZähler mit der letzten Ablesung des alten Zählers.</p>
+      <p data-l="en" lang="en">On the day of the change, write two lines: the <strong>final reading of the old meter</strong> with <code>no</code> and the <strong>first reading of the new meter</strong> with <code>yes</code>. Without a time, the line with <code>yes</code> belongs to the new meter and the other one to the old meter. If the final reading is missing, MeterRoll uses the last reading of the old meter.</p>
+    </section>
+
+    <section class="topic" id="tabellenprogramme">
+      <h2><span data-l="de">Excel, Numbers, Google Tabellen</span><span data-l="en">Excel, Numbers, Google Sheets</span></h2>
+      <ul data-l="de" lang="de">
+        <li><strong>Excel:</strong> Datei › Speichern unter › Dateiformat „CSV UTF-8 (durch Trennzeichen getrennt)“.</li>
+        <li><strong>Numbers:</strong> Ablage › Exportieren › CSV … – unter „Erweiterte Optionen“ die Textcodierung „Unicode (UTF-8)“ wählen.</li>
+        <li><strong>Google Tabellen:</strong> Datei › Herunterladen › „Kommagetrennte Werte (.csv)“.</li>
+        <li><strong>Vor dem Export:</strong> Spalte „Datum“ als <code>TT.MM.JJJJ</code> oder <code>JJJJ-MM-TT</code> formatieren (Zellen formatieren › Benutzerdefiniert) und „Stand“ als Zahl ohne Tausendertrennzeichen. Tabellenprogramme exportieren das, was sie anzeigen.</li>
+      </ul>
+      <ul data-l="en" lang="en">
+        <li><strong>Excel:</strong> File › Save As › file format “CSV UTF-8 (Comma delimited)”.</li>
+        <li><strong>Numbers:</strong> File › Export To › CSV … – under “Advanced Options”, choose the text encoding “Unicode (UTF-8)”.</li>
+        <li><strong>Google Sheets:</strong> File › Download › “Comma-separated values (.csv)”.</li>
+        <li><strong>Before exporting:</strong> format the “date” column as <code>YYYY-MM-DD</code> or <code>DD.MM.YYYY</code> (Format Cells › Custom) and “reading” as a number without thousands separator. Spreadsheet apps export what they display.</li>
+      </ul>
+    </section>
+
+    <section class="topic" id="fehler">
+      <h2><span data-l="de">Häufige Fehler</span><span data-l="en">Common mistakes</span></h2>
+      <div class="table-wrap" data-l="de" lang="de">
+        <table>
+          <thead><tr><th>Fehler</th><th>Lösung</th><th>Was die App zeigt</th></tr></thead>
+          <tbody>
+            <tr><td>Tausenderpunkt im Stand (<code>12.345,6</code>, <code>1 234</code>)</td><td><code>12345,6</code></td><td>Zeile übersprungen: „Tausendertrenner im Stand“</td></tr>
+            <tr><td>US-Datum (<code>06/15/2025</code>)</td><td><code>15.06.2025</code> oder <code>2025-06-15</code></td><td>Zeile übersprungen: „Datum“</td></tr>
+            <tr><td>Kopfzeile fehlt oder Feldname vertippt</td><td><code>Datum</code> und <code>Stand</code> müssen da sein</td><td>„Kopfzeile unvollständig“ bzw. „Keine Zählerstände gefunden“ mit Knopf „So muss die Datei aussehen“</td></tr>
+            <tr><td>Komma als Trenner <strong>und</strong> Dezimalkomma</td><td>Stand mit Punkt oder in Anführungszeichen</td><td>Zeile übersprungen: „mehr Spalten als die Kopfzeile“</td></tr>
+            <tr><td>Zählerwechsel ohne <code>ja</code></td><td><code>ja</code> in der ersten Zeile des neuen Zählers</td><td>Hinweis „Stand kleiner als davor (Zeile N)“ – übernommen, bitte prüfen</td></tr>
+            <tr><td>Mehrere Zähler in einer Datei</td><td>je Zähler eine Datei</td><td>nicht erkennbar – die Stände springen, Hinweis „Stand kleiner als davor“</td></tr>
+            <tr><td>Notiz über 500 Zeichen</td><td>kürzen</td><td>Zeile übersprungen: „Notiz über 500 Zeichen“</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap" data-l="en" lang="en">
+        <table>
+          <thead><tr><th>Mistake</th><th>Fix</th><th>What the app shows</th></tr></thead>
+          <tbody>
+            <tr><td>Thousands separator (<code>12,345.6</code>, <code>1 234</code>)</td><td><code>12345.6</code></td><td>line skipped: “thousands separator in reading”</td></tr>
+            <tr><td>US date (<code>06/15/2025</code>)</td><td><code>2025-06-15</code> or <code>15.06.2025</code></td><td>line skipped: “date”</td></tr>
+            <tr><td>Header missing or field name misspelt</td><td><code>date</code> and <code>reading</code> must be there</td><td>“Header incomplete” or “No meter readings found” with the button “What the file must look like”</td></tr>
+            <tr><td>Comma separator <strong>and</strong> decimal comma</td><td>reading with a point or in quotation marks</td><td>line skipped: “more columns than the header”</td></tr>
+            <tr><td>Meter change without <code>yes</code></td><td><code>yes</code> in the first line of the new meter</td><td>hint “Reading lower than before (line N)” – imported, please check</td></tr>
+            <tr><td>Several meters in one file</td><td>one file per meter</td><td>not detectable – readings jump, hint “reading lower than before”</td></tr>
+            <tr><td>Note over 500 characters</td><td>shorten</td><td>line skipped: “note over 500 characters”</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p data-l="de" lang="de">Zeilennummern zählen wie in Excel und Numbers (Kopfzeile = Zeile 1). Fehlerhafte Zeilen werden nicht übernommen; gespeichert wird erst nach deiner Bestätigung, und jeder Import lässt sich unter <strong>Einstellungen › Daten › Importe</strong> rückgängig machen. Übernehmen ist gratis und zählt nicht als Ablesung.</p>
+      <p data-l="en" lang="en">Line numbers count like Excel and Numbers (header = line 1). Lines with mistakes are not imported; nothing is saved before you confirm, and every import can be undone under <strong>Settings › Data › Imports</strong>. Importing is free and does not count as a reading.</p>
+      <p class="to-top"><a href="/hilfe/#import-csv"><span data-l="de">← Zurück zur Hilfe</span><span data-l="en">← Back to Help</span></a></p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="/icon-512.png" alt="" width="32" height="32" loading="lazy"><span data-l="de">HausZähler</span><span data-l="en">MeterRoll</span></div>
+      <span class="footer-brand-line"><a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy"><span data-l="de">eine App von torecon</span><span data-l="en">an app by torecon</span></a></span>
+      <div class="footer-links">
+        <a href="/hilfe/"><span data-l="de">Hilfe</span><span data-l="en">Help</span></a>
+        <a href="/privacy/"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a>
+        <a href="/terms/"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms of Use</span></a>
+        <a href="/#impressum"><span data-l="de">Impressum</span><span data-l="en">Legal notice</span></a>
+        <a href="https://www.torecon.de/" target="_blank" rel="noopener">torecon.de</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label"><span data-l="de">Weitere Apps von torecon</span><span data-l="en">More apps by torecon</span></span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener"><img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22"><span>BrainBites AI</span></a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener"><img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22"><span>ThinkLess AI</span></a>
+          <a class="footer-app-pill" href="https://chargescope.ai" target="_blank" rel="noopener"><img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22"><span>eLadung GO</span></a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener"><img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22"><span>Zettelküche AI</span></a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/meisterlich/id6762597134" target="_blank" rel="noopener"><img src="/cross-promo/meisterlich.png" alt="" loading="lazy" width="22" height="22"><span>Meisterlich</span></a>
+        </div>
+      </div>
+      <span class="footer-copy">&copy; <span class="footer-year">2026</span> torecon &ndash; Thomas Reinke. <span data-l="de">Alle Rechte vorbehalten.</span><span data-l="en">All rights reserved.</span></span>
+    </div>
+  </footer>
+  <script>
+    function setLang(code) {
+      if (code !== 'de' && code !== 'en') code = 'de';
+      var root = document.documentElement;
+      root.setAttribute('data-lang', code);
+      root.lang = code;
+      try { localStorage.setItem('lang', code); } catch (_) {}
+      ['de', 'en'].forEach(function (c) { var b = document.getElementById('btn-' + c); b.classList.toggle('active', c === code); b.setAttribute('aria-pressed', c === code ? 'true' : 'false'); });
+      document.title = root.getAttribute('data-title-' + code) || document.title;
+      var md = document.querySelector('meta[name="description"]');
+      if (md) md.setAttribute('content', root.getAttribute('data-desc-' + code) || md.getAttribute('content'));
+    }
+    setLang(document.documentElement.getAttribute('data-lang'));
+    // Ältere Verweise per FAQ-ID (#hz-19) auf den stabilen Anker umleiten
+    (function () {
+      var alias = {};
+      var h = decodeURIComponent(location.hash.slice(1));
+      if (alias[h]) { history.replaceState(null, '', location.pathname + location.search + '#' + alias[h]); var el = document.getElementById(alias[h]); if (el) el.scrollIntoView(); }
+    })();
+    document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+  </script>
+</body>
+</html>
