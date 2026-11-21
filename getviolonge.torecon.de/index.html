@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VioLonge AI – Deine tägliche Gesundheitsentscheidung</title>
-  <meta name="description" content="VioLonge AI liefert dir täglich 1–3 personalisierte Gesundheitsentscheidungen – einfach, sofort umsetzbar, in unter 60 Sekunden. Bald im App Store.">
+  <meta name="description" content="VioLonge AI liefert dir täglich 1–3 personalisierte Gesundheitsentscheidungen – einfach, sofort umsetzbar, in unter 60 Sekunden. Jetzt im App Store.">
+  <meta name="apple-itunes-app" content="app-id=6762363594">
 
   <!-- Open Graph -->
   <meta property="og:title" content="VioLonge AI – Deine tägliche Gesundheitsentscheidung">
-  <meta property="og:description" content="Personalisierte Gesundheitsentscheidungen für jeden Tag. Kein Tracking, kein Dashboard – nur eine klare Empfehlung. Bald im App Store.">
+  <meta property="og:description" content="Personalisierte Gesundheitsentscheidungen für jeden Tag. Kein Tracking, kein Dashboard – nur eine klare Empfehlung. Jetzt im App Store.">
   <meta property="og:url" content="https://getviolonge.torecon.de">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://getviolonge.torecon.de/og-image.png">
@@ -16,7 +17,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="VioLonge AI – Deine tägliche Gesundheitsentscheidung">
-  <meta name="twitter:description" content="Täglich 1–3 personalisierte Gesundheitsempfehlungen. Bald im App Store.">
+  <meta name="twitter:description" content="Täglich 1–3 personalisierte Gesundheitsempfehlungen. Jetzt im App Store.">
 
   <style>
     /* ── Design System (torecon Apple-Style) ────────────────────────────────── */
@@ -370,31 +371,7 @@
     .section-waitlist .section-label { color: rgba(80,200,140,0.9); }
     .section-waitlist h2 { color: #fff; margin-bottom: 16px; }
     .section-waitlist p  { color: rgba(255,255,255,0.6); font-size: 18px; margin-bottom: 48px; line-height: 1.6; }
-    .waitlist-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto 16px; flex-wrap: wrap; }
-    .waitlist-form input {
-      flex: 1; min-width: 200px;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-      color: #fff; border-radius: 14px; padding: 14px 18px;
-      font-size: 15px; font-family: var(--font); outline: none;
-      transition: var(--transition);
-    }
-    .waitlist-form input::placeholder { color: rgba(255,255,255,0.35); }
-    .waitlist-form input:focus { border-color: rgba(80,200,140,0.6); background: rgba(255,255,255,0.1); }
-    .waitlist-submit {
-      background: var(--lv-gradient); color: #fff; border: none;
-      border-radius: 14px; padding: 14px 24px;
-      font-size: 15px; font-weight: 700; cursor: pointer;
-      font-family: var(--font); transition: var(--transition);
-      white-space: nowrap;
-    }
-    .waitlist-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,140,91,0.4); }
-    .waitlist-hint { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 12px; }
-    .waitlist-success {
-      display: none; padding: 16px 24px;
-      background: rgba(52,199,89,0.15); border: 1px solid rgba(52,199,89,0.3);
-      border-radius: 14px; color: #34C759; font-weight: 600; font-size: 15px;
-    }
-    .waitlist-success.visible { display: block; }
+    .waitlist-hint { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 20px; margin-bottom: 0; }
 
     /* ── Section: About ──────────────────────────────────────────────────────── */
     .section-about { padding: 80px 24px; }
@@ -437,6 +414,23 @@
     .footer-app-pill:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 4px; }
 
+    /* ── Launch-Banner (Live-Schaltung v1.0) ─────────────────────────────────── */
+    .launch-banner { background: linear-gradient(135deg, #0D1A14 0%, #123323 55%, #0D1A14 100%); border-bottom: 1px solid rgba(80,200,140,0.25); }
+    .launch-banner-inner { max-width: 1080px; margin: 0 auto; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .launch-content { flex: 1; min-width: 0; }
+    .launch-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(80,200,140,0.15); border: 1px solid rgba(80,200,140,0.4); border-radius: 40px; padding: 4px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8FE3B8; margin-bottom: 10px; }
+    .launch-pill-dot { width: 6px; height: 6px; background: #50C88C; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+    .launch-headline { font-size: clamp(18px, 3vw, 26px); font-weight: 800; letter-spacing: -0.02em; color: #fff; line-height: 1.2; margin: 0 0 6px; }
+    .launch-sub { font-size: 14px; color: rgba(255,255,255,0.72); margin: 0; max-width: 620px; }
+    .launch-btn, .store-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #0D1A14; padding: 12px 20px; border-radius: 14px; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: var(--transition); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+    .launch-btn:hover, .store-btn:hover { opacity: 1; transform: translateY(-2px); }
+    a.app-store-pill { text-decoration: none; transition: var(--transition); }
+    a.app-store-pill:hover { opacity: 1; transform: translateY(-1px); }
+    @media (max-width: 720px) {
+      .launch-banner-inner { flex-direction: column; align-items: stretch; gap: 14px; padding: 18px 16px; }
+      .launch-btn { justify-content: center; }
+    }
+
     /* ── Responsive ──────────────────────────────────────────────────────────── */
     @media (max-width: 700px) {
       .hero { padding: 72px 20px 60px; }
@@ -445,9 +439,6 @@
       .hero-cta-row { flex-direction: column; align-items: stretch; text-align: center; }
       .btn-primary, .btn-secondary { justify-content: center; }
       .focus-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 500px) {
-      .waitlist-form { flex-direction: column; }
     }
 
     /* ── Animations ──────────────────────────────────────────────────────────── */
@@ -463,6 +454,18 @@
   </style>
 </head>
 <body>
+
+  <!-- ── Launch-Banner (Live-Schaltung v1.0, 2026-11-21) ─────────────────── -->
+  <div class="launch-banner">
+    <div class="launch-banner-inner">
+      <div class="launch-content">
+        <span class="launch-pill"><span class="launch-pill-dot"></span><span data-de="v1.0 — jetzt verfügbar" data-en="v1.0 — available now" data-pt="v1.0 — já disponível">v1.0 — jetzt verfügbar</span></span>
+        <h2 class="launch-headline" data-de="VioLonge AI ist im App Store. Eine Aktion. Heute. Machbar." data-en="VioLonge AI is on the App Store. One action. Today. Doable." data-pt="VioLonge AI está na App Store. Uma ação. Hoje. Possível.">VioLonge AI ist im App Store. Eine Aktion. Heute. Machbar.</h2>
+        <p class="launch-sub" data-de="Jeden Tag eine konkrete Aktion für Schlaf, Ernährung, Bewegung oder Stress. Kostenlos starten, ohne Konto." data-en="One concrete action every day for sleep, nutrition, movement or stress. Start for free, no account." data-pt="Uma ação concreta por dia para sono, alimentação, movimento ou estresse. Comece grátis, sem conta.">Jeden Tag eine konkrete Aktion für Schlaf, Ernährung, Bewegung oder Stress. Kostenlos starten, ohne Konto.</p>
+      </div>
+      <a class="launch-btn appstore-link" href="https://apps.apple.com/app/violonge-ai/id6762363594"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span data-de="Im App Store laden" data-en="Download on the App Store" data-pt="Baixar na App Store">Im App Store laden</span></a>
+    </div>
+  </div>
 
   <!-- Navigation -->
   <nav class="site-nav">
@@ -494,7 +497,7 @@
 
         <div class="hero-badge fade-up">
           <span class="hero-badge-dot"></span>
-          <span data-de="Bald im App Store" data-en="Coming to App Store">Bald im App Store</span>
+          <span data-de="Jetzt im App Store" data-en="Now on the App Store" data-pt="Já na App Store">Jetzt im App Store</span>
         </div>
 
         <h1 class="fade-up delay-1">
@@ -510,11 +513,9 @@
         </p>
 
         <div class="hero-cta-row fade-up delay-3">
-          <a href="#waitlist" class="btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-            </svg>
-            <span data-de="Benachrichtigt werden" data-en="Get Notified">Benachrichtigt werden</span>
+          <a href="https://apps.apple.com/app/violonge-ai/id6762363594" class="btn-primary appstore-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span data-de="Im App Store laden" data-en="Download on the App Store" data-pt="Baixar na App Store">Im App Store laden</span>
           </a>
           <a href="#how-it-works" class="btn-secondary">
             <span data-de="So funktioniert's" data-en="How it works">So funktioniert's</span>
@@ -555,17 +556,17 @@
           </div>
         </div>
 
-        <!-- App Store Coming Soon Pill -->
+        <!-- App Store Pill (live seit 2026-11-21) -->
         <div class="fade-up" style="display:flex;justify-content:center;">
-          <div class="app-store-pill">
+          <a class="app-store-pill appstore-link" href="https://apps.apple.com/app/violonge-ai/id6762363594" aria-label="Download on the App Store">
             <svg width="20" height="24" viewBox="0 0 814 1000" fill="white">
               <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105.5-57.7-155.5-127.4C46 376.8 0 290.4 0 207.7 0 103.5 62.8 46.9 122.4 23.5c45.2-17.8 98.5-26.7 151.8-26.7 51.2 0 102.5 12.1 145.2 42 39.2 27.6 73.4 68.5 94.6 93.7 23.4 28 62.8 68.5 62.8 68.5l-72.5 72.5s-26.7 35-76 35c-37.1 0-64.8-17-93.3-35.7-44.4-28.9-89.7-58-145.4-58-67.3 0-130.1 37.4-168.7 97.5 5.6 5.6 58.3 34.8 112.5 127.8 51.7 88.8 70.7 162.1 72.6 174.1 12.7-2.6 25.1-3.5 36.8-3.5 50.9 0 90.5 16.2 134.4 16.2 38.1 0 76.6-14.2 114.2-14.2 37.9 0 72.4 12.3 104.4 12.3 71.8 0 115.2-47.7 145.2-47.7 47.4 0 88.4 23 112.9 23 21.1 0 40.8-12.5 58.1-27.1z"/>
             </svg>
             <div class="app-store-pill-label">
-              <span class="app-store-pill-sub" data-de="Bald verfügbar im" data-en="Coming soon to the">Bald verfügbar im</span>
+              <span class="app-store-pill-sub" data-de="Jetzt laden im" data-en="Download on the" data-pt="Baixe na">Jetzt laden im</span>
               <span class="app-store-pill-name">App Store</span>
             </div>
-          </div>
+          </a>
         </div>
 
       </div>
@@ -764,22 +765,14 @@
       </div>
     </section>
 
-    <!-- ── Waitlist ──────────────────────────────────────────────────────────── -->
-    <section class="section-waitlist" id="waitlist">
+    <!-- ── Final CTA (ersetzt Waitlist, Live-Schaltung 2026-11-21) ──────────── -->
+    <section class="section-waitlist" id="download">
       <div class="section-waitlist-inner">
-        <p class="section-label" data-de="Sei dabei, wenn es losgeht" data-en="Be there when it launches">Sei dabei, wenn es losgeht</p>
-        <h2 data-de="Als Erster dabei sein." data-en="Be the first.">Als Erster dabei sein.</h2>
-        <p data-de="Trag dich jetzt ein und wir benachrichtigen dich, sobald VioLonge AI im App Store verfügbar ist." data-en="Sign up now and we'll notify you as soon as VioLonge AI is available in the App Store.">Trag dich jetzt ein und wir benachrichtigen dich, sobald VioLonge AI im App Store verfügbar ist.</p>
-
-        <form class="waitlist-form" id="waitlist-form" onsubmit="handleWaitlist(event)">
-          <input type="email" id="waitlist-email" placeholder="deine@email.de" required
-                 data-de-placeholder="deine@email.de" data-en-placeholder="your@email.com">
-          <button type="submit" class="waitlist-submit" data-de="Benachrichtigen" data-en="Notify me">Benachrichtigen</button>
-        </form>
-        <div class="waitlist-success" id="waitlist-success">
-          <span data-de="🎉 Perfekt! Wir benachrichtigen dich beim Launch." data-en="🎉 Perfect! We'll notify you at launch.">🎉 Perfekt! Wir benachrichtigen dich beim Launch.</span>
-        </div>
-        <p class="waitlist-hint" data-de="Kein Spam. Nur eine E-Mail beim Launch." data-en="No spam. Just one email at launch.">Kein Spam. Nur eine E-Mail beim Launch.</p>
+        <p class="section-label" data-de="Jetzt im App Store" data-en="Now on the App Store" data-pt="Já na App Store">Jetzt im App Store</p>
+        <h2 data-de="Dein erster Schritt. Heute." data-en="Your first step. Today." data-pt="Seu primeiro passo. Hoje.">Dein erster Schritt. Heute.</h2>
+        <p data-de="Lade VioLonge AI kostenlos und erhalte in unter einer Minute deine erste Aktion. Kein Konto, keine Anmeldung." data-en="Download VioLonge AI for free and get your first action in under a minute. No account, no sign-up." data-pt="Baixe o VioLonge AI grátis e receba sua primeira ação em menos de um minuto. Sem conta, sem cadastro.">Lade VioLonge AI kostenlos und erhalte in unter einer Minute deine erste Aktion. Kein Konto, keine Anmeldung.</p>
+        <a class="store-btn appstore-link" href="https://apps.apple.com/app/violonge-ai/id6762363594"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span data-de="Im App Store laden" data-en="Download on the App Store" data-pt="Baixar na App Store">Im App Store laden</span></a>
+        <p class="waitlist-hint" data-de="Für iPhone · iOS 17 oder neuer" data-en="For iPhone · iOS 17 or later" data-pt="Para iPhone · iOS 17 ou posterior">Für iPhone · iOS 17 oder neuer</p>
       </div>
     </section>
 
@@ -903,11 +896,9 @@
 
     // PT-BR translations (data-de value → PT-BR value)
     const ptMap = {
-      "Bald im App Store": "Em breve na App Store",
       "Gesünder leben.": "Viva com mais saúde.",
       "Eine Entscheidung pro Tag.": "Uma decisão por dia.",
       'VioLonge AI liefert dir täglich <strong>1–3 personalisierte Gesundheitsempfehlungen</strong> — sofort umsetzbar, in unter 60 Sekunden verstanden.': 'VioLonge AI entrega <strong>1–3 recomendações de saúde personalizadas</strong> por dia — acionáveis imediatamente, entendidas em menos de 60 segundos.',
-      "Benachrichtigt werden": "Quero ser notificado",
       "So funktioniert's": "Como funciona",
       "Dienstag, 1. April": "Terça-feira, 1 de abril",
       "Deine beste Entscheidung heute 🌱": "Sua melhor decisão hoje 🌱",
@@ -918,7 +909,6 @@
       "10 Min. Spaziergang nach dem Mittag": "10 min de caminhada após o almoço",
       "Kein Zucker nach 20 Uhr": "Sem açúcar após 20h",
       "Aktuelle Serie": "Sequência atual",
-      "Bald verfügbar im": "Em breve na",
       "So einfach geht's": "É simples assim",
       "Täglich. Persönlich.<br>Umsetzbar.": "Diário. Pessoal.<br>Acionável.",
       "Kein Tracking, kein Dashboard, kein Chaos. Nur eine Empfehlung, die heute für dich passt.": "Sem rastreamento, sem dashboard, sem complicação. Só uma recomendação que funciona para você hoje.",
@@ -992,12 +982,6 @@
       "Verlaufshistorie": "Histórico de ações",
       "Wöchentliche KI-Zusammenfassung": "Resumo semanal por IA",
       "Prioritäts-Support": "Suporte prioritário",
-      "Sei dabei, wenn es losgeht": "Esteja lá no lançamento",
-      "Als Erster dabei sein.": "Seja o primeiro.",
-      "Trag dich jetzt ein und wir benachrichtigen dich, sobald VioLonge AI im App Store verfügbar ist.": "Inscreva-se agora e te avisaremos assim que VioLonge AI estiver disponível na App Store.",
-      "Benachrichtigen": "Notificar",
-      "🎉 Perfekt! Wir benachrichtigen dich beim Launch.": "🎉 Perfeito! Te avisaremos no lançamento.",
-      "Kein Spam. Nur eine E-Mail beim Launch.": "Sem spam. Só um e-mail no lançamento.",
       "VioLonge AI ist eine Marke von ": "VioLonge AI é uma marca da ",
       " — dem Entwickler hinter ": " — a desenvolvedora por trás de ",
       " und ": " e ",
@@ -1068,26 +1052,18 @@
         if (val !== null) el.innerHTML = val;
       });
 
-      document.querySelectorAll('[data-de-placeholder]').forEach(el => {
-        let val;
-        if (currentLang === 'en') val = el.getAttribute('data-en-placeholder');
-        else if (currentLang === 'pt') val = 'seu@email.com';
-        else val = el.getAttribute('data-de-placeholder');
-        if (val !== null) el.placeholder = val;
-      });
-
       const meta = {
         de: {
           title: 'VioLonge AI – Deine tägliche Gesundheitsentscheidung',
-          desc: 'VioLonge AI liefert dir täglich 1–3 personalisierte Gesundheitsentscheidungen – einfach, sofort umsetzbar, in unter 60 Sekunden. Bald im App Store.'
+          desc: 'VioLonge AI liefert dir täglich 1–3 personalisierte Gesundheitsentscheidungen – einfach, sofort umsetzbar, in unter 60 Sekunden. Jetzt im App Store.'
         },
         en: {
           title: 'VioLonge AI – Your Daily Health Decision',
-          desc: 'VioLonge AI delivers 1–3 personalized daily health decisions — actionable immediately, understood in under 60 seconds. Coming to the App Store.'
+          desc: 'VioLonge AI delivers 1–3 personalized daily health decisions — actionable immediately, understood in under 60 seconds. Now on the App Store.'
         },
         pt: {
           title: 'VioLonge AI – Sua decisão de saúde diária',
-          desc: 'VioLonge AI entrega 1–3 recomendações de saúde personalizadas por dia — acionáveis imediatamente, entendidas em menos de 60 segundos. Em breve na App Store.'
+          desc: 'VioLonge AI entrega 1–3 recomendações de saúde personalizadas por dia — acionáveis imediatamente, entendidas em menos de 60 segundos. Já na App Store.'
         }
       };
       const m = meta[currentLang] || meta.de;
@@ -1098,38 +1074,9 @@
     currentLang = detectLanguage();
     applyLang();
 
-    // ── Waitlist Form ─────────────────────────────────────────────────────────
-    function handleWaitlist(e) {
-      e.preventDefault();
-      const email = document.getElementById('waitlist-email').value.trim();
-      if (!email) return;
-
-      const btn = document.querySelector('.waitlist-submit');
-      btn.disabled = true;
-      btn.style.opacity = '0.6';
-
-      // Replace FORMSPREE_FORM_ID with your Formspree form ID
-      const FORMSPREE_FORM_ID = 'YOUR_FORMSPREE_ID';
-
-      fetch('https://formspree.io/f/' + FORMSPREE_FORM_ID, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email, lang: currentLang, source: 'violonge-website' })
-      })
-      .then(res => {
-        if (!res.ok) throw new Error('formspree_error');
-        document.getElementById('waitlist-form').style.display = 'none';
-        document.getElementById('waitlist-success').classList.add('visible');
-        applyLang();
-      })
-      .catch(() => {
-        window.location.href = 'mailto:info@torecon.de'
-          + '?subject=VioLonge%20AI%20Waitlist'
-          + '&body=Bitte%20trage%20mich%20in%20die%20Waitlist%20ein%3A%20' + encodeURIComponent(email);
-        btn.disabled = false;
-        btn.style.opacity = '1';
-      });
-    }
+    // ── App-Store-Link: eine Konstante für alle .appstore-link ───────────────
+    const APP_STORE_URL = 'https://apps.apple.com/app/violonge-ai/id6762363594';
+    document.querySelectorAll('.appstore-link').forEach(a => a.setAttribute('href', APP_STORE_URL));
 
     // ── Scroll animations ─────────────────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
