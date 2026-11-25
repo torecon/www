@@ -1380,7 +1380,33 @@
       </div>
 
       <div class="imprint-notice" data-i18n="imprint_notice">
-        Dieses Impressum gilt für die Website <strong>chargescope.ai</strong> sowie die iOS-App <strong>eLadung GO</strong> (DE) bzw. <strong>ChargeScope</strong> (EN) und die macOS-App <strong>eLadung Desktop</strong> von torecon — Thomas Reinke.</p>
+        Dieses Impressum gilt für die Website <strong>chargescope.ai</strong> sowie die iOS-App <strong>eLadung GO</strong> (DE) bzw. <strong>ChargeScope</strong> (EN) und die macOS-App <strong>eLadung Desktop</strong> von torecon — Thomas Reinke.
+      </div>
+    </div>
+  </section>
+
+  <!-- macOS-Banner: erscheint auf macOS (Safari/Chrome/Firefox), nicht auf iPad -->
+  <div class="mac-banner" id="macBanner" role="dialog" aria-labelledby="macBannerTitle">
+    <button class="mac-banner-close" id="macBannerClose" aria-label="Schließen">&times;</button>
+    <div class="mac-banner-row">
+      <img src="/icon-512.png" alt="" class="mac-banner-icon">
+      <div class="mac-banner-text">
+        <div class="mac-banner-title" id="macBannerTitle" data-i18n="mac_banner_title">eLadung Desktop für den Mac</div>
+        <div class="mac-banner-sub" data-i18n="mac_banner_sub">Hol dir eLadung Desktop direkt aus dem Mac App Store — mit iCloud-Sync zu iPhone und iPad.</div>
+      </div>
+    </div>
+    <a class="mac-banner-cta macappstore-link" href="https://apps.apple.com/app/eladung/id6760964990" id="macBannerCta" data-i18n="mac_banner_cta">Im Mac App Store öffnen</a>
+  </div>
+
+  <!-- iPhone-Modal: erscheint auf iPhone-Devices -->
+  <div class="ios-modal" id="iosModal" role="dialog" aria-modal="true" aria-labelledby="iosModalTitle">
+    <div class="ios-modal-card">
+      <div class="ios-modal-handle"></div>
+      <div class="ios-modal-icon-row">
+        <img src="/icon-512.png" alt="eLadung GO" class="ios-modal-app-icon">
+      </div>
+      <h3 id="iosModalTitle" data-i18n="modal_title">eLadung GO direkt im App Store</h3>
+      <p data-i18n="modal_sub">Du bist auf einem iPhone. Tippe unten und lade die App in Sekunden — Erfassen ohne Abo.</p>
       <a class="ios-modal-cta appstore-link" href="https://apps.apple.com/app/eladung-go/id6761632018" id="iosModalCta">
         <span data-i18n="modal_cta">Im App Store öffnen</span>
       </a>
