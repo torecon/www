@@ -620,6 +620,16 @@
       .app-preview { margin-top: 40px; }
     }
 
+    /* ── Lösung + So funktioniert's ── */
+    .solution-card { margin-top: 24px; background: #fff; border: 2px solid var(--accent); border-radius: var(--radius-lg); padding: 32px 28px; box-shadow: var(--shadow-sm); }
+    .solution-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .solution-card h3 { font-size: 20px; margin-bottom: 10px; }
+    .solution-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 24px; margin-top: 40px; }
+    .step-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; box-shadow: var(--shadow-sm); }
+    .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+    .step-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .step-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
     /* ── Videos (Zwei-Klick, Decision 2026-11-25) ── */
     .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 28px; margin-top: 40px; }
     .video-card { margin: 0; background: var(--bg-alt); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
@@ -787,6 +797,11 @@
           <h3 data-i18n="prob_4_title">Arbeitgeber-Erstattung</h3>
           <p data-i18n="prob_4_text">Wer ein Elektroauto dienstlich nutzt, braucht Nachweise. Ohne strukturiertes Tracking fehlen die Daten für Arbeitgeber oder Steuerberater.</p>
         </div>
+      </div>
+      <div class="solution-card">
+        <span class="solution-label" data-i18n="solution_label">Die Lösung</span>
+        <h3 data-i18n="solution_title">eLadung GO macht deine Ladekosten sichtbar.</h3>
+        <p data-i18n="solution_text">Du erfasst jede Ladung in Sekunden — kWh, Preis bzw. Tarif und km-Stand. eLadung rechnet daraus Kosten je 100 km, Verbrauch je Fahrzeug, Heim- gegen Fremdladen und die Ersparnis gegenüber Benziner oder Diesel, mit Rechenweg auf jeder Kachel. Nachweise für Arbeitgeber oder Steuerberater bekommst du als PDF-Bericht.</p>
       </div>
     </div>
   </section>
@@ -1092,6 +1107,31 @@
             <h3 data-i18n="feat_forecast_title">Kostenprognose</h3>
             <p data-i18n="feat_forecast_text">eLadung schätzt deine Monatskosten basierend auf deinem bisherigen Ladeverhalten — damit du weißt, wo du am Ende des Monats stehst.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- So funktioniert's (3 Schritte) -->
+  <section class="section section-alt" id="so-funktionierts">
+    <div class="container">
+      <span class="section-label text-center" style="display:block;" data-i18n="how_label">So funktioniert’s</span>
+      <h2 class="section-headline text-center" data-i18n="how_title">In drei Schritten zur echten Kostenübersicht.</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3 data-i18n="how_1_title">Fahrzeug und Tarif anlegen</h3>
+          <p data-i18n="how_1_text">Auto mit Verbrauchswerten, Ladeanbieter und Tarif — auch mit monatlicher Grundgebühr. Einmal einrichten, fertig.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3 data-i18n="how_2_title">Ladung erfassen</h3>
+          <p data-i18n="how_2_text">Plus-Knopf tippen, kWh und km-Stand eintragen, Anbieter wählen. Der passende Tarif ist schon vorbelegt.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3 data-i18n="how_3_title">Auswerten und belegen</h3>
+          <p data-i18n="how_3_text">Dashboard und Analyse zeigen Kosten je 100 km, Ersparnis und Verbrauch; der PDF-Bericht dokumentiert alles.</p>
         </div>
       </div>
     </div>
@@ -1467,6 +1507,17 @@
     // ── Übersetzungen ───────────────────────────────────────────────────────
     const translations = {
       de: {
+        solution_label: 'Die Lösung',
+        solution_title: 'eLadung GO macht deine Ladekosten sichtbar.',
+        solution_text: 'Du erfasst jede Ladung in Sekunden — kWh, Preis bzw. Tarif und km-Stand. eLadung rechnet daraus Kosten je 100 km, Verbrauch je Fahrzeug, Heim- gegen Fremdladen und die Ersparnis gegenüber Benziner oder Diesel, mit Rechenweg auf jeder Kachel. Nachweise für Arbeitgeber oder Steuerberater bekommst du als PDF-Bericht.',
+        how_label: 'So funktioniert’s',
+        how_title: 'In drei Schritten zur echten Kostenübersicht.',
+        how_1_title: 'Fahrzeug und Tarif anlegen',
+        how_1_text: 'Auto mit Verbrauchswerten, Ladeanbieter und Tarif — auch mit monatlicher Grundgebühr. Einmal einrichten, fertig.',
+        how_2_title: 'Ladung erfassen',
+        how_2_text: 'Plus-Knopf tippen, kWh und km-Stand eintragen, Anbieter wählen. Der passende Tarif ist schon vorbelegt.',
+        how_3_title: 'Auswerten und belegen',
+        how_3_text: 'Dashboard und Analyse zeigen Kosten je 100 km, Ersparnis und Verbrauch; der PDF-Bericht dokumentiert alles.',
         videos_label: 'Videos',
         videos_title: 'So sieht es in der App aus.',
         videos_sub: 'Rundgänge mit Beispieldaten — gesprochen auf Deutsch, mit englischen Untertiteln.',
@@ -1719,6 +1770,17 @@
         footer_rights:     'Alle Rechte vorbehalten.'
       },
       en: {
+        solution_label: 'The solution',
+        solution_title: 'ChargeScope makes your charging costs visible.',
+        solution_text: 'Log every charge in seconds — kWh, price or tariff and odometer. ChargeScope turns it into cost per 100 km, consumption per vehicle, home vs. public charging and your savings versus petrol or diesel, with the calculation behind every tile. Records for your employer or tax adviser come as a PDF report.',
+        how_label: 'How it works',
+        how_title: 'Three steps to your real costs.',
+        how_1_title: 'Add vehicle and tariff',
+        how_1_text: 'Your car with its consumption figures, charging provider and tariff — including a monthly fee. Set it up once, done.',
+        how_2_title: 'Log a charge',
+        how_2_text: 'Tap the plus button, enter kWh and odometer, pick the provider. The matching tariff is already filled in.',
+        how_3_title: 'Analyse and document',
+        how_3_text: 'Dashboard and analysis show cost per 100 km, savings and consumption; the PDF report documents everything.',
         videos_label: 'Videos',
         videos_title: 'See it in the app.',
         videos_sub: 'Walkthroughs with sample data — spoken in German, with English subtitles.',
