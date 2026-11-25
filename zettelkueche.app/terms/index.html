@@ -56,11 +56,25 @@
     .page-content li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
     .page-content strong { color: var(--text); font-weight: 600; }
 
-    .site-footer { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .site-footer { background: var(--bg-dark); padding: 48px 24px; }
+    .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    .footer-logo { display: flex; align-items: center; gap: 8px; }
+    .footer-logo-img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: rgba(255,255,255,0.8); }
+    .footer-logo-main .accent { color: var(--accent); }
+    .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .footer-brand-line a { color: rgba(255,255,255,0.55); }
+    .footer-brand-line a:hover { color: #fff; opacity: 1; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
     .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
     .footer-links a:hover { color: #fff; opacity: 1; }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+    .footer-apps { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); width: 100%; }
+    .footer-apps-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .footer-app-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s; }
+    .footer-app-pill:hover { border-color: rgba(217,119,87,0.5); color: #fff; background: rgba(217,119,87,0.08); transform: translateY(-1px); opacity: 1; }
+    .footer-app-pill img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; display: block; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -136,14 +150,47 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-links">
-      <a href="/" data-i18n="nav_home">Zettelküche AI</a>
-      <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
-      <a href="/terms/" data-i18n="footer_terms">AGB</a>
-      <a href="/support/" data-i18n="footer_support">Support</a>
-      <a href="/#impressum-block" data-i18n="footer_imprint">Impressum</a>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="/logo.png?v=2.6" alt="Zettelküche AI" class="footer-logo-img">
+        <span class="footer-logo-main" data-i18n="brand_logo">Zettel<span class="accent">küche</span> AI</span>
+      </div>
+      <div class="footer-brand-line" data-i18n="footer_brand"><a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">eine App von torecon</a></div>
+
+      <div class="footer-links">
+        <a href="/privacy/" data-i18n="footer_privacy">Datenschutz</a>
+        <a href="/terms/" data-i18n="footer_terms">AGB</a>
+        <a href="/support/" data-i18n="footer_support">Support</a>
+        <a href="/#impressum-block" data-i18n="footer_imprint">Impressum</a>
+      </div>
+
+      <div class="footer-apps">
+        <span class="footer-apps-label" data-i18n="footer_apps_label">Mehr von torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22">
+            <span>BrainBites AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22">
+            <span>ThinkLess AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://chargescope.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/eladung.png" alt="" loading="lazy" width="22" height="22">
+            <span>eLadung GO</span>
+          </a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/meisterlich/id6762597134" target="_blank" rel="noopener">
+            <img src="/cross-promo/meisterlich.png" alt="" loading="lazy" width="22" height="22">
+            <span>Meisterlich</span>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="footer-copy">
+        &copy; <span id="footer-year"></span> torecon &ndash; Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span>
+      </div>
     </div>
-    <span class="footer-copy">© <span id="footer-year"></span> torecon – Thomas Reinke. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></span>
   </footer>
 
   <script>
@@ -151,6 +198,9 @@
 
     const translations = {
       de: {
+        footer_brand: '<a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">eine App von torecon</a>',
+        footer_apps_label: 'Mehr von torecon',
+        brand_logo: 'Zettel<span class="accent">küche</span> AI',
         nav_back: '← Zurück',
         nav_home: 'Zettelküche AI',
         page_label: 'Rechtliches',
@@ -198,6 +248,9 @@
         footer_rights: 'Alle Rechte vorbehalten.'
       },
       en: {
+        footer_brand: '<a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">an app by torecon</a>',
+        footer_apps_label: 'More from torecon',
+        brand_logo: 'Paper<span class="accent">Pantry</span> AI',
         nav_back: '← Back',
         nav_home: 'PaperPantry AI',
         page_label: 'Legal',
@@ -245,6 +298,9 @@
         footer_rights: 'All rights reserved.'
       },
       'uk': {
+        footer_brand: '<a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">застосунок від torecon</a>',
+        footer_apps_label: 'Більше від torecon',
+        brand_logo: 'Paper<span class="accent">Pantry</span> AI',
         nav_back: '← Назад',
         nav_home: 'PaperPantry AI',
         page_label: 'Юридична інформація',
@@ -292,6 +348,9 @@
         footer_rights: 'Усі права захищено.'
       },
       'pt-BR': {
+        footer_brand: '<a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">um app da torecon</a>',
+        footer_apps_label: 'Mais da torecon',
+        brand_logo: 'Paper<span class="accent">Pantry</span> AI',
         nav_back: '← Voltar',
         nav_home: 'PaperPantry AI',
         page_label: 'Jurídico',
