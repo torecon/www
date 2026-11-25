@@ -64,11 +64,55 @@
     .page-content ul li { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
     .page-content strong { color: var(--text); font-weight: 600; }
 
-    .site-footer { background: var(--bg-dark); padding: 32px 24px; text-align: center; }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .site-footer { background: var(--bg-dark); padding: 48px 24px; }
+    .footer-inner { max-width: var(--container); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo-icon { width: 32px; height: 32px; border-radius: 8px; overflow: hidden; flex-shrink: 0; }
+    .footer-logo-main { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: rgba(255,255,255,0.7); }
+    .footer-logo-main span { color: var(--accent); }
+    .footer-brand-line { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .footer-brand-line a { color: rgba(255,255,255,0.55); }
+    .footer-brand-line a:hover { color: #fff; opacity: 1; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
     .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); }
     .footer-links a:hover { color: #fff; opacity: 1; }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 12px; }
+
+    .footer-apps {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      width: 100%;
+    }
+    .footer-apps-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
+    }
+    .footer-apps-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .footer-app-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px 6px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s;
+    }
+    .footer-app-pill:hover {
+      border-color: rgba(79,127,255,0.5);
+      color: #fff;
+      background: rgba(79,127,255,0.08);
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+    .footer-app-pill img {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: block;
+    }
     .lang-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 3px; background: var(--bg-alt); border-radius: 999px; }
     .lang-btn { border: 0; background: transparent; color: var(--text-tertiary); padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: var(--transition); font-family: var(--font); }
     .lang-btn:hover { color: var(--text); }
@@ -162,13 +206,44 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-links">
-      <a href="/">eLadung</a>
-      <a href="/privacy/">Datenschutz</a>
-      <a href="/terms/">Nutzungsbedingungen</a>
-      <a href="/#impressum">Impressum</a>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="footer-logo-icon"><img src="/icon-512.png" alt="" width="32" height="32" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+        <span class="footer-logo-main">e<span>Ladung</span></span>
+      </div>
+      <span class="footer-brand-line"><a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">eine App von torecon</a> — Thomas Reinke</span>
+      <div class="footer-links">
+        <a href="/privacy/">Datenschutz</a>
+        <a href="/terms/">Nutzungsbedingungen</a>
+        <a href="/#impressum">Impressum</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label">Weitere Apps von torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22">
+            <span>BrainBites AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22">
+            <span>ThinkLess AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener">
+            <img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22">
+            <span>Zettelküche AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/meisterlich/id6762597134" target="_blank" rel="noopener">
+            <img src="/cross-promo/meisterlich.png" alt="" loading="lazy" width="22" height="22">
+            <span>Meisterlich</span>
+          </a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/violonge-ai/id6762363594" target="_blank" rel="noopener">
+            <img src="/cross-promo/violonge.png" alt="" loading="lazy" width="22" height="22">
+            <span>VioLonge AI</span>
+          </a>
+        </div>
+      </div>
+      <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
     </div>
-    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. Alle Rechte vorbehalten.</span>
   </footer>
   </div>
 
@@ -255,13 +330,44 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-links">
-      <a href="/">ChargeScope</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/#impressum">Imprint</a>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="footer-logo-icon"><img src="/icon-512.png" alt="" width="32" height="32" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+        <span class="footer-logo-main">Charge<span>Scope</span></span>
+      </div>
+      <span class="footer-brand-line"><a href="https://www.torecon.de/" target="_blank" rel="noopener"><img src="/torecon-logo.png" alt="" width="20" height="20" loading="lazy" style="border-radius:5px;vertical-align:middle;margin-right:6px">an app by torecon</a> — Thomas Reinke</span>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/#impressum">Imprint</a>
+      </div>
+      <div class="footer-apps">
+        <span class="footer-apps-label">More apps by torecon</span>
+        <div class="footer-apps-pills">
+          <a class="footer-app-pill" href="https://getbrainbites.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/brainbites.png" alt="" loading="lazy" width="22" height="22">
+            <span>BrainBites AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://getthinkless.ai" target="_blank" rel="noopener">
+            <img src="/cross-promo/thinkless.png" alt="" loading="lazy" width="22" height="22">
+            <span>ThinkLess AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://zettelkueche.app" target="_blank" rel="noopener">
+            <img src="/cross-promo/zettelkueche.png" alt="" loading="lazy" width="22" height="22">
+            <span>Zettelküche AI</span>
+          </a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/meisterlich/id6762597134" target="_blank" rel="noopener">
+            <img src="/cross-promo/meisterlich.png" alt="" loading="lazy" width="22" height="22">
+            <span>Meisterlich</span>
+          </a>
+          <a class="footer-app-pill" href="https://apps.apple.com/app/violonge-ai/id6762363594" target="_blank" rel="noopener">
+            <img src="/cross-promo/violonge.png" alt="" loading="lazy" width="22" height="22">
+            <span>VioLonge AI</span>
+          </a>
+        </div>
+      </div>
+      <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. All rights reserved.</span>
     </div>
-    <span class="footer-copy">© <script>document.write(new Date().getFullYear())</script> torecon – Thomas Reinke. All rights reserved.</span>
   </footer>
   </div>
 
